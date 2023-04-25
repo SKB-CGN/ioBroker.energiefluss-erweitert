@@ -1,0 +1,110 @@
+<html>
+
+<head>
+
+	<!-- Load ioBroker scripts and styles-->
+	<link type="text/css" rel="stylesheet" href="../../lib/css/fancytree/ui.fancytree.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
+	<link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+
+	<script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+
+	<script type="text/javascript" src="../../lib/js/materialize.js"></script>
+	<script type="text/javascript" src="../../lib/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../lib/js/jquery.fancytree-all.min.js"></script>
+
+	<script type="text/javascript" src="../../js/translate.js"></script>
+	<script type="text/javascript" src="../../lib/js/selectID.js"></script>
+	<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+
+	<!-- Load our own files -->
+	<script type="text/javascript" src="words.js"></script>
+
+	<script type="text/javascript">
+		// This will be called by the admin adapter when the settings page loads
+		function load(settings, onChange) {
+			// example: select elements with id=key and class=value and insert value
+			if (!settings) return;
+			$('.value').each(function () {
+				var $key = $(this);
+				var id = $key.attr('id');
+				if ($key.attr('type') === 'checkbox') {
+					// do not call onChange direct, because onChange could expect some arguments
+					$key.prop('checked', settings[id])
+						.on('change', () => onChange());
+				} else {
+					// do not call onChange direct, because onChange could expect some arguments
+					$key.val(settings[id])
+						.on('change', () => onChange())
+						.on('keyup', () => onChange());
+				}
+			});
+			onChange(false);
+			// reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
+			if (M) M.updateTextFields();
+		}
+
+		// This will be called by the admin adapter when the user presses the save button
+		function save(callback) {
+			// example: select elements with class=value and build settings object
+			var obj = {};
+			$('.value').each(function () {
+				var $this = $(this);
+				if ($this.attr('type') === 'checkbox') {
+					obj[$this.attr('id')] = $this.prop('checked');
+				} else if ($this.attr('type') === 'number') {
+					obj[$this.attr('id')] = parseFloat($this.val());
+				} else {
+					obj[$this.attr('id')] = $this.val();
+				}
+			});
+			callback(obj);
+		}
+
+
+	</script>
+</head>
+
+<body>
+	<div class="m adapter-container ">
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col"><a href="#tab-main" class="translate active">Main settings</a></li>
+					<li class="tab col"><a href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki"
+							target="_blank" class="translate" data-lang="wiki">Wiki</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="tab-main" class="col s12">
+			<div class="row">
+				<div class="input-field col s6">
+					<img src="energiefluss-erweitert.png" class="logo">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<p class="translate" data-lang="donate">If you like this adapter, please consider making a donation
+						to support my work.</p>
+					<p><a href="https://www.paypal.me/StephanKreyenborg" target="_blank"><img
+								src="paypal-donate-button.png" alt="Donate" title="Donate"></a></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<h6 class="title translate" data-lang="main_settings">Main Settings</h6>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s3">
+					<p class="translate" data-lang="ex_config">To configure the adapter, please open it via the instance link. There you will find the configuration wheel!</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>
