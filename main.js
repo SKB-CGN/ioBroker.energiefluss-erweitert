@@ -54,7 +54,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				type: 'json',
 				role: 'state',
 				read: true,
-				write: false,
+				write: true,
 			},
 			native: {},
 		});
@@ -294,7 +294,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		if (globalConfig.hasOwnProperty('elements')) {
 			for (var key of Object.keys(globalConfig.elements)) {
 				const value = globalConfig.elements[key];
-				if (value.source != -1 && value.hasOwnProperty('source') && value.source != "undefined") {
+				if (value.source != -1 && value.hasOwnProperty('source') && value.source != "undefined" && value.source != "") {
 					this.log.debug("Source for Element: " + key + " is: " + value.source + " Plain: " + globalConfig.datasources[value.source].source);
 					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
 					if (stateValue) {
