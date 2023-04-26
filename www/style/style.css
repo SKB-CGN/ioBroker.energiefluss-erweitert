@@ -728,6 +728,11 @@ select:hover {
     padding-right: 8px;
 }
 
+.data-table th {
+    cursor: pointer;
+    vertical-align: middle;
+}
+
 .data-table td:nth-child(2),
 .data-table th:nth-child(2),
 .data-table td:nth-child(1),

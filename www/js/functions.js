@@ -43,6 +43,7 @@ let configuration_default = {
 let displayMode = false;
 let localMode = false;
 let globalConfigChanged = false;
+let basicConfig = false;
 
 // Find some URL params
 var url = window.location.pathname;
@@ -245,8 +246,23 @@ function loadConfig() {
                             setLoadedConfig();
                         }
                         catch (e) {
-                            failedMessage('The configuration is invalid! Could not load the config!');
-                            console.log(e);
+                            let msg;
+                            if (displayMode) {
+                                msg = 'The adapter is not yet configured! We are loading a basic configuration!<br>Please use the config wheel below!';
+                            } else {
+                                msg = 'The adapter is not yet configured! We are loading a basic configuration!';
+                            }
+                            basicConfig = true;
+                            failedMessage(msg);
+                            console.log('Applying basic configuration!');
+                            $.getJSON('js/basic_config.json', function (data) {
+                                configuration = data;
+                                if (configuration) {
+                                    setLoadedConfig();
+                                } else {
+                                    failedMessage('Failed to load the basic configuration!<br>Adapter may be corrupted!')
+                                }
+                            });
                         }
                     } else {
                         failedMessage('The Instance <b>' + instance + '</b>, you are trying to access does not exist!');
@@ -267,8 +283,20 @@ function loadConfig() {
         });
     } else {
         configuration = localTest;
-        console.log("Loading Local Config!");
-        setLoadedConfig();
+        if (configuration) {
+            console.log("Loading Local Config!");
+            setLoadedConfig();
+        } else {
+            let msg;
+            if (displayMode) {
+                msg = 'The adapter is not yet configured! We are loading a basic configuration!<br>Please use the config wheel below!';
+            } else {
+                msg = 'The adapter is not yet configured! We are loading a basic configuration!';
+            }
+            basicConfig = true;
+            failedMessage(msg);
+            console.log(msg);
+        }
     }
 }
 
@@ -408,6 +436,8 @@ function setLoadedConfig() {
                     addDataSourceRow(key, value.source, value.alias);
                 }
             }
+            // Sort this inside the table
+            $(".data-table th:eq(0)").click();
         }
         // Display-Mode active
         if (displayMode) {
@@ -463,10 +493,10 @@ function setLoadedConfig() {
             // Start the Listener for Display-Mode
             displayListener();
         }
-        successMessage('Layout configuration was loaded successfully!');
+        if (!basicConfig && !displayMode) {
+            successMessage('Layout configuration was loaded successfully!');
+        }
         $("#loading").fadeOut("fast");
-        // Remove noscroll after loading the page
-        //$('body').removeClass('noscroll');
     } else {
         successMessage('Basic configuration was loaded successfully!');
         $("#loading").fadeOut("fast");
@@ -2160,6 +2190,17 @@ function addDataSourceRow(key, ds_source, ds_alias) {
     }
 }
 
+function getdataSourceCellValue(row, index) {
+    return $(row).children('td').eq(index).text()
+}
+
+function dataSourceComparer(index) {
+    return function (a, b) {
+        var valA = getdataSourceCellValue(a, index), valB = getdataSourceCellValue(b, index)
+        return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+    }
+}
+
 $(function () {
     $('.tt-element').tooltip({
         position: { my: "left", at: "right+10% center", collision: "flipfit" },
@@ -2584,7 +2625,7 @@ $(function () {
         }
     });
 
-    $("#save_workspace").click(function () {
+    $("#save_workspace, #save_workspace_exit").click(function () {
         globalConfigChanged = false;
         // Collect all the things
         let id, tmpConfiguration = {}, elements = {}, defs = {}, lines = {}, animations = {}, icons = {}, datasources = {};
@@ -2749,9 +2790,12 @@ $(function () {
             // Datasources
             $(".data-table tbody tr").each(function () {
                 id = $(this).data('id');
-                datasources[id] = {
-                    source: $(this).data('source'),
-                    alias: $(this).data('alias')
+                // Check, if only the notification row is there
+                if (id != -1) {
+                    datasources[id] = {
+                        source: $(this).data('source'),
+                        alias: $(this).data('alias')
+                    }
                 }
             });
 
@@ -2782,6 +2826,11 @@ $(function () {
         } else {
             failedMessage('You do not have any elements to save!');
         }
+
+        if (this.id == 'save_workspace_exit') {
+            console.log('Forwarding to Live-View of instance: ' + instance);
+            window.location.replace('index.html?instance=' + instance);
+        };
     });
 });
 
@@ -2803,15 +2852,13 @@ $(document).ready(function () {
         let ds_source = $("#elm_ds_source").val();
         let ds_alias = $("#elm_ds_alias").val() ? $("#elm_ds_alias").val() : '';
 
-        // Get the max data-id
-
-
         addDataSourceRow(-1, ds_source, ds_alias);
 
         $("#elm_ds_source, #elm_ds_alias").val('');
     });
 
     $(".data-table").on("click", ".btn-delete", function () {
+        globalConfigChanged = true;
         $(this).parents("tr").fadeOut('fast', function () {
             $(this).remove();
             if ($(".data-table tbody tr").length == 0) {
@@ -2826,9 +2873,9 @@ $(document).ready(function () {
         let ds_source = $(this).parents("tr").attr('data-source');
 
         let tableCell1 =
-            '<div class="form_div no_margin"><input type="text" class="input_text" name="edit_ds_alias" autocorrect="off" autocomplete="off" value="' + ds_alias + '"></div>';
+            '<div class="form_div no_margin"><input type="text" class="input_text" id="edit_ds_alias" name="edit_ds_alias" autocorrect="off" autocomplete="off" value="' + ds_alias + '"></div>';
         let tableCell2 =
-            '<div class="form_div no_margin"><input type="text" class="input_text icon_in_input_pad" name="edit_ds_source" autocorrect="off" autocomplete="off" minlength="5" required="" value="' + ds_source + '">' +
+            '<div class="form_div no_margin"><input type="text" class="input_text icon_in_input_pad" id="edit_ds_source" name="edit_ds_source" autocorrect="off" autocomplete="off" minlength="5" required="" value="' + ds_source + '">' +
             '<div class="icon_wrapper"><a class="datasource tt-element icon_in_input" title="Select Datasource"><span class="iconify" data-icon="mdi:database-search" data-height="24"></span></a></div></div>';
         let tableCell3 =
             "<button class='all_datasource ds_buttons btn-update'><span class='iconify' data-height='24' data-icon='mdi:check'>Update</span></button>" +
@@ -2855,8 +2902,9 @@ $(document).ready(function () {
     });
 
     $(".data-table").on("click", ".btn-update", function () {
-        let ds_alias = $(this).parents("tr").find("input[name='edit_ds_alias']").val();
-        let ds_source = $(this).parents("tr").find("input[name='edit_ds_source']").val();
+        globalConfigChanged = true;
+        let ds_alias = $("#edit_ds_alias").val();
+        let ds_source = $("#edit_ds_source").val();
 
         $(this).parents("tr").find("td:eq(0)").text(ds_alias);
         $(this).parents("tr").find("td:eq(1)").text(ds_source);
@@ -2880,6 +2928,22 @@ $(document).ready(function () {
                 }
             });
         });
+    });
+    $(".data-table").on("click", "th", function () {
+        // Remove the sort Icon
+        $(".sort_icon").html("");
+        var table = $(this).parents('table').eq(0)
+        var rows = table.find('tr:gt(0)').toArray().sort(dataSourceComparer($(this).index()))
+        this.asc = !this.asc;
+        // Change the Icon
+        $(this).children('span').html('<span class="iconify" data-icon="mdi:sort-alphabetical-ascending" data-height="18">');
+        if (!this.asc) {
+            rows = rows.reverse();
+            $(this).children('span').html('<span class="iconify" data-icon="mdi:sort-alphabetical-descending" data-height="18">');
+        }
+        for (var i = 0; i < rows.length; i++) {
+            table.append(rows[i]);
+        }
     });
     /* Datasource End */
 
@@ -2982,6 +3046,7 @@ function makeDraggable(evt) {
             hideConfigBar();
             var coord = getMousePosition(evt);
             element_moved = true;
+            globalConfigChanged = true;
 
             switch (selectedElement.tagName.toLowerCase()) {
                 case 'circle':

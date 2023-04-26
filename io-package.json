@@ -84,9 +84,9 @@
         ]
     },
     "native": {
-        "adminLink": "%web_protocol%://%ip%:%web_port%/energiefluss/index.html?instance=%instance%",
-        "option1": true,
-        "option2": "42"
+        "battery_remaining": "",
+        "configuration": "",
+        "data": ""
     },
     "objects": [],
     "instanceObjects": []

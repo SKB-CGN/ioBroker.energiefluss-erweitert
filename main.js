@@ -15,7 +15,6 @@ const utils = require('@iobroker/adapter-core');
 let globalConfig = {};
 let sourceObject = {};
 let settingsObject = {};
-let animationObject = {};
 let rawValues = {
 	values: {}
 }
@@ -24,7 +23,6 @@ let outputValues = {
 	unit: {},
 	animations: {}
 };
-//let subscribeArray = new Array();
 
 class EnergieflussErweitert extends utils.Adapter {
 
@@ -48,12 +46,6 @@ class EnergieflussErweitert extends utils.Adapter {
 	 */
 	async onReady() {
 		// Initialize your adapter here
-
-		/*
-		For every state in the system there has to be also an object of type state
-		Here a simple template for a boolean variable named "testVariable"
-		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-		*/
 		await this.setObjectNotExistsAsync('configuration', {
 			type: 'state',
 			common: {
@@ -81,18 +73,6 @@ class EnergieflussErweitert extends utils.Adapter {
 		this.log.info("Adapter started and loading config!");
 
 		this.getConfig();
-
-
-		//this.log.info("Requesting the following states complete: " + subscribeArray.toString());
-
-		// In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-		//this.subscribeForeignStates(subscribeArray);
-		// You can also add a subscription for multiple states. The following line watches all states starting with "lights."
-		// this.subscribeStates('lights.*');
-		// Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
-		// this.subscribeStates('*');
-		//this.log.info("Adapter started and listening to " + subscribeArray.length + " States");
-		//this.log.debug("Initial Values: " + JSON.stringify(valuesObj));
 	}
 
 	/**
@@ -210,158 +190,8 @@ class EnergieflussErweitert extends utils.Adapter {
 				}
 
 				this.log.debug('State changed! New value for Source: ' + id + ' with Value: ' + clearValue + ' belongs to Elements: ' + sourceObject[id].elmSources.toString());
-				//Sources: { "sonnen.0.status.production": "0" }
-				// Find Elements, which are using the source of the changed ID
-				let src;
-				/*
-				if (sourceObject[id].hasOwnProperty('elmSources')) {
-					for (var _key of Object.keys(sourceObject[id].elmSources)) {
-						this.log.debug("First Loop!");
-						let src = sourceObject[id].elmSources[_key];
 
-						// VALUES
-						if (settingsObject.hasOwnProperty(src)) {
-							// Convertible
-							let cValue = settingsObject[src].convert ? this.convertToPositive(clearValue) : clearValue;
-							outputValues.values[src] = settingsObject[src].calculate_kw ? this.recalculateValue(cValue, settingsObject[src].decimal_places) : cValue;
-							rawValues.values[src] = clearValue;
-							//this.log.info('Calculating Values! Value: ' + outputValues.values[src]);
-						} else {
-							//this.log.info('Calculatiion not set. Fallback!');
-							outputValues.values[src] = clearValue;
-							rawValues.values[src] = clearValue;
-						}
-
-						// Animation
-						if (sourceObject[id].hasOwnProperty('elmAnimations')) {
-							for (var anim of Object.keys(sourceObject[id].animationProperties)) {
-								this.log.debug("Second Loop");
-								let animationValid = true;
-								switch (sourceObject[id].animationProperties[anim]) {
-									case 'positive':
-										if (rawValues.values[sourceObject[src]] > 0 && rawValues.values[sourceObject[src]] > settingsObject[sourceObject[src]].threshold) {
-											animationValid = true;
-										} else {
-											animationValid = false;
-										}
-										break;
-									case 'negative':
-										if (rawValues.values[sourceObject[src]] < 0 && rawValues.values[sourceObject[src]] < settingsObject[sourceObject[src]].threshold * -1) {
-											animationValid = true;
-										} else {
-											animationValid = false;
-										}
-										break;
-
-								}
-								//this.log.debug('RAW-Value: ' + rawValues.values[sourceObject[src]] + ' Source: ' + sourceObject[src] + ' Threshold: ' + settingsObject[sourceObject[src]].threshold);
-								outputValues.animations[_key] = animationValid;
-								this.log.debug("Animations: " + outputValues.animations[_key] + " enabled for Values: " + sourceObject[src].elmSources.toString());
-							}
-						}
-					}
-				}
-				/*
-								if (sourceObject[id].hasOwnProperty('elmAnimations')) {
-									for (var _key of Object.keys(sourceObject[id].animationProperties)) {
-				
-										let src = sourceObject[id].animationProperties[_key];
-										this.log.debug("Source: " + src + "Key: " + _key);
-										let animationValid = true;
-										switch (sourceObject[id].animationProperties[_key]) {
-											case 'positive':
-												if (rawValues.values[sourceObject[src]] > 0 && rawValues.values[sourceObject[src]] > settingsObject[sourceObject[src]].threshold) {
-													animationValid = true;
-												} else {
-													animationValid = false;
-												}
-												break;
-											case 'negative':
-												if (rawValues.values[sourceObject[src]] < 0 && rawValues.values[sourceObject[src]] < settingsObject[sourceObject[src]].threshold * -1) {
-													animationValid = true;
-												} else {
-													animationValid = false;
-												}
-												break;
-				
-										}
-										this.log.debug('RAW-Value: ' + rawValues.values[sourceObject[src]] + ' Source: ' + sourceObject[src] + ' Threshold: ' + settingsObject[sourceObject[src]].threshold);
-										outputValues.animations[_key] = animationValid;
-										this.log.debug("Animations: " + outputValues.animations[_key] + " enabled for Values: " + sourceObject[src].elmSources.toString());
-									}
-								}
-				*/
-				//outputValues.values[sourceObject[id]] = clearValue;
-
-				/*
-								for (var key in tmpAnimArray) {
-									// Decide, which to animate
-									this.log.debug('RAW-Value: ' + rawValues.values[sourceObject[id]] + ' Source: ' + sourceObject[id] + ' Threshold: ' + settingsObject[sourceObject[id]].threshold);
-									let animationValid = true;
-									switch (tmpAnimArray[key].properties) {
-										case 'positive':
-											if (rawValues.values[sourceObject[id]] > 0 && rawValues.values[sourceObject[id]] > settingsObject[sourceObject[id]].threshold) {
-												animationValid = true;
-											} else {
-												animationValid = false;
-											}
-											break;
-										case 'negative':
-											if (rawValues.values[sourceObject[id]] < 0 && rawValues.values[sourceObject[id]] < settingsObject[sourceObject[id]].threshold * -1) {
-												animationValid = true;
-											} else {
-												animationValid = false;
-											}
-											break;
-									}
-									outputValues.animations[key] = animationValid;
-								}
-				
-								// Check, if we have some animations created
-								/*
-								if (animationObject.hasOwnProperty(sourceObject[id])) {
-									//this.log.info(JSON.stringify(animationObject));
-									//this.log.info('Animations exists!');
-				
-									let tmpArray = animationObject[sourceObject[id]].animations;
-									for (let i = 0; i < tmpArray.length; i++) {
-										if (clearValue > settingsObject[sourceObject[id]].threshold || 0) {
-											// Check, if the destination 
-											// Animation true
-											outputValues.animations[tmpArray[i]] = true;
-										} else {
-											// Animation false
-											outputValues.animations[tmpArray[i]] = false;
-										}
-									}
-									this.log.info('Animations: ' + JSON.stringify(outputValues.animations));
-				
-								} else {
-									this.log.info('Animations does not exists!');
-								}
-								*/
-				// Collect the animations
-				let tmpAnimArray = this.getAnimationPath(sourceObject[id]);
-				/*
-								for (var key in tmpAnimArray) {
-									let animationValid = true;
-									// Loop through each Value of the Animation
-									for (var _key in globalConfig.animations[tmpAnimArray[key]].sources) {
-										let sources = globalConfig.animations[tmpAnimArray[key]].sources[_key];
-										this.log.debug('RAW-Value: ' + rawValues.values[sources] + ' Source: ' + sources + ' Threshold: ' + settingsObject[sourceObject[id]].threshold);
-										if (rawValues.values[sources] < settingsObject[sourceObject[id]].threshold || rawValues.values[sources] === 0) {
-											animationValid = false;
-											break;
-										}
-									}
-									outputValues.animations[tmpAnimArray[key]] = animationValid;
-									this.log.debug('Animations: ' + JSON.stringify(outputValues.animations));
-								}
-								*/
-
-
-
-				// Add the new value to output
+				// Build Output
 				this.buildData();
 			}
 		}
@@ -396,44 +226,6 @@ class EnergieflussErweitert extends utils.Adapter {
 		return value < 0 ? (value * -1) : value;
 	}
 
-	/**
-	 * @param {number} id 
-	 */
-	/*
-	getAnimationPath(id) {
-		let tmpArr = new Array;
-		this.log.debug('Getting Animation Details');
-		for (var key of Object.keys(globalConfig.animations)) {
-			for (var _key in globalConfig.animations[key].sources) {
-				this.log.debug('Looping in Animation Sources');
-				if (globalConfig.animations[key].sources[_key] != null) {
-					this.log.debug('Looping in Animation Source is not NULL');
-					if (globalConfig.animations[key].sources[_key].toString() === id) {
-						tmpArr.push(key);
-					}
-				}
-				if (globalConfig.animations[key].sources[_key] === null) {
-					let index = tmpArr.indexOf(key);
-					if (index > -1) {
-						console.log(key);
-						tmpArr.splice(index, 1);
-					}
-				}
-			}
-		}
-		return tmpArr;
-	}
-	*/
-	getAnimationPath(id) {
-		let tmpObj = {};
-		for (var key of Object.keys(globalConfig.animations)) {
-			if (globalConfig.animations[key].animation == id) {
-				tmpObj[key] = { source: id, properties: globalConfig.animations[key].animation_properties }
-			}
-		}
-		return tmpObj;
-	}
-
 	async buildData() {
 		await this.setStateAsync('data', JSON.stringify(outputValues), true);
 	}
@@ -451,153 +243,104 @@ class EnergieflussErweitert extends utils.Adapter {
 		};
 		sourceObject = {};
 		settingsObject = {};
-		animationObject = {};
 		let clearValue;
 		let tmpArray = new Array();
 		// Put own DP
 		tmpArray.push(this.namespace + '.configuration');
-		//try {
 		// Read configuration DataPoint
 		let tmpConfig = await this.getStateAsync('configuration');
-		globalConfig = JSON.parse(tmpConfig.val);
+		try {
+			globalConfig = JSON.parse(tmpConfig.val);
+		}
+		catch (e) {
+			this.log.warn("This is the first time, the adapter starts. Setting config to default (empty)!");
+			globalConfig = {};
+		}
 		this.log.debug(JSON.stringify(globalConfig));
 
 		// Collect all Datasources
-		for (var key of Object.keys(globalConfig.datasources)) {
-			const value = globalConfig.datasources[key];
-			this.log.debug('Datasource: ' + JSON.stringify(value));
-			if (value.source != '' && value.hasOwnProperty('source')) {
-				//addDataSourceRow(_key, key.source, key.alias);
-				this.log.debug('Reading: Source: ' + value.source + ' ID: ' + key);
-				const stateValue = await this.getForeignStateAsync(globalConfig.datasources[key].source);
-				if (stateValue) {
-					// Add, to find it better
-					sourceObject[globalConfig.datasources[key].source] = {
-						elmSources: [],
-						elmAnimations: [],
-						animationProperties: [],
-						animationThreshold: []
-					};
-					// Add to SubscribeArray
-					tmpArray.push(value.source);
-				} else {
-					this.log.warn("The adapter could not find the state '" + value.source + "'! Please review your configuration of the adapter!");
+		if (globalConfig.hasOwnProperty('datasources')) {
+			for (var key of Object.keys(globalConfig.datasources)) {
+				const value = globalConfig.datasources[key];
+				this.log.debug('Datasource: ' + JSON.stringify(value));
+				if (value.source != '' && value.hasOwnProperty('source')) {
+					//addDataSourceRow(_key, key.source, key.alias);
+					this.log.debug('Reading: Source: ' + value.source + ' ID: ' + key);
+					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[key].source);
+					if (stateValue) {
+						// Add, to find it better
+						sourceObject[globalConfig.datasources[key].source] = {
+							elmSources: [],
+							elmAnimations: [],
+							animationProperties: [],
+							animationThreshold: []
+						};
+						// Add to SubscribeArray
+						tmpArray.push(value.source);
+					} else {
+						this.log.warn("The adapter could not find the state '" + value.source + "'! Please review your configuration of the adapter!");
+					}
 				}
 			}
 		}
 
 		// Collect the Elements, which are using the sources
-		for (var key of Object.keys(globalConfig.elements)) {
-			const value = globalConfig.elements[key];
-			if (value.source != -1 && value.hasOwnProperty('source')) {
-				this.log.debug("Source for Element: " + key + " is: " + value.source + " Plain: " + globalConfig.datasources[value.source].source);
-				const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
-				if (stateValue) {
-					// Insert into initialValues
-					if (typeof (stateValue.val) === 'string') {
-						clearValue = Number(stateValue.val.replace(/[^\d.-]/g, ''));
-					} else {
-						clearValue = stateValue.val;
+		if (globalConfig.hasOwnProperty('elements')) {
+			for (var key of Object.keys(globalConfig.elements)) {
+				const value = globalConfig.elements[key];
+				if (value.source != -1 && value.hasOwnProperty('source')) {
+					this.log.debug("Source for Element: " + key + " is: " + value.source + " Plain: " + globalConfig.datasources[value.source].source);
+					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
+					if (stateValue) {
+						// Insert into initialValues
+						if (typeof (stateValue.val) === 'string') {
+							clearValue = Number(stateValue.val.replace(/[^\d.-]/g, ''));
+						} else {
+							clearValue = stateValue.val;
+						}
+
+						// Output Values
+						let cValue = value.convert ? this.convertToPositive(clearValue) : clearValue;
+						outputValues.values[key] = value.calculate_kw ? this.recalculateValue(cValue, value.decimal_places) : cValue;
+						outputValues.unit[key] = value.unit;
+						rawValues.values[key] = clearValue;
+
+						// Save Settings for the states
+						settingsObject[key] = {
+							threshold: value.threshold,
+							calculate_kw: value.calculate_kw,
+							decimal_places: value.decimal_places,
+							convert: value.convert
+						};
+						// Put Elm into Source
+						sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
 					}
-
-					// Output Values
-					let cValue = value.convert ? this.convertToPositive(clearValue) : clearValue;
-					outputValues.values[key] = value.calculate_kw ? this.recalculateValue(cValue, value.decimal_places) : cValue;
-					outputValues.unit[key] = value.unit;
-					rawValues.values[key] = clearValue;
-
-					// Save Settings for the states
-					settingsObject[key] = {
-						threshold: value.threshold,
-						calculate_kw: value.calculate_kw,
-						decimal_places: value.decimal_places,
-						convert: value.convert
-					};
-					// Put Elm into Source
-					sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
 				}
 			}
 		}
 
 		// Animations
-		for (var key of Object.keys(globalConfig.animations)) {
-			const value = globalConfig.animations[key];
-			if (value.animation != -1 && value.hasOwnProperty('animation')) {
-				if (value.animation.length !== 0) {
-					this.log.debug("Animation for Source: " + value.animation + " is: " + key);
-					// Put Animation into Source
-					sourceObject[globalConfig.datasources[value.animation].source].elmAnimations.push(key);
+		if (globalConfig.hasOwnProperty('animations')) {
+			for (var key of Object.keys(globalConfig.animations)) {
+				const value = globalConfig.animations[key];
+				if (value.animation != -1 && value.hasOwnProperty('animation')) {
+					if (value.animation.length !== 0) {
+						this.log.debug("Animation for Source: " + value.animation + " is: " + key);
+						// Put Animation into Source
+						sourceObject[globalConfig.datasources[value.animation].source].elmAnimations.push(key);
 
-					// Put Animation Properties into Source
-					sourceObject[globalConfig.datasources[value.animation].source].animationProperties.push(value.animation_properties);
+						// Put Animation Properties into Source
+						sourceObject[globalConfig.datasources[value.animation].source].animationProperties.push(value.animation_properties);
 
-					// Put Animation Threshold into Source
-					sourceObject[globalConfig.datasources[value.animation].source].animationThreshold.push(value.threshold);
-				} else {
-					this.log.debug("Animation for Source: " + value.animation + " not found!");
+						// Put Animation Threshold into Source
+						sourceObject[globalConfig.datasources[value.animation].source].animationThreshold.push(value.threshold);
+					} else {
+						this.log.debug("Animation for Source: " + value.animation + " not found!");
+					}
 				}
 			}
 		}
 
-		// Now, sort each source into 
-		/*
-				for (var key of Object.keys(globalConfig.elements)) {
-					const value = globalConfig.elements[key];
-					if (value.source != -1) {
-						this.log.debug('Reading: ' + JSON.stringify(globalConfig.datasources[value.source]) + 'For: ' + value.source + 'ID: ' + key);
-						const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
-						if (stateValue) {
-							tmpArray.push(value.source);
-							// Add, to find it better
-							sourceObject[globalConfig.datasources[value.source].source] = key;
-		
-							// Insert into initialValues
-							if (typeof (stateValue.val) === 'string') {
-								clearValue = Number(stateValue.val.replace(/[^\d.-]/g, ''));
-							} else {
-								clearValue = stateValue.val;
-							}
-		
-							// Output Values
-							let cValue = value.convert ? this.convertToPositive(clearValue) : clearValue;
-							outputValues.values[key] = value.calculate_kw ? this.recalculateValue(cValue, value.decimal_places) : cValue;
-							outputValues.unit[key] = value.unit;
-							rawValues.values[key] = clearValue;
-		
-							// Save Settings for the sates
-							settingsObject[key] = {
-								threshold: value.threshold,
-								calculate_kw: value.calculate_kw,
-								decimal_places: value.decimal_places,
-								convert: value.convert
-							};
-						} else {
-							this.log.warn("The adapter could not find the state '" + value.source + "'! Please review your configuration of the adapter!");
-						}
-					}
-					// Animations
-					/*
-					if (value.animation && value.animation != 'undefined' && value.animation != '') {
-						this.log.info("Animations func for ID: " + value.animation);
-						// Find the correct Animation for this
-						Object.entries(globalConfig.animations).forEach(entry => {
-							//this.log.info("in the loop");
-							const [key, uvalue] = entry;
-							let tmpID;
-							// Get each ID and check
-							tmpID = uvalue.id.split("_");
-							//this.log.info("ID: " + tmpID[2]);
-							//this.log.info('Animation: ' + value.animation);
-							if (tmpID[2] == value.id) {
-								animArray.push(uvalue.id);
-								outputValues.animations[uvalue.id] = false;
-							}
-						});
-						animationObject[value.animation] = { animations: animArray };
-					}
-					*/
-
-		//}
 		this.log.debug('Settings: ' + JSON.stringify(settingsObject));
 		this.log.debug("Initial Values: " + JSON.stringify(outputValues.values));
 		this.log.debug('Sources: ' + JSON.stringify(sourceObject));
