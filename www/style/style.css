@@ -408,7 +408,7 @@ legend>span {
 }
 
 .form_div {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     position: relative;
     width: min-content;
     border: none;
@@ -981,7 +981,9 @@ text {
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
-    max-width: 97vw;
+    min-width: 100%;
+    clear: both;
+    max-width: 100%;
 }
 
 #tab1:checked~figure .tab1,

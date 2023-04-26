@@ -39,7 +39,7 @@
     <style id="style_general"></style>
     <style id="style_user"></style>
     <script src="js/jscolor.min.js"></script>
-    <script src="js/functions.js"></script>
+    <script src="js/functions.min.js"></script>
 </head>
 
 <body>
@@ -76,7 +76,7 @@
         </nav>
         <figure>
             <div class="tab1">
-                <div id="config_bar" class="scrollbar">
+                <div id="config_bar" class="show scrollbar">
                     <div class="title"><span>Configuration of the Element</span>
                         <div id="config_close" class="close"></div>
                     </div>
@@ -160,7 +160,7 @@
                                                 <div class="form_div">
                                                     <input type="number" class="input_number elm_config"
                                                         name="elm_pos_x" id="elm_pos_x" placeholder="" autocorrect="off"
-                                                        autocomplete="off">
+                                                        autocomplete="off" min="0">
                                                     <label for="elm_pos_x" class="form_label">Pos X</label>
                                                 </div>
                                             </td>
@@ -170,7 +170,7 @@
                                                 <div class="form_div">
                                                     <input type="number" class="input_number elm_config"
                                                         name="elm_pos_y" id="elm_pos_y" placeholder="" autocorrect="off"
-                                                        autocomplete="off">
+                                                        autocomplete="off" min="0">
                                                     <label for="elm_pos_y" class="form_label">Pos Y</label>
                                                 </div>
                                             </td>
@@ -313,14 +313,14 @@
                                                 <div class="form_div">
                                                     <input type="number" class="input_number elm_config"
                                                         name="elm_font_size" id="elm_font_size" placeholder=""
-                                                        autocorrect="off" autocomplete="off">
+                                                        autocorrect="off" autocomplete="off" min="1">
                                                     <label for="elm_font_size" class="form_label">Font-Size</label>
                                                 </div>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="detail_box elm_config_datasource">
+                                <div class="detail_box elm_config_datasource elm_config_rect elm_config_circle">
                                     <span class="config_sec">Source</span>
                                     <table class="element_config_table">
                                         <tr>
@@ -330,7 +330,7 @@
                                                     <select class="input_select elm_config" name="elm_source"
                                                         id="elm_source"></select>
                                                 </div>
-                                                <div class="form_div">
+                                                <div class="form_div elm_config_datasource">
                                                     <input type="text" class="input_text elm_config" name="elm_unit"
                                                         id="elm_unit" placeholder="" autocorrect="off"
                                                         autocomplete="off">
@@ -423,7 +423,7 @@
                                                 <div class="form_div">
                                                     <input type="number" class="input_number elm_config"
                                                         name="elm_threshold" id="elm_threshold" placeholder=""
-                                                        autocorrect="off" autocomplete="off">
+                                                        autocorrect="off" autocomplete="off" min="0">
                                                     <label for="elm_threshold" class="form_label">Threshold (before
                                                         calc)</label>
                                                 </div>
@@ -471,6 +471,43 @@
                                                 </div>
                                                 <img src='img/icon_help.png' style='vertical-align: bottom;'
                                                     title='<b>New Window:</b><br>Opens the URL in a new window<br><b>Same window</b>:<br>Opens the URL in the same window<br><b>iFrame overlay:</b><br>Opens the URL inside an Overlay. Some pages cannot be opened inside overlay frames. If this does not work for you, please choose a different option!<br>Tipp: For http pages, it is possible to pass login credentials via URL like: http://yourUser<b>:</b>yourPass@example.com - This does <u>not</u> work for https'>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="detail_box elm_config_circle elm_config_rect">
+                                    <span class="config_sec">Fill Element according to value</span>
+                                    <table class="element_config_table">
+                                        <tr>
+                                            <td>
+                                                <div class="form_div">
+                                                    <input type="text" class="input_text elm_config "
+                                                        name="elm_fill_value" id="elm_fill_value" placeholder=""
+                                                        autocorrect="off" autocomplete="off" data-jscolor="{}">
+                                                    <label for="elm_fill_value" class="form_label">Fill-Color</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form_div">
+                                                    <label for="elm_fill_type" class="form_label">Type</label>
+                                                    <select class="input_select elm_config" name="elm_fill_type"
+                                                        id="elm_fill_type">
+                                                        <option value="percent">Percent</option>
+                                                        <option value="value">Value</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="form_div">
+                                                    <input type="number" class="input_number elm_config "
+                                                        name="elm_fill_max" id="elm_fill_max" min="0" placeholder=""
+                                                        autocorrect="off" autocomplete="off">
+                                                    <label for="elm_fill_max" class="form_label">Max-Value</label>
+                                                </div>Necessary for calculation
                                             </td>
                                         </tr>
                                     </table>

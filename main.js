@@ -17,11 +17,12 @@ let sourceObject = {};
 let settingsObject = {};
 let rawValues = {
 	values: {}
-}
+};
 let outputValues = {
 	values: {},
 	unit: {},
-	animations: {}
+	animations: {},
+	fillValues: {}
 };
 
 class EnergieflussErweitert extends utils.Adapter {
@@ -137,9 +138,13 @@ class EnergieflussErweitert extends utils.Adapter {
 						if (settingsObject.hasOwnProperty(src)) {
 							this.log.debug("Settings for Element " + src + " found! Calculating!")
 							// Convertible
-							let cValue = settingsObject[src].convert ? this.convertToPositive(clearValue) : clearValue;
-							outputValues.values[src] = settingsObject[src].calculate_kw ? this.recalculateValue(cValue, settingsObject[src].decimal_places) : cValue;
-							rawValues.values[src] = clearValue;
+							if (settingsObject[src].type == 'text') {
+								let cValue = settingsObject[src].convert ? this.convertToPositive(clearValue) : clearValue;
+								outputValues.values[src] = settingsObject[src].calculate_kw ? this.recalculateValue(cValue, settingsObject[src].decimal_places) : cValue;
+								rawValues.values[src] = clearValue;
+							} else {
+								outputValues.fillValues[src] = clearValue;
+							}
 						} else {
 							outputValues.values[src] = clearValue;
 							rawValues.values[src] = clearValue;
@@ -236,7 +241,8 @@ class EnergieflussErweitert extends utils.Adapter {
 		outputValues = {
 			values: {},
 			unit: {},
-			animations: {}
+			animations: {},
+			fillValues: {}
 		};
 		rawValues = {
 			values: {}
@@ -288,7 +294,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		if (globalConfig.hasOwnProperty('elements')) {
 			for (var key of Object.keys(globalConfig.elements)) {
 				const value = globalConfig.elements[key];
-				if (value.source != -1 && value.hasOwnProperty('source')) {
+				if (value.source != -1 && value.hasOwnProperty('source') && value.source != "undefined") {
 					this.log.debug("Source for Element: " + key + " is: " + value.source + " Plain: " + globalConfig.datasources[value.source].source);
 					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
 					if (stateValue) {
@@ -300,17 +306,22 @@ class EnergieflussErweitert extends utils.Adapter {
 						}
 
 						// Output Values
-						let cValue = value.convert ? this.convertToPositive(clearValue) : clearValue;
-						outputValues.values[key] = value.calculate_kw ? this.recalculateValue(cValue, value.decimal_places) : cValue;
-						outputValues.unit[key] = value.unit;
-						rawValues.values[key] = clearValue;
+						if (value.type == 'text') {
+							let cValue = value.convert ? this.convertToPositive(clearValue) : clearValue;
+							outputValues.values[key] = value.calculate_kw ? this.recalculateValue(cValue, value.decimal_places) : cValue;
+							outputValues.unit[key] = value.unit;
+							rawValues.values[key] = clearValue;
+						} else {
+							outputValues.fillValues[key] = clearValue;
+						}
 
 						// Save Settings for the states
 						settingsObject[key] = {
 							threshold: value.threshold,
 							calculate_kw: value.calculate_kw,
 							decimal_places: value.decimal_places,
-							convert: value.convert
+							convert: value.convert,
+							type: value.type
 						};
 						// Put Elm into Source
 						sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
@@ -343,6 +354,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 		this.log.debug('Settings: ' + JSON.stringify(settingsObject));
 		this.log.debug("Initial Values: " + JSON.stringify(outputValues.values));
+		this.log.debug("Initial Fill-Values: " + JSON.stringify(outputValues.fillValues));
 		this.log.debug('Sources: ' + JSON.stringify(sourceObject));
 		this.buildData();
 
