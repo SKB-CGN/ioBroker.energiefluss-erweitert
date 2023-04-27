@@ -56,7 +56,13 @@
             "fill": "none",
             "color": "rgb(255, 206, 74)",
             "stroke": "2",
-            "shadow": "rgba(0,0,0,0.7)"
+            "shadow": "rgba(0,0,0,0.7)",
+            "frame": "_overlay",
+            "url": "",
+            "fill_value": null,
+            "fill_type": "percent",
+            "fill_max": null,
+            "source": -1
         },
         "6": {
             "type": "icon",
@@ -80,7 +86,13 @@
             "fill": "none",
             "color": "rgb(0, 181, 221)",
             "stroke": "2",
-            "shadow": "rgba(0,0,0,0.7)"
+            "shadow": "rgba(0,0,0,0.7)",
+            "frame": "_overlay",
+            "url": "",
+            "fill_value": null,
+            "fill_type": "percent",
+            "fill_max": null,
+            "source": -1
         },
         "9": {
             "type": "text",
@@ -150,7 +162,13 @@
             "fill": "none",
             "color": "rgb(161, 211, 67)",
             "stroke": "2",
-            "shadow": "rgba(0,0,0,0.7)"
+            "shadow": "rgba(0,0,0,0.7)",
+            "frame": "_overlay",
+            "url": "",
+            "fill_value": null,
+            "fill_type": "percent",
+            "fill_max": null,
+            "source": -1
         },
         "14": {
             "type": "rect",
@@ -163,7 +181,13 @@
             "fill": "none",
             "color": "rgba(97, 104, 122, 0.7)",
             "stroke": "2",
-            "shadow": "rgba(0,0,0,0.7)"
+            "shadow": "rgba(0,0,0,0.7)",
+            "frame": "_overlay",
+            "url": "",
+            "fill_value": null,
+            "fill_type": "percent",
+            "fill_max": null,
+            "source": -1
         },
         "15": {
             "type": "text",
@@ -273,7 +297,13 @@
             "fill": "none",
             "color": "rgb(197, 144, 46)",
             "stroke": "2",
-            "shadow": "rgba(0,0,0,0.7)"
+            "shadow": "rgba(0,0,0,0.7)",
+            "frame": "_overlay",
+            "url": "",
+            "fill_value": null,
+            "fill_type": "percent",
+            "fill_max": null,
+            "source": -1
         },
         "23": {
             "type": "icon",
@@ -296,7 +326,7 @@
             "font_family": "\"Arial\", sans-serif",
             "font_size": "14",
             "degree": 0,
-            "text": "Ioniq",
+            "text": "Auto",
             "shadow": ""
         },
         "26": {
