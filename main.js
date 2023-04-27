@@ -335,19 +335,19 @@ class EnergieflussErweitert extends utils.Adapter {
 		if (globalConfig.hasOwnProperty('animations')) {
 			for (var key of Object.keys(globalConfig.animations)) {
 				const value = globalConfig.animations[key];
-				if (value.animation != -1 && value.hasOwnProperty('animation')) {
-					if (value.animation.length !== 0) {
-						this.log.debug("Animation for Source: " + value.animation + " is: " + key);
+				if (value.source != -1 && value.hasOwnProperty('source')) {
+					if (value.source.length !== 0) {
+						this.log.debug("Animation for Source: " + value.source + " is: " + key);
 						// Put Animation into Source
-						sourceObject[globalConfig.datasources[value.animation].source].elmAnimations.push(key);
+						sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
 
 						// Put Animation Properties into Source
-						sourceObject[globalConfig.datasources[value.animation].source].animationProperties.push(value.animation_properties);
+						sourceObject[globalConfig.datasources[value.source].source].animationProperties.push(value.animation_properties);
 
 						// Put Animation Threshold into Source
-						sourceObject[globalConfig.datasources[value.animation].source].animationThreshold.push(value.threshold);
+						sourceObject[globalConfig.datasources[value.source].source].animationThreshold.push(value.threshold);
 					} else {
-						this.log.debug("Animation for Source: " + value.animation + " not found!");
+						this.log.debug("Animation for Source: " + value.source + " not found!");
 					}
 				}
 			}

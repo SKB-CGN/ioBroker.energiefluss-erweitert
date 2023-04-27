@@ -445,12 +445,8 @@
             "id": "anim_path_5_7",
             "href": "#path_5_7",
             "color": "rgb(255, 206, 74)",
-            "sources": [
-                null,
-                null
-            ],
             "threshold": 0,
-            "animation": "",
+            "source": -1,
             "animation_properties": "positive"
         },
         "anim_path_5_13": {
@@ -458,12 +454,8 @@
             "id": "anim_path_5_13",
             "href": "#path_5_13",
             "color": "rgb(255, 206, 74)",
-            "sources": [
-                null,
-                null
-            ],
             "threshold": 0,
-            "animation": "",
+            "source": -1,
             "animation_properties": "negative"
         },
         "anim_path_14_7": {
@@ -471,12 +463,8 @@
             "id": "anim_path_14_7",
             "href": "#path_14_7",
             "color": "rgb(255, 206, 74)",
-            "sources": [
-                null,
-                null
-            ],
             "threshold": 10,
-            "animation": "",
+            "source": -1,
             "animation_properties": "negative"
         },
         "anim_path_5_14": {
@@ -484,12 +472,8 @@
             "id": "anim_path_5_14",
             "href": "#path_5_14",
             "color": "rgb(255, 206, 74)",
-            "sources": [
-                null,
-                null
-            ],
             "threshold": 0,
-            "animation": "",
+            "source": -1,
             "animation_properties": "positive"
         },
         "anim_path_7_22": {
@@ -497,12 +481,8 @@
             "id": "anim_path_7_22",
             "href": "#path_7_22",
             "color": "rgb(255, 206, 74)",
-            "sources": [
-                null,
-                null
-            ],
             "threshold": 0,
-            "animation": "",
+            "source": -1,
             "animation_properties": "positive"
         }
     },
