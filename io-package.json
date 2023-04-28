@@ -1,93 +1,106 @@
 {
-    "common": {
-        "name": "energiefluss-erweitert",
-        "version": "0.0.1",
-        "news": {
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版",
-                "uk": "початковий випуск"
-            }
-        },
-        "title": "Energiefluss - erweitert",
-        "titleLang": {
-            "en": "Energiefluss - erweitert",
-            "de": "Energiefluss - erweitert",
-            "ru": "Energiefluss - erweitert",
-            "pt": "Energiefluss - erweitert",
-            "nl": "Energiefluss - erweitert",
-            "fr": "Energiefluss - erweitert",
-            "it": "Energiefluss - erweitert",
-            "es": "Energiefluss - erweitert",
-            "pl": "Energiefluss - erweitert",
-            "zh-cn": "Energiefluss-erweitert",
-            "uk": "Energiefluss - erweitert"
-        },
-        "desc": {
-            "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
-            "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
-        },
-        "authors": [
-            "SKB <info@skb-web.de>"
-        ],
-        "keywords": [
-            "energy",
-            "energy-flow",
-            "energie",
-            "energiefluss"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "energiefluss-erweitert.png",
-        "enabled": true,
-        "localLinks": {
-            "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
-        },
-        "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
-        "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "visualization",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "assumption",
-        "materialize": true,
-        "materializeTab": false,
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22",
-                "web": ">=3.0.12"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ]
+  "common": {
+    "name": "energiefluss-erweitert",
+    "version": "0.0.2-alpha.0",
+    "news": {
+      "0.0.2-alpha.0": {
+        "en": "initial release",
+        "de": "erstausstrahlung",
+        "ru": "начальный выпуск",
+        "pt": "lançamento inicial",
+        "nl": "niet",
+        "fr": "initial release",
+        "it": "rilascio iniziale",
+        "es": "liberación inicial",
+        "pl": "pierwsze wydanie",
+        "uk": "початковий реліз",
+        "zh-cn": "初步释放"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版",
+        "uk": "початковий випуск"
+      }
     },
-    "native": {
-        "battery_remaining": "",
-        "configuration": "",
-        "data": ""
+    "title": "Energiefluss - erweitert",
+    "titleLang": {
+      "en": "Energiefluss - erweitert",
+      "de": "Energiefluss - erweitert",
+      "ru": "Energiefluss - erweitert",
+      "pt": "Energiefluss - erweitert",
+      "nl": "Energiefluss - erweitert",
+      "fr": "Energiefluss - erweitert",
+      "it": "Energiefluss - erweitert",
+      "es": "Energiefluss - erweitert",
+      "pl": "Energiefluss - erweitert",
+      "zh-cn": "Energiefluss-erweitert",
+      "uk": "Energiefluss - erweitert"
     },
-    "objects": [],
-    "instanceObjects": []
+    "desc": {
+      "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
+      "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
+    },
+    "authors": [
+      "SKB <info@skb-web.de>"
+    ],
+    "keywords": [
+      "energy",
+      "energy-flow",
+      "energie",
+      "energiefluss"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "energiefluss-erweitert.png",
+    "enabled": true,
+    "localLinks": {
+      "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
+    },
+    "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
+    "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "visualization",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "assumption",
+    "materialize": true,
+    "materializeTab": false,
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22",
+        "web": ">=3.0.12"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
+    ]
+  },
+  "native": {
+    "battery_remaining": "",
+    "configuration": "",
+    "data": ""
+  },
+  "objects": [],
+  "instanceObjects": []
 }
