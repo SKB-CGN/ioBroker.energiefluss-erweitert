@@ -29,7 +29,7 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.1 (2023-04-28)
 - Settings Wheel can be disabled in Live-View
 - Last selected Datasource can be "cached", for easier treeview (can be enabled/disabled in settings)
 - Alignment functions do now have an undo function for all steps
