@@ -5,7 +5,9 @@
         "enable_area_catch": true,
         "height": "540",
         "width": "530",
-        "styles": ""
+        "styles": "",
+        "enable_config_icon": true,
+        "enable_last_id": false
     },
     "animation": {
         "stroke": "#ffce4a",
