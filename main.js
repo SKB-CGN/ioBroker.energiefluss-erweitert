@@ -137,7 +137,7 @@ class EnergieflussErweitert extends utils.Adapter {
 						let src = sourceObject[id].elmSources[_key];
 						// VALUES
 						if (settingsObject.hasOwnProperty(src)) {
-							this.log.debug("Settings for Element " + src + " found! Calculating!")
+							this.log.debug("Settings for Element " + src + " found! Applying Settings!")
 							// Convertible
 							if (settingsObject[src].type == 'text') {
 								let cValue = settingsObject[src].convert ? this.convertToPositive(clearValue) : clearValue;
@@ -243,7 +243,8 @@ class EnergieflussErweitert extends utils.Adapter {
 			values: {},
 			unit: {},
 			animations: {},
-			fillValues: {}
+			fillValues: {},
+			alternateValues: {}
 		};
 		rawValues = {
 			values: {}

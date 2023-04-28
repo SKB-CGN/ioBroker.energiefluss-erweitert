@@ -34,9 +34,6 @@
     <link rel="stylesheet" href="style/style.css">
 
     <style id="style_animation"></style>
-    <style id="style_element"></style>
-    <style id="style_fonts"></style>
-    <style id="style_general"></style>
     <style id="style_user"></style>
     <script src="js/jscolor.min.js"></script>
     <script src="js/functions.min.js"></script>
@@ -71,6 +68,8 @@
                     data-height="24"></span>Animation</label>
             <label for="tab4"><span class="iconify menu" data-icon="material-symbols:css-rounded" data-width="24"
                     data-height="24"></span>Styles</label>
+            <label for="tab5"><span class="iconify menu" data-icon="mdi:cog" data-width="24"
+                    data-height="24"></span>Settings</label>
             <label for="tab6"><span class="iconify menu" data-icon="material-symbols:save" data-width="24"
                     data-height="24"></span>Save</label>
         </nav>
@@ -624,7 +623,9 @@
                                             data-height="36"></span></a>
                                 </td>
                                 <td><input type="button" value="Done" id="align_elements" class="input_button red"
-                                        style="display: none;"></td>
+                                        style="display: none;"><input type="button" value="Undo all"
+                                        id="undo_align_elements" class="input_button" style="display: none;" disabled>
+                                </td>
                             </tr>
                         </table>
                     </fieldset>
@@ -909,6 +910,45 @@
                     </fieldset>
                 </div>
             </div>
+            <div class="tab5">
+                <div class="container scrollbar">
+                    <fieldset style="max-width: 300px;">
+                        <legend><span class="iconify legend" data-icon="mdi:cog" data-width="24"
+                                data-height="24"></span>
+                            <span>Settings</span>
+                        </legend>
+                        <table class="config_table">
+                            <tr>
+                                <td>
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="enable_config_icon"
+                                            class="onoffswitch-checkbox elm_config" id="enable_config_icon" value="yes">
+                                        <label class="onoffswitch-label" for="enable_config_icon">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td><label for="enable_config_icon">Show Config Icon on Live-View</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="enable_last_id"
+                                            class="onoffswitch-checkbox elm_config" id="enable_last_id" value="yes">
+                                        <label class="onoffswitch-label" for="enable_last_id">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td><label for="enable_last_id">Show last Source in Object Browser, if current source is
+                                        empty</label></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </div>
+            </div>
             <div class="tab6">
                 <div class="container scrollbar">
                     <fieldset>
@@ -969,6 +1009,7 @@
         </div>
     </div>
 </body>
+
 
 
 </html>
