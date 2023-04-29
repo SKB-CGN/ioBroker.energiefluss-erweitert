@@ -1,6 +1,8 @@
 {
     "donate": "Se ti piace questo adattatore, considera di fare una donazione per sostenere il mio lavoro.",
     "energiefluss-erweitert adapter settings": "Impostazioni dell'adattatore per energiefluss-erweitert",
-    "ex_config": "Per configurare l'adattatore, aprilo tramite il collegamento dell'istanza. Lì troverai la ruota di configurazione!",
+    "ex_access_key": "Usa la chiave di accesso del browser <b style='color: red;'>e</b> all'interno della visualizzazione live per raggiungere nuovamente la pagina di configurazione.",
+    "ex_config": "Per configurare l'adattatore, aprilo tramite il collegamento all'istanza. Lì troverai la ruota di configurazione!",
+    "ex_lost_config": "Se hai disabilitato la ruota di configurazione e hai bisogno di accedere nuovamente alla configurazione, segui i passaggi:",
     "main_settings": "Impostazioni principali"
 }

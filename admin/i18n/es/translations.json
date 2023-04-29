@@ -1,6 +1,8 @@
 {
     "donate": "Si le gusta este adaptador, considere hacer una donación para apoyar mi trabajo.",
     "energiefluss-erweitert adapter settings": "Configuración del adaptador para energiefluss-erweitert",
+    "ex_access_key": "Use la tecla de acceso del navegador <b style='color: red;'>e</b> dentro de la vista en vivo para volver a la página de configuración.",
     "ex_config": "Para configurar el adaptador, ábralo a través del enlace de la instancia. ¡Allí encontrarás la rueda de configuración!",
+    "ex_lost_config": "Si deshabilitó la rueda de configuración y necesita volver a acceder a la configuración, siga los pasos:",
     "main_settings": "Ajustes principales"
 }

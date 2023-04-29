@@ -1,6 +1,8 @@
 {
     "donate": "Als je deze adapter leuk vindt, overweeg dan om een ​​donatie te doen om mijn werk te ondersteunen.",
     "energiefluss-erweitert adapter settings": "Adapter instellingen voor energiefluss-erweitert",
+    "ex_access_key": "Gebruik de browsertoegangssleutel <b style='color: red;'>e</b> in de liveweergave om opnieuw naar de configuratiepagina te gaan.",
     "ex_config": "Om de adapter te configureren, opent u deze via de instantielink. Daar vind je het configuratiewiel!",
+    "ex_lost_config": "Als je het configuratiewiel hebt uitgeschakeld en weer toegang nodig hebt tot de configuratie, volg dan de stappen:",
     "main_settings": "Belangrijkste instellingen"
 }
