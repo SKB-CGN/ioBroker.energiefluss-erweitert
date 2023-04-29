@@ -281,7 +281,11 @@ class EnergieflussErweitert extends utils.Adapter {
 							elmSources: [],
 							elmAnimations: [],
 							animationProperties: [],
-							animationThreshold: []
+							animationThreshold: [],
+							animationType: [],
+							animationPower: [],
+							animationDots: [],
+							animationSpeed: []
 						};
 						// Add to SubscribeArray
 						tmpArray.push(value.source);
@@ -347,6 +351,12 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						// Put Animation Threshold into Source
 						sourceObject[globalConfig.datasources[value.source].source].animationThreshold.push(value.threshold);
+
+						// Put Animation Settings into Source
+						sourceObject[globalConfig.datasources[value.source].source].animationType.push(value.animation_type ? value.animation_type : '');
+						sourceObject[globalConfig.datasources[value.source].source].animationSpeed.push(value.speed ? value.speed : '');
+						sourceObject[globalConfig.datasources[value.source].source].animationPower.push(value.power ? value.power : '');
+						sourceObject[globalConfig.datasources[value.source].source].animationDots.push(value.power ? value.dots : '');
 					} else {
 						this.log.debug("Animation for Source: " + value.source + " not found!");
 					}
