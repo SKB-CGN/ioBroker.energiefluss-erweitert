@@ -75,7 +75,7 @@
         </nav>
         <figure>
             <div class="tab1">
-                <div id="config_bar" class="scrollbar">
+                <div id="config_bar" class="show scrollbar">
                     <div class="title"><span>Configuration of the Element</span>
                         <div id="config_close" class="close"></div>
                     </div>
@@ -587,7 +587,7 @@
                             <span>Alignment</span>
                         </legend>
                         <table class="config_table">
-                            <tr>
+                            <tr style="height: 40px;">
                                 <td style="width: 150px;">
                                     <a title="Align left" class="align_elements tt-element" id="align_left"><span
                                             class=" iconify add_element_area"
@@ -607,9 +607,9 @@
                                         element</span>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr style="height: 40px;">
                                 <td>
-                                    <a title="Align Top" class="align_elements tt-element" id="align_top"><span
+                                    <a title=" Align Top" class="align_elements tt-element" id="align_top"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-top-rounded" data-width="36"
                                             data-height="36"></span></a>
@@ -622,9 +622,23 @@
                                             data-icon="material-symbols:vertical-align-bottom-rounded" data-width="36"
                                             data-height="36"></span></a>
                                 </td>
+                                <td>
+                                    <div id="all_undo_align_elements"
+                                        style="width:100%;align-items: center;display: none;">
+                                        <span style="font-weight: bold; padding-right: 20px;">
+                                            Undo:</span> <button class="img_button" id="undo_align_elements"
+                                            style="display:inline-block" disabled><span class="iconify"
+                                                data-icon="mdi:undo" data-width="24" data-height="24"></span></button>
+                                        <div id="undo_steps" style="width: 100%; text-align: right;">(Saved Steps: -)
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
                                 <td><input type="button" value="Done" id="align_elements" class="input_button red"
-                                        style="display: none;"><input type="button" value="Undo all"
-                                        id="undo_align_elements" class="input_button" style="display: none;" disabled>
+                                        style="display: none;">
                                 </td>
                             </tr>
                         </table>
