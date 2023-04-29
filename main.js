@@ -22,6 +22,7 @@ let outputValues = {
 	values: {},
 	unit: {},
 	animations: {},
+	animationProperties: {},
 	fillValues: {}
 };
 
@@ -161,6 +162,17 @@ class EnergieflussErweitert extends utils.Adapter {
 						this.log.debug('Checking for Animation: ' + animation);
 						let animationValid = true;
 						let threshold = sourceObject[id].animationThreshold[anim];
+						// Check, if we have a special Animation Set for this
+						if (sourceObject[id].animationType[anim] != -1) {
+							this.log.info("Found animation " + sourceObject[id].animationType[anim]);
+							// Calculate new Speed or Dots
+							this.log.info('Stroke for this is: ' + this.calculateStrokeArray(sourceObject[id].animationDots));
+							outputValues.animationProperties[animation] = {
+								type: sourceObject[id].animationType[anim],
+								stroke: this.calculateStrokeArray(sourceObject[id].animationDots)
+							};
+
+						}
 						switch (sourceObject[id].animationProperties[anim]) {
 							case 'positive':
 								this.log.debug('Animation has a positive factor!');
@@ -191,6 +203,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								}
 								break;
 						}
+
 						outputValues.animations[animation] = animationValid;
 					}
 				}
@@ -232,6 +245,32 @@ class EnergieflussErweitert extends utils.Adapter {
 		return value < 0 ? (value * -1) : value;
 	}
 
+	calculateStrokeArray(dots) {
+		// Collect all Values
+		let strokeDash = '';
+		let total = 136;
+		let l_amount = dots;
+		let l_distance = globalConfig.animation_configuration.distance;
+		let l_length = globalConfig.animation_configuration.length;
+
+		for (let i = 0; i < l_amount; i++) {
+			if (l_distance > 0 && l_length > 0) {
+				strokeDash += l_length + ' ';
+				if (i != l_amount - 1) {
+					strokeDash += l_distance + ' ';
+					total -= l_distance;
+				}
+				total -= l_length;
+			}
+		}
+		if (l_amount > 0 && l_length > 0 && l_distance) {
+			strokeDash += ' ' + total;
+		}
+
+		return strokeDash;
+	}
+
+
 	async buildData() {
 		await this.setStateAsync('data', JSON.stringify(outputValues), true);
 	}
@@ -244,7 +283,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			unit: {},
 			animations: {},
 			fillValues: {},
-			alternateValues: {}
+			animationProperties: {}
 		};
 		rawValues = {
 			values: {}
@@ -356,7 +395,7 @@ class EnergieflussErweitert extends utils.Adapter {
 						sourceObject[globalConfig.datasources[value.source].source].animationType.push(value.animation_type ? value.animation_type : '');
 						sourceObject[globalConfig.datasources[value.source].source].animationSpeed.push(value.speed ? value.speed : '');
 						sourceObject[globalConfig.datasources[value.source].source].animationPower.push(value.power ? value.power : '');
-						sourceObject[globalConfig.datasources[value.source].source].animationDots.push(value.power ? value.dots : '');
+						sourceObject[globalConfig.datasources[value.source].source].animationDots.push(value.dots ? value.dots : '');
 					} else {
 						this.log.debug("Animation for Source: " + value.source + " not found!");
 					}

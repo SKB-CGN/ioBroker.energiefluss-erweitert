@@ -432,7 +432,7 @@
                                             </td>
                                         </tr>
                                         <tr class="elm_config_datasource">
-                                            <td colspan="2">
+                                            <td>
                                                 <div class="form_div">
                                                     <label for="elm_decimal_places" class="form_label">Decimal
                                                         places</label>
@@ -442,6 +442,59 @@
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                     </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="detail_box elm_config_use">
+                                    <span class="config_sec">Animation Depency</span>
+                                    <table class="element_config_table">
+                                        <tr>
+                                            <td>
+                                                <div class="form_div">
+                                                    <label for="elm_animation_type" class="form_label">Type</label>
+                                                    <select class="input_select elm_config" name="elm_animation_type"
+                                                        id="elm_animation_type">
+                                                        <option value="-1" selected>None</option>
+                                                        <option value="dots">Dots</option>
+                                                        <option value="speed">Speed</option>
+                                                    </select>
+                                                </div>
+                                                <img src='img/icon_help.png' style='vertical-align: bottom;'
+                                                    title='<b>Speed:</b><br>The speed will vary on the power of the line<br><b>Dots</b>:<br>The more power the line has, the more dots appear - but not more than maximum defined'>
+                                            </td>
+                                        </tr>
+                                        <tr class="anim_type_speed">
+                                            <td>
+                                                <div class="form_div">
+                                                    <input type="number" class="input_text elm_config " name="elm_speed"
+                                                        id="elm_speed" placeholder="" autocorrect="off"
+                                                        autocomplete="off">
+                                                    <label for="elm_speed" class="form_label">Max. Speed on the
+                                                        line</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="anim_type_dots">
+                                            <td>
+                                                <div class="form_div">
+                                                    <input type="number" class="input_text elm_config " name="elm_dots"
+                                                        id="elm_dots" placeholder="" autocorrect="off"
+                                                        autocomplete="off">
+                                                    <label for="elm_dots" class="form_label">Max. Dots on the
+                                                        line</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="anim_type_dots anim_type_speed">
+                                            <td>
+                                                <div class="form_div">
+                                                    <input type="number" class="input_text elm_config " name="elm_power"
+                                                        id="elm_power" placeholder="" autocorrect="off"
+                                                        autocomplete="off">
+                                                    <label for="elm_power" class="form_label">Max power on the
+                                                        line</label>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1026,7 +1079,6 @@
         </div>
     </div>
 </body>
-
 
 
 </html>
