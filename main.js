@@ -141,8 +141,15 @@ class EnergieflussErweitert extends utils.Adapter {
 							this.log.debug("Settings for Element " + src + " found! Applying Settings!")
 							// Convertible
 							if (settingsObject[src].type == 'text') {
+								// Convert to positive if necessary
 								let cValue = settingsObject[src].convert ? this.convertToPositive(clearValue) : clearValue;
-								outputValues.values[src] = settingsObject[src].calculate_kw ? this.recalculateValue(cValue, settingsObject[src].decimal_places) : cValue;
+								// Convert to kW if set
+								cValue = settingsObject[src].calculate_kw ? this.recalculateValue(cValue) : cValue;
+								// Set decimal places
+								cValue = settingsObject[src].decimal_places >= 0 ? this.decimalPlaces(cValue, settingsObject[src].decimal_places) : cValue;
+
+								// Output
+								outputValues.values[src] = cValue;
 								rawValues.values[src] = clearValue;
 							} else {
 								outputValues.fillValues[src] = clearValue;
@@ -164,9 +171,9 @@ class EnergieflussErweitert extends utils.Adapter {
 						let threshold = sourceObject[id].animationThreshold[anim];
 						// Check, if we have a special Animation Set for this
 						if (sourceObject[id].animationType[anim] != -1) {
-							this.log.info("Found animation " + sourceObject[id].animationType[anim]);
+							//this.log.info("Found animation " + sourceObject[id].animationType[anim]);
 							// Calculate new Speed or Dots
-							this.log.info('Stroke for this is: ' + this.calculateStrokeArray(sourceObject[id].animationDots));
+							//this.log.info('Stroke for this is: ' + this.calculateStrokeArray(sourceObject[id].animationDots));
 							outputValues.animationProperties[animation] = {
 								type: sourceObject[id].animationType[anim],
 								stroke: this.calculateStrokeArray(sourceObject[id].animationDots)
@@ -237,8 +244,16 @@ class EnergieflussErweitert extends utils.Adapter {
 	/**
 	 * @param {number} value
 	 */
-	recalculateValue(value, decimal_places) {
-		return (Math.round((value / 1000) * 100) / 100).toFixed(decimal_places);
+	recalculateValue(value) {
+		return (Math.round((value / 1000) * 100) / 100);
+	}
+
+	/**
+	 * @param {number} value
+	 * @param {number} decimal_places
+	 */
+	decimalPlaces(value, decimal_places) {
+		return (Number(value).toFixed(decimal_places));
 	}
 
 	convertToPositive(value) {
@@ -352,8 +367,14 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						// Output Values
 						if (value.type == 'text') {
+							// Convert to positive if necessary
 							let cValue = value.convert ? this.convertToPositive(clearValue) : clearValue;
-							outputValues.values[key] = value.calculate_kw ? this.recalculateValue(cValue, value.decimal_places) : cValue;
+							// Convert to kW if set
+							cValue = value.calculate_kw ? this.recalculateValue(cValue) : cValue;
+							// Set decimal places
+							cValue = value.decimal_places >= 0 ? this.decimalPlaces(cValue, value.decimal_places) : cValue;
+
+							outputValues.values[key] = cValue;
 							outputValues.unit[key] = value.unit;
 							rawValues.values[key] = clearValue;
 						} else {
