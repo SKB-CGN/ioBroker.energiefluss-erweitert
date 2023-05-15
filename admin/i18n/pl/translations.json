@@ -3,6 +3,7 @@
     "energiefluss-erweitert adapter settings": "Ustawienia adaptera dla energiiefluss-erweitert",
     "ex_access_key": "Użyj klucza dostępu przeglądarki <b style='color: red;'>e</b> w podglądzie na żywo, aby ponownie otworzyć stronę konfiguracji.",
     "ex_config": "Aby skonfigurować adapter, otwórz go za pomocą linku do instancji. Znajdziesz tam koło konfiguracyjne!",
+    "ex_key_combination": "kombinacja klawiszy",
     "ex_lost_config": "Jeśli wyłączyłeś koło konfiguracji i potrzebujesz ponownie dostępu do konfiguracji, wykonaj następujące czynności:",
     "main_settings": "Ustawienia główne"
 }

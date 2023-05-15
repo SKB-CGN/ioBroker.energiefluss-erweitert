@@ -7,7 +7,26 @@
         "width": "530",
         "styles": "",
         "enable_config_icon": true,
-        "enable_last_id": false
+        "enable_last_id": false,
+        "font": {
+            "family": "\"Arial\", sans-serif",
+            "size": 20
+        },
+        "rect": {
+            "height": 100,
+            "width": 100,
+            "corners": 10
+        },
+        "circle": {
+            "radius": 50
+        },
+        "elm": {
+            "stroke_width": 5
+        },
+        "icon": {
+            "width": 24,
+            "height": 24
+        }
     },
     "animation": {
         "stroke": "#ffce4a",

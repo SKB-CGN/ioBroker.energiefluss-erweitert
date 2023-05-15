@@ -3,6 +3,7 @@
     "energiefluss-erweitert adapter settings": "Adapter settings for energiefluss-erweitert",
     "ex_access_key": "Use the browser access key <b style='color: red;'>e</b> inside the live view, to reach out to the config page again.",
     "ex_config": "To configure the adapter, please open it via the instance link. There you will find the configuration wheel!",
+    "ex_key_combination": "key combination",
     "ex_lost_config": "If you disabled the configuration wheel und need again access to the config, please follow the steps:",
     "main_settings": "Main Settings"
 }

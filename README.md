@@ -29,12 +29,26 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Source missing after saving - fill off element not possible (#11)
+- FIX: Offset was not working
+- Added: admin menu - link recolored
+- Added: admin menu - access key table
+- Added: question-mark icon for config-wheel
+- Added: New animation-depencies added in advanced menu of animation. Choose dots or duration, to display power-amount on the line
+- Added: last change timestamp of the datasource can be displayed as option: relative to now, timestamp US or timestamp DE
+- Added: all elements can be moved with arrow keys for smoother alignment. Click icon and press arrow-key on keyboard to move it
+- Added: noscroll is added to the workspace, while moving elements. This prevents the page being scrolled up or down
+- Added: elements can be selected with the "lasso-function" - select more than one element with cursor
+- Added: "lasso-catched" elements can be moved with mouse or keyboard (arrow keys)
+- Added: Settings-menu has now basic settings for the elements. All values can be set as default values
+
 ### 0.0.2-alpha.1 (2023-04-28)
-- Settings Wheel can be disabled in Live-View
-- Last selected Datasource can be "cached", for easier treeview (can be enabled/disabled in settings)
-- Alignment functions do now have an undo function for all steps
-- socket connection is monitored, shows a waiting screen, if instance is not started or restarted
-- removed local Test file, which does not belong to the project
+- FIX: removed local Test file, which does not belong to the project
+- Added: Settings Wheel can be disabled in Live-View
+- Added: Last selected Datasource can be "cached", for easier treeview (can be enabled/disabled in settings)
+- Added: Alignment functions do now have an undo function for all steps
+- Added: socket connection is monitored, shows a waiting screen, if instance is not started or restarted
 
 ### 0.0.2-alpha.0 (2023-04-28)
 * (SKB) initial release

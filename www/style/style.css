@@ -1,14 +1,29 @@
-:root {
-    --primary: #538ea3;
-    --secondary: #b2dfee;
-    --black: #000;
-    --grey: #999;
-    --creme: #F5F5F5;
-    --lightgrey: #e9e9e9;
-    --silvergrey: #d3d3d3;
-    --darkgrey: #dfdfdf;
-    --white: #FFF;
-    --red: lightcoral;
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary: #538ea3;
+        --secondary: #b2dfee;
+        --black: #000;
+        --grey: #999;
+        --creme: #F5F5F5;
+        --lightgrey: #e9e9e9;
+        --silvergrey: #d3d3d3;
+        --darkgrey: #efefef;
+        --white: #FFF;
+        --red: lightcoral;
+        --background-color: transparent;
+        --transparent: transparent;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #323232;
+        --primary: #d3d3d3;
+        --secondary: #aaaaaa;
+        --white: #a3a3a3;
+        --red: rgb(245, 56, 56);
+        --black: #ccc;
+    }
 }
 
 /* Default HTML & Body */
@@ -23,6 +38,8 @@ body {
     -moz-user-select: none;
     height: 98vh;
     width: 98vw;
+    background-color: var(--background-color);
+    color: var(--black);
 }
 
 a {
@@ -130,28 +147,45 @@ a:focus {
 }
 
 .container {
+    background-color: var(--background-color);
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-
+    /*
     background-image:
 
         /* Shadows */
+    /*
         linear-gradient(to right, white, white),
         linear-gradient(to right, white, white),
 
         /* Shadow covers */
+    /*
         linear-gradient(to right, rgba(0, 0, 0, .25), rgba(255, 255, 255, 0)),
         linear-gradient(to left, rgba(0, 0, 0, .25), rgba(255, 255, 255, 0));
 
     background-position: left center, right center, left center, right center;
     background-repeat: no-repeat;
-    background-color: white;
     background-size: 10px 100%, 10px 100%, 10px 100%, 10px 100%;
 
     /* Opera doesn't support this in the shorthand */
+    /*background-attachment: local, local, scroll, scroll; */
+    background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
+        linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
+        radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0)),
+        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0)) 0 100%;
+    background-position-x: 0%, 0px, 0%, 0px;
+    background-position-y: 0%, 100%, 0%, 100%;
+    background-repeat: repeat, repeat, repeat, repeat;
+    background-attachment: scroll, scroll, scroll, scroll;
+    background-size: auto, auto, auto, auto;
     background-attachment: local, local, scroll, scroll;
+    background-position: 0 0, 100%, 0 0, 100%;
+    background-repeat: no-repeat;
+    background-size: 2.5rem 100%, 2.5rem 100%, .875rem 100%, .875rem 100%
 }
 
 .container fieldset:first-child {
@@ -160,7 +194,7 @@ a:focus {
 }
 
 .container fieldset:last-child {
-    /* Move first element to the left */
+    /* Move last element to the left */
     margin-right: 0px;
 }
 
@@ -170,7 +204,7 @@ fieldset {
     border-radius: 5px;
     padding: 8px;
     margin: 12px;
-    min-width: 300px;
+    min-width: 220px;
     width: fit-content;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
@@ -238,10 +272,17 @@ legend>span {
     touch-action: none;
 }
 
-.dragging {
-    opacity: 0.5;
+#help_grid {
+    display: none;
+    pointer-events: none;
 }
 
+.draggable-multi,
+.draggable-multi-group,
+.dragging {
+    opacity: 0.5;
+    cursor: move;
+}
 
 .noscroll {
     overflow: hidden !important;
@@ -574,14 +615,7 @@ legend>span {
 }
 
 input[disabled],
-select[disabled]
-
-/*
-.input_text[disabled],
-.input_number[disabled],
-.input_button[disabled]
-*/
-    {
+select[disabled] {
     cursor: not-allowed;
 }
 
@@ -655,6 +689,10 @@ select:hover {
     transition: All .2s linear;
     -webkit-transition: All .2s linear;
     border-radius: 5px;
+}
+
+.container>fieldset>div>div:last-child {
+    flex: 0 0 auto;
 }
 
 .detail_box:hover {
@@ -856,13 +894,13 @@ select:hover {
 #config_bar {
     height: 100%;
     max-height: 100%;
-    width: 405px;
+    width: 355px;
     max-width: 100%;
     border-radius: 10px;
     border: 1px solid var(--primary);
     position: fixed;
     top: 0;
-    right: -407px;
+    right: -357px;
     background-color: var(--white);
     z-index: 10;
     transition: all .4s ease-in-out;
@@ -971,7 +1009,6 @@ text {
 .tabbed figure>div {
     padding: 10px;
     border: 1px solid silver;
-    background: var(--white);
 }
 
 .tabbed nav {
@@ -1031,7 +1068,7 @@ nav label:active {
     background: var(--white);
 }
 
-label,
+.form_div>label,
 .datasource,
 .all_datasource {
     cursor: pointer;
@@ -1054,6 +1091,24 @@ label,
     outline: none;
     background: transparent;
     border: none;
+}
+
+.img_button {
+    color: var(--primary);
+    outline: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.img_button:hover {
+    color: var(--secondary);
+    transition: .5s;
+}
+
+.img_button:disabled {
+    cursor: not-allowed;
 }
 
 #tab1:checked~nav label[for="tab1"],

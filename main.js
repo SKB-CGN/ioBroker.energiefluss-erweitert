@@ -16,8 +16,10 @@ let globalConfig = {};
 let sourceObject = {};
 let settingsObject = {};
 let rawValues = {
-	values: {}
+	values: {},
+	sourceValues: {}
 };
+
 let outputValues = {
 	values: {},
 	unit: {},
@@ -25,6 +27,9 @@ let outputValues = {
 	animationProperties: {},
 	fillValues: {}
 };
+
+let relativeTimeCheck = {};
+let globalInterval;
 
 class EnergieflussErweitert extends utils.Adapter {
 
@@ -89,7 +94,8 @@ class EnergieflussErweitert extends utils.Adapter {
 			// clearTimeout(timeout2);
 			// ...
 			// clearInterval(interval1);
-
+			clearInterval(globalInterval);
+			this.log.info('Cleared interval for relative values!');
 			callback();
 		} catch (e) {
 			callback();
@@ -132,6 +138,10 @@ class EnergieflussErweitert extends utils.Adapter {
 					clearValue = state.val;
 				}
 
+				// Put Value into RAW-Source-Values
+				rawValues.sourceValues[sourceObject[id].id] = clearValue;
+				this.log.debug(JSON.stringify(rawValues.sourceValues));
+
 				// Loop through each Element, which belongs to that source
 				if (sourceObject[id].hasOwnProperty('elmSources')) {
 					for (var _key of Object.keys(sourceObject[id].elmSources)) {
@@ -140,17 +150,43 @@ class EnergieflussErweitert extends utils.Adapter {
 						if (settingsObject.hasOwnProperty(src)) {
 							this.log.debug("Settings for Element " + src + " found! Applying Settings!")
 							// Convertible
-							if (settingsObject[src].type == 'text') {
-								// Convert to positive if necessary
-								let cValue = settingsObject[src].convert ? this.convertToPositive(clearValue) : clearValue;
-								// Convert to kW if set
-								cValue = settingsObject[src].calculate_kw ? this.recalculateValue(cValue) : cValue;
-								// Set decimal places
-								cValue = settingsObject[src].decimal_places >= 0 ? this.decimalPlaces(cValue, settingsObject[src].decimal_places) : cValue;
-
-								// Output
-								outputValues.values[src] = cValue;
-								rawValues.values[src] = clearValue;
+							let seObj = settingsObject[src];
+							if (seObj.type == 'text') {
+								// Check, if we have source options for text - Date
+								if (seObj.source_option != -1) {
+									this.log.debug('Source Option detected! ' + seObj.source_option + 'Generating DateString for ' + state.ts + ' ' + this.getDateTime(state.ts, seObj.source_option));
+									outputValues.values[src] = this.getDateTime(state.ts, seObj.source_option);
+									outputValues.unit[src] = '';
+									rawValues.values[src] = 0;
+								} else {
+									if (seObj.threshold >= 0) {
+										let threshold = seObj.threshold;
+										let formatValue;
+										this.log.debug('Threshold for: ' + src + ' is: ' + seObj.threshold);
+										// Check, if value is over threshold
+										if (clearValue > threshold || clearValue < threshold * -1) {
+											// Check, if we have Subtractions for this value
+											let subArray = seObj.subtract;
+											if (subArray.length > 0) {
+												let tmpVal = 0;
+												for (var sub in subArray) {
+													if (subArray[sub] != -1) {
+														tmpVal = tmpVal + rawValues.sourceValues[subArray[sub]];
+														this.log.debug("Subtracted by: " + subArray.toString());
+													}
+												}
+												formatValue = clearValue - (tmpVal);
+											} else {
+												formatValue = clearValue;
+											}
+											// Format Value
+											outputValues.values[src] = this.valueOutput(src, formatValue);
+										} else {
+											outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(clearValue, seObj.decimal_places) : clearValue;
+										}
+										rawValues.values[src] = clearValue;
+									}
+								}
 							} else {
 								outputValues.fillValues[src] = clearValue;
 							}
@@ -170,14 +206,28 @@ class EnergieflussErweitert extends utils.Adapter {
 						let animationValid = true;
 						let threshold = sourceObject[id].animationThreshold[anim];
 						// Check, if we have a special Animation Set for this
-						if (sourceObject[id].animationType[anim] != -1) {
-							//this.log.info("Found animation " + sourceObject[id].animationType[anim]);
-							// Calculate new Speed or Dots
-							//this.log.info('Stroke for this is: ' + this.calculateStrokeArray(sourceObject[id].animationDots));
-							outputValues.animationProperties[animation] = {
-								type: sourceObject[id].animationType[anim],
-								stroke: this.calculateStrokeArray(sourceObject[id].animationDots)
-							};
+						if (sourceObject[id].animationType[anim] != -1 && sourceObject[id].animationType[anim] != undefined) {
+							this.log.debug("Found animation " + sourceObject[id].animationType[anim]);
+							// Dots
+							if (sourceObject[id].animationType[anim] == 'dots') {
+								// Calculate new Amount or Dots
+								this.log.debug('Stroke for animation: ' + animation + ' is: ' + this.calculateStrokeArray(sourceObject[id].animationDots, sourceObject[id].animationPower, clearValue) +
+									' means: maxDots:  ' + sourceObject[id].animationDots + ' maxPower: ' + sourceObject[id].animationPower + ' Value: ' + clearValue);
+								outputValues.animationProperties[animation] = {
+									type: 'dots',
+									stroke: this.calculateStrokeArray(sourceObject[id].animationDots, sourceObject[id].animationPower, clearValue)
+								};
+							}
+
+							// Duration
+							if (sourceObject[id].animationType[anim] == 'duration') {
+								this.log.debug('Stroke for animation: ' + animation + ' is: ' + this.calculateDuration(sourceObject[id].animationDuration, sourceObject[id].animationPower, clearValue) +
+									' means: minDuration:  ' + sourceObject[id].animationDuration + ' maxPower: ' + sourceObject[id].animationPower + ' Value: ' + clearValue);
+								outputValues.animationProperties[animation] = {
+									type: 'duration',
+									duration: this.calculateDuration(sourceObject[id].animationDuration, sourceObject[id].animationPower, clearValue)
+								};
+							}
 
 						}
 						switch (sourceObject[id].animationProperties[anim]) {
@@ -210,7 +260,6 @@ class EnergieflussErweitert extends utils.Adapter {
 								}
 								break;
 						}
-
 						outputValues.animations[animation] = animationValid;
 					}
 				}
@@ -240,6 +289,107 @@ class EnergieflussErweitert extends utils.Adapter {
 	// 		}
 	// 	}
 	// }
+	/**
+		 * @param {number} src
+		 * @param {number} value
+	*/
+	valueOutput(src, value) {
+		let seObj = settingsObject[src];
+		// Convert to positive if necessary
+		let cValue = seObj.convert ? this.convertToPositive(value) : value;
+		// Convert to kW if set
+		cValue = seObj.calculate_kw ? this.recalculateValue(cValue) : cValue;
+		// Set decimal places
+		cValue = seObj.decimal_places >= 0 ? this.decimalPlaces(cValue, seObj.decimal_places) : cValue;
+		return cValue;
+	}
+
+	/**
+		 * @param {number} duration
+	*/
+	msToTime(duration) {
+		var seconds = Math.floor((duration / 1000) % 60),
+			minutes = Math.floor((duration / (1000 * 60)) % 60),
+			hours = Math.floor((duration / (1000 * 60 * 60)) % 24),
+			value = 'just now';
+
+		if (seconds > 0) {
+			if (seconds < 5 && seconds > 2) {
+				value = 'a few seconds ago';
+			} else if (seconds == 1) {
+				value = seconds + ' second ago';
+			} else {
+				value = seconds + ' seconds ago'
+			}
+		}
+
+		if (minutes > 0) {
+			if (minutes < 5 && minutes > 2) {
+				value = 'a few minutes ago';
+			} else if (minutes == 1) {
+				value = minutes + ' minute ago';
+			} else {
+				value = minutes + ' minutes ago'
+			}
+		}
+
+		if (hours > 0) {
+			if (hours < 5 && hours > 2) {
+				value = 'a few hours ago';
+			} else if (hours == 1) {
+				value = hours + ' hour ago';
+			} else {
+				value = hours + ' hours ago';
+			}
+		}
+		return value;
+	}
+	/**
+		 * @param {number} ts
+		 * @param {string} mode
+	*/
+
+	getDateTime(ts, mode) {
+		if (ts === undefined || ts <= 0 || ts == '') {
+			return '';
+		}
+		let date = new Date(ts), now = new Date();
+
+		switch (mode) {
+			case 'timestamp_de':
+			default:
+				return date.toLocaleString('de-DE', {
+					hour: "numeric",
+					minute: "numeric",
+					day: "2-digit",
+					month: "2-digit",
+					year: "numeric",
+					second: "2-digit",
+					hour12: false
+				});
+			case 'timestamp_us':
+				return date.toLocaleString('en-US', {
+					hour: "numeric",
+					minute: "numeric",
+					day: "2-digit",
+					month: "2-digit",
+					year: "numeric",
+					second: "2-digit",
+					hour12: true
+				});
+			case 'relative':
+				return this.msToTime(Number(now - date));
+		}
+	}
+
+	async getRelativeTimeObjects(obj) {
+		for (var key of Object.keys(obj)) {
+			const stateValue = await this.getForeignStateAsync(obj[key].source);
+			if (stateValue) {
+				outputValues.values[key] = this.getDateTime(stateValue.ts, obj[key].option);
+			}
+		}
+	}
 
 	/**
 	 * @param {number} value
@@ -256,11 +406,38 @@ class EnergieflussErweitert extends utils.Adapter {
 		return (Number(value).toFixed(decimal_places));
 	}
 
+	/**
+	 * @param {number} value
+	 */
 	convertToPositive(value) {
 		return value < 0 ? (value * -1) : value;
 	}
 
-	calculateStrokeArray(dots) {
+	/**
+	 * @param {number} maxDuration
+	 * @param {number} maxPower
+	 * @param {number} currentPower
+	 */
+
+	calculateDuration(maxDuration, maxPower, currentPower) {
+		// Max Duration
+		let dur = Number(maxDuration);
+		let pwr = Number(maxPower - currentPower);
+
+		return pwr > 0 ? dur + pwr : dur;
+
+		//Math.round((((currentPower / maxPower) * 100) * maxDuration) / 100);
+	}
+
+	/**
+	 * @param {number} maxDots
+	 * @param {number} maxPower
+	 * @param {number} currentPower
+	 */
+
+	calculateStrokeArray(maxDots, maxPower, currentPower) {
+		// First calculate, what we have
+		let dots = Math.round((((currentPower / maxPower) * 100) * maxDots) / 100);
 		// Collect all Values
 		let strokeDash = '';
 		let total = 136;
@@ -301,12 +478,14 @@ class EnergieflussErweitert extends utils.Adapter {
 			animationProperties: {}
 		};
 		rawValues = {
-			values: {}
+			values: {},
+			sourceValues: {}
 		};
 		sourceObject = {};
 		settingsObject = {};
 		let clearValue;
 		let tmpArray = new Array();
+		relativeTimeCheck = {};
 		// Put own DP
 		tmpArray.push(this.namespace + '.configuration');
 		// Read configuration DataPoint
@@ -327,11 +506,11 @@ class EnergieflussErweitert extends utils.Adapter {
 				this.log.debug('Datasource: ' + JSON.stringify(value));
 				if (value.source != '' && value.hasOwnProperty('source')) {
 					//addDataSourceRow(_key, key.source, key.alias);
-					this.log.debug('Reading: Source: ' + value.source + ' ID: ' + key);
 					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[key].source);
 					if (stateValue) {
 						// Add, to find it better
 						sourceObject[globalConfig.datasources[key].source] = {
+							id: parseInt(key),
 							elmSources: [],
 							elmAnimations: [],
 							animationProperties: [],
@@ -339,8 +518,9 @@ class EnergieflussErweitert extends utils.Adapter {
 							animationType: [],
 							animationPower: [],
 							animationDots: [],
-							animationSpeed: []
+							animationDuration: []
 						};
+						rawValues.sourceValues[key] = stateValue.val;
 						// Add to SubscribeArray
 						tmpArray.push(value.source);
 					} else {
@@ -365,30 +545,41 @@ class EnergieflussErweitert extends utils.Adapter {
 							clearValue = stateValue.val;
 						}
 
-						// Output Values
-						if (value.type == 'text') {
-							// Convert to positive if necessary
-							let cValue = value.convert ? this.convertToPositive(clearValue) : clearValue;
-							// Convert to kW if set
-							cValue = value.calculate_kw ? this.recalculateValue(cValue) : cValue;
-							// Set decimal places
-							cValue = value.decimal_places >= 0 ? this.decimalPlaces(cValue, value.decimal_places) : cValue;
-
-							outputValues.values[key] = cValue;
-							outputValues.unit[key] = value.unit;
-							rawValues.values[key] = clearValue;
-						} else {
-							outputValues.fillValues[key] = clearValue;
-						}
-
 						// Save Settings for the states
 						settingsObject[key] = {
 							threshold: value.threshold,
 							calculate_kw: value.calculate_kw,
 							decimal_places: value.decimal_places,
 							convert: value.convert,
-							type: value.type
+							type: value.type,
+							source_option: value.source_option || -1,
+							subtract: value.subtract || [-1]
 						};
+
+						// Output Values
+						if (value.type == 'text') {
+							// Check, if we have source options for text - Date
+							if (value.source_option != -1) {
+								outputValues.values[key] = this.getDateTime(stateValue.ts, value.source_option);
+								outputValues.unit[key] = '';
+								rawValues.values[key] = 0;
+
+								// Put into timer object for re-requesting
+								if (value.source_option == 'relative') {
+									relativeTimeCheck[key] = {
+										source: globalConfig.datasources[value.source].source,
+										option: value.source_option
+									}
+								}
+							} else {
+								outputValues.values[key] = this.valueOutput(key, clearValue);
+								outputValues.unit[key] = value.unit;
+								rawValues.values[key] = clearValue;
+							}
+						} else {
+							outputValues.fillValues[key] = clearValue;
+						}
+
 						// Put Elm into Source
 						sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
 					}
@@ -413,10 +604,12 @@ class EnergieflussErweitert extends utils.Adapter {
 						sourceObject[globalConfig.datasources[value.source].source].animationThreshold.push(value.threshold);
 
 						// Put Animation Settings into Source
-						sourceObject[globalConfig.datasources[value.source].source].animationType.push(value.animation_type ? value.animation_type : '');
-						sourceObject[globalConfig.datasources[value.source].source].animationSpeed.push(value.speed ? value.speed : '');
-						sourceObject[globalConfig.datasources[value.source].source].animationPower.push(value.power ? value.power : '');
-						sourceObject[globalConfig.datasources[value.source].source].animationDots.push(value.dots ? value.dots : '');
+						if (value.animation_type != -1) {
+							sourceObject[globalConfig.datasources[value.source].source].animationType.push(value.animation_type ? value.animation_type : '');
+							sourceObject[globalConfig.datasources[value.source].source].animationDuration.push(value.duration ? value.duration : '');
+							sourceObject[globalConfig.datasources[value.source].source].animationPower.push(value.power ? value.power : '');
+							sourceObject[globalConfig.datasources[value.source].source].animationDots.push(value.dots ? value.dots : '');
+						}
 					} else {
 						this.log.debug("Animation for Source: " + value.source + " not found!");
 					}
@@ -428,6 +621,16 @@ class EnergieflussErweitert extends utils.Adapter {
 		this.log.debug("Initial Values: " + JSON.stringify(outputValues.values));
 		this.log.debug("Initial Fill-Values: " + JSON.stringify(outputValues.fillValues));
 		this.log.debug('Sources: ' + JSON.stringify(sourceObject));
+		this.log.debug('RAW-Values: ' + JSON.stringify(rawValues.values));
+		this.log.debug('RAW-Source-Values: ' + JSON.stringify(rawValues.sourceValues));
+		// Starting Timier
+		if (Object.keys(relativeTimeCheck).length > 0) {
+			this.log.info('Found relative Date Texts (' + relativeTimeCheck.length + ') to display. Activating timer!');
+			this.log.debug('Array for relative texts ' + relativeTimeCheck);
+			globalInterval = this.setInterval(() => {
+				this.getRelativeTimeObjects(relativeTimeCheck);
+			}, 10000);
+		}
 		this.buildData();
 
 		this.log.info('Configuration loaded!');

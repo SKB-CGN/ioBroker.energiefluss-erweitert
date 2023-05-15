@@ -31,14 +31,14 @@
     <script src="js/iconify.min.js"></script>
 
     <link rel="stylesheet" href="style/loading-spinner.css">
+    <link rel="stylesheet" href="style/multiselect.css">
     <link rel="stylesheet" href="style/style.css">
 
     <style id="style_animation"></style>
     <style id="style_user"></style>
+
     <script src="js/jscolor.min.js"></script>
-    <script>
-        let localTest = {};
-    </script>
+    <script src="js/multiselect.min.js"></script>
     <script src="js/functions.min.js"></script>
 </head>
 
@@ -53,6 +53,11 @@
             <div class="loading-spinner-dot"></div>
         </div>
         <span id="loading_text">Loading your Energiefluss Workspace</span>
+        <div id="display_container">
+            <div class="title">
+                <div id="iframe_close" class="close"></div>
+            </div>
+        </div>
     </div>
     <div class="tabbed">
         <input checked="checked" id="tab1" type="radio" name="tabs">
@@ -333,6 +338,16 @@
                                                         id="elm_source"></select>
                                                 </div>
                                                 <div class="form_div elm_config_datasource">
+                                                    <label for="elm_source_option" class="form_label">Option</label>
+                                                    <select class="input_select elm_config" name="elm_source_option"
+                                                        id="elm_source_option">
+                                                        <option value="-1">None</option>
+                                                        <option value="timestamp_us">Timestamp US</option>
+                                                        <option value="timestamp_de">Timestamp DE</option>
+                                                        <option value="relative">Relative to now</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form_div elm_config_datasource">
                                                     <input type="text" class="input_text elm_config" name="elm_unit"
                                                         id="elm_unit" placeholder="" autocorrect="off"
                                                         autocomplete="off">
@@ -389,7 +404,7 @@
                                     <span class="config_sec">Calculation</span>
                                     <table class="element_config_table">
                                         <tr class="elm_config_datasource">
-                                            <td style="width: 70px;">
+                                            <td style="width: auto;">
                                                 <div class="onoffswitch">
                                                     <input type="checkbox" name="elm_calculation"
                                                         class="onoffswitch-checkbox elm_config" id="elm_calculation"
@@ -400,7 +415,7 @@
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td style="width: 100%;">
                                                 <label for="elm_calculation"> Calculate Value from W to kW</label>
                                             </td>
                                         </tr>
@@ -426,13 +441,13 @@
                                                     <input type="number" class="input_number elm_config"
                                                         name="elm_threshold" id="elm_threshold" placeholder=""
                                                         autocorrect="off" autocomplete="off" min="0">
-                                                    <label for="elm_threshold" class="form_label">Threshold (before
-                                                        calc)</label>
+                                                    <label for="elm_threshold" class="form_label">Threshold (raw
+                                                        value)</label>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr class="elm_config_datasource">
-                                            <td>
+                                            <td colspan="2">
                                                 <div class="form_div">
                                                     <label for="elm_decimal_places" class="form_label">Decimal
                                                         places</label>
@@ -442,6 +457,18 @@
                                                         <option value="1">1</option>
                                                         <option value="2">2</option>
                                                     </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="elm_config_datasource">
+                                            <td colspan="2">
+                                                <div class="form_div">
+                                                    <label for="elm_subtract" class="form_label">Reduce this value
+                                                        by</label>
+
+                                                    <select class="elm_config" name="elm_subtract" id="elm_subtract"
+                                                        multiple></select>
+
                                                 </div>
                                             </td>
                                         </tr>
@@ -458,20 +485,20 @@
                                                         id="elm_animation_type">
                                                         <option value="-1" selected>None</option>
                                                         <option value="dots">Dots</option>
-                                                        <option value="speed">Speed</option>
+                                                        <option value="duration">Duration</option>
                                                     </select>
                                                 </div>
                                                 <img src='img/icon_help.png' style='vertical-align: bottom;'
-                                                    title='<b>Speed:</b><br>The speed will vary on the power of the line<br><b>Dots</b>:<br>The more power the line has, the more dots appear - but not more than maximum defined'>
+                                                    title='<b>Duration:</b><br>The duration of the animation varies depending on the load on the line. The more load, the less the animation lasts<br><i>Info:</i> The minimum duration is set for the maximum power<br><b>Dots</b>:<br>The more power the line has, the more dots appear - but not more than maximum defined'>
                                             </td>
                                         </tr>
-                                        <tr class="anim_type_speed">
+                                        <tr class="anim_type_duration">
                                             <td>
                                                 <div class="form_div">
-                                                    <input type="number" class="input_text elm_config " name="elm_speed"
-                                                        id="elm_speed" placeholder="" autocorrect="off"
-                                                        autocomplete="off">
-                                                    <label for="elm_speed" class="form_label">Max. Speed on the
+                                                    <input type="number" class="input_text elm_config "
+                                                        name="elm_duration" id="elm_duration" placeholder=""
+                                                        autocorrect="off" autocomplete="off" min="0">
+                                                    <label for="elm_duration" class="form_label">Min. Duration on the
                                                         line</label>
                                                 </div>
                                             </td>
@@ -481,20 +508,20 @@
                                                 <div class="form_div">
                                                     <input type="number" class="input_text elm_config " name="elm_dots"
                                                         id="elm_dots" placeholder="" autocorrect="off"
-                                                        autocomplete="off">
+                                                        autocomplete="off" min="0">
                                                     <label for="elm_dots" class="form_label">Max. Dots on the
                                                         line</label>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr class="anim_type_dots anim_type_speed">
+                                        <tr class="anim_type_dots anim_type_duration">
                                             <td>
                                                 <div class="form_div">
                                                     <input type="number" class="input_text elm_config " name="elm_power"
                                                         id="elm_power" placeholder="" autocorrect="off"
-                                                        autocomplete="off">
+                                                        autocomplete="off" min="0">
                                                     <label for="elm_power" class="form_label">Max power on the
-                                                        line</label>
+                                                        line (raw value)</label>
                                                 </div>
                                             </td>
                                         </tr>
@@ -536,26 +563,27 @@
                                         <tr>
                                             <td>
                                                 <div class="form_div">
-                                                    <input type="text" class="input_text elm_config "
-                                                        name="elm_fill_value" id="elm_fill_value" placeholder=""
-                                                        autocorrect="off" autocomplete="off" data-jscolor="{}">
-                                                    <label for="elm_fill_value" class="form_label">Fill-Color</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form_div">
                                                     <label for="elm_fill_type" class="form_label">Type</label>
                                                     <select class="input_select elm_config" name="elm_fill_type"
                                                         id="elm_fill_type">
+                                                        <option value="-1" selected>None</option>
                                                         <option value="percent">Percent</option>
                                                         <option value="value">Value</option>
                                                     </select>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="fill_type">
+                                            <td>
+                                                <div class="form_div">
+                                                    <input type="text" class="input_text color elm_config"
+                                                        name="elm_fill_value" id="elm_fill_value" placeholder=""
+                                                        autocorrect="off" autocomplete="off" data-jscolor="{}">
+                                                    <label for="elm_fill_value" class="form_label">Fill-Color</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="fill_type">
                                             <td>
                                                 <div class="form_div">
                                                     <input type="number" class="input_number elm_config "
@@ -626,7 +654,11 @@
                                             class="iconify add_element_area"
                                             data-icon="material-symbols:text-format-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Add Text with Datasource" class="add_element tt-element"
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a title="Add Text with Datasource" class="add_element tt-element"
                                         id="add_datasource"><span class="iconify add_element_area"
                                             data-icon="material-symbols:data-check-rounded" data-width="48"
                                             data-height="48"></span></a>
@@ -637,7 +669,7 @@
                             </tr>
                         </table>
                     </fieldset>
-                    <fieldset style="min-width: 400px;">
+                    <fieldset>
                         <legend><span class="iconify legend" data-icon="material-symbols:format-align-center-rounded"
                                 data-width="24" data-height="24"></span>
                             <span>Alignment</span>
@@ -696,6 +728,18 @@
                                 <td><input type="button" value="Done" id="align_elements" class="input_button red"
                                         style="display: none;">
                                 </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <fieldset>
+                        <legend><span class="iconify legend" data-icon="fluent-mdl2:select-all" data-width="24"
+                                data-height="24"></span>
+                            <span>Bulk Updates</span>
+                        </legend>
+                        <table class="config_table">
+                            <tr>
+                                <td><button class="input_button" style="width: auto;"
+                                        onclick="failedMessage('Coming soon');">Open bulk settings</button></td>
                             </tr>
                         </table>
                     </fieldset>
@@ -765,8 +809,8 @@
                     </fieldset>
                 </div>
                 <div id="svg_preview" class="svg_preview scrollbar">
-                    <svg viewBox="0 0 10 10" width="10" height="10" class="" preserveAspectRatio="xMinYMid meet"
-                        id="svg_config" onload="makeDraggable(evt)">
+                    <svg viewBox="0 0 10 10" width="10" height="10" class="lasso" preserveAspectRatio="xMinYMid meet"
+                        id="svg_config" onload="makeDraggable(evt)" tabindex="0">
                         <!-- Default Definitions -->
                         <defs>
                             <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -784,28 +828,31 @@
                         <!-- Definations-->
                         <defs id="placeholder_defs" class="placeholders"></defs>
 
-                        <!-- Elements -->
-                        <g id="placeholder_elements" class="placeholders"></g>
-
-                        <!-- Texts -->
-                        <g id="placeholder_text" class="placeholders"></g>
-
                         <!-- Lines -->
                         <g id="placeholder_lines" class="placeholders"></g>
 
                         <!-- Animation -->
                         <g id="placeholder_animations" class="placeholders"></g>
 
+                        <!-- Elements -->
+                        <g id="placeholder_elements" class="placeholders"></g>
+
+                        <!-- Texts -->
+                        <g id="placeholder_text" class="placeholders"></g>
+
                         <!-- Icons -->
                         <g id="placeholder_icons" class="placeholders"></g>
 
                         <!-- Connection Points-->
                         <g id="connection_points" class="placeholders"></g>
+
+                        <!-- Lasso -->
+                        <g id="placeholder_lasso" class="placeholders"></g>
                     </svg>
                 </div>
             </div>
             <div class="tab2">
-                <fieldset style="margin-left: 0px;">
+                <fieldset style="margin-left: 0px; width: 300px;">
                     <legend><span class="iconify legend" data-icon="mdi:database-search" data-width="24"
                             data-height="24"></span>
                         <span>Datasources</span>
@@ -847,7 +894,7 @@
                                 data-height="24"></span>
                             <span>Available Datasources</span>
                         </legend>
-                        <table class="data-table config_table">
+                        <table class="data-table config_table ">
                             <thead>
                                 <th>Alias <span class="sort_icon"></span>
                                 </th>
@@ -867,7 +914,7 @@
             </div>
             <div class="tab3">
                 <div class="container scrollbar">
-                    <fieldset>
+                    <fieldset style="width: 300px;">
                         <legend><span class="iconify legend" data-icon="clarity:animation-line" data-width="24"
                                 data-height="24"></span>
                             <span>Animation</span>
@@ -936,7 +983,7 @@
 
                         </div>
                     </fieldset>
-                    <fieldset>
+                    <fieldset style="width: 300px;">
                         <legend><span class="iconify legend" data-icon="fontisto:preview" data-width="24"
                                 data-height="24"></span>
                             <span>Preview</span>
@@ -999,7 +1046,10 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td><label for="enable_config_icon">Show Config Icon on Live-View</label></td>
+                                <td><label for="enable_config_icon">Show Config Icon on Live-View</label> <img
+                                        src='img/icon_help.png' style='vertical-align: bottom;'
+                                        title='If you disable the Config Wheel on the live-view, you need to use the browsers access-key <b>"e"</b> to get back into this configuration again'>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -1016,6 +1066,130 @@
                                         empty</label></td>
                             </tr>
                         </table>
+                    </fieldset>
+                    <fieldset style="width: 500px;">
+                        <legend><span class="iconify legend" data-icon="material-symbols:format-list-bulleted"
+                                data-width="24" data-height="24"></span>
+                            <span>Basic Settings</span>
+                        </legend>
+                        <div style="display: flex; flex-direction: row; max-width: 600px;flex-wrap: wrap;">
+                            <div class="detail_box">
+                                <span class="config_sec">Text</span>
+                                <table class="config_table">
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="text" class="input_text" id="basic_font_family"
+                                                    name="basic_font_family" placeholder="" autocorrect="off"
+                                                    autocomplete="off">
+                                                <label for="basic_font_family" class="form_label">Font Family</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="number" class="input_number" id="basic_font_size"
+                                                    name="basic_font_size" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_font_size" class="form_label">Font Size</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="detail_box">
+                                <span class="config_sec">Rectangle</span>
+                                <table class="config_table">
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="number" class="input_number" id="basic_rect_height"
+                                                    name="basic_rect_height" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_rect_height" class="form_label">Height</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="number" class="input_number" id="basic_rect_width"
+                                                    name="basic_rect_width" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_rect_width" class="form_label">Width</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="number" class="input_number" id="basic_rect_corners"
+                                                    name="basic_rect_corners" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_rect_corners" class="form_label">Rounded
+                                                    Corner</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="detail_box">
+                                <span class="config_sec">Circle</span>
+                                <table class="config_table">
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="number" class="input_number" id="basic_circle_radius"
+                                                    name="basic_circle_radius" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_circle_radius" class="form_label">Radius</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="detail_box">
+                                <span class="config_sec">Rectangle / Circle</span>
+                                <table class="config_table">
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="number" class="input_number" id="basic_stroke_width"
+                                                    name="basic_stroke_width" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_stroke_width" class="form_label">Stroke width</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="detail_box">
+                                <span class="config_sec">Icons</span>
+                                <table class="config_table">
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="number" class="input_number" id="basic_icon_height"
+                                                    name="basic_icon_height" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_icon_height" class="form_label">Height</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="number" class="input_number" id="basic_icon_width"
+                                                    name="basic_icon_width" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_icon_width" class="form_label">Width</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </fieldset>
                 </div>
             </div>
@@ -1079,6 +1253,5 @@
         </div>
     </div>
 </body>
-
 
 </html>

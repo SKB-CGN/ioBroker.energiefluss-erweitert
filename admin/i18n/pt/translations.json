@@ -3,6 +3,7 @@
     "energiefluss-erweitert adapter settings": "Configurações do adaptador para energiefluss-erweitert",
     "ex_access_key": "Use a tecla de acesso do navegador <b style='color: red;'>e</b> dentro da visualização ao vivo, para acessar a página de configuração novamente.",
     "ex_config": "Para configurar o adaptador, abra-o por meio do link da instância. Lá você encontrará a roda de configuração!",
+    "ex_key_combination": "combinação de teclas",
     "ex_lost_config": "Se você desativou a roda de configuração e precisa acessar novamente a configuração, siga as etapas:",
     "main_settings": "Configurações principais"
 }

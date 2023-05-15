@@ -3,6 +3,7 @@
     "energiefluss-erweitert adapter settings": "Adaptereinstellungen für energiefluss-erweitert",
     "ex_access_key": "Verwenden Sie die Browser-Zugriffstaste <b style='color: red;'>e</b> in der Live-Ansicht, um erneut zur Konfigurationsseite zu gelangen.",
     "ex_config": "Um den Adapter zu konfigurieren, öffnen Sie ihn bitte über den Instanzlink. Dort finden Sie das Konfigurationsrad!",
+    "ex_key_combination": "Tastenkombination",
     "ex_lost_config": "Wenn Sie das Konfigurationsrad deaktiviert haben und erneut Zugriff auf die Konfiguration benötigen, gehen Sie bitte wie folgt vor:",
     "main_settings": "Haupteinstellungen"
 }

@@ -3,6 +3,7 @@
     "energiefluss-erweitert adapter settings": "energiefluss-erweitert 的适配器设置",
     "ex_access_key": "在实时视图中使用浏览器访问键 <b style='color: red;'>e</b> 再次访问配置页面。",
     "ex_config": "要配置适配器，请通过实例链接打开它。在那里你会找到配置轮！",
+    "ex_key_combination": "组合键",
     "ex_lost_config": "如果您禁用了配置轮并且需要再次访问配置，请按照以下步骤操作：",
     "main_settings": "主要设置"
 }
