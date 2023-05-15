@@ -42,6 +42,7 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 - Added: elements can be selected with the "lasso-function" - select more than one element with cursor
 - Added: "lasso-catched" elements can be moved with mouse or keyboard (arrow keys)
 - Added: Settings-menu has now basic settings for the elements. All values can be set as default values
+- Added: displayed values can be reduced by other values (selectable)
 
 ### 0.0.2-alpha.1 (2023-04-28)
 - FIX: removed local Test file, which does not belong to the project
