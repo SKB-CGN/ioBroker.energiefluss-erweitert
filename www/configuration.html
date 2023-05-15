@@ -191,11 +191,11 @@
                                             <td class="bold">Rotation:</td>
                                             <td style="padding:5px;">
                                                 <a id="rotate_cw" class="degree" title="Rotate clockwise"><span
-                                                        class="iconify add_element_area tt-element"
+                                                        class="iconify add_element_area "
                                                         data-icon="material-symbols:rotate-90-degrees-cw-outline-rounded"
                                                         data-height="24" data-width="24"></span></a>
                                                 <a id="rotate_ccw" class="degree" title="Rotate counter-clockwise"><span
-                                                        class="iconify add_element_area tt-element"
+                                                        class="iconify add_element_area "
                                                         data-icon="material-symbols:rotate-90-degrees-ccw-outline-rounded"
                                                         data-height="24" data-width="24"></span></a>
                                             </td>
@@ -416,7 +416,8 @@
                                                 </div>
                                             </td>
                                             <td style="width: 100%;">
-                                                <label for="elm_calculation"> Calculate Value from W to kW</label>
+                                                <label class="label" for="elm_calculation"> Calculate Value from W to
+                                                    kW</label>
                                             </td>
                                         </tr>
                                         <tr class="elm_config_datasource">
@@ -432,7 +433,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <label for="elm_convert"> Convert Value to positive</label>
+                                                <label class="label" for="elm_convert"> Convert Value to
+                                                    positive</label>
                                             </td>
                                         </tr>
                                         <tr>
@@ -617,8 +619,7 @@
                                     </div>
                                 </td>
                                 <td><input type="range" value="800" id="svg_width_slider" min="1" max="2000"
-                                        class="slider svg_size_slider tt-element"
-                                        title="Move the slider to adjust the size"></td>
+                                        class="slider svg_size_slider " title="Move the slider to adjust the size"></td>
                             </tr>
                             <tr>
                                 <td>
@@ -630,8 +631,7 @@
                                     </div>
                                 </td>
                                 <td><input type="range" value="500" id="svg_height_slider" min="1" max="1000"
-                                        class="slider svg_size_slider tt-element"
-                                        title="Move the slider to adjust the size"></td>
+                                        class="slider svg_size_slider " title="Move the slider to adjust the size"></td>
                             </tr>
                         </table>
                     </fieldset>
@@ -643,14 +643,14 @@
                         <table class="config_table">
                             <tr>
                                 <td>
-                                    <a title="Add Circle" class="add_element tt-element" id="add_circle"><span
+                                    <a title="Add Circle" class="add_element " id="add_circle"><span
                                             class="iconify add_element_area" data-icon="material-symbols:circle-outline"
                                             data-width="48" data-height="48"></span></a>
-                                    <a title="Add Rectangle" class="add_element tt-element" id="add_rect"><span
+                                    <a title="Add Rectangle" class="add_element " id="add_rect"><span
                                             class="iconify add_element_area"
                                             data-icon="material-symbols:rectangle-outline" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Add Text" class="add_element tt-element" id="add_text"><span
+                                    <a title="Add Text" class="add_element " id="add_text"><span
                                             class="iconify add_element_area"
                                             data-icon="material-symbols:text-format-rounded" data-width="48"
                                             data-height="48"></span></a>
@@ -658,11 +658,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><a title="Add Text with Datasource" class="add_element tt-element"
-                                        id="add_datasource"><span class="iconify add_element_area"
+                                <td><a title="Add Text with Datasource" class="add_element " id="add_datasource"><span
+                                            class="iconify add_element_area"
                                             data-icon="material-symbols:data-check-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Add Icon" class="add_element tt-element" id="add_icon"><span
+                                    <a title="Add Icon" class="add_element " id="add_icon"><span
                                             class="iconify add_element_area" data-icon="mdi:file-image" data-width="48"
                                             data-height="48"></span></a>
                                 </td>
@@ -676,16 +676,16 @@
                         </legend>
                         <table class="config_table">
                             <tr style="height: 40px;">
-                                <td style="width: 150px;">
-                                    <a title="Align left" class="align_elements tt-element" id="align_left"><span
+                                <td style="width: 150px;white-space: nowrap;">
+                                    <a title="Align left" class="align_elements " id="align_left"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:format-align-left-rounded" data-width="36"
                                             data-height="36"></span></a>
-                                    <a title="Align center" class="align_elements tt-element" id="align_center"><span
+                                    <a title="Align center" class="align_elements " id="align_center"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:format-align-center-rounded" data-width="36"
                                             data-height="36"></span></a>
-                                    <a title="Align right" class="align_elements tt-element" id="align_right"><span
+                                    <a title="Align right" class="align_elements " id="align_right"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:format-align-right-rounded" data-width="36"
                                             data-height="36"></span></a>
@@ -697,15 +697,15 @@
                             </tr>
                             <tr style="height: 40px;">
                                 <td>
-                                    <a title=" Align Top" class="align_elements tt-element" id="align_top"><span
+                                    <a title=" Align Top" class="align_elements " id="align_top"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-top-rounded" data-width="36"
                                             data-height="36"></span></a>
-                                    <a title="Align vertical center" class="align_elements tt-element"
-                                        id="align_vcenter"><span class=" iconify add_element_area"
+                                    <a title="Align vertical center" class="align_elements " id="align_vcenter"><span
+                                            class=" iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-center-rounded" data-width="36"
                                             data-height="36"></span></a>
-                                    <a title="Align bottom" class="align_elements tt-element" id="align_bottom"><span
+                                    <a title="Align bottom" class="align_elements " id="align_bottom"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-bottom-rounded" data-width="36"
                                             data-height="36"></span></a>
@@ -777,7 +777,7 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td><label for="enable_animation"> Enable Animation</label></td>
+                                <td><label class="label" for="enable_animation"> Enable Animation</label></td>
                             </tr>
                             <tr>
                                 <td>
@@ -790,7 +790,7 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td><label for="enable_grid"> Show Help Grid</label></td>
+                                <td><label class="label" for="enable_grid"> Show Help Grid</label></td>
                             </tr>
                             <tr>
                                 <td>
@@ -803,7 +803,7 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td><label for="enable_area_catch"> Keep Area in window</label></td>
+                                <td><label class="label" for="enable_area_catch"> Keep Area in window</label></td>
                             </tr>
                         </table>
                     </fieldset>
@@ -823,7 +823,7 @@
                         </defs>
                         <!-- Grid Group -->
                         <g>
-                            <rect width="100%" height="100%" fill="url(#grid)" id="help_grid" style="display: none;" />
+                            <rect width="100%" height="100%" fill="url(#grid)" id="help_grid" />
                         </g>
                         <!-- Definations-->
                         <defs id="placeholder_defs" class="placeholders"></defs>
@@ -867,7 +867,7 @@
                                             minlength="5" required="">
                                         <label for="elm_ds_source" class="form_label">Datasource</label>
                                         <div class="icon_wrapper">
-                                            <a class="datasource tt-element icon_in_input" title="Select Datasource">
+                                            <a class="datasource  icon_in_input" title="Select Datasource">
                                                 <span class="iconify" data-icon="mdi:database-search" data-width="24"
                                                     data-height="24"></span>
                                             </a>
@@ -1046,9 +1046,11 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td><label for="enable_config_icon">Show Config Icon on Live-View</label> <img
-                                        src='img/icon_help.png' style='vertical-align: bottom;'
-                                        title='If you disable the Config Wheel on the live-view, you need to use the browsers access-key <b>"e"</b> to get back into this configuration again'>
+                                <td><label class="label" for="enable_config_icon">Show Config Icon on
+                                        Live-View</label><img src='img/icon_help.png'
+                                        title='If you disable the Config Wheel on the live-view, you need to use the browsers access-key <b>"e"</b> to get back into this configuration again'
+                                        style='vertical-align: bottom;padding-left:5px;'>
+                                    <img>
                                 </td>
                             </tr>
                             <tr>
@@ -1062,7 +1064,8 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td><label for="enable_last_id">Show last Source in Object Browser, if current source is
+                                <td><label class="label" for="enable_last_id">Show last Source in Object Browser, if
+                                        current source is
                                         empty</label></td>
                             </tr>
                         </table>
