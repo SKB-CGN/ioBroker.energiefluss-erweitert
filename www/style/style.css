@@ -280,6 +280,7 @@ legend>span {
 .draggable-multi,
 .draggable-multi-group,
 .dragging {
+    pointer-events: visible;
     opacity: 0.5;
     cursor: move;
 }
