@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "energiefluss-erweitert",
-        "version": "0.0.2-alpha.1",
+        "version": "0.0.2-alpha.2",
         "news": {
             "0.0.2-alpha.1": {
                 "en": "Settings Wheel can be disabled in Live-View\nLast selected Datasource can be \"cached\", for easier treeview (can be enabled/disabled in settings)\nAlignment functions do now have an undo function for all steps\nsocket connection is monitored, shows a waiting screen, if instance is not started or restarted\nremoved local Test file, which does not belong to the project",
