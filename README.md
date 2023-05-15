@@ -30,7 +30,7 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 	### **WORK IN PROGRESS**
 -->
 ### 0.0.2-alpha.2 (2023-05-15)
-- FIX: Source missing after saving - fill of element not possible (#11)
+- FIX: Source missing after saving - fill of element not possible (fix #11)
 - FIX: Offset was not working
 - Added: admin menu - link recolored
 - Added: admin menu - access key table
