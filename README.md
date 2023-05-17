@@ -29,7 +29,7 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.4 (2023-05-17)
 - Added: String Datasource can now be displayed
 
 ### 0.0.2-alpha.3 (2023-05-17)

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energiefluss-erweitert",
-    "version": "0.0.2-alpha.3",
+    "version": "0.0.2-alpha.4",
     "news": {
+      "0.0.2-alpha.4": {
+        "en": "Added: String Datasource can now be displayed",
+        "de": "Hinzugefügt: String Datasource kann jetzt angezeigt werden",
+        "ru": "Добавлен: String Datasource теперь можно отобразить",
+        "pt": "Adicionado: String Datasource agora pode ser exibido",
+        "nl": "Vertaling:",
+        "fr": "Ajouté: String Datasource peut maintenant être affiché",
+        "it": "Aggiunto: String Datasource può ora essere visualizzato",
+        "es": "Añadido: Datasource String se puede mostrar ahora",
+        "pl": "W: Strona internetowa String Datasource (ang.)",
+        "uk": "Додано: String Datasource тепер можна відображати",
+        "zh-cn": "增加:现在可以展示数据来源"
+      },
       "0.0.2-alpha.3": {
         "en": "FIX: Animations not running after adding each of them\nADDED: Elements can be choosen inside side-panel (useful, if element is not clickable anymore)",
         "de": "FIX: Animationen laufen nicht nach dem Hinzufügen jeder von ihnen\nADDED: Elemente können innerhalb des Seitenpanels ausgewählt werden (verwendend, wenn Element nicht mehr klickbar ist)",
