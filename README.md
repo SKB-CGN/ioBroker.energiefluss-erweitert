@@ -29,7 +29,7 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.3 (2023-05-17)
 - FIX: Animations not running after adding each of them
 - ADDED: Elements can be choosen inside side-panel (useful, if element is not clickable anymore)
 

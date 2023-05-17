@@ -1,119 +1,132 @@
 {
-    "common": {
-        "name": "energiefluss-erweitert",
-        "version": "0.0.2-alpha.2",
-        "news": {
-            "0.0.2-alpha.1": {
-                "en": "Settings Wheel can be disabled in Live-View\nLast selected Datasource can be \"cached\", for easier treeview (can be enabled/disabled in settings)\nAlignment functions do now have an undo function for all steps\nsocket connection is monitored, shows a waiting screen, if instance is not started or restarted\nremoved local Test file, which does not belong to the project",
-                "de": "Einstellungen Rad kann in Live-View deaktiviert werden\nLetzte ausgewählt Datasource kann geätzt werden, um die Baumansicht zu erleichtern (kann in Einstellungen aktiviert/deaktiviert werden)\nAusrichtungsfunktionen haben nun eine Undofunktion für alle Schritte\nsteckdosenanschluss wird überwacht, zeigt einen wartebildschirm, wenn die instanz nicht gestartet oder neu gestartet wird\nentfernt lokal Testdatei, die nicht zum Projekt gehört",
-                "ru": "Настройки Колесо можно отключить в Live-View\nПоследний выбранный Datasource можно кэшировать, для более легкого просмотра деревьев (может быть включен/отключен в настройках)\nФункции Alignment теперь имеют функцию undo для всех шагов\nсоединение розетки контролируется, показывает экран ожидания, если экземпляр не запущен или перезапущен\nудалено локально Тестовый файл, который не принадлежит проекту",
-                "pt": "Configurações A roda pode ser desativada no Live-View\nÚltima selecção Datasource pode ser armazenado em cache, para visualização de árvores mais fácil (pode ser ativado/desativado em configurações)\nAs funções de alinhamento agora têm uma função de desfazer para todos os passos\na conexão do soquete é monitorada, mostra uma tela de espera, se a instância não for iniciada ou reiniciada\nremovido local Arquivo de teste, que não pertence ao projeto",
-                "nl": "Setting Wortel kan in Live-View\nLaatste geselecteerd De dataource kan worden gekampeerd, voor een makkelijke boomview (kan in staat gedisabled in settings)\nVertaling:\nde verbinding met de socket wordt bewaakt, toont een wachtend scherm, als instance niet is begonnen of herstart\nverwijder de plaatselijke Testbestand, wat niet van het project is",
-                "fr": "Réglages Roue peut être désactivée dans Live-View\nDernière sélection Les données peuvent être mises en cache, pour faciliter la visualisation des arbres (peut être activées/désactives dans les paramètres)\nLes fonctions d'alignement ont maintenant une fonction défaire pour toutes les étapes\nla connexion de socket est surveillée, montre un écran d'attente, si l'instance n'est pas démarrée ou redémarrée\nenlevé localement Test file, which does not belong to the project",
-                "it": "Impostazioni impostazioni La ruota può essere disabilitata in Live-View\nUltimo selezionato Datasource può essere memorizzato nella cache, per una visione albero più semplice (può essere abilitato/disattivato nelle impostazioni)\nLe funzioni di allineamento hanno ora una funzione di annullamento per tutti i passaggi\nla connessione di presa è monitorata, mostra una schermata di attesa, se l'istanza non è iniziata o riavviata\nrimosso locale Test file, che non appartiene al progetto",
-                "es": "Ajustes La rueda puede desactivarse en Live-View\nÚltimo seleccionado Datasource puede ser caché, para una visión más fácil del árbol (puede ser habilitado/desactivado en la configuración)\nLas funciones de alineación ahora tienen una función deshacer para todos los pasos\nse monitoriza la conexión de socket, muestra una pantalla de espera, si la instancia no se inicia o se reinicia\neliminado local Archivo de prueba, que no pertenece al proyecto",
-                "pl": "Setting Wheel może być niepełnosprawny w Live-View\nWybory Źródło danych może być zakodowane w celu ułatwienia przeglądu drzew (może być dozwolone lub zdyskwalifikowane w ustawieniach)\nFunkcje obliczeniowe mają obecnie funkcję dowolną dla wszystkich kroków\nobserwacje gniazda są monitorowane, pokazują ekran czekania, jeśli instancja nie zostanie uruchomiona lub uruchomiona\nusunąć plik testowy, który nie należy do projektu, nie należy do pliku testowego",
-                "uk": "Налаштування Колесо може бути відключений у Live-View\nОстанній вибраний EnglishDeutschPусский简体中文中國傳統EspañolالعربيةFrançaisελληνικάDanskАнглійскаябългарскиCatalàČeskýEestiSuomiGaeilgeहिन्दीHrvatskiMagyarIndonesiaIcelandicItalianoעברי日本の한국의LietuvosLatvijasмакедонскиMalayMaltiNederlandsNorskPolskiPortuguêsRomânescSlovenskýSlovenskiShqiptarCрпскиSvenskaไทยTürkçeYкраїнськийTiếng việtייִדישKiswahili\nФункції вирівнювання тепер мають функцію скасування для всіх кроків\nз'єднання роз'єму, показує екран очікування, якщо екземпляр не запущений або перезавантажений\nвидалення локального Тестовий файл, який не належить до проекту",
-                "zh-cn": "确定 世界工程师协会\n上次选举 数据来源可以归纳,以便较容易的树种观(在环境中能够/可以分开)\n调整职能现在对所有步骤都具有无任何作用。\n监测零件连接,显示等待筛选,如不开始或重新安装。\n当地撤军 试验档案不属于项目。"
-            },
-            "0.0.2-alpha.0": {
-                "en": "initial release",
-                "de": "erstausstrahlung",
-                "ru": "начальный выпуск",
-                "pt": "lançamento inicial",
-                "nl": "niet",
-                "fr": "initial release",
-                "it": "rilascio iniziale",
-                "es": "liberación inicial",
-                "pl": "pierwsze wydanie",
-                "uk": "початковий реліз",
-                "zh-cn": "初步释放"
-            },
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版",
-                "uk": "початковий випуск"
-            }
-        },
-        "title": "Energiefluss - erweitert",
-        "titleLang": {
-            "en": "Energiefluss - erweitert",
-            "de": "Energiefluss - erweitert",
-            "ru": "Energiefluss - erweitert",
-            "pt": "Energiefluss - erweitert",
-            "nl": "Energiefluss - erweitert",
-            "fr": "Energiefluss - erweitert",
-            "it": "Energiefluss - erweitert",
-            "es": "Energiefluss - erweitert",
-            "pl": "Energiefluss - erweitert",
-            "zh-cn": "Energiefluss-erweitert",
-            "uk": "Energiefluss - erweitert"
-        },
-        "desc": {
-            "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
-            "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
-        },
-        "authors": [
-            "SKB <info@skb-web.de>"
-        ],
-        "keywords": [
-            "energy",
-            "energy-flow",
-            "energie",
-            "energiefluss"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "energiefluss-erweitert.png",
-        "enabled": true,
-        "localLinks": {
-            "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
-        },
-        "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
-        "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "visualization",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "assumption",
-        "materialize": true,
-        "materializeTab": false,
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22",
-                "web": ">=3.0.12"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ]
+  "common": {
+    "name": "energiefluss-erweitert",
+    "version": "0.0.2-alpha.3",
+    "news": {
+      "0.0.2-alpha.3": {
+        "en": "FIX: Animations not running after adding each of them\nADDED: Elements can be choosen inside side-panel (useful, if element is not clickable anymore)",
+        "de": "FIX: Animationen laufen nicht nach dem Hinzufügen jeder von ihnen\nADDED: Elemente können innerhalb des Seitenpanels ausgewählt werden (verwendend, wenn Element nicht mehr klickbar ist)",
+        "ru": "FIX: Анимации, не работающие после добавления каждого из них\nДОБАВЛЕНО: Элементы можно выбрать внутри боковой панели (полезно, если элемент больше не кликабле)",
+        "pt": "FIX: Animações não correndo após adicionar cada um deles\nADDED: Elementos podem ser escolhidos dentro do painel lateral (útil, se o elemento não for mais clicável)",
+        "nl": "Dieren die niet rennen na het toevoegen van elk van hen\nElementen kunnen worden gekozen in de zijpanel als element niet klikbaar is",
+        "fr": "FIX: Animations ne fonctionnant pas après avoir ajouté chacun d'eux\nAJOUTÉ : Les éléments peuvent être choisis à l'intérieur de l'enveloppe latérale (utile, si l'élément n'est plus cliquable)",
+        "it": "FIX: Animazioni non in esecuzione dopo l'aggiunta di ciascuno di loro\nADDED: Gli elementi possono essere scelti all'interno del pannello laterale (utile, se l'elemento non è più cliccabile)",
+        "es": "FIX: Animaciones que no se ejecutan después de añadir cada uno de ellos\nADDED: Los elementos se pueden elegir dentro del panel lateral (útil, si el elemento ya no se puede hacer clic)",
+        "pl": "FIX: Animation nie uruchamiają się po dodaniu wszystkich z nich\nADDED: Elementy mogą być wybierane wewnątrz panelu (używając, jeśli element nie jest już kliknięty)",
+        "uk": "FIX: Анімація не працює після додавання кожного з них\nADDED: Елементи можна вибрати всередині бічної панелі (повний, якщо елемент не натискається більше)",
+        "zh-cn": "FIX:在增加每种目标之后不进行\nADDED:如果要素无法点击,则可选择在旁边(使用)内。"
+      },
+      "0.0.2-alpha.1": {
+        "en": "Settings Wheel can be disabled in Live-View\nLast selected Datasource can be \"cached\", for easier treeview (can be enabled/disabled in settings)\nAlignment functions do now have an undo function for all steps\nsocket connection is monitored, shows a waiting screen, if instance is not started or restarted\nremoved local Test file, which does not belong to the project",
+        "de": "Einstellungen Rad kann in Live-View deaktiviert werden\nLetzte ausgewählt Datasource kann geätzt werden, um die Baumansicht zu erleichtern (kann in Einstellungen aktiviert/deaktiviert werden)\nAusrichtungsfunktionen haben nun eine Undofunktion für alle Schritte\nsteckdosenanschluss wird überwacht, zeigt einen wartebildschirm, wenn die instanz nicht gestartet oder neu gestartet wird\nentfernt lokal Testdatei, die nicht zum Projekt gehört",
+        "ru": "Настройки Колесо можно отключить в Live-View\nПоследний выбранный Datasource можно кэшировать, для более легкого просмотра деревьев (может быть включен/отключен в настройках)\nФункции Alignment теперь имеют функцию undo для всех шагов\nсоединение розетки контролируется, показывает экран ожидания, если экземпляр не запущен или перезапущен\nудалено локально Тестовый файл, который не принадлежит проекту",
+        "pt": "Configurações A roda pode ser desativada no Live-View\nÚltima selecção Datasource pode ser armazenado em cache, para visualização de árvores mais fácil (pode ser ativado/desativado em configurações)\nAs funções de alinhamento agora têm uma função de desfazer para todos os passos\na conexão do soquete é monitorada, mostra uma tela de espera, se a instância não for iniciada ou reiniciada\nremovido local Arquivo de teste, que não pertence ao projeto",
+        "nl": "Setting Wortel kan in Live-View\nLaatste geselecteerd De dataource kan worden gekampeerd, voor een makkelijke boomview (kan in staat gedisabled in settings)\nVertaling:\nde verbinding met de socket wordt bewaakt, toont een wachtend scherm, als instance niet is begonnen of herstart\nverwijder de plaatselijke Testbestand, wat niet van het project is",
+        "fr": "Réglages Roue peut être désactivée dans Live-View\nDernière sélection Les données peuvent être mises en cache, pour faciliter la visualisation des arbres (peut être activées/désactives dans les paramètres)\nLes fonctions d'alignement ont maintenant une fonction défaire pour toutes les étapes\nla connexion de socket est surveillée, montre un écran d'attente, si l'instance n'est pas démarrée ou redémarrée\nenlevé localement Test file, which does not belong to the project",
+        "it": "Impostazioni impostazioni La ruota può essere disabilitata in Live-View\nUltimo selezionato Datasource può essere memorizzato nella cache, per una visione albero più semplice (può essere abilitato/disattivato nelle impostazioni)\nLe funzioni di allineamento hanno ora una funzione di annullamento per tutti i passaggi\nla connessione di presa è monitorata, mostra una schermata di attesa, se l'istanza non è iniziata o riavviata\nrimosso locale Test file, che non appartiene al progetto",
+        "es": "Ajustes La rueda puede desactivarse en Live-View\nÚltimo seleccionado Datasource puede ser caché, para una visión más fácil del árbol (puede ser habilitado/desactivado en la configuración)\nLas funciones de alineación ahora tienen una función deshacer para todos los pasos\nse monitoriza la conexión de socket, muestra una pantalla de espera, si la instancia no se inicia o se reinicia\neliminado local Archivo de prueba, que no pertenece al proyecto",
+        "pl": "Setting Wheel może być niepełnosprawny w Live-View\nWybory Źródło danych może być zakodowane w celu ułatwienia przeglądu drzew (może być dozwolone lub zdyskwalifikowane w ustawieniach)\nFunkcje obliczeniowe mają obecnie funkcję dowolną dla wszystkich kroków\nobserwacje gniazda są monitorowane, pokazują ekran czekania, jeśli instancja nie zostanie uruchomiona lub uruchomiona\nusunąć plik testowy, który nie należy do projektu, nie należy do pliku testowego",
+        "uk": "Налаштування Колесо може бути відключений у Live-View\nОстанній вибраний EnglishDeutschPусский简体中文中國傳統EspañolالعربيةFrançaisελληνικάDanskАнглійскаябългарскиCatalàČeskýEestiSuomiGaeilgeहिन्दीHrvatskiMagyarIndonesiaIcelandicItalianoעברי日本の한국의LietuvosLatvijasмакедонскиMalayMaltiNederlandsNorskPolskiPortuguêsRomânescSlovenskýSlovenskiShqiptarCрпскиSvenskaไทยTürkçeYкраїнськийTiếng việtייִדישKiswahili\nФункції вирівнювання тепер мають функцію скасування для всіх кроків\nз'єднання роз'єму, показує екран очікування, якщо екземпляр не запущений або перезавантажений\nвидалення локального Тестовий файл, який не належить до проекту",
+        "zh-cn": "确定 世界工程师协会\n上次选举 数据来源可以归纳,以便较容易的树种观(在环境中能够/可以分开)\n调整职能现在对所有步骤都具有无任何作用。\n监测零件连接,显示等待筛选,如不开始或重新安装。\n当地撤军 试验档案不属于项目。"
+      },
+      "0.0.2-alpha.0": {
+        "en": "initial release",
+        "de": "erstausstrahlung",
+        "ru": "начальный выпуск",
+        "pt": "lançamento inicial",
+        "nl": "niet",
+        "fr": "initial release",
+        "it": "rilascio iniziale",
+        "es": "liberación inicial",
+        "pl": "pierwsze wydanie",
+        "uk": "початковий реліз",
+        "zh-cn": "初步释放"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版",
+        "uk": "початковий випуск"
+      }
     },
-    "native": {
-        "battery_remaining": "",
-        "configuration": "",
-        "data": ""
+    "title": "Energiefluss - erweitert",
+    "titleLang": {
+      "en": "Energiefluss - erweitert",
+      "de": "Energiefluss - erweitert",
+      "ru": "Energiefluss - erweitert",
+      "pt": "Energiefluss - erweitert",
+      "nl": "Energiefluss - erweitert",
+      "fr": "Energiefluss - erweitert",
+      "it": "Energiefluss - erweitert",
+      "es": "Energiefluss - erweitert",
+      "pl": "Energiefluss - erweitert",
+      "zh-cn": "Energiefluss-erweitert",
+      "uk": "Energiefluss - erweitert"
     },
-    "objects": [],
-    "instanceObjects": []
+    "desc": {
+      "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
+      "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
+    },
+    "authors": [
+      "SKB <info@skb-web.de>"
+    ],
+    "keywords": [
+      "energy",
+      "energy-flow",
+      "energie",
+      "energiefluss"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "energiefluss-erweitert.png",
+    "enabled": true,
+    "localLinks": {
+      "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
+    },
+    "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
+    "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "visualization",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "assumption",
+    "materialize": true,
+    "materializeTab": false,
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22",
+        "web": ">=3.0.12"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
+    ]
+  },
+  "native": {
+    "battery_remaining": "",
+    "configuration": "",
+    "data": ""
+  },
+  "objects": [],
+  "instanceObjects": []
 }
