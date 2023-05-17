@@ -351,13 +351,22 @@
                                                         id="elm_source"></select>
                                                 </div>
                                                 <div class="form_div elm_config_datasource">
-                                                    <label for="elm_source_option" class="form_label">Option</label>
+                                                    <label for="elm_source_option" class="form_label">Timestamp</label>
                                                     <select class="input_select elm_config" name="elm_source_option"
                                                         id="elm_source_option">
                                                         <option value="-1">None</option>
                                                         <option value="timestamp_us">Timestamp US</option>
                                                         <option value="timestamp_de">Timestamp DE</option>
                                                         <option value="relative">Relative to now</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form_div elm_config_datasource">
+                                                    <label for="elm_source_display" class="form_label">Display
+                                                        as</label>
+                                                    <select class="input_select elm_config" name="elm_source_display"
+                                                        id="elm_source_display">
+                                                        <option value="value">Value</option>
+                                                        <option value="text">Text</option>
                                                     </select>
                                                 </div>
                                                 <div class="form_div elm_config_datasource">
@@ -692,16 +701,16 @@
                                 <td style="width: 150px;white-space: nowrap;">
                                     <a title="Align left" class="align_elements " id="align_left"><span
                                             class=" iconify add_element_area"
-                                            data-icon="material-symbols:format-align-left-rounded" data-width="36"
-                                            data-height="36"></span></a>
+                                            data-icon="material-symbols:format-align-left-rounded" data-width="48"
+                                            data-height="48"></span></a>
                                     <a title="Align center" class="align_elements " id="align_center"><span
                                             class=" iconify add_element_area"
-                                            data-icon="material-symbols:format-align-center-rounded" data-width="36"
-                                            data-height="36"></span></a>
+                                            data-icon="material-symbols:format-align-center-rounded" data-width="48"
+                                            data-height="48"></span></a>
                                     <a title="Align right" class="align_elements " id="align_right"><span
                                             class=" iconify add_element_area"
-                                            data-icon="material-symbols:format-align-right-rounded" data-width="36"
-                                            data-height="36"></span></a>
+                                            data-icon="material-symbols:format-align-right-rounded" data-width="48"
+                                            data-height="48"></span></a>
                                 </td>
                                 <td style="width: 250px;"><span id="ex_how_align">Choose an alignment and select a
                                         reference
@@ -712,16 +721,16 @@
                                 <td>
                                     <a title=" Align Top" class="align_elements " id="align_top"><span
                                             class=" iconify add_element_area"
-                                            data-icon="material-symbols:vertical-align-top-rounded" data-width="36"
-                                            data-height="36"></span></a>
+                                            data-icon="material-symbols:vertical-align-top-rounded" data-width="48"
+                                            data-height="48"></span></a>
                                     <a title="Align vertical center" class="align_elements " id="align_vcenter"><span
                                             class=" iconify add_element_area"
-                                            data-icon="material-symbols:vertical-align-center-rounded" data-width="36"
-                                            data-height="36"></span></a>
+                                            data-icon="material-symbols:vertical-align-center-rounded" data-width="48"
+                                            data-height="48"></span></a>
                                     <a title="Align bottom" class="align_elements " id="align_bottom"><span
                                             class=" iconify add_element_area"
-                                            data-icon="material-symbols:vertical-align-bottom-rounded" data-width="36"
-                                            data-height="36"></span></a>
+                                            data-icon="material-symbols:vertical-align-bottom-rounded" data-width="48"
+                                            data-height="48"></span></a>
                                 </td>
                                 <td>
                                     <div id="all_undo_align_elements"

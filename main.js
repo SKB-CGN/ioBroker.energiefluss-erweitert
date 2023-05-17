@@ -190,6 +190,10 @@ class EnergieflussErweitert extends utils.Adapter {
 							} else {
 								outputValues.fillValues[src] = clearValue;
 							}
+							if (seObj.source_display == 'text') {
+								outputValues.values[src] = state.val;
+								rawValues.values[src] = state.val;
+							}
 						} else {
 							outputValues.values[src] = clearValue;
 							rawValues.values[src] = clearValue;
@@ -555,6 +559,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							convert: value.convert,
 							type: value.type,
 							source_option: value.source_option || -1,
+							source_display: value.source_display || 'value',
 							subtract: value.subtract || [-1]
 						};
 
@@ -573,7 +578,12 @@ class EnergieflussErweitert extends utils.Adapter {
 										option: value.source_option
 									}
 								}
-							} else {
+							} else if (value.source_display == 'text') {
+								outputValues.values[key] = stateValue.val;
+								outputValues.unit[key] = '';
+								rawValues.values[key] = stateValue.val;
+							}
+							else {
 								outputValues.values[key] = this.valueOutput(key, clearValue);
 								outputValues.unit[key] = value.unit;
 								rawValues.values[key] = clearValue;
