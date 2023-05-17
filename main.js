@@ -201,36 +201,36 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (sourceObject[id].hasOwnProperty('elmAnimations')) {
 					this.log.debug('Found corresponding animations for ID: ' + id + '! Applying!');
 					for (var anim in sourceObject[id].elmAnimations) {
-						let animation = sourceObject[id].elmAnimations[anim];
+						let animation = sourceObject[id].elmAnimations[anim].id;
 						this.log.debug('Checking for Animation: ' + animation);
 						let animationValid = true;
-						let threshold = sourceObject[id].animationThreshold[anim];
+						let threshold = sourceObject[id].elmAnimations[anim].threshold;
 						// Check, if we have a special Animation Set for this
-						if (sourceObject[id].animationType[anim] != -1 && sourceObject[id].animationType[anim] != undefined) {
-							this.log.debug("Found animation " + sourceObject[id].animationType[anim]);
+						if (sourceObject[id].elmAnimations[anim].type != -1 && sourceObject[id].elmAnimations[anim].type != undefined) {
+							this.log.debug("Found animation " + sourceObject[id].elmAnimations[anim].type);
 							// Dots
-							if (sourceObject[id].animationType[anim] == 'dots') {
+							if (sourceObject[id].elmAnimations[anim].type == 'dots') {
 								// Calculate new Amount or Dots
-								this.log.debug('Stroke for animation: ' + animation + ' is: ' + this.calculateStrokeArray(sourceObject[id].animationDots, sourceObject[id].animationPower, clearValue) +
-									' means: maxDots:  ' + sourceObject[id].animationDots + ' maxPower: ' + sourceObject[id].animationPower + ' Value: ' + clearValue);
+								this.log.debug('Stroke-Array for animation: ' + animation + ' is: ' + this.calculateStrokeArray(sourceObject[id].elmAnimations[anim].dots, sourceObject[id].elmAnimations[anim].power, Math.abs(clearValue)) +
+									' means: maxDots:  ' + sourceObject[id].elmAnimations[anim].dots + ' maxPower: ' + sourceObject[id].elmAnimations[anim].power + ' Value: ' + Math.abs(clearValue));
 								outputValues.animationProperties[animation] = {
 									type: 'dots',
-									stroke: this.calculateStrokeArray(sourceObject[id].animationDots, sourceObject[id].animationPower, clearValue)
+									stroke: this.calculateStrokeArray(sourceObject[id].elmAnimations[anim].dots, sourceObject[id].elmAnimations[anim].power, Math.abs(clearValue))
 								};
 							}
 
 							// Duration
-							if (sourceObject[id].animationType[anim] == 'duration') {
-								this.log.debug('Stroke for animation: ' + animation + ' is: ' + this.calculateDuration(sourceObject[id].animationDuration, sourceObject[id].animationPower, clearValue) +
-									' means: minDuration:  ' + sourceObject[id].animationDuration + ' maxPower: ' + sourceObject[id].animationPower + ' Value: ' + clearValue);
+							if (sourceObject[id].elmAnimations[anim].type == 'duration') {
+								this.log.debug('Duration for animation: ' + animation + ' is: ' + this.calculateDuration(sourceObject[id].elmAnimations[anim].duration, sourceObject[id].elmAnimations[anim].power, Math.abs(clearValue)) +
+									' means: minDuration:  ' + sourceObject[id].elmAnimations[anim].duration + ' maxPower: ' + sourceObject[id].elmAnimations[anim].power + ' Value: ' + Math.abs(clearValue));
 								outputValues.animationProperties[animation] = {
 									type: 'duration',
-									duration: this.calculateDuration(sourceObject[id].animationDuration, sourceObject[id].animationPower, clearValue)
+									duration: this.calculateDuration(sourceObject[id].elmAnimations[anim].duration, sourceObject[id].elmAnimations[anim].power, Math.abs(clearValue))
 								};
 							}
 
 						}
-						switch (sourceObject[id].animationProperties[anim]) {
+						switch (sourceObject[id].elmAnimations[anim].properties) {
 							case 'positive':
 								this.log.debug('Animation has a positive factor!');
 								if (clearValue > 0) {
@@ -512,13 +512,15 @@ class EnergieflussErweitert extends utils.Adapter {
 						sourceObject[globalConfig.datasources[key].source] = {
 							id: parseInt(key),
 							elmSources: [],
-							elmAnimations: [],
+							elmAnimations: {},
+							/*
 							animationProperties: [],
 							animationThreshold: [],
 							animationType: [],
 							animationPower: [],
 							animationDots: [],
 							animationDuration: []
+							*/
 						};
 						rawValues.sourceValues[key] = stateValue.val;
 						// Add to SubscribeArray
@@ -595,21 +597,15 @@ class EnergieflussErweitert extends utils.Adapter {
 					if (value.source.length !== 0) {
 						this.log.debug("Animation for Source: " + value.source + " is: " + key);
 						// Put Animation into Source
-						sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
-
-						// Put Animation Properties into Source
-						sourceObject[globalConfig.datasources[value.source].source].animationProperties.push(value.animation_properties);
-
-						// Put Animation Threshold into Source
-						sourceObject[globalConfig.datasources[value.source].source].animationThreshold.push(value.threshold);
-
-						// Put Animation Settings into Source
-						if (value.animation_type != -1) {
-							sourceObject[globalConfig.datasources[value.source].source].animationType.push(value.animation_type ? value.animation_type : '');
-							sourceObject[globalConfig.datasources[value.source].source].animationDuration.push(value.duration ? value.duration : '');
-							sourceObject[globalConfig.datasources[value.source].source].animationPower.push(value.power ? value.power : '');
-							sourceObject[globalConfig.datasources[value.source].source].animationDots.push(value.dots ? value.dots : '');
-						}
+						sourceObject[globalConfig.datasources[value.source].source].elmAnimations[key] = {
+							id: key,
+							properties: value.animation_properties,
+							threshold: value.threshold,
+							type: value.animation_type,
+							duration: value.duration,
+							power: value.power,
+							dots: value.dots
+						};
 					} else {
 						this.log.debug("Animation for Source: " + value.source + " not found!");
 					}

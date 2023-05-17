@@ -89,9 +89,11 @@ a:focus {
 }
 
 /* SVG Surface */
-#svg_config {
+#svg_config,
+#svg_config:focus {
     border: 1px solid black;
     margin-right: 5px;
+    outline: none;
 }
 
 #svg_display {
@@ -538,6 +540,10 @@ legend>span {
     border-color: transparent;
 }
 
+.input_select optgroup {
+    font-style: normal;
+}
+
 .input_text:focus~.form_label,
 .input_number:focus~.form_label,
 .input_text:not(:placeholder-shown)~.form_label,
@@ -655,26 +661,6 @@ select {
     color: lightcoral;
 }
 
-/*
-.input_select {
-    width: 160px;
-    height: 32px;
-    border-radius: 5px;
-    transition: border 0.2s linear;
-}
-
-input:focus,
-input:hover,
-select:focus,
-select:hover {
-    box-shadow: 0px 0px 5px var(--black);
-    -webkit-box-shadow: 0px 0px 5px var(--black);
-    -webkit-padding: 3px;
-    border-color: transparent;
-    border-style: inset;
-    outline: 0;
-}
-*/
 .elm_shadow {
     -webkit-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.7));
     filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.7));
@@ -739,10 +725,16 @@ select:hover {
     padding: 0 10px;
 }
 
+.label {
+    cursor: pointer;
+}
+
 .element_config_table th:first-child,
 .element_config_table td:first-child {
     width: 120px;
 }
+
+
 
 .data-table {
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);

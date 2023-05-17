@@ -39,7 +39,7 @@
 
     <script src="js/jscolor.min.js"></script>
     <script src="js/multiselect.min.js"></script>
-    <script src="js/functions.min.js?v=20230516"></script>
+    <script src="js/functions.min.js"></script>
 </head>
 
 <body>
@@ -101,6 +101,20 @@
                         </nav>
                         <figure>
                             <div class="tab1_config">
+                                <div class="detail_box">
+                                    <span class="config_sec">Element</span>
+                                    <table class="element_config_table">
+                                        <tr>
+                                            <td>
+                                                <div class="form_div">
+                                                    <label for="elm_select" class="form_label">ID</label>
+                                                    <select class="input_select" name="elm_select"
+                                                        id="elm_select"></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                                 <div class="detail_box elm_config_circle elm_config_rect elm_config_svg">
                                     <span class="config_sec">Size</span>
                                     <table class="element_config_table">
@@ -109,8 +123,7 @@
                                                 <div class="form_div">
                                                     <input type="number" class="input_number elm_config" min="1"
                                                         value="" name="elm_width" id="elm_width" placeholder=""
-                                                        autocorrect="off" autocomplete="off" autocorrect="off"
-                                                        autocomplete="off">
+                                                        autocorrect="off" autocomplete="off">
                                                     <label for="elm_width" class="form_label">Width</label>
                                                 </div>
                                                 <div class="form_div">

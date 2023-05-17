@@ -29,6 +29,10 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Animations not running after adding each of them
+- ADDED: Elements can be choosen inside side-panel (useful, if element is not clickable anymore)
+
 ### 0.0.2-alpha.2 (2023-05-15)
 - FIX: Source missing after saving - fill of element not possible (fix #11)
 - FIX: Offset was not working
