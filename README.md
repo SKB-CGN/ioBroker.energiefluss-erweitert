@@ -29,6 +29,10 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Line could not be restored in some circumstances
+- FIX: Line was not editable anymore after modifying start and end
+
 ### 0.0.2-alpha.5 (2023-05-24)
 - Added: Calculation of battery runtime (charge & discharge) can be calculated and implemented via source
 - Added: Basic settings extended to colors of elements
