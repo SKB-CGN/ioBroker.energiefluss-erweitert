@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energiefluss-erweitert",
-    "version": "0.0.2-alpha.5",
+    "version": "0.0.2-alpha.6",
     "news": {
+      "0.0.2-alpha.6": {
+        "en": "FIX: Line could not be restored in some circumstances\nFIX: Line was not editable anymore after modifying start and end",
+        "de": "FIX: Linie konnte unter Umständen nicht wiederhergestellt werden\nFIX: Line war nach Änderung von Start und Ende nicht mehr editierbar",
+        "ru": "FIX: Линия не может быть восстановлена в некоторых обстоятельствах\nFIX: Line больше не редактировался после изменения старта и конца",
+        "pt": "FIX: Linha não poderia ser restaurada em algumas circunstâncias\nFIX: Linha não foi editável mais depois de modificar o início e o fim",
+        "nl": "De lijn kan niet worden hersteld in sommige omstandigheden\nDe lijn was niet meer eetbaar na het aanpassen van start",
+        "fr": "FIX: La ligne ne peut être restaurée dans certaines circonstances\nFIX: La ligne n'était plus modifiable après avoir modifié le démarrage et la fin",
+        "it": "FIX: La linea non poteva essere ripristinata in alcune circostanze\nFIX: La linea non era più modificabile dopo aver modificato l'inizio e la fine",
+        "es": "FIX: La línea no puede ser restaurada en algunas circunstancias\nFIX: La línea ya no era editable después de modificar el inicio y el final",
+        "pl": "FIX – linia nie została przywrócona w okolicznościach\nFIX: linia nie była już edytowana po zmianie początku i końca",
+        "uk": "FIX: Лінія не може бути відновлена в деяких випадках\nFIX: Лінія не була відредагована більше після зміни запуску та закінчення",
+        "zh-cn": "FIX:在某些情况下不能恢复线\n九.FIX:在修改开始和结束之后,线不高"
+      },
       "0.0.2-alpha.5": {
         "en": "Added: Calculation of battery runtime (charge & discharge) can be calculated and implemented via source\nAdded: Basic settings extended to colors of elements\nAdded: alignment of text is possible (right, middle, left)\nAdded: last change timestamp extended to more formats\nAdded: Line can be modified (new start and/or end position). Useful, if many settings applied and line needs to be moved",
         "de": "Hinzugefügt: Berechnung der Akkulaufzeit (Lade & Entladung) kann über die Quelle berechnet und implementiert werden\nHinzugefügt: Grundeinstellungen erweitert auf die Farben der Elemente\nHinzugefügt: Textausrichtung ist möglich (rechts, Mitte, links)\nHinzugefügt: Letzte Änderung Zeitstempel erweitert auf mehr Formate\nHinzugefügt: Linie kann geändert werden (neue Start- und/oder Endposition). Nützlich, wenn viele Einstellungen angewendet und Zeile verschoben werden muss",
