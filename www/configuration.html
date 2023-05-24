@@ -39,7 +39,7 @@
 
     <script src="js/jscolor.min.js"></script>
     <script src="js/multiselect.min.js"></script>
-    <script src="js/functions.min.js"></script>
+    <script src="js/functions.min.js?20230524"></script>
 </head>
 
 <body>
@@ -74,11 +74,13 @@
                     data-height="24"></span>Datasources</label>
             <label for="tab3"><span class="iconify menu" data-icon="material-symbols:animation" data-width="24"
                     data-height="24"></span>Animation</label>
-            <label for="tab4"><span class="iconify menu" data-icon="material-symbols:css-rounded" data-width="24"
+            <label for="tab4"><span class="iconify menu" data-icon="material-symbols:calculate-outline-rounded"
+                    data-width="24" data-height="24"></span>Calculation</label>
+            <label for="tab5"><span class="iconify menu" data-icon="material-symbols:css-rounded" data-width="24"
                     data-height="24"></span>Styles</label>
-            <label for="tab5"><span class="iconify menu" data-icon="mdi:cog" data-width="24"
+            <label for="tab6"><span class="iconify menu" data-icon="mdi:cog" data-width="24"
                     data-height="24"></span>Settings</label>
-            <label for="tab6"><span class="iconify menu" data-icon="material-symbols:save" data-width="24"
+            <label for="tab7"><span class="iconify menu" data-icon="material-symbols:save" data-width="24"
                     data-height="24"></span>Save</label>
         </nav>
         <figure>
@@ -198,16 +200,33 @@
                                     </table>
                                 </div>
                                 <div class="detail_box elm_config_text">
-                                    <span class="config_sec">Rotation</span>
+                                    <span class="config_sec">Alignment</span>
                                     <table class="element_config_table">
                                         <tr>
-                                            <td class="bold">Rotation:</td>
+                                            <td>
+                                                <div class="form_div">
+                                                    <label for="elm_align" class="form_label">Alignment</label>
+                                                    <select class="input_select elm_config" id="elm_align"
+                                                        name="elm_align">
+                                                        <option value="end">Left</option>
+                                                        <option value="middle">Middle</option>
+                                                        <option value="start">Right</option>
+                                                    </select>
+                                                </div>
+                                                This will change, if you rotate the element
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="form_label">Rotation</label></td>
+                                        </tr>
+                                        <tr>
                                             <td style="padding:5px;">
-                                                <a id="rotate_cw" class="degree" title="Rotate clockwise"><span
-                                                        class="iconify add_element_area "
+                                                <a id="rotate_cw" class="degree tt-element"
+                                                    title="Rotate clockwise"><span class="iconify add_element_area "
                                                         data-icon="material-symbols:rotate-90-degrees-cw-outline-rounded"
                                                         data-height="24" data-width="24"></span></a>
-                                                <a id="rotate_ccw" class="degree" title="Rotate counter-clockwise"><span
+                                                <a id="rotate_ccw" class="degree tt-element"
+                                                    title="Rotate counter-clockwise"><span
                                                         class="iconify add_element_area "
                                                         data-icon="material-symbols:rotate-90-degrees-ccw-outline-rounded"
                                                         data-height="24" data-width="24"></span></a>
@@ -350,17 +369,33 @@
                                                     <select class="input_select elm_config" name="elm_source"
                                                         id="elm_source"></select>
                                                 </div>
-                                                <div class="form_div elm_config_datasource">
+                                            </td>
+                                        </tr>
+                                        <tr class="elm_config_datasource">
+                                            <td>
+                                                <div class="form_div">
                                                     <label for="elm_source_option" class="form_label">Timestamp</label>
                                                     <select class="input_select elm_config" name="elm_source_option"
                                                         id="elm_source_option">
                                                         <option value="-1">None</option>
                                                         <option value="timestamp_us">Timestamp US</option>
+                                                        <option value="timestamp_us_short">Timestamp US short</option>
+                                                        <option value="timestamp_us_short_wo_year">Timestamp US short
+                                                            (without
+                                                            year)</option>
                                                         <option value="timestamp_de">Timestamp DE</option>
+                                                        <option value="timestamp_de_short">Timestamp DE short</option>
+                                                        <option value="timestamp_de_short_wo_year">Timestamp DE short
+                                                            (without
+                                                            year)</option>
                                                         <option value="relative">Relative to now</option>
                                                     </select>
                                                 </div>
-                                                <div class="form_div elm_config_datasource">
+                                            </td>
+                                        </tr>
+                                        <tr class="elm_config_datasource">
+                                            <td>
+                                                <div class="form_div">
                                                     <label for="elm_source_display" class="form_label">Display
                                                         as</label>
                                                     <select class="input_select elm_config" name="elm_source_display"
@@ -369,7 +404,11 @@
                                                         <option value="text">Text</option>
                                                     </select>
                                                 </div>
-                                                <div class="form_div elm_config_datasource">
+                                            </td>
+                                        </tr>
+                                        <tr class="elm_config_datasource">
+                                            <td>
+                                                <div class="form_div">
                                                     <input type="text" class="input_text elm_config" name="elm_unit"
                                                         id="elm_unit" placeholder="" autocorrect="off"
                                                         autocomplete="off">
@@ -405,6 +444,22 @@
                                                     </select>
                                                 </div>
                                             </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="detail_box elm_config_use">
+                                    <span class="config_sec">Connection connection</span>
+                                    <table class="element_config_table">
+                                        <tr>
+                                            <td>
+                                                <input type="button" value="Reconnect" id="reconnect_elements"
+                                                    class="input_button connect_elements">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><span style="text-align: justify;" id="ex_how_reconnect">Click the
+                                                    button
+                                                    to reconnect the line</span></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -665,14 +720,14 @@
                         <table class="config_table">
                             <tr>
                                 <td>
-                                    <a title="Add Circle" class="add_element " id="add_circle"><span
+                                    <a title="Add Circle" class="add_element tt-element " id="add_circle"><span
                                             class="iconify add_element_area" data-icon="material-symbols:circle-outline"
                                             data-width="48" data-height="48"></span></a>
-                                    <a title="Add Rectangle" class="add_element " id="add_rect"><span
+                                    <a title="Add Rectangle" class="add_element tt-element " id="add_rect"><span
                                             class="iconify add_element_area"
                                             data-icon="material-symbols:rectangle-outline" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Add Text" class="add_element " id="add_text"><span
+                                    <a title="Add Text" class="add_element tt-element " id="add_text"><span
                                             class="iconify add_element_area"
                                             data-icon="material-symbols:text-format-rounded" data-width="48"
                                             data-height="48"></span></a>
@@ -680,11 +735,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><a title="Add Text with Datasource" class="add_element " id="add_datasource"><span
-                                            class="iconify add_element_area"
+                                <td><a title="Add Text with Datasource" class="add_element tt-element "
+                                        id="add_datasource"><span class="iconify add_element_area"
                                             data-icon="material-symbols:data-check-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Add Icon" class="add_element " id="add_icon"><span
+                                    <a title="Add Icon" class="add_element tt-element " id="add_icon"><span
                                             class="iconify add_element_area" data-icon="mdi:file-image" data-width="48"
                                             data-height="48"></span></a>
                                 </td>
@@ -699,15 +754,15 @@
                         <table class="config_table">
                             <tr style="height: 40px;">
                                 <td style="width: 150px;white-space: nowrap;">
-                                    <a title="Align left" class="align_elements " id="align_left"><span
+                                    <a title="Align left" class="align_elements  tt-element" id="align_left"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:format-align-left-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Align center" class="align_elements " id="align_center"><span
+                                    <a title="Align center" class="align_elements  tt-element" id="align_center"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:format-align-center-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Align right" class="align_elements " id="align_right"><span
+                                    <a title="Align right" class="align_elements  tt-element" id="align_right"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:format-align-right-rounded" data-width="48"
                                             data-height="48"></span></a>
@@ -719,15 +774,15 @@
                             </tr>
                             <tr style="height: 40px;">
                                 <td>
-                                    <a title=" Align Top" class="align_elements " id="align_top"><span
+                                    <a title=" Align Top" class="align_elements  tt-element" id="align_top"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-top-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Align vertical center" class="align_elements " id="align_vcenter"><span
-                                            class=" iconify add_element_area"
+                                    <a title="Align vertical center" class="align_elements  tt-element"
+                                        id="align_vcenter"><span class=" iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-center-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Align bottom" class="align_elements " id="align_bottom"><span
+                                    <a title="Align bottom" class="align_elements  tt-element" id="align_bottom"><span
                                             class=" iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-bottom-rounded" data-width="48"
                                             data-height="48"></span></a>
@@ -753,6 +808,7 @@
                             </tr>
                         </table>
                     </fieldset>
+                    <!--
                     <fieldset>
                         <legend><span class="iconify legend" data-icon="fluent-mdl2:select-all" data-width="24"
                                 data-height="24"></span>
@@ -765,6 +821,7 @@
                             </tr>
                         </table>
                     </fieldset>
+                    -->
                     <fieldset>
                         <legend><span class="iconify legend" data-icon="carbon:connect-recursive" data-width="24"
                                 data-height="24"></span>
@@ -772,7 +829,8 @@
                         </legend>
                         <table class="config_table">
                             <tr>
-                                <td><input type="button" value="Connect" id="connect_elements" class="input_button">
+                                <td><input type="button" value="Connect" id="connect_elements"
+                                        class="connect_elements input_button">
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
@@ -1035,6 +1093,98 @@
             </div>
             <div class="tab4">
                 <div class="container scrollbar">
+                    <fieldset style="width: 300px;">
+                        <legend><span class="iconify legend" data-icon="game-icons:battery-100" data-width="24"
+                                data-height="24"></span>
+                            <span>Remaining battery runtime</span>
+                        </legend>
+                        <div class="form_div">
+                            <input type="number" class="input_number" min="1" value="" name="calc_battery_capacity"
+                                id="calc_battery_capacity" placeholder="" autocorrect="off" autocomplete="off">
+                            <label for="calc_battery_capacity" class="form_label">Battery capacity *</label>
+                        </div>
+                        <div class="form_div">
+                            <input type="number" class="input_number" min="1" value="" name="calc_battery_dod"
+                                id="calc_battery_dod" placeholder="" autocorrect="off" autocomplete="off">
+                            <label for="calc_battery_dod" class="form_label">Deep of discharge
+                                (DoD)</label>
+                        </div>
+                        <div class="form_div">
+                            <label for="calc_battery_percent" class="form_label">Battery percent *</label>
+                            <select class="input_select" name="calc_battery_percent" id="calc_battery_percent"></select>
+                        </div>
+                        <div class="form_div">
+                            <label for="calc_battery_charge" class="form_label">Battery charge *</label>
+                            <select class="input_select" name="calc_battery_charge" id="calc_battery_charge"></select>
+
+                        </div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="calc_battery_charge_kw" class="onoffswitch-checkbox"
+                                id="calc_battery_charge_kw" value="true">
+                            <label class="onoffswitch-label" for="calc_battery_charge_kw">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div><label class="label" for="calc_battery_charge_kw" style="vertical-align: super;">
+                            Source is kW</label>
+                        <br>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="calc_battery_charge_prop" class="onoffswitch-checkbox"
+                                id="calc_battery_charge_prop" value="yes">
+                            <label class="onoffswitch-label" for="calc_battery_charge_prop">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div><label class="label" for="calc_battery_charge_prop" style="vertical-align: super;">
+                            Source is negative</label>
+                        <div class="form_div">
+                            <label for="calc_battery_discharge" class="form_label">Battery discharge *</label>
+                            <select class="input_select" name="calc_battery_discharge"
+                                id="calc_battery_discharge"></select>
+                        </div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="calc_battery_discharge_kw" class="onoffswitch-checkbox"
+                                id="calc_battery_discharge_kw" value="yes">
+                            <label class="onoffswitch-label" for="calc_battery_discharge_kw">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div><label class="label" for="calc_battery_discharge_kw" style="vertical-align: super;">
+                            Source is kW</label>
+                        <br>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="calc_battery_discharge_prop" class="onoffswitch-checkbox"
+                                id="calc_battery_discharge_prop" value="yes">
+                            <label class="onoffswitch-label" for="calc_battery_discharge_prop">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div><label class="label" for="calc_battery_discharge_prop" style="vertical-align: super;">
+                            Source is negative</label>
+                        <br><span>For the calculation to work, the marked fields with a star are necessary</span>
+                    </fieldset>
+                    <!--
+                    <fieldset style="width: 300px;height:max-content ;">
+                        <legend><span class="iconify legend" data-icon="mdi:power" data-width="24"
+                                data-height="24"></span>
+                            <span>Consumption</span>
+                        </legend>
+                        <div class="form_div">
+                            <label for="calc_consumption_production" class="form_label">Production Values</label>
+                            <select class="input_select" name="calc_consumption_production"
+                                id="calc_consumption_production" multiple></select>
+                        </div>
+                        <div class="form_div">
+                            <label for="calc_consumption_grid" class="form_label">Grid-Feed-in Values</label>
+                            <select class="input_select" name="calc_consumption_grid" id="calc_consumption_grid"
+                                multiple></select>
+                        </div>
+                    </fieldset>
+                -->
+                </div>
+            </div>
+            <div class="tab5">
+                <div class="container scrollbar">
                     <fieldset>
                         <legend><span class="iconify legend" data-icon="material-symbols:css-rounded" data-width="24"
                                 data-height="24"></span>
@@ -1049,7 +1199,7 @@
                     </fieldset>
                 </div>
             </div>
-            <div class="tab5">
+            <div class="tab6">
                 <div class="container scrollbar">
                     <fieldset style="max-width: 300px;">
                         <legend><span class="iconify legend" data-icon="mdi:cog" data-width="24"
@@ -1092,13 +1242,13 @@
                             </tr>
                         </table>
                     </fieldset>
-                    <fieldset style="width: 500px;">
+                    <fieldset style="width: 750px;">
                         <legend><span class="iconify legend" data-icon="material-symbols:format-list-bulleted"
                                 data-width="24" data-height="24"></span>
                             <span>Basic Settings</span>
                         </legend>
-                        <div style="display: flex; flex-direction: row; max-width: 600px;flex-wrap: wrap;">
-                            <div class="detail_box">
+                        <div style="display: flex; flex-direction: row; max-width: 100%;flex-wrap: wrap;">
+                            <div class="detail_box no_flex">
                                 <span class="config_sec">Text</span>
                                 <table class="config_table">
                                     <tr>
@@ -1121,9 +1271,42 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="text" class="input_text color" name="basic_font_color"
+                                                    id="basic_font_color" placeholder="" autocorrect="off"
+                                                    autocomplete="off" data-jscolor="{}">
+                                                <label for="basic_font_color" class="form_label">Outline-Color</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="text" class="input_text color" name="basic_font_fill"
+                                                    id="basic_font_fill" placeholder="" autocorrect="off"
+                                                    autocomplete="off" data-jscolor="{}">
+                                                <label for="basic_font_fill" class="form_label">Fill-Color</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <label for="basic_font_align" class="form_label">Alignment</label>
+                                                <select class="input_select" id="basic_font_align"
+                                                    name="basic_font_align">
+                                                    <option value="end">Left</option>
+                                                    <option value="middle">Middle</option>
+                                                    <option value="start">Right</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
-                            <div class="detail_box">
+                            <div class="detail_box no_flex">
                                 <span class="config_sec">Rectangle</span>
                                 <table class="config_table">
                                     <tr>
@@ -1159,7 +1342,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="detail_box">
+                            <div class="detail_box no_flex">
                                 <span class="config_sec">Circle</span>
                                 <table class="config_table">
                                     <tr>
@@ -1174,7 +1357,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="detail_box">
+                            <div class="detail_box no_flex">
                                 <span class="config_sec">Rectangle / Circle</span>
                                 <table class="config_table">
                                     <tr>
@@ -1187,9 +1370,30 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="text" class="input_text color" name="basic_elm_color"
+                                                    id="basic_elm_color" placeholder="" autocorrect="off"
+                                                    autocomplete="off" data-jscolor="{}">
+                                                <label for="basic_elm_color" class="form_label">Outline-Color</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="text" class="input_text color" name="basic_elm_fill"
+                                                    id="basic_elm_fill" placeholder="" autocorrect="off"
+                                                    autocomplete="off" data-jscolor="{}">
+                                                <label for="basic_elm_fill" class="form_label">Fill-Color</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+
                                 </table>
                             </div>
-                            <div class="detail_box">
+                            <div class="detail_box no_flex">
                                 <span class="config_sec">Icons</span>
                                 <table class="config_table">
                                     <tr>
@@ -1212,15 +1416,28 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div">
+                                                <input type="text" class="input_text color" name="basic_icon_color"
+                                                    id="basic_icon_color" placeholder="" autocorrect="off"
+                                                    autocomplete="off" data-jscolor="{}">
+                                                <label for="basic_icon_color" class="form_label">Outline-Color</label>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </table>
+                            </div>
+                            <div>
+                                <b><u>Please note</u></b>: For the changes to take effect, you need so save them!
                             </div>
                         </div>
                     </fieldset>
                 </div>
             </div>
-            <div class="tab6">
+            <div class="tab7">
                 <div class="container scrollbar">
-                    <fieldset>
+                    <fieldset style="width: 300px;">
                         <legend><span class="iconify legend" data-icon="material-symbols:save" data-width="24"
                                 data-height="24"></span>
                             <span>Save</span>
@@ -1237,6 +1454,12 @@
                                         id="save_workspace_exit">
                                 </td>
                                 <td>Save your Workspace &<br> Exit to LiveView</td>
+                            </tr>
+                            <tr>
+                                <td class="bold"><input type="button" class="input_button" value="Exit"
+                                        id="workspace_exit">
+                                </td>
+                                <td>Exit to LiveView</td>
                             </tr>
                         </table>
                     </fieldset>

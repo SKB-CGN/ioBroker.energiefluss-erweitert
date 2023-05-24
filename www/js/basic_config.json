@@ -10,7 +10,7 @@
         "enable_last_id": false,
         "font": {
             "family": "\"Arial\", sans-serif",
-            "size": 20
+            "size": 20,
         },
         "rect": {
             "height": 100,
@@ -21,7 +21,7 @@
             "radius": 50
         },
         "elm": {
-            "stroke_width": 5
+            "stroke_width": 5,
         },
         "icon": {
             "width": 24,

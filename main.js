@@ -78,6 +78,18 @@ class EnergieflussErweitert extends utils.Adapter {
 			native: {},
 		});
 
+		await this.setObjectNotExistsAsync('battery_remaining', {
+			type: 'state',
+			common: {
+				name: 'Remaining Time of the battery',
+				type: 'string',
+				role: 'text',
+				read: true,
+				write: false,
+			},
+			native: {},
+		});
+
 		this.log.info("Adapter started and loading config!");
 
 		this.getConfig();
@@ -194,9 +206,56 @@ class EnergieflussErweitert extends utils.Adapter {
 								outputValues.values[src] = state.val;
 								rawValues.values[src] = state.val;
 							}
+
 						} else {
 							outputValues.values[src] = clearValue;
 							rawValues.values[src] = clearValue;
+						}
+					}
+				}
+
+				// Check, if that Source belongs to battery-charge or discharge, to determine the time
+				if (globalConfig.hasOwnProperty('calculation')) {
+					if (sourceObject[id].id == globalConfig.calculation.battery.charge || sourceObject[id].id == globalConfig.calculation.battery.discharge) {
+						if (globalConfig.calculation.battery.charge && globalConfig.calculation.battery.discharge && globalConfig.calculation.battery.percent) {
+							let direction = 'none';
+							let energy = 0;
+							let dod = globalConfig.calculation.battery.dod ? globalConfig.calculation.battery.dod : 0;
+
+							if (globalConfig.calculation.battery.charge != globalConfig.calculation.battery.discharge) {
+								if (sourceObject[id].id == globalConfig.calculation.battery.charge) {
+									direction = 'charge';
+									energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+								}
+								if (sourceObject[id].id == globalConfig.calculation.battery.discharge) {
+									direction = 'discharge';
+									energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+								}
+							}
+
+							if (globalConfig.calculation.battery.charge == globalConfig.calculation.battery.discharge) {
+								if (clearValue > 0) {
+									if (!globalConfig.calculation.battery.charge_prop) {
+										direction = 'charge';
+										energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+									}
+									if (!globalConfig.calculation.battery.discharge_prop) {
+										direction = 'discharge';
+										energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+									}
+								}
+								if (clearValue < 0) {
+									if (globalConfig.calculation.battery.charge_prop) {
+										direction = 'charge';
+										energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+									}
+									if (globalConfig.calculation.battery.discharge_prop) {
+										direction = 'discharge';
+										energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+									}
+								}
+							}
+							this.calculateBatteryRemaining(direction, energy, globalConfig.calculation.battery.capacity, dod);
 						}
 					}
 				}
@@ -232,7 +291,6 @@ class EnergieflussErweitert extends utils.Adapter {
 									duration: this.calculateDuration(sourceObject[id].elmAnimations[anim].duration, sourceObject[id].elmAnimations[anim].power, Math.abs(clearValue))
 								};
 							}
-
 						}
 						switch (sourceObject[id].elmAnimations[anim].properties) {
 							case 'positive':
@@ -293,6 +351,56 @@ class EnergieflussErweitert extends utils.Adapter {
 	// 		}
 	// 	}
 	// }
+	/**
+	 *  @param {number}	minutes
+	 */
+	getMinHours(minutes) {
+		let mins = minutes;
+		let m = mins % 60;
+		let h = (mins - m) / 60;
+		let HHMM = (h < 10 ? "0" : "") + h.toString() + ":" + (m < 10 ? "0" : "") + m.toString();
+		return HHMM;
+	}
+
+	/**
+	 *  @param {string}	direction
+	 *  @param {number}	energy
+	 *  @param {number} battery_capacity
+	 *  @param {number} battery_dod
+	 */
+	async calculateBatteryRemaining(direction, energy, battery_capacity, battery_dod) {
+		const battPercent = await this.getForeignStateAsync(globalConfig.datasources[globalConfig.calculation.battery.percent].source);
+		let percent = battPercent.val;
+		let rest = 0;
+		let mins = 0;
+		let result = '';
+		let string = '';
+		if (percent > 0 && energy > 0) {
+			if (direction == "charge") {
+				// Get the Rest to Full Charge
+				rest = battery_capacity - ((battery_capacity * percent) / 100);
+			}
+
+			if (direction == "discharge") {
+				// Get the Rest to Full Discharge
+				rest = (battery_capacity * (percent - battery_dod)) / 100;
+			}
+
+			mins = Math.round((rest / energy) * 60);
+			if (mins > 0) {
+				result = this.getMinHours(mins);
+			} else {
+				result = "--:--";
+			}
+			string += result + "h";
+		} else {
+			string += "--:--h";
+		}
+		this.log.debug("Direction: " + direction + " Battery-Time: " + string + " Percent: " + percent + " Energy: " + energy);
+
+		await this.setStateAsync("battery_remaining", string, true);
+	}
+
 	/**
 		 * @param {number} src
 		 * @param {number} value
@@ -371,6 +479,23 @@ class EnergieflussErweitert extends utils.Adapter {
 					second: "2-digit",
 					hour12: false
 				});
+			case 'timestamp_de_short':
+				return date.toLocaleString('de-DE', {
+					hour: "2-digit",
+					minute: "2-digit",
+					day: "2-digit",
+					month: "2-digit",
+					year: "2-digit",
+					hour12: false
+				});
+			case 'timestamp_de_short_wo_year':
+				return date.toLocaleString('de-DE', {
+					hour: "2-digit",
+					minute: "2-digit",
+					day: "2-digit",
+					month: "2-digit",
+					hour12: false
+				});
 			case 'timestamp_us':
 				return date.toLocaleString('en-US', {
 					hour: "numeric",
@@ -379,6 +504,23 @@ class EnergieflussErweitert extends utils.Adapter {
 					month: "2-digit",
 					year: "numeric",
 					second: "2-digit",
+					hour12: true
+				});
+			case 'timestamp_us_short':
+				return date.toLocaleString('en-US', {
+					hour: "2-digit",
+					minute: "2-digit",
+					day: "2-digit",
+					month: "2-digit",
+					year: "2-digit",
+					hour12: true
+				});
+			case 'timestamp_us_short_wo_year':
+				return date.toLocaleString('en-US', {
+					hour: "2-digit",
+					minute: "2-digit",
+					day: "2-digit",
+					month: "2-digit",
 					hour12: true
 				});
 			case 'relative':
@@ -517,14 +659,6 @@ class EnergieflussErweitert extends utils.Adapter {
 							id: parseInt(key),
 							elmSources: [],
 							elmAnimations: {},
-							/*
-							animationProperties: [],
-							animationThreshold: [],
-							animationType: [],
-							animationPower: [],
-							animationDots: [],
-							animationDuration: []
-							*/
 						};
 						rawValues.sourceValues[key] = stateValue.val;
 						// Add to SubscribeArray
@@ -631,7 +765,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		this.log.debug('RAW-Source-Values: ' + JSON.stringify(rawValues.sourceValues));
 		// Starting Timier
 		if (Object.keys(relativeTimeCheck).length > 0) {
-			this.log.info('Found relative Date Texts (' + relativeTimeCheck.length + ') to display. Activating timer!');
+			this.log.info('Found relative Date Texts (' + Object.keys(relativeTimeCheck).length + ') to display. Activating timer!');
 			this.log.debug('Array for relative texts ' + relativeTimeCheck);
 			globalInterval = this.setInterval(() => {
 				this.getRelativeTimeObjects(relativeTimeCheck);

@@ -29,6 +29,13 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Calculation of battery runtime (charge & discharge) can be calculated and implemented via source
+- Added: Basic settings extended to colors of elements
+- Added: alignment of text is possible (right, middle, left)
+- Added: last change timestamp extended to more formats
+- Added: Line can be modified (new start and/or end position). Useful, if many settings applied and line needs to be moved 
+
 ### 0.0.2-alpha.4 (2023-05-17)
 - Added: String Datasource can now be displayed
 

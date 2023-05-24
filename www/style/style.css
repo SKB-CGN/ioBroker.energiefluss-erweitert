@@ -153,26 +153,9 @@ a:focus {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    /*
-    background-image:
 
-        /* Shadows */
-    /*
-        linear-gradient(to right, white, white),
-        linear-gradient(to right, white, white),
-
-        /* Shadow covers */
-    /*
-        linear-gradient(to right, rgba(0, 0, 0, .25), rgba(255, 255, 255, 0)),
-        linear-gradient(to left, rgba(0, 0, 0, .25), rgba(255, 255, 255, 0));
-
-    background-position: left center, right center, left center, right center;
-    background-repeat: no-repeat;
-    background-size: 10px 100%, 10px 100%, 10px 100%, 10px 100%;
-
-    /* Opera doesn't support this in the shorthand */
-    /*background-attachment: local, local, scroll, scroll; */
     background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
         linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
         radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.4),
@@ -182,7 +165,6 @@ a:focus {
     background-position-x: 0%, 0px, 0%, 0px;
     background-position-y: 0%, 100%, 0%, 100%;
     background-repeat: repeat, repeat, repeat, repeat;
-    background-attachment: scroll, scroll, scroll, scroll;
     background-size: auto, auto, auto, auto;
     background-attachment: local, local, scroll, scroll;
     background-position: 0 0, 100%, 0 0, 100%;
@@ -387,15 +369,6 @@ legend>span {
     bottom: 0;
     left: 0;
 }
-
-/*
-#config_link a:hover,
-#config_link a>svg.iconify:focus-visible {
-    text-decoration: none;
-    border: none;
-    outline: none;
-}
-*/
 
 /* The slider itself */
 .slider {
@@ -626,33 +599,6 @@ select[disabled] {
     cursor: not-allowed;
 }
 
-/*
-input,
-select {
-    padding: 4px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: 2px solid #eee;
-    cursor: pointer;
-    transition: border 0.2s linear;
-    background-color: var(--white);
-    border-width: 2px;
-}
-
-.input_text,
-.input_number {
-    width: auto;
-    height: 18px;
-    border-radius: 5px;
-    transition: border 0.2s linear;
-}
-
-.input_number {
-    width: 60px;
-}
-
-
-*/
 .red {
     background-color: lightcoral;
 }
@@ -686,6 +632,10 @@ select {
     box-shadow: 0 12px 18px rgba(0, 0, 0, .200);
     transition: All .2s linear;
     -webkit-transition: All .2s linear;
+}
+
+.no_flex {
+    flex: none;
 }
 
 .detail_h2 {
@@ -949,7 +899,6 @@ img {
 
 text {
     text-rendering: geometricPrecision;
-    text-anchor: middle;
     dominant-baseline: central;
     user-select: none;
 }
