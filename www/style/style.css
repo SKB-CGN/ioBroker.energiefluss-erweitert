@@ -261,12 +261,38 @@ legend>span {
     pointer-events: none;
 }
 
+/*
 .draggable-multi,
 .draggable-multi-group,
+*/
 .dragging {
     pointer-events: visible;
-    opacity: 0.5;
+    opacity: 0.6 !important;
     cursor: move;
+}
+
+.draggable-multi,
+.draggable-multi-group {
+    pointer-events: visible;
+    cursor: move;
+    animation-name: animation_blink;
+    animation-timing-function: ease-in;
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animation_blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .noscroll {

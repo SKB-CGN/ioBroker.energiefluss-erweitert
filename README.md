@@ -29,6 +29,11 @@ Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. D
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Some Icons were not moveable
+- FIX: Initial configuration was broken
+- Added: Existing Line can be modified as well
+
 ### 0.0.2-alpha.6 (2023-05-24)
 - FIX: Line could not be restored in some circumstances
 - FIX: Line was not editable anymore after modifying start and end
