@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energiefluss-erweitert",
-    "version": "0.0.2-alpha.6",
+    "version": "0.0.2-alpha.7",
     "news": {
+      "0.0.2-alpha.7": {
+        "en": "FIX: Some Icons were not moveable\nFIX: Initial configuration was broken\nAdded: Existing Line can be modified as well",
+        "de": "FIX: Einige Icons waren nicht beweglich\nFIX: Erste Konfiguration wurde gebrochen\nHinzugefügt: Existing Line kann auch modifiziert werden",
+        "ru": "FIX: Некоторые иконы не были перемещены\nFIX: Первоначальная конфигурация была сломана\nДобавлен: Существующая линия может быть изменена также",
+        "pt": "FIX: Alguns ícones não foram móveis\nFIX: A configuração inicial foi quebrada\nAdicionado: Linha existente pode ser modificado bem",
+        "nl": "Sommige Icons waren niet bewoonbaar\nInitiële vertrouwen was gebroken\nToegevoegd:",
+        "fr": "FIX: Certains Icons n'étaient pas mobiles\nFIX: La configuration initiale a été cassée\nAjouté: La ligne existante peut être modifiée aussi",
+        "it": "FIX: Alcune icone non erano mobili\nFIX: La configurazione iniziale era rotta\nAggiunto: Existing Line può essere modificato pure",
+        "es": "FIX: Algunos iconos no eran movidos\nFIX: Se rompió la configuración inicial\nAñadido: La línea existente también se puede modificar",
+        "pl": "FIX: Część Ikon nie była w stanie poruszać się\nFIX: Złamany układ inicjalny\nNastępująco: Następna linia może być modyfikowana",
+        "uk": "FIX: Деякі іконки не перенесли\nFIX: Початкова конфігурація\nДоданий: Підйомна лінія може бути модифікована, а також",
+        "zh-cn": "FIX:有些公司无法移动\nFIX:初始配置被打破\n增 编:现有线可加以修改"
+      },
       "0.0.2-alpha.6": {
         "en": "FIX: Line could not be restored in some circumstances\nFIX: Line was not editable anymore after modifying start and end",
         "de": "FIX: Linie konnte unter Umständen nicht wiederhergestellt werden\nFIX: Line war nach Änderung von Start und Ende nicht mehr editierbar",
@@ -80,19 +93,6 @@
         "pl": "pierwsze wydanie",
         "uk": "початковий реліз",
         "zh-cn": "初步释放"
-      },
-      "0.0.1": {
-        "en": "initial release",
-        "de": "Erstveröffentlichung",
-        "ru": "Начальная версия",
-        "pt": "lançamento inicial",
-        "nl": "Eerste uitgave",
-        "fr": "Première version",
-        "it": "Versione iniziale",
-        "es": "Versión inicial",
-        "pl": "Pierwsze wydanie",
-        "zh-cn": "首次出版",
-        "uk": "початковий випуск"
       }
     },
     "title": "Energiefluss - erweitert",
