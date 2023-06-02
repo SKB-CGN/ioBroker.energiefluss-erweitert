@@ -15,7 +15,6 @@
 [![NPM](https://nodei.co/npm/iobroker.energiefluss-erweitert.png?downloads=true)](https://nodei.co/npm/iobroker.energiefluss-erweitert/)
 
 ![Test and Release](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/workflows/Test%20and%20Release/badge.svg)
-[![Reviewdog](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/workflows/code-quality.yml/badge.svg)](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/workflows/code-quality.yml)
 
 ## energiefluss-erweitert adapter for ioBroker
 It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.
