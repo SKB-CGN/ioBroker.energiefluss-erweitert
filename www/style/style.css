@@ -129,15 +129,15 @@ a:focus {
     scrollbar-width: thin;
 }
 
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--creme);
+}
+
 .scrollbar::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px var(--primary);
     -webkit-box-shadow: inset 0 0 6px var(--primary);
     border-radius: 10px;
-    background-color: var(--creme);
-}
-
-.scrollbar::-webkit-scrollbar {
-    width: 8px;
     background-color: var(--creme);
 }
 
@@ -565,6 +565,10 @@ legend>span {
 
 .input_text:invalid {
     color: var(--red);
+}
+
+.input_text:read-only {
+    cursor:help;
 }
 
 .input_button {
