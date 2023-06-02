@@ -24,7 +24,7 @@ Documentation:
 
 * [Forum thread](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
 * [English description](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/docs/en/energiefluss-erweitert.md)
-* [Deutsche Beschreibung](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/docs/de/energiefluss-erweitert.md)
+* [Deutsche Beschreibung](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/docs/de/energiefluss-erweitert.md)
 
 **Please note, this currently only alpha state**
 
