@@ -19,8 +19,11 @@
 ## energiefluss-erweitert adapter for ioBroker
 It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.
 
-## energiefluss-erweitert adapter fuer ioBroker
-Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.
+Documentation:
+
+* [Forum thread](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
+* [English description](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/docs/en/energiefluss-erweitert.md)
+* [Deutsche Beschreibung](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/docs/de/energiefluss-erweitert.md)
 
 **Please note, this currently only alpha state**
 
