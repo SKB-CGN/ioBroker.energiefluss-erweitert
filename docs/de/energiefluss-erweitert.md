@@ -1,13 +1,14 @@
-- [x]Der Adapter wird nun über eine Web-Oberfläche statt über ioBroker konfiguriert - [x] dies ist benutzerfreundlicher
+- [x] Konfiguration via Web-Oberfläche statt über ioBroker
 - [x] Die Arbeitsfläche lässt sich frei in Breite und Höhe gestalten
-- [x] Es können **unbegrenzt** viele Elemente auf der Arbeitsfläche abgelegt werden (Texte, Datenpunkte, Rechtecke, Kreise, Icons, etc)
+- [x] Es können **unbegrenzt** viele Elemente auf der Arbeitsfläche abgelegt werden (Texte, Datenpunkte, Rechtecke, Kreise, Icons, etc.)
 - [x] Jedes Element lässt sich in Größe, Position, Farbe, Schatten, Transparenz anpassen
-- [x] Elemente können via Maus oder Koordinaten-Eingabe positioniert werden oder aneinander ausgerichtet werden (mitte, rechts, links, vertikale Oberkante, vertikale Unterkante und vertikaler Mittelpunkt)
-- [x] Animationen lassen sich wie in der alten Version anpassen (Farbe der Punkte, Farbe der Linie)
-- [x] Animationen können erfolgen, wenn der Datenpunkt Wert positiv oder negativ ist. Auch hier ist ein Schwellenwert möglich
+- [x] Elemente können via Maus, Tastatur oder Koordinaten-Eingabe positioniert werden
+- [x] Elemente können aneinander ausgerichtet werden (mitte, rechts, links, vertikale Oberkante, vertikale Unterkante und vertikaler Mittelpunkt)
+- [x] Animationen lassen sich anpassen (Farbe der Punkte, Farbe der Linie)
+- [x] Animationen können erfolgen, wenn der Datenpunkt Wert positiv oder negativ ist. Auch hier ist ein Schwellenwert möglich.
 - [x] Die Elemente können frei untereinander verbunden werden. Es gibt einen Element Modus und einen Connection Point Modus.
-**Element:** Die Linie wird immer am nächst passenden Eingang angedockt und verschiebt sich passend, wenn das Element bewegt wird.
-**Connection Point:** Die Linie wird einem der verfügbaren 12 möglichen Eingänge zugewiesen und hält diesen bei, auch wenn das Element bewegt wird
+- **Element:** Die Linie wird immer am nächst passenden Eingang angedockt und verschiebt sich passend, wenn das Element bewegt wird.
+- **Connection Point:** Die Linie wird einem der verfügbaren 12 möglichen Eingänge zugewiesen und hält diesen bei, auch wenn das Element bewegt wird
 - [x] Der Benutzer kann unbegrenzt viele Datenpunkte über den Object-Browser hinzufügen, die im Adapter verwendet werden
 - [x] Jedem Datenpunkt-Text, Rechteck oder Kreis kann ein Datenpunkt zugewiesen werden
 - [x] Alle Datenpunkt-Anzeigen lassen sich für sich selbst konfigurieren:
