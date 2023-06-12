@@ -183,7 +183,7 @@ class EnergieflussErweitert extends utils.Adapter {
 												let tmpVal = 0;
 												for (var sub in subArray) {
 													if (subArray[sub] != -1) {
-														tmpVal = tmpVal + rawValues.sourceValues[subArray[sub]];
+														tmpVal = tmpVal + Math.abs(rawValues.sourceValues[subArray[sub]]);
 														this.log.debug("Subtracted by: " + subArray.toString());
 													}
 												}
@@ -651,7 +651,6 @@ class EnergieflussErweitert extends utils.Adapter {
 				const value = globalConfig.datasources[key];
 				this.log.debug('Datasource: ' + JSON.stringify(value));
 				if (value.source != '' && value.hasOwnProperty('source')) {
-					//addDataSourceRow(_key, key.source, key.alias);
 					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[key].source);
 					if (stateValue) {
 						// Add, to find it better
@@ -692,9 +691,9 @@ class EnergieflussErweitert extends utils.Adapter {
 							decimal_places: value.decimal_places,
 							convert: value.convert,
 							type: value.type,
-							source_option: value.source_option || -1,
-							source_display: value.source_display || 'value',
-							subtract: value.subtract || [-1]
+							source_option: value.source_option,
+							source_display: value.source_display,
+							subtract: value.subtract
 						};
 
 						// Output Values

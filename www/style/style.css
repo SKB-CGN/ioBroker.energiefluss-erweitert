@@ -110,7 +110,7 @@ a:focus {
 
 .svg_preview_catch {
     overflow: auto;
-    max-height: calc(96vh - 270px);
+    max-height: calc(100vh - 310px);
     scrollbar-width: 12px;
     border: 1px solid var(--primary);
 }
@@ -129,15 +129,15 @@ a:focus {
     scrollbar-width: thin;
 }
 
-.scrollbar::-webkit-scrollbar {
-    width: 8px;
-    background-color: var(--creme);
-}
-
 .scrollbar::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px var(--primary);
     -webkit-box-shadow: inset 0 0 6px var(--primary);
     border-radius: 10px;
+    background-color: var(--creme);
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
     background-color: var(--creme);
 }
 
@@ -347,6 +347,16 @@ legend>span {
     border-radius: 5px;
     border: 1px solid var(--primary);
     transition: .5s;
+    height: 28px;
+    width: 28px;
+}
+
+/* For Mobile */
+@media (pointer: coarse) {
+    .add_element_area {
+        height: 48px;
+        width: 48px;
+    }
 }
 
 .add_element_area:hover {
@@ -565,10 +575,6 @@ legend>span {
 
 .input_text:invalid {
     color: var(--red);
-}
-
-.input_text:read-only {
-    cursor:help;
 }
 
 .input_button {
