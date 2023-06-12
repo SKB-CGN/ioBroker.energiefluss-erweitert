@@ -194,7 +194,7 @@ class EnergieflussErweitert extends utils.Adapter {
 											// Format Value
 											outputValues.values[src] = this.valueOutput(src, formatValue);
 										} else {
-											outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(clearValue, seObj.decimal_places) : clearValue;
+											outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(0, seObj.decimal_places) : clearValue;
 										}
 										rawValues.values[src] = clearValue;
 									}
