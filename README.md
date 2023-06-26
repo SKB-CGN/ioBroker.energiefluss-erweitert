@@ -36,9 +36,11 @@ Documentation:
 - FIX: Remaining Battery Calculation was not working if source has an ID 0 assigned
 - FIX: Animation timing improved. Better time-handling (#20)
 - FIX: Line could not be clicked/choosen (#19)
+- FIX: Threshold was not working correctly
 - Added: All elements can have CSS classes for their current state values. Active positive, Active negative, Inactive positive and Inactive negative
 - Added: Battery Remaining Time explanation improved
 - Added: Animation can run into opposite direction, if value has changed to positive/negative (#15, #18)
+- Added: Datasource text elements can now have a text before and after their value
 
 ### 0.0.2-alpha.7 (2023-05-25)
 - FIX: Some Icons were not moveable
