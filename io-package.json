@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energiefluss-erweitert",
-    "version": "0.0.2-alpha.7",
+    "version": "0.0.2-alpha.8",
     "news": {
+      "0.0.2-alpha.8": {
+        "en": "FIX: Remaining Battery Calculation was not working if source has an ID 0 assigned\nFIX: Animation timing improved. Better time-handling (#20)\nFIX: Line could not be clicked/choosen (#19)\nAdded: All elements can have CSS classes for their current state values. Active positive, Active negative, Inactive positive and Inactive negative\nAdded: Battery Remaining Time explanation improved\nAdded: Animation can run into opposite direction, if value has changed to positive/negative (#15, #18)",
+        "de": "FIX: Die verbleibende Batterieberechnung funktionierte nicht, wenn die Quelle eine ID 0 zugewiesen hat\nFIX: Animation Timing verbessert. Besseres Zeithandling #(20)\nFIX: Line konnte nicht geklickt/gewählt werden #(19)\nHinzugefügt: Alle Elemente können CSS-Klassen für ihre aktuellen Zustandswerte haben. Aktiv positiv, Aktiv negativ, Inaktiv positiv und inaktiv negativ\nHinzugefügt: Batterie bleibt erhalten Zeiterklärung verbessert\nHinzugefügt: Animation kann in entgegengesetzte Richtung laufen, wenn sich der Wert zu positiv/negativ geändert hat #(15, #18)",
+        "ru": "FIX: Оставшийся расчет батареи не работал, если источник имеет ID 0 назначен\nFIX: Улучшены сроки анимации. Лучшее время обработки #(20)\nFIX: Линия не может быть нажата/выбрана #(19)\nДобавлен: Все элементы могут иметь классы CSS для своих текущих государственных ценностей. Активный положительный, Активный отрицательный, Неактивный положительный и Неактивный отрицательный\nДобавлена: Батарея Осталось Объяснение времени улучшено\nДобавлена: Анимация может побежать в противоположное направление, если значение изменилось к положительному / отрицательному #(15, #18)",
+        "pt": "CORREÇÃO: A redução da bateria não estava funcionando se a fonte tem um ID 0 atribuído\nFIX: O tempo de animação melhorou. Melhor manuseio de tempo #(20)\nCORREÇÃO: Linha não poderia ser clicada/coosen #(19)\nAdicionado: Todos os elementos podem ter classes CSS para seus valores de estado atuais. positivo ativo, negativo ativo, positivo inativo e negativo inativo\nAdicionado: Bateria restante A explicação do tempo melhorou\nAdicionado: Animação pode correr em direção oposta, se o valor mudou para positivo / negativo #(15, #18)",
+        "nl": "Battery Calculatie herstellen werkte niet als bron een ID- 0 heeft toegewezen\nDierentijd verbeterd. Beter time-handling\nLine kon niet geklikt/choosen worden\nAlle elementen kunnen CSS lessen hebben voor hun huidige staatswaarden. Actief positief, actief negatief, inactief positief en inactief\nVertaling: Tijdsverklaring verbeterd\nVerschijning kan in tegengestelde richting rennen, als de waarde veranderd is in positief/negatief #18 #",
+        "fr": "FIX: Le calcul de la batterie restante ne fonctionnait pas si la source a un ID 0 assigné\nFIX : Le timing d'animation s'est amélioré. Meilleure manipulation du temps #(20)\nFIX: La ligne ne peut pas être cliqué/choosen #(19)\nAjouté : Tous les éléments peuvent avoir des classes CSS pour leurs valeurs actuelles. positif actif, négatif actif, positif inactif et négatif inactif\nAjouté: Remaining de batterie Amélioration du temps\nAjouté: L'animation peut se dérouler en direction opposée, si la valeur a changé en positif/négatif #(15, #18)",
+        "it": "FIX: Il restante calcolo della batteria non funziona se la fonte ha un ID 0 assegnato\nFIX: Miglioramento dei tempi di animazione. Migliore gestione del tempo #(20)\nFIX: La linea non poteva essere cliccata/scegliata #(19)\nAggiunto: Tutti gli elementi possono avere classi CSS per i loro valori di stato attuali. positivo attivo, negativo attivo, positivo inattivo e negativo inattivo\nAggiunto: Battery Remaining La spiegazione del tempo è migliorata\nAggiunto: Animation can run in direzione opposta, se il valore è cambiato in positivo / negativo #(15, #18)",
+        "es": "FIX: La cálculo de la batería restante no estaba funcionando si la fuente tiene un ID 0 asignado\nFIX: mejoró el tiempo de animación. Mejor manejo del tiempo #(20)\nFIX: La línea no se puede hacer clic / elegir #(19)\nAñadido: Todos los elementos pueden tener clases de CSS para sus valores estatales actuales. positivo activo, negativo activo, positivo inactivo y negativo inactivo\nAñadido: Batería que permanece Mejora de la explicación del tiempo\nAñadido: La animación puede entrar en dirección opuesta, si el valor ha cambiado a positivo/negativo #(15, #18)",
+        "pl": "FIX: Remaining Battery Calculation nie działała, jeśli źródło ma przypisany ID 0\nFIX: ulepszona historia animacji. Lepiej czasoprzestrzenić 20\nFIX: linia nie może być oznaczona jako choosen #(19)\nAdded: Wszystkie elementy mogą posiadać klasy CSS dla ich obecnych wartości. Aktywny pozytyw, Aktywna negatywna i nieaktywne\nOficjalna strona Battery Remaining ulepszenie czasu\nAdded: Animacja może prowadzić do odwrotnego kierunku, jeśli wartość zmienia się na dodatni/ujemny #(15, #18)",
+        "uk": "FIX: Обчислення акумулятора не працює, якщо джерело має ID 0 призначено\nFIX: Покращено термін дії анімації. Кращий час-ручка #(20)\nFIX: Лінія не можна натиснути/хозен #(19)\nДодано: Всі елементи можуть мати CSS-класи для їх поточного стану. Активний позитивний, активний негативний, неактивний позитивний і неактивний негативний\nДоданий: Заміна акумулятора Розширене пояснення часу\nДодано: Анімація може працювати в зворотному напрямку, якщо значення змінилося на позитивний/негативний #(15, #18)",
+        "zh-cn": "FIX:如果来源有指定用途的国际发展中心 0\n页: 1 改善时间处理行动(20)\nFIX:不能点击/choosen #(19)\n增加:所有要素都可以为目前的国家价值观开设专业课程。 积极、消极、积极主动和消极反应\n增 编:包 时间说明\n增加:如果价值变化到积极的/消极的编号(15, #18)"
+      },
       "0.0.2-alpha.7": {
         "en": "FIX: Some Icons were not moveable\nFIX: Initial configuration was broken\nAdded: Existing Line can be modified as well",
         "de": "FIX: Einige Icons waren nicht beweglich\nFIX: Erste Konfiguration wurde gebrochen\nHinzugefügt: Existing Line kann auch modifiziert werden",
@@ -80,19 +93,6 @@
         "pl": "Setting Wheel może być niepełnosprawny w Live-View\nWybory Źródło danych może być zakodowane w celu ułatwienia przeglądu drzew (może być dozwolone lub zdyskwalifikowane w ustawieniach)\nFunkcje obliczeniowe mają obecnie funkcję dowolną dla wszystkich kroków\nobserwacje gniazda są monitorowane, pokazują ekran czekania, jeśli instancja nie zostanie uruchomiona lub uruchomiona\nusunąć plik testowy, który nie należy do projektu, nie należy do pliku testowego",
         "uk": "Налаштування Колесо може бути відключений у Live-View\nОстанній вибраний EnglishDeutschPусский简体中文中國傳統EspañolالعربيةFrançaisελληνικάDanskАнглійскаябългарскиCatalàČeskýEestiSuomiGaeilgeहिन्दीHrvatskiMagyarIndonesiaIcelandicItalianoעברי日本の한국의LietuvosLatvijasмакедонскиMalayMaltiNederlandsNorskPolskiPortuguêsRomânescSlovenskýSlovenskiShqiptarCрпскиSvenskaไทยTürkçeYкраїнськийTiếng việtייִדישKiswahili\nФункції вирівнювання тепер мають функцію скасування для всіх кроків\nз'єднання роз'єму, показує екран очікування, якщо екземпляр не запущений або перезавантажений\nвидалення локального Тестовий файл, який не належить до проекту",
         "zh-cn": "确定 世界工程师协会\n上次选举 数据来源可以归纳,以便较容易的树种观(在环境中能够/可以分开)\n调整职能现在对所有步骤都具有无任何作用。\n监测零件连接,显示等待筛选,如不开始或重新安装。\n当地撤军 试验档案不属于项目。"
-      },
-      "0.0.2-alpha.0": {
-        "en": "initial release",
-        "de": "erstausstrahlung",
-        "ru": "начальный выпуск",
-        "pt": "lançamento inicial",
-        "nl": "niet",
-        "fr": "initial release",
-        "it": "rilascio iniziale",
-        "es": "liberación inicial",
-        "pl": "pierwsze wydanie",
-        "uk": "початковий реліз",
-        "zh-cn": "初步释放"
       }
     },
     "title": "Energiefluss - erweitert",

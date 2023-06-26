@@ -32,7 +32,7 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.8 (2023-06-26)
 - FIX: Remaining Battery Calculation was not working if source has an ID 0 assigned
 - FIX: Animation timing improved. Better time-handling (#20)
 - FIX: Line could not be clicked/choosen (#19)
