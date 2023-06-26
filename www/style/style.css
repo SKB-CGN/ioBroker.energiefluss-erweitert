@@ -42,26 +42,20 @@ body {
     color: var(--black);
 }
 
-a {
-    text-decoration: none;
-}
-
-a:visited {
-    text-decoration: none;
+a,
+a:visited,
+a:focus {
     border: none;
     outline: none;
+    color: var(--primary);
+    transition: all .5s;
+    text-decoration: underline;
 }
 
 a:hover {
+    color: var(--secondary);
+    transition: all .5s;
     text-decoration: none;
-    border: none;
-    outline: none;
-}
-
-a:focus {
-    text-decoration: none;
-    border: none;
-    outline: none;
 }
 
 /* Loading Animation before iFrame */
@@ -307,6 +301,8 @@ legend>span {
 
 .line {
     fill: none;
+    cursor: pointer;
+    pointer-events: all;
 }
 
 .animation {
@@ -333,8 +329,7 @@ legend>span {
 }
 
 .anim_element {
-    cursor: pointer;
-    pointer-events: all;
+    pointer-events: none;
 }
 
 .overview {
@@ -365,6 +360,11 @@ legend>span {
 }
 
 .all_elements {
+    transition: opacity .4s ease-in-out;
+}
+
+.all_elements:hover {
+    opacity: .6;
     transition: opacity .4s ease-in-out;
 }
 
@@ -461,11 +461,14 @@ legend>span {
 }
 
 .form_div {
-    margin-bottom: 10px;
     position: relative;
     width: min-content;
     border: none;
     margin-top: 15px;
+}
+
+.form_div.text {
+    margin-top: 25px;
 }
 
 .no_margin {
@@ -557,7 +560,7 @@ legend>span {
 .input_number:focus~.form_label,
 .input_text:not(:placeholder-shown)~.form_label,
 .input_number:not(:placeholder-shown)~.form_label {
-    transform: scale(0.7)translateY(-20px);
+    transform: scale(0.8)translateY(-20px);
     color: var(--primary);
 }
 
@@ -1137,6 +1140,7 @@ nav label:active {
     overflow-y: auto;
     /* prevent horizontal scrollbar */
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 .ui-menu-item-wrapper {
@@ -1146,6 +1150,10 @@ nav label:active {
 .ui-menu-item .ui-menu-item-wrapper.ui-state-active {
     background-color: var(--primary);
     border: 1px solid var(--primary);
+}
+
+.ui-menu-item .ui-menu-item-wrapper {
+    white-space: nowrap;
 }
 
 /* ioBroker Special CSS */

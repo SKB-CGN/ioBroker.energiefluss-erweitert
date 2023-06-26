@@ -96,10 +96,9 @@
                             <label for="tab1_config"><span class="iconify menu"
                                     data-icon="material-symbols:format-list-bulleted" data-width="24"
                                     data-height="24"></span>Basic</label>
-                            <label for="tab2_config"
-                                class="elm_config_datasource elm_config_circle elm_config_rect elm_config_use"><span
-                                    class="iconify menu " data-icon="material-symbols:format-list-bulleted-add"
-                                    data-width="24" data-height="24"></span>Advanced</label>
+                            <label for="tab2_config"><span class="iconify menu "
+                                    data-icon="material-symbols:format-list-bulleted-add" data-width="24"
+                                    data-height="24"></span>Advanced</label>
                         </nav>
                         <figure>
                             <div class="tab1_config">
@@ -122,13 +121,13 @@
                                     <table class="element_config_table">
                                         <tr class="elm_config_rect elm_config_svg">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config" min="1"
                                                         value="" name="elm_width" id="elm_width" placeholder=""
                                                         autocorrect="off" autocomplete="off">
                                                     <label for="elm_width" class="form_label">Width</label>
                                                 </div>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config" min="1"
                                                         value="" name="elm_height" id="elm_height" placeholder=""
                                                         autocorrect="off" autocomplete="off">
@@ -137,13 +136,14 @@
                                             </td>
                                         </tr>
                                         <tr class="elm_config_svg">
-                                            <td>Tipp: Square Icon need same width and height! Other ones can have
+                                            <td><u>Tipp:</u> Square Icons need same width and height! Other ones can
+                                                have
                                                 other
                                                 formats.</td>
                                         </tr>
                                         <tr class="elm_config_circle">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config" min="1"
                                                         value="" name="elm_radius" id="elm_radius" placeholder=""
                                                         autocorrect="off" autocomplete="off">
@@ -153,7 +153,7 @@
                                         </tr>
                                         <tr class="elm_config_rect">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config" min="0"
                                                         value="" name="elm_rx" id="elm_rx" placeholder=""
                                                         autocorrect="off" autocomplete="off">
@@ -163,7 +163,7 @@
                                         </tr>
                                         <tr class="elm_config_rect elm_config_circle">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config" min="1"
                                                         value="" name="elm_stroke" id="elm_stroke" placeholder=""
                                                         autocorrect="off" autocomplete="off">
@@ -179,7 +179,7 @@
                                     <table class="element_config_table">
                                         <tr>
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config"
                                                         name="elm_pos_x" id="elm_pos_x" placeholder="" autocorrect="off"
                                                         autocomplete="off" min="0">
@@ -189,7 +189,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config"
                                                         name="elm_pos_y" id="elm_pos_y" placeholder="" autocorrect="off"
                                                         autocomplete="off" min="0">
@@ -241,7 +241,7 @@
                                         <tr
                                             class="elm_config_circle elm_config_rect elm_config_text elm_config_use elm_config_svg">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text color elm_config "
                                                         name="elm_color" id="elm_color" placeholder="" autocorrect="off"
                                                         autocomplete="off" data-jscolor="{}">
@@ -255,7 +255,7 @@
                                         </tr>
                                         <tr class="elm_config_use">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text color elm_config "
                                                         name="elm_line_color" id="elm_line_color" placeholder=""
                                                         autocorrect="off" autocomplete="off" data-jscolor="{}">
@@ -266,7 +266,7 @@
                                         </tr>
                                         <tr class="elm_config_circle elm_config_rect elm_config_text">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text color elm_config "
                                                         name="elm_fill" id="elm_fill" placeholder="" autocorrect="off"
                                                         autocomplete="off" data-jscolor="{}">
@@ -294,7 +294,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text color elm_config "
                                                         name="elm_shadow_color" id="elm_shadow_color" placeholder=""
                                                         autocorrect="off" autocomplete="off"
@@ -311,7 +311,7 @@
                                     <table class="element_config_table">
                                         <tr>
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text elm_config" name="elm_icon"
                                                         id="elm_icon" placeholder="" autocorrect="off"
                                                         autocomplete="off">
@@ -322,6 +322,11 @@
                                         <tr>
                                             <td>Enter a keyword to search other icons</td>
                                         </tr>
+                                        <tr>
+                                            <td>For better view of available icons, visit: <a
+                                                    href="https://icon-sets.iconify.design/"
+                                                    target="_blank">https://icon-sets.iconify.design/</a></td>
+                                        </tr>
                                     </table>
                                 </div>
                                 <div class="detail_box elm_config_text">
@@ -329,7 +334,7 @@
                                     <table class="element_config_table">
                                         <tr class="elm_config_text_not_ds">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text elm_config" name="elm_text"
                                                         id="elm_text" placeholder="" autocorrect="off"
                                                         autocomplete="off">
@@ -339,7 +344,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text elm_config" name="elm_font"
                                                         id="elm_font" placeholder="" autocorrect="off"
                                                         autocomplete="off">
@@ -349,7 +354,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config"
                                                         name="elm_font_size" id="elm_font_size" placeholder=""
                                                         autocorrect="off" autocomplete="off" min="1">
@@ -359,7 +364,8 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="detail_box elm_config_datasource elm_config_rect elm_config_circle">
+                                <div
+                                    class="detail_box elm_config_datasource elm_config_rect elm_config_circle elm_config_svg">
                                     <span class="config_sec">Source</span>
                                     <table class="element_config_table">
                                         <tr>
@@ -408,11 +414,31 @@
                                         </tr>
                                         <tr class="elm_config_datasource">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text elm_config" name="elm_unit"
                                                         id="elm_unit" placeholder="" autocorrect="off"
                                                         autocomplete="off">
                                                     <label for="elm_unit" class="form_label">Unit</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="elm_config_datasource">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <input type="text" class="input_text elm_config" name="elm_prepend"
+                                                        id="elm_prepend" placeholder="" autocorrect="off"
+                                                        autocomplete="off">
+                                                    <label for="elm_prepend" class="form_label">Prepend Text</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="elm_config_datasource">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <input type="text" class="input_text elm_config" name="elm_append"
+                                                        id="elm_append" placeholder="" autocorrect="off"
+                                                        autocomplete="off">
+                                                    <label for="elm_append" class="form_label">Append Text</label>
                                                 </div>
                                             </td>
                                         </tr>
@@ -422,7 +448,7 @@
                                     <span class="config_sec">Source for Animation</span>
                                     <table class="element_config_table">
                                         <tr>
-                                            <td>
+                                            <td colspan="2">
                                                 <div class="form_div">
                                                     <label for="elm_animation" class="form_label">Animation
                                                         Datasource</label>
@@ -432,17 +458,34 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td colspan="2">
                                                 <div class="form_div">
                                                     <label for="elm_animation_properties" class="form_label">Animate,
                                                         when Source is
                                                     </label>
                                                     <select class="input_select elm_config"
                                                         name="elm_animation_properties" id="elm_animation_properties">
-                                                        <option value="positive">greater than zero</option>
-                                                        <option value="negative">smaller than zero</option>
+                                                        <option value="positive">positive</option>
+                                                        <option value="negative">negative</option>
                                                     </select>
                                                 </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: auto;padding-top: 15px;">
+                                                <div class="onoffswitch">
+                                                    <input type="checkbox" name="elm_animation_option"
+                                                        class="onoffswitch-checkbox elm_config"
+                                                        id="elm_animation_option" value="yes" style="">
+                                                    <label class="onoffswitch-label" for="elm_animation_option">
+                                                        <span class="onoffswitch-inner"></span>
+                                                        <span class="onoffswitch-switch"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td style="width: 100%;padding-top: 15px;">
+                                                <label class="label" for="elm_animation_option"> If the value has
+                                                    changed sign, animate in the other direction (reverse)</label>
                                             </td>
                                         </tr>
                                     </table>
@@ -452,7 +495,7 @@
                                     <table class="element_config_table">
                                         <tr>
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text elm_config"
                                                         name="elm_start_slot" id="elm_start_slot" placeholder=""
                                                         autocorrect="off" autocomplete="off" readonly>
@@ -462,7 +505,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text elm_config" name="elm_end_slot"
                                                         id="elm_end_slot" placeholder="" autocorrect="off"
                                                         autocomplete="off" readonly>
@@ -497,7 +540,7 @@
                                 </div>
                             </div>
                             <div class="tab2_config">
-                                <div class="detail_box elm_config_datasource elm_config_use">
+                                <div class="detail_box elm_config_datasource elm_config_use elm_config_svg">
                                     <span class="config_sec">Calculation</span>
                                     <table class="element_config_table">
                                         <tr class="elm_config_datasource">
@@ -536,7 +579,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2">
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config"
                                                         name="elm_threshold" id="elm_threshold" placeholder=""
                                                         autocorrect="off" autocomplete="off" min="0">
@@ -587,13 +630,11 @@
                                                         <option value="duration">Duration</option>
                                                     </select>
                                                 </div>
-                                                <img src='img/icon_help.png' style='vertical-align: bottom;'
-                                                    title='<b>Duration:</b><br>The duration of the animation varies depending on the load on the line. The more load, the less the animation lasts<br><i>Info:</i> The minimum duration is set for the maximum power<br><b>Dots</b>:<br>The more power the line has, the more dots appear - but not more than maximum defined'>
                                             </td>
                                         </tr>
                                         <tr class="anim_type_duration">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_text elm_config "
                                                         name="elm_duration" id="elm_duration" placeholder=""
                                                         autocorrect="off" autocomplete="off" min="0">
@@ -604,7 +645,7 @@
                                         </tr>
                                         <tr class="anim_type_dots">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_text elm_config " name="elm_dots"
                                                         id="elm_dots" placeholder="" autocorrect="off"
                                                         autocomplete="off" min="0">
@@ -615,13 +656,15 @@
                                         </tr>
                                         <tr class="anim_type_dots anim_type_duration">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_text elm_config " name="elm_power"
                                                         id="elm_power" placeholder="" autocorrect="off"
                                                         autocomplete="off" min="0">
-                                                    <label for="elm_power" class="form_label">Max power on the
+                                                    <label for="elm_power" class="form_label">Max. power on the
                                                         line (raw value)</label>
                                                 </div>
+                                                <img src='img/icon_help.png' style='margin-top:10px;'
+                                                    title='<b>Duration:</b><br>The duration of the animation varies depending on the load on the line. The more load, the less the animation lasts<br><i><u>Info:</u></i> The minimum duration is set for the maximum power. If you set Max power to 1000 and Min. Duration to 2000 - value of 100 will run 4000ms<br><br><b>Dots</b>:<br>The more power the line has, the more dots appear - but not more than maximum defined'>
                                             </td>
                                         </tr>
                                     </table>
@@ -631,7 +674,7 @@
                                     <table class="element_config_table">
                                         <tr>
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="url" class="input_text elm_config " name="elm_url"
                                                         id="elm_url" placeholder="" autocorrect="off"
                                                         autocomplete="off">
@@ -650,8 +693,8 @@
                                                         <option value="_self">Same window</option>
                                                     </select>
                                                 </div>
-                                                <img src='img/icon_help.png' style='vertical-align: bottom;'
-                                                    title='<b>New Window:</b><br>Opens the URL in a new window<br><b>Same window</b>:<br>Opens the URL in the same window<br><b>iFrame overlay:</b><br>Opens the URL inside an Overlay. Some pages cannot be opened inside overlay frames. If this does not work for you, please choose a different option!<br>Tipp: For http pages, it is possible to pass login credentials via URL like: http://yourUser<b>:</b>yourPass@example.com - This does <u>not</u> work for https'>
+                                                <img src='img/icon_help.png' style='margin-top:10px;'
+                                                    title='<b>New Window:</b><br>Opens the URL in a new window<br><br><b>Same window:</b><br>Opens the URL in the same window<br><br><b>iFrame overlay:</b><br>Opens the URL inside an Overlay. Some pages cannot be opened inside overlay frames. If this does not work for you, please choose a different option!<br><br><u>Tipp:</u> For http pages, it is possible to pass login credentials via URL like: http://yourUser<b>:</b>yourPass@example.com - This does <u>not</u> work for https'>
                                             </td>
                                         </tr>
                                     </table>
@@ -674,7 +717,7 @@
                                         </tr>
                                         <tr class="fill_type">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text color elm_config"
                                                         name="elm_fill_value" id="elm_fill_value" placeholder=""
                                                         autocorrect="off" autocomplete="off" data-jscolor="{}">
@@ -684,7 +727,7 @@
                                         </tr>
                                         <tr class="fill_type">
                                             <td>
-                                                <div class="form_div">
+                                                <div class="form_div text">
                                                     <input type="number" class="input_number elm_config "
                                                         name="elm_fill_max" id="elm_fill_max" min="0" placeholder=""
                                                         autocorrect="off" autocomplete="off">
@@ -694,11 +737,87 @@
                                         </tr>
                                     </table>
                                 </div>
+                                <div class="detail_box">
+                                    <span class="config_sec">CSS classes</span>
+                                    <table class="element_config_table">
+                                        <tr>
+                                            <td>
+                                                <div class="form_div text">
+                                                    <input type="text" class="input_text elm_config"
+                                                        name="elm_css_general" id="elm_css_general" placeholder=""
+                                                        autocorrect="off" autocomplete="off">
+                                                    <label for="elm_css_general" class="form_label">General</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr
+                                            class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <input type="text" class="input_text elm_config"
+                                                        name="elm_css_active_positive" id="elm_css_active_positive"
+                                                        placeholder="" autocorrect="off" autocomplete="off">
+                                                    <label for="elm_css_active_positive" class="form_label">Source over
+                                                        threshold (positive)</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr
+                                            class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <input type="text" class="input_text elm_config"
+                                                        name="elm_css_inactive_positive" id="elm_css_inactive_positive"
+                                                        placeholder="" autocorrect="off" autocomplete="off">
+                                                    <label for="elm_css_inactive_positive" class="form_label">Source
+                                                        below
+                                                        threshold (positive)</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr
+                                            class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                            <td>
+                                                <div
+                                                    style="height:3px;background-color: #538ea3;border-radius: 5px;margin-top:15px; margin-left: 15px; margin-right: 15px;">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr
+                                            class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <input type="text" class="input_text elm_config"
+                                                        name="elm_css_active_negative" id="elm_css_active_negative"
+                                                        placeholder="" autocorrect="off" autocomplete="off">
+                                                    <label for="elm_css_active_negative" class="form_label">Source over
+                                                        threshold (negative)</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr
+                                            class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <input type="text" class="input_text elm_config"
+                                                        name="elm_css_inactive_negative" id="elm_css_inactive_negative"
+                                                        placeholder="" autocorrect="off" autocomplete="off">
+                                                    <label for="elm_css_inactive_negative" class="form_label">Source
+                                                        below
+                                                        threshold (negative)</label>
+                                                </div>
+                                                <img src='img/icon_help.png' style='margin-top:10px;'
+                                                    title='<b>General:</b><br>Add CSS classes, that are always assigned to that element<br><br><b>Source over threshold (positive):</b><br>CSS classes, to be added if the source is positive and over threshold (active)<br><br><b>Source below threshold (positive):</b><br>CSS classes, to be added if the source is positive and below threshold (inactive)<br><br><b>Source over threshold (negative):</b><br>CSS classes, to be added if the source is negative and over threshold (active)<br><br><b>Source below threshold (negative):</b><br>CSS classes, to be added if the source is negative and below threshold (inactive)<br><br><b>Usage:</b><br>Add class-names seperated by comma and define them in "CSS/Styles"-Tab'>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </figure>
                     </div>
                 </div>
-                <div class="container scrollbar">
+                <input type="button" class="input_button" id="show_hide_config" value="Hide Controls">
+                <div class="container scrollbar" id="container_menu">
                     <fieldset>
                         <legend><span class="iconify legend"
                                 data-icon="material-symbols:photo-size-select-small-rounded" data-width="24"
@@ -772,7 +891,7 @@
                             <span>Alignment</span>
                         </legend>
                         <table class="config_table">
-                            <tr style="height: 40px;">
+                            <tr style="height: 42px;">
                                 <td style="width: 150px;white-space: nowrap;">
                                     <a title="Align left" class="align_elements  tt-element" id="align_left"><span
                                             class=" iconify add_element_area"
@@ -961,7 +1080,7 @@
                         <table class="config_table">
                             <tr>
                                 <td>
-                                    <div class="form_div">
+                                    <div class="form_div text">
                                         <input type="text" class="input_text icon_in_input_pad" name="elm_ds_source"
                                             id="elm_ds_source" placeholder="" autocorrect="off" autocomplete="off"
                                             minlength="5" required="">
@@ -973,7 +1092,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="form_div">
+                                    <div class="form_div text">
                                         <input type="text" class="input_text icon_in_input_pad" name="elm_ds_alias"
                                             id="elm_ds_alias" placeholder="" autocorrect="off" autocomplete="off">
                                         <label for="elm_ds_alias" class="form_label">Alias</label>
@@ -1019,69 +1138,103 @@
                                 data-height="24"></span>
                             <span>Animation</span>
                         </legend>
-                        <div class="form_div">
-                            <input type="number" class="input_number line_preview" id="line_size" placeholder=""
-                                autocorrect="off" autocomplete="off" min="2" max="18">
-                            <label for="line_size" class="form_label">Line-Size</label>
-                        </div>
-                        <div class="form_div">
-                            <input type="number" class="input_number line_preview" id="animation_dots" placeholder=""
-                                autocorrect="off" autocomplete="off" min="1" max="30">
-                            <label for="animation_dots" class="form_label">Dots</label>
-                        </div>
-                        <div class="form_div">
-                            <input type="number" class="input_number line_preview" id="animation_distance"
-                                placeholder="" autocorrect="off" autocomplete="off" min="1" max="100">
-                            <label for="animation_distance" class="form_label">Distance</label>
-                        </div>
-                        <div class="form_div">
-                            <input type="number" class="input_number line_preview" id="animation_length" placeholder=""
-                                autocorrect="off" autocomplete="off" min="1" max="50">
-                            <label for="animation_length" class="form_label">Length</label>
-                        </div>
-                        <div class="form_div">
-                            <input type="number" class="input_number line_preview" id="animation_width" placeholder=""
-                                autocorrect="off" autocomplete="off" min="1" max="50">
-                            <label for="animation_width" class="form_label">Width</label>
-                        </div>
-                        <div class="form_div">
-                            <input type="number" class="input_number line_preview" id="animation_duration"
-                                placeholder="" autocorrect="off" autocomplete="off" min="1" max="5000">
-                            <label for="animation_duration" class="form_label">Duration</label>
-                        </div>
-                        <div class="form_div">
-                            <label for="animation_type" class="form_label">Animation Type</label>
-                            <select id="animation_type" class="input_select line_preview">
-                                <option value="ease">fast till
-                                    middle of the
-                                    animation, slowing at the end</option>
-                                <option value="ease-in">
-                                    starts slowly,
-                                    increasing until complete</option>
-                                <option value="ease-out">
-                                    starts quickly,
-                                    slows down until end</option>
-                                <option value="ease-in-out">slowly
-                                    transitioning, speeding up, and then slowing down again</option>
-                                <option value="linear">even
-                                    speed</option>
-                            </select>
-                        </div>
-                        <div class="form_div">
-                            <label for="animation_linecap" class="form_label">Line Ends</label>
-                            <select id="animation_linecap" class="input_select line_preview">
-                                <option value="butt">
-                                    rectangular ends
-                                    trimmed at the endpoints</option>
-                                <option value="round">
-                                    rounded ends (beyond
-                                    the endpoints)</option>
-                                <option value="square">
-                                    square ends
-                                    (beyond the endpoints)</option>
-                            </select>
+                        <table class="config_table">
+                            <tr>
+                                <td>
+                                    <div class="form_div text">
+                                        <input type="number" class="input_number line_preview" id="line_size"
+                                            placeholder="" autocorrect="off" autocomplete="off" min="2" max="18">
+                                        <label for="line_size" class="form_label">Line-Size</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div text">
+                                        <input type="number" class="input_number line_preview" id="animation_dots"
+                                            placeholder="" autocorrect="off" autocomplete="off" min="1" max="30">
+                                        <label for="animation_dots" class="form_label">Dots</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div text">
+                                        <input type="number" class="input_number line_preview" id="animation_distance"
+                                            placeholder="" autocorrect="off" autocomplete="off" min="1" max="100">
+                                        <label for="animation_distance" class="form_label">Distance</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div text">
+                                        <input type="number" class="input_number line_preview" id="animation_length"
+                                            placeholder="" autocorrect="off" autocomplete="off" min="1" max="50">
+                                        <label for="animation_length" class="form_label">Length</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div text">
+                                        <input type="number" class="input_number line_preview" id="animation_width"
+                                            placeholder="" autocorrect="off" autocomplete="off" min="1" max="50">
+                                        <label for="animation_width" class="form_label">Width</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div text">
+                                        <input type="number" class="input_number line_preview" id="animation_duration"
+                                            placeholder="" autocorrect="off" autocomplete="off" min="1" max="5000">
+                                        <label for="animation_duration" class="form_label">Duration</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div">
+                                        <label for="animation_type" class="form_label">Animation Type</label>
+                                        <select id="animation_type" class="input_select line_preview">
+                                            <option value="ease">fast till
+                                                middle of the
+                                                animation, slowing at the end</option>
+                                            <option value="ease-in">
+                                                starts slowly,
+                                                increasing until complete</option>
+                                            <option value="ease-out">
+                                                starts quickly,
+                                                slows down until end</option>
+                                            <option value="ease-in-out">slowly
+                                                transitioning, speeding up, and then slowing down again</option>
+                                            <option value="linear">even
+                                                speed</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div">
+                                        <label for="animation_linecap" class="form_label">Line Ends</label>
+                                        <select id="animation_linecap" class="input_select line_preview">
+                                            <option value="butt">
+                                                rectangular ends
+                                                trimmed at the endpoints</option>
+                                            <option value="round">
+                                                rounded ends (beyond
+                                                the endpoints)</option>
+                                            <option value="square">
+                                                square ends
+                                                (beyond the endpoints)</option>
+                                        </select>
 
-                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </fieldset>
                     <fieldset style="width: 300px;">
                         <legend><span class="iconify legend" data-icon="fontisto:preview" data-width="24"
@@ -1098,7 +1251,8 @@
                                         <defs>
                                             <path id="preview_line" d="M 0,25 h 324"></path>
                                         </defs>
-                                        <use class="all_elm line" xlink:href="#preview_line" id="preview_line_bg"></use>
+                                        <use class="all_elm line preview" xlink:href="#preview_line"
+                                            id="preview_line_bg"></use>
                                         <use class="all_elm animation" xlink:href="#preview_line"
                                             id="preview_line_anim">
                                         </use>
@@ -1118,70 +1272,130 @@
                                 data-height="24"></span>
                             <span>Remaining battery runtime</span>
                         </legend>
-                        <div class="form_div">
-                            <input type="number" class="input_number" min="1" value="" name="calc_battery_capacity"
-                                id="calc_battery_capacity" placeholder="" autocorrect="off" autocomplete="off">
-                            <label for="calc_battery_capacity" class="form_label">Battery capacity *</label>
-                        </div>
-                        <div class="form_div">
-                            <input type="number" class="input_number" min="1" value="" name="calc_battery_dod"
-                                id="calc_battery_dod" placeholder="" autocorrect="off" autocomplete="off">
-                            <label for="calc_battery_dod" class="form_label">Deep of discharge
-                                (DoD)</label>
-                        </div>
-                        <div class="form_div">
-                            <label for="calc_battery_percent" class="form_label">Battery percent *</label>
-                            <select class="input_select" name="calc_battery_percent" id="calc_battery_percent"></select>
-                        </div>
-                        <div class="form_div">
-                            <label for="calc_battery_charge" class="form_label">Battery charge *</label>
-                            <select class="input_select" name="calc_battery_charge" id="calc_battery_charge"></select>
-
-                        </div>
-                        <div class="onoffswitch">
-                            <input type="checkbox" name="calc_battery_charge_kw" class="onoffswitch-checkbox"
-                                id="calc_battery_charge_kw" value="true">
-                            <label class="onoffswitch-label" for="calc_battery_charge_kw">
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                            </label>
-                        </div><label class="label" for="calc_battery_charge_kw" style="vertical-align: super;">
-                            Source is kW</label>
-                        <br>
-                        <div class="onoffswitch">
-                            <input type="checkbox" name="calc_battery_charge_prop" class="onoffswitch-checkbox"
-                                id="calc_battery_charge_prop" value="yes">
-                            <label class="onoffswitch-label" for="calc_battery_charge_prop">
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                            </label>
-                        </div><label class="label" for="calc_battery_charge_prop" style="vertical-align: super;">
-                            Source is negative</label>
-                        <div class="form_div">
-                            <label for="calc_battery_discharge" class="form_label">Battery discharge *</label>
-                            <select class="input_select" name="calc_battery_discharge"
-                                id="calc_battery_discharge"></select>
-                        </div>
-                        <div class="onoffswitch">
-                            <input type="checkbox" name="calc_battery_discharge_kw" class="onoffswitch-checkbox"
-                                id="calc_battery_discharge_kw" value="yes">
-                            <label class="onoffswitch-label" for="calc_battery_discharge_kw">
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                            </label>
-                        </div><label class="label" for="calc_battery_discharge_kw" style="vertical-align: super;">
-                            Source is kW</label>
-                        <br>
-                        <div class="onoffswitch">
-                            <input type="checkbox" name="calc_battery_discharge_prop" class="onoffswitch-checkbox"
-                                id="calc_battery_discharge_prop" value="yes">
-                            <label class="onoffswitch-label" for="calc_battery_discharge_prop">
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                            </label>
-                        </div><label class="label" for="calc_battery_discharge_prop" style="vertical-align: super;">
-                            Source is negative</label>
-                        <br><span>For the calculation to work, the marked fields with a star are necessary</span>
+                        <table class="config_table">
+                            <tr>
+                                <td>
+                                    <div class="form_div text">
+                                        <input type="number" class="input_number" min="1" value=""
+                                            name="calc_battery_capacity" id="calc_battery_capacity" placeholder=""
+                                            autocorrect="off" autocomplete="off">
+                                        <label for="calc_battery_capacity" class="form_label">Battery capacity (watt)
+                                            *</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div text">
+                                        <input type="number" class="input_number" min="0" value=""
+                                            name="calc_battery_dod" id="calc_battery_dod" placeholder=""
+                                            autocorrect="off" autocomplete="off">
+                                        <label for="calc_battery_dod" class="form_label">Discharge till %</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div">
+                                        <label for="calc_battery_percent" class="form_label">Battery percent *</label>
+                                        <select class="input_select" name="calc_battery_percent"
+                                            id="calc_battery_percent"></select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div">
+                                        <label for="calc_battery_charge" class="form_label">Battery charge *</label>
+                                        <select class="input_select" name="calc_battery_charge"
+                                            id="calc_battery_charge"></select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 15px;">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="calc_battery_charge_kw"
+                                            class="onoffswitch-checkbox" id="calc_battery_charge_kw" value="true">
+                                        <label class="onoffswitch-label" for="calc_battery_charge_kw">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div><label class="label" for="calc_battery_charge_kw"
+                                        style="vertical-align: super;">
+                                        Source is kW</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="calc_battery_charge_prop"
+                                            class="onoffswitch-checkbox" id="calc_battery_charge_prop" value="yes">
+                                        <label class="onoffswitch-label" for="calc_battery_charge_prop">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div><label class="label" for="calc_battery_charge_prop"
+                                        style="vertical-align: super;">
+                                        Source is negative</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form_div">
+                                        <label for="calc_battery_discharge" class="form_label">Battery discharge
+                                            *</label>
+                                        <select class="input_select" name="calc_battery_discharge"
+                                            id="calc_battery_discharge"></select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 15px;">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="calc_battery_discharge_kw"
+                                            class="onoffswitch-checkbox" id="calc_battery_discharge_kw" value="yes">
+                                        <label class="onoffswitch-label" for="calc_battery_discharge_kw">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div><label class="label" for="calc_battery_discharge_kw"
+                                        style="vertical-align: super;">
+                                        Source is kW</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="calc_battery_discharge_prop"
+                                            class="onoffswitch-checkbox" id="calc_battery_discharge_prop" value="yes">
+                                        <label class="onoffswitch-label" for="calc_battery_discharge_prop">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div><label class="label" for="calc_battery_discharge_prop"
+                                        style="vertical-align: super;">
+                                        Source is negative</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    For the calculation to work, the marked fields with a star are
+                                    necessary
+                                </td>
+                            </tr>
+                            <tr style="height: 20px;">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><u>Info:</u> After filling in all necessary values, the remaining battery-time will
+                                    appear in the
+                                    Datapoint <code>energiefluss.Instance-No#.battery_remaining</code>, which can be
+                                    added via Datasources<br><u>Please note:</u> The time shows both directions - the
+                                    time for charging, if it is charging and the time for discharging, if it is
+                                    discharging</td>
+                            </tr>
+                        </table>
                     </fieldset>
                     <!--
                     <fieldset style="width: 300px;height:max-content ;">
@@ -1273,7 +1487,7 @@
                                 <table class="config_table">
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="text" class="input_text" id="basic_font_family"
                                                     name="basic_font_family" placeholder="" autocorrect="off"
                                                     autocomplete="off">
@@ -1283,7 +1497,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="number" class="input_number" id="basic_font_size"
                                                     name="basic_font_size" placeholder="" autocorrect="off"
                                                     autocomplete="off" min="1" max="50">
@@ -1293,7 +1507,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="text" class="input_text color" name="basic_font_color"
                                                     id="basic_font_color" placeholder="" autocorrect="off"
                                                     autocomplete="off" data-jscolor="{}">
@@ -1303,7 +1517,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="text" class="input_text color" name="basic_font_fill"
                                                     id="basic_font_fill" placeholder="" autocorrect="off"
                                                     autocomplete="off" data-jscolor="{}">
@@ -1331,7 +1545,7 @@
                                 <table class="config_table">
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="number" class="input_number" id="basic_rect_height"
                                                     name="basic_rect_height" placeholder="" autocorrect="off"
                                                     autocomplete="off" min="1" max="50">
@@ -1341,7 +1555,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="number" class="input_number" id="basic_rect_width"
                                                     name="basic_rect_width" placeholder="" autocorrect="off"
                                                     autocomplete="off" min="1" max="50">
@@ -1351,7 +1565,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="number" class="input_number" id="basic_rect_corners"
                                                     name="basic_rect_corners" placeholder="" autocorrect="off"
                                                     autocomplete="off" min="1" max="50">
@@ -1367,7 +1581,7 @@
                                 <table class="config_table">
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="number" class="input_number" id="basic_circle_radius"
                                                     name="basic_circle_radius" placeholder="" autocorrect="off"
                                                     autocomplete="off" min="1" max="50">
@@ -1382,7 +1596,7 @@
                                 <table class="config_table">
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="number" class="input_number" id="basic_stroke_width"
                                                     name="basic_stroke_width" placeholder="" autocorrect="off"
                                                     autocomplete="off" min="1" max="50">
@@ -1392,7 +1606,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="text" class="input_text color" name="basic_elm_color"
                                                     id="basic_elm_color" placeholder="" autocorrect="off"
                                                     autocomplete="off" data-jscolor="{}">
@@ -1402,7 +1616,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="text" class="input_text color" name="basic_elm_fill"
                                                     id="basic_elm_fill" placeholder="" autocorrect="off"
                                                     autocomplete="off" data-jscolor="{}">
@@ -1418,7 +1632,7 @@
                                 <table class="config_table">
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="number" class="input_number" id="basic_icon_height"
                                                     name="basic_icon_height" placeholder="" autocorrect="off"
                                                     autocomplete="off" min="1" max="50">
@@ -1428,7 +1642,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="number" class="input_number" id="basic_icon_width"
                                                     name="basic_icon_width" placeholder="" autocorrect="off"
                                                     autocomplete="off" min="1" max="50">
@@ -1438,7 +1652,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="form_div">
+                                            <div class="form_div text">
                                                 <input type="text" class="input_text color" name="basic_icon_color"
                                                     id="basic_icon_color" placeholder="" autocorrect="off"
                                                     autocomplete="off" data-jscolor="{}">
@@ -1521,5 +1735,6 @@
         </div>
     </div>
 </body>
+
 
 </html>

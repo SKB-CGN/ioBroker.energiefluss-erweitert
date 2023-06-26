@@ -25,7 +25,10 @@ let outputValues = {
 	unit: {},
 	animations: {},
 	animationProperties: {},
-	fillValues: {}
+	fillValues: {},
+	prepend: {},
+	append: {},
+	css: {}
 };
 
 let relativeTimeCheck = {};
@@ -90,7 +93,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			native: {},
 		});
 
-		this.log.info("Adapter started and loading config!");
+		this.log.info("Adapter started. Loading config!");
 
 		this.getConfig();
 	}
@@ -140,6 +143,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		let clearValue;
 		if (state) {
 			// The state was changed
+			let cssRules = new Array();
 			if (id == this.namespace + '.configuration') {
 				this.log.info('Configuration changed via Workspace! Reloading config!');
 				this.getConfig();
@@ -150,17 +154,21 @@ class EnergieflussErweitert extends utils.Adapter {
 					clearValue = state.val;
 				}
 
-				// Put Value into RAW-Source-Values
-				rawValues.sourceValues[sourceObject[id].id] = clearValue;
-				this.log.debug(JSON.stringify(rawValues.sourceValues));
-
 				// Loop through each Element, which belongs to that source
 				if (sourceObject[id].hasOwnProperty('elmSources')) {
+					// Put Value into RAW-Source-Values
+					rawValues.sourceValues[sourceObject[id].id] = clearValue;
+					this.log.debug(JSON.stringify(rawValues.sourceValues));
+
 					for (var _key of Object.keys(sourceObject[id].elmSources)) {
 						let src = sourceObject[id].elmSources[_key];
+
+						// Put ID into CSS-Rule for later use
+						cssRules.push(src);
+
 						// VALUES
 						if (settingsObject.hasOwnProperty(src)) {
-							this.log.debug("Settings for Element " + src + " found! Applying Settings!")
+							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
 							// Convertible
 							let seObj = settingsObject[src];
 							if (seObj.type == 'text') {
@@ -168,15 +176,14 @@ class EnergieflussErweitert extends utils.Adapter {
 								if (seObj.source_option != -1) {
 									this.log.debug('Source Option detected! ' + seObj.source_option + 'Generating DateString for ' + state.ts + ' ' + this.getDateTime(state.ts, seObj.source_option));
 									outputValues.values[src] = this.getDateTime(state.ts, seObj.source_option);
-									outputValues.unit[src] = '';
 									rawValues.values[src] = 0;
 								} else {
+									// Threshold need to be positive
 									if (seObj.threshold >= 0) {
-										let threshold = seObj.threshold;
 										let formatValue;
 										this.log.debug('Threshold for: ' + src + ' is: ' + seObj.threshold);
 										// Check, if value is over threshold
-										if (clearValue > threshold || clearValue < threshold * -1) {
+										if (Math.abs(clearValue) > seObj.threshold) {
 											// Check, if we have Subtractions for this value
 											let subArray = seObj.subtract;
 											if (subArray.length > 0) {
@@ -193,11 +200,11 @@ class EnergieflussErweitert extends utils.Adapter {
 											}
 											// Format Value
 											outputValues.values[src] = this.valueOutput(src, formatValue);
-										} else {
-											outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(0, seObj.decimal_places) : clearValue;
 										}
-										rawValues.values[src] = clearValue;
+									} else {
+										outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(0, seObj.decimal_places) : clearValue;
 									}
+									rawValues.values[src] = clearValue;
 								}
 							} else {
 								outputValues.fillValues[src] = clearValue;
@@ -206,7 +213,6 @@ class EnergieflussErweitert extends utils.Adapter {
 								outputValues.values[src] = state.val;
 								rawValues.values[src] = state.val;
 							}
-
 						} else {
 							outputValues.values[src] = clearValue;
 							rawValues.values[src] = clearValue;
@@ -217,7 +223,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				// Check, if that Source belongs to battery-charge or discharge, to determine the time
 				if (globalConfig.hasOwnProperty('calculation')) {
 					if (sourceObject[id].id == globalConfig.calculation.battery.charge || sourceObject[id].id == globalConfig.calculation.battery.discharge) {
-						if (globalConfig.calculation.battery.charge && globalConfig.calculation.battery.discharge && globalConfig.calculation.battery.percent) {
+						if (globalConfig.calculation.battery.charge != -1 && globalConfig.calculation.battery.discharge != -1 && globalConfig.calculation.battery.percent != -1) {
 							let direction = 'none';
 							let energy = 0;
 							let dod = globalConfig.calculation.battery.dod ? globalConfig.calculation.battery.dod : 0;
@@ -263,67 +269,157 @@ class EnergieflussErweitert extends utils.Adapter {
 				// Animations
 				if (sourceObject[id].hasOwnProperty('elmAnimations')) {
 					this.log.debug('Found corresponding animations for ID: ' + id + '! Applying!');
-					for (var anim in sourceObject[id].elmAnimations) {
-						let animation = sourceObject[id].elmAnimations[anim].id;
-						this.log.debug('Checking for Animation: ' + animation);
-						let animationValid = true;
-						let threshold = sourceObject[id].elmAnimations[anim].threshold;
-						// Check, if we have a special Animation Set for this
-						if (sourceObject[id].elmAnimations[anim].type != -1 && sourceObject[id].elmAnimations[anim].type != undefined) {
-							this.log.debug("Found animation " + sourceObject[id].elmAnimations[anim].type);
-							// Dots
-							if (sourceObject[id].elmAnimations[anim].type == 'dots') {
-								// Calculate new Amount or Dots
-								this.log.debug('Stroke-Array for animation: ' + animation + ' is: ' + this.calculateStrokeArray(sourceObject[id].elmAnimations[anim].dots, sourceObject[id].elmAnimations[anim].power, Math.abs(clearValue)) +
-									' means: maxDots:  ' + sourceObject[id].elmAnimations[anim].dots + ' maxPower: ' + sourceObject[id].elmAnimations[anim].power + ' Value: ' + Math.abs(clearValue));
-								outputValues.animationProperties[animation] = {
-									type: 'dots',
-									stroke: this.calculateStrokeArray(sourceObject[id].elmAnimations[anim].dots, sourceObject[id].elmAnimations[anim].power, Math.abs(clearValue))
-								};
+					for (var _key of Object.keys(sourceObject[id].elmAnimations)) {
+						let src = sourceObject[id].elmAnimations[_key];
+						// Object Variables
+						let tmpType, tmpStroke, tmpDuration, tmpOption;
+
+						// Put ID into CSS-Rule for later use
+						cssRules.push(src);
+
+						let tmpAnimValid = true;
+						// Animations
+						if (settingsObject.hasOwnProperty(src)) {
+							this.log.debug("Animation-Settings for Element " + src + " found! Applying Settings!");
+							let seObj = settingsObject[src];
+
+							if (seObj.type != -1 && seObj != undefined) {
+								if (seObj.type == 'dots') {
+									tmpType = 'dots';
+									tmpStroke = this.calculateStrokeArray(seObj.dots, seObj.power, Math.abs(clearValue));
+								}
+								if (seObj.type == 'duration') {
+									tmpType = 'duration';
+									tmpDuration = this.calculateDuration(seObj.duration, seObj.power, Math.abs(clearValue));
+								}
 							}
 
-							// Duration
-							if (sourceObject[id].elmAnimations[anim].type == 'duration') {
-								this.log.debug('Duration for animation: ' + animation + ' is: ' + this.calculateDuration(sourceObject[id].elmAnimations[anim].duration, sourceObject[id].elmAnimations[anim].power, Math.abs(clearValue)) +
-									' means: minDuration:  ' + sourceObject[id].elmAnimations[anim].duration + ' maxPower: ' + sourceObject[id].elmAnimations[anim].power + ' Value: ' + Math.abs(clearValue));
-								outputValues.animationProperties[animation] = {
-									type: 'duration',
-									duration: this.calculateDuration(sourceObject[id].elmAnimations[anim].duration, sourceObject[id].elmAnimations[anim].power, Math.abs(clearValue))
-								};
+							switch (seObj.properties) {
+								case 'positive':
+									this.log.debug('Animation has a positive factor!');
+									if (clearValue > 0) {
+										if (clearValue > seObj.threshold) {
+											this.log.debug('Value: ' + clearValue + ' is greater than Threshold: ' + seObj.threshold + ' Applying Animation!');
+											tmpAnimValid = true;
+											tmpOption = '';
+										} else {
+											this.log.debug('Value: ' + clearValue + ' is smaller than Threshold: ' + seObj.threshold + ' Deactivating Animation!');
+											tmpAnimValid = false;
+										}
+									} else {
+										if (seObj.option) {
+											if (clearValue < seObj.threshold * -1) {
+												tmpAnimValid = true;
+												// Set Option
+												tmpOption = 'reverse';
+											} else {
+												tmpAnimValid = false;
+											}
+										} else {
+											tmpAnimValid = false;
+										}
+									}
+									break;
+								case 'negative':
+									this.log.debug('Animation has a negative factor!');
+									if (clearValue < 0) {
+										if (clearValue < seObj.threshold * -1) {
+											this.log.debug('Value: ' + clearValue + ' is greater than Threshold: ' + seObj.threshold * -1 + ' Applying Animation!');
+											tmpAnimValid = true;
+											tmpOption = '';
+										} else {
+											this.log.debug('Value: ' + clearValue + ' is smaller than Threshold: ' + seObj.threshold * -1 + ' Deactivating Animation!');
+											tmpAnimValid = false;
+										}
+									} else {
+										if (seObj.option) {
+											if (clearValue > seObj.threshold) {
+												tmpAnimValid = true;
+												// Set Option
+												tmpOption = 'reverse';
+											} else {
+												tmpAnimValid = false;
+											}
+										} else {
+											tmpAnimValid = false;
+										}
+									}
+									break;
+							}
+
+
+							// Set Animation
+							outputValues.animations[src] = tmpAnimValid;
+
+							// Create Animation Object
+							outputValues.animationProperties[src] = {
+								type: tmpType,
+								duration: tmpDuration,
+								stroke: tmpStroke,
+								option: tmpOption
+							};
+						}
+					}
+				}
+
+				// Put CSS together
+				if (cssRules.length > 0) {
+					cssRules.forEach((src) => {
+						let seObj = settingsObject[src];
+						// CSS Rules
+						if (seObj.threshold >= 0) {
+							if (Math.abs(clearValue) > seObj.threshold) {
+								// CSS Rules
+								if (clearValue > 0) {
+									// CSS Rules - Positive
+									outputValues.css[src] = {
+										actPos: seObj.css_active_positive,
+										inactPos: seObj.css_inactive_positive,
+										actNeg: "",
+										inactNeg: seObj.css_active_negative
+									};
+								}
+								if (clearValue < 0) {
+									// CSS Rules - Negative
+									outputValues.css[src] = {
+										actNeg: seObj.css_active_negative,
+										inactNeg: seObj.css_inactive_negative,
+										actPos: "",
+										inactPos: seObj.css_active_positive
+									};
+								}
+							} else {
+								// CSS Rules
+								if (clearValue > 0) {
+									// CSS Rules - Positive
+									outputValues.css[src] = {
+										actPos: seObj.css_inactive_positive,
+										inactPos: seObj.css_active_positive,
+										actNeg: "",
+										inactNeg: seObj.css_active_negative
+									};
+								}
+								if (clearValue < 0) {
+									// CSS Rules - Negative
+									outputValues.css[src] = {
+										actNeg: seObj.css_inactive_negative,
+										inactNeg: seObj.css_active_negative,
+										actPos: "",
+										inactPos: seObj.css_active_positive
+									};
+								}
+								if (clearValue == 0) {
+									// CSS Rules - Positive
+									outputValues.css[src] = {
+										actPos: "",
+										inactPos: seObj.css_active_positive + ' ' + seObj.css_inactive_positive,
+										actNeg: "",
+										inactNeg: seObj.css_active_negative + ' ' + seObj.css_inactive_negative
+									};
+								}
 							}
 						}
-						switch (sourceObject[id].elmAnimations[anim].properties) {
-							case 'positive':
-								this.log.debug('Animation has a positive factor!');
-								if (clearValue > 0) {
-									if (clearValue > threshold) {
-										this.log.debug('Value: ' + clearValue + ' is greater than Threshold: ' + threshold + ' Applying Animation!');
-										animationValid = true;
-									} else {
-										this.log.debug('Value: ' + clearValue + ' is smaller than Threshold: ' + threshold + ' Deactivating Animation!');
-										animationValid = false;
-									}
-								} else {
-									animationValid = false;
-								}
-								break;
-							case 'negative':
-								this.log.debug('Animation has a negative factor!');
-								if (clearValue < 0) {
-									if (clearValue < threshold * -1) {
-										this.log.debug('Value: ' + clearValue + ' is greater than Threshold: ' + threshold * -1 + ' Applying Animation!');
-										animationValid = true;
-									} else {
-										this.log.debug('Value: ' + clearValue + ' is smaller than Threshold: ' + threshold * -1 + ' Deactivating Animation!');
-										animationValid = false;
-									}
-								} else {
-									animationValid = false;
-								}
-								break;
-						}
-						outputValues.animations[animation] = animationValid;
-					}
+					});
 				}
 
 				this.log.debug('State changed! New value for Source: ' + id + ' with Value: ' + clearValue + ' belongs to Elements: ' + sourceObject[id].elmSources.toString());
@@ -567,12 +663,13 @@ class EnergieflussErweitert extends utils.Adapter {
 
 	calculateDuration(maxDuration, maxPower, currentPower) {
 		// Max Duration
+		let cur = Number(currentPower);
+		let max = Number(maxPower);
 		let dur = Number(maxDuration);
-		let pwr = Number(maxPower - currentPower);
+		let result = Math.round((max / cur) * dur);
+		result = result > 60000 ? 60000 : result;
 
-		return pwr > 0 ? dur + pwr : dur;
-
-		//Math.round((((currentPower / maxPower) * 100) * maxDuration) / 100);
+		return result;
 	}
 
 	/**
@@ -621,7 +718,10 @@ class EnergieflussErweitert extends utils.Adapter {
 			unit: {},
 			animations: {},
 			fillValues: {},
-			animationProperties: {}
+			animationProperties: {},
+			prepend: {},
+			append: {},
+			css: {}
 		};
 		rawValues = {
 			values: {},
@@ -657,7 +757,7 @@ class EnergieflussErweitert extends utils.Adapter {
 						sourceObject[globalConfig.datasources[key].source] = {
 							id: parseInt(key),
 							elmSources: [],
-							elmAnimations: {},
+							elmAnimations: [],
 						};
 						rawValues.sourceValues[key] = stateValue.val;
 						// Add to SubscribeArray
@@ -693,15 +793,24 @@ class EnergieflussErweitert extends utils.Adapter {
 							type: value.type,
 							source_option: value.source_option,
 							source_display: value.source_display,
-							subtract: value.subtract
+							subtract: value.subtract,
+							css_general: value.css_general,
+							css_active_positive: value.css_active_positive,
+							css_inactive_positive: value.css_inactive_positive,
+							css_active_negative: value.css_active_negative,
+							css_inactive_negative: value.css_inactive_negative
 						};
+
+						// Append and prepend
+						outputValues.append[key] = value.append;
+						outputValues.prepend[key] = value.prepend;
 
 						// Output Values
 						if (value.type == 'text') {
 							// Check, if we have source options for text - Date
 							if (value.source_option != -1) {
 								outputValues.values[key] = this.getDateTime(stateValue.ts, value.source_option);
-								outputValues.unit[key] = '';
+								outputValues.unit[key] = value.unit;
 								rawValues.values[key] = 0;
 
 								// Put into timer object for re-requesting
@@ -713,7 +822,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								}
 							} else if (value.source_display == 'text') {
 								outputValues.values[key] = stateValue.val;
-								outputValues.unit[key] = '';
+								outputValues.unit[key] = value.unit;
 								rawValues.values[key] = stateValue.val;
 							}
 							else {
@@ -728,6 +837,14 @@ class EnergieflussErweitert extends utils.Adapter {
 						// Put Elm into Source
 						sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
 					}
+
+					// CSS Rules
+					outputValues.css[key] = {
+						actPos: value.css_active_positive || "",
+						inactPos: value.css_inactive_positive || "",
+						actNeg: value.css_active_negative || "",
+						inactNeg: value.css_inactive_negative || ""
+					}
 				}
 			}
 		}
@@ -740,15 +857,29 @@ class EnergieflussErweitert extends utils.Adapter {
 					if (value.source.length !== 0) {
 						this.log.debug("Animation for Source: " + value.source + " is: " + key);
 						// Put Animation into Source
-						sourceObject[globalConfig.datasources[value.source].source].elmAnimations[key] = {
-							id: key,
+						sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
+						settingsObject[key] = {
 							properties: value.animation_properties,
+							option: value.animation_option,
 							threshold: value.threshold,
 							type: value.animation_type,
 							duration: value.duration,
 							power: value.power,
-							dots: value.dots
-						};
+							dots: value.dots,
+							css_general: value.css_general,
+							css_active_positive: value.css_active_positive,
+							css_inactive_positive: value.css_inactive_positive,
+							css_active_negative: value.css_active_negative,
+							css_inactive_negative: value.css_inactive_negative
+						}
+
+						// CSS Rules
+						outputValues.css[key] = {
+							actPos: value.css_active_positive || "",
+							inactPos: value.css_inactive_positive || "",
+							actNeg: value.css_active_negative || "",
+							inactNeg: value.css_inactive_negative || ""
+						}
 					} else {
 						this.log.debug("Animation for Source: " + value.source + " not found!");
 					}
@@ -756,6 +887,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			}
 		}
 
+		this.log.debug('CSS: ' + JSON.stringify(outputValues.css));
 		this.log.debug('Settings: ' + JSON.stringify(settingsObject));
 		this.log.debug("Initial Values: " + JSON.stringify(outputValues.values));
 		this.log.debug("Initial Fill-Values: " + JSON.stringify(outputValues.fillValues));
