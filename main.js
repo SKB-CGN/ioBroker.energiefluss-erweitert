@@ -183,7 +183,7 @@ class EnergieflussErweitert extends utils.Adapter {
 										let formatValue;
 										this.log.debug('Threshold for: ' + src + ' is: ' + seObj.threshold);
 										// Check, if value is over threshold
-										if (Math.abs(clearValue) > seObj.threshold) {
+										if (Math.abs(clearValue) >= seObj.threshold) {
 											// Check, if we have Subtractions for this value
 											let subArray = seObj.subtract;
 											if (subArray.length > 0) {
@@ -200,9 +200,9 @@ class EnergieflussErweitert extends utils.Adapter {
 											}
 											// Format Value
 											outputValues.values[src] = this.valueOutput(src, formatValue);
+										} else {
+											outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(0, seObj.decimal_places) : clearValue;
 										}
-									} else {
-										outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(0, seObj.decimal_places) : clearValue;
 									}
 									rawValues.values[src] = clearValue;
 								}
@@ -298,7 +298,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								case 'positive':
 									this.log.debug('Animation has a positive factor!');
 									if (clearValue > 0) {
-										if (clearValue > seObj.threshold) {
+										if (clearValue >= seObj.threshold) {
 											this.log.debug('Value: ' + clearValue + ' is greater than Threshold: ' + seObj.threshold + ' Applying Animation!');
 											tmpAnimValid = true;
 											tmpOption = '';
@@ -308,7 +308,7 @@ class EnergieflussErweitert extends utils.Adapter {
 										}
 									} else {
 										if (seObj.option) {
-											if (clearValue < seObj.threshold * -1) {
+											if (clearValue <= seObj.threshold * -1) {
 												tmpAnimValid = true;
 												// Set Option
 												tmpOption = 'reverse';
@@ -323,7 +323,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								case 'negative':
 									this.log.debug('Animation has a negative factor!');
 									if (clearValue < 0) {
-										if (clearValue < seObj.threshold * -1) {
+										if (clearValue <= seObj.threshold * -1) {
 											this.log.debug('Value: ' + clearValue + ' is greater than Threshold: ' + seObj.threshold * -1 + ' Applying Animation!');
 											tmpAnimValid = true;
 											tmpOption = '';
@@ -333,7 +333,7 @@ class EnergieflussErweitert extends utils.Adapter {
 										}
 									} else {
 										if (seObj.option) {
-											if (clearValue > seObj.threshold) {
+											if (clearValue >= seObj.threshold) {
 												tmpAnimValid = true;
 												// Set Option
 												tmpOption = 'reverse';
