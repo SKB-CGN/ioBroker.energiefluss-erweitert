@@ -366,6 +366,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (cssRules.length > 0) {
 					cssRules.forEach((src) => {
 						let seObj = settingsObject[src];
+
 						// CSS Rules
 						if (seObj.threshold >= 0) {
 							if (Math.abs(clearValue) > seObj.threshold) {
@@ -786,7 +787,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						// Save Settings for the states
 						settingsObject[key] = {
-							threshold: value.threshold,
+							threshold: value.threshold || 0,
 							calculate_kw: value.calculate_kw,
 							decimal_places: value.decimal_places,
 							convert: value.convert,
