@@ -838,14 +838,6 @@ class EnergieflussErweitert extends utils.Adapter {
 						// Put Elm into Source
 						sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
 					}
-
-					// CSS Rules
-					outputValues.css[key] = {
-						actPos: value.css_active_positive || "",
-						inactPos: value.css_inactive_positive || "",
-						actNeg: value.css_active_negative || "",
-						inactNeg: value.css_inactive_negative || ""
-					}
 				}
 			}
 		}
@@ -872,14 +864,6 @@ class EnergieflussErweitert extends utils.Adapter {
 							css_inactive_positive: value.css_inactive_positive,
 							css_active_negative: value.css_active_negative,
 							css_inactive_negative: value.css_inactive_negative
-						}
-
-						// CSS Rules
-						outputValues.css[key] = {
-							actPos: value.css_active_positive || "",
-							inactPos: value.css_inactive_positive || "",
-							actNeg: value.css_active_negative || "",
-							inactNeg: value.css_inactive_negative || ""
 						}
 					} else {
 						this.log.debug("Animation for Source: " + value.source + " not found!");
