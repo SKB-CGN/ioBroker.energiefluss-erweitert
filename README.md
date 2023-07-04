@@ -40,6 +40,7 @@ Documentation:
 - Added: Start coordinates can be specified in basic settings to better position new elements 
 - Added: Threshold for rectangle and circle
 - Added: duplication of one or more element(s)
+- Added: Fill element according to value can now have different directions (bottom to top, top to bottom, right to left, left to right)
 
 ### 0.0.2-alpha.8 (2023-06-26)
 - FIX: Remaining Battery Calculation was not working if source has an ID 0 assigned

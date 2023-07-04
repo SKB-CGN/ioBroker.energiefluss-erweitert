@@ -477,7 +477,7 @@
                                                 <div class="onoffswitch">
                                                     <input type="checkbox" name="elm_animation_option"
                                                         class="onoffswitch-checkbox elm_config"
-                                                        id="elm_animation_option" value="yes" style="">
+                                                        id="elm_animation_option" value="yes">
                                                     <label class="onoffswitch-label" for="elm_animation_option">
                                                         <span class="onoffswitch-inner"></span>
                                                         <span class="onoffswitch-switch"></span>
@@ -720,6 +720,20 @@
                                         <tr class="fill_type">
                                             <td>
                                                 <div class="form_div text">
+                                                    <label for="elm_fill_direction" class="form_label">Direction</label>
+                                                    <select class="input_select elm_config" name="elm_fill_direction"
+                                                        id="elm_fill_direction">
+                                                        <option value="90" selected>From bottom to top</option>
+                                                        <option value="270" selected>From top to bottom</option>
+                                                        <option value="0" selected>From right to left</option>
+                                                        <option value="180" selected>From left to right</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="fill_type">
+                                            <td>
+                                                <div class="form_div text">
                                                     <input type="text" class="input_text color elm_config"
                                                         name="elm_fill_value" id="elm_fill_value" placeholder=""
                                                         autocorrect="off" autocomplete="off" data-jscolor="{}">
@@ -727,7 +741,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr class="fill_type">
+                                        <tr class="fill_type_value">
                                             <td>
                                                 <div class="form_div text">
                                                     <input type="number" class="input_number elm_config "
