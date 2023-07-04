@@ -14,6 +14,7 @@
 - [x] Waehrend der Konfiguration eines Elements wird der aktuelle Status gespeichert - dieser erlaubt es, das Element in seinem urspruenglichen Status wiederherzustellen
 - [x] Alle Seiten sind responsive. Sie laufen auf PC, Tablet, Handy und lassen sich dort auch konfigurieren
 - [x] Der Adapter benutzt die schnelleren Web-Sockets von ioBroker und reagiert etwa 10 Mal schneller, jedoch auch 10 Mal schonender im Browser (oder anderer Anzeige)
+- [x] verschiedene Grundeinstellungen koennen festgelegt werden, um Farben, Groeßen, Formen vorzubelegen
 
 **Elemente:**
 - [x] Es koennen **unbegrenzt** viele Elemente auf der Arbeitsflaeche abgelegt werden (Texte, Datenpunkte, Rechtecke, Kreise, Icons, etc.)
@@ -26,6 +27,8 @@
 - max. Wert: Das Element wird erneut prozentual gefuellt, jedoch anhand des Wertes. Beispiel: max Wert 4000, Datenpunkt-Wert 3000 -> 3000/4000 * 100 -> 75%
 - [x] Web-Adressen hinterlegbar, auf die bei einem Klick/Tap verwiesen wird. 
 - Anzeige in Overlay, einer neuen Seite (Tab) oder derselben Seite moeglich
+- [x] Elemente koennen dupliziert werden
+- [x] CSS-Klassen koennen den verschiedenen Stati des Datenpunktes zugewiesen werden. Aktiv positiv, Aktiv negativ, Inaktiv positiv und Inaktiv negativ
 
 **Texte:**
 - [x] Die letzte Änderung des Datenpunktes kann angezeigt werden. Relativ zu jetzt, Zeitstempel DE und Zeitstempel US
@@ -42,6 +45,7 @@
 - [x] positiver oder negativer Datenpunkt Wert
 - [x] Schwellenwert moeglich
 - [x] Es kann die Geschwindigkeit oder die Anzahl der Punkte anhand der Last geaendert werden
+- [x] Bi-direktionale Linien möglich (Aenderung der Animationsrichtung bei Wechsel von positiv zu negativ)
 
 **Verbindungen:**
 - [x] Elemente (Kreis oder Rechteck) koennen frei untereinander verbunden werden. Es gibt einen **Element Modus** und einen **Connection Point**-Modus.
