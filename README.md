@@ -32,6 +32,15 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: CSS classes were causing color errors while being applied in config mode
+- FIX: Do not Load CSS class when adapter is starting - only when values change
+- FIX: Threshold was not calculated correctly, if element was substracted by other values
+- FIX: ID list in configbar was loosing event for choosing next element in drop-down
+- Added: Start coordinates can be specified in basic settings to better position new elements 
+- Added: Threshold for rectangle and circle
+- Added: duplication of one or more element(s)
+
 ### 0.0.2-alpha.8 (2023-06-26)
 - FIX: Remaining Battery Calculation was not working if source has an ID 0 assigned
 - FIX: Animation timing improved. Better time-handling (#20)

@@ -46,6 +46,8 @@
 
 .ms-options-wrap.ms-has-selections>button {
     color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .ms-options-wrap>.ms-options {

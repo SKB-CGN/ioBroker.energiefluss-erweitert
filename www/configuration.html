@@ -380,7 +380,8 @@
                                         <tr class="elm_config_datasource">
                                             <td>
                                                 <div class="form_div">
-                                                    <label for="elm_source_option" class="form_label">Timestamp</label>
+                                                    <label for="elm_source_option" class="form_label">Show Timestamp of
+                                                        last change</label>
                                                     <select class="input_select elm_config" name="elm_source_option"
                                                         id="elm_source_option">
                                                         <option value="-1">None</option>
@@ -402,7 +403,7 @@
                                         <tr class="elm_config_datasource">
                                             <td>
                                                 <div class="form_div">
-                                                    <label for="elm_source_display" class="form_label">Display
+                                                    <label for="elm_source_display" class="form_label">Display source
                                                         as</label>
                                                     <select class="input_select elm_config" name="elm_source_display"
                                                         id="elm_source_display">
@@ -540,7 +541,8 @@
                                 </div>
                             </div>
                             <div class="tab2_config">
-                                <div class="detail_box elm_config_datasource elm_config_use elm_config_svg">
+                                <div
+                                    class="detail_box elm_config_datasource elm_config_use elm_config_svg elm_config_rect elm_config_circle">
                                     <span class="config_sec">Calculation</span>
                                     <table class="element_config_table">
                                         <tr class="elm_config_datasource">
@@ -807,7 +809,10 @@
                                                         threshold (negative)</label>
                                                 </div>
                                                 <img src='img/icon_help.png' style='margin-top:10px;'
-                                                    title='<b>General:</b><br>Add CSS classes, that are always assigned to that element<br><br><b>Source over threshold (positive):</b><br>CSS classes, to be added if the source is positive and over threshold (active)<br><br><b>Source below threshold (positive):</b><br>CSS classes, to be added if the source is positive and below threshold (inactive)<br><br><b>Source over threshold (negative):</b><br>CSS classes, to be added if the source is negative and over threshold (active)<br><br><b>Source below threshold (negative):</b><br>CSS classes, to be added if the source is negative and below threshold (inactive)<br><br><b>Usage:</b><br>Add class-names seperated by comma and define them in "CSS/Styles"-Tab'>
+                                                    title='<b>General:</b><br>Add CSS classes, that are always assigned to that element<br><br><b>Source over threshold (positive):</b><br>CSS classes, to be added if the source is positive and over threshold (active)<br><br><b>Source below threshold (positive):</b><br>CSS classes, to be added if the source is positive and below threshold (inactive)<br><br><b>Source over threshold (negative):</b><br>CSS classes, to be added if the source is negative and over threshold (active)<br><br><b>Source below threshold (negative):</b><br>CSS classes, to be added if the source is negative and below threshold (inactive)<br><br><b>Usage:</b><br>Add class-names seperated by space and define them in "CSS/Styles"-Tab'>
+                                                <br>
+                                                <a href="https://www.w3schools.com/css/" target="_blank">How to use
+                                                    CSS</a>
                                             </td>
                                         </tr>
                                     </table>
@@ -893,16 +898,16 @@
                         <table class="config_table">
                             <tr style="height: 42px;">
                                 <td style="width: 150px;white-space: nowrap;">
-                                    <a title="Align left" class="align_elements  tt-element" id="align_left"><span
-                                            class=" iconify add_element_area"
+                                    <a title="Align left" class="align_elements tt-element" id="align_left"><span
+                                            class="iconify add_element_area"
                                             data-icon="material-symbols:format-align-left-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Align center" class="align_elements  tt-element" id="align_center"><span
-                                            class=" iconify add_element_area"
+                                    <a title="Align center" class="align_elements tt-element" id="align_center"><span
+                                            class="iconify add_element_area"
                                             data-icon="material-symbols:format-align-center-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Align right" class="align_elements  tt-element" id="align_right"><span
-                                            class=" iconify add_element_area"
+                                    <a title="Align right" class="align_elements tt-element" id="align_right"><span
+                                            class="iconify add_element_area"
                                             data-icon="material-symbols:format-align-right-rounded" data-width="48"
                                             data-height="48"></span></a>
                                 </td>
@@ -913,16 +918,16 @@
                             </tr>
                             <tr style="height: 40px;">
                                 <td>
-                                    <a title=" Align Top" class="align_elements  tt-element" id="align_top"><span
-                                            class=" iconify add_element_area"
+                                    <a title=" Align Top" class="align_elements tt-element" id="align_top"><span
+                                            class="iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-top-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Align vertical center" class="align_elements  tt-element"
-                                        id="align_vcenter"><span class=" iconify add_element_area"
+                                    <a title="Align vertical center" class="align_elements tt-element"
+                                        id="align_vcenter"><span class="iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-center-rounded" data-width="48"
                                             data-height="48"></span></a>
-                                    <a title="Align bottom" class="align_elements  tt-element" id="align_bottom"><span
-                                            class=" iconify add_element_area"
+                                    <a title="Align bottom" class="align_elements tt-element" id="align_bottom"><span
+                                            class="iconify add_element_area"
                                             data-icon="material-symbols:vertical-align-bottom-rounded" data-width="48"
                                             data-height="48"></span></a>
                                 </td>
@@ -940,7 +945,10 @@
 
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
+                                <td><a title="Duplicate selected element(s)" class="tt-element"
+                                        id="duplicate_elements"><span class="iconify add_element_area"
+                                            data-icon="material-symbols:file-copy-outline-rounded" data-width="48"
+                                            data-height="48"></span></a></td>
                                 <td><input type="button" value="Done" id="align_elements" class="input_button red"
                                         style="display: none;">
                                 </td>
@@ -1662,8 +1670,38 @@
                                     </tr>
                                 </table>
                             </div>
+                            <div class="detail_box no_flex">
+                                <span class="config_sec">Coordinates</span>
+                                <table class="config_table">
+                                    <tr>
+                                        <td>
+                                            <div class="form_div text">
+                                                <input type="number" class="input_number" id="basic_pos_x"
+                                                    name="basic_pos_x" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_pos_x" class="form_label">Pos X</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form_div text">
+                                                <input type="number" class="input_number" id="basic_pos_y"
+                                                    name="basic_pos_y" placeholder="" autocorrect="off"
+                                                    autocomplete="off" min="1" max="50">
+                                                <label for="basic_pos_y" class="form_label">Pos Y</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>These coordinates (+ random number between 0 and 50) will be used as a
+                                            starting value when adding a new
+                                            element.</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <div>
-                                <b><u>Please note</u></b>: For the changes to take effect, you need so save them!
+                                <b><u>Please note</u></b>: For the changes to take effect, you need to save them!
                             </div>
                         </div>
                     </fieldset>

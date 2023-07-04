@@ -21,7 +21,9 @@
             "radius": 50
         },
         "elm": {
-            "stroke_width": 5
+            "stroke_width": 5,
+            "pos_x": 50,
+            "pos_y": 50
         },
         "icon": {
             "width": 24,

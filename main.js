@@ -182,22 +182,23 @@ class EnergieflussErweitert extends utils.Adapter {
 									if (seObj.threshold >= 0) {
 										let formatValue;
 										this.log.debug('Threshold for: ' + src + ' is: ' + seObj.threshold);
-										// Check, if value is over threshold
-										if (Math.abs(clearValue) >= seObj.threshold) {
-											// Check, if we have Subtractions for this value
-											let subArray = seObj.subtract;
-											if (subArray.length > 0) {
-												let tmpVal = 0;
-												for (var sub in subArray) {
-													if (subArray[sub] != -1) {
-														tmpVal = tmpVal + Math.abs(rawValues.sourceValues[subArray[sub]]);
-														this.log.debug("Subtracted by: " + subArray.toString());
-													}
+										// Check, if we have Subtractions for this value
+										let subArray = seObj.subtract;
+										if (subArray.length > 0) {
+											let tmpVal = 0;
+											for (var sub in subArray) {
+												if (subArray[sub] != -1) {
+													tmpVal = tmpVal + Math.abs(rawValues.sourceValues[subArray[sub]]);
+													this.log.debug("Subtracted by: " + subArray.toString());
 												}
-												formatValue = clearValue - (tmpVal);
-											} else {
-												formatValue = clearValue;
 											}
+											formatValue = clearValue - (tmpVal);
+										} else {
+											formatValue = clearValue;
+										}
+										// Check, if value is over threshold
+										if (Math.abs(formatValue) >= seObj.threshold) {
+
 											// Format Value
 											outputValues.values[src] = this.valueOutput(src, formatValue);
 										} else {
