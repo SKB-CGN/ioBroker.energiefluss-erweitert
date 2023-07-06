@@ -32,6 +32,9 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Basic icon color was not applied correctly
+
 ### 0.0.2-alpha.9 (2023-07-04)
 - FIX: CSS classes were causing color errors while being applied in config mode
 - FIX: Do not Load CSS class when adapter is starting - only when values change
