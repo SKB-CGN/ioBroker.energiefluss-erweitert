@@ -38,6 +38,7 @@ Documentation:
 - FIX: Subtract was not calculated correctly, if state value is negative
 - FIX: Better handling of positioning elements when entering coordinates
 - FIX: Icons sometimes got a faulty format if duplicated
+- Added: Circles and Rectangles can now have a fill border depending on the value
 - Added: Configuration backup for the last 10 versions
 
 ### 0.0.2-alpha.9 (2023-07-04)
