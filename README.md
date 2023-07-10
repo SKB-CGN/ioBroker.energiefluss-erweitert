@@ -34,6 +34,11 @@ Documentation:
 -->
 ### **WORK IN PROGRESS**
 - FIX: Basic icon color was not applied correctly
+- FIX: Fill placeholders for elements were created in error in some circumstances
+- FIX: Subtract was not calculated correctly, if state value is negative
+- FIX: Better handling of positioning elements when entering coordinates
+- FIX: Icons sometimes got a faulty format if duplicated
+- Added: Configuration backup for the last 10 versions
 
 ### 0.0.2-alpha.9 (2023-07-04)
 - FIX: CSS classes were causing color errors while being applied in config mode

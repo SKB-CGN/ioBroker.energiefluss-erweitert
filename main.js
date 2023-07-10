@@ -26,6 +26,7 @@ let outputValues = {
 	animations: {},
 	animationProperties: {},
 	fillValues: {},
+	borderValues: {},
 	prepend: {},
 	append: {},
 	css: {}
@@ -87,6 +88,18 @@ class EnergieflussErweitert extends utils.Adapter {
 				name: 'Remaining Time of the battery',
 				type: 'string',
 				role: 'text',
+				read: true,
+				write: false,
+			},
+			native: {},
+		});
+
+		await this.setObjectNotExistsAsync('backup', {
+			type: 'state',
+			common: {
+				name: 'Last 10 Versions of Backups',
+				type: 'json',
+				role: 'state',
 				read: true,
 				write: false,
 			},
@@ -192,7 +205,7 @@ class EnergieflussErweitert extends utils.Adapter {
 													this.log.debug("Subtracted by: " + subArray.toString());
 												}
 											}
-											formatValue = clearValue - (tmpVal);
+											formatValue = clearValue > 0 ? clearValue - (tmpVal) : clearValue + (tmpVal);
 										} else {
 											formatValue = clearValue;
 										}
@@ -208,7 +221,12 @@ class EnergieflussErweitert extends utils.Adapter {
 									rawValues.values[src] = clearValue;
 								}
 							} else {
-								outputValues.fillValues[src] = clearValue;
+								if (seObj.fill_type != -1 && seObj.fill_type) {
+									outputValues.fillValues[src] = clearValue;
+								}
+								if (seObj.border_type != -1 && seObj.border_type) {
+									outputValues.borderValues[src] = clearValue;
+								}
 							}
 							if (seObj.source_display == 'text') {
 								outputValues.values[src] = state.val;
@@ -720,6 +738,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			unit: {},
 			animations: {},
 			fillValues: {},
+			borderValues: {},
 			animationProperties: {},
 			prepend: {},
 			append: {},
@@ -800,7 +819,9 @@ class EnergieflussErweitert extends utils.Adapter {
 							css_active_positive: value.css_active_positive,
 							css_inactive_positive: value.css_inactive_positive,
 							css_active_negative: value.css_active_negative,
-							css_inactive_negative: value.css_inactive_negative
+							css_inactive_negative: value.css_inactive_negative,
+							fill_type: value.fill_type,
+							border_type: value.border_type
 						};
 
 						// Append and prepend
@@ -833,7 +854,12 @@ class EnergieflussErweitert extends utils.Adapter {
 								rawValues.values[key] = clearValue;
 							}
 						} else {
-							outputValues.fillValues[key] = clearValue;
+							if (value.fill_type != -1 && value.fill_type) {
+								outputValues.fillValues[key] = clearValue;
+							}
+							if (value.border_type != -1 && value.border_type) {
+								outputValues.borderValues[key] = clearValue;
+							}
 						}
 
 						// Put Elm into Source

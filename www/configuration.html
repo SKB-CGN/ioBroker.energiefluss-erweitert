@@ -39,7 +39,7 @@
 
     <script src="js/jscolor.min.js"></script>
     <script src="js/multiselect.min.js"></script>
-    <script src="js/functions.min.js?20230525"></script>
+    <script src="js/functions.min.js"></script>
 </head>
 
 <body>
@@ -696,7 +696,7 @@
                                                     </select>
                                                 </div>
                                                 <img src='img/icon_help.png' style='margin-top:10px;'
-                                                    title='<b>New Window:</b><br>Opens the URL in a new window<br><br><b>Same window:</b><br>Opens the URL in the same window<br><br><b>iFrame overlay:</b><br>Opens the URL inside an Overlay. Some pages cannot be opened inside overlay frames. If this does not work for you, please choose a different option!<br><br><u>Tipp:</u> For http pages, it is possible to pass login credentials via URL like: http://yourUser<b>:</b>yourPass@example.com - This does <u>not</u> work for https'>
+                                                    title='<b>New Window:</b><br>Opens the URL in a new window<br><br><b>Same window:</b><br>Opens the URL in the same window<br><br><b>iFrame overlay:</b><br>Opens the URL inside an Overlay. Some pages cannot be opened inside overlay frames. If this does not work for you, please choose a different option!<br><br><u>Tipp:</u><br>For http pages, it is possible to pass login credentials via URL like: http://yourUser<b>:</b>yourPass@example.com - This does <u>not</u> work for https'>
                                             </td>
                                         </tr>
                                     </table>
@@ -723,10 +723,10 @@
                                                     <label for="elm_fill_direction" class="form_label">Direction</label>
                                                     <select class="input_select elm_config" name="elm_fill_direction"
                                                         id="elm_fill_direction">
-                                                        <option value="90" selected>From bottom to top</option>
-                                                        <option value="270" selected>From top to bottom</option>
-                                                        <option value="0" selected>From right to left</option>
-                                                        <option value="180" selected>From left to right</option>
+                                                        <option value="90">From bottom to top</option>
+                                                        <option value="270">From top to bottom</option>
+                                                        <option value="0">From right to left</option>
+                                                        <option value="180">From left to right</option>
                                                     </select>
                                                 </div>
                                             </td>
@@ -748,6 +748,85 @@
                                                         name="elm_fill_max" id="elm_fill_max" min="0" placeholder=""
                                                         autocorrect="off" autocomplete="off">
                                                     <label for="elm_fill_max" class="form_label">Max-Value</label>
+                                                </div>Necessary for calculation
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="detail_box elm_config_circle elm_config_rect">
+                                    <span class="config_sec">Fill Border according to value</span>
+                                    <table class="element_config_table">
+                                        <tr>
+                                            <td>
+                                                <div class="form_div">
+                                                    <label for="elm_border_type" class="form_label">Type</label>
+                                                    <select class="input_select elm_config" name="elm_border_type"
+                                                        id="elm_border_type">
+                                                        <option value="-1" selected>None</option>
+                                                        <option value="percent">Percent</option>
+                                                        <option value="value">Value</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border_type">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <label for="elm_border_start" class="form_label">Starting
+                                                        point</label>
+                                                    <select class="input_select elm_config" name="elm_border_start"
+                                                        id="elm_border_start">
+                                                        <option value="180" selected>left</option>
+                                                        <option value="270">top</option>
+                                                        <option value="0">right</option>
+                                                        <option value="90">bottom</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border_type">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <label for="elm_border_direction"
+                                                        class="form_label">Direction</label>
+                                                    <select class="input_select elm_config" name="elm_border_direction"
+                                                        id="elm_border_direction">
+                                                        <option value="cw" selected>clockwise</option>
+                                                        <option value="ccw">counter-clockwise</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border_type">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <label for="elm_border_style" class="form_label">Line Style</label>
+                                                    <select class="input_select elm_config" name="elm_border_style"
+                                                        id="elm_border_style">
+                                                        <option value="round" selected>round</option>
+                                                        <option value="square">square</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border_type">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <input type="text" class="input_text color elm_config"
+                                                        name="elm_border_value" id="elm_border_value" placeholder=""
+                                                        autocorrect="off" autocomplete="off" data-jscolor="{}">
+                                                    <label for="elm_border_value" class="form_label">Background Color
+                                                        for fill area</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="border_type_value">
+                                            <td>
+                                                <div class="form_div text">
+                                                    <input type="number" class="input_number elm_config "
+                                                        name="elm_border_max" id="elm_border_max" min="0" placeholder=""
+                                                        autocorrect="off" autocomplete="off">
+                                                    <label for="elm_border_max" class="form_label">Max-Value</label>
                                                 </div>Necessary for calculation
                                             </td>
                                         </tr>
@@ -835,141 +914,149 @@
                         </figure>
                     </div>
                 </div>
-                <input type="button" class="input_button" id="show_hide_config" value="Hide Controls">
-                <div class="container scrollbar" id="container_menu">
-                    <fieldset>
-                        <legend><span class="iconify legend"
-                                data-icon="material-symbols:photo-size-select-small-rounded" data-width="24"
-                                data-height="24"></span>
-                            <span>Area Size</span>
-                        </legend>
-                        <table class="config_table">
-                            <tr>
-                                <td>
-                                    <div class="form_div">
-                                        <input type="number" value="800" id="svg_width_value" min="1" max="2000"
-                                            class="input_number input_number_small svg_size_value" placeholder=""
-                                            autocorrect="off" autocomplete="off">
-                                        <label for="svg_width_value" class="form_label">Width</label>
-                                    </div>
-                                </td>
-                                <td><input type="range" value="800" id="svg_width_slider" min="1" max="2000"
-                                        class="slider svg_size_slider " title="Move the slider to adjust the size"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form_div">
-                                        <input type="number" value="500" id="svg_height_value" min="1" max="2000"
-                                            class="input_number input_number_small svg_size_value" placeholder=""
-                                            autocorrect="off" autocomplete="off">
-                                        <label for="svg_height_value" class="form_label">Height</label>
-                                    </div>
-                                </td>
-                                <td><input type="range" value="500" id="svg_height_slider" min="1" max="1000"
-                                        class="slider svg_size_slider " title="Move the slider to adjust the size"></td>
-                            </tr>
-                        </table>
-                    </fieldset>
-                    <fieldset>
-                        <legend><span class="iconify legend" data-icon="material-symbols:add-task" data-width="24"
-                                data-height="24"></span>
-                            <span>Add element</span>
-                        </legend>
-                        <table class="config_table">
-                            <tr>
-                                <td>
-                                    <a title="Add Circle" class="add_element tt-element " id="add_circle"><span
-                                            class="iconify add_element_area" data-icon="material-symbols:circle-outline"
-                                            data-width="48" data-height="48"></span></a>
-                                    <a title="Add Rectangle" class="add_element tt-element " id="add_rect"><span
-                                            class="iconify add_element_area"
-                                            data-icon="material-symbols:rectangle-outline" data-width="48"
-                                            data-height="48"></span></a>
-                                    <a title="Add Text" class="add_element tt-element " id="add_text"><span
-                                            class="iconify add_element_area"
-                                            data-icon="material-symbols:text-format-rounded" data-width="48"
-                                            data-height="48"></span></a>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><a title="Add Text with Datasource" class="add_element tt-element "
-                                        id="add_datasource"><span class="iconify add_element_area"
-                                            data-icon="material-symbols:data-check-rounded" data-width="48"
-                                            data-height="48"></span></a>
-                                    <a title="Add Icon" class="add_element tt-element " id="add_icon"><span
-                                            class="iconify add_element_area" data-icon="mdi:file-image" data-width="48"
-                                            data-height="48"></span></a>
-                                </td>
-                            </tr>
-                        </table>
-                    </fieldset>
-                    <fieldset>
-                        <legend><span class="iconify legend" data-icon="material-symbols:format-align-center-rounded"
-                                data-width="24" data-height="24"></span>
-                            <span>Alignment</span>
-                        </legend>
-                        <table class="config_table">
-                            <tr style="height: 42px;">
-                                <td style="width: 150px;white-space: nowrap;">
-                                    <a title="Align left" class="align_elements tt-element" id="align_left"><span
-                                            class="iconify add_element_area"
-                                            data-icon="material-symbols:format-align-left-rounded" data-width="48"
-                                            data-height="48"></span></a>
-                                    <a title="Align center" class="align_elements tt-element" id="align_center"><span
-                                            class="iconify add_element_area"
-                                            data-icon="material-symbols:format-align-center-rounded" data-width="48"
-                                            data-height="48"></span></a>
-                                    <a title="Align right" class="align_elements tt-element" id="align_right"><span
-                                            class="iconify add_element_area"
-                                            data-icon="material-symbols:format-align-right-rounded" data-width="48"
-                                            data-height="48"></span></a>
-                                </td>
-                                <td style="width: 250px;"><span id="ex_how_align">Choose an alignment and select a
-                                        reference
-                                        element</span>
-                                </td>
-                            </tr>
-                            <tr style="height: 40px;">
-                                <td>
-                                    <a title=" Align Top" class="align_elements tt-element" id="align_top"><span
-                                            class="iconify add_element_area"
-                                            data-icon="material-symbols:vertical-align-top-rounded" data-width="48"
-                                            data-height="48"></span></a>
-                                    <a title="Align vertical center" class="align_elements tt-element"
-                                        id="align_vcenter"><span class="iconify add_element_area"
-                                            data-icon="material-symbols:vertical-align-center-rounded" data-width="48"
-                                            data-height="48"></span></a>
-                                    <a title="Align bottom" class="align_elements tt-element" id="align_bottom"><span
-                                            class="iconify add_element_area"
-                                            data-icon="material-symbols:vertical-align-bottom-rounded" data-width="48"
-                                            data-height="48"></span></a>
-                                </td>
-                                <td>
-                                    <div id="all_undo_align_elements"
-                                        style="width:100%;align-items: center;display: none;">
-                                        <span style="font-weight: bold; padding-right: 20px;">
-                                            Undo:</span> <button class="img_button" id="undo_align_elements"
-                                            style="display:inline-block" disabled><span class="iconify"
-                                                data-icon="mdi:undo" data-width="24" data-height="24"></span></button>
-                                        <div id="undo_steps" style="width: 100%; text-align: right;">(Saved Steps: -)
+                <div class="flex-box">
+                    <div><input type="button" class="input_button" id="show_hide_config" value="Hide Controls">
+                    </div>
+                    <div class="container scrollbar" id="container_menu">
+                        <fieldset>
+                            <legend><span class="iconify legend"
+                                    data-icon="material-symbols:photo-size-select-small-rounded" data-width="24"
+                                    data-height="24"></span>
+                                <span>Area Size</span>
+                            </legend>
+                            <table class="config_table">
+                                <tr>
+                                    <td>
+                                        <div class="form_div">
+                                            <input type="number" value="800" id="svg_width_value" min="1" max="2000"
+                                                class="input_number input_number_small svg_size_value" placeholder=""
+                                                autocorrect="off" autocomplete="off">
+                                            <label for="svg_width_value" class="form_label">Width</label>
                                         </div>
-                                    </div>
-                                </td>
+                                    </td>
+                                    <td><input type="range" value="800" id="svg_width_slider" min="1" max="2000"
+                                            class="slider svg_size_slider " title="Move the slider to adjust the size">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form_div">
+                                            <input type="number" value="500" id="svg_height_value" min="1" max="2000"
+                                                class="input_number input_number_small svg_size_value" placeholder=""
+                                                autocorrect="off" autocomplete="off">
+                                            <label for="svg_height_value" class="form_label">Height</label>
+                                        </div>
+                                    </td>
+                                    <td><input type="range" value="500" id="svg_height_slider" min="1" max="1000"
+                                            class="slider svg_size_slider " title="Move the slider to adjust the size">
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset>
+                            <legend><span class="iconify legend" data-icon="material-symbols:add-task" data-width="24"
+                                    data-height="24"></span>
+                                <span>Add element</span>
+                            </legend>
+                            <table class="config_table">
+                                <tr>
+                                    <td>
+                                        <a title="Add Circle" class="add_element tt-element " id="add_circle"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:circle-outline" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title="Add Rectangle" class="add_element tt-element " id="add_rect"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:rectangle-outline" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title="Add Text" class="add_element tt-element " id="add_text"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:text-format-rounded" data-width="48"
+                                                data-height="48"></span></a>
 
-                            </tr>
-                            <tr>
-                                <td><a title="Duplicate selected element(s)" class="tt-element"
-                                        id="duplicate_elements"><span class="iconify add_element_area"
-                                            data-icon="material-symbols:file-copy-outline-rounded" data-width="48"
-                                            data-height="48"></span></a></td>
-                                <td><input type="button" value="Done" id="align_elements" class="input_button red"
-                                        style="display: none;">
-                                </td>
-                            </tr>
-                        </table>
-                    </fieldset>
-                    <!--
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a title="Add Text with Datasource" class="add_element tt-element "
+                                            id="add_datasource"><span class="iconify add_element_area"
+                                                data-icon="material-symbols:data-check-rounded" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title="Add Icon" class="add_element tt-element " id="add_icon"><span
+                                                class="iconify add_element_area" data-icon="mdi:file-image"
+                                                data-width="48" data-height="48"></span></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset>
+                            <legend><span class="iconify legend"
+                                    data-icon="material-symbols:format-align-center-rounded" data-width="24"
+                                    data-height="24"></span>
+                                <span>Alignment</span>
+                            </legend>
+                            <table class="config_table">
+                                <tr style="height: 42px;">
+                                    <td style="width: 150px;white-space: nowrap;">
+                                        <a title="Align left" class="align_elements tt-element" id="align_left"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:format-align-left-rounded" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title="Align center" class="align_elements tt-element"
+                                            id="align_center"><span class="iconify add_element_area"
+                                                data-icon="material-symbols:format-align-center-rounded" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title="Align right" class="align_elements tt-element" id="align_right"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:format-align-right-rounded" data-width="48"
+                                                data-height="48"></span></a>
+                                    </td>
+                                    <td style="width: 250px;"><span id="ex_how_align">Choose an alignment and select a
+                                            reference
+                                            element</span>
+                                    </td>
+                                </tr>
+                                <tr style="height: 40px;">
+                                    <td>
+                                        <a title=" Align Top" class="align_elements tt-element" id="align_top"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:vertical-align-top-rounded" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title="Align vertical center" class="align_elements tt-element"
+                                            id="align_vcenter"><span class="iconify add_element_area"
+                                                data-icon="material-symbols:vertical-align-center-rounded"
+                                                data-width="48" data-height="48"></span></a>
+                                        <a title="Align bottom" class="align_elements tt-element"
+                                            id="align_bottom"><span class="iconify add_element_area"
+                                                data-icon="material-symbols:vertical-align-bottom-rounded"
+                                                data-width="48" data-height="48"></span></a>
+                                    </td>
+                                    <td>
+                                        <div id="all_undo_align_elements"
+                                            style="width:100%;align-items: center;display: none;">
+                                            <span style="font-weight: bold; padding-right: 20px;">
+                                                Undo:</span> <button class="img_button" id="undo_align_elements"
+                                                style="display:inline-block" disabled><span class="iconify"
+                                                    data-icon="mdi:undo" data-width="24"
+                                                    data-height="24"></span></button>
+                                            <div id="undo_steps" style="width: 100%; text-align: right;">(Saved Steps:
+                                                -)
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td><a title="Duplicate selected element(s)" class="tt-element"
+                                            id="duplicate_elements"><span class="iconify add_element_area"
+                                                data-icon="material-symbols:file-copy-outline-rounded" data-width="48"
+                                                data-height="48"></span></a></td>
+                                    <td><input type="button" value="Done" id="align_elements" class="input_button red"
+                                            style="display: none;">
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <!--
                     <fieldset>
                         <legend><span class="iconify legend" data-icon="fluent-mdl2:select-all" data-width="24"
                                 data-height="24"></span>
@@ -983,113 +1070,115 @@
                         </table>
                     </fieldset>
                     -->
-                    <fieldset>
-                        <legend><span class="iconify legend" data-icon="carbon:connect-recursive" data-width="24"
-                                data-height="24"></span>
-                            <span>Connect Elements</span>
-                        </legend>
-                        <table class="config_table">
-                            <tr>
-                                <td><input type="button" value="Connect" id="connect_elements"
-                                        class="connect_elements input_button">
-                                </td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><span id="ex_how_connect" style="text-align: justify;">Click the
-                                        button above to connect 2 elements</span></td>
-                            </tr>
-                        </table>
-                    </fieldset>
-                    <fieldset>
-                        <legend><span class="iconify legend" data-icon="fa6-solid:display" data-width="24"
-                                data-height="24"></span>
-                            <span>Display Options</span>
-                        </legend>
-                        <table class="config_table">
-                            <tr>
-                                <td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="enable_animation" class="onoffswitch-checkbox"
-                                            id="enable_animation" value="yes">
-                                        <label class="onoffswitch-label" for="enable_animation">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td><label class="label" for="enable_animation"> Enable Animation</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="enable_grid" class="onoffswitch-checkbox"
-                                            id="enable_grid" value="yes">
-                                        <label class="onoffswitch-label" for="enable_grid">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td><label class="label" for="enable_grid"> Show Help Grid</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="enable_area_catch" class="onoffswitch-checkbox"
-                                            id="enable_area_catch" value="yes">
-                                        <label class="onoffswitch-label" for="enable_area_catch">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td><label class="label" for="enable_area_catch"> Keep Area in window</label></td>
-                            </tr>
-                        </table>
-                    </fieldset>
-                </div>
-                <div id="svg_preview" class="svg_preview scrollbar">
-                    <svg viewBox="0 0 10 10" width="10" height="10" class="lasso" preserveAspectRatio="xMinYMid meet"
-                        id="svg_config" onload="makeDraggable(evt)" tabindex="0">
-                        <!-- Default Definitions -->
-                        <defs>
-                            <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
-                                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="0.5" />
-                            </pattern>
-                            <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
-                                <rect width="100" height="100" fill="url(#smallGrid)" />
-                                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="gray" stroke-width="1" />
-                            </pattern>
-                        </defs>
-                        <!-- Grid Group -->
-                        <g>
-                            <rect width="100%" height="100%" fill="url(#grid)" id="help_grid" />
-                        </g>
-                        <!-- Definations-->
-                        <defs id="placeholder_defs" class="placeholders"></defs>
+                        <fieldset>
+                            <legend><span class="iconify legend" data-icon="carbon:connect-recursive" data-width="24"
+                                    data-height="24"></span>
+                                <span>Connect Elements</span>
+                            </legend>
+                            <table class="config_table">
+                                <tr>
+                                    <td><input type="button" value="Connect" id="connect_elements"
+                                            class="connect_elements input_button">
+                                    </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><span id="ex_how_connect" style="text-align: justify;">Click the
+                                            button above to connect 2 elements</span></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset>
+                            <legend><span class="iconify legend" data-icon="fa6-solid:display" data-width="24"
+                                    data-height="24"></span>
+                                <span>Display Options</span>
+                            </legend>
+                            <table class="config_table">
+                                <tr>
+                                    <td>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="enable_animation" class="onoffswitch-checkbox"
+                                                id="enable_animation" value="yes">
+                                            <label class="onoffswitch-label" for="enable_animation">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><label class="label" for="enable_animation"> Enable Animation</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="enable_grid" class="onoffswitch-checkbox"
+                                                id="enable_grid" value="yes">
+                                            <label class="onoffswitch-label" for="enable_grid">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><label class="label" for="enable_grid"> Show Help Grid</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="enable_area_catch" class="onoffswitch-checkbox"
+                                                id="enable_area_catch" value="yes">
+                                            <label class="onoffswitch-label" for="enable_area_catch">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><label class="label" for="enable_area_catch"> Keep Area in window</label></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+                    <div id="svg_preview" class="svg_preview scrollbar">
+                        <svg viewBox="0 0 10 10" width="10" height="10" class="lasso"
+                            preserveAspectRatio="xMinYMid meet" id="svg_config" onload="makeDraggable(evt)"
+                            tabindex="0">
+                            <!-- Default Definitions -->
+                            <defs>
+                                <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+                                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="0.5" />
+                                </pattern>
+                                <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                                    <rect width="100" height="100" fill="url(#smallGrid)" />
+                                    <path d="M 100 0 L 0 0 0 100" fill="none" stroke="gray" stroke-width="1" />
+                                </pattern>
+                            </defs>
+                            <!-- Grid Group -->
+                            <g>
+                                <rect width="100%" height="100%" fill="url(#grid)" id="help_grid" />
+                            </g>
+                            <!-- Definations-->
+                            <defs id="placeholder_defs" class="placeholders"></defs>
 
-                        <!-- Lines -->
-                        <g id="placeholder_lines" class="placeholders"></g>
+                            <!-- Lines -->
+                            <g id="placeholder_lines" class="placeholders"></g>
 
-                        <!-- Animation -->
-                        <g id="placeholder_animations" class="placeholders"></g>
+                            <!-- Animation -->
+                            <g id="placeholder_animations" class="placeholders"></g>
 
-                        <!-- Elements -->
-                        <g id="placeholder_elements" class="placeholders"></g>
+                            <!-- Elements -->
+                            <g id="placeholder_elements" class="placeholders"></g>
 
-                        <!-- Texts -->
-                        <g id="placeholder_text" class="placeholders"></g>
+                            <!-- Texts -->
+                            <g id="placeholder_text" class="placeholders"></g>
 
-                        <!-- Icons -->
-                        <g id="placeholder_icons" class="placeholders"></g>
+                            <!-- Icons -->
+                            <g id="placeholder_icons" class="placeholders"></g>
 
-                        <!-- Connection Points-->
-                        <g id="connection_points" class="placeholders"></g>
+                            <!-- Connection Points-->
+                            <g id="connection_points" class="placeholders"></g>
 
-                        <!-- Lasso -->
-                        <g id="placeholder_lasso" class="placeholders"></g>
-                    </svg>
+                            <!-- Lasso -->
+                            <g id="placeholder_lasso" class="placeholders"></g>
+                        </svg>
+                    </div>
                 </div>
             </div>
             <div class="tab2">
@@ -1723,32 +1812,52 @@
             </div>
             <div class="tab7">
                 <div class="container scrollbar">
-                    <fieldset style="width: 300px;">
-                        <legend><span class="iconify legend" data-icon="material-symbols:save" data-width="24"
-                                data-height="24"></span>
-                            <span>Save</span>
-                        </legend>
-                        <table class="config_table">
-                            <tr>
-                                <td class="bold"><input type="button" class="input_button" value="Save"
-                                        id="save_workspace">
-                                </td>
-                                <td>Save your Workspace</td>
-                            </tr>
-                            <tr>
-                                <td class="bold"><input type="button" class="input_button" value="Save & Exit"
-                                        id="save_workspace_exit">
-                                </td>
-                                <td>Save your Workspace &<br> Exit to LiveView</td>
-                            </tr>
-                            <tr>
-                                <td class="bold"><input type="button" class="input_button" value="Exit"
-                                        id="workspace_exit">
-                                </td>
-                                <td>Exit to LiveView</td>
-                            </tr>
-                        </table>
-                    </fieldset>
+                    <div>
+                        <fieldset style="width: 300px;">
+                            <legend><span class="iconify legend" data-icon="material-symbols:save" data-width="24"
+                                    data-height="24"></span>
+                                <span>Save</span>
+                            </legend>
+                            <table class="config_table">
+                                <tr>
+                                    <td class="bold"><input type="button" class="input_button" value="Save"
+                                            id="save_workspace">
+                                    </td>
+                                    <td>Save your Workspace</td>
+                                </tr>
+                                <tr>
+                                    <td class="bold"><input type="button" class="input_button" value="Save & Exit"
+                                            id="save_workspace_exit">
+                                    </td>
+                                    <td>Save your Workspace &<br> Exit to LiveView</td>
+                                </tr>
+                                <tr>
+                                    <td class="bold"><input type="button" class="input_button" value="Exit"
+                                            id="workspace_exit">
+                                    </td>
+                                    <td>Exit to LiveView</td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <fieldset style="width: 300px;margin-left: 0px; margin-top: 25px;">
+                            <legend><span class="iconify legend" data-icon="material-symbols:backup" data-width="24"
+                                    data-height="24"></span>
+                                <span>Backup</span>
+                            </legend>
+                            <table class="config_table">
+                                <tr>
+                                    <td class="bold"><select id="backup_list" name="backup_list"
+                                            class="input_select"></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bold"><input type="button" class="input_button" value="Restore Backup"
+                                            id="restore_backup">
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
                     <fieldset>
                         <legend><span class="iconify legend" data-icon="mdi:math-log" data-width="24"
                                 data-height="24">Output</span>

@@ -70,6 +70,23 @@ a:hover {
     width: 100vw;
 }
 
+.flex-box {
+    display: flex;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.flex-box>div {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    float: left;
+    flex: 1 1 auto;
+}
+
 #loading>span {
     position: absolute;
     top: 50%;
@@ -1141,6 +1158,7 @@ nav label:active {
     /* prevent horizontal scrollbar */
     overflow-x: hidden;
     max-width: 100%;
+    animation-direction: reverse;
 }
 
 .ui-menu-item-wrapper {
