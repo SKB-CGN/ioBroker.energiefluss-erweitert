@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energiefluss-erweitert",
-    "version": "0.0.2-alpha.9",
+    "version": "0.0.2-alpha.10",
     "news": {
+      "0.0.2-alpha.10": {
+        "en": "FIX: Basic icon color was not applied correctly\nFIX: Fill placeholders for elements were created in error in some circumstances\nFIX: Subtract was not calculated correctly, if state value is negative\nFIX: Better handling of positioning elements when entering coordinates\nFIX: Icons sometimes got a faulty format if duplicated\nAdded: Configuration backup for the last 10 versions",
+        "de": "FIX: Grundlegende Symbolfarbe wurde nicht korrekt angewendet\nFIX: Füllen Sie Platzhalter für Elemente wurden unter Umständen fehlerfrei erstellt\nFIX: Subtract wurde nicht korrekt berechnet, wenn der Zustandswert negativ ist\nFIX: Bessere Handhabung von Positionierelementen beim Eingabe von Koordinaten\nFIX: Icons bekam manchmal ein fehlerhaftes Format, wenn dupliziert\nHinzugefügt: Konfigurationssicherung für die letzten 10 Versionen",
+        "ru": "FIX: Основной цвет иконки не был применен правильно\nFIX: Заполните держатели для элементов были созданы в ошибке в некоторых обстоятельствах\nFIX: Субтракт не был рассчитан правильно, если государственная ценность отрицательная\nFIX: Улучшенная обработка элементов позиционирования при вводе координат\nFIX: Иконки иногда получили неисправный формат, если дублирован\nДобавлена: Конфигурация резервного копирования для последних 10 версий",
+        "pt": "FIX: A cor básica do ícone não foi aplicada corretamente\nFIX: Os marcadores de lugar de preenchimento para elementos foram criados em erro em algumas circunstâncias\nFIX: Subtrato não foi calculado corretamente, se o valor do estado é negativo\nFIX: Melhor manuseio de elementos de posicionamento ao entrar em coordenadas\nFIX: Ícones às vezes tem um formato defeituoso se duplicado\nAdicionado: Backup de configuração para as últimas 10 versões",
+        "nl": "Basic icon kleur is niet correct aangebracht\nVullen voor elementen werden gecreëerd in sommige omstandigheden\nSubtract werd niet correct berekend als de staatswaarde negatief is\nBeter omgaan met positieve elementen als je coördinaten binnenkomt\nIcons hebben soms een foute format als duplicatie\nVermoedelijk versterking voor de laatste 10 versies",
+        "fr": "FIX: La couleur de l'icône de base n'a pas été appliquée correctement\nFIX: Les placeurs de remplissage pour les éléments ont été créés par erreur dans certaines circonstances\nFIX: Le soustrait n'a pas été calculé correctement, si la valeur de l'état est négative\nFIX: Meilleure manipulation des éléments de positionnement lors de la saisie des coordonnées\nFIX: Icons a parfois obtenu un format défectueux si doublé\nAjouté: Sauvegarde de configuration pour les 10 dernières versions",
+        "it": "FIX: Il colore dell'icona di base non è stato applicato correttamente\nFIX: I segnaposto di riempimento per elementi sono stati creati in errore in alcune circostanze\nFIX: Il sottrarre non è stato calcolato correttamente, se il valore dello stato è negativo\nFIX: migliore gestione degli elementi di posizionamento quando si entra in coordinate\nFIX: Le icone a volte hanno un formato difettoso se duplicato\nAggiunto: Configuration backup per le ultime 10 versioni",
+        "es": "FIX: El color de icono básico no se aplicó correctamente\nFIX: Fill placeholders for elements were created in error in some circumstances\nFIX: El subtracto no se calculó correctamente, si el valor del estado es negativo\nFIX: Mejor manejo de elementos de posicionamiento al entrar coordenadas\nFIX: Los iconos a veces tienen un formato defectuoso si se duplica\nAñadido: respaldo de configuración para las últimas 10 versiones",
+        "pl": "FIX: Podstawowe kolory ikon nie były poprawnie stosowane\nFIX: W niektórych okolicznościach wprowadzono błędy\nFIX: Podtract nie został obliczony poprawnie, jeśli wartość państwa jest ujemna\nFIX: Poprawne sterowanie elementami po wejściu współrzędnych\nFIX: czasami Icons otrzymał uszkodzenie, jeśli powieszona\nAdded: Configuration backup dla ostatnich 10 wersji",
+        "uk": "FIX: Основний колір ікони не наноситься правильно\nFIX: Заповнені власники для елементів були створені за похибкою в деяких обставинах\nFIX: Відстеження не розраховується правильно, якщо значення держави негативно\nFIX: Краще використання елементів позиціонування при введенні координат\nFIX: Ікони іноді отримали несправний формат, якщо дублюється\nДодано: Резервування конфігурації для останніх версій 10",
+        "zh-cn": "FIX:基本一色色彩不正确\nFIX:在某些情况下,以错误的方式创建了单元的主处\nFIX:如果国家价值的负值,则不正确计算次数。\nFIX:在坐标时更好地处理立场要素\nFIX:如果重复,我有时会采取过错的方式。\n增 编:最后10个版本的配件"
+      },
       "0.0.2-alpha.9": {
         "en": "FIX: CSS classes were causing color errors while being applied in config mode\nFIX: Do not Load CSS class when adapter is starting - only when values change\nFIX: Threshold was not calculated correctly, if element was substracted by other values\nFIX: ID list in configbar was loosing event for choosing next element in drop-down\nAdded: Start coordinates can be specified in basic settings to better position new elements \nAdded: Threshold for rectangle and circle\nAdded: duplication of one or more element(s)",
         "de": "FIX: CSS-Klassen verursachten Farbfehler während der Anwendung im config-Modus\nFIX: Laden Sie keine CSS-Klasse, wenn der Adapter gestartet wird - nur wenn sich Werte ändern\nFIX: Schwelle wurde nicht korrekt berechnet, wenn Element durch andere Werte subtrahiert wurde\nFIX: ID-Liste in configbar war loosing event für die Auswahl des nächsten Elements im Dropdown\nHinzugefügt: Start-Koordinaten können in Grundeinstellungen festgelegt werden, um neue Elemente besser zu positionieren\nHinzugefügt: Schwelle für Rechteck und Kreis\nHinzugefügt: Vervielfältigung eines oder mehrerer Elemente",
@@ -80,19 +93,6 @@
         "pl": "W: Strona internetowa String Datasource (ang.)",
         "uk": "Додано: String Datasource тепер можна відображати",
         "zh-cn": "增加:现在可以展示数据来源"
-      },
-      "0.0.2-alpha.3": {
-        "en": "FIX: Animations not running after adding each of them\nADDED: Elements can be choosen inside side-panel (useful, if element is not clickable anymore)",
-        "de": "FIX: Animationen laufen nicht nach dem Hinzufügen jeder von ihnen\nADDED: Elemente können innerhalb des Seitenpanels ausgewählt werden (verwendend, wenn Element nicht mehr klickbar ist)",
-        "ru": "FIX: Анимации, не работающие после добавления каждого из них\nДОБАВЛЕНО: Элементы можно выбрать внутри боковой панели (полезно, если элемент больше не кликабле)",
-        "pt": "FIX: Animações não correndo após adicionar cada um deles\nADDED: Elementos podem ser escolhidos dentro do painel lateral (útil, se o elemento não for mais clicável)",
-        "nl": "Dieren die niet rennen na het toevoegen van elk van hen\nElementen kunnen worden gekozen in de zijpanel als element niet klikbaar is",
-        "fr": "FIX: Animations ne fonctionnant pas après avoir ajouté chacun d'eux\nAJOUTÉ : Les éléments peuvent être choisis à l'intérieur de l'enveloppe latérale (utile, si l'élément n'est plus cliquable)",
-        "it": "FIX: Animazioni non in esecuzione dopo l'aggiunta di ciascuno di loro\nADDED: Gli elementi possono essere scelti all'interno del pannello laterale (utile, se l'elemento non è più cliccabile)",
-        "es": "FIX: Animaciones que no se ejecutan después de añadir cada uno de ellos\nADDED: Los elementos se pueden elegir dentro del panel lateral (útil, si el elemento ya no se puede hacer clic)",
-        "pl": "FIX: Animation nie uruchamiają się po dodaniu wszystkich z nich\nADDED: Elementy mogą być wybierane wewnątrz panelu (używając, jeśli element nie jest już kliknięty)",
-        "uk": "FIX: Анімація не працює після додавання кожного з них\nADDED: Елементи можна вибрати всередині бічної панелі (повний, якщо елемент не натискається більше)",
-        "zh-cn": "FIX:在增加每种目标之后不进行\nADDED:如果要素无法点击,则可选择在旁边(使用)内。"
       }
     },
     "title": "Energiefluss - erweitert",

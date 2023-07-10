@@ -32,7 +32,7 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.10 (2023-07-10)
 - FIX: Basic icon color was not applied correctly
 - FIX: Fill placeholders for elements were created in error in some circumstances
 - FIX: Subtract was not calculated correctly, if state value is negative
