@@ -32,7 +32,7 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.11 (2023-07-17)
 - Added: Configuration Bar can be swapped from right to left (better handling, if elements are behind bar)
 - Added: Icon-Proxy-Server (if some of your devices inside the network do not have an internet connection, Energiefluss-erweitert will serve those icons and cache them as well)
 - Added: Better Help-Center when hitting the question mark icon
