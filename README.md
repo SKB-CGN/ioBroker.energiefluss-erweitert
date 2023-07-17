@@ -32,6 +32,13 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Configuration Bar can be swapped from right to left (better handling, if elements are behind bar)
+- Added: Icon-Proxy-Server (if some of your devices inside the network do not have an internet connection, Energiefluss-erweitert will serve those icons and cache them as well)
+- Added: Better Help-Center when hitting the question mark icon
+- Added: Language translation into: english, german, espanol, french, italian, netherlands, polish language, portuguese, russian, ukrainian, chinese
+- Added: Previous outline fill extended for filling reverse
+
 ### 0.0.2-alpha.10 (2023-07-10)
 - FIX: Basic icon color was not applied correctly
 - FIX: Fill placeholders for elements were created in error in some circumstances

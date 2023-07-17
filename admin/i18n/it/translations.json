@@ -1,9 +1,14 @@
 {
     "donate": "Se ti piace questo adattatore, considera di fare una donazione per sostenere il mio lavoro.",
+    "enable_proxy": "Abilita Icon Proxy",
     "energiefluss-erweitert adapter settings": "Impostazioni dell'adattatore per energiefluss-erweitert",
     "ex_access_key": "Usa la chiave di accesso del browser <b style='color: red;'>e</b> all'interno della visualizzazione live per raggiungere nuovamente la pagina di configurazione.",
     "ex_config": "Per configurare l'adattatore, aprilo tramite il collegamento all'istanza. Lì troverai la ruota di configurazione!",
     "ex_key_combination": "combinazione di tasti",
     "ex_lost_config": "Se hai disabilitato la ruota di configurazione e hai bisogno di accedere nuovamente alla configurazione, segui i passaggi:",
-    "main_settings": "Impostazioni principali"
+    "ex_proxy_port": "Porta dell'Icon Proxy (impostazione predefinita: 10123)",
+    "ex_why_proxy": "Puoi utilizzare il proxy Icon, se alcuni dispositivi all'interno della tua rete non dispongono di una connessione Internet e desideri visualizzare le icone anche su di essi.",
+    "main_settings": "Impostazioni principali",
+    "proxy_port": "Porta proxy",
+    "proxy_settings": "Impostazioni proxy"
 }

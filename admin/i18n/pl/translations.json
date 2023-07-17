@@ -1,9 +1,14 @@
 {
     "donate": "Jeśli podoba Ci się ten adapter, rozważ przekazanie darowizny na wsparcie mojej pracy.",
+    "enable_proxy": "Włącz serwer proxy ikon",
     "energiefluss-erweitert adapter settings": "Ustawienia adaptera dla energiiefluss-erweitert",
     "ex_access_key": "Użyj klucza dostępu przeglądarki <b style='color: red;'>e</b> w podglądzie na żywo, aby ponownie otworzyć stronę konfiguracji.",
     "ex_config": "Aby skonfigurować adapter, otwórz go za pomocą linku do instancji. Znajdziesz tam koło konfiguracyjne!",
     "ex_key_combination": "kombinacja klawiszy",
     "ex_lost_config": "Jeśli wyłączyłeś koło konfiguracji i potrzebujesz ponownie dostępu do konfiguracji, wykonaj następujące czynności:",
-    "main_settings": "Ustawienia główne"
+    "ex_proxy_port": "Port serwera proxy ikony (domyślnie: 10123)",
+    "ex_why_proxy": "Możesz użyć proxy Icon, jeśli niektóre urządzenia w Twojej sieci nie mają połączenia z Internetem i chcesz wyświetlać na nich ikony.",
+    "main_settings": "Ustawienia główne",
+    "proxy_port": "Port proxy",
+    "proxy_settings": "Ustawienia proxy"
 }
