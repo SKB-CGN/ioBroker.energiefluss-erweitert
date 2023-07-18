@@ -7,6 +7,7 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
+const systemDictionary = require('./lib/dictionary.js');
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -45,6 +46,7 @@ let iconCacheObject = {};
 let enable_proxy = false;
 let proxy_port = 10123;
 let _this;
+let systemLang = 'en';
 
 class EnergieflussErweitert extends utils.Adapter {
 
@@ -560,44 +562,56 @@ class EnergieflussErweitert extends utils.Adapter {
 		var seconds = Math.floor((duration / 1000) % 60),
 			minutes = Math.floor((duration / (1000 * 60)) % 60),
 			hours = Math.floor((duration / (1000 * 60 * 60)) % 24),
-			value = 'just now';
+			value = systemDictionary['timer_now'][systemLang];
 
 		if (seconds > 0) {
 			if (seconds < 5 && seconds > 2) {
-				value = 'a few seconds ago';
+				value = systemDictionary['timer_few_seconds'][systemLang];
 			} else if (seconds == 1) {
-				value = seconds + ' second ago';
+				//value = seconds + ' second ago';
+				value = this.sprintf(systemDictionary['timer_second_ago'][systemLang], seconds);
 			} else {
-				value = seconds + ' seconds ago'
+				value = this.sprintf(systemDictionary['timer_seconds_ago'][systemLang], seconds);
 			}
 		}
 
 		if (minutes > 0) {
 			if (minutes < 5 && minutes > 2) {
-				value = 'a few minutes ago';
+				value = systemDictionary['timer_few_minutes'][systemLang];
 			} else if (minutes == 1) {
-				value = minutes + ' minute ago';
+				value = this.sprintf(systemDictionary['timer_minute_ago'][systemLang], minutes);
 			} else {
-				value = minutes + ' minutes ago'
+				value = this.sprintf(systemDictionary['timer_minutes_ago'][systemLang], minutes);
 			}
 		}
 
 		if (hours > 0) {
 			if (hours < 5 && hours > 2) {
-				value = 'a few hours ago';
+				value = systemDictionary['timer_few_hours'][systemLang];;
 			} else if (hours == 1) {
-				value = hours + ' hour ago';
+				value = this.sprintf(systemDictionary['timer_hour_ago'][systemLang], hours);
 			} else {
-				value = hours + ' hours ago';
+				value = this.sprintf(systemDictionary['timer_hours_ago'][systemLang], hours);
 			}
 		}
 		return value;
 	}
+
+	/**
+		* @param {string} format
+	*/
+	sprintf(format) {
+		var args = Array.prototype.slice.call(arguments, 1);
+		var i = 0;
+		return format.replace(/%s/g, function () {
+			return args[i++];
+		});
+	}
+
 	/**
 		 * @param {number} ts
 		 * @param {string} mode
 	*/
-
 	getDateTime(ts, mode) {
 		if (ts === undefined || ts <= 0 || ts == '') {
 			return '';
@@ -786,6 +800,16 @@ class EnergieflussErweitert extends utils.Adapter {
 			globalConfig = {};
 		}
 		this.log.debug(JSON.stringify(globalConfig));
+
+		// Get language of ioBroker
+		this.getForeignObject('system.config', function (err, obj) {
+			if (err) {
+				_this.log.error("Could not get language of ioBroker! Using english instead!");
+			} else {
+				systemLang = obj.common.language;
+				_this.log.debug('Using language: ' + systemLang);
+			}
+		});
 
 		// Collect all Datasources
 		if (globalConfig.hasOwnProperty('datasources')) {
