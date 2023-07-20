@@ -3,6 +3,7 @@
         "enable_grid": true,
         "enable_animation": false,
         "enable_area_catch": true,
+	"enable_icon_proxy": false,
         "height": "540",
         "width": "530",
         "styles": "",
