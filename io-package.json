@@ -175,7 +175,8 @@
                 "type": "json",
                 "role": "state",
                 "read": true,
-                "write": false
+                "write": false,
+		"def": "{}"
             },
             "native": {}
         },
