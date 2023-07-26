@@ -32,7 +32,7 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.13 (2023-07-26)
 - Added: Build-in Object Browser for faster loading and saving bandwith (get rid of the default ioBroker one)
 - Added: Autocomplete for Datasources Boxes - Datasource will be fetched during typing
 - Added: Language for some boxes were missing

@@ -1,244 +1,244 @@
 {
-    "common": {
-        "name": "energiefluss-erweitert",
-        "version": "0.0.2-alpha.12",
-        "news": {
-            "0.0.2-alpha.12": {
-                "en": "Added: Improved Icon - Proxy, to serve icons for all symbols (if enabled)\nAdded: Language translations for live-view variables",
-                "de": "Hinzugefügt: Verbesserte Icon - Proxy, um Icons für alle Symbole zu dienen (wenn aktiviert)\nHinzugefügt: Sprachübersetzungen für Live-View-Variablen",
-                "ru": "Добавлено: Улучшенная икона - Прокси, чтобы служить иконки для всех символов (если включено)\nДобавлена: Языковые переводы для переменных live-view",
-                "pt": "Adicionado: Icon melhorado - Proxy, para servir ícones para todos os símbolos (se habilitado)\nAdicionado: Traduções linguísticas para variáveis live-view",
-                "nl": "Geïmproviseerd Icon - Proxy, om iconen te dienen voor alle symbolen\nVertaling:",
-                "fr": "Ajouté: Icône amélioré - Proxy, pour servir des icônes pour tous les symboles (si activé)\nAjouté : Traductions linguistiques pour les variables en direct",
-                "it": "Aggiunto: Migliorato icona - proxy, per servire icone per tutti i simboli (se abilitato)\nAggiunto: Traduzioni linguistiche per variabili live-view",
-                "es": "Añadido: Icono mejorado - Proxy, para servir iconos para todos los símbolos (si está habilitado)\nAñadido: Traducción de idiomas para variables de visión en vivo",
-                "pl": "Added: Improved Icon - Proxy, by służyć ikonom dla wszystkich symboli\nTłumaczenie języka dla zmiennych na żywo",
-                "uk": "Додано: Покращена ікона - Проксі, щоб служити іконки для всіх символів (якщо включений)\nДодано: Мови переклади для змінних зображень",
-                "zh-cn": "增加:改善Icon- Proxy,为所有标志(如果能够)服务。\n增 编:用于生活审查变量的语文翻译"
-            },
-            "0.0.2-alpha.11": {
-                "en": "Added: Configuration Bar can be swapped from right to left (better handling, if elements are behind bar)\nAdded: Icon-Proxy-Server (if some of your devices inside the network do not have an internet connection, Energiefluss-erweitert will serve those icons and cache them as well)\nAdded: Better Help-Center when hitting the question mark icon\nAdded: Language translation into: english, german, espanol, french, italian, netherlands, polish language, portuguese, russian, ukrainian, chinese\nAdded: Previous outline fill extended for filling reverse",
-                "de": "Hinzugefügt: Konfiguration Bar kann von rechts nach links getauscht werden (bessere Handhabung, wenn Elemente hinter der Bar liegen)\nHinzugefügt: Icon-Proxy-Server (wenn einige Ihrer Geräte innerhalb des Netzwerks keine Internetverbindung haben, wird Energiefluss-erweitert diese Icons bedienen und auch abspeichern)\nHinzugefügt: Besseres Help-Center, wenn Sie das Fragezeichen-Symbol treffen\nHinzugefügt: Sprachübersetzung in: englisch, deutsch, espanol, französisch, italienisch, netherlands, polnisch, portugiesisch, russisch, ukrainisch, chinesisch\nHinzugefügt: Vorherige Umriss-Füllung erweitert für Füllung umgekehrt",
-                "ru": "Добавлена: Конфигурация Бар можно поменять справа налево (лучше обработки, если элементы за баром)\nДобавлена: Icon-Proxy-Server (если некоторые из ваших устройств внутри сети не имеют подключения к Интернету, Energiefluss-erweitert будет служить эти иконки и кэшировать их также)\nДобавлено: Лучше Help-Center при попадании в иконку знака вопроса\nДобавлен: Языковой перевод на: английский, немецкий, эспенольский, французский, итальянский, netherlands, польский язык, португальский, русский, украинский, китайский\nДобавлено: Предыдущий контур заполнить расширенный для заполнения обратной",
-                "pt": "Adicionado: Configuration A barra pode ser trocada da direita para a esquerda (melhor manuseio, se os elementos estão atrás da barra)\nAdicionado: Icon-Proxy-Server (se alguns de seus dispositivos dentro da rede não tem uma conexão de internet, Energiefluss-erweitert servirá esses ícones e cache-los também)\nAdicionado: Melhor Help-Center ao bater o ícone de marca de pergunta\nAdicionado: Tradução de idioma em: Inglês, alemão, espanol, francês, italiano, netherlands, polish language, Português, russo, ukrainian, chinês\nAdicionado: preenchimento de esboço anterior estendido para enchimento reverso",
-                "nl": "Vermoedelijk De bar kan van rechts naar links, als elementen achter de bar liggen\nIcon-Proxy-Server, als een aantal van je apparaten in het netwerk geen internetverbinding hebben, zal Energiefluss-erweitert die iconen dienen en kache ze ook\nVertaling:\nVertaling: Engels, Duitser, espanol, Frans, Italiaans, netwerk, pooltaal, portugees, Russisch, ukraans, chinese, Chinees, Chinees, Chinees, Chinees, Chinees, Chinees\nVertaling:",
-                "fr": "Ajouté : Configuration Bar peut être échangé de droite à gauche (meilleure manipulation, si les éléments sont derrière bar)\nAjouté: Icon-Proxy-Server (si certains de vos appareils à l'intérieur du réseau n'ont pas de connexion Internet, Energieflus-erweitert servira ces icônes et les cache aussi)\nAjouté: Meilleur Help-Center lors de la frappe de l'icône de la marque de question\nAjouté: Traduction de la langue en: anglais, allemand, espanol, français, italien, netherlands, polonais, portugais, russe, ukrainien, chinois\nAjouté: Précédure de remplissage prolongée",
-                "it": "Aggiunto: Configuration Bar può essere scambiato da destra a sinistra (messaggio migliore, se gli elementi sono dietro barra)\nAggiunto: Icon-Proxy-Server (se alcuni dei vostri dispositivi all'interno della rete non hanno una connessione internet, Energiefluss-erweitert servirà quelle icone e la cache pure)\nAggiunto: Better Help-Center quando colpire l'icona del punto interrogativo\nAggiunto: Traduzione di lingua in: inglese, tedesco, espanol, francese, italiano, olandese, polacco lingua, portoghese, russo, ucraino, cinese\nAggiunto: Precedente profilo riempimento esteso per riempimento inverso",
-                "es": "Añadido: Configuración La barra se puede cambiar de derecha a izquierda (mejor manejo, si los elementos están detrás de la barra)\nAñadido: Icon-Proxy-Server (si algunos de sus dispositivos dentro de la red no tienen una conexión a Internet, Energiefluss-erweitert servirá a esos iconos y los cache también)\nAñadido: Mejor Ayuda-Center al golpear el icono de marca de preguntas\nAñadido: Traducción al español, alemán, español, francés, italiano, netherlands, idioma pulido, portugués, ruso, ucraniano, chino\nAñadido: Relleno anterior del contorno extendido para llenar el reverso",
-                "pl": "Added: Configuration Bar może być zamieniony z prawej do lewej (oczyszczanie, jeśli elementy są za barem)\nDostęp: Icon-Proxy-Server (jeśli niektóre z twoich urządzeń wewnątrz sieci nie mają połączenia internetowego, Energiefluss-erweitert będzie również obsługiwać te ikony.)\nAdded: Lepiej Pomoc-Center, gdy uderzył na znak ikony\nAdded: Language translation into: english, german, espanol, italian, netherlands, Język, portogues, russian, ukrainian, chinese\nDostęp: Wypełnianie przedniej wypełnianie",
-                "uk": "Доданий: Налаштування Бар може бути завантажений з правого на ліву (отримання запасу, якщо елементи за баром)\nДодано: Icon-Proxy-Server (якщо деякі пристрої всередині мережі не мають підключення до Інтернету, Energieflus-erweitert будуть служити іконки та кешувати їх також)\nДодано: Краще Допомога-Центр при попаданні іконки знака\nДодано: Мова перекладу в: англійська, німецька, espanol, французький, італійська, нетерланди, польська мова, біргуста, російська, українська, китайський\nДоданий: Попередній контур заповнення розширений для заповнення зворотного",
-                "zh-cn": "增 编:配 以色列人可以从离开(装卸)的权利中偷去(如果要素落后的话)。\n增加:Icon-Proxy-Server(如果网络内的一些装置没有互联网联系,那么光流机将为这些场地和中心服务)\n增加:在击中问题标识时,更好的求助者\n增 编:语文译为: english, german, panol, 圣地,英属地,家写语言,港口,Suguese, 毛里求斯, ukrainian\n增 编:以前的概述"
-            },
-            "0.0.2-alpha.10": {
-                "en": "FIX: Basic icon color was not applied correctly\nFIX: Fill placeholders for elements were created in error in some circumstances\nFIX: Subtract was not calculated correctly, if state value is negative\nFIX: Better handling of positioning elements when entering coordinates\nFIX: Icons sometimes got a faulty format if duplicated\nAdded: Configuration backup for the last 10 versions",
-                "de": "FIX: Grundlegende Symbolfarbe wurde nicht korrekt angewendet\nFIX: Füllen Sie Platzhalter für Elemente wurden unter Umständen fehlerfrei erstellt\nFIX: Subtract wurde nicht korrekt berechnet, wenn der Zustandswert negativ ist\nFIX: Bessere Handhabung von Positionierelementen beim Eingabe von Koordinaten\nFIX: Icons bekam manchmal ein fehlerhaftes Format, wenn dupliziert\nHinzugefügt: Konfigurationssicherung für die letzten 10 Versionen",
-                "ru": "FIX: Основной цвет иконки не был применен правильно\nFIX: Заполните держатели для элементов были созданы в ошибке в некоторых обстоятельствах\nFIX: Субтракт не был рассчитан правильно, если государственная ценность отрицательная\nFIX: Улучшенная обработка элементов позиционирования при вводе координат\nFIX: Иконки иногда получили неисправный формат, если дублирован\nДобавлена: Конфигурация резервного копирования для последних 10 версий",
-                "pt": "FIX: A cor básica do ícone não foi aplicada corretamente\nFIX: Os marcadores de lugar de preenchimento para elementos foram criados em erro em algumas circunstâncias\nFIX: Subtrato não foi calculado corretamente, se o valor do estado é negativo\nFIX: Melhor manuseio de elementos de posicionamento ao entrar em coordenadas\nFIX: Ícones � s vezes tem um formato defeituoso se duplicado\nAdicionado: Backup de configuração para as últimas 10 versões",
-                "nl": "Basic icon kleur is niet correct aangebracht\nVullen voor elementen werden gecreëerd in sommige omstandigheden\nSubtract werd niet correct berekend als de staatswaarde negatief is\nBeter omgaan met positieve elementen als je coördinaten binnenkomt\nIcons hebben soms een foute format als duplicatie\nVermoedelijk versterking voor de laatste 10 versies",
-                "fr": "FIX: La couleur de l'icône de base n'a pas été appliquée correctement\nFIX: Les placeurs de remplissage pour les éléments ont été créés par erreur dans certaines circonstances\nFIX: Le soustrait n'a pas été calculé correctement, si la valeur de l'état est négative\nFIX: Meilleure manipulation des éléments de positionnement lors de la saisie des coordonnées\nFIX: Icons a parfois obtenu un format défectueux si doublé\nAjouté: Sauvegarde de configuration pour les 10 dernières versions",
-                "it": "FIX: Il colore dell'icona di base non è stato applicato correttamente\nFIX: I segnaposto di riempimento per elementi sono stati creati in errore in alcune circostanze\nFIX: Il sottrarre non è stato calcolato correttamente, se il valore dello stato è negativo\nFIX: migliore gestione degli elementi di posizionamento quando si entra in coordinate\nFIX: Le icone a volte hanno un formato difettoso se duplicato\nAggiunto: Configuration backup per le ultime 10 versioni",
-                "es": "FIX: El color de icono básico no se aplicó correctamente\nFIX: Fill placeholders for elements were created in error in some circumstances\nFIX: El subtracto no se calculó correctamente, si el valor del estado es negativo\nFIX: Mejor manejo de elementos de posicionamiento al entrar coordenadas\nFIX: Los iconos a veces tienen un formato defectuoso si se duplica\nAñadido: respaldo de configuración para las últimas 10 versiones",
-                "pl": "FIX: Podstawowe kolory ikon nie były poprawnie stosowane\nFIX: W niektórych okolicznościach wprowadzono błędy\nFIX: Podtract nie został obliczony poprawnie, jeśli wartość państwa jest ujemna\nFIX: Poprawne sterowanie elementami po wejściu współrzędnych\nFIX: czasami Icons otrzymał uszkodzenie, jeśli powieszona\nAdded: Configuration backup dla ostatnich 10 wersji",
-                "uk": "FIX: Основний колір ікони не наноситься правильно\nFIX: Заповнені власники для елементів були створені за похибкою в деяких обставинах\nFIX: Відстеження не розраховується правильно, якщо значення держави негативно\nFIX: Краще використання елементів позиціонування при введенні координат\nFIX: Ікони іноді отримали несправний формат, якщо дублюється\nДодано: � езервування конфігурації для останніх версій 10",
-                "zh-cn": "FIX:基本一色色彩不正确\nFIX:在某些情况下,以错误的方式创建了单元的主处\nFIX:如果国家价值的负值,则不正确计算次数。\nFIX:在坐� �时更好地处理立场要� \nFIX:如果重复,我有时会采取过错的方式。\n增 编:最后10个版本的配件"
-            },
-            "0.0.2-alpha.9": {
-                "en": "FIX: CSS classes were causing color errors while being applied in config mode\nFIX: Do not Load CSS class when adapter is starting - only when values change\nFIX: Threshold was not calculated correctly, if element was substracted by other values\nFIX: ID list in configbar was loosing event for choosing next element in drop-down\nAdded: Start coordinates can be specified in basic settings to better position new elements \nAdded: Threshold for rectangle and circle\nAdded: duplication of one or more element(s)",
-                "de": "FIX: CSS-Klassen verursachten Farbfehler während der Anwendung im config-Modus\nFIX: Laden Sie keine CSS-Klasse, wenn der Adapter gestartet wird - nur wenn sich Werte ändern\nFIX: Schwelle wurde nicht korrekt berechnet, wenn Element durch andere Werte subtrahiert wurde\nFIX: ID-Liste in configbar war loosing event für die Auswahl des nächsten Elements im Dropdown\nHinzugefügt: Start-Koordinaten können in Grundeinstellungen festgelegt werden, um neue Elemente besser zu positionieren\nHinzugefügt: Schwelle für Rechteck und Kreis\nHinzugefügt: Vervielfältigung eines oder mehrerer Elemente",
-                "ru": "FIX: CSS классы вызвали цветовые ошибки при применении в режиме конфига\nFIX: Не загружайте класс CSS при запуске адаптера - только при изменении значений\nFIX: Threshold не была рассчитана правильно, если элемент был вычитан другими значениями\nFIX: Список идентификаторов в configbar был loosing event для выбора следующего элемента в drop-down\nДобавлена: Стартовые координаты можно указать в базовых настройках, чтобы лучше позиционировать новые элементы\nДобавлен: Threshold для прямоугольника и круга\nДобавлена: дублирование одного или нескольких элементов(ов)",
-                "pt": "FIX: As classes CSS estavam causando erros de cor ao ser aplicado no modo de configuração\nFIX: Não carregar classe CSS quando o adaptador está começando - somente quando os valores mudam\nFIX: O limiar não foi calculado corretamente, se o elemento foi subtraído por outros valores\nFIX: Lista de IDs em configbar estava saqueando evento para escolher o próximo elemento no drop-down\nAdicionado: As coordenadas de início podem ser especificadas em configurações básicas para melhor posição novos elementos\nAdicionado: Threshold para retângulo e círculo\nAdicionado: duplicação de um ou mais elemento(s)",
-                "nl": "CSS lessen veroorzaakten kleurenfouten terwijl ze worden toegevoegd in config mode\nLaad geen CSS-klasse als adapter begint - alleen wanneer de waarden veranderen\nDe drempel was niet correct berekend, als het element werd verdeeld door andere waarden\nID-lijst in Configbar miste evenement voor het kiezen van het volgende element in drop-down\nBegin coördinaten kunnen gespecificeerd worden in basissetities om nieuwe elementen te verbeteren\nVertaling:\nToegevoegd: een of meer element",
-                "fr": "FIX: Les classes CSS causaient des erreurs de couleur tout en étant appliquées en mode configuration\nFIX: Ne pas charger la classe CSS lorsque l'adaptateur démarre - seulement lorsque les valeurs changent\nFIX: Le seuil n'a pas été calculé correctement, si l'élément était soustrait par d'autres valeurs\nFIX: Liste d'ID dans configbar était l'événement de pillage pour choisir l'élément suivant dans l'abandon\nAjouté : Les coordonnées de démarrage peuvent être spécifiées dans les paramètres de base pour mieux positionner les nouveaux éléments\nAjouté: seuil pour rectangle et cercle\nAjouté : chevauchement d ' un ou de plusieurs éléments",
-                "it": "FIX: le classi CSS stavano causando errori di colore durante l'applicazione in modalit�  configurazione\nFIX: Non caricare la classe CSS quando l'adattatore inizia - solo quando i valori cambiano\nFIX: La soglia non è stata calcolata correttamente, se l'elemento è stato substrato da altri valori\nFIX: l'elenco ID in configbar è stato l'evento di loosing per la scelta del prossimo elemento in discesa\nAggiunto: Le coordinate di avvio possono essere specificate nelle impostazioni di base per posizionare meglio nuovi elementi\nAggiunto: Soglia per rettangolo e cerchio\nAggiunto: duplicazione di uno o più elementi(s)",
-                "es": "FIX: Las clases de CSS estaban causando errores de color mientras se aplicaban en modo de configuración\nFIX: No Cargar CSS clase cuando el adaptador está empezando - sólo cuando los valores cambian\nFIX: El Umbral no se calculó correctamente, si el elemento fue restado por otros valores\nFIX: La lista de identificación en configbar estaba perdiendo el evento para elegir el siguiente elemento en desplegable\nAñadido: Las coordenadas de inicio se pueden especificar en los ajustes básicos para posicionar mejor los nuevos elementos\nAñadido: Umbral para rectángulo y círculo\nAñadido: duplicación de uno o más elementos(s)",
-                "pl": "FIX: klasa CSS powodowała błędy koloru podczas używania trybu config\nFIX: Do not Load CSS class when adapter startuje – tylko gdy wartości zmieniają się\nFIX: Threshold nie był obliczany poprawnie, jeżeli element został podkreślony przez inne wartości\nFIX: ID lista w configbar została zwolniona w celu wybrania kolejnego elementu w spadku\nWstęp: skoordynowanie startowe może być określone w podstawowych ustawach w celu lepszej pozycji nowych elementów\nW: Dzieje prostokąta i okrąg\nAdopcja: duplikacja jednego lub więcej pierwiastka(s)",
-                "uk": "FIX: CSS-класи були викликані помилки кольору при нанесенні в режим налаштування\nFIX: Чи не завантажується CSS клас при запуску адаптера - тільки при зміні значень\nFIX: Пороги не розраховані правильно, якщо елемент був відхилений іншими значеннями\nFIX: Список ідентифікаторів в конфігураційному рядку був лоосинговий захід для вибору наступного елемента в випадаючому режимі\nДодано: Стартові координати можуть бути вказані в базових налаштуваннях для кращого положення нових елементів\nДоданий: Пороги для прямокутника і кола\nДоданий: дублювання одного або декількох елементів (s)",
-                "zh-cn": "FIX:CSS阶级正在� 成色彩,但以黑暗的方式适用。\nFIX:当适应者开始时,非Lad CSS级——只有当值改变时才开始——\n九、FIX:如果不正确计算,如果要� 以其他价值� 以说明\nFIX:在黑暗巴尔的开发清单是选择下一个降解� � 的游说活动。\n增� :在基本环境中可以指定开始协调,以更好地定位新的要� \n增 编:清算和圈\n增 编:重复一个或多个� � "
-            },
-            "0.0.2-alpha.8": {
-                "en": "FIX: Remaining Battery Calculation was not working if source has an ID 0 assigned\nFIX: Animation timing improved. Better time-handling (#20)\nFIX: Line could not be clicked/choosen (#19)\nAdded: All elements can have CSS classes for their current state values. Active positive, Active negative, Inactive positive and Inactive negative\nAdded: Battery Remaining Time explanation improved\nAdded: Animation can run into opposite direction, if value has changed to positive/negative (#15, #18)",
-                "de": "FIX: Die verbleibende Batterieberechnung funktionierte nicht, wenn die Quelle eine ID 0 zugewiesen hat\nFIX: Animation Timing verbessert. Besseres Zeithandling #(20)\nFIX: Line konnte nicht geklickt/gewählt werden #(19)\nHinzugefügt: Alle Elemente können CSS-Klassen für ihre aktuellen Zustandswerte haben. Aktiv positiv, Aktiv negativ, Inaktiv positiv und inaktiv negativ\nHinzugefügt: Batterie bleibt erhalten Zeiterklärung verbessert\nHinzugefügt: Animation kann in entgegengesetzte Richtung laufen, wenn sich der Wert zu positiv/negativ geändert hat #(15, #18)",
-                "ru": "FIX: Оставшийся расчет батареи не работал, если источник имеет ID 0 назначен\nFIX: Улучшены сроки анимации. Лучшее время обработки #(20)\nFIX: Линия не может быть нажата/выбрана #(19)\nДобавлен: Все элементы могут иметь классы CSS для своих текущих государственных ценностей. Активный положительный, Активный отрицательный, Неактивный положительный и Неактивный отрицательный\nДобавлена: Батарея Осталось Объяснение времени улучшено\nДобавлена: Анимация может побежать в противоположное направление, если значение изменилось к положительному / отрицательному #(15, #18)",
-                "pt": "CORREÇÃO: A redução da bateria não estava funcionando se a fonte tem um ID 0 atribuído\nFIX: O tempo de animação melhorou. Melhor manuseio de tempo #(20)\nCORREÇÃO: Linha não poderia ser clicada/coosen #(19)\nAdicionado: Todos os elementos podem ter classes CSS para seus valores de estado atuais. positivo ativo, negativo ativo, positivo inativo e negativo inativo\nAdicionado: Bateria restante A explicação do tempo melhorou\nAdicionado: Animação pode correr em direção oposta, se o valor mudou para positivo / negativo #(15, #18)",
-                "nl": "Battery Calculatie herstellen werkte niet als bron een ID- 0 heeft toegewezen\nDierentijd verbeterd. Beter time-handling\nLine kon niet geklikt/choosen worden\nAlle elementen kunnen CSS lessen hebben voor hun huidige staatswaarden. Actief positief, actief negatief, inactief positief en inactief\nVertaling: Tijdsverklaring verbeterd\nVerschijning kan in tegengestelde richting rennen, als de waarde veranderd is in positief/negatief #18 #",
-                "fr": "FIX: Le calcul de la batterie restante ne fonctionnait pas si la source a un ID 0 assigné\nFIX : Le timing d'animation s'est amélioré. Meilleure manipulation du temps #(20)\nFIX: La ligne ne peut pas être cliqué/choosen #(19)\nAjouté : Tous les éléments peuvent avoir des classes CSS pour leurs valeurs actuelles. positif actif, négatif actif, positif inactif et négatif inactif\nAjouté: Remaining de batterie Amélioration du temps\nAjouté: L'animation peut se dérouler en direction opposée, si la valeur a changé en positif/négatif #(15, #18)",
-                "it": "FIX: Il restante calcolo della batteria non funziona se la fonte ha un ID 0 assegnato\nFIX: Miglioramento dei tempi di animazione. Migliore gestione del tempo #(20)\nFIX: La linea non poteva essere cliccata/scegliata #(19)\nAggiunto: Tutti gli elementi possono avere classi CSS per i loro valori di stato attuali. positivo attivo, negativo attivo, positivo inattivo e negativo inattivo\nAggiunto: Battery Remaining La spiegazione del tempo è migliorata\nAggiunto: Animation can run in direzione opposta, se il valore è cambiato in positivo / negativo #(15, #18)",
-                "es": "FIX: La cálculo de la batería restante no estaba funcionando si la fuente tiene un ID 0 asignado\nFIX: mejoró el tiempo de animación. Mejor manejo del tiempo #(20)\nFIX: La línea no se puede hacer clic / elegir #(19)\nAñadido: Todos los elementos pueden tener clases de CSS para sus valores estatales actuales. positivo activo, negativo activo, positivo inactivo y negativo inactivo\nAñadido: Batería que permanece Mejora de la explicación del tiempo\nAñadido: La animación puede entrar en dirección opuesta, si el valor ha cambiado a positivo/negativo #(15, #18)",
-                "pl": "FIX: Remaining Battery Calculation nie działała, jeśli źródło ma przypisany ID 0\nFIX: ulepszona historia animacji. Lepiej czasoprzestrzenić 20\nFIX: linia nie może być oznaczona jako choosen #(19)\nAdded: Wszystkie elementy mogą posiadać klasy CSS dla ich obecnych wartości. Aktywny pozytyw, Aktywna negatywna i nieaktywne\nOficjalna strona Battery Remaining ulepszenie czasu\nAdded: Animacja może prowadzić do odwrotnego kierunku, jeśli wartość zmienia się na dodatni/ujemny #(15, #18)",
-                "uk": "FIX: Обчислення акумулятора не працює, якщо джерело має ID 0 призначено\nFIX: Покращено термін дії анімації. Кращий час-ручка #(20)\nFIX: Лінія не можна натиснути/хозен #(19)\nДодано: Всі елементи можуть мати CSS-класи для їх поточного стану. Активний позитивний, активний негативний, неактивний позитивний і неактивний негативний\nДоданий: Заміна акумулятора � озширене пояснення часу\nДодано: Анімація може працювати в зворотному напрямку, якщо значення змінилося на позитивний/негативний #(15, #18)",
-                "zh-cn": "FIX:如果来源有指定用途的国际发展中心 0\n页: 1 改善时间处理行动(20)\nFIX:不能点击/choosen #(19)\n增� :所有要� 都可以为目前的国家价值观开设专业课程。 积极、消极、积极主动和消极反应\n增 编:包 时间说明\n增� :如果价值变化到积极的/消极的编号(15, #18)"
-            },
-            "0.0.2-alpha.7": {
-                "en": "FIX: Some Icons were not moveable\nFIX: Initial configuration was broken\nAdded: Existing Line can be modified as well",
-                "de": "FIX: Einige Icons waren nicht beweglich\nFIX: Erste Konfiguration wurde gebrochen\nHinzugefügt: Existing Line kann auch modifiziert werden",
-                "ru": "FIX: Некоторые иконы не были перемещены\nFIX: Первоначальная конфигурация была сломана\nДобавлен: Существующая линия может быть изменена также",
-                "pt": "FIX: Alguns ícones não foram móveis\nFIX: A configuração inicial foi quebrada\nAdicionado: Linha existente pode ser modificado bem",
-                "nl": "Sommige Icons waren niet bewoonbaar\nInitiële vertrouwen was gebroken\nToegevoegd:",
-                "fr": "FIX: Certains Icons n'étaient pas mobiles\nFIX: La configuration initiale a été cassée\nAjouté: La ligne existante peut être modifiée aussi",
-                "it": "FIX: Alcune icone non erano mobili\nFIX: La configurazione iniziale era rotta\nAggiunto: Existing Line può essere modificato pure",
-                "es": "FIX: Algunos iconos no eran movidos\nFIX: Se rompió la configuración inicial\nAñadido: La línea existente también se puede modificar",
-                "pl": "FIX: Część Ikon nie była w stanie poruszać się\nFIX: Złamany układ inicjalny\nNastępująco: Następna linia może być modyfikowana",
-                "uk": "FIX: Деякі іконки не перенесли\nFIX: Початкова конфігурація\nДоданий: Підйомна лінія може бути модифікована, а також",
-                "zh-cn": "FIX:有些公司� 法移动\nFIX:初始配置被打� �\n增 编:现有线可� 以修改"
-            },
-            "0.0.2-alpha.6": {
-                "en": "FIX: Line could not be restored in some circumstances\nFIX: Line was not editable anymore after modifying start and end",
-                "de": "FIX: Linie konnte unter Umständen nicht wiederhergestellt werden\nFIX: Line war nach Änderung von Start und Ende nicht mehr editierbar",
-                "ru": "FIX: Линия не может быть восстановлена в некоторых обстоятельствах\nFIX: Line больше не редактировался после изменения старта и конца",
-                "pt": "FIX: Linha não poderia ser restaurada em algumas circunstâncias\nFIX: Linha não foi editável mais depois de modificar o início e o fim",
-                "nl": "De lijn kan niet worden hersteld in sommige omstandigheden\nDe lijn was niet meer eetbaar na het aanpassen van start",
-                "fr": "FIX: La ligne ne peut être restaurée dans certaines circonstances\nFIX: La ligne n'était plus modifiable après avoir modifié le démarrage et la fin",
-                "it": "FIX: La linea non poteva essere ripristinata in alcune circostanze\nFIX: La linea non era più modificabile dopo aver modificato l'inizio e la fine",
-                "es": "FIX: La línea no puede ser restaurada en algunas circunstancias\nFIX: La línea ya no era editable después de modificar el inicio y el final",
-                "pl": "FIX – linia nie została przywrócona w okolicznościach\nFIX: linia nie była już edytowana po zmianie początku i końca",
-                "uk": "FIX: Лінія не може бути відновлена в деяких випадках\nFIX: Лінія не була відредагована більше після зміни запуску та закінчення",
-                "zh-cn": "FIX:在某些情况下不能恢复线\n九.FIX:在修改开始和结束之后,线不高"
-            }
-        },
-        "title": "Energiefluss - erweitert",
-        "titleLang": {
-            "en": "Energiefluss - erweitert",
-            "de": "Energiefluss - erweitert",
-            "ru": "Energiefluss - erweitert",
-            "pt": "Energiefluss - erweitert",
-            "nl": "Energiefluss - erweitert",
-            "fr": "Energiefluss - erweitert",
-            "it": "Energiefluss - erweitert",
-            "es": "Energiefluss - erweitert",
-            "pl": "Energiefluss - erweitert",
-            "zh-cn": "Energiefluss-erweitert",
-            "uk": "Energiefluss - erweitert"
-        },
-        "desc": {
-            "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
-            "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
-        },
-        "authors": [
-            "SKB <info@skb-web.de>"
-        ],
-        "keywords": [
-            "energy",
-            "energy-flow",
-            "energie",
-            "energiefluss"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "energiefluss-erweitert.png",
-        "enabled": true,
-        "localLinks": {
-            "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
-        },
-        "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
-        "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "visualization",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "assumption",
-        "materialize": true,
-        "materializeTab": false,
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22",
-                "web": ">=3.0.12"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ]
+  "common": {
+    "name": "energiefluss-erweitert",
+    "version": "0.0.2-alpha.13",
+    "news": {
+      "0.0.2-alpha.13": {
+        "en": "Added: Build-in Object Browser for faster loading and saving bandwith (get rid of the default ioBroker one)\nAdded: Autocomplete for Datasources Boxes - Datasource will be fetched during typing\nAdded: Language for some boxes were missing\nAdded: Disable all other Datasources in list while editing to prevent mixup\nAdded: New states for 'battery_remaining_target', which shows the target time in Unixtime and 'battery_remaining_target_DT', which shows the time in human readable format\nFIX: Icon-Proxy was not showing icons under some circumstances\nFIX: Reverse steps for alignment was in the wrong order (#37)",
+        "de": "Hinzugefügt: Build-in Object Browser für schnelleres Laden und Speichern von Bandmit (Entfernen Sie die Standard-ioBroker ein)\nHinzugefügt: Autocomplete für Datasources Boxes - Datasource wird beim Eingeben abgerufen\nHinzugefügt: Sprache für einige Boxen fehlte\nHinzugefügt: Deaktivieren Sie alle anderen Datenquellen in der Liste während der Bearbeitung, um die Mischung zu verhindern\nHinzugefügt: Neue Zustände für Battery_remaining_target, die die Zielzeit in Unixtime und Battery_remaining_target_DT zeigt, die die Zeit im menschlichen lesbaren Format zeigt\nFIX: Icon-Proxy zeigte unter Umständen keine Icons\nFIX: Umkehrschritte zur Ausrichtung lag in der falschen Reihenfolge #(37)",
+        "ru": "Добавлена: Build-in Object Browser для более быстрой загрузки и экономии bandwith (выберите из по умолчанию ioBroker один)\nДобавлен: Автозаполнение для Datasources Boxes - Datasource будет выбит во время ввода\nДобавлена: Язык для некоторых коробок отсутствует\nДобавлена: Отключить все другие Datasources в списке при редактировании, чтобы предотвратить сведение\nДобавлено: Новые состояния для Battery_remaining_target, который показывает целевое время в Unixtime и Battery_remaining_target_DT, который показывает время в читаемом человеке формате\nFIX: Icon-Proxy не показывал иконки при некоторых обстоятельствах\nFIX: Обратные шаги для выравнивания были в неправильном порядке #(37)",
+        "pt": "Adicionado: Build-in Object Browser para carregamento mais rápido e salvar bandawith (get rid of the default ioBroker one)\nAdicionado: Autocompleto para Datasources Boxes - Datasource será buscar durante a digitação\nAdicionado: Linguagem para algumas caixas estavam faltando\nAdicionado: Desativar todos os outros Datasources na lista durante a edição para evitar mixup\nAdicionado: Novos estados para battery_remaining_target, que mostra o tempo de destino em Unixtime e battery_remaining_target_DT, que mostra o tempo em formato legível humano\nFIX: Icon-Proxy não estava mostrando ícones em algumas circunstâncias\nFIX: Os passos inversos para alinhamento estavam na ordem errada #(37)",
+        "nl": "Gebouw in Object Browser voor snellere lading en het redden van band met de default ioBroker 1\nAutocomplete voor Datasources Boxes. De dataource zal worden opgehaald tijdens het typen\nVertaling:\nVertaling:\nVertaling:\nIcon-Proxy toonde geen icoon onder sommige omstandigheden\nOmgekeerde stappen voor uitspraak was in de verkeerde volgorde",
+        "fr": "Ajouté: Navigateur d'objets Build-in pour le chargement et l'enregistrement plus rapide de la bande avec (se débarrasser de la par défaut ioBroker one)\nAjouté: Autocomplete for Datasources Boxes - La source de données sera saisie lors de la typographie\nAjouté: Langue pour certaines boîtes étaient manquantes\nAjouté: Désactiver toutes les autres sources de données dans la liste tout en éditant pour empêcher le mixup\nAjouté: Nouveaux états pour Battery_remaining_target, qui montre le temps cible dans Unixtime et Battery_remaining_target_DT, qui montre le temps dans le format lisible humain\nFIX: Icon-Proxy n'a pas montré d'icônes dans certaines circonstances\nFIX: Les étapes inversées pour l'alignement étaient dans le mauvais ordre #(37)",
+        "it": "Aggiunto: Build-in Object Browser per il caricamento e il salvataggio più veloce bandwith (get rid of the default ioBroker one)\nAggiunto: Autocomplete for Datasources Boxes - Le risorse dati saranno recuperate durante la digitazione\nAggiunto: lingua per alcuni scatole erano mancanti\nAggiunto: Disattiva tutti gli altri Datasources in lista durante la modifica per evitare mixup\nAggiunto: Nuovi stati per Battery_remaining_target, che mostra il tempo di destinazione in Unixtime e Battery_remaining_target_DT, che mostra il tempo in formato leggibile umano\nFIX: Icon-Proxy non mostrava icone in alcune circostanze\nFIX: I passi inverso per l'allineamento erano nell'ordine sbagliato #(37)",
+        "es": "Añadido: Navegador de objetos incorporados para una carga más rápida y banda de ahorro con (deshacerse del ioBroker predeterminado)\nAñadido: Autocompleto para cajas de fuentes de datos - Datasource will betched during typing\nAñadido: Lenguaje para algunas cajas faltaban\nAñadido: Desactivar todos los demás Datasources en la lista mientras se edita para evitar la mezcla\nAñadido: Nuevos estados para Battery_remaining_target, que muestra el tiempo de destino en Unixtime y Battery_remaining_target_DT, que muestra el tiempo en formato legible humano\nFIX: Icon-Proxy no estaba mostrando iconos bajo algunas circunstancias\nFIX: Los pasos inversos para la alineación estaban en el orden equivocado #(37)",
+        "pl": "Added: Build-in Object Browser dla szybszego ładowania i oszczędnościowego zespołu z domyślnym ioBrokerem\nAdded: Autocomplete for Datasources Boxes (ang.). Źródło danych zostanie udostępnione podczas typowania danych\nW: Język dla niektórych skrzydeł zaginął\nAdded: Dysable all other Datasources in list, edytacja zapobiegająca miksowaniu\nAdded: Nowe stany na baterię_remaining_target, ukazujące czas na cel w uniksowym czasie i baterie_Turget_DT, który pokazuje czas w ludzkim gotowym formacie\nFIX: Icon-Proxy nie wykazuje ikon w niektórych okolicznościach\nFIX: Odwrotowe kroki do dopasowania były w złamanym porządku #(37)",
+        "uk": "Додано: Вбудований браузер об'єкта для швидкого завантаження та збереження смуги з (позбутися від за замовчуванням ioBroker)\nДодано: Автозаповнення для сховищ даних - Під час натискання на сховище даних\nДодано: Мова для деяких ящиків відсутні\nДодано: Вимкніть всі інші джерела даних у списку під час редагування, щоб запобігти перемішування\nДодано: Нові стани для акумулятора_remaining_target, які показують час цілі в Unixtime і акумулятор_remaining_target_DT, який показує час в режимі читання людини\nFIX: Ікона-Проксі не показала іконки за певних обставин\nFIX: Зворотні дії для вирівнювання були в неправильному порядку #(37)",
+        "zh-cn": "增加:布兰德-尼目标Browser以更快地装载和挽救匪(目标1)\n增加:数据来源的自动化- 数据来源将在分类期间分期。\n增加:一些箱的语文失踪\n增 编:在清单中摘除所有其他数据来源,同时编辑防止混杂\n增加:电池新建国:重塑目标——目标,它显示了非固定和电池的预定时间。\nFIX:在某些情况下,Icon-Proxy没有说明理由。\nFIX:调整的逆向步骤是错误的命令(37)"
+      },
+      "0.0.2-alpha.12": {
+        "en": "Added: Improved Icon - Proxy, to serve icons for all symbols (if enabled)\nAdded: Language translations for live-view variables",
+        "de": "Hinzugefügt: Verbesserte Icon - Proxy, um Icons für alle Symbole zu dienen (wenn aktiviert)\nHinzugefügt: Sprachübersetzungen für Live-View-Variablen",
+        "ru": "Добавлено: Улучшенная икона - Прокси, чтобы служить иконки для всех символов (если включено)\nДобавлена: Языковые переводы для переменных live-view",
+        "pt": "Adicionado: Icon melhorado - Proxy, para servir ícones para todos os símbolos (se habilitado)\nAdicionado: Traduções linguísticas para variáveis live-view",
+        "nl": "Geïmproviseerd Icon - Proxy, om iconen te dienen voor alle symbolen\nVertaling:",
+        "fr": "Ajouté: Icône amélioré - Proxy, pour servir des icônes pour tous les symboles (si activé)\nAjouté : Traductions linguistiques pour les variables en direct",
+        "it": "Aggiunto: Migliorato icona - proxy, per servire icone per tutti i simboli (se abilitato)\nAggiunto: Traduzioni linguistiche per variabili live-view",
+        "es": "Añadido: Icono mejorado - Proxy, para servir iconos para todos los símbolos (si está habilitado)\nAñadido: Traducción de idiomas para variables de visión en vivo",
+        "pl": "Added: Improved Icon - Proxy, by służyć ikonom dla wszystkich symboli\nTłumaczenie języka dla zmiennych na żywo",
+        "uk": "Додано: Покращена ікона - Проксі, щоб служити іконки для всіх символів (якщо включений)\nДодано: Мови переклади для змінних зображень",
+        "zh-cn": "增加:改善Icon- Proxy,为所有标志(如果能够)服务。\n增 编:用于生活审查变量的语文翻译"
+      },
+      "0.0.2-alpha.11": {
+        "en": "Added: Configuration Bar can be swapped from right to left (better handling, if elements are behind bar)\nAdded: Icon-Proxy-Server (if some of your devices inside the network do not have an internet connection, Energiefluss-erweitert will serve those icons and cache them as well)\nAdded: Better Help-Center when hitting the question mark icon\nAdded: Language translation into: english, german, espanol, french, italian, netherlands, polish language, portuguese, russian, ukrainian, chinese\nAdded: Previous outline fill extended for filling reverse",
+        "de": "Hinzugefügt: Konfiguration Bar kann von rechts nach links getauscht werden (bessere Handhabung, wenn Elemente hinter der Bar liegen)\nHinzugefügt: Icon-Proxy-Server (wenn einige Ihrer Geräte innerhalb des Netzwerks keine Internetverbindung haben, wird Energiefluss-erweitert diese Icons bedienen und auch abspeichern)\nHinzugefügt: Besseres Help-Center, wenn Sie das Fragezeichen-Symbol treffen\nHinzugefügt: Sprachübersetzung in: englisch, deutsch, espanol, französisch, italienisch, netherlands, polnisch, portugiesisch, russisch, ukrainisch, chinesisch\nHinzugefügt: Vorherige Umriss-Füllung erweitert für Füllung umgekehrt",
+        "ru": "Добавлена: Конфигурация Бар можно поменять справа налево (лучше обработки, если элементы за баром)\nДобавлена: Icon-Proxy-Server (если некоторые из ваших устройств внутри сети не имеют подключения к Интернету, Energiefluss-erweitert будет служить эти иконки и кэшировать их также)\nДобавлено: Лучше Help-Center при попадании в иконку знака вопроса\nДобавлен: Языковой перевод на: английский, немецкий, эспенольский, французский, итальянский, netherlands, польский язык, португальский, русский, украинский, китайский\nДобавлено: Предыдущий контур заполнить расширенный для заполнения обратной",
+        "pt": "Adicionado: Configuration A barra pode ser trocada da direita para a esquerda (melhor manuseio, se os elementos estão atrás da barra)\nAdicionado: Icon-Proxy-Server (se alguns de seus dispositivos dentro da rede não tem uma conexão de internet, Energiefluss-erweitert servirá esses ícones e cache-los também)\nAdicionado: Melhor Help-Center ao bater o ícone de marca de pergunta\nAdicionado: Tradução de idioma em: Inglês, alemão, espanol, francês, italiano, netherlands, polish language, Português, russo, ukrainian, chinês\nAdicionado: preenchimento de esboço anterior estendido para enchimento reverso",
+        "nl": "Vermoedelijk De bar kan van rechts naar links, als elementen achter de bar liggen\nIcon-Proxy-Server, als een aantal van je apparaten in het netwerk geen internetverbinding hebben, zal Energiefluss-erweitert die iconen dienen en kache ze ook\nVertaling:\nVertaling: Engels, Duitser, espanol, Frans, Italiaans, netwerk, pooltaal, portugees, Russisch, ukraans, chinese, Chinees, Chinees, Chinees, Chinees, Chinees, Chinees\nVertaling:",
+        "fr": "Ajouté : Configuration Bar peut être échangé de droite à gauche (meilleure manipulation, si les éléments sont derrière bar)\nAjouté: Icon-Proxy-Server (si certains de vos appareils à l'intérieur du réseau n'ont pas de connexion Internet, Energieflus-erweitert servira ces icônes et les cache aussi)\nAjouté: Meilleur Help-Center lors de la frappe de l'icône de la marque de question\nAjouté: Traduction de la langue en: anglais, allemand, espanol, français, italien, netherlands, polonais, portugais, russe, ukrainien, chinois\nAjouté: Précédure de remplissage prolongée",
+        "it": "Aggiunto: Configuration Bar può essere scambiato da destra a sinistra (messaggio migliore, se gli elementi sono dietro barra)\nAggiunto: Icon-Proxy-Server (se alcuni dei vostri dispositivi all'interno della rete non hanno una connessione internet, Energiefluss-erweitert servirà quelle icone e la cache pure)\nAggiunto: Better Help-Center quando colpire l'icona del punto interrogativo\nAggiunto: Traduzione di lingua in: inglese, tedesco, espanol, francese, italiano, olandese, polacco lingua, portoghese, russo, ucraino, cinese\nAggiunto: Precedente profilo riempimento esteso per riempimento inverso",
+        "es": "Añadido: Configuración La barra se puede cambiar de derecha a izquierda (mejor manejo, si los elementos están detrás de la barra)\nAñadido: Icon-Proxy-Server (si algunos de sus dispositivos dentro de la red no tienen una conexión a Internet, Energiefluss-erweitert servirá a esos iconos y los cache también)\nAñadido: Mejor Ayuda-Center al golpear el icono de marca de preguntas\nAñadido: Traducción al español, alemán, español, francés, italiano, netherlands, idioma pulido, portugués, ruso, ucraniano, chino\nAñadido: Relleno anterior del contorno extendido para llenar el reverso",
+        "pl": "Added: Configuration Bar może być zamieniony z prawej do lewej (oczyszczanie, jeśli elementy są za barem)\nDostęp: Icon-Proxy-Server (jeśli niektóre z twoich urządzeń wewnątrz sieci nie mają połączenia internetowego, Energiefluss-erweitert będzie również obsługiwać te ikony.)\nAdded: Lepiej Pomoc-Center, gdy uderzył na znak ikony\nAdded: Language translation into: english, german, espanol, italian, netherlands, Język, portogues, russian, ukrainian, chinese\nDostęp: Wypełnianie przedniej wypełnianie",
+        "uk": "Доданий: Налаштування Бар може бути завантажений з правого на ліву (отримання запасу, якщо елементи за баром)\nДодано: Icon-Proxy-Server (якщо деякі пристрої всередині мережі не мають підключення до Інтернету, Energieflus-erweitert будуть служити іконки та кешувати їх також)\nДодано: Краще Допомога-Центр при попаданні іконки знака\nДодано: Мова перекладу в: англійська, німецька, espanol, французький, італійська, нетерланди, польська мова, біргуста, російська, українська, китайський\nДоданий: Попередній контур заповнення розширений для заповнення зворотного",
+        "zh-cn": "增 编:配 以色列人可以从离开(装卸)的权利中偷去(如果要素落后的话)。\n增加:Icon-Proxy-Server(如果网络内的一些装置没有互联网联系,那么光流机将为这些场地和中心服务)\n增加:在击中问题标识时,更好的求助者\n增 编:语文译为: english, german, panol, 圣地,英属地,家写语言,港口,Suguese, 毛里求斯, ukrainian\n增 编:以前的概述"
+      },
+      "0.0.2-alpha.10": {
+        "en": "FIX: Basic icon color was not applied correctly\nFIX: Fill placeholders for elements were created in error in some circumstances\nFIX: Subtract was not calculated correctly, if state value is negative\nFIX: Better handling of positioning elements when entering coordinates\nFIX: Icons sometimes got a faulty format if duplicated\nAdded: Configuration backup for the last 10 versions",
+        "de": "FIX: Grundlegende Symbolfarbe wurde nicht korrekt angewendet\nFIX: Füllen Sie Platzhalter für Elemente wurden unter Umständen fehlerfrei erstellt\nFIX: Subtract wurde nicht korrekt berechnet, wenn der Zustandswert negativ ist\nFIX: Bessere Handhabung von Positionierelementen beim Eingabe von Koordinaten\nFIX: Icons bekam manchmal ein fehlerhaftes Format, wenn dupliziert\nHinzugefügt: Konfigurationssicherung für die letzten 10 Versionen",
+        "ru": "FIX: Основной цвет иконки не был применен правильно\nFIX: Заполните держатели для элементов были созданы в ошибке в некоторых обстоятельствах\nFIX: Субтракт не был рассчитан правильно, если государственная ценность отрицательная\nFIX: Улучшенная обработка элементов позиционирования при вводе координат\nFIX: Иконки иногда получили неисправный формат, если дублирован\nДобавлена: Конфигурация резервного копирования для последних 10 версий",
+        "pt": "FIX: A cor básica do ícone não foi aplicada corretamente\nFIX: Os marcadores de lugar de preenchimento para elementos foram criados em erro em algumas circunstâncias\nFIX: Subtrato não foi calculado corretamente, se o valor do estado é negativo\nFIX: Melhor manuseio de elementos de posicionamento ao entrar em coordenadas\nFIX: Ícones � s vezes tem um formato defeituoso se duplicado\nAdicionado: Backup de configuração para as últimas 10 versões",
+        "nl": "Basic icon kleur is niet correct aangebracht\nVullen voor elementen werden gecreëerd in sommige omstandigheden\nSubtract werd niet correct berekend als de staatswaarde negatief is\nBeter omgaan met positieve elementen als je coördinaten binnenkomt\nIcons hebben soms een foute format als duplicatie\nVermoedelijk versterking voor de laatste 10 versies",
+        "fr": "FIX: La couleur de l'icône de base n'a pas été appliquée correctement\nFIX: Les placeurs de remplissage pour les éléments ont été créés par erreur dans certaines circonstances\nFIX: Le soustrait n'a pas été calculé correctement, si la valeur de l'état est négative\nFIX: Meilleure manipulation des éléments de positionnement lors de la saisie des coordonnées\nFIX: Icons a parfois obtenu un format défectueux si doublé\nAjouté: Sauvegarde de configuration pour les 10 dernières versions",
+        "it": "FIX: Il colore dell'icona di base non è stato applicato correttamente\nFIX: I segnaposto di riempimento per elementi sono stati creati in errore in alcune circostanze\nFIX: Il sottrarre non è stato calcolato correttamente, se il valore dello stato è negativo\nFIX: migliore gestione degli elementi di posizionamento quando si entra in coordinate\nFIX: Le icone a volte hanno un formato difettoso se duplicato\nAggiunto: Configuration backup per le ultime 10 versioni",
+        "es": "FIX: El color de icono básico no se aplicó correctamente\nFIX: Fill placeholders for elements were created in error in some circumstances\nFIX: El subtracto no se calculó correctamente, si el valor del estado es negativo\nFIX: Mejor manejo de elementos de posicionamiento al entrar coordenadas\nFIX: Los iconos a veces tienen un formato defectuoso si se duplica\nAñadido: respaldo de configuración para las últimas 10 versiones",
+        "pl": "FIX: Podstawowe kolory ikon nie były poprawnie stosowane\nFIX: W niektórych okolicznościach wprowadzono błędy\nFIX: Podtract nie został obliczony poprawnie, jeśli wartość państwa jest ujemna\nFIX: Poprawne sterowanie elementami po wejściu współrzędnych\nFIX: czasami Icons otrzymał uszkodzenie, jeśli powieszona\nAdded: Configuration backup dla ostatnich 10 wersji",
+        "uk": "FIX: Основний колір ікони не наноситься правильно\nFIX: Заповнені власники для елементів були створені за похибкою в деяких обставинах\nFIX: Відстеження не розраховується правильно, якщо значення держави негативно\nFIX: Краще використання елементів позиціонування при введенні координат\nFIX: Ікони іноді отримали несправний формат, якщо дублюється\nДодано: � езервування конфігурації для останніх версій 10",
+        "zh-cn": "FIX:基本一色色彩不正确\nFIX:在某些情况下,以错误的方式创建了单元的主处\nFIX:如果国家价值的负值,则不正确计算次数。\nFIX:在坐� �时更好地处理立场要� \nFIX:如果重复,我有时会采取过错的方式。\n增 编:最后10个版本的配件"
+      },
+      "0.0.2-alpha.9": {
+        "en": "FIX: CSS classes were causing color errors while being applied in config mode\nFIX: Do not Load CSS class when adapter is starting - only when values change\nFIX: Threshold was not calculated correctly, if element was substracted by other values\nFIX: ID list in configbar was loosing event for choosing next element in drop-down\nAdded: Start coordinates can be specified in basic settings to better position new elements \nAdded: Threshold for rectangle and circle\nAdded: duplication of one or more element(s)",
+        "de": "FIX: CSS-Klassen verursachten Farbfehler während der Anwendung im config-Modus\nFIX: Laden Sie keine CSS-Klasse, wenn der Adapter gestartet wird - nur wenn sich Werte ändern\nFIX: Schwelle wurde nicht korrekt berechnet, wenn Element durch andere Werte subtrahiert wurde\nFIX: ID-Liste in configbar war loosing event für die Auswahl des nächsten Elements im Dropdown\nHinzugefügt: Start-Koordinaten können in Grundeinstellungen festgelegt werden, um neue Elemente besser zu positionieren\nHinzugefügt: Schwelle für Rechteck und Kreis\nHinzugefügt: Vervielfältigung eines oder mehrerer Elemente",
+        "ru": "FIX: CSS классы вызвали цветовые ошибки при применении в режиме конфига\nFIX: Не загружайте класс CSS при запуске адаптера - только при изменении значений\nFIX: Threshold не была рассчитана правильно, если элемент был вычитан другими значениями\nFIX: Список идентификаторов в configbar был loosing event для выбора следующего элемента в drop-down\nДобавлена: Стартовые координаты можно указать в базовых настройках, чтобы лучше позиционировать новые элементы\nДобавлен: Threshold для прямоугольника и круга\nДобавлена: дублирование одного или нескольких элементов(ов)",
+        "pt": "FIX: As classes CSS estavam causando erros de cor ao ser aplicado no modo de configuração\nFIX: Não carregar classe CSS quando o adaptador está começando - somente quando os valores mudam\nFIX: O limiar não foi calculado corretamente, se o elemento foi subtraído por outros valores\nFIX: Lista de IDs em configbar estava saqueando evento para escolher o próximo elemento no drop-down\nAdicionado: As coordenadas de início podem ser especificadas em configurações básicas para melhor posição novos elementos\nAdicionado: Threshold para retângulo e círculo\nAdicionado: duplicação de um ou mais elemento(s)",
+        "nl": "CSS lessen veroorzaakten kleurenfouten terwijl ze worden toegevoegd in config mode\nLaad geen CSS-klasse als adapter begint - alleen wanneer de waarden veranderen\nDe drempel was niet correct berekend, als het element werd verdeeld door andere waarden\nID-lijst in Configbar miste evenement voor het kiezen van het volgende element in drop-down\nBegin coördinaten kunnen gespecificeerd worden in basissetities om nieuwe elementen te verbeteren\nVertaling:\nToegevoegd: een of meer element",
+        "fr": "FIX: Les classes CSS causaient des erreurs de couleur tout en étant appliquées en mode configuration\nFIX: Ne pas charger la classe CSS lorsque l'adaptateur démarre - seulement lorsque les valeurs changent\nFIX: Le seuil n'a pas été calculé correctement, si l'élément était soustrait par d'autres valeurs\nFIX: Liste d'ID dans configbar était l'événement de pillage pour choisir l'élément suivant dans l'abandon\nAjouté : Les coordonnées de démarrage peuvent être spécifiées dans les paramètres de base pour mieux positionner les nouveaux éléments\nAjouté: seuil pour rectangle et cercle\nAjouté : chevauchement d ' un ou de plusieurs éléments",
+        "it": "FIX: le classi CSS stavano causando errori di colore durante l'applicazione in modalit�  configurazione\nFIX: Non caricare la classe CSS quando l'adattatore inizia - solo quando i valori cambiano\nFIX: La soglia non è stata calcolata correttamente, se l'elemento è stato substrato da altri valori\nFIX: l'elenco ID in configbar è stato l'evento di loosing per la scelta del prossimo elemento in discesa\nAggiunto: Le coordinate di avvio possono essere specificate nelle impostazioni di base per posizionare meglio nuovi elementi\nAggiunto: Soglia per rettangolo e cerchio\nAggiunto: duplicazione di uno o più elementi(s)",
+        "es": "FIX: Las clases de CSS estaban causando errores de color mientras se aplicaban en modo de configuración\nFIX: No Cargar CSS clase cuando el adaptador está empezando - sólo cuando los valores cambian\nFIX: El Umbral no se calculó correctamente, si el elemento fue restado por otros valores\nFIX: La lista de identificación en configbar estaba perdiendo el evento para elegir el siguiente elemento en desplegable\nAñadido: Las coordenadas de inicio se pueden especificar en los ajustes básicos para posicionar mejor los nuevos elementos\nAñadido: Umbral para rectángulo y círculo\nAñadido: duplicación de uno o más elementos(s)",
+        "pl": "FIX: klasa CSS powodowała błędy koloru podczas używania trybu config\nFIX: Do not Load CSS class when adapter startuje – tylko gdy wartości zmieniają się\nFIX: Threshold nie był obliczany poprawnie, jeżeli element został podkreślony przez inne wartości\nFIX: ID lista w configbar została zwolniona w celu wybrania kolejnego elementu w spadku\nWstęp: skoordynowanie startowe może być określone w podstawowych ustawach w celu lepszej pozycji nowych elementów\nW: Dzieje prostokąta i okrąg\nAdopcja: duplikacja jednego lub więcej pierwiastka(s)",
+        "uk": "FIX: CSS-класи були викликані помилки кольору при нанесенні в режим налаштування\nFIX: Чи не завантажується CSS клас при запуску адаптера - тільки при зміні значень\nFIX: Пороги не розраховані правильно, якщо елемент був відхилений іншими значеннями\nFIX: Список ідентифікаторів в конфігураційному рядку був лоосинговий захід для вибору наступного елемента в випадаючому режимі\nДодано: Стартові координати можуть бути вказані в базових налаштуваннях для кращого положення нових елементів\nДоданий: Пороги для прямокутника і кола\nДоданий: дублювання одного або декількох елементів (s)",
+        "zh-cn": "FIX:CSS阶级正在� 成色彩,但以黑暗的方式适用。\nFIX:当适应者开始时,非Lad CSS级——只有当值改变时才开始——\n九、FIX:如果不正确计算,如果要� 以其他价值� 以说明\nFIX:在黑暗巴尔的开发清单是选择下一个降解� � 的游说活动。\n增� :在基本环境中可以指定开始协调,以更好地定位新的要� \n增 编:清算和圈\n增 编:重复一个或多个� � "
+      },
+      "0.0.2-alpha.8": {
+        "en": "FIX: Remaining Battery Calculation was not working if source has an ID 0 assigned\nFIX: Animation timing improved. Better time-handling (#20)\nFIX: Line could not be clicked/choosen (#19)\nAdded: All elements can have CSS classes for their current state values. Active positive, Active negative, Inactive positive and Inactive negative\nAdded: Battery Remaining Time explanation improved\nAdded: Animation can run into opposite direction, if value has changed to positive/negative (#15, #18)",
+        "de": "FIX: Die verbleibende Batterieberechnung funktionierte nicht, wenn die Quelle eine ID 0 zugewiesen hat\nFIX: Animation Timing verbessert. Besseres Zeithandling #(20)\nFIX: Line konnte nicht geklickt/gewählt werden #(19)\nHinzugefügt: Alle Elemente können CSS-Klassen für ihre aktuellen Zustandswerte haben. Aktiv positiv, Aktiv negativ, Inaktiv positiv und inaktiv negativ\nHinzugefügt: Batterie bleibt erhalten Zeiterklärung verbessert\nHinzugefügt: Animation kann in entgegengesetzte Richtung laufen, wenn sich der Wert zu positiv/negativ geändert hat #(15, #18)",
+        "ru": "FIX: Оставшийся расчет батареи не работал, если источник имеет ID 0 назначен\nFIX: Улучшены сроки анимации. Лучшее время обработки #(20)\nFIX: Линия не может быть нажата/выбрана #(19)\nДобавлен: Все элементы могут иметь классы CSS для своих текущих государственных ценностей. Активный положительный, Активный отрицательный, Неактивный положительный и Неактивный отрицательный\nДобавлена: Батарея Осталось Объяснение времени улучшено\nДобавлена: Анимация может побежать в противоположное направление, если значение изменилось к положительному / отрицательному #(15, #18)",
+        "pt": "CORREÇÃO: A redução da bateria não estava funcionando se a fonte tem um ID 0 atribuído\nFIX: O tempo de animação melhorou. Melhor manuseio de tempo #(20)\nCORREÇÃO: Linha não poderia ser clicada/coosen #(19)\nAdicionado: Todos os elementos podem ter classes CSS para seus valores de estado atuais. positivo ativo, negativo ativo, positivo inativo e negativo inativo\nAdicionado: Bateria restante A explicação do tempo melhorou\nAdicionado: Animação pode correr em direção oposta, se o valor mudou para positivo / negativo #(15, #18)",
+        "nl": "Battery Calculatie herstellen werkte niet als bron een ID- 0 heeft toegewezen\nDierentijd verbeterd. Beter time-handling\nLine kon niet geklikt/choosen worden\nAlle elementen kunnen CSS lessen hebben voor hun huidige staatswaarden. Actief positief, actief negatief, inactief positief en inactief\nVertaling: Tijdsverklaring verbeterd\nVerschijning kan in tegengestelde richting rennen, als de waarde veranderd is in positief/negatief #18 #",
+        "fr": "FIX: Le calcul de la batterie restante ne fonctionnait pas si la source a un ID 0 assigné\nFIX : Le timing d'animation s'est amélioré. Meilleure manipulation du temps #(20)\nFIX: La ligne ne peut pas être cliqué/choosen #(19)\nAjouté : Tous les éléments peuvent avoir des classes CSS pour leurs valeurs actuelles. positif actif, négatif actif, positif inactif et négatif inactif\nAjouté: Remaining de batterie Amélioration du temps\nAjouté: L'animation peut se dérouler en direction opposée, si la valeur a changé en positif/négatif #(15, #18)",
+        "it": "FIX: Il restante calcolo della batteria non funziona se la fonte ha un ID 0 assegnato\nFIX: Miglioramento dei tempi di animazione. Migliore gestione del tempo #(20)\nFIX: La linea non poteva essere cliccata/scegliata #(19)\nAggiunto: Tutti gli elementi possono avere classi CSS per i loro valori di stato attuali. positivo attivo, negativo attivo, positivo inattivo e negativo inattivo\nAggiunto: Battery Remaining La spiegazione del tempo è migliorata\nAggiunto: Animation can run in direzione opposta, se il valore è cambiato in positivo / negativo #(15, #18)",
+        "es": "FIX: La cálculo de la batería restante no estaba funcionando si la fuente tiene un ID 0 asignado\nFIX: mejoró el tiempo de animación. Mejor manejo del tiempo #(20)\nFIX: La línea no se puede hacer clic / elegir #(19)\nAñadido: Todos los elementos pueden tener clases de CSS para sus valores estatales actuales. positivo activo, negativo activo, positivo inactivo y negativo inactivo\nAñadido: Batería que permanece Mejora de la explicación del tiempo\nAñadido: La animación puede entrar en dirección opuesta, si el valor ha cambiado a positivo/negativo #(15, #18)",
+        "pl": "FIX: Remaining Battery Calculation nie działała, jeśli źródło ma przypisany ID 0\nFIX: ulepszona historia animacji. Lepiej czasoprzestrzenić 20\nFIX: linia nie może być oznaczona jako choosen #(19)\nAdded: Wszystkie elementy mogą posiadać klasy CSS dla ich obecnych wartości. Aktywny pozytyw, Aktywna negatywna i nieaktywne\nOficjalna strona Battery Remaining ulepszenie czasu\nAdded: Animacja może prowadzić do odwrotnego kierunku, jeśli wartość zmienia się na dodatni/ujemny #(15, #18)",
+        "uk": "FIX: Обчислення акумулятора не працює, якщо джерело має ID 0 призначено\nFIX: Покращено термін дії анімації. Кращий час-ручка #(20)\nFIX: Лінія не можна натиснути/хозен #(19)\nДодано: Всі елементи можуть мати CSS-класи для їх поточного стану. Активний позитивний, активний негативний, неактивний позитивний і неактивний негативний\nДоданий: Заміна акумулятора � озширене пояснення часу\nДодано: Анімація може працювати в зворотному напрямку, якщо значення змінилося на позитивний/негативний #(15, #18)",
+        "zh-cn": "FIX:如果来源有指定用途的国际发展中心 0\n页: 1 改善时间处理行动(20)\nFIX:不能点击/choosen #(19)\n增� :所有要� 都可以为目前的国家价值观开设专业课程。 积极、消极、积极主动和消极反应\n增 编:包 时间说明\n增� :如果价值变化到积极的/消极的编号(15, #18)"
+      },
+      "0.0.2-alpha.7": {
+        "en": "FIX: Some Icons were not moveable\nFIX: Initial configuration was broken\nAdded: Existing Line can be modified as well",
+        "de": "FIX: Einige Icons waren nicht beweglich\nFIX: Erste Konfiguration wurde gebrochen\nHinzugefügt: Existing Line kann auch modifiziert werden",
+        "ru": "FIX: Некоторые иконы не были перемещены\nFIX: Первоначальная конфигурация была сломана\nДобавлен: Существующая линия может быть изменена также",
+        "pt": "FIX: Alguns ícones não foram móveis\nFIX: A configuração inicial foi quebrada\nAdicionado: Linha existente pode ser modificado bem",
+        "nl": "Sommige Icons waren niet bewoonbaar\nInitiële vertrouwen was gebroken\nToegevoegd:",
+        "fr": "FIX: Certains Icons n'étaient pas mobiles\nFIX: La configuration initiale a été cassée\nAjouté: La ligne existante peut être modifiée aussi",
+        "it": "FIX: Alcune icone non erano mobili\nFIX: La configurazione iniziale era rotta\nAggiunto: Existing Line può essere modificato pure",
+        "es": "FIX: Algunos iconos no eran movidos\nFIX: Se rompió la configuración inicial\nAñadido: La línea existente también se puede modificar",
+        "pl": "FIX: Część Ikon nie była w stanie poruszać się\nFIX: Złamany układ inicjalny\nNastępująco: Następna linia może być modyfikowana",
+        "uk": "FIX: Деякі іконки не перенесли\nFIX: Початкова конфігурація\nДоданий: Підйомна лінія може бути модифікована, а також",
+        "zh-cn": "FIX:有些公司� 法移动\nFIX:初始配置被打� �\n增 编:现有线可� 以修改"
+      }
     },
-    "native": {
-        "enable_proxy": false,
-        "proxy_port": 10123
+    "title": "Energiefluss - erweitert",
+    "titleLang": {
+      "en": "Energiefluss - erweitert",
+      "de": "Energiefluss - erweitert",
+      "ru": "Energiefluss - erweitert",
+      "pt": "Energiefluss - erweitert",
+      "nl": "Energiefluss - erweitert",
+      "fr": "Energiefluss - erweitert",
+      "it": "Energiefluss - erweitert",
+      "es": "Energiefluss - erweitert",
+      "pl": "Energiefluss - erweitert",
+      "zh-cn": "Energiefluss-erweitert",
+      "uk": "Energiefluss - erweitert"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "configuration",
-            "type": "state",
-            "common": {
-                "name": "Parameters for HTML Output",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": "{}"
-            },
-            "native": {}
-        },
-        {
-            "_id": "data",
-            "type": "state",
-            "common": {
-                "name": "Data for HTML Output",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "battery_remaining",
-            "type": "state",
-            "common": {
-                "name": "Remaining Time of the battery",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "battery_remaining_target",
-            "type": "state",
-			"common": {
-				"name": "Target of the remaining Time of the battery",
-				"type": "number",
-				"role": "value.time",
-				"read": true,
-				"write": false
-			},
-			"native": {}
-        },
-        {
-            "_id": "battery_remaining_target_DT",
-            "type": "state",
-			"common": {
-				"name": "Target of the remaining Time of the battery (Date&Time)",
-				"type": "string",
-				"role": "value",
-				"read": true,
-				"write": false
-			},
-			"native": {}
-        },
-        {
-            "_id": "backup",
-            "type": "state",
-            "common": {
-                "name": "Last 10 Versions of Backups",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
+      "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
+    },
+    "authors": [
+      "SKB <info@skb-web.de>"
+    ],
+    "keywords": [
+      "energy",
+      "energy-flow",
+      "energie",
+      "energiefluss"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "energiefluss-erweitert.png",
+    "enabled": true,
+    "localLinks": {
+      "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
+    },
+    "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
+    "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "visualization",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "assumption",
+    "materialize": true,
+    "materializeTab": false,
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22",
+        "web": ">=3.0.12"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
     ]
+  },
+  "native": {
+    "enable_proxy": false,
+    "proxy_port": 10123
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "configuration",
+      "type": "state",
+      "common": {
+        "name": "Parameters for HTML Output",
+        "type": "json",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": "{}"
+      },
+      "native": {}
+    },
+    {
+      "_id": "data",
+      "type": "state",
+      "common": {
+        "name": "Data for HTML Output",
+        "type": "json",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "battery_remaining",
+      "type": "state",
+      "common": {
+        "name": "Remaining Time of the battery",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "battery_remaining_target",
+      "type": "state",
+      "common": {
+        "name": "Target of the remaining Time of the battery",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "battery_remaining_target_DT",
+      "type": "state",
+      "common": {
+        "name": "Target of the remaining Time of the battery (Date&Time)",
+        "type": "string",
+        "role": "value",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "backup",
+      "type": "state",
+      "common": {
+        "name": "Last 10 Versions of Backups",
+        "type": "json",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
 }
