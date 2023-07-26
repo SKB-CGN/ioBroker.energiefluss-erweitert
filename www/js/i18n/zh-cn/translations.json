@@ -249,6 +249,7 @@
     "title_rotate_cw": "顺时针旋转",
     "title_select_ds": "选择数据源",
     "title_slider": "移动滑块调整大小",
+    "title_stateExplorer": "对象浏览器",
     "value_add": "添加",
     "value_cancel": "中止",
     "value_connect": "连接",
@@ -259,5 +260,6 @@
     "value_reconnect": "重新连接",
     "value_restore": "恢复",
     "value_save_exit": "保存并退出",
-    "value_save_restore": "恢复备份"
+    "value_save_restore": "恢复备份",
+    "value_select": "选择"
 }

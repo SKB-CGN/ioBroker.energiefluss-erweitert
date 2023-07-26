@@ -95,9 +95,9 @@ class EnergieflussErweitert extends utils.Adapter {
 				type: 'json',
 				role: 'state',
 				read: true,
-				write: false,
+				write: false
 			},
-			native: {},
+			native: {}
 		});
 
 		await this.setObjectNotExistsAsync('battery_remaining', {
@@ -107,9 +107,33 @@ class EnergieflussErweitert extends utils.Adapter {
 				type: 'string',
 				role: 'text',
 				read: true,
-				write: false,
+				write: false
 			},
-			native: {},
+			native: {}
+		});
+
+		await this.setObjectNotExistsAsync('battery_remaining_target', {
+			type: 'state',
+			common: {
+				name: 'Target of the remaining Time of the battery',
+				type: 'number',
+				role: 'value.time',
+				read: true,
+				write: false
+			},
+			native: {}
+		});
+
+		await this.setObjectNotExistsAsync('battery_remaining_target_DT', {
+			type: 'state',
+			common: {
+				name: 'Target of the remaining Time of the battery (Date&Time)',
+				type: 'string',
+				role: 'value',
+				read: true,
+				write: false
+			},
+			native: {}
 		});
 
 		await this.setObjectNotExistsAsync('backup', {
@@ -189,77 +213,81 @@ class EnergieflussErweitert extends utils.Adapter {
 				} else {
 					clearValue = state.val;
 				}
+				try {
+					// Loop through each Element, which belongs to that source
+					if (sourceObject[id].hasOwnProperty('elmSources')) {
+						// Put Value into RAW-Source-Values
+						rawValues.sourceValues[sourceObject[id].id] = clearValue;
+						this.log.debug(JSON.stringify(rawValues.sourceValues));
 
-				// Loop through each Element, which belongs to that source
-				if (sourceObject[id].hasOwnProperty('elmSources')) {
-					// Put Value into RAW-Source-Values
-					rawValues.sourceValues[sourceObject[id].id] = clearValue;
-					this.log.debug(JSON.stringify(rawValues.sourceValues));
+						for (var _key of Object.keys(sourceObject[id].elmSources)) {
+							let src = sourceObject[id].elmSources[_key];
 
-					for (var _key of Object.keys(sourceObject[id].elmSources)) {
-						let src = sourceObject[id].elmSources[_key];
+							// Put ID into CSS-Rule for later use
+							cssRules.push(src);
 
-						// Put ID into CSS-Rule for later use
-						cssRules.push(src);
-
-						// VALUES
-						if (settingsObject.hasOwnProperty(src)) {
-							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
-							// Convertible
-							let seObj = settingsObject[src];
-							if (seObj.type == 'text') {
-								// Check, if we have source options for text - Date
-								if (seObj.source_option != -1) {
-									this.log.debug('Source Option detected! ' + seObj.source_option + 'Generating DateString for ' + state.ts + ' ' + this.getDateTime(state.ts, seObj.source_option));
-									outputValues.values[src] = this.getDateTime(state.ts, seObj.source_option);
-									rawValues.values[src] = 0;
-								} else {
-									// Threshold need to be positive
-									if (seObj.threshold >= 0) {
-										let formatValue;
-										this.log.debug('Threshold for: ' + src + ' is: ' + seObj.threshold);
-										// Check, if we have Subtractions for this value
-										let subArray = seObj.subtract;
-										if (subArray.length > 0) {
-											let tmpVal = 0;
-											for (var sub in subArray) {
-												if (subArray[sub] != -1) {
-													tmpVal = tmpVal + Math.abs(rawValues.sourceValues[subArray[sub]]);
-													this.log.debug("Subtracted by: " + subArray.toString());
+							// VALUES
+							if (settingsObject.hasOwnProperty(src)) {
+								this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
+								// Convertible
+								let seObj = settingsObject[src];
+								if (seObj.type == 'text') {
+									// Check, if we have source options for text - Date
+									if (seObj.source_option != -1) {
+										this.log.debug('Source Option detected! ' + seObj.source_option + 'Generating DateString for ' + state.ts + ' ' + this.getTimeStamp(state.ts, seObj.source_option));
+										outputValues.values[src] = this.getTimeStamp(state.ts, seObj.source_option);
+										rawValues.values[src] = 0;
+									} else {
+										// Threshold need to be positive
+										if (seObj.threshold >= 0) {
+											let formatValue;
+											this.log.debug('Threshold for: ' + src + ' is: ' + seObj.threshold);
+											// Check, if we have Subtractions for this value
+											let subArray = seObj.subtract;
+											if (subArray.length > 0) {
+												let tmpVal = 0;
+												for (var sub in subArray) {
+													if (subArray[sub] != -1) {
+														tmpVal = tmpVal + Math.abs(rawValues.sourceValues[subArray[sub]]);
+														this.log.debug("Subtracted by: " + subArray.toString());
+													}
 												}
+												formatValue = clearValue > 0 ? clearValue - (tmpVal) : clearValue + (tmpVal);
+											} else {
+												formatValue = clearValue;
 											}
-											formatValue = clearValue > 0 ? clearValue - (tmpVal) : clearValue + (tmpVal);
-										} else {
-											formatValue = clearValue;
-										}
-										// Check, if value is over threshold
-										if (Math.abs(formatValue) >= seObj.threshold) {
+											// Check, if value is over threshold
+											if (Math.abs(formatValue) >= seObj.threshold) {
 
-											// Format Value
-											outputValues.values[src] = this.valueOutput(src, formatValue);
-										} else {
-											outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(0, seObj.decimal_places) : clearValue;
+												// Format Value
+												outputValues.values[src] = this.valueOutput(src, formatValue);
+											} else {
+												outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(0, seObj.decimal_places) : clearValue;
+											}
 										}
+										rawValues.values[src] = clearValue;
 									}
-									rawValues.values[src] = clearValue;
+								} else {
+									if (seObj.fill_type != -1 && seObj.fill_type) {
+										outputValues.fillValues[src] = clearValue;
+									}
+									if (seObj.border_type != -1 && seObj.border_type) {
+										outputValues.borderValues[src] = clearValue;
+									}
+								}
+								if (seObj.source_display == 'text') {
+									outputValues.values[src] = state.val;
+									rawValues.values[src] = state.val;
 								}
 							} else {
-								if (seObj.fill_type != -1 && seObj.fill_type) {
-									outputValues.fillValues[src] = clearValue;
-								}
-								if (seObj.border_type != -1 && seObj.border_type) {
-									outputValues.borderValues[src] = clearValue;
-								}
+								outputValues.values[src] = clearValue;
+								rawValues.values[src] = clearValue;
 							}
-							if (seObj.source_display == 'text') {
-								outputValues.values[src] = state.val;
-								rawValues.values[src] = state.val;
-							}
-						} else {
-							outputValues.values[src] = clearValue;
-							rawValues.values[src] = clearValue;
 						}
 					}
+				}
+				catch (error) {
+					this.log.debug('Accessing properties before initializing. Skipping!')
 				}
 
 				// Check, if that Source belongs to battery-charge or discharge, to determine the time
@@ -512,8 +540,8 @@ class EnergieflussErweitert extends utils.Adapter {
 		let percent = battPercent.val;
 		let rest = 0;
 		let mins = 0;
-		let result = '';
-		let string = '';
+		let string = "--:--h";
+		let target = 0;
 		if (percent > 0 && energy > 0) {
 			if (direction == "charge") {
 				// Get the Rest to Full Charge
@@ -527,17 +555,22 @@ class EnergieflussErweitert extends utils.Adapter {
 
 			mins = Math.round((rest / energy) * 60);
 			if (mins > 0) {
-				result = this.getMinHours(mins);
-			} else {
-				result = "--:--";
+				string = this.getMinHours(mins) + "h";
+				// Calculate the target time
+				target = Math.floor(Date.now() / 1000) + (mins * 60);
 			}
-			string += result + "h";
-		} else {
-			string += "--:--h";
 		}
+
 		this.log.debug("Direction: " + direction + " Battery-Time: " + string + " Percent: " + percent + " Energy: " + energy);
 
+		// Set remaining time
 		await this.setStateAsync("battery_remaining", string, true);
+
+		// Set target of the remaining time
+		await this.setStateAsync("battery_remaining_target", target, true);
+
+		// Set target of the remaining time in readable form
+		await this.setStateAsync("battery_remaining_target_DT", this.getDateTime(target * 1000), true);
 	}
 
 	/**
@@ -612,7 +645,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		 * @param {number} ts
 		 * @param {string} mode
 	*/
-	getDateTime(ts, mode) {
+	getTimeStamp(ts, mode) {
 		if (ts === undefined || ts <= 0 || ts == '') {
 			return '';
 		}
@@ -679,11 +712,31 @@ class EnergieflussErweitert extends utils.Adapter {
 		}
 	}
 
+	/**
+	 * Convert a timestamp to datetime.
+	 *
+	 * @param	{number}	ts			Timestamp to be converted to date-time format (in ms)
+	 *
+	 */
+	getDateTime(ts) {
+		if (ts === undefined || ts <= 0 || ts == '')
+			return '';
+
+		let date = new Date(ts);
+		let day = '0' + date.getDate();
+		let month = '0' + (date.getMonth() + 1);
+		let year = date.getFullYear();
+		let hours = '0' + date.getHours();
+		let minutes = '0' + date.getMinutes();
+		let seconds = '0' + date.getSeconds();
+		return day.substr(-2) + '.' + month.substr(-2) + '.' + year + ' ' + hours.substr(-2) + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+	}
+
 	async getRelativeTimeObjects(obj) {
 		for (var key of Object.keys(obj)) {
 			const stateValue = await this.getForeignStateAsync(obj[key].source);
 			if (stateValue) {
-				outputValues.values[key] = this.getDateTime(stateValue.ts, obj[key].option);
+				outputValues.values[key] = this.getTimeStamp(stateValue.ts, obj[key].option);
 			}
 		}
 	}
@@ -877,7 +930,7 @@ class EnergieflussErweitert extends utils.Adapter {
 						if (value.type == 'text') {
 							// Check, if we have source options for text - Date
 							if (value.source_option != -1) {
-								outputValues.values[key] = this.getDateTime(stateValue.ts, value.source_option);
+								outputValues.values[key] = this.getTimeStamp(stateValue.ts, value.source_option);
 								outputValues.unit[key] = value.unit;
 								rawValues.values[key] = 0;
 

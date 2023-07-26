@@ -26,6 +26,13 @@
     }
 }
 
+:root {
+    --folder-closed: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23538ea3" d="M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2Z"%2F%3E%3C%2Fsvg%3E');
+    --folder-open: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23538ea3" d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5Z"%2F%3E%3C%2Fsvg%3E');
+    --file: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6m4 18H6V4h7v5h5v11Z"%2F%3E%3C%2Fsvg%3E');
+    --file-selected: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23538ea3" d="M5 21q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.2 0 .375.038t.35.112L17.875 5H5v14h14v-6.65l2-2V19q0 .825-.588 1.413T19 21H5Zm6.525-6.8l8.5-8.5q.275-.275.675-.275t.7.275q.3.275.3.7t-.3.725L12.225 16.3q-.3.3-.7.3t-.7-.3l-4.25-4.25q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l3.55 3.55Z"%2F%3E%3C%2Fsvg%3E');
+}
+
 /* Default HTML & Body */
 html,
 body {
@@ -232,17 +239,25 @@ legend>span {
     margin-top: 2px;
 }
 
-#display_container {
+#display_container,
+#stateExplorerContainer {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 95vw;
+    width: 80vw;
     height: 95vh;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    z-index: 1000;
+}
+
+#stateExplorerContainer {
+    top: 45%;
+    height: 80vh;
+    background-color: var(--white);
 }
 
 #help_section,
@@ -265,6 +280,8 @@ legend>span {
 
 .help {
     cursor: help;
+    vertical-align: bottom;
+    padding-left: 5px;
 }
 
 .title_bar {
@@ -477,27 +494,20 @@ legend>span {
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    /* Override default look */
     appearance: none;
-    width: 20px;
-    /* Set a specific slider handle width */
-    height: 25px;
-    /* Slider handle height */
+    width: 30px;
+    border-radius: 15px;
+    height: 20px;
     background: var(--primary);
-    /* Green background */
     cursor: pointer;
-    /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
-    width: 20px;
-    /* Set a specific slider handle width */
-    height: 25px;
-    /* Slider handle height */
+    width: 30px;
+    height: 20px;
+    border-radius: 15px;
     background: var(--primary);
-    /* Green background */
     cursor: pointer;
-    /* Cursor on hover */
 }
 
 .form_div {
@@ -680,6 +690,7 @@ legend>span {
 input[disabled],
 select[disabled] {
     cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .red {
@@ -981,10 +992,9 @@ select[disabled] {
     border-top-left-radius: 10px;
 }
 
-#config_bar>.title>span {
+.title>span {
     display: inline-block;
-    margin-top: 5px;
-    margin-left: 5px;
+    padding: 5px;
     font-weight: 600;
     color: var(--white);
 }
@@ -1000,6 +1010,7 @@ img {
 
 #config_bar>.title>.close,
 #display_container>.title>.close,
+#stateExplorerContainer>.title>.close,
 #help_section>.title>.close {
     position: absolute;
     right: 0;
@@ -1071,6 +1082,8 @@ text {
 .tabbed>input,
 .tabbed figure>div {
     display: none;
+    transition: all .5s;
+    opacity: 0;
 }
 
 .tabbed figure>div {
@@ -1102,6 +1115,8 @@ text {
     display: block;
     box-sizing: border-box;
     max-width: 98vw;
+    transition: all .5s;
+    opacity: 1;
 }
 
 nav label {
@@ -1115,6 +1130,7 @@ nav label {
     font-weight: 600;
     font-size: 14px;
     align-items: center;
+    transition: all .5s;
 }
 
 nav label>.menu {
@@ -1129,6 +1145,7 @@ nav label:hover {
     background: var(--secondary);
     color: var(--black);
     cursor: pointer;
+    transition: all .5s;
 }
 
 nav label:active {
@@ -1158,6 +1175,10 @@ nav label:active {
     outline: none;
     background: transparent;
     border: none;
+}
+
+.ds_buttons:disabled {
+    cursor: not-allowed;
 }
 
 .img_button {
@@ -1227,7 +1248,10 @@ nav label:active {
     /* prevent horizontal scrollbar */
     overflow-x: hidden;
     max-width: 100%;
-    animation-direction: reverse;
+}
+
+.ui-autocomplete-ds {
+    max-height: 260px;
 }
 
 .ui-menu-item-wrapper {
@@ -1243,53 +1267,125 @@ nav label:active {
     white-space: nowrap;
 }
 
-/* ioBroker Special CSS */
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Material Icons'),
-        url('font/material.woff') format('woff');
+/* State Explorer */
+#stateExplorer {
+    overflow: auto;
+    height: calc(100% - 80px);
 }
 
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: 400;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    font-feature-settings: "liga";
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased
-}
-
-.m .btn,
-.m .btn:hover,
-.dialog-select-object-ids .material .main-toolbar-table .panel-button {
-    background-color: var(--primary);
-}
-
-.m #dialog-select-member {
-    border: 3px solid var(--primary);
-}
-
-.panel-button {
-    width: 24px !important;
-    height: 24px;
-    border: 0;
+ul.tree-main,
+ul.tree ul {
+    list-style: none;
     margin: 0;
+    padding: 0;
+    margin-left: 10px;
 }
 
-.dialog-select-object-ids .grid-main-wob-div {
-    max-height: calc(55vh - 90px) !important;
+ul.tree-main ul {
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 15px;
 }
 
-.ui-button-icon-only {
-    text-indent: inherit;
+ul.tree-main li {
+    margin: 0;
+    padding: 0 7px;
+    line-height: 24px;
+    color: #369;
+    font-weight: bold;
+    border-left: 1px solid rgb(100, 100, 100);
 }
+
+ul.tree-main li:last-child {
+    border-left: none;
+}
+
+ul.tree-main li:before {
+    position: relative;
+    top: -0.6em;
+    height: 1.2em;
+    width: 12px;
+    color: white;
+    border-bottom: 1px solid rgb(100, 100, 100);
+    content: "";
+    display: inline-block;
+    left: -7px;
+}
+
+ul.tree-main li:last-child:before {
+    border-left: 1px solid rgb(100, 100, 100);
+}
+
+ul.tree-main li div {
+    display: inline-block;
+    table-layout: fixed;
+    border-collapse: collapse;
+    height: 24px;
+    width: 90%;
+}
+
+ul.tree-main .childs {
+    display: none;
+}
+
+ul.tree-main li div span {
+    display: table-cell;
+    border-collapse: collapse;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+ul.tree-main li div span:nth-child(1) {
+    width: 25px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+ul.tree-main li div span:nth-child(2) {
+    width: 35%;
+}
+
+ul.tree-main li div span:nth-child(3) {
+    width: 20%;
+}
+
+ul.tree-main li div span:nth-child(4) {
+    width: 20%;
+}
+
+ul.tree-main li div span:nth-child(5) {
+    width: 350px;
+}
+
+ul.tree-main li div:hover {
+    background-color: var(--darkgrey);
+    cursor: pointer;
+}
+
+ul.tree-main li div.active {
+    background-color: var(--darkgrey);
+}
+
+.type {
+    background-repeat: no-repeat;
+}
+
+.folderOpen {
+    background-image: var(--folder-open);
+    transition: background-image .4s ease-in-out;
+}
+
+.folderClosed {
+    background-image: var(--folder-closed);
+}
+
+.file {
+    background-image: var(--file);
+}
+
+.file-selected {
+    background-image: var(--file-selected);
+}
+
+/* State Explorer - END */

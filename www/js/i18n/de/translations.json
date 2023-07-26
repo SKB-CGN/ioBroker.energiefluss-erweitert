@@ -249,6 +249,7 @@
     "title_rotate_cw": "Im Uhrzeiger sinn drehen",
     "title_select_ds": "Wählen Sie Datenquelle aus",
     "title_slider": "Bewegen Sie den Schieberegler, um die Größe anzupassen",
+    "title_stateExplorer": "Objektbrowser",
     "value_add": "Hinzufügen",
     "value_cancel": "Abbrechen",
     "value_connect": "Verbinden",
@@ -259,5 +260,6 @@
     "value_reconnect": "Wieder verbinden",
     "value_restore": "Wiederherstellen",
     "value_save_exit": "speichern und schließen",
-    "value_save_restore": "Backup wiederherstellen"
+    "value_save_restore": "Backup wiederherstellen",
+    "value_select": "Wählen"
 }

@@ -249,6 +249,7 @@
     "title_rotate_cw": "Rode no sentido dos ponteiros do relógio",
     "title_select_ds": "Selecionar fonte de dados",
     "title_slider": "Mova o controle deslizante para ajustar o tamanho",
+    "title_stateExplorer": "Navegador de objetos",
     "value_add": "Adicionar",
     "value_cancel": "Abortar",
     "value_connect": "Conectar",
@@ -259,5 +260,6 @@
     "value_reconnect": "Reconecte",
     "value_restore": "Restaurar",
     "value_save_exit": "salvar e sair",
-    "value_save_restore": "Restaurar backup"
+    "value_save_restore": "Restaurar backup",
+    "value_select": "Selecione"
 }

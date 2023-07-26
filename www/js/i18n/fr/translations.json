@@ -249,6 +249,7 @@
     "title_rotate_cw": "Le sens des aiguilles d'une montre",
     "title_select_ds": "Sélectionnez la source de données",
     "title_slider": "Déplacez le curseur pour ajuster la taille",
+    "title_stateExplorer": "Navigateur d'objets",
     "value_add": "Ajouter",
     "value_cancel": "Avorter",
     "value_connect": "Connecter",
@@ -259,5 +260,6 @@
     "value_reconnect": "Se reconnecter",
     "value_restore": "Restaurer",
     "value_save_exit": "sauvegarder et quitter",
-    "value_save_restore": "Restaurer la sauvegarde"
+    "value_save_restore": "Restaurer la sauvegarde",
+    "value_select": "Sélectionner"
 }

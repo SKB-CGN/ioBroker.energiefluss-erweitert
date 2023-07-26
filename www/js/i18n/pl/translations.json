@@ -249,6 +249,7 @@
     "title_rotate_cw": "Obróć zgodnie z ruchem wskazówek zegara",
     "title_select_ds": "Wybierz źródło danych",
     "title_slider": "Przesuń suwak, aby dostosować rozmiar",
+    "title_stateExplorer": "Przeglądarka obiektów",
     "value_add": "Dodać",
     "value_cancel": "Anulować",
     "value_connect": "Łączyć",
@@ -259,5 +260,6 @@
     "value_reconnect": "Na nowo połączyć",
     "value_restore": "Przywrócić",
     "value_save_exit": "Zapisz i wyjdź",
-    "value_save_restore": "Przywracania kopii zapasowej"
+    "value_save_restore": "Przywracania kopii zapasowej",
+    "value_select": "Wybierać"
 }

@@ -32,6 +32,15 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Build-in Object Browser for faster loading and saving bandwith (get rid of the default ioBroker one)
+- Added: Autocomplete for Datasources Boxes - Datasource will be fetched during typing
+- Added: Language for some boxes were missing
+- Added: Disable all other Datasources in list while editing to prevent mixup
+- Added: New states for 'battery_remaining_target', which shows the target time in Unixtime and 'battery_remaining_target_DT', which shows the time in human readable format
+- FIX: Icon-Proxy was not showing icons under some circumstances
+- FIX: Reverse steps for alignment was in the wrong order (#37)
+
 ### 0.0.2-alpha.12 (2023-07-18)
 - Added: Improved Icon - Proxy, to serve icons for all symbols (if enabled)
 - Added: Language translations for live-view variables

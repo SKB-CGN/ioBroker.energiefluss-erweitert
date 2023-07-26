@@ -10,43 +10,30 @@
     <link class=favicon rel=icon type=image/ico href="img/icons/favicon.ico">
     <meta name="msapplication-TileColor" content="#538ea3">
     <meta name="theme-color" content="#538ea3">
-    <!-- Load ioBroker scripts and styles-->
-    <link rel="stylesheet" href="style/jquery-ui.css" />
-    <link rel="stylesheet" href="../../lib/css/fancytree/ui.fancytree.min.css" />
-    <link rel="stylesheet" href="../../lib/css/materialize.css" />
-    <link rel="stylesheet" href="../../lib/css/iob/selectID.css" />
 
-    <script src="js/jquery-3.6.4.min.js"></script>
-    <script src="../../socket.io/socket.io.js"></script>
-
-    <script src="../../lib/js/materialize.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="../../lib/js/jquery.fancytree-all.min.js"></script>
-
-    <script src="../../lib/js/translate.js"></script>
-    <script src="../../lib/js/selectID.js"></script>
-
-    <!-- END Load ioBroker scripts and styles-->
-
-    <script src="js/iconify.min.js"></script>
-    <script src="js/translate.min.js"></script>
-    <script src="js/words.js"></script>
-
+    <link rel="stylesheet" href="style/jquery-ui.css">
     <link rel="stylesheet" href="style/loading-spinner.css">
     <link rel="stylesheet" href="style/multiselect.css">
     <link rel="stylesheet" href="style/style.css">
 
-    <style id="style_animation"></style>
-    <style id="style_user"></style>
+    <script src="../../socket.io/socket.io.js"></script>
 
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/translate.min.js"></script>
+    <script src="js/words.js"></script>
     <script src="js/jscolor.min.js"></script>
     <script src="js/multiselect.min.js"></script>
     <script src="js/functions.min.js"></script>
+
+    <style id="style_animation"></style>
+    <style id="style_user"></style>
 </head>
 
 <body>
     <div id="help_section" class="translateT" title="Help Section" data-lang-title="lbl_help_section"></div>
     <div id="backup_section" class="translateT" title="Backup Section" data-lang-title="lbl_backup_section"></div>
+
     <div id="loading">
         <div class="loading-spinner">
             <div class="loading-spinner-dot"></div>
@@ -58,6 +45,19 @@
         </div>
         <span id="loading_text" class="translate" data-lang="msg_loading_workspace">Loading your Energiefluss
             Workspace</span>
+        <div id="stateExplorerContainer">
+            <div class="title">
+                <span class="translate" data-lang="title_stateExplorer">Object Browser</span>
+                <div class="close stateExplorer_close"></div>
+            </div>
+            <div id="stateExplorer" class="scrollbar"></div>
+            <div style="text-align: right;padding: 10px;">
+                <input type="button" value="Select" id="select_state" class="input_button translateV"
+                    data-lang-value="value_select">
+                <input type="button" value="Cancel" class="input_button translateV stateExplorer_close red"
+                    data-lang-value="value_cancel">
+            </div>
+        </div>
     </div>
     <div class="tabbed">
         <input checked="checked" id="tab1" type="radio" name="tabs">
@@ -1258,13 +1258,13 @@
                         </fieldset>
                         <fieldset>
                             <legend><span class="iconify legend"
-                                    data-icon="material-symbols:format-align-center-rounded" data-width="24"
+                                    data-icon="material-symbols:format-align-justify-rounded" data-width="24"
                                     data-height="24"></span>
                                 <span class="translate" data-lang="legend_alignment">Alignment</span>
                             </legend>
                             <table class="config_table">
                                 <tr style="height: 42px;">
-                                    <td style="width: 150px;white-space: nowrap;">
+                                    <td style="width: 140px;white-space: nowrap;">
                                         <a title="Align left" class="align_elements tt-element translateT"
                                             id="align_left" data-lang-title="title_align_left"><span
                                                 class="iconify add_element_area"
@@ -1281,7 +1281,7 @@
                                                 data-icon="material-symbols:format-align-right-rounded" data-width="48"
                                                 data-height="48"></span></a>
                                     </td>
-                                    <td style="width: 250px;"><span id="ex_how_align" class="translate"
+                                    <td style="width: 260px;"><span id="ex_how_align" class="translate"
                                             data-lang="ex_align">Choose an
                                             alignment and select a
                                             reference
@@ -1464,9 +1464,9 @@
                             <tr>
                                 <td>
                                     <div class="form_div text">
-                                        <input type="text" class="input_text icon_in_input_pad" name="elm_ds_source"
-                                            id="elm_ds_source" placeholder="" autocorrect="off" autocomplete="off"
-                                            minlength="5" required="">
+                                        <input type="text" class="input_text icon_in_input_pad datasource_autocomplete"
+                                            name="elm_ds_source" id="elm_ds_source" placeholder="" autocorrect="off"
+                                            autocomplete="off" minlength="5" required="">
                                         <label for="elm_ds_source" class="form_label translate"
                                             data-lang="lbl_datasource">Datasource</label>
                                         <div class="icon_wrapper">
@@ -2246,25 +2246,6 @@
 
     <div id="message_success"></div>
     <div id="message_failed"></div>
-    <div class="m material-dialogs">
-        <div id="dialog-select-member" class="modal modal-fixed-footer">
-            <div class="modal-content">
-                <div class="row">
-                    <div class="col s12 title"></div>
-                </div>
-                <div class="row" style="max-height: 80%;">
-                    <div class="col s12 dialog-content">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a class="modal-action modal-close waves-effect waves-green btn btn-set"><i
-                        class="large material-icons left">check</i><span class="translate">Select</span></a>
-                <a class="modal-action modal-close waves-effect waves-green btn btn-close"><i
-                        class="large material-icons left ">close</i><span class="translate">Cancel</span></a>
-            </div>
-        </div>
-    </div>
 </body>
 
 

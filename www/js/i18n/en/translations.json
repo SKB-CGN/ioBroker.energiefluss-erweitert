@@ -249,6 +249,7 @@
     "title_rotate_cw": "Rotate clockwise",
     "title_select_ds": "Select Datasource",
     "title_slider": "Move the slider to adjust the size",
+    "title_stateExplorer": "Object Browser",
     "value_add": "Add",
     "value_cancel": "Abort",
     "value_connect": "Connect",
@@ -259,5 +260,6 @@
     "value_reconnect": "Reconnect",
     "value_restore": "Restore",
     "value_save_exit": "save and exit",
-    "value_save_restore": "Restore backup"
+    "value_save_restore": "Restore backup",
+    "value_select": "Select"
 }

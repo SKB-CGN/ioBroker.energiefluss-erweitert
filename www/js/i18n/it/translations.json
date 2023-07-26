@@ -249,6 +249,7 @@
     "title_rotate_cw": "Ruotare in senso orario",
     "title_select_ds": "Seleziona Origine dati",
     "title_slider": "Sposta il cursore per regolare le dimensioni",
+    "title_stateExplorer": "Browser degli oggetti",
     "value_add": "Aggiungere",
     "value_cancel": "Interrompi",
     "value_connect": "Collegare",
@@ -259,5 +260,6 @@
     "value_reconnect": "Riconnetti",
     "value_restore": "Ristabilire",
     "value_save_exit": "salva ed esci",
-    "value_save_restore": "Ripristinare il backup"
+    "value_save_restore": "Ripristinare il backup",
+    "value_select": "Selezionare"
 }

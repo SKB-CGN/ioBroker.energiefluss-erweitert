@@ -176,7 +176,7 @@
                 "role": "state",
                 "read": true,
                 "write": false,
-		"def": "{}"
+                "def": "{}"
             },
             "native": {}
         },
@@ -203,6 +203,30 @@
                 "write": false
             },
             "native": {}
+        },
+        {
+            "_id": "battery_remaining_target",
+            "type": "state",
+			"common": {
+				"name": "Target of the remaining Time of the battery",
+				"type": "number",
+				"role": "value.time",
+				"read": true,
+				"write": false
+			},
+			"native": {}
+        },
+        {
+            "_id": "battery_remaining_target_DT",
+            "type": "state",
+			"common": {
+				"name": "Target of the remaining Time of the battery (Date&Time)",
+				"type": "string",
+				"role": "value",
+				"read": true,
+				"write": false
+			},
+			"native": {}
         },
         {
             "_id": "backup",

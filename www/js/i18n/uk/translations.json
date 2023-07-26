@@ -249,6 +249,7 @@
     "title_rotate_cw": "Обертати за годинниковою стрілкою",
     "title_select_ds": "Виберіть Джерело даних",
     "title_slider": "Перемістіть повзунок, щоб налаштувати розмір",
+    "title_stateExplorer": "Об’єктний браузер",
     "value_add": "додати",
     "value_cancel": "Перервати",
     "value_connect": "Підключитися",
@@ -259,5 +260,6 @@
     "value_reconnect": "Повторне підключення",
     "value_restore": "Відновлення",
     "value_save_exit": "зберегти та вийти",
-    "value_save_restore": "Відновити резервну копію"
+    "value_save_restore": "Відновити резервну копію",
+    "value_select": "Виберіть"
 }

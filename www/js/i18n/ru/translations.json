@@ -249,6 +249,7 @@
     "title_rotate_cw": "Вращаться по часовой стрелке",
     "title_select_ds": "Выберите источник данных",
     "title_slider": "Переместите ползунок, чтобы настроить размер",
+    "title_stateExplorer": "Браузер объектов",
     "value_add": "Добавлять",
     "value_cancel": "Прервать",
     "value_connect": "Соединять",
@@ -259,5 +260,6 @@
     "value_reconnect": "Повторное подключение",
     "value_restore": "Восстановить",
     "value_save_exit": "Сохранить и выйти",
-    "value_save_restore": "Восстановление резервной копии"
+    "value_save_restore": "Восстановление резервной копии",
+    "value_select": "Выбирать"
 }

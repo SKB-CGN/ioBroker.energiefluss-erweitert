@@ -249,6 +249,7 @@
     "title_rotate_cw": "Met de klok mee draaien",
     "title_select_ds": "Selecteer Gegevensbron",
     "title_slider": "Verplaats de schuifregelaar om de grootte aan te passen",
+    "title_stateExplorer": "Objectbrowser",
     "value_add": "Toevoegen",
     "value_cancel": "Afbreken",
     "value_connect": "Aansluiten",
@@ -259,5 +260,6 @@
     "value_reconnect": "Maak opnieuw verbinding",
     "value_restore": "Herstellen",
     "value_save_exit": "opslaan en afsluiten",
-    "value_save_restore": "Back-up terugzetten"
+    "value_save_restore": "Back-up terugzetten",
+    "value_select": "Selecteer"
 }
