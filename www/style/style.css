@@ -1318,7 +1318,7 @@ ul.tree-main li:last-child:before {
 
 ul.tree-main li div {
     display: inline-block;
-    table-layout: fixed;
+    white-space: nowrap;
     border-collapse: collapse;
     height: 24px;
     width: 90%;
@@ -1329,14 +1329,16 @@ ul.tree-main .childs {
 }
 
 ul.tree-main li div span {
-    display: table-cell;
+    display: inline-block;
     border-collapse: collapse;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    height: 24px;
 }
 
 ul.tree-main li div span:nth-child(1) {
+    min-width: 25px;
     width: 25px;
     padding-right: 5px;
     padding-left: 5px;
@@ -1344,6 +1346,7 @@ ul.tree-main li div span:nth-child(1) {
 
 ul.tree-main li div span:nth-child(2) {
     width: 35%;
+    min-width: 20%;
 }
 
 ul.tree-main li div span:nth-child(3) {
@@ -1355,7 +1358,9 @@ ul.tree-main li div span:nth-child(4) {
 }
 
 ul.tree-main li div span:nth-child(5) {
-    width: 350px;
+    width: auto;
+    min-width: 50px;
+    max-width: auto;
 }
 
 ul.tree-main li div:hover {
