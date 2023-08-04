@@ -124,10 +124,11 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="detail_box elm_config_circle elm_config_rect elm_config_svg">
+                                    <div
+                                        class="detail_box elm_config_circle elm_config_rect elm_config_icon elm_config_svg elm_config_image">
                                         <span class="config_sec translate" data-lang="lbl_config_size">Size</span>
                                         <table class="element_config_table">
-                                            <tr class="elm_config_rect elm_config_svg">
+                                            <tr class="elm_config_rect elm_config_icon elm_config_svg elm_config_image">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="number" class="input_number elm_config" min="1"
@@ -145,7 +146,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr class="elm_config_svg">
+                                            <tr class="elm_config_icon">
                                                 <td><span class="translate" data-lang="ex_config_icon_tipp"><u>Tipp:</u>
                                                         Square Icons
                                                         need same width and height! Other ones can
@@ -191,7 +192,7 @@
                                         </table>
                                     </div>
                                     <div
-                                        class="detail_box elm_config_circle elm_config_rect elm_config_text elm_config_svg">
+                                        class="detail_box elm_config_circle elm_config_rect elm_config_text elm_config_icon elm_config_svg elm_config_image">
                                         <span class="config_sec translate" data-lang="lbl_coordinates">Position</span>
                                         <table class="element_config_table">
                                             <tr>
@@ -214,6 +215,34 @@
                                                         <label for="elm_pos_y" class="form_label translate">Pos
                                                             Y</label>
                                                     </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="detail_box">
+                                        <span class="config_sec translate" data-lang="lbl_organize">Organize</span>
+                                        <table class="element_config_table">
+                                            <tr>
+                                                <td style="padding-top: 10px;">
+                                                    <a id="changeOrder_foreground"
+                                                        class="changeOrder tt-element translateT"
+                                                        data-lang-title="title_arrange_foreground"
+                                                        title="Bring Forward"><span class="iconify add_element_area "
+                                                            data-icon="mdi:arrange-bring-forward" data-height="24"
+                                                            data-width="24"></span></a>
+                                                    <a id="changeOrder_background"
+                                                        class="changeOrder tt-element translateT"
+                                                        data-lang-title="title_arrange_background"
+                                                        title="Send Backwards"><span class="iconify add_element_area "
+                                                            data-icon="mdi:arrange-send-backward" data-height="24"
+                                                            data-width="24"></span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="img/icon_help.png" style="margin-top:10px;"
+                                                        class="translateP help" data-lang-placeholder="help_organize"
+                                                        placeholder="<p>All elements are organized in groups (rects and circles, icons, texts, etc).</p><p>The overall order for the elements is Each element in each group can be moved to the fore- and background. Texts and icons are al</p>">
                                                 </td>
                                             </tr>
                                         </table>
@@ -268,18 +297,18 @@
                                         </table>
                                     </div>
                                     <div
-                                        class="detail_box elm_config_circle elm_config_rect elm_config_text elm_config_use elm_config_svg">
+                                        class="detail_box elm_config_circle elm_config_rect elm_config_text elm_config_use elm_config_icon elm_config_svg">
                                         <span class="config_sec translate" data-lang="lbl_color">Color</span>
                                         <table class="element_config_table">
                                             <tr
-                                                class="elm_config_circle elm_config_rect elm_config_text elm_config_use elm_config_svg">
+                                                class="elm_config_circle elm_config_rect elm_config_text elm_config_use elm_config_icon elm_config_svg">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text color elm_config "
                                                             name="elm_color" id="elm_color" placeholder=""
                                                             autocorrect="off" autocomplete="off" data-jscolor="{}">
                                                         <label for="elm_color"
-                                                            class="form_label elm_config_circle elm_config_rect elm_config_text elm_config_svg translate"
+                                                            class="form_label elm_config_circle elm_config_rect elm_config_text elm_config_icon elm_config_svg translate"
                                                             data-lang="lbl_outline_color">Outline
                                                             Color</label>
                                                         <label for="elm_color"
@@ -320,14 +349,16 @@
                                         <table class="element_config_table">
                                             <tr>
                                                 <td>
-                                                    <div class="onoffswitch">
-                                                        <input type="checkbox" name="elm_shadow"
-                                                            class="onoffswitch-checkbox elm_config" id="elm_shadow"
-                                                            value="yes">
-                                                        <label class="onoffswitch-label" for="elm_shadow">
-                                                            <span class="onoffswitch-inner"></span>
-                                                            <span class="onoffswitch-switch"></span>
-                                                        </label>
+                                                    <div class="cb_onfoffswitch">
+                                                        <div class="onoffswitch">
+                                                            <input type="checkbox" name="elm_shadow"
+                                                                class="onoffswitch-checkbox elm_config" id="elm_shadow"
+                                                                value="yes">
+                                                            <label class="onoffswitch-label" for="elm_shadow">
+                                                                <span class="onoffswitch-inner"></span>
+                                                                <span class="onoffswitch-switch"></span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -347,6 +378,67 @@
                                         </table>
                                     </div>
                                     <div class="detail_box elm_config_svg">
+                                        <span class="config_sec translate" data-lang="lbl_svg_settings">SVG
+                                            Settings</span>
+                                        <table class="element_config_table">
+                                            <tr>
+                                                <td>
+                                                    <div class="form_div text">
+                                                        <input type="text" class="input_text elm_config"
+                                                            name="elm_viewBox" id="elm_viewBox" placeholder=""
+                                                            autocorrect="off" autocomplete="off">
+                                                        <label for="elm_viewBox" class="form_label translate"
+                                                            data-lang="lbl_viewbox">ViewBox</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form_div text">
+                                                        <label for="elm_svg_content" class="form_label translate"
+                                                            data-lang="lbl_svg_content">SVG Content</label>
+                                                        <textarea id="elm_svg_content" name="elm_svg_content" cols="30"
+                                                            rows="10" class="input_textbox elm_config"
+                                                            style="width: 200px;"></textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="detail_box elm_config_image">
+                                        <span class="config_sec translate" data-lang="lbl_image_settings">Image
+                                            Settings</span>
+                                        <table class="element_config_table">
+                                            <tr>
+                                                <td>
+                                                    <div class="form_div text">
+                                                        <input type="text" class="input_text elm_config" name="elm_href"
+                                                            id="elm_href" placeholder="" autocorrect="off"
+                                                            autocomplete="off">
+                                                        <label for="elm_href" class="form_label translate"
+                                                            data-lang="lbl_href">Address:</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form_div text">
+                                                        <input type="text" class="input_text elm_config"
+                                                            name="elm_preserveAspectRatio" id="elm_preserveAspectRatio"
+                                                            placeholder="" autocorrect="off" autocomplete="off">
+                                                        <label for="elm_preserveAspectRatio"
+                                                            class="form_label translate"
+                                                            data-lang="lbl_preserveAspectRatio">preserveAspectRatio:</label>
+                                                    </div>
+                                                    <img src="img/icon_help.png" style="margin-top:10px;"
+                                                        class="translateP help"
+                                                        data-lang-placeholder="help_preserveAspectRatio"
+                                                        placeholder="<p>The preserveAspectRatio attribute indicates how an element with a viewBox providing a given aspect ratio must fit into a viewport with a different aspect ratio.</p><p>Please refer to <a href='https://www.kreyenborg.koeln/efHelp-pAR' target='_blank'>MDN Web Docs</a> to read more about">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="detail_box elm_config_icon">
                                         <span class="config_sec translate" data-lang="lbl_icon">Icon</span>
                                         <table class="element_config_table">
                                             <tr>
@@ -415,7 +507,7 @@
                                         </table>
                                     </div>
                                     <div
-                                        class="detail_box elm_config_datasource elm_config_rect elm_config_circle elm_config_svg">
+                                        class="detail_box elm_config_datasource elm_config_rect elm_config_circle elm_config_icon">
                                         <span class="config_sec translate" data-lang="lbl_datasource">Datasource</span>
                                         <table class="element_config_table">
                                             <tr>
@@ -636,7 +728,7 @@
                                 </div>
                                 <div class="tab2_config">
                                     <div
-                                        class="detail_box elm_config_datasource elm_config_use elm_config_svg elm_config_rect elm_config_circle">
+                                        class="detail_box elm_config_datasource elm_config_use elm_config_icon elm_config_rect elm_config_circle">
                                         <span class="config_sec translate"
                                             data-lang="lbl_calculation">Calculation</span>
                                         <table class="element_config_table">
@@ -1080,7 +1172,7 @@
                                         </table>
                                     </div>
                                     <div class="detail_box">
-                                        <span class="config_sec translate">CSS classes</span>
+                                        <span class="config_sec translate" data-lang="lbl_css_class">CSS classes</span>
                                         <table class="element_config_table">
                                             <tr>
                                                 <td>
@@ -1094,7 +1186,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
@@ -1108,7 +1200,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
@@ -1124,7 +1216,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
                                                 <td>
                                                     <div
                                                         style="height:3px;background-color: #538ea3;border-radius: 5px;margin-top:15px; margin-left: 15px; margin-right: 15px;">
@@ -1132,7 +1224,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
@@ -1146,7 +1238,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_svg elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
@@ -1227,7 +1319,7 @@
                             </legend>
                             <table class="config_table">
                                 <tr>
-                                    <td>
+                                    <td style="width: 110px;border-right: 1px solid black;">
                                         <a title="Add Circle" class="add_element tt-element translateT" id="add_circle"
                                             data-lang-title="title_add_circle"><span class="iconify add_element_area"
                                                 data-icon="material-symbols:circle-outline" data-width="48"
@@ -1240,19 +1332,37 @@
                                             data-lang-title="title_add_text"><span class="iconify add_element_area"
                                                 data-icon="material-symbols:text-format-rounded" data-width="48"
                                                 data-height="48"></span></a>
-
+                                    </td>
+                                    <td style="padding:0 10px;">
+                                        <a title="Duplicate selected element(s)" class="tt-element translateT"
+                                            id="duplicate_elements" data-lang-title="title_align_duplicate"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:file-copy-outline-rounded" data-width="48"
+                                                data-height="48"></span></a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><a title="Add Text with Datasource" class="add_element tt-element translateT"
-                                            id="add_datasource" data-lang-title="title_add_ds"><span
-                                                class="iconify add_element_area"
+                                    <td style="border-right: 1px solid black;"><a title="Add Text with Datasource"
+                                            class="add_element tt-element translateT" id="add_datasource"
+                                            data-lang-title="title_add_ds"><span class="iconify add_element_area"
                                                 data-icon="material-symbols:data-check-rounded" data-width="48"
                                                 data-height="48"></span></a>
                                         <a title="Add Icon" class="add_element tt-element translateT" id="add_icon"
                                             data-lang-title="title_add_icon"><span class="iconify add_element_area"
+                                                data-icon="mdi:omega" data-width="48" data-height="48"></span></a>
+                                        <a title="Add Image" class="add_element tt-element translateT" id="add_image"
+                                            data-lang-title="title_add_image"><span class="iconify add_element_area"
                                                 data-icon="mdi:file-image" data-width="48" data-height="48"></span></a>
                                     </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-right: 1px solid black;"><a title="Add SVG"
+                                            class="add_element tt-element translateT" id="add_svg"
+                                            data-lang-title="title_add_svg"><span class="iconify add_element_area"
+                                                data-icon="bi:filetype-svg" data-width="48" data-height="48"></span></a>
+                                    </td>
+                                    <td>&nbsp;</td>
                                 </tr>
                             </table>
                         </fieldset>
@@ -1324,11 +1434,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td><a title="Duplicate selected element(s)" class="tt-element translateT"
-                                            id="duplicate_elements" data-lang-title="title_align_duplicate"><span
-                                                class="iconify add_element_area"
-                                                data-icon="material-symbols:file-copy-outline-rounded" data-width="48"
-                                                data-height="48"></span></a></td>
+                                    <td>&nbsp;</td>
                                     <td><input type="button" value="Done" id="align_elements"
                                             class="input_button red translateV" data-lang-value="value_done"
                                             style="display: none;">
@@ -1727,18 +1833,22 @@
                             </tr>
                             <tr>
                                 <td style="width: auto;">
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="calc_battery_charge_kw"
-                                            class="onoffswitch-checkbox" id="calc_battery_charge_kw" value="true">
-                                        <label class="onoffswitch-label" for="calc_battery_charge_kw">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_battery_charge_kw"
+                                                class="onoffswitch-checkbox" id="calc_battery_charge_kw" value="true">
+                                            <label class="onoffswitch-label" for="calc_battery_charge_kw">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </td>
-                                <td style="width: 100%;"><label class="label translate" for="calc_battery_charge_kw"
-                                        style="vertical-align: super;" data-lang="cb_battery_source">
-                                        Source is kW</label>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_battery_charge_kw" style="vertical-align: super;"
+                                            data-lang="cb_battery_source">
+                                            Source is kW</label></div>
                                 </td>
                             </tr>
                             <tr>
@@ -1771,35 +1881,44 @@
                             </tr>
                             <tr>
                                 <td style="width: auto;">
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="calc_battery_discharge_kw"
-                                            class="onoffswitch-checkbox" id="calc_battery_discharge_kw" value="yes">
-                                        <label class="onoffswitch-label" for="calc_battery_discharge_kw">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_battery_discharge_kw"
+                                                class="onoffswitch-checkbox" id="calc_battery_discharge_kw" value="yes">
+                                            <label class="onoffswitch-label" for="calc_battery_discharge_kw">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </td>
-                                <td style="width: 100%;"><label class="label translate" for="calc_battery_discharge_kw"
-                                        style="vertical-align: super;" data-lang="cb_battery_source">
-                                        Source is kW</label>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_battery_discharge_kw" style="vertical-align: super;"
+                                            data-lang="cb_battery_source">
+                                            Source is kW</label></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width: auto;">
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="calc_battery_discharge_prop"
-                                            class="onoffswitch-checkbox" id="calc_battery_discharge_prop" value="yes">
-                                        <label class="onoffswitch-label" for="calc_battery_discharge_prop">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_battery_discharge_prop"
+                                                class="onoffswitch-checkbox" id="calc_battery_discharge_prop"
+                                                value="yes">
+                                            <label class="onoffswitch-label" for="calc_battery_discharge_prop">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </td>
-                                <td style="width: 100%;"><label class="label translate"
-                                        for="calc_battery_discharge_prop" style="vertical-align: super;"
-                                        data-lang="cb_battery_source_negative">
-                                        Source is negative</label>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_battery_discharge_prop" style="vertical-align: super;"
+                                            data-lang="cb_battery_source_negative">
+                                            Source is negative</label>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -1825,24 +1944,156 @@
                             </tr>
                         </table>
                     </fieldset>
-                    <!--
+                    <!-- HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
                     <fieldset style="width: 300px;height:max-content ;">
                         <legend><span class="iconify legend" data-icon="mdi:power" data-width="24"
                                 data-height="24"></span>
-                            <span>Consumption</span>
+                            <span class="translate" data-lang="legend_consumption">Consumption</span>
                         </legend>
-                        <div class="form_div">
-                            <label for="calc_consumption_production" class="form_label translate">Production Values</label>
-                            <select class="input_select" name="calc_consumption_production"
-                                id="calc_consumption_production" multiple></select>
-                        </div>
-                        <div class="form_div">
-                            <label for="calc_consumption_grid" class="form_label translate">Grid-Feed-in Values</label>
-                            <select class="input_select" name="calc_consumption_grid" id="calc_consumption_grid"
-                                multiple></select>
-                        </div>
+                        <table class="config_table">
+                            <tr>
+                                <td colspan="2">
+                                    <div class="form_div">
+                                        <label for="calc_consumption_production" class="form_label translate"
+                                            data-lang="lbl_consumption_production">Production</label>
+                                        <select class="input_select" name="calc_consumption_production"
+                                            id="calc_consumption_production" multiple></select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: auto;">
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_consumption_production_kw"
+                                                class="onoffswitch-checkbox" id="calc_consumption_production_kw"
+                                                value="yes">
+                                            <label class="onoffswitch-label" for="calc_consumption_production_kw">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_consumption_production_kw" style="vertical-align: super;"
+                                            data-lang="cb_battery_source">
+                                            Source is kW</label></div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    <div class="form_div">
+                                        <label for="calc_consumption_grid" class="form_label translate"
+                                            data-lang="lbl_consumption_grid">Public grid feed-in</label>
+                                        <select class="input_select" name="calc_consumption_grid"
+                                            id="calc_consumption_grid"></select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: auto;">
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_consumption_grid_kw"
+                                                class="onoffswitch-checkbox" id="calc_consumption_grid_kw" value="yes">
+                                            <label class="onoffswitch-label" for="calc_consumption_grid_kw">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_consumption_grid_kw" style="vertical-align: super;"
+                                            data-lang="cb_battery_source">
+                                            Source is kW</label></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: auto;">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="calc_consumption_grid_prop"
+                                            class="onoffswitch-checkbox" id="calc_consumption_grid_prop" value="yes">
+                                        <label class="onoffswitch-label" for="calc_consumption_grid_prop">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td style="width: 100%;"><label class="label translate" for="calc_consumption_grid_prop"
+                                        style="vertical-align: super;" data-lang="cb_consumption_grid">
+                                        Grid feed-in is negative</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="form_div">
+                                        <label for="calc_consumption_battery" class="form_label translate"
+                                            data-lang="lbl_consumption_charge">Battery charge</label>
+                                        <select class="input_select" name="calc_consumption_battery"
+                                            id="calc_consumption_battery"></select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: auto;">
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_consumption_battery_kw"
+                                                class="onoffswitch-checkbox" id="calc_consumption_battery_kw"
+                                                value="yes">
+                                            <label class="onoffswitch-label" for="calc_consumption_battery_kw">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_consumption_battery_kw" style="vertical-align: super;"
+                                            data-lang="cb_battery_source">
+                                            Source is kW</label></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: auto;">
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_consumption_battery_prop"
+                                                class="onoffswitch-checkbox" id="calc_consumption_battery_prop"
+                                                value="yes">
+                                            <label class="onoffswitch-label" for="calc_consumption_battery_prop">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_consumption_battery_prop" style="vertical-align: super;"
+                                            data-lang="cb_consumption_battery">
+                                            Battery Charge is negative</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style="height: 20px;">
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="translate" data-lang="ex_consumption_help"><u>Info:</u>
+                                        After filling in all necessary values, the remaining battery-time will appear in
+                                        the Datapoint
+                                        <code>energiefluss.Instance-No#.calculation.consumption</code>, which can
+                                        be added via Datasources.</span></td>
+                            </tr>
+                        </table>
                     </fieldset>
-                -->
                 </div>
             </div>
             <div class="tab5">
@@ -1854,8 +2105,8 @@
                         </legend>
                         <table class="config_table">
                             <tr>
-                                <td><textarea id="own_css" rows="30" cols="100" spellcheck="false"
-                                        autocorrect="off"></textarea>
+                                <td><textarea id="own_css" rows="30" cols="100" spellcheck="false" autocorrect="off"
+                                        class="input_textbox"></textarea>
                                 </td>
                             </tr>
                         </table>
@@ -2234,7 +2485,7 @@
                         <table class="config_table">
                             <tr>
                                 <td><textarea id="save_output" rows="30" cols="100" spellcheck="false" autocorrect="off"
-                                        autocomplete="off" readonly></textarea></td>
+                                        autocomplete="off" class="input_textbox" readonly></textarea></td>
                             </tr>
                         </table>
                     </fieldset>

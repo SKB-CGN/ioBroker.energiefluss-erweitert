@@ -100,7 +100,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			native: {}
 		});
 
-		await this.setObjectNotExistsAsync('battery_remaining', {
+		await this.setObjectNotExistsAsync('calculation.battery.remaining', {
 			type: 'state',
 			common: {
 				name: 'Remaining Time of the battery',
@@ -112,7 +112,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			native: {}
 		});
 
-		await this.setObjectNotExistsAsync('battery_remaining_target', {
+		await this.setObjectNotExistsAsync('calculation.battery.remaining_target', {
 			type: 'state',
 			common: {
 				name: 'Target of the remaining Time of the battery',
@@ -124,7 +124,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			native: {}
 		});
 
-		await this.setObjectNotExistsAsync('battery_remaining_target_DT', {
+		await this.setObjectNotExistsAsync('calculation.battery.remaining_target_DT', {
 			type: 'state',
 			common: {
 				name: 'Target of the remaining Time of the battery (Date&Time)',
@@ -132,6 +132,20 @@ class EnergieflussErweitert extends utils.Adapter {
 				role: 'value',
 				read: true,
 				write: false
+			},
+			native: {}
+		});
+
+		await this.setObjectNotExistsAsync('calculation.consumption.consumption', {
+			type: 'state',
+			common: {
+				name: 'Current Consumption',
+				type: 'number',
+				role: 'value.power',
+				read: true,
+				write: false,
+				def: 0,
+				unit: "W"
 			},
 			native: {}
 		});
@@ -292,53 +306,113 @@ class EnergieflussErweitert extends utils.Adapter {
 
 				// Check, if that Source belongs to battery-charge or discharge, to determine the time
 				if (globalConfig.hasOwnProperty('calculation')) {
-					if (sourceObject[id].id == globalConfig.calculation.battery.charge || sourceObject[id].id == globalConfig.calculation.battery.discharge) {
-						if (globalConfig.calculation.battery.charge != -1 && globalConfig.calculation.battery.discharge != -1 && globalConfig.calculation.battery.percent != -1) {
-							let direction = 'none';
-							let energy = 0;
-							let dod = globalConfig.calculation.battery.dod ? globalConfig.calculation.battery.dod : 0;
+					// Battery Remaining
+					try {
+						if (sourceObject[id].id == globalConfig.calculation.battery.charge || sourceObject[id].id == globalConfig.calculation.battery.discharge) {
+							if (globalConfig.calculation.battery.charge != -1 && globalConfig.calculation.battery.discharge != -1 && globalConfig.calculation.battery.percent != -1) {
+								let direction = 'none';
+								let energy = 0;
+								let dod = globalConfig.calculation.battery.dod ? globalConfig.calculation.battery.dod : 0;
 
-							if (globalConfig.calculation.battery.charge != globalConfig.calculation.battery.discharge) {
-								if (sourceObject[id].id == globalConfig.calculation.battery.charge) {
-									direction = 'charge';
-									energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
-								}
-								if (sourceObject[id].id == globalConfig.calculation.battery.discharge) {
-									direction = 'discharge';
-									energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
-								}
-							}
-
-							if (globalConfig.calculation.battery.charge == globalConfig.calculation.battery.discharge) {
-								if (clearValue > 0) {
-									if (!globalConfig.calculation.battery.charge_prop) {
+								if (globalConfig.calculation.battery.charge != globalConfig.calculation.battery.discharge) {
+									if (sourceObject[id].id == globalConfig.calculation.battery.charge) {
 										direction = 'charge';
 										energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
 									}
-									if (!globalConfig.calculation.battery.discharge_prop) {
+									if (sourceObject[id].id == globalConfig.calculation.battery.discharge) {
 										direction = 'discharge';
 										energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
 									}
 								}
-								if (clearValue < 0) {
-									if (globalConfig.calculation.battery.charge_prop) {
-										direction = 'charge';
-										energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+
+								if (globalConfig.calculation.battery.charge == globalConfig.calculation.battery.discharge) {
+									if (clearValue > 0) {
+										if (!globalConfig.calculation.battery.charge_prop) {
+											direction = 'charge';
+											energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+										}
+										if (!globalConfig.calculation.battery.discharge_prop) {
+											direction = 'discharge';
+											energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+										}
 									}
-									if (globalConfig.calculation.battery.discharge_prop) {
-										direction = 'discharge';
-										energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+									if (clearValue < 0) {
+										if (globalConfig.calculation.battery.charge_prop) {
+											direction = 'charge';
+											energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+										}
+										if (globalConfig.calculation.battery.discharge_prop) {
+											direction = 'discharge';
+											energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+										}
 									}
 								}
+								this.calculateBatteryRemaining(direction, energy, globalConfig.calculation.battery.capacity, dod);
 							}
-							this.calculateBatteryRemaining(direction, energy, globalConfig.calculation.battery.capacity, dod);
 						}
+
+						// Consumption calculation
+						if (globalConfig.calculation.hasOwnProperty('consumption')) {
+							if (globalConfig.calculation.consumption.production != -1 && globalConfig.calculation.consumption.grid != -1) {
+								this.log.debug("Calculation for consumption should be possible!");
+								let consObj = globalConfig.calculation.consumption;
+								// Calc all Production states
+								let subArray = consObj.production;
+								let prodValue = 0;
+
+								// Grid Feed in
+								let gridValue = consObj.grid_kw ? rawValues.sourceValues[consObj.grid] * 1000 : rawValues.sourceValues[consObj.grid];
+
+								// Battery charge
+								let chargeValue = consObj.battery_kw ? rawValues.sourceValues[consObj.battery] * 1000 : rawValues.sourceValues[consObj.battery];
+
+								// Consumption
+								let consumption = 0;
+
+								// Production state(s)
+								if (subArray.length > 0) {
+									for (var sub in subArray) {
+										if (subArray[sub] != -1) {
+											prodValue = prodValue + Math.abs(rawValues.sourceValues[subArray[sub]]);
+										}
+									}
+								}
+
+								prodValue = consObj.production_kw ? prodValue * 1000 : prodValue;
+
+								// Put all things together
+								consumption = prodValue;
+
+								// Subtract or add grid
+								if (consObj.grid_prop) {
+									consumption = gridValue < 0 ? consumption - Math.abs(gridValue) : consumption + Math.abs(gridValue);
+								} else {
+									consumption = gridValue > 0 ? consumption - Math.abs(gridValue) : consumption + Math.abs(gridValue);
+								}
+
+								// Subtract or add battery charge
+								if (consObj.battery_prop) {
+									consumption = chargeValue < 0 ? consumption - Math.abs(chargeValue) : consumption + Math.abs(chargeValue);
+								} else {
+									consumption = chargeValue > 0 ? consumption - Math.abs(chargeValue) : consumption + Math.abs(chargeValue);
+								}
+
+								// Debug Log
+								this.log.debug(`Current Values for calculation of consumption: Production: ${prodValue}, Battery: ${chargeValue}, Grid: ${gridValue} - Consumption: ${consumption}`);
+
+								// Write to state
+								this.setConsumption(consumption);
+							}
+						}
+					}
+					catch (error) {
+						this.log.debug('Accessing properties before initializing. Skipping!')
 					}
 				}
 
 				// Animations
 				if (sourceObject[id].hasOwnProperty('elmAnimations')) {
-					this.log.debug('Found corresponding animations for ID: ' + id + '! Applying!');
+					this.log.debug(`Found corresponding animations for ID: ${id}! Applying!`);
 					for (var _key of Object.keys(sourceObject[id].elmAnimations)) {
 						let src = sourceObject[id].elmAnimations[_key];
 						// Object Variables
@@ -350,7 +424,7 @@ class EnergieflussErweitert extends utils.Adapter {
 						let tmpAnimValid = true;
 						// Animations
 						if (settingsObject.hasOwnProperty(src)) {
-							this.log.debug("Animation-Settings for Element " + src + " found! Applying Settings!");
+							this.log.debug(`Animation-Settings for Element ${src} found! Applying Settings!`);
 							let seObj = settingsObject[src];
 
 							if (seObj.type != -1 && seObj != undefined) {
@@ -369,11 +443,11 @@ class EnergieflussErweitert extends utils.Adapter {
 									this.log.debug('Animation has a positive factor!');
 									if (clearValue > 0) {
 										if (clearValue >= seObj.threshold) {
-											this.log.debug('Value: ' + clearValue + ' is greater than Threshold: ' + seObj.threshold + ' Applying Animation!');
+											this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold}. Applying Animation!`);
 											tmpAnimValid = true;
 											tmpOption = '';
 										} else {
-											this.log.debug('Value: ' + clearValue + ' is smaller than Threshold: ' + seObj.threshold + ' Deactivating Animation!');
+											this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold}. Deactivating Animation!`);
 											tmpAnimValid = false;
 										}
 									} else {
@@ -394,11 +468,11 @@ class EnergieflussErweitert extends utils.Adapter {
 									this.log.debug('Animation has a negative factor!');
 									if (clearValue < 0) {
 										if (clearValue <= seObj.threshold * -1) {
-											this.log.debug('Value: ' + clearValue + ' is greater than Threshold: ' + seObj.threshold * -1 + ' Applying Animation!');
+											this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold * -1}. Applying Animation!`);
 											tmpAnimValid = true;
 											tmpOption = '';
 										} else {
-											this.log.debug('Value: ' + clearValue + ' is smaller than Threshold: ' + seObj.threshold * -1 + ' Deactivating Animation!');
+											this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold * -1}. Deactivating Animation!`);
 											tmpAnimValid = false;
 										}
 									} else {
@@ -493,7 +567,7 @@ class EnergieflussErweitert extends utils.Adapter {
 					});
 				}
 
-				this.log.debug('State changed! New value for Source: ' + id + ' with Value: ' + clearValue + ' belongs to Elements: ' + sourceObject[id].elmSources.toString());
+				this.log.debug(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements: ${sourceObject[id].elmSources.toString()}`);
 
 				// Build Output
 				this.buildData();
@@ -530,6 +604,13 @@ class EnergieflussErweitert extends utils.Adapter {
 	}
 
 	/**
+	*  @param {number}	consumption
+	*/
+	async setConsumption(consumption) {
+		await this.setStateAsync("calculation.consumption.consumption", consumption, true);
+	}
+
+	/**
 	 *  @param {string}	direction
 	 *  @param {number}	energy
 	 *  @param {number} battery_capacity
@@ -561,16 +642,16 @@ class EnergieflussErweitert extends utils.Adapter {
 			}
 		}
 
-		this.log.debug("Direction: " + direction + " Battery-Time: " + string + " Percent: " + percent + " Energy: " + energy);
+		this.log.debug(`Direction: ${direction} Battery-Time: ${string} Percent: ${percent} Energy: ${energy}`);
 
 		// Set remaining time
-		await this.setStateAsync("battery_remaining", string, true);
+		await this.setStateAsync("calculation.battery.remaining", string, true);
 
 		// Set target of the remaining time
-		await this.setStateAsync("battery_remaining_target", target, true);
+		await this.setStateAsync("calculation.battery.remaining_target", target, true);
 
 		// Set target of the remaining time in readable form
-		await this.setStateAsync("battery_remaining_target_DT", this.getDateTime(target * 1000), true);
+		await this.setStateAsync("calculation.battery.remaining_target_DT", this.getDateTime(target * 1000), true);
 	}
 
 	/**
@@ -860,7 +941,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				_this.log.error("Could not get language of ioBroker! Using english instead!");
 			} else {
 				systemLang = obj.common.language;
-				_this.log.debug('Using language: ' + systemLang);
+				_this.log.debug(`Using language: ${systemLang}`);
 			}
 		});
 
@@ -868,7 +949,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		if (globalConfig.hasOwnProperty('datasources')) {
 			for (var key of Object.keys(globalConfig.datasources)) {
 				const value = globalConfig.datasources[key];
-				this.log.debug('Datasource: ' + JSON.stringify(value));
+				this.log.debug(`Datasource: ${JSON.stringify(value)}`);
 				if (value.source != '' && value.hasOwnProperty('source')) {
 					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[key].source);
 					if (stateValue) {
@@ -882,7 +963,7 @@ class EnergieflussErweitert extends utils.Adapter {
 						// Add to SubscribeArray
 						tmpArray.push(value.source);
 					} else {
-						this.log.warn("The adapter could not find the state '" + value.source + "'! Please review your configuration of the adapter!");
+						this.log.warn(`The adapter could not find the state '${value.source}'! Please review your configuration of the adapter!`);
 					}
 				}
 			}
@@ -893,7 +974,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			for (var key of Object.keys(globalConfig.elements)) {
 				const value = globalConfig.elements[key];
 				if (value.source != -1 && value.hasOwnProperty('source')) {
-					this.log.debug("Source for Element: " + key + " is: " + value.source + " Plain: " + globalConfig.datasources[value.source].source);
+					this.log.debug(`Source for Element: ${key} is: ${value.source} Plain: ${globalConfig.datasources[value.source].source}`);
 					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
 					if (stateValue) {
 						// Insert into initialValues
@@ -973,22 +1054,27 @@ class EnergieflussErweitert extends utils.Adapter {
 				const value = globalConfig.animations[key];
 				if (value.source != -1 && value.hasOwnProperty('source')) {
 					if (value.source.length !== 0) {
-						this.log.debug("Animation for Source: " + value.source + " is: " + key);
+						this.log.debug(`Animation for Source: ${value.source} is: ${key}`);
 						// Put Animation into Source
-						sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
-						settingsObject[key] = {
-							properties: value.animation_properties,
-							option: value.animation_option,
-							threshold: value.threshold,
-							type: value.animation_type,
-							duration: value.duration,
-							power: value.power,
-							dots: value.dots,
-							css_general: value.css_general,
-							css_active_positive: value.css_active_positive,
-							css_inactive_positive: value.css_inactive_positive,
-							css_active_negative: value.css_active_negative,
-							css_inactive_negative: value.css_inactive_negative
+						try {
+							sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
+							settingsObject[key] = {
+								properties: value.animation_properties,
+								option: value.animation_option,
+								threshold: value.threshold,
+								type: value.animation_type,
+								duration: value.duration,
+								power: value.power,
+								dots: value.dots,
+								css_general: value.css_general,
+								css_active_positive: value.css_active_positive,
+								css_inactive_positive: value.css_inactive_positive,
+								css_active_negative: value.css_active_negative,
+								css_inactive_negative: value.css_inactive_negative
+							};
+						}
+						catch (error) {
+							this.debug.log("Error with animations. Skipping creating!");
 						}
 					} else {
 						this.log.debug("Animation for Source: " + value.source + " not found!");
@@ -997,17 +1083,17 @@ class EnergieflussErweitert extends utils.Adapter {
 			}
 		}
 
-		this.log.debug('CSS: ' + JSON.stringify(outputValues.css));
-		this.log.debug('Settings: ' + JSON.stringify(settingsObject));
-		this.log.debug("Initial Values: " + JSON.stringify(outputValues.values));
-		this.log.debug("Initial Fill-Values: " + JSON.stringify(outputValues.fillValues));
-		this.log.debug('Sources: ' + JSON.stringify(sourceObject));
-		this.log.debug('RAW-Values: ' + JSON.stringify(rawValues.values));
-		this.log.debug('RAW-Source-Values: ' + JSON.stringify(rawValues.sourceValues));
+		this.log.debug(`CSS: ${JSON.stringify(outputValues.css)}`);
+		this.log.debug(`Settings: ${JSON.stringify(settingsObject)}`);
+		this.log.debug(`Initial Values: ${JSON.stringify(outputValues.values)}`);
+		this.log.debug(`Initial Fill-Values: ${JSON.stringify(outputValues.fillValues)}`);
+		this.log.debug(`Sources: ${JSON.stringify(sourceObject)}`);
+		this.log.debug(`RAW-Values: ${JSON.stringify(rawValues.values)}`);
+		this.log.debug(`RAW - Source - Values: ${JSON.stringify(rawValues.sourceValues)}`);
 		// Starting Timier
 		if (Object.keys(relativeTimeCheck).length > 0) {
-			this.log.info('Found relative Date Texts (' + Object.keys(relativeTimeCheck).length + ') to display. Activating timer!');
-			this.log.debug('Array for relative texts ' + relativeTimeCheck);
+			this.log.info(`Found relative Date Texts (${Object.keys(relativeTimeCheck).length}) to display. Activating timer!`);
+			this.log.debug(`Array for relative texts ${relativeTimeCheck}`);
 			globalInterval = this.setInterval(() => {
 				this.getRelativeTimeObjects(relativeTimeCheck);
 			}, 10000);
@@ -1015,7 +1101,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		this.buildData();
 
 		this.log.info('Configuration loaded!');
-		this.log.info("Requesting the following states: " + tmpArray.toString());
+		this.log.info(`Requesting the following states: ${tmpArray.toString()}`);
 
 		// Renew the subscriptions
 		this.subscribeForeignStates(tmpArray);
@@ -1040,7 +1126,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[query.icon].status}`);
 							} else {
 								let icon = query.icon.split(":");
-								let url = BASEURL + `${icon[0]}/${icon[1]}.svg?width=${query.width}&height=${query.height}`;
+								let url = `${BASEURL}${icon[0]}/${icon[1]}.svg?width=${query.width}&height=${query.height}`;
 								https.get(url, result => {
 									let data = [];
 									result.on('data', chunk => {
@@ -1096,7 +1182,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 		const server = http.createServer(requestListener);
 		server.listen(proxy_port, () => {
-			this.log.info(`Icon Proxy-Server is running on Port: ${proxy_port}`);
+			this.log.info(`Icon Proxy - Server is running on Port: ${proxy_port}`);
 		});
 	}
 

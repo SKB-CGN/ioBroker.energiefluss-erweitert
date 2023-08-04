@@ -207,7 +207,7 @@ fieldset {
     padding: 8px;
     margin: 12px;
     min-width: 220px;
-    width: fit-content;
+    width: max-content;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 
@@ -403,14 +403,6 @@ legend>span {
     width: 28px;
 }
 
-/* For Mobile */
-@media (pointer: coarse) {
-    .add_element_area {
-        height: 48px;
-        width: 48px;
-    }
-}
-
 .add_element_area:hover {
     color: var(--secondary);
     transition: .5s;
@@ -555,7 +547,8 @@ legend>span {
 
 .input_text,
 .input_number,
-.input_select {
+.input_select,
+.input_textbox {
     width: 176px;
     font-size: 14px;
     border: none;
@@ -564,6 +557,11 @@ legend>span {
     padding: 5px 0;
     transition: border .5s;
     background: transparent;
+}
+
+.input_textbox {
+    width: initial;
+    resize: none;
 }
 
 .input_text.color {
@@ -687,6 +685,7 @@ legend>span {
     padding-right: 30px;
 }
 
+textarea[disabled],
 input[disabled],
 select[disabled] {
     cursor: not-allowed;
@@ -699,11 +698,6 @@ select[disabled] {
 
 .red_icon {
     color: lightcoral;
-}
-
-.elm_shadow {
-    -webkit-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.7));
-    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.7));
 }
 
 .detail_box {
@@ -922,13 +916,17 @@ select[disabled] {
     cursor: not-allowed;
 }
 
+.cb_onfoffswitch {
+    padding-top: 10px;
+}
+
 .icon-xs {
     font-size: 18px;
 }
 
 #config_bar {
-    height: 100%;
-    max-height: 100%;
+    height: 99.5%;
+    max-height: 99.5%;
     width: 355px;
     max-width: 100%;
     border: 1px solid var(--primary);
@@ -941,9 +939,10 @@ select[disabled] {
 }
 
 #config_bar>.config_display {
-    height: 100%;
-    max-height: 100%;
-    overflow: scroll;
+    height: calc(100% - 32px);
+    overflow-x: auto;
+    overflow-y: scroll;
+    margin: 0 0px;
 }
 
 #config_bar.right {
@@ -1093,7 +1092,7 @@ text {
 
 .tabbed nav {
     margin: 0;
-    padding-top: 5px;
+    padding-top: 0px;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
