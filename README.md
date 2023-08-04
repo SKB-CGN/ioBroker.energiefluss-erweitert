@@ -32,7 +32,7 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.14 (2023-08-04)
 - Added: Support for SVG elements. SVG will be an area inside the workspace and allows to paste pure SVG data (#31)
 - Added: Support for own images. The user is responsible how to upload the image to ioBroker, as the adapter has no upload possibility
 - Added: Support to arrange pictures and elements in levels. They can now be moved to fore- or background
