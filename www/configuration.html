@@ -529,7 +529,8 @@
                                                             last change</label>
                                                         <select class="input_select elm_config" name="elm_source_option"
                                                             id="elm_source_option">
-                                                            <option value="-1" class="translate" data-lang="opt_none">
+                                                            <option value="-1" selected class="translate"
+                                                                data-lang="opt_none">
                                                                 None
                                                             </option>
                                                             <option value="timestamp_us" class="translate"
@@ -573,6 +574,10 @@
                                                                 Value</option>
                                                             <option value="text" class="translate" data-lang="opt_text">
                                                                 Text</option>
+                                                            <option value="bool" class="translate"
+                                                                data-lang="opt_state">
+                                                                state (on/off)
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -885,9 +890,10 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="detail_box elm_config_circle elm_config_rect">
-                                        <span class="config_sec translate" data-lang="lbl_frame_options">Frame
-                                            Options</span>
+                                    <div
+                                        class="detail_box elm_config_circle elm_config_datasource elm_config_icon elm_config_image elm_config_rect elm_config_svg elm_config_text">
+                                        <span class="config_sec translate" data-lang="lbl_frame_options">Browser
+                                            Frame</span>
                                         <table class="element_config_table">
                                             <tr>
                                                 <td>
@@ -922,7 +928,41 @@
                                                     </div>
                                                     <img src='img/icon_help.png' style='margin-top:10px;'
                                                         class="translateP help" data-lang-placeholder="help_frame"
-                                                        placeholder='<b>New Window:</b><br>Opens the URL in a new window<br><br><b>Same window:</b><br>Opens the URL in the same window<br><br><b>iFrame overlay:</b><br>Opens the URL inside an Overlay. Some pages cannot be opened inside overlay frames. If this does not work for you, please choose a different option!<br><br><u>Tipp:</u><br>For http pages, it is possible to pass login credentials via URL like: http://yourUser<b>:</b>yourPass@example.com - This does <u>not</u> work for https'>
+                                                        placeholder="<p><b>New Window:</b><br>Opens the URL in a new window</p> <p><b>Same window:</b><br>Opens the URL in the same window</p> <p><b>iFrame overlay:</b><br>Opens the URL inside an Overlay. Some pages cannot be opened inside overlay frames. If this does not work for you, please choose a different option!<p><u>Tipp:</u><br>For http pages, it is possible to pass login credentials via URL. E.g. 'http://yourUser'<b>:</b>yourPass@example.com - This does <u>not</u> work for https</p>">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div
+                                        class="detail_box elm_config_datasource elm_config_icon elm_config_image elm_config_svg">
+                                        <span class="config_sec translate" data-lang="lbl_action_options">Actions
+                                            Options</span>
+                                        <table class="element_config_table">
+                                            <tr>
+                                                <td>
+                                                    <div class="form_div select">
+                                                        <label for="elm_action" class="form_label translate"
+                                                            data-lang="lbl_action_click">Clickoptions</label>
+                                                        <select class="input_select elm_config" name="elm_action"
+                                                            id="elm_action">
+                                                            <option value="none" class=" translate" data-lang="opt_none"
+                                                                selected>
+                                                                None
+                                                            </option>
+                                                            <option value="toggle" class="translate"
+                                                                data-lang="opt_action_toggle">
+                                                                Toggle</option>
+                                                            <option value="on" class="translate"
+                                                                data-lang="opt_action_on">
+                                                                On</option>
+                                                            <option value="off" class="translate"
+                                                                data-lang="opt_action_off">
+                                                                Off</option>
+                                                        </select>
+                                                    </div>
+                                                    <img src='img/icon_help.png' style='margin-top:10px;'
+                                                        class="translateP help" data-lang-placeholder="help_actions"
+                                                        placeholder="<p><b>Toggle:</b><br>Toggles the current state (if state is off, turn it on - vice versa)</p><p><b>On:</b><br>Sets the state always to true</p><p><b>Off:</b><br>Sets the state always to false</p>">
                                                 </td>
                                             </tr>
                                         </table>
@@ -2080,6 +2120,12 @@
                                             data-lang="cb_consumption_battery">
                                             Battery Charge is negative</label>
                                     </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="translate" data-lang="ex_battery_info">For the calculation
+                                        to work, the marked fields with a star are
+                                        necessary</span>
                                 </td>
                             </tr>
                             <tr style="height: 20px;">

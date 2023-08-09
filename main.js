@@ -7,8 +7,11 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
+const fs = require('fs');
+const path = require('path');
 const systemDictionary = require('./lib/dictionary.js');
-
+let instanceDir;
+let backupDir = "/backup";
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
@@ -61,7 +64,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		this.on('ready', this.onReady.bind(this));
 		this.on('stateChange', this.onStateChange.bind(this));
 		// this.on('objectChange', this.onObjectChange.bind(this));
-		// this.on('message', this.onMessage.bind(this));
+		this.on('message', this.onMessage.bind(this));
 		this.on('unload', this.onUnload.bind(this));
 	}
 
@@ -150,17 +153,38 @@ class EnergieflussErweitert extends utils.Adapter {
 			native: {}
 		});
 
-		await this.setObjectNotExistsAsync('backup', {
-			type: 'state',
-			common: {
-				name: 'Last 10 Versions of Backups',
-				type: 'json',
-				role: 'state',
-				read: true,
-				write: false,
-			},
-			native: {},
-		});
+		/* Create Adapter Directory */
+		instanceDir = utils.getAbsoluteInstanceDataDir(this);
+		if (!fs.existsSync(instanceDir + backupDir)) {
+			fs.mkdirSync(instanceDir + backupDir, { recursive: true });
+		}
+
+		/* Check, if we have an old backup state */
+		let tmpBackupState = await this.getStateAsync('backup');
+		if (tmpBackupState) {
+			let tmpBackup = JSON.parse(tmpBackupState.val);
+			this.log.info("Migrating old backup to new strategy. Please wait!");
+			if (Object.keys(tmpBackup).length > 0) {
+				this.log.info(`${Object.keys(tmpBackup).length} Backup's found. Converting!`);
+				for (var key of Object.keys(tmpBackup)) {
+					let datetime = key;
+					let [date, time] = datetime.split(", ");
+					let [day, month, year] = date.split(".");
+					let [hour, minutes, seconds] = time.split(':');
+
+					let fileName = new Date(year, month - 1, day, hour, minutes, seconds).getTime();
+					const newFilePath = path.join(instanceDir + backupDir, `BACKUP_${fileName}.json`);
+					fs.writeFile(newFilePath, JSON.stringify(tmpBackup[key]), (err) => {
+						if (err) {
+							this.log.error(`Could not create Backup ${newFilePath}. Error: ${err}`);
+						}
+					});
+				}
+			}
+			// After creation of new backup - delete the state
+			this.deleteStateAsync('backup');
+			this.log.info('Convertion of backups finished');
+		}
 
 		this.log.info("Adapter started. Loading config!");
 
@@ -292,6 +316,10 @@ class EnergieflussErweitert extends utils.Adapter {
 								if (seObj.source_display == 'text') {
 									outputValues.values[src] = state.val;
 									rawValues.values[src] = state.val;
+								}
+								if (seObj.source_display == 'bool') {
+									outputValues.values[src] = clearValue ? systemDictionary['on'][systemLang] : systemDictionary['off'][systemLang];
+									rawValues.values[src] = clearValue;
 								}
 							} else {
 								outputValues.values[src] = clearValue;
@@ -576,22 +604,93 @@ class EnergieflussErweitert extends utils.Adapter {
 	}
 
 	// If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
-	// /**
-	//  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
-	//  * Using this method requires "common.messagebox" property to be set to true in io-package.json
-	//  * @param {ioBroker.Message} obj
-	//  */
-	// onMessage(obj) {
-	// 	if (typeof obj === 'object' && obj.message) {
-	// 		if (obj.command === 'send') {
-	// 			// e.g. send email or pushover or whatever
-	// 			this.log.info('send command');
+	/**
+	  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
+	  * Using this method requires "common.messagebox" property to be set to true in io-package.json
+	  * @param {ioBroker.Message} obj
+	 */
+	onMessage(obj) {
+		this.log.debug(`[onMessage] received command: ${obj.command} with message: ${JSON.stringify(obj.message)}`);
+		if (obj && obj.message) {
+			if (obj.command === '_getBackups' && typeof obj.message === 'object') {
+				// Request the list of Backups
+				let fileList = [];
+				fs.readdir(instanceDir + backupDir, (err, files) => {
+					if (err) {
+						this.sendTo(obj.from, obj.command, { err }, obj.callback);
+					} else {
+						files.forEach(file => {
+							let tmpFile = path.parse(file).name;
+							tmpFile = tmpFile.replace("BACKUP_", "");
+							fileList.push(tmpFile);
+						});
+						this.sendTo(obj.from, obj.command, { error: null, data: fileList }, obj.callback);
+					}
+				});
 
-	// 			// Send response in callback if required
-	// 			if (obj.callback) this.sendTo(obj.from, obj.command, 'Message received', obj.callback);
-	// 		}
-	// 	}
-	// }
+			} else if (obj.command === '_restoreBackup' && typeof obj.message === 'object') {
+				// Restore Backup
+				this.log.info('Starting restoring Backup from disk!');
+				const newFilePath = path.join(instanceDir + backupDir, `BACKUP_${obj.message.fileName}.json`);
+				fs.readFile(newFilePath, 'utf8', (err, data) => {
+					if (err) {
+						this.log.info(`Error during ${err}`);
+						this.sendTo(obj.from, obj.command, { error: err }, obj.callback);
+					} else {
+						// Send new config back to workspace and store in state
+						this.setStateAsync("configuration", data, true);
+						this.sendTo(obj.from, obj.command, { error: null, data: JSON.parse(data) }, obj.callback);
+						this.log.info('Backup restored and activated!');
+					}
+				});
+
+			} else if (obj.command === '_storeBackup' && typeof obj.message === 'object') {
+				// Store Backup
+				this.log.debug('Saving Backup to disk!');
+				let fileName = new Date().getTime();
+				const newFilePath = path.join(instanceDir + backupDir, `BACKUP_${fileName}.json`);
+				fs.writeFile(newFilePath, JSON.stringify(obj.message), (err) => {
+					if (err) {
+						this.sendTo(obj.from, obj.command, { err }, obj.callback);
+					} else {
+						this.sendTo(obj.from, obj.command, { error: null, data: "Success!" }, obj.callback);
+					}
+				});
+
+				// Recycle old Backups
+				let fileList = [];
+				fs.readdir(instanceDir + backupDir, (err, files) => {
+					if (!err) {
+						files.forEach(file => {
+							fileList.push(file);
+						});
+						// Walk through the list an delete all files after index 9
+						if (fileList.length > 10) {
+							// Order the List
+							fileList.sort((a, b) => -1 * a.localeCompare(b));
+							for (let i = 10; i < fileList.length; i++) {
+								fs.unlink(`${instanceDir}${backupDir}/${fileList[i]}`, (err) => {
+									if (err) {
+										this.log.warn(err);
+									}
+									this.log.info(`${fileList[i]} successfully deleted!`);
+								});
+							}
+						} else {
+							this.log.info('The amount of current stored backups does not exceed the number of 10!');
+						}
+					}
+				});
+
+			} else {
+				this.log.error(`[onMessage] Received incomplete message via "sendTo"`);
+
+				if (obj.callback) {
+					this.sendTo(obj.from, obj.command, { error: 'Incomplete message' }, obj.callback);
+				}
+			}
+		}
+	}
 	/**
 	 *  @param {number}	minutes
 	 */
@@ -1026,6 +1125,10 @@ class EnergieflussErweitert extends utils.Adapter {
 								outputValues.values[key] = stateValue.val;
 								outputValues.unit[key] = value.unit;
 								rawValues.values[key] = stateValue.val;
+							} else if (value.source_display == 'bool') {
+								outputValues.values[key] = stateValue.val ? systemDictionary['on'][systemLang] : systemDictionary['off'][systemLang];
+								outputValues.unit[key] = value.unit;
+								rawValues.values[key] = stateValue.val;
 							}
 							else {
 								outputValues.values[key] = this.valueOutput(key, clearValue);
@@ -1176,7 +1279,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				}
 			}
 			catch (error) {
-				adapter.log.error("Something went wrong during processing Data inside Icon-Proxy! " + error);
+				_this.log.error(`Something went wrong during processing Data inside Icon-Proxy! ${error}`);
 			}
 		}
 

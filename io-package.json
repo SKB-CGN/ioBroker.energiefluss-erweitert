@@ -159,7 +159,9 @@
             {
                 "admin": ">=5.1.13"
             }
-        ]
+        ],
+        "messagebox": true,
+        "subscribe": "messagebox"
     },
     "native": {
         "enable_proxy": false,
@@ -243,14 +245,23 @@
             "native": {}
         },
         {
-            "_id": "backup",
-            "type": "state",
+            "_id": "",
+            "type": "meta",
             "common": {
-                "name": "Last 10 Versions of Backups",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false
+                "name": {
+                    "en": "File storage",
+                    "de": "Dateispeicher",
+                    "ru": "???????? ??????",
+                    "pt": "Armazenamento de arquivos",
+                    "nl": "Veldopslag",
+                    "fr": "Stockage de fichiers",
+                    "it": "Archiviazione file",
+                    "es": "Almacenamiento de archivos",
+                    "pl": "Storage room",
+                    "uk": "?????????? ??????",
+                    "zh-cn": "??"
+                },
+                "type": "meta.user"
             },
             "native": {}
         }
