@@ -251,7 +251,7 @@
                 "name": {
                     "en": "File storage",
                     "de": "Dateispeicher",
-                    "ru": "???????? ??????",
+                    "ru": "???????? ?????????",
                     "pt": "Armazenamento de arquivos",
                     "nl": "Veldopslag",
                     "fr": "Stockage de fichiers",
@@ -259,7 +259,7 @@
                     "es": "Almacenamiento de archivos",
                     "pl": "Storage room",
                     "uk": "?????????? ??????",
-                    "zh-cn": "??"
+                    "zh-cn": "????"
                 },
                 "type": "meta.user"
             },
