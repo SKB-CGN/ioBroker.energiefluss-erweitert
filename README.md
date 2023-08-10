@@ -34,6 +34,7 @@ Documentation:
 -->
 ### **WORK IN PROGRESS**
 - FIX: Under some circumstances symbols, texts and images could run out off workspace
+- FIX: consumption calculation produced high CPU load on some systems (#43)
 - FIX: Crash-Handler for animations optimized - if animation is present before value is updated, the adapter could crash
 - Added: Better duplication of items
 - Added: Actions for Datasources and Icons (on, off, toggle) - State can be display in Datasource as well
