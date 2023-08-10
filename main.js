@@ -368,13 +368,13 @@ class EnergieflussErweitert extends utils.Adapter {
 												consumption = consumption + Math.abs(gridConsume);
 											}
 										}
-
+										// Consuming from grid
 										if (gridFeed < 0) {
 											if (consObj.gridFeed_prop) {
-												consumption = consumption + Math.abs(gridFeed);
+												consumption = consumption - Math.abs(gridFeed);
 											}
 											if (consObj.gridConsume_prop) {
-												consumption = consumption - Math.abs(gridConsume);
+												consumption = consumption + Math.abs(gridConsume);
 											}
 										}
 									}
