@@ -77,82 +77,6 @@ class EnergieflussErweitert extends utils.Adapter {
 		proxy_port = this.config.proxy_port || 10123;
 		_this = this;
 
-		// Needed States
-		await this.setObjectNotExistsAsync('configuration', {
-			type: 'state',
-			common: {
-				name: 'Parameters for HTML Output',
-				type: 'json',
-				role: 'state',
-				read: true,
-				write: false,
-				def: '{}'
-			},
-			native: {},
-		});
-
-		await this.setObjectNotExistsAsync('data', {
-			type: 'state',
-			common: {
-				name: 'Data for HTML Output',
-				type: 'json',
-				role: 'state',
-				read: true,
-				write: false
-			},
-			native: {}
-		});
-
-		await this.setObjectNotExistsAsync('calculation.battery.remaining', {
-			type: 'state',
-			common: {
-				name: 'Remaining Time of the battery',
-				type: 'string',
-				role: 'text',
-				read: true,
-				write: false
-			},
-			native: {}
-		});
-
-		await this.setObjectNotExistsAsync('calculation.battery.remaining_target', {
-			type: 'state',
-			common: {
-				name: 'Target of the remaining Time of the battery',
-				type: 'number',
-				role: 'value.time',
-				read: true,
-				write: false
-			},
-			native: {}
-		});
-
-		await this.setObjectNotExistsAsync('calculation.battery.remaining_target_DT', {
-			type: 'state',
-			common: {
-				name: 'Target of the remaining Time of the battery (Date&Time)',
-				type: 'string',
-				role: 'value',
-				read: true,
-				write: false
-			},
-			native: {}
-		});
-
-		await this.setObjectNotExistsAsync('calculation.consumption.consumption', {
-			type: 'state',
-			common: {
-				name: 'Current Consumption',
-				type: 'number',
-				role: 'value.power',
-				read: true,
-				write: false,
-				def: 0,
-				unit: "W"
-			},
-			native: {}
-		});
-
 		/* Create Adapter Directory */
 		instanceDir = utils.getAbsoluteInstanceDataDir(this);
 		if (!fs.existsSync(instanceDir + backupDir)) {
@@ -336,100 +260,196 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (globalConfig.hasOwnProperty('calculation')) {
 					// Battery Remaining
 					try {
-						if (sourceObject[id].id == globalConfig.calculation.battery.charge || sourceObject[id].id == globalConfig.calculation.battery.discharge) {
-							if (globalConfig.calculation.battery.charge != -1 && globalConfig.calculation.battery.discharge != -1 && globalConfig.calculation.battery.percent != -1) {
-								let direction = 'none';
-								let energy = 0;
-								let dod = globalConfig.calculation.battery.dod ? globalConfig.calculation.battery.dod : 0;
+						if (globalConfig.calculation.hasOwnProperty('battery')) {
+							let batObj = globalConfig.calculation.battery;
+							if (sourceObject[id].id == batObj.charge || sourceObject[id].id == batObj.discharge) {
+								if (batObj.charge != -1 && batObj.discharge != -1 && batObj.percent != -1) {
+									let direction = 'none';
+									let energy = 0;
+									let dod = batObj.dod ? batObj.dod : 0;
 
-								if (globalConfig.calculation.battery.charge != globalConfig.calculation.battery.discharge) {
-									if (sourceObject[id].id == globalConfig.calculation.battery.charge) {
-										direction = 'charge';
-										energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
-									}
-									if (sourceObject[id].id == globalConfig.calculation.battery.discharge) {
-										direction = 'discharge';
-										energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
-									}
-								}
+									// Battery
+									let batteryCharge = batObj.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+									let batteryDischarge = batObj.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
 
-								if (globalConfig.calculation.battery.charge == globalConfig.calculation.battery.discharge) {
-									if (clearValue > 0) {
-										if (!globalConfig.calculation.battery.charge_prop) {
+									if (batObj.charge != batObj.discharge) {
+										if (sourceObject[id].id == batObj.charge) {
 											direction = 'charge';
-											energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+											energy = batteryCharge;
 										}
-										if (!globalConfig.calculation.battery.discharge_prop) {
+										if (sourceObject[id].id == batObj.discharge) {
 											direction = 'discharge';
-											energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+											energy = batteryDischarge;
 										}
 									}
-									if (clearValue < 0) {
-										if (globalConfig.calculation.battery.charge_prop) {
-											direction = 'charge';
-											energy = globalConfig.calculation.battery.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+
+									if (batObj.charge == batObj.discharge) {
+										if (clearValue > 0) {
+											if (!batObj.charge_prop) {
+												direction = 'charge';
+												energy = batteryCharge;
+											}
+											if (!batObj.discharge_prop) {
+												direction = 'discharge';
+												energy = batteryDischarge;
+											}
 										}
-										if (globalConfig.calculation.battery.discharge_prop) {
-											direction = 'discharge';
-											energy = globalConfig.calculation.battery.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+										if (clearValue < 0) {
+											if (batObj.charge_prop) {
+												direction = 'charge';
+												energy = batteryCharge
+											}
+											if (batObj.discharge_prop) {
+												direction = 'discharge';
+												energy = batteryDischarge;
+											}
 										}
 									}
+									this.calculateBatteryRemaining(direction, energy, batObj.capacity, dod);
 								}
-								this.calculateBatteryRemaining(direction, energy, globalConfig.calculation.battery.capacity, dod);
 							}
 						}
 
 						// Consumption calculation
 						if (globalConfig.calculation.hasOwnProperty('consumption')) {
-							if (globalConfig.calculation.consumption.production != -1 && globalConfig.calculation.consumption.grid != -1) {
-								this.log.debug("Calculation for consumption should be possible!");
-								let consObj = globalConfig.calculation.consumption;
-								// Calc all Production states
-								let subArray = consObj.production;
-								let prodValue = 0;
+							let consObj = globalConfig.calculation.consumption;
+							if (sourceObject[id].id == consObj.gridFeed || sourceObject[id].id == consObj.gridConsume || sourceObject[id].id == consObj.batteryCharge ||
+								sourceObject[id].id == consObj.batteryDischarge || consObj.production.indexOf(sourceObject[id].id) >= 0) {
+								if (consObj.production.indexOf(-1) != 0) {
+									this.log.debug("Calculation for consumption should be possible!");
 
-								// Grid Feed in
-								let gridValue = consObj.grid_kw ? rawValues.sourceValues[consObj.grid] * 1000 : rawValues.sourceValues[consObj.grid];
+									// Calc all Production states
+									let subArray = consObj.production;
+									let prodValue = 0;
 
-								// Battery charge
-								let chargeValue = consObj.battery_kw ? rawValues.sourceValues[consObj.battery] * 1000 : rawValues.sourceValues[consObj.battery];
+									// Grid
+									let gridFeed = consObj.gridFeed_kw ? rawValues.sourceValues[consObj.gridFeed] * 1000 : rawValues.sourceValues[consObj.gridFeed];
+									let gridConsume = consObj.gridConsume_kw ? rawValues.sourceValues[consObj.gridConsume] * 1000 : rawValues.sourceValues[consObj.gridConsume];
 
-								// Consumption
-								let consumption = 0;
+									// Battery
+									let batteryCharge = consObj.batteryCharge_kw ? rawValues.sourceValues[consObj.batteryCharge] * 1000 : rawValues.sourceValues[consObj.batteryCharge];
+									let batteryDischarge = consObj.batteryDischarge_kw ? rawValues.sourceValues[consObj.batteryDischarge] * 1000 : rawValues.sourceValues[consObj.batteryDischarge];
 
-								// Production state(s)
-								if (subArray.length > 0) {
-									for (var sub in subArray) {
-										if (subArray[sub] != -1) {
-											prodValue = prodValue + Math.abs(rawValues.sourceValues[subArray[sub]]);
+									// Consumption
+									let consumption = 0;
+
+									// Production state(s)
+									if (subArray.length > 0) {
+										for (var sub in subArray) {
+											if (subArray[sub] != -1) {
+												prodValue = prodValue + Math.abs(rawValues.sourceValues[subArray[sub]]);
+											}
 										}
 									}
+
+									// Put all things together
+									consumption = consObj.production_kw ? prodValue * 1000 : prodValue;
+
+									// Subtract or add grid - different States
+									if (consObj.gridFeed != consObj.gridConsume) {
+										// Feed-In - Subtract
+										if (Math.abs(gridFeed) > Math.abs(gridConsume)) {
+											consumption = consumption - Math.abs(gridFeed);
+										}
+
+										// Feed-Consumption - Add
+										if (Math.abs(gridFeed) < Math.abs(gridConsume)) {
+											consumption = consumption + Math.abs(gridConsume);
+										}
+									}
+
+									// Subtract or add grid - same States
+									if (consObj.gridFeed == consObj.gridConsume) {
+										if (gridFeed > 0) {
+											if (!consObj.gridFeed_prop) {
+												consumption = consumption - Math.abs(gridFeed);
+											}
+											if (!consObj.gridConsume_prop) {
+												consumption = consumption + Math.abs(gridConsume);
+											}
+										}
+
+										if (gridFeed < 0) {
+											if (consObj.gridFeed_prop) {
+												consumption = consumption + Math.abs(gridFeed);
+											}
+											if (consObj.gridConsume_prop) {
+												consumption = consumption - Math.abs(gridConsume);
+											}
+										}
+									}
+
+									/*
+									if (Math.abs(gridFeed) > Math.abs(gridConsume)) {
+										if (consObj.gridFeed_prop) {
+											consumption = gridFeed < 0 ? consumption - Math.abs(gridFeed) : consumption + Math.abs(gridFeed);
+										} else {
+											consumption = gridFeed > 0 ? consumption - Math.abs(gridFeed) : consumption + Math.abs(gridFeed);
+										}
+									} else {
+										if (consObj.gridConsume_prop) {
+											consumption = gridConsume < 0 ? consumption - Math.abs(gridConsume) : consumption + Math.abs(gridConsume);
+										} else {
+											consumption = gridConsume > 0 ? consumption - Math.abs(gridConsume) : consumption + Math.abs(gridConsume);
+										}
+									}
+									*/
+
+									// Subtract or add battery
+									if (consObj.batteryCharge != consObj.batteryDischarge) {
+										// Charge - Subtract
+										if (Math.abs(batteryCharge) > Math.abs(batteryDischarge)) {
+											consumption = consumption - Math.abs(batteryCharge);
+										}
+
+										// Discharge - Add
+										if (Math.abs(batteryCharge) < Math.abs(batteryDischarge)) {
+											consumption = consumption + Math.abs(batteryDischarge);
+										}
+									}
+
+									// Subtract or add battery - same States
+									if (consObj.batteryCharge == consObj.batteryDischarge) {
+										if (batteryCharge > 0) {
+											if (!consObj.batteryCharge_prop) {
+												consumption = consumption - Math.abs(batteryCharge);
+											}
+											if (!consObj.batteryDischarge_prop) {
+												consumption = consumption + Math.abs(batteryDischarge);
+											}
+										}
+
+										if (batteryCharge < 0) {
+											if (consObj.batteryCharge_prop) {
+												consumption = consumption - Math.abs(batteryCharge);
+											}
+											if (consObj.batteryDischarge_prop) {
+												consumption = consumption + Math.abs(batteryDischarge);
+											}
+										}
+									}
+									/*
+									if (Math.abs(batteryCharge) > Math.abs(batteryDischarge)) {
+										if (consObj.batteryCharge_prop) {
+											consumption = batteryCharge < 0 ? consumption - Math.abs(batteryCharge) : consumption + Math.abs(batteryCharge);
+										} else {
+											consumption = batteryCharge > 0 ? consumption - Math.abs(batteryCharge) : consumption + Math.abs(batteryCharge);
+										}
+									} else {
+										if (consObj.batteryDischarge_prop) {
+											consumption = batteryDischarge < 0 ? consumption - Math.abs(batteryDischarge) : consumption + Math.abs(batteryDischarge);
+										} else {
+											consumption = batteryDischarge > 0 ? consumption - Math.abs(batteryDischarge) : consumption + Math.abs(batteryDischarge);
+										}
+									}
+									*/
+
+									// Debug Log
+									this.log.debug(`Current Values for calculation of consumption: Production: ${prodValue}, Battery: ${batteryCharge} / ${batteryDischarge} , Grid: ${gridFeed} / ${gridConsume} - Consumption: ${consumption}`);
+
+									// Write to state
+									this.setConsumption(consumption);
 								}
-
-								prodValue = consObj.production_kw ? prodValue * 1000 : prodValue;
-
-								// Put all things together
-								consumption = prodValue;
-
-								// Subtract or add grid
-								if (consObj.grid_prop) {
-									consumption = gridValue < 0 ? consumption - Math.abs(gridValue) : consumption + Math.abs(gridValue);
-								} else {
-									consumption = gridValue > 0 ? consumption - Math.abs(gridValue) : consumption + Math.abs(gridValue);
-								}
-
-								// Subtract or add battery charge
-								if (consObj.battery_prop) {
-									consumption = chargeValue < 0 ? consumption - Math.abs(chargeValue) : consumption + Math.abs(chargeValue);
-								} else {
-									consumption = chargeValue > 0 ? consumption - Math.abs(chargeValue) : consumption + Math.abs(chargeValue);
-								}
-
-								// Debug Log
-								this.log.debug(`Current Values for calculation of consumption: Production: ${prodValue}, Battery: ${chargeValue}, Grid: ${gridValue} - Consumption: ${consumption}`);
-
-								// Write to state
-								this.setConsumption(consumption);
 							}
 						}
 					}

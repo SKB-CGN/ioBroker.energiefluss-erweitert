@@ -2026,10 +2026,10 @@
                             <tr>
                                 <td colspan="2">
                                     <div class="form_div">
-                                        <label for="calc_consumption_grid" class="form_label translate"
-                                            data-lang="lbl_consumption_grid">Public grid feed-in</label>
-                                        <select class="input_select" name="calc_consumption_grid"
-                                            id="calc_consumption_grid"></select>
+                                        <label for="calc_consumption_gridFeed" class="form_label translate"
+                                            data-lang="lbl_consumption_gridFeed">Public grid feed-in</label>
+                                        <select class="input_select" name="calc_consumption_gridFeed"
+                                            id="calc_consumption_gridFeed"></select>
                                     </div>
                                 </td>
                             </tr>
@@ -2037,9 +2037,10 @@
                                 <td style="width: auto;">
                                     <div class="cb_onfoffswitch">
                                         <div class="onoffswitch">
-                                            <input type="checkbox" name="calc_consumption_grid_kw"
-                                                class="onoffswitch-checkbox" id="calc_consumption_grid_kw" value="yes">
-                                            <label class="onoffswitch-label" for="calc_consumption_grid_kw">
+                                            <input type="checkbox" name="calc_consumption_gridFeed_kw"
+                                                class="onoffswitch-checkbox" id="calc_consumption_gridFeed_kw"
+                                                value="yes">
+                                            <label class="onoffswitch-label" for="calc_consumption_gridFeed_kw">
                                                 <span class="onoffswitch-inner"></span>
                                                 <span class="onoffswitch-switch"></span>
                                             </label>
@@ -2048,7 +2049,7 @@
                                 </td>
                                 <td style="width: 100%;">
                                     <div class="cb_onfoffswitch"><label class="label translate"
-                                            for="calc_consumption_grid_kw" style="vertical-align: super;"
+                                            for="calc_consumption_gridFeed_kw" style="vertical-align: super;"
                                             data-lang="cb_battery_source">
                                             Source is kW</label></div>
                                 </td>
@@ -2056,26 +2057,28 @@
                             <tr>
                                 <td style="width: auto;">
                                     <div class="onoffswitch">
-                                        <input type="checkbox" name="calc_consumption_grid_prop"
-                                            class="onoffswitch-checkbox" id="calc_consumption_grid_prop" value="yes">
-                                        <label class="onoffswitch-label" for="calc_consumption_grid_prop">
+                                        <input type="checkbox" name="calc_consumption_gridFeed_prop"
+                                            class="onoffswitch-checkbox" id="calc_consumption_gridFeed_prop"
+                                            value="yes">
+                                        <label class="onoffswitch-label" for="calc_consumption_gridFeed_prop">
                                             <span class="onoffswitch-inner"></span>
                                             <span class="onoffswitch-switch"></span>
                                         </label>
                                     </div>
                                 </td>
-                                <td style="width: 100%;"><label class="label translate" for="calc_consumption_grid_prop"
-                                        style="vertical-align: super;" data-lang="cb_consumption_grid">
+                                <td style="width: 100%;"><label class="label translate"
+                                        for="calc_consumption_gridFeed_prop" style="vertical-align: super;"
+                                        data-lang="cb_consumption_gridFeed">
                                         Grid feed-in is negative</label>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <div class="form_div">
-                                        <label for="calc_consumption_battery" class="form_label translate"
-                                            data-lang="lbl_consumption_charge">Battery charge</label>
-                                        <select class="input_select" name="calc_consumption_battery"
-                                            id="calc_consumption_battery"></select>
+                                        <label for="calc_consumption_gridConsume" class="form_label translate"
+                                            data-lang="lbl_consumption_gridConsume">Consumption public grid *</label>
+                                        <select class="input_select" name="calc_consumption_gridConsume"
+                                            id="calc_consumption_gridConsume"></select>
                                     </div>
                                 </td>
                             </tr>
@@ -2083,10 +2086,10 @@
                                 <td style="width: auto;">
                                     <div class="cb_onfoffswitch">
                                         <div class="onoffswitch">
-                                            <input type="checkbox" name="calc_consumption_battery_kw"
-                                                class="onoffswitch-checkbox" id="calc_consumption_battery_kw"
+                                            <input type="checkbox" name="calc_consumption_gridConsume_kw"
+                                                class="onoffswitch-checkbox" id="calc_consumption_gridConsume_kw"
                                                 value="yes">
-                                            <label class="onoffswitch-label" for="calc_consumption_battery_kw">
+                                            <label class="onoffswitch-label" for="calc_consumption_gridConsume_kw">
                                                 <span class="onoffswitch-inner"></span>
                                                 <span class="onoffswitch-switch"></span>
                                             </label>
@@ -2095,7 +2098,56 @@
                                 </td>
                                 <td style="width: 100%;">
                                     <div class="cb_onfoffswitch"><label class="label translate"
-                                            for="calc_consumption_battery_kw" style="vertical-align: super;"
+                                            for="calc_consumption_gridConsume_kw" style="vertical-align: super;"
+                                            data-lang="cb_battery_source">
+                                            Source is kW</label></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: auto;">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="calc_consumption_gridConsume_prop"
+                                            class="onoffswitch-checkbox" id="calc_consumption_gridConsume_prop"
+                                            value="yes">
+                                        <label class="onoffswitch-label" for="calc_consumption_gridConsume_prop">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td style="width: 100%;"><label class="label translate"
+                                        for="calc_consumption_gridConsume_prop" style="vertical-align: super;"
+                                        data-lang="cb_consumption_gridConsume">
+                                        Grid consumption is negative</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="form_div">
+                                        <label for="calc_consumption_batteryCharge" class="form_label translate"
+                                            data-lang="lbl_consumption_charge">Battery charge</label>
+                                        <select class="input_select" name="calc_consumption_batteryCharge"
+                                            id="calc_consumption_batteryCharge"></select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: auto;">
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_consumption_batteryCharge_kw"
+                                                class="onoffswitch-checkbox" id="calc_consumption_batteryCharge_kw"
+                                                value="yes">
+                                            <label class="onoffswitch-label" for="calc_consumption_batteryCharge_kw">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_consumption_batteryCharge_kw" style="vertical-align: super;"
                                             data-lang="cb_battery_source">
                                             Source is kW</label></div>
                                 </td>
@@ -2104,10 +2156,10 @@
                                 <td style="width: auto;">
                                     <div class="cb_onfoffswitch">
                                         <div class="onoffswitch">
-                                            <input type="checkbox" name="calc_consumption_battery_prop"
-                                                class="onoffswitch-checkbox" id="calc_consumption_battery_prop"
+                                            <input type="checkbox" name="calc_consumption_batteryCharge_prop"
+                                                class="onoffswitch-checkbox" id="calc_consumption_batteryCharge_prop"
                                                 value="yes">
-                                            <label class="onoffswitch-label" for="calc_consumption_battery_prop">
+                                            <label class="onoffswitch-label" for="calc_consumption_batteryCharge_prop">
                                                 <span class="onoffswitch-inner"></span>
                                                 <span class="onoffswitch-switch"></span>
                                             </label>
@@ -2116,9 +2168,63 @@
                                 </td>
                                 <td style="width: 100%;">
                                     <div class="cb_onfoffswitch"><label class="label translate"
-                                            for="calc_consumption_battery_prop" style="vertical-align: super;"
-                                            data-lang="cb_consumption_battery">
+                                            for="calc_consumption_batteryCharge_prop" style="vertical-align: super;"
+                                            data-lang="cb_consumption_batteryCharge">
                                             Battery Charge is negative</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="form_div">
+                                        <label for="calc_consumption_batteryDischarge" class="form_label translate"
+                                            data-lang="lbl_consumption_discharge">Battery discharge</label>
+                                        <select class="input_select" name="calc_consumption_batteryDischarge"
+                                            id="calc_consumption_batteryDischarge"></select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: auto;">
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_consumption_batteryDischarge_kw"
+                                                class="onoffswitch-checkbox" id="calc_consumption_batteryDischarge_kw"
+                                                value="yes">
+                                            <label class="onoffswitch-label" for="calc_consumption_batteryDischarge_kw">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_consumption_batteryDischarge_kw" style="vertical-align: super;"
+                                            data-lang="cb_battery_source">
+                                            Source is kW</label></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: auto;">
+                                    <div class="cb_onfoffswitch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="calc_consumption_batteryDischarge_prop"
+                                                class="onoffswitch-checkbox" id="calc_consumption_batteryDischarge_prop"
+                                                value="yes">
+                                            <label class="onoffswitch-label"
+                                                for="calc_consumption_batteryDischarge_prop">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 100%;">
+                                    <div class="cb_onfoffswitch"><label class="label translate"
+                                            for="calc_consumption_batteryDischarge_prop" style="vertical-align: super;"
+                                            data-lang="cb_consumption_batteryDischarge">
+                                            Battery Discharge is negative</label>
                                     </div>
                                 </td>
                             </tr>
