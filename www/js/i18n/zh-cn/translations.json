@@ -297,6 +297,7 @@
     "title_select_ds": "选择数据源",
     "title_slider": "移动滑块调整大小",
     "title_stateExplorer": "对象浏览器",
+    "title_stateExplorer_loading": "正在加载对象浏览器...",
     "value_add": "添加",
     "value_cancel": "中止",
     "value_connect": "连接",

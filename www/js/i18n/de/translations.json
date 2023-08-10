@@ -297,6 +297,7 @@
     "title_select_ds": "Wählen Sie Datenquelle aus",
     "title_slider": "Bewegen Sie den Schieberegler, um die Größe anzupassen",
     "title_stateExplorer": "Objektbrowser",
+    "title_stateExplorer_loading": "Objektbrowser wird geladen ...",
     "value_add": "Hinzufügen",
     "value_cancel": "Abbrechen",
     "value_connect": "Verbinden",

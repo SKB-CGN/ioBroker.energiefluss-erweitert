@@ -297,6 +297,7 @@
     "title_select_ds": "Виберіть Джерело даних",
     "title_slider": "Перемістіть повзунок, щоб налаштувати розмір",
     "title_stateExplorer": "Об’єктний браузер",
+    "title_stateExplorer_loading": "Завантаження браузера об'єктів...",
     "value_add": "додати",
     "value_cancel": "Перервати",
     "value_connect": "Підключитися",

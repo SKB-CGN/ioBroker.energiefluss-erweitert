@@ -297,6 +297,7 @@
     "title_select_ds": "Selecteer Gegevensbron",
     "title_slider": "Verplaats de schuifregelaar om de grootte aan te passen",
     "title_stateExplorer": "Objectbrowser",
+    "title_stateExplorer_loading": "Objectbrowser laden ...",
     "value_add": "Toevoegen",
     "value_cancel": "Afbreken",
     "value_connect": "Aansluiten",

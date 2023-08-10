@@ -3,26 +3,84 @@
         --primary: #538ea3;
         --secondary: #b2dfee;
         --black: #000;
-        --grey: #999;
+        --legend-text: #FFF;
+        --legend-background: #538ea3;
+        --font: #000;
+        --input-border-bottom: #999;
+        --input-text: #000;
+        --input-button-bg: #538ea3;
+        --input-background: transparent;
+        --input-button-text: #FFF;
+        --table-font: #4b4b59;
+        --title-background: #538ea3;
         --creme: #F5F5F5;
-        --lightgrey: #e9e9e9;
         --silvergrey: #d3d3d3;
         --darkgrey: #efefef;
         --white: #FFF;
         --red: lightcoral;
         --background-color: transparent;
-        --transparent: transparent;
+        --stateExplorerBackground: #fff;
+        --stateExplorerFont: #369;
+        --middle-grey: #edf2f5;
+        --top-label-text: #111;
+        --onoffswitch-background: #d3d3d3;
+        --onoffswitch-text: #fff;
+        --scrollbar-foreground: #538ea3;
+        --scrollbar-background: #F5F5F5;
+        --loading-background: rgba(243, 243, 243, 0.9);
+        --successMessage: lightgreen;
+        --box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        --box-shadow-hover: 0 12px 18px rgba(0, 0, 0, .200);
+        --configbar-background: #fff;
+        --container-background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
+            linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
+            radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0)),
+            radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0)) 0 100%;
     }
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #323232;
+        --input-border-bottom: #777;
+        --creme: #777;
+        --silvergrey: #d3d3d3;
+        --input-button-bg: #323232;
+        --input-background: #323232;
+        --title-background: #242424;
+        --input-button-text: #ccc;
+        --table-font: #ccc;
+        --input-text: #ccc;
+        --legend-text: #111;
+        --top-label-text: #111;
+        --legend-background: #a3a3a3;
         --primary: #d3d3d3;
         --secondary: #aaaaaa;
         --white: #a3a3a3;
-        --red: rgb(245, 56, 56);
+        --red: rgb(139, 21, 41);
         --black: #ccc;
+        --font: #ccc;
+        --middle-grey: #323232;
+        --stateExplorerBackground: #777;
+        --stateExplorerFont: #111;
+        --onoffswitch-background: none;
+        --onoffswitch-text: #999999;
+        --scrollbar-foreground: #999999;
+        --scrollbar-background: #323232;
+        --darkgrey: #a3a3a3;
+        --loading-background: #323232e6;
+        --successMessage: darkgreen;
+        --box-shadow: 0 6px 12px rgba(255, 255, 255, 0.175);
+        --box-shadow-hover: 0 12px 18px rgba(255, 255, 255, .200);
+        --configbar-background: #323232;
+        --container-background: linear-gradient(to right, #323232 30%, rgba(255, 255, 255, 0)),
+            linear-gradient(to right, rgba(255, 255, 255, 0), #323232 70%) 0 100%,
+            radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0)),
+            radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0)) 0 100%;
     }
 }
 
@@ -46,7 +104,7 @@ body {
     height: 98vh;
     width: 100%;
     background-color: var(--background-color);
-    color: var(--black);
+    color: var(--font);
 }
 
 a,
@@ -68,7 +126,7 @@ a:hover {
 /* Loading Animation before iFrame */
 
 #loading {
-    background-color: rgba(243, 243, 243, 0.9);
+    background-color: var(--loading-background);
     position: fixed;
     z-index: 1000;
     top: 0;
@@ -143,27 +201,27 @@ a:hover {
     /* Firefox 63 compatibility */
     scrollbar-track-color: var(--creme);
     /* Firefox 63 compatibility */
-    scrollbar-color: var(--primary) var(--creme);
+    scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
     scrollbar-width: thin;
 }
 
 .scrollbar::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px var(--primary);
-    -webkit-box-shadow: inset 0 0 6px var(--primary);
+    box-shadow: inset 0 0 6px var(--scrollbar-foreground);
+    -webkit-box-shadow: inset 0 0 6px var(--scrollbar-foreground);
     border-radius: 10px;
-    background-color: var(--creme);
+    background-color: var(--scrollbar-background);
 }
 
 .scrollbar::-webkit-scrollbar {
     width: 8px;
-    background-color: var(--creme);
+    background-color: var(--scrollbar-background);
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    box-shadow: inset 0 0 6px var(--primary);
-    -webkit-box-shadow: inset 0 0 6px var(--primary);
-    background-color: var(--primary);
+    box-shadow: inset 0 0 6px var(--scrollbar-foreground);
+    -webkit-box-shadow: inset 0 0 6px var(--scrollbar-foreground);
+    background-color: var(--scrollbar-foreground);
 }
 
 .container {
@@ -174,12 +232,7 @@ a:hover {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
 
-    background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
-        linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
-        radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0)),
-        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0)) 0 100%;
+    background: var(--container-background);
     background-position-x: 0%, 0px, 0%, 0px;
     background-position-y: 0%, 100%, 0%, 100%;
     background-repeat: repeat, repeat, repeat, repeat;
@@ -208,14 +261,14 @@ fieldset {
     margin: 12px;
     min-width: 220px;
     width: max-content;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: var(--box-shadow);
 }
 
 .config_sec,
 legend {
     padding: 3px 6px;
-    background: var(--primary);
-    color: var(--white);
+    background: var(--legend-background);
+    color: var(--legend-text);
     height: 24px;
     font-size: 14px;
     line-height: 20px;
@@ -231,7 +284,7 @@ legend {
 }
 
 legend>.legend {
-    color: var(--white);
+    color: var(--legend-text);
 }
 
 legend>span {
@@ -250,14 +303,14 @@ legend>span {
     height: 95vh;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: var(--box-shadow);
     z-index: 1000;
 }
 
 #stateExplorerContainer {
     top: 45%;
     height: 80vh;
-    background-color: var(--white);
+    background-color: var(--stateExplorerBackground);
 }
 
 #help_section,
@@ -267,7 +320,7 @@ legend>span {
 
 .ui-dialog {
     border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: var(--box-shadow);
 }
 
 .ui-dialog-titlebar {
@@ -440,8 +493,8 @@ legend>span {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1001;
-    background-color: lightgreen;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    background-color: var(--successMessage);
+    box-shadow: var(--box-shadow);
 }
 
 /* Failed balloon */
@@ -553,10 +606,11 @@ legend>span {
     font-size: 14px;
     border: none;
     outline: none;
-    border-bottom: 2px solid var(--grey);
+    border-bottom: 2px solid var(--input-border-bottom);
     padding: 5px 0;
     transition: border .5s;
-    background: transparent;
+    background: var(--input-background);
+    color: var(--input-text);
 }
 
 .input_textbox {
@@ -636,9 +690,9 @@ legend>span {
     width: 120px;
     height: 28px;
     border-radius: 5px;
-    background-color: var(--primary);
+    background-color: var(--input-button-bg);
     font-weight: bold;
-    color: var(--white);
+    color: var(--input-button-text);
     padding: 4px;
     appearance: none;
     -webkit-appearance: none;
@@ -693,20 +747,20 @@ select[disabled] {
 }
 
 .red {
-    background-color: lightcoral;
+    background-color: var(--red);
 }
 
 .red_icon {
-    color: lightcoral;
+    color: var(--red);
 }
 
 .detail_box {
     width: auto;
-    background: #edf2f5;
+    background: var(--middle-grey);
     padding: 15px;
     margin: 10px;
     flex: 1 1 auto;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: var(--box-shadow);
     transition: All .2s linear;
     -webkit-transition: All .2s linear;
     border-radius: 5px;
@@ -717,7 +771,7 @@ select[disabled] {
 }
 
 .detail_box:hover {
-    box-shadow: 0 12px 18px rgba(0, 0, 0, .200);
+    box-shadow: var(--box-shadow-hover);
     transition: All .2s linear;
     -webkit-transition: All .2s linear;
 }
@@ -738,7 +792,7 @@ select[disabled] {
 .config_table {
     border-collapse: collapse;
     border-spacing: 0;
-    color: #4b4b59;
+    color: var(--table-font);
     width: 100%;
     text-align: left;
     justify-content: left;
@@ -773,7 +827,7 @@ select[disabled] {
 }
 
 .data-table {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: var(--box-shadow);
     border-collapse: separate;
     width: 600px;
     max-width: 100vw;
@@ -879,13 +933,13 @@ select[disabled] {
     content: "On";
     padding-left: 10px;
     background-color: var(--primary);
-    color: var(--white);
+    color: var(--onoffswitch-text);
 }
 
 .onoffswitch-inner:after {
     content: "Off";
     padding-right: 10px;
-    background-color: #d3d3d3;
+    background-color: var(--onoffswitch-background);
     color: #999999;
     text-align: right;
 }
@@ -932,10 +986,10 @@ select[disabled] {
     border: 1px solid var(--primary);
     position: fixed;
     top: 0;
-    background-color: var(--white);
+    background-color: var(--configbar-background);
     z-index: 10;
     transition: all .4s ease-in-out;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: var(--box-shadow);
 }
 
 #config_bar>.config_display {
@@ -975,7 +1029,7 @@ select[disabled] {
 .title {
     top: 0;
     position: sticky;
-    background-color: var(--primary);
+    background-color: var(--title-background);
     width: 100%;
     height: 32px;
     font-size: 16px;
@@ -1208,7 +1262,7 @@ nav label:active {
 #tab1_config:checked~nav label[for="tab1_config"],
 #tab2_config:checked~nav label[for="tab2_config"] {
     background: var(--white);
-    color: #111;
+    color: var(--top-label-text);
     position: relative;
     border-bottom: none;
 }
@@ -1290,7 +1344,7 @@ ul.tree-main li {
     margin: 0;
     padding: 0 7px;
     line-height: 24px;
-    color: #369;
+    color: var(--stateExplorerFont);
     font-weight: bold;
     border-left: 1px solid rgb(100, 100, 100);
 }

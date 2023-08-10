@@ -297,6 +297,7 @@
     "title_select_ds": "Выберите источник данных",
     "title_slider": "Переместите ползунок, чтобы настроить размер",
     "title_stateExplorer": "Браузер объектов",
+    "title_stateExplorer_loading": "Загрузка обозревателя объектов...",
     "value_add": "Добавлять",
     "value_cancel": "Прервать",
     "value_connect": "Соединять",

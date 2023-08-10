@@ -50,7 +50,13 @@
                 <span class="translate" data-lang="title_stateExplorer">Object Browser</span>
                 <div class="close stateExplorer_close"></div>
             </div>
-            <div id="stateExplorer" class="scrollbar"></div>
+            <div id="stateExplorer" class="scrollbar">
+                <span id="stateExplorer_placeholder" style="padding: 5px;margin: 5px;display: inline-block;">
+                    <img src='img/ajax_loading.gif' class="img" style="padding-right: 5px;">
+                    <span class="translate" data-lang="title_stateExplorer_loading">Loading
+                        Object Browser ...</span>
+                </span>
+            </div>
             <div style="text-align: right;padding: 10px;">
                 <input type="button" value="Select" id="select_state" class="input_button translateV"
                     data-lang-value="value_select">

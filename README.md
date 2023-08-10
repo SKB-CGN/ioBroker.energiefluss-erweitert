@@ -32,6 +32,16 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Under some circumstances symbols, texts and images could run out off workspace
+- FIX: Crash-Handler for animations optimized - if animation is present before value is updated, the adapter could crash
+- Added: Better duplication of items
+- Added: Actions for Datasources and Icons (on, off, toggle) - State can be display in Datasource as well
+- Added: Consumption calculation - Added states if battery charge/discharge and public grid-feed/grid-consumption are not the same
+- Added: Backup moved from states to ioBroker folder instead (saving Redis power and states loading)
+- Added: Loading information for object browser (if not loaded already)
+- Added: Darkmode for Layout
+
 ### 0.0.2-alpha.14 (2023-08-04)
 - Added: Support for SVG elements. SVG will be an area inside the workspace and allows to paste pure SVG data (#31)
 - Added: Support for own images. The user is responsible how to upload the image to ioBroker, as the adapter has no upload possibility

@@ -297,6 +297,7 @@
     "title_select_ds": "Seleziona Origine dati",
     "title_slider": "Sposta il cursore per regolare le dimensioni",
     "title_stateExplorer": "Browser degli oggetti",
+    "title_stateExplorer_loading": "Caricamento del browser oggetti...",
     "value_add": "Aggiungere",
     "value_cancel": "Interrompi",
     "value_connect": "Collegare",

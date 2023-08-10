@@ -297,6 +297,7 @@
     "title_select_ds": "Selecionar fonte de dados",
     "title_slider": "Mova o controle deslizante para ajustar o tamanho",
     "title_stateExplorer": "Navegador de objetos",
+    "title_stateExplorer_loading": "Carregando o navegador de objetos...",
     "value_add": "Adicionar",
     "value_cancel": "Abortar",
     "value_connect": "Conectar",

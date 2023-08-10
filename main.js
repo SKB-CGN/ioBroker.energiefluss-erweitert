@@ -379,22 +379,6 @@ class EnergieflussErweitert extends utils.Adapter {
 										}
 									}
 
-									/*
-									if (Math.abs(gridFeed) > Math.abs(gridConsume)) {
-										if (consObj.gridFeed_prop) {
-											consumption = gridFeed < 0 ? consumption - Math.abs(gridFeed) : consumption + Math.abs(gridFeed);
-										} else {
-											consumption = gridFeed > 0 ? consumption - Math.abs(gridFeed) : consumption + Math.abs(gridFeed);
-										}
-									} else {
-										if (consObj.gridConsume_prop) {
-											consumption = gridConsume < 0 ? consumption - Math.abs(gridConsume) : consumption + Math.abs(gridConsume);
-										} else {
-											consumption = gridConsume > 0 ? consumption - Math.abs(gridConsume) : consumption + Math.abs(gridConsume);
-										}
-									}
-									*/
-
 									// Subtract or add battery
 									if (consObj.batteryCharge != consObj.batteryDischarge) {
 										// Charge - Subtract
@@ -428,21 +412,6 @@ class EnergieflussErweitert extends utils.Adapter {
 											}
 										}
 									}
-									/*
-									if (Math.abs(batteryCharge) > Math.abs(batteryDischarge)) {
-										if (consObj.batteryCharge_prop) {
-											consumption = batteryCharge < 0 ? consumption - Math.abs(batteryCharge) : consumption + Math.abs(batteryCharge);
-										} else {
-											consumption = batteryCharge > 0 ? consumption - Math.abs(batteryCharge) : consumption + Math.abs(batteryCharge);
-										}
-									} else {
-										if (consObj.batteryDischarge_prop) {
-											consumption = batteryDischarge < 0 ? consumption - Math.abs(batteryDischarge) : consumption + Math.abs(batteryDischarge);
-										} else {
-											consumption = batteryDischarge > 0 ? consumption - Math.abs(batteryDischarge) : consumption + Math.abs(batteryDischarge);
-										}
-									}
-									*/
 
 									// Debug Log
 									this.log.debug(`Current Values for calculation of consumption: Production: ${prodValue}, Battery: ${batteryCharge} / ${batteryDischarge} , Grid: ${gridFeed} / ${gridConsume} - Consumption: ${consumption}`);
@@ -459,99 +428,103 @@ class EnergieflussErweitert extends utils.Adapter {
 				}
 
 				// Animations
-				if (sourceObject[id].hasOwnProperty('elmAnimations')) {
-					this.log.debug(`Found corresponding animations for ID: ${id}! Applying!`);
-					for (var _key of Object.keys(sourceObject[id].elmAnimations)) {
-						let src = sourceObject[id].elmAnimations[_key];
-						// Object Variables
-						let tmpType, tmpStroke, tmpDuration, tmpOption;
+				try {
+					if (sourceObject[id].hasOwnProperty('elmAnimations')) {
+						this.log.debug(`Found corresponding animations for ID: ${id}! Applying!`);
+						for (var _key of Object.keys(sourceObject[id].elmAnimations)) {
+							let src = sourceObject[id].elmAnimations[_key];
+							// Object Variables
+							let tmpType, tmpStroke, tmpDuration, tmpOption;
 
-						// Put ID into CSS-Rule for later use
-						cssRules.push(src);
+							// Put ID into CSS-Rule for later use
+							cssRules.push(src);
 
-						let tmpAnimValid = true;
-						// Animations
-						if (settingsObject.hasOwnProperty(src)) {
-							this.log.debug(`Animation-Settings for Element ${src} found! Applying Settings!`);
-							let seObj = settingsObject[src];
+							let tmpAnimValid = true;
+							// Animations
+							if (settingsObject.hasOwnProperty(src)) {
+								this.log.debug(`Animation-Settings for Element ${src} found! Applying Settings!`);
+								let seObj = settingsObject[src];
 
-							if (seObj.type != -1 && seObj != undefined) {
-								if (seObj.type == 'dots') {
-									tmpType = 'dots';
-									tmpStroke = this.calculateStrokeArray(seObj.dots, seObj.power, Math.abs(clearValue));
-								}
-								if (seObj.type == 'duration') {
-									tmpType = 'duration';
-									tmpDuration = this.calculateDuration(seObj.duration, seObj.power, Math.abs(clearValue));
-								}
-							}
-
-							switch (seObj.properties) {
-								case 'positive':
-									this.log.debug('Animation has a positive factor!');
-									if (clearValue > 0) {
-										if (clearValue >= seObj.threshold) {
-											this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold}. Applying Animation!`);
-											tmpAnimValid = true;
-											tmpOption = '';
-										} else {
-											this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold}. Deactivating Animation!`);
-											tmpAnimValid = false;
-										}
-									} else {
-										if (seObj.option) {
-											if (clearValue <= seObj.threshold * -1) {
-												tmpAnimValid = true;
-												// Set Option
-												tmpOption = 'reverse';
-											} else {
-												tmpAnimValid = false;
-											}
-										} else {
-											tmpAnimValid = false;
-										}
+								if (seObj.type != -1 && seObj != undefined) {
+									if (seObj.type == 'dots') {
+										tmpType = 'dots';
+										tmpStroke = this.calculateStrokeArray(seObj.dots, seObj.power, Math.abs(clearValue));
 									}
-									break;
-								case 'negative':
-									this.log.debug('Animation has a negative factor!');
-									if (clearValue < 0) {
-										if (clearValue <= seObj.threshold * -1) {
-											this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold * -1}. Applying Animation!`);
-											tmpAnimValid = true;
-											tmpOption = '';
-										} else {
-											this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold * -1}. Deactivating Animation!`);
-											tmpAnimValid = false;
-										}
-									} else {
-										if (seObj.option) {
+									if (seObj.type == 'duration') {
+										tmpType = 'duration';
+										tmpDuration = this.calculateDuration(seObj.duration, seObj.power, Math.abs(clearValue));
+									}
+								}
+
+								switch (seObj.properties) {
+									case 'positive':
+										this.log.debug('Animation has a positive factor!');
+										if (clearValue > 0) {
 											if (clearValue >= seObj.threshold) {
+												this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold}. Applying Animation!`);
 												tmpAnimValid = true;
-												// Set Option
-												tmpOption = 'reverse';
+												tmpOption = '';
 											} else {
+												this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold}. Deactivating Animation!`);
 												tmpAnimValid = false;
 											}
 										} else {
-											tmpAnimValid = false;
+											if (seObj.option) {
+												if (clearValue <= seObj.threshold * -1) {
+													tmpAnimValid = true;
+													// Set Option
+													tmpOption = 'reverse';
+												} else {
+													tmpAnimValid = false;
+												}
+											} else {
+												tmpAnimValid = false;
+											}
 										}
-									}
-									break;
+										break;
+									case 'negative':
+										this.log.debug('Animation has a negative factor!');
+										if (clearValue < 0) {
+											if (clearValue <= seObj.threshold * -1) {
+												this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold * -1}. Applying Animation!`);
+												tmpAnimValid = true;
+												tmpOption = '';
+											} else {
+												this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold * -1}. Deactivating Animation!`);
+												tmpAnimValid = false;
+											}
+										} else {
+											if (seObj.option) {
+												if (clearValue >= seObj.threshold) {
+													tmpAnimValid = true;
+													// Set Option
+													tmpOption = 'reverse';
+												} else {
+													tmpAnimValid = false;
+												}
+											} else {
+												tmpAnimValid = false;
+											}
+										}
+										break;
+								}
+
+
+								// Set Animation
+								outputValues.animations[src] = tmpAnimValid;
+
+								// Create Animation Object
+								outputValues.animationProperties[src] = {
+									type: tmpType,
+									duration: tmpDuration,
+									stroke: tmpStroke,
+									option: tmpOption
+								};
 							}
-
-
-							// Set Animation
-							outputValues.animations[src] = tmpAnimValid;
-
-							// Create Animation Object
-							outputValues.animationProperties[src] = {
-								type: tmpType,
-								duration: tmpDuration,
-								stroke: tmpStroke,
-								option: tmpOption
-							};
 						}
 					}
+				} catch (error) {
+					this.log.debug('Accessing properties before initializing. Skipping!')
 				}
 
 				// Put CSS together
