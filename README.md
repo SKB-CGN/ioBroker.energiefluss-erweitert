@@ -32,7 +32,7 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.15 (2023-08-10)
 - FIX: Under some circumstances symbols, texts and images could run out off workspace
 - FIX: consumption calculation produced high CPU load on some systems (#43)
 - FIX: Crash-Handler for animations optimized - if animation is present before value is updated, the adapter could crash
