@@ -213,6 +213,7 @@ a:hover {
 }
 
 .scrollbar::-webkit-scrollbar {
+    height: 8px;
     width: 8px;
     background-color: var(--scrollbar-background);
 }
