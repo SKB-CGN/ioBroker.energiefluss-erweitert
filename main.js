@@ -509,7 +509,6 @@ class EnergieflussErweitert extends utils.Adapter {
 										break;
 								}
 
-
 								// Set Animation
 								outputValues.animations[src] = tmpAnimValid;
 
@@ -987,7 +986,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			}
 		}
 		if (l_amount > 0 && l_length > 0 && l_distance) {
-			strokeDash += ' ' + total;
+			strokeDash += ` ${total < 0 ? l_distance : total}`;
 		}
 
 		return strokeDash;
