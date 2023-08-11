@@ -587,8 +587,11 @@ class EnergieflussErweitert extends utils.Adapter {
 						}
 					});
 				}
-
-				this.log.debug(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements: ${sourceObject[id].elmSources.toString()}`);
+				if (sourceObject.hasOwnProperty(id)) {
+					this.log.debug(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements: ${sourceObject[id].elmSources.toString()}`);
+				} else {
+					this.log.debug(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements, which were not found! Please check them!`);
+				}
 
 				// Build Output
 				this.buildData();
@@ -710,40 +713,44 @@ class EnergieflussErweitert extends utils.Adapter {
 	 */
 	async calculateBatteryRemaining(direction, energy, battery_capacity, battery_dod) {
 		const battPercent = await this.getForeignStateAsync(globalConfig.datasources[globalConfig.calculation.battery.percent].source);
-		let percent = battPercent.val;
-		let rest = 0;
-		let mins = 0;
-		let string = "--:--h";
-		let target = 0;
-		if (percent > 0 && energy > 0) {
-			if (direction == "charge") {
-				// Get the Rest to Full Charge
-				rest = battery_capacity - ((battery_capacity * percent) / 100);
+		if (battPercent) {
+			let percent = battPercent.val;
+			let rest = 0;
+			let mins = 0;
+			let string = "--:--h";
+			let target = 0;
+			if (percent > 0 && energy > 0) {
+				if (direction == "charge") {
+					// Get the Rest to Full Charge
+					rest = battery_capacity - ((battery_capacity * percent) / 100);
+				}
+
+				if (direction == "discharge") {
+					// Get the Rest to Full Discharge
+					rest = (battery_capacity * (percent - battery_dod)) / 100;
+				}
+
+				mins = Math.round((rest / energy) * 60);
+				if (mins > 0) {
+					string = this.getMinHours(mins) + "h";
+					// Calculate the target time
+					target = Math.floor(Date.now() / 1000) + (mins * 60);
+				}
 			}
 
-			if (direction == "discharge") {
-				// Get the Rest to Full Discharge
-				rest = (battery_capacity * (percent - battery_dod)) / 100;
-			}
+			this.log.debug(`Direction: ${direction} Battery-Time: ${string} Percent: ${percent} Energy: ${energy}`);
 
-			mins = Math.round((rest / energy) * 60);
-			if (mins > 0) {
-				string = this.getMinHours(mins) + "h";
-				// Calculate the target time
-				target = Math.floor(Date.now() / 1000) + (mins * 60);
-			}
+			// Set remaining time
+			await this.setStateAsync("calculation.battery.remaining", string, true);
+
+			// Set target of the remaining time
+			await this.setStateAsync("calculation.battery.remaining_target", target, true);
+
+			// Set target of the remaining time in readable form
+			await this.setStateAsync("calculation.battery.remaining_target_DT", this.getDateTime(target * 1000), true);
+		} else {
+			this.log.warn(`Specified State for Battery-percent is invalid or NULL. Please check your configuration!`);
 		}
-
-		this.log.debug(`Direction: ${direction} Battery-Time: ${string} Percent: ${percent} Energy: ${energy}`);
-
-		// Set remaining time
-		await this.setStateAsync("calculation.battery.remaining", string, true);
-
-		// Set target of the remaining time
-		await this.setStateAsync("calculation.battery.remaining_target", target, true);
-
-		// Set target of the remaining time in readable form
-		await this.setStateAsync("calculation.battery.remaining_target_DT", this.getDateTime(target * 1000), true);
 	}
 
 	/**
