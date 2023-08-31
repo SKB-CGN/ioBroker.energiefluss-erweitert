@@ -32,6 +32,13 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Adapter crashed sometimes, due to accessing invalid ids
+- Added: Possibility to addition values to other values
+- Added: Directly display animations and values after startup instead of waiting till first value changes
+- Added: Adapter depencies and stability
+- Added: New Translations for new functions
+
 ### 0.0.2-alpha.15 (2023-08-10)
 - FIX: Under some circumstances symbols, texts and images could run out off workspace
 - FIX: consumption calculation produced high CPU load on some systems (#43)
@@ -84,6 +91,7 @@ Documentation:
 - FIX: Do not Load CSS class when adapter is starting - only when values change
 - FIX: Threshold was not calculated correctly, if element was substracted by other values
 - FIX: ID list in configbar was loosing event for choosing next element in drop-down
+- Added: Subtract values from other values
 - Added: Start coordinates can be specified in basic settings to better position new elements 
 - Added: Threshold for rectangle and circle
 - Added: duplication of one or more element(s)

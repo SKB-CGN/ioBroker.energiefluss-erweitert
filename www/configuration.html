@@ -513,7 +513,7 @@
                                         </table>
                                     </div>
                                     <div
-                                        class="detail_box elm_config_datasource elm_config_rect elm_config_circle elm_config_icon">
+                                        class="detail_box elm_config_datasource elm_config_rect elm_config_circle elm_config_icon elm_config_image">
                                         <span class="config_sec translate" data-lang="lbl_datasource">Datasource</span>
                                         <table class="element_config_table">
                                             <tr>
@@ -739,7 +739,7 @@
                                 </div>
                                 <div class="tab2_config">
                                     <div
-                                        class="detail_box elm_config_datasource elm_config_use elm_config_icon elm_config_rect elm_config_circle">
+                                        class="detail_box elm_config_datasource elm_config_use elm_config_icon elm_config_rect elm_config_circle elm_config_image">
                                         <span class="config_sec translate"
                                             data-lang="lbl_calculation">Calculation</span>
                                         <table class="element_config_table">
@@ -817,6 +817,18 @@
                                                             by</label>
 
                                                         <select class="elm_config" name="elm_subtract" id="elm_subtract"
+                                                            multiple></select>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="elm_config_datasource">
+                                                <td colspan="2">
+                                                    <div class="form_div select">
+                                                        <label for="elm_add" class="form_label translate"
+                                                            data-lang="lbl_config_add">Add this to the value</label>
+
+                                                        <select class="elm_config" name="elm_add" id="elm_add"
                                                             multiple></select>
 
                                                     </div>
@@ -1232,7 +1244,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use elm_config_image">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
@@ -1246,7 +1258,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use elm_config_image">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
@@ -1262,7 +1274,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use elm_config_image">
                                                 <td>
                                                     <div
                                                         style="height:3px;background-color: #538ea3;border-radius: 5px;margin-top:15px; margin-left: 15px; margin-right: 15px;">
@@ -1270,7 +1282,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use elm_config_image">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
@@ -1284,7 +1296,7 @@
                                                 </td>
                                             </tr>
                                             <tr
-                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use">
+                                                class="elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use elm_config_image">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
@@ -2319,7 +2331,7 @@
                                     <div class="onoffswitch">
                                         <input type="checkbox" name="enable_proxy"
                                             class="onoffswitch-checkbox elm_config" id="enable_proxy" value="yes"
-                                            data-lang-title="ex_icon_proxy" disabled>
+                                            data-lang-title="ex_icon_proxy" disabled="disabled">
                                         <label class="onoffswitch-label" for="enable_proxy">
                                             <span class="onoffswitch-inner"></span>
                                             <span class="onoffswitch-switch"></span>
