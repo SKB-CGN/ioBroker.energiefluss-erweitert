@@ -32,7 +32,7 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.16 (2023-08-31)
 - FIX: Adapter crashed sometimes, due to accessing invalid ids
 - Added: Possibility to addition values to other values
 - Added: Directly display animations and values after startup instead of waiting till first value changes
