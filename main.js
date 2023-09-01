@@ -170,76 +170,81 @@ class EnergieflussErweitert extends utils.Adapter {
 	onMessage(obj) {
 		this.log.debug(`[onMessage] received command: ${obj.command} with message: ${JSON.stringify(obj.message)}`);
 		if (obj && obj.message) {
-			if (obj.command === '_getBackups' && typeof obj.message === 'object') {
+			if (typeof obj.message === 'object') {
 				// Request the list of Backups
 				let fileList = [];
-				fs.readdir(instanceDir + backupDir, (err, files) => {
-					if (err) {
-						this.sendTo(obj.from, obj.command, { err }, obj.callback);
-					} else {
-						files.forEach(file => {
-							let tmpFile = path.parse(file).name;
-							tmpFile = tmpFile.replace("BACKUP_", "");
-							fileList.push(tmpFile);
-						});
-						this.sendTo(obj.from, obj.command, { error: null, data: fileList }, obj.callback);
-					}
-				});
-
-			} else if (obj.command === '_restoreBackup' && typeof obj.message === 'object') {
-				// Restore Backup
-				this.log.info('Starting restoring Backup from disk!');
-				const newFilePath = path.join(instanceDir + backupDir, `BACKUP_${obj.message.fileName}.json`);
-				fs.readFile(newFilePath, 'utf8', (err, data) => {
-					if (err) {
-						this.log.info(`Error during ${err}`);
-						this.sendTo(obj.from, obj.command, { error: err }, obj.callback);
-					} else {
-						// Send new config back to workspace and store in state
-						this.setStateAsync("configuration", data, true);
-						this.sendTo(obj.from, obj.command, { error: null, data: JSON.parse(data) }, obj.callback);
-						this.log.info('Backup restored and activated!');
-					}
-				});
-
-			} else if (obj.command === '_storeBackup' && typeof obj.message === 'object') {
-				// Store Backup
-				this.log.debug('Saving Backup to disk!');
-				let fileName = new Date().getTime();
-				const newFilePath = path.join(instanceDir + backupDir, `BACKUP_${fileName}.json`);
-				fs.writeFile(newFilePath, JSON.stringify(obj.message), (err) => {
-					if (err) {
-						this.sendTo(obj.from, obj.command, { err }, obj.callback);
-					} else {
-						this.sendTo(obj.from, obj.command, { error: null, data: "Success!" }, obj.callback);
-					}
-				});
-
-				// Recycle old Backups
-				let fileList = [];
-				fs.readdir(instanceDir + backupDir, (err, files) => {
-					if (!err) {
-						files.forEach(file => {
-							fileList.push(file);
-						});
-						// Walk through the list an delete all files after index 9
-						if (fileList.length > 10) {
-							// Order the List
-							fileList.sort((a, b) => -1 * a.localeCompare(b));
-							for (let i = 10; i < fileList.length; i++) {
-								fs.unlink(`${instanceDir}${backupDir}/${fileList[i]}`, (err) => {
-									if (err) {
-										this.log.warn(err);
-									}
-									this.log.info(`${fileList[i]} successfully deleted!`);
+				switch (obj.command) {
+					case '_getBackups':
+						fs.readdir(instanceDir + backupDir, (err, files) => {
+							if (err) {
+								this.sendTo(obj.from, obj.command, { err }, obj.callback);
+							} else {
+								files.forEach(file => {
+									let tmpFile = path.parse(file).name;
+									tmpFile = tmpFile.replace("BACKUP_", "");
+									fileList.push(tmpFile);
 								});
+								this.sendTo(obj.from, obj.command, { error: null, data: fileList }, obj.callback);
 							}
-						} else {
-							this.log.info('The amount of current stored backups does not exceed the number of 10!');
-						}
-					}
-				});
+						});
+						break;
+					case '_restoreBackup':
+						// Restore Backup
+						this.log.info('Starting restoring Backup from disk!');
+						const restorePath = path.join(instanceDir + backupDir, `BACKUP_${obj.message.fileName}.json`);
+						fs.readFile(restorePath, 'utf8', (err, data) => {
+							if (err) {
+								this.log.info(`Error during ${err}`);
+								this.sendTo(obj.from, obj.command, { error: err }, obj.callback);
+							} else {
+								// Store current configuration in new Backup
 
+								// Send new config back to workspace and store in state
+								this.setStateChangedAsync("configuration", { val: data, ack: true });
+								this.sendTo(obj.from, obj.command, { error: null, data: JSON.parse(data) }, obj.callback);
+								this.log.info('Backup restored and activated!');
+							}
+						});
+						break;
+					case '_storeBackup':
+						// Store Backup
+						this.log.debug('Saving Backup to disk!');
+						let fileName = new Date().getTime();
+						const storePath = path.join(instanceDir + backupDir, `BACKUP_${fileName}.json`);
+						fs.writeFile(storePath, JSON.stringify(obj.message), (err) => {
+							if (err) {
+								this.sendTo(obj.from, obj.command, { err }, obj.callback);
+							} else {
+								this.sendTo(obj.from, obj.command, { error: null, data: "Success!" }, obj.callback);
+							}
+						});
+
+						// Recycle old Backups
+						fileList = [];
+						fs.readdir(instanceDir + backupDir, (err, files) => {
+							if (!err) {
+								files.forEach(file => {
+									fileList.push(file);
+								});
+								// Walk through the list an delete all files after index 9
+								if (fileList.length > 10) {
+									// Order the List
+									fileList.sort((a, b) => -1 * a.localeCompare(b));
+									for (let i = 10; i < fileList.length; i++) {
+										fs.unlink(`${instanceDir}${backupDir}/${fileList[i]}`, (err) => {
+											if (err) {
+												this.log.warn(err);
+											}
+											this.log.info(`${fileList[i]} successfully deleted!`);
+										});
+									}
+								} else {
+									this.log.info('The amount of current stored backups does not exceed the number of 10!');
+								}
+							}
+						});
+						break;
+				}
 			} else {
 				this.log.error(`[onMessage] Received incomplete message via "sendTo"`);
 
@@ -619,22 +624,26 @@ class EnergieflussErweitert extends utils.Adapter {
 
 												// Check, if we have Subtractions for this value
 												let subArray = seObj.subtract;
-												if (subArray.length > 0) {
-													for (var sub in subArray) {
-														if (subArray[sub] != -1) {
-															subValue = subValue + Math.abs(rawValues.sourceValues[subArray[sub]]);
-															this.log.debug("Subtracted by: " + subArray.toString());
+												if (subArray != undefined && typeof (subArray) == 'object') {
+													if (subArray.length > 0) {
+														for (var sub in subArray) {
+															if (subArray[sub] != -1) {
+																subValue = subValue + Math.abs(rawValues.sourceValues[subArray[sub]]);
+																this.log.debug("Subtracted by: " + subArray.toString());
+															}
 														}
 													}
 												}
 
 												// Check, if we have Additions for this value
 												let addArray = seObj.add;
-												if (addArray.length > 0) {
-													for (var add in addArray) {
-														if (addArray[add] != -1) {
-															addValue = addValue + Math.abs(rawValues.sourceValues[addArray[add]]);
-															this.log.debug("Added to Value: " + addArray.toString());
+												if (addArray != undefined && typeof (addArray) == 'object') {
+													if (addArray.length > 0) {
+														for (var add in addArray) {
+															if (addArray[add] != -1) {
+																addValue = addValue + Math.abs(rawValues.sourceValues[addArray[add]]);
+																this.log.debug("Added to Value: " + addArray.toString());
+															}
 														}
 													}
 												}
@@ -727,7 +736,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								this.log.debug("Calculation for consumption should be possible!");
 
 								// Calc all Production states
-								let subArray = consObj.production;
+								let prodArray = consObj.production;
 								let prodValue = 0;
 
 								// Grid
@@ -742,10 +751,10 @@ class EnergieflussErweitert extends utils.Adapter {
 								let consumption = 0;
 
 								// Production state(s)
-								if (subArray.length > 0) {
-									for (var sub in subArray) {
-										if (subArray[sub] != -1) {
-											prodValue = prodValue + Math.abs(rawValues.sourceValues[subArray[sub]]);
+								if (prodArray.length > 0) {
+									for (var sub in prodArray) {
+										if (prodArray[sub] != -1) {
+											prodValue = prodValue + Math.abs(rawValues.sourceValues[prodArray[sub]]);
 										}
 									}
 								}
