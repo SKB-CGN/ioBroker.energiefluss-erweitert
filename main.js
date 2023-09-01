@@ -1086,7 +1086,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (value.source != -1 && value.hasOwnProperty('source')) {
 					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
 					if (stateValue) {
-						// Save Settings for the objects
+						// Save Settings for each object
 						settingsObject[key] = {
 							threshold: value.threshold || 0,
 							calculate_kw: value.calculate_kw,
@@ -1133,32 +1133,28 @@ class EnergieflussErweitert extends utils.Adapter {
 			for (var key of Object.keys(globalConfig.animations)) {
 				const value = globalConfig.animations[key];
 				if (value.source != -1 && value.hasOwnProperty('source')) {
-					if (value.source.length !== 0) {
-						this.log.debug(`Animation for Source: ${value.source} is: ${key}`);
-						// Put Animation into Source
-						try {
-							sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
-							settingsObject[key] = {
-								properties: value.animation_properties,
-								option: value.animation_option,
-								threshold: value.threshold,
-								type: value.animation_type,
-								duration: value.duration,
-								power: value.power,
-								dots: value.dots,
-								css_general: value.css_general,
-								css_active_positive: value.css_active_positive,
-								css_inactive_positive: value.css_inactive_positive,
-								css_active_negative: value.css_active_negative,
-								css_inactive_negative: value.css_inactive_negative
-							};
-						}
-						catch (error) {
-							this.debug.log(`Error with animations. Skipping creation! ${error}`);
-						}
-					} else {
-						this.log.debug(`Animation for Source: ${value.source} not found!`);
-					}
+					this.log.debug(`Animation for Source: ${value.source} is: ${key}`);
+					// Save Settings for each object
+					settingsObject[key] = {
+						properties: value.animation_properties,
+						option: value.animation_option,
+						threshold: value.threshold,
+						type: value.animation_type,
+						duration: value.duration,
+						power: value.power,
+						dots: value.dots,
+						css_general: value.css_general,
+						css_active_positive: value.css_active_positive,
+						css_inactive_positive: value.css_inactive_positive,
+						css_active_negative: value.css_active_negative,
+						css_inactive_negative: value.css_inactive_negative
+					};
+
+					// Put Animation into Source
+					sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
+
+				} else {
+					this.log.debug(`Animation for Source: ${value.source} not found!`);
 				}
 			}
 		}
