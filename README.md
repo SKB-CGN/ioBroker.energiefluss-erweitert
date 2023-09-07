@@ -32,6 +32,8 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Object browser did not show all states - especially not the ones in Channel or Folders
 ### 0.0.2-alpha.16 (2023-08-31)
 - FIX: Adapter crashed sometimes, due to accessing invalid ids
 - Added: Possibility to addition values to other values
