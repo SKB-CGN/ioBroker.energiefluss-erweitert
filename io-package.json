@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energiefluss-erweitert",
-    "version": "0.0.2-alpha.16",
+    "version": "0.0.2-alpha.17",
     "news": {
+      "0.0.2-alpha.17": {
+        "en": "FIX: Object browser did not show all states - especially not the ones in Channel or Folders",
+        "de": "FIX: Objekt-Browser hat nicht alle Zustände gezeigt - vor allem nicht die in Channel oder Folders",
+        "ru": "FIX: браузер объектов не показал все государства - особенно не те, кто в канале или Folders",
+        "pt": "FIX: O navegador de objetos não mostrou todos os estados - especialmente os não no canal ou pastas",
+        "nl": "Object Browser liet niet alle staten zien, vooral niet degenen in Channel of Folders",
+        "fr": "FIX: Le navigateur d'objet n'a pas montré tous les états - surtout pas ceux dans Channel ou Folders",
+        "it": "FIX: Il browser non ha mostrato tutti gli stati - soprattutto non quelli in Canale o Cartella",
+        "es": "FIX: El navegador de objetos no mostró todos los estados - especialmente no los de Canal o Carpetas",
+        "pl": "FIX: przeglądarka obiektów nie pokazywała wszystkich stanów, zwłaszcza w Channel czy Folders",
+        "uk": "FIX: Об'єктний браузер не показує всіх штатів - особливо не ті, які в Каналі або Плакати",
+        "zh-cn": "九、FIX:物体袋没有显示所有各州,特别是海峡或女兵。"
+      },
       "0.0.2-alpha.16": {
         "en": "FIX: Adapter crashed sometimes, due to accessing invalid ids\nAdded: Possibility to addition values to other values\nAdded: Directly display animations and values after startup instead of waiting till first value changes\nAdded: Adapter depencies and stability\nAdded: New Translations for new functions",
         "de": "FIX: Adapter stürzte manchmal ab, aufgrund des Zugriffs auf ungültige IDs\nHinzugefügt: Möglichkeit, Werte zu anderen Werten hinzuzufügen\nHinzugefügt: Direkt anzeigen Animationen und Werte nach dem Start statt warten bis erste Wertänderungen\nHinzugefügt: Adapter-Depencies und Stabilität\nHinzugefügt: Neue Übersetzungen für neue Funktionen",
@@ -80,19 +93,6 @@
         "pl": "Added: Configuration Bar może być zamieniony z prawej do lewej (oczyszczanie, jeśli elementy są za barem)\nDostęp: Icon-Proxy-Server (jeśli niektóre z twoich urządzeń wewnątrz sieci nie mają połączenia internetowego, Energiefluss-erweitert będzie również obsługiwać te ikony.)\nAdded: Lepiej Pomoc-Center, gdy uderzył na znak ikony\nAdded: Language translation into: english, german, espanol, italian, netherlands, Język, portogues, russian, ukrainian, chinese\nDostęp: Wypełnianie przedniej wypełnianie",
         "uk": "Доданий: Налаштування Бар може бути завантажений з правого на ліву (отримання запасу, якщо елементи за баром)\nДодано: Icon-Proxy-Server (якщо деякі пристрої всередині мережі не мають підключення до Інтернету, Energieflus-erweitert будуть служити іконки та кешувати їх також)\nДодано: Краще Допомога-Центр при попаданні іконки знака\nДодано: Мова перекладу в: англійська, німецька, espanol, французький, італійська, нетерланди, польська мова, біргуста, російська, українська, китайський\nДоданий: Попередній контур заповнення розширений для заповнення зворотного",
         "zh-cn": "增 编:配 以色列人可以从离开(装卸)的权利中偷去(如果要素落后的话)。\n增加:Icon-Proxy-Server(如果网络内的一些装置没有互联网联系,那么光流机将为这些场地和中心服务)\n增加:在击中问题标识时,更好的求助者\n增 编:语文译为: english, german, panol, 圣地,英属地,家写语言,港口,Suguese, 毛里求斯, ukrainian\n增 编:以前的概述"
-      },
-      "0.0.2-alpha.10": {
-        "en": "FIX: Basic icon color was not applied correctly\nFIX: Fill placeholders for elements were created in error in some circumstances\nFIX: Subtract was not calculated correctly, if state value is negative\nFIX: Better handling of positioning elements when entering coordinates\nFIX: Icons sometimes got a faulty format if duplicated\nAdded: Configuration backup for the last 10 versions",
-        "de": "FIX: Grundlegende Symbolfarbe wurde nicht korrekt angewendet\nFIX: Füllen Sie Platzhalter für Elemente wurden unter Umständen fehlerfrei erstellt\nFIX: Subtract wurde nicht korrekt berechnet, wenn der Zustandswert negativ ist\nFIX: Bessere Handhabung von Positionierelementen beim Eingabe von Koordinaten\nFIX: Icons bekam manchmal ein fehlerhaftes Format, wenn dupliziert\nHinzugefügt: Konfigurationssicherung für die letzten 10 Versionen",
-        "ru": "FIX: Основной цвет иконки не был применен правильно\nFIX: Заполните держатели для элементов были созданы в ошибке в некоторых обстоятельствах\nFIX: Субтракт не был рассчитан правильно, если государственная ценность отрицательная\nFIX: Улучшенная обработка элементов позиционирования при вводе координат\nFIX: Иконки иногда получили неисправный формат, если дублирован\nДобавлена: Конфигурация резервного копирования для последних 10 версий",
-        "pt": "FIX: A cor básica do ícone não foi aplicada corretamente\nFIX: Os marcadores de lugar de preenchimento para elementos foram criados em erro em algumas circunstâncias\nFIX: Subtrato não foi calculado corretamente, se o valor do estado é negativo\nFIX: Melhor manuseio de elementos de posicionamento ao entrar em coordenadas\nFIX: Ícones � s vezes tem um formato defeituoso se duplicado\nAdicionado: Backup de configuração para as últimas 10 versões",
-        "nl": "Basic icon kleur is niet correct aangebracht\nVullen voor elementen werden gecreëerd in sommige omstandigheden\nSubtract werd niet correct berekend als de staatswaarde negatief is\nBeter omgaan met positieve elementen als je coördinaten binnenkomt\nIcons hebben soms een foute format als duplicatie\nVermoedelijk versterking voor de laatste 10 versies",
-        "fr": "FIX: La couleur de l'icône de base n'a pas été appliquée correctement\nFIX: Les placeurs de remplissage pour les éléments ont été créés par erreur dans certaines circonstances\nFIX: Le soustrait n'a pas été calculé correctement, si la valeur de l'état est négative\nFIX: Meilleure manipulation des éléments de positionnement lors de la saisie des coordonnées\nFIX: Icons a parfois obtenu un format défectueux si doublé\nAjouté: Sauvegarde de configuration pour les 10 dernières versions",
-        "it": "FIX: Il colore dell'icona di base non è stato applicato correttamente\nFIX: I segnaposto di riempimento per elementi sono stati creati in errore in alcune circostanze\nFIX: Il sottrarre non è stato calcolato correttamente, se il valore dello stato è negativo\nFIX: migliore gestione degli elementi di posizionamento quando si entra in coordinate\nFIX: Le icone a volte hanno un formato difettoso se duplicato\nAggiunto: Configuration backup per le ultime 10 versioni",
-        "es": "FIX: El color de icono básico no se aplicó correctamente\nFIX: Fill placeholders for elements were created in error in some circumstances\nFIX: El subtracto no se calculó correctamente, si el valor del estado es negativo\nFIX: Mejor manejo de elementos de posicionamiento al entrar coordenadas\nFIX: Los iconos a veces tienen un formato defectuoso si se duplica\nAñadido: respaldo de configuración para las últimas 10 versiones",
-        "pl": "FIX: Podstawowe kolory ikon nie były poprawnie stosowane\nFIX: W niektórych okolicznościach wprowadzono błędy\nFIX: Podtract nie został obliczony poprawnie, jeśli wartość państwa jest ujemna\nFIX: Poprawne sterowanie elementami po wejściu współrzędnych\nFIX: czasami Icons otrzymał uszkodzenie, jeśli powieszona\nAdded: Configuration backup dla ostatnich 10 wersji",
-        "uk": "FIX: Основний колір ікони не наноситься правильно\nFIX: Заповнені власники для елементів були створені за похибкою в деяких обставинах\nFIX: Відстеження не розраховується правильно, якщо значення держави негативно\nFIX: Краще використання елементів позиціонування при введенні координат\nFIX: Ікони іноді отримали несправний формат, якщо дублюється\nДодано: � езервування конфігурації для останніх версій 10",
-        "zh-cn": "FIX:基本一色色彩不正确\nFIX:在某些情况下,以错误的方式创建了单元的主处\nFIX:如果国家价值的负值,则不正确计算次数。\nFIX:在坐� �时更好地处理立场要� \nFIX:如果重复,我有时会采取过错的方式。\n增 编:最后10个版本的配件"
       }
     },
     "titleLang": {
