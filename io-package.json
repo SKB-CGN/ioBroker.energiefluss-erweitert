@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energiefluss-erweitert",
-    "version": "0.0.2-alpha.17",
+    "version": "0.0.2-alpha.18",
     "news": {
+      "0.0.2-alpha.18": {
+        "en": "Added: Count up/down Animation for numbers added. Instead of directly changing numbers, they are animated.",
+        "de": "Hinzugefügt: Count up/down Animation für Zahlen hinzugefügt. Anstelle von direkt wechselnden Zahlen werden sie animiert.",
+        "ru": "Добавлен: Подсчет вверх/вниз Анимация для добавленных номеров. Вместо прямого изменения числа они анимированы.",
+        "pt": "Adicionado: Contar up/down Animação para números adicionados. Em vez de alterar números diretamente, eles são animados.",
+        "nl": "Toegevoegd: graaf up/down Dieimation voor getallen toegevoegd. In plaats van het veranderen van nummers, zijn ze geanimeerd.",
+        "fr": "Ajouté : Comptez sur Animation pour les nombres ajoutés. Au lieu de changer directement les nombres, ils sont animés.",
+        "it": "Aggiunto: Count up/down Animation per i numeri aggiunti. Invece di cambiare direttamente i numeri, sono animati.",
+        "es": "Añadido: Cuenta arriba / abajo Animación para números añadidos. En lugar de cambiar directamente los números, están animados.",
+        "pl": "Added: Count up/down Animation (ang.). Zamiast zmieniać liczby, są one animowane.",
+        "uk": "Додано: Розрахувати / вимкнути анімацію для доданих чисел. Замість безпосередньо мінливих чисел, вони анімовані.",
+        "zh-cn": "增加:增加人数减少/减少。 这些数字不是直接变化的数字,而是造成。."
+      },
       "0.0.2-alpha.17": {
         "en": "FIX: Object browser did not show all states - especially not the ones in Channel or Folders",
         "de": "FIX: Objekt-Browser hat nicht alle Zustände gezeigt - vor allem nicht die in Channel oder Folders",
@@ -80,19 +93,6 @@
         "pl": "Added: Improved Icon - Proxy, by służyć ikonom dla wszystkich symboli\nTłumaczenie języka dla zmiennych na żywo",
         "uk": "Додано: Покращена ікона - Проксі, щоб служити іконки для всіх символів (якщо включений)\nДодано: Мови переклади для змінних зображень",
         "zh-cn": "增加:改善Icon- Proxy,为所有标志(如果能够)服务。\n增 编:用于生活审查变量的语文翻译"
-      },
-      "0.0.2-alpha.11": {
-        "en": "Added: Configuration Bar can be swapped from right to left (better handling, if elements are behind bar)\nAdded: Icon-Proxy-Server (if some of your devices inside the network do not have an internet connection, Energiefluss-erweitert will serve those icons and cache them as well)\nAdded: Better Help-Center when hitting the question mark icon\nAdded: Language translation into: english, german, espanol, french, italian, netherlands, polish language, portuguese, russian, ukrainian, chinese\nAdded: Previous outline fill extended for filling reverse",
-        "de": "Hinzugefügt: Konfiguration Bar kann von rechts nach links getauscht werden (bessere Handhabung, wenn Elemente hinter der Bar liegen)\nHinzugefügt: Icon-Proxy-Server (wenn einige Ihrer Geräte innerhalb des Netzwerks keine Internetverbindung haben, wird Energiefluss-erweitert diese Icons bedienen und auch abspeichern)\nHinzugefügt: Besseres Help-Center, wenn Sie das Fragezeichen-Symbol treffen\nHinzugefügt: Sprachübersetzung in: englisch, deutsch, espanol, französisch, italienisch, netherlands, polnisch, portugiesisch, russisch, ukrainisch, chinesisch\nHinzugefügt: Vorherige Umriss-Füllung erweitert für Füllung umgekehrt",
-        "ru": "Добавлена: Конфигурация Бар можно поменять справа налево (лучше обработки, если элементы за баром)\nДобавлена: Icon-Proxy-Server (если некоторые из ваших устройств внутри сети не имеют подключения к Интернету, Energiefluss-erweitert будет служить эти иконки и кэшировать их также)\nДобавлено: Лучше Help-Center при попадании в иконку знака вопроса\nДобавлен: Языковой перевод на: английский, немецкий, эспенольский, французский, итальянский, netherlands, польский язык, португальский, русский, украинский, китайский\nДобавлено: Предыдущий контур заполнить расширенный для заполнения обратной",
-        "pt": "Adicionado: Configuration A barra pode ser trocada da direita para a esquerda (melhor manuseio, se os elementos estão atrás da barra)\nAdicionado: Icon-Proxy-Server (se alguns de seus dispositivos dentro da rede não tem uma conexão de internet, Energiefluss-erweitert servirá esses ícones e cache-los também)\nAdicionado: Melhor Help-Center ao bater o ícone de marca de pergunta\nAdicionado: Tradução de idioma em: Inglês, alemão, espanol, francês, italiano, netherlands, polish language, Português, russo, ukrainian, chinês\nAdicionado: preenchimento de esboço anterior estendido para enchimento reverso",
-        "nl": "Vermoedelijk De bar kan van rechts naar links, als elementen achter de bar liggen\nIcon-Proxy-Server, als een aantal van je apparaten in het netwerk geen internetverbinding hebben, zal Energiefluss-erweitert die iconen dienen en kache ze ook\nVertaling:\nVertaling: Engels, Duitser, espanol, Frans, Italiaans, netwerk, pooltaal, portugees, Russisch, ukraans, chinese, Chinees, Chinees, Chinees, Chinees, Chinees, Chinees\nVertaling:",
-        "fr": "Ajouté : Configuration Bar peut être échangé de droite à gauche (meilleure manipulation, si les éléments sont derrière bar)\nAjouté: Icon-Proxy-Server (si certains de vos appareils à l'intérieur du réseau n'ont pas de connexion Internet, Energieflus-erweitert servira ces icônes et les cache aussi)\nAjouté: Meilleur Help-Center lors de la frappe de l'icône de la marque de question\nAjouté: Traduction de la langue en: anglais, allemand, espanol, français, italien, netherlands, polonais, portugais, russe, ukrainien, chinois\nAjouté: Précédure de remplissage prolongée",
-        "it": "Aggiunto: Configuration Bar può essere scambiato da destra a sinistra (messaggio migliore, se gli elementi sono dietro barra)\nAggiunto: Icon-Proxy-Server (se alcuni dei vostri dispositivi all'interno della rete non hanno una connessione internet, Energiefluss-erweitert servirà quelle icone e la cache pure)\nAggiunto: Better Help-Center quando colpire l'icona del punto interrogativo\nAggiunto: Traduzione di lingua in: inglese, tedesco, espanol, francese, italiano, olandese, polacco lingua, portoghese, russo, ucraino, cinese\nAggiunto: Precedente profilo riempimento esteso per riempimento inverso",
-        "es": "Añadido: Configuración La barra se puede cambiar de derecha a izquierda (mejor manejo, si los elementos están detrás de la barra)\nAñadido: Icon-Proxy-Server (si algunos de sus dispositivos dentro de la red no tienen una conexión a Internet, Energiefluss-erweitert servirá a esos iconos y los cache también)\nAñadido: Mejor Ayuda-Center al golpear el icono de marca de preguntas\nAñadido: Traducción al español, alemán, español, francés, italiano, netherlands, idioma pulido, portugués, ruso, ucraniano, chino\nAñadido: Relleno anterior del contorno extendido para llenar el reverso",
-        "pl": "Added: Configuration Bar może być zamieniony z prawej do lewej (oczyszczanie, jeśli elementy są za barem)\nDostęp: Icon-Proxy-Server (jeśli niektóre z twoich urządzeń wewnątrz sieci nie mają połączenia internetowego, Energiefluss-erweitert będzie również obsługiwać te ikony.)\nAdded: Lepiej Pomoc-Center, gdy uderzył na znak ikony\nAdded: Language translation into: english, german, espanol, italian, netherlands, Język, portogues, russian, ukrainian, chinese\nDostęp: Wypełnianie przedniej wypełnianie",
-        "uk": "Доданий: Налаштування Бар може бути завантажений з правого на ліву (отримання запасу, якщо елементи за баром)\nДодано: Icon-Proxy-Server (якщо деякі пристрої всередині мережі не мають підключення до Інтернету, Energieflus-erweitert будуть служити іконки та кешувати їх також)\nДодано: Краще Допомога-Центр при попаданні іконки знака\nДодано: Мова перекладу в: англійська, німецька, espanol, французький, італійська, нетерланди, польська мова, біргуста, російська, українська, китайський\nДоданий: Попередній контур заповнення розширений для заповнення зворотного",
-        "zh-cn": "增 编:配 以色列人可以从离开(装卸)的权利中偷去(如果要素落后的话)。\n增加:Icon-Proxy-Server(如果网络内的一些装置没有互联网联系,那么光流机将为这些场地和中心服务)\n增加:在击中问题标识时,更好的求助者\n增 编:语文译为: english, german, panol, 圣地,英属地,家写语言,港口,Suguese, 毛里求斯, ukrainian\n增 编:以前的概述"
       }
     },
     "titleLang": {
