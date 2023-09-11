@@ -32,6 +32,9 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Count up/down Animation for numbers added. Instead of directly changing numbers, they are animated.
+
 ### 0.0.2-alpha.17 (2023-09-07)
 - FIX: Object browser did not show all states - especially not the ones in Channel or Folders
 
