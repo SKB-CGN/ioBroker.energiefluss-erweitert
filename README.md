@@ -34,6 +34,7 @@ Documentation:
 -->
 ### **WORK IN PROGRESS**
 - FIX: Since number animation, it could occur, that decimal places got cut off on initial values
+- Added: Made previously count up/down Animation for numbers configurable for each datasource element
 ### 0.0.2-alpha.18 (2023-09-11)
 - Added: Count up/down Animation for numbers added. Instead of directly changing numbers, they are animated.
 
