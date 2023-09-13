@@ -518,7 +518,7 @@
                                         <span class="config_sec translate" data-lang="lbl_datasource">Datasource</span>
                                         <table class="element_config_table">
                                             <tr>
-                                                <td>
+                                                <td colspan="2">
                                                     <div class="form_div select">
                                                         <label for="elm_source" class="form_label translate"
                                                             data-lang="lbl_datasource">Source</label>
@@ -528,7 +528,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="elm_config_datasource">
-                                                <td>
+                                                <td colspan="2">
                                                     <div class="form_div select">
                                                         <label for="elm_source_option" class="form_label translate"
                                                             data-lang="lbl_config_show_timestamp">Show
@@ -568,7 +568,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="elm_config_datasource">
-                                                <td>
+                                                <td colspan="2">
                                                     <div class="form_div select">
                                                         <label for="elm_source_display" class="form_label translate"
                                                             data-lang="lbl_display_source">Display
@@ -590,7 +590,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="elm_config_datasource">
-                                                <td>
+                                                <td colspan="2">
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config" name="elm_unit"
                                                             id="elm_unit" placeholder="" autocorrect="off"
@@ -601,7 +601,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="elm_config_datasource">
-                                                <td>
+                                                <td colspan="2">
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
                                                             name="elm_prepend" id="elm_prepend" placeholder=""
@@ -613,7 +613,7 @@
                                                 </td>
                                             </tr>
                                             <tr class="elm_config_datasource">
-                                                <td>
+                                                <td colspan="2">
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text elm_config"
                                                             name="elm_append" id="elm_append" placeholder=""
@@ -622,6 +622,26 @@
                                                             data-lang="lbl_append">Append
                                                             Text</label>
                                                     </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="elm_config_datasource">
+                                                <td style="width: auto;padding-top: 15px;">
+                                                    <div class="cb_onfoffswitch">
+                                                        <div class="onoffswitch">
+                                                            <input type="checkbox" name="elm_counter_animation"
+                                                                class="onoffswitch-checkbox elm_config"
+                                                                id="elm_counter_animation" value="yes" style="">
+                                                            <label class="onoffswitch-label"
+                                                                for="elm_counter_animation">
+                                                                <span class="onoffswitch-inner"></span>
+                                                                <span class="onoffswitch-switch"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 100%;padding-top: 15px;">
+                                                    <label for="elm_counter_animation" class="label translate"
+                                                        data-lang="lbl_counter_animation">Animate Value</label>
                                                 </td>
                                             </tr>
                                         </table>
@@ -747,17 +767,17 @@
                                             <tr class="elm_config_datasource">
                                                 <td style="width: auto;">
                                                     <div class="onoffswitch">
-                                                        <input type="checkbox" name="elm_calculation"
-                                                            class="onoffswitch-checkbox elm_config" id="elm_calculation"
-                                                            value="yes">
-                                                        <label class="onoffswitch-label" for="elm_calculation">
+                                                        <input type="checkbox" name="elm_calculate_kw"
+                                                            class="onoffswitch-checkbox elm_config"
+                                                            id="elm_calculate_kw" value="yes">
+                                                        <label class="onoffswitch-label" for="elm_calculate_kw">
                                                             <span class="onoffswitch-inner"></span>
                                                             <span class="onoffswitch-switch"></span>
                                                         </label>
                                                     </div>
                                                 </td>
                                                 <td style="width: 100%;">
-                                                    <label class="label translate" for="elm_calculation"
+                                                    <label class="label translate" for="elm_calculate_kw"
                                                         data-lang="lbl_config_calculate"> Calculate Value
                                                         from W to
                                                         kW</label>
@@ -1812,8 +1832,9 @@
                                 <td class="bold translate" data-lang="legend_preview">Preview</td>
                             </tr>
                             <tr>
-                                <td class="bold"><svg viewBox="-5 0 100 50" class="" width="100%" height="50"
-                                        id="svg_line_preview" preserveAspectRatio="xMinYMid meet">
+                                <td class="bold">
+                                    <svg viewBox="-5 0 100 50" class="" width="100%" height="50" id="svg_line_preview"
+                                        preserveAspectRatio="xMinYMid meet">
                                         <defs>
                                             <path id="preview_line" d="M 0,25 h 324"></path>
                                         </defs>
@@ -1822,7 +1843,8 @@
                                         <use class="all_elm animation" xlink:href="#preview_line"
                                             id="preview_line_anim">
                                         </use>
-                                    </svg></td>
+                                    </svg>
+                                </td>
                             <tr>
                                 <td><span class="translate" data-lang="ex_animation_preview">Here you only set the
                                         Animation properties.<br>All colors
