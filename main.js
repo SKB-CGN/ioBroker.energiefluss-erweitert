@@ -500,7 +500,7 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * @param {number} decimal_places
 	 */
 	decimalPlaces(value, decimal_places) {
-		return (Number(value).toFixed(decimal_places));
+		return Number(value).toFixed(decimal_places);
 	}
 
 	/**
