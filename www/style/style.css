@@ -421,15 +421,18 @@ legend>span {
 }
 
 .animation {
-    animation-name: dashdraw;
-    animation-duration: 2000ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
     stroke-dasharray: 4 12 4 12 4 100;
     stroke-linecap: round;
     fill: none;
     stroke: #ffce4a;
     text-rendering: optimizeLegibility;
+}
+
+.animation_cfg {
+    animation-name: dashdraw;
+    animation-duration: 2000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 @keyframes dashdraw {

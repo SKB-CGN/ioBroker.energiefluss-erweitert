@@ -24,7 +24,6 @@
     <script src="js/words.js"></script>
     <script src="js/jscolor.min.js"></script>
     <script src="js/multiselect.min.js"></script>
-    <script src="js/counto.min.js"></script>
     <script src="js/functions.min.js"></script>
 
     <style id="style_animation"></style>
@@ -2366,6 +2365,25 @@
                                         Icon-Proxy for all request</label> <img src='img/icon_help.png'
                                         class="translateP help" data-lang-placeholder="help_icon_proxy"
                                         placeholder='<p><b>Icon-Proxy</b>:<br>The Icon - Proxy need to be configured inside the Adapter settings of ioBroker.<br>If you want to use the Proxy for all requests, activate this here. The benefit of this is, that:<ul><li>devices inside your network do not need internet access to receive the icons</li><li>all icons are stored inside the cache of the adapter as long as it runs (performance plus) </ul></p>'>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="low_performance"
+                                            class="onoffswitch-checkbox elm_config" id="low_performance" value="yes"
+                                            data-lang-title="ex_icon_proxy">
+                                        <label class="onoffswitch-label" for="low_performance">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td><label class="label translate translateT" for="low_performance"
+                                        data-lang="lbl_settings_low_performance">Use less power mode for
+                                        animations</label> <img src='img/icon_help.png' class="translateP help"
+                                        data-lang-placeholder="help_low_performance"
+                                        placeholder='<p>This mode allows you to use the animations on less powerful devices. The only limitation to this is that you can no longer adjust the speed of the animation! The layout and number of points remain unaffected!</p>'>
                                 </td>
                             </tr>
                         </table>

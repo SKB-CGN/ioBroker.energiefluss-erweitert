@@ -34,7 +34,11 @@ Documentation:
 -->
 ### **WORK IN PROGRESS**
 - FIX: Since number animation, it could occur, that decimal places got cut off on initial values
+- FIX: Save & Exit was not working correctly, if an high amount of data should be saved
 - Added: Made previously count up/down Animation for numbers configurable for each datasource element
+- Added: Low power mode for animations (can be enabled generaly or via URL parameter on each device)
+- Added: If Element is filled depending on value, it is now possible, to use the basic color as fill for the remaining space or none as transparent
+
 ### 0.0.2-alpha.18 (2023-09-11)
 - Added: Count up/down Animation for numbers added. Instead of directly changing numbers, they are animated.
 
