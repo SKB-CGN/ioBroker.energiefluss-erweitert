@@ -1,268 +1,268 @@
 {
-    "common": {
-        "name": "energiefluss-erweitert",
-        "version": "0.0.2-alpha.18",
-        "news": {
-            "0.0.2-alpha.18": {
-                "en": "Added: Count up/down Animation for numbers added. Instead of directly changing numbers, they are animated.",
-                "de": "Hinzugefügt: Count up/down Animation für Zahlen hinzugefügt. Anstelle von direkt wechselnden Zahlen werden sie animiert.",
-                "ru": "Добавлен: Подсчет вверх/вниз Анимация для добавленных номеров. Вместо прямого изменения числа они анимированы.",
-                "pt": "Adicionado: Contar up/down Animação para números adicionados. Em vez de alterar números diretamente, eles são animados.",
-                "nl": "Toegevoegd: graaf up/down Dieimation voor getallen toegevoegd. In plaats van het veranderen van nummers, zijn ze geanimeerd.",
-                "fr": "Ajouté : Comptez sur Animation pour les nombres ajoutés. Au lieu de changer directement les nombres, ils sont animés.",
-                "it": "Aggiunto: Count up/down Animation per i numeri aggiunti. Invece di cambiare direttamente i numeri, sono animati.",
-                "es": "Añadido: Cuenta arriba / abajo Animación para números añadidos. En lugar de cambiar directamente los números, están animados.",
-                "pl": "Added: Count up/down Animation (ang.). Zamiast zmieniać liczby, są one animowane.",
-                "uk": "Додано: Розрахувати / вимкнути анімацію для доданих чисел. Замість безпосередньо мінливих чисел, вони анімовані.",
-                "zh-cn": "增加:增加人数减少/减少。 这些数字不是直接变化的数字,而是造成。."
-            },
-            "0.0.2-alpha.17": {
-                "en": "FIX: Object browser did not show all states - especially not the ones in Channel or Folders",
-                "de": "FIX: Objekt-Browser hat nicht alle Zustände gezeigt - vor allem nicht die in Channel oder Folders",
-                "ru": "FIX: браузер объектов не показал все государства - особенно не те, кто в канале или Folders",
-                "pt": "FIX: O navegador de objetos não mostrou todos os estados - especialmente os não no canal ou pastas",
-                "nl": "Object Browser liet niet alle staten zien, vooral niet degenen in Channel of Folders",
-                "fr": "FIX: Le navigateur d'objet n'a pas montré tous les états - surtout pas ceux dans Channel ou Folders",
-                "it": "FIX: Il browser non ha mostrato tutti gli stati - soprattutto non quelli in Canale o Cartella",
-                "es": "FIX: El navegador de objetos no mostró todos los estados - especialmente no los de Canal o Carpetas",
-                "pl": "FIX: przeglądarka obiektów nie pokazywała wszystkich stanów, zwłaszcza w Channel czy Folders",
-                "uk": "FIX: Об'єктний браузер не показує всіх штатів - особливо не ті, які в Каналі або Плакати",
-                "zh-cn": "九、FIX:物体袋没有显示所有各州,特别是海峡或女兵。"
-            },
-            "0.0.2-alpha.16": {
-                "en": "FIX: Adapter crashed sometimes, due to accessing invalid ids\nAdded: Possibility to addition values to other values\nAdded: Directly display animations and values after startup instead of waiting till first value changes\nAdded: Adapter depencies and stability\nAdded: New Translations for new functions",
-                "de": "FIX: Adapter stürzte manchmal ab, aufgrund des Zugriffs auf ungültige IDs\nHinzugefügt: Möglichkeit, Werte zu anderen Werten hinzuzufügen\nHinzugefügt: Direkt anzeigen Animationen und Werte nach dem Start statt warten bis erste Wertänderungen\nHinzugefügt: Adapter-Depencies und Stabilität\nHinzugefügt: Neue Übersetzungen für neue Funktionen",
-                "ru": "FIX: адаптер иногда сбился из-за доступа недействительных идентификаторов\nДобавлена: Возможность добавления значений к другим значениям\nДобавлена: Непосредственно отображать анимации и значения после запуска вместо ожидания до изменения первого значения\nДобавлена: Адаптерные частоты и стабильность\nДобавлено: Новые переводы для новых функций",
-                "pt": "CORREÇÃO: O adaptador caiu às vezes, devido ao acesso a ids inválidos\nAdicionado: Possibilidade de adição de valores para outros valores\nAdicionado: Exibir diretamente animações e valores após a inicialização em vez de esperar até primeiras mudanças de valor\nAdicionado: Adapter competências e estabilidade\nAdicionado: Novas traduções para novas funções",
-                "nl": "Adapter crashte soms door toegang tot invalides\nToegevoegd aan andere waarden\nToegevoegd: direct vertoon je animatie en waarden na de start in plaats van te wachten tot de eerste waarde verandert\nVertaling:\nVertaling:",
-                "fr": "FIX: L'adaptateur s'est écrasé parfois, en raison de l'accès aux id invalides\nAjouté: Possibilité d'ajouter des valeurs à d'autres valeurs\nAjouté: Afficher directement les animations et les valeurs après le démarrage au lieu d'attendre jusqu'à ce que la première valeur change\nAjouté: Dépéances de l'adaptateur et stabilité\nAjouté : Nouvelles traductions pour de nouvelles fonctions",
-                "it": "FIX: L'adattatore si è schiantato a volte, a causa dell'accesso a id non validi\nAggiunto: Possibilità di aggiungere valori ad altri valori\nAggiunto: Direttamente visualizzare animazioni e valori dopo l'avvio invece di aspettare fino al primo valore modifiche\nAggiunto: Adattatore dipendenze e stabilità\nAggiunto: Nuove traduzioni per nuove funzioni",
-                "es": "FIX: Adaptador se estrelló a veces, debido al acceso a los ids inválidos\nAñadido: Posibilidad de añadir valores a otros valores\nAñadido: Mostrar directamente animaciones y valores después de la puesta en marcha en lugar de esperar hasta los cambios de primer valor\nAñadido: Dependencias y estabilidad del adaptador\nAñadido: Nuevas traducciones para nuevas funciones",
-                "pl": "FIX: Adapter rozbił się czasem z powodu dostępu do nieprawidłowych idów\nAdded: Possibility to dodanie wartości innych wartości\nAdded: wyświetlanie animacji i wartości po uruchomieniu, zamiast czekania, aż pierwsza wartość zmienia się\nAdapter: depozyty i stabilność\nAdded: Nowe tłumaczenia dla nowych funkcji",
-                "uk": "FIX: Адаптер збитий іноді, через доступ до недійсних потоків\nДодано: Можливість додавання значень до інших значень\nДодано: Безперервно відображати анімацію та значення після запуску замість очікування до перших змін значення\nДодано: Перехідники та стійкість\nДодано: Нові переклади для нових функцій",
-                "zh-cn": "FIX:由于接触无效,有时拖拉了。\n增加:增加其他价值的可能性\n增加:在开工后直接展示动画和价值观,而不是等待第一值变化\n增加:紧缩和稳定\n增 编:新职能的翻译"
-            },
-            "0.0.2-alpha.15": {
-                "en": "FIX: Under some circumstances symbols, texts and images could run out off workspace\nFIX: consumption calculation produced high CPU load on some systems (#43)\nFIX: Crash-Handler for animations optimized - if animation is present before value is updated, the adapter could crash\nAdded: Better duplication of items\nAdded: Actions for Datasources and Icons (on, off, toggle) - State can be display in Datasource as well\nAdded: Consumption calculation - Added states if battery charge/discharge and public grid-feed/grid-consumption are not the same\nAdded: Backup moved from states to ioBroker folder instead (saving Redis power and states loading)\nAdded: Loading information for object browser (if not loaded already)\nAdded: Darkmode for Layout",
-                "de": "FIX: Unter Umständen könnten Symbole, Texte und Bilder aus dem Arbeitsraum auslaufen\nFIX: Verbrauchsberechnung erzeugte hohe CPU-Last auf einigen Systemen #(43)\nFIX: Crash-Handler für Animationen optimiert - wenn Animation vorhanden ist, bevor der Wert aktualisiert wird, könnte der Adapter abstürzen\nHinzugefügt: Bessere Vervielfältigung der Artikel\nHinzugefügt: Aktionen für Datenquellen und Icons (on, off, toggle) - Staat kann auch in Datasource angezeigt werden\nHinzugefügt: Verbrauchsberechnung - Hinzugefügt Zustände, wenn Batterie-Ladung/Entladung und öffentliche Netz-Feed/Grid-Verbrauch sind nicht die gleichen\nHinzugefügt: Backup bewegt von Zuständen in ioBroker Ordner statt (sparen Redis Power und Zustände laden)\nHinzugefügt: Loading information for object browser (falls nicht bereits geladen)\nHinzugefügt: Darkmode für Layout",
-                "ru": "FIX: При некоторых обстоятельствах символы, тексты и изображения могут запустить рабочее пространство\nFIX: расчет расхода произведена высокая нагрузка CPU на некоторые системы #(43)\nFIX: Crash-Handler для оптимизации анимации - если анимация присутствует перед обновлением стоимости, адаптер может сбой\nДобавлено: Лучшее дублирование предметов\nДобавленные: Действия для Datasources и Icons (on, off, toggle) - Государство может отображаться в Datasource а также\nДобавлен: Расчёт потребления - Добавлены государства, если заряд батареи/разряд и публичная сетка-покорение не то же самое\nДобавлена: Backup переехал из штатов в папку ioBroker вместо (сохранение силы Redis и состояния загрузки)\nДобавлена: Загрузка информации для браузера объекта (если не загружено уже)\nДобавлено: Darkmode для Layout",
-                "pt": "FIX: Em algumas circunstâncias, símbolos, textos e imagens podem ser executados fora do espaço de trabalho\nFIX: cálculo de consumo produziu alta carga de CPU em alguns sistemas #(43)\nFIX: Crash-Handler para animações otimizadas - se a animação estiver presente antes que o valor seja atualizado, o adaptador pode falhar\nAdicionado: Melhor duplicação de itens\nAdicionado: Actions for Datasources and Icons (em, off, toggle) - Estado pode ser exibido em Datasource bem\nAdicionado: cálculo de consumo - estados adicionados se carga da bateria/descarga e público grid-feed/grid-consumption não são o mesmo\nAdicionado: Backup movido de estados para pasta ioBroker em vez ( economizando energia Redis e estados carregando)\nAdicionado: Carregando informações para navegador objeto (se não carregado já)\nAdicionado: Darkmode for Layout",
-                "nl": "Onder sommige omstandigheden symbolen, sms'en en beelden kunnen de werkruimte verlaten\nCPU-lading op sommige systemen\nCrash-Handler voor animatie, als animatie aanwezig is voordat de waarde wordt geüpload, kan de adapter crashen\nVertaling:\nAktie voor Datasources en Icons (on, off, toggle) Staat kan ook tentoongesteld worden in Datasource\nToegegeven, consumptie berekening, toegevoegde staten als batterij beschuldiging en publieke grid-voeding niet hetzelfde zijn\nVersterking verplaatst van staten naar ioBroker map in plaats van Redis macht en staatsladen\nVertaling:\nVertaling:",
-                "fr": "FIX: Dans certaines circonstances, des symboles, des textes et des images pourraient s'échapper de l'espace de travail\nFIX: calcul de la consommation produit une charge CPU élevée sur certains systèmes #(43)\nFIX : Crash-Handler pour les animations optimisées - si l'animation est présente avant la mise à jour de la valeur, l'adaptateur pourrait s'écraser\nAjouté : Meilleure duplication des articles\nAjouté: Actions pour les Datasources et les Icônes (on, off, toggle) - L'État peut également être affiché dans Datasource\nAjouté : Calcul de la consommation - États ajoutés si la charge/décharge de la batterie et la consommation de réseau public/consommation de la batterie ne sont pas les mêmes\nAjouté: Backup déplacé des états vers le dossier ioBroker à la place (économie de puissance Redis et les états de chargement)\nAjouté: Chargement des informations pour le navigateur objet (si pas déjà chargé)\nAjouté : Darkmode for Layout",
-                "it": "FIX: In alcune circostanze simboli, testi e immagini potrebbero esaurire lo spazio di lavoro\nFIX: il calcolo dei consumi ha prodotto un elevato carico della CPU su alcuni sistemi #(43)\nFIX: Crash-Handler per animazioni ottimizzate - se l'animazione è presente prima dell'aggiornamento del valore, l'adattatore potrebbe crash\nAggiunto: Meglio duplicazione di elementi\nAggiunto: Actions for Datasources and Icons (on, off, toggle) - Lo stato può essere visualizzato anche in Datasource\nAggiunto: Consum Calcolo - Aggiunto stati se carica batteria / scarico e pubblico griglia-feed/grid-consum non sono lo stesso\nAggiunto: Backup spostato dagli stati alla cartella ioBroker invece (risparmio di potenza Redis e stato di caricamento)\nAggiunto: Caricamento informazioni per il browser oggetto (se non caricato già)\nAggiunto: Darkmode for Layout",
-                "es": "FIX: Bajo algunas circunstancias, los símbolos, textos e imágenes podrían salir del espacio de trabajo\nFIX: cálculo del consumo producido alta carga CPU en algunos sistemas #(43)\nFIX: Crash-Handler para animaciones optimizadas - si la animación está presente antes de que se actualice el valor, el adaptador podría estrellarse\nAñadido: Mejor duplicación de artículos\nAñadido: Actions for Datasources and Icons (on, off, toggle) - State can be display in Datasource as well\nAñadido: Cálculo de consumo - Estados añadidos si la carga/descarga de la batería y el consumo público de red/grid-consumo no son los mismos\nAñadido: Backup movido de estados a carpeta de yoBroker en su lugar (salvando la energía de Redis y la carga de estados)\nAñadido: Información de carga para el navegador de objetos (si no está cargado ya)\nAñadido: Modo oscuro para el diseño",
-                "pl": "FIX: W niektórych okolicznościach symbole teksty i obrazy mogą wyprowadzić poza przestrzeń roboczą\nFIX: obliczenia zużycia wytwarzały duże obciążenie procesora na niektórych systemach #(43)\nFIX: Crash-Handler dla animacji zoptymalizowane – jeśli animacja jest aktualizowana, adapter może rozbić się\nLepsze duplikacje\nAdded: Akcje dla źródeł danych i Icons (nawet do toggle) – Państwo może być wyświetlane w danych oraz w danych\nObliczenia konsumpcyjne - Państwa Addowane, jeżeli ładunek akumulatorowy lub rozładowanie sieci publicznej nie są takie same, że nie są one takie same\nAdded: Backup przeniósł się z stanów do foldera ioBrokera, zamiast tego (saving Redis power and states loading)\nAdded: Dostarczanie informacji dla przeglądarki obiektowej (jeśli już nie załadowano)\nAdded: Darkmode for Layout",
-                "uk": "FIX: У деяких випадках символи, тексти та зображення можуть вийти з робочого простору\nFIX: розрахунок споживання виробляв на деяких системах No(43)\nFIX: Crash-Handler для анімацій оптимізовано - якщо анімація присутній до оновлення значення, адаптер може збитись\nДоданий: Краще дублювання предметів\nДодано: Дії для Datasources і ікон (на, off, toggle) - Держава може відображатися в Datasource, а також\nДодано: Розрахунок споживання - Додані стани, якщо заряд акумулятора/розрядна та публічна сітчаста/грід-споживання не однакові\nДодано: Резервне копіювання переміщається з станів до папки ioBroker замість (потрібне навантаження Redis та станів)\nДодано: Завантаження інформації для браузера об'єкта (якщо не завантажено вже)\nДоданий: Darkmode для Layout",
-                "zh-cn": "FIX:在某些情况下,象征、文字和图像可以排除在工作空间之外\nFIX:消费计算对某些系统生产的高全氟化气体(43)\n九、FIX:在更新价值之前,在最大程度地实现降水的Crash-Handler 可以减少事故\n增 编:改进项目重复\n增加:数据来源和Icons(从中获益)――国家可在数据来源和数据来源上展示。\n增 编:如果电池费/分销和公共电网/电网的消费与否,消费计算 - 添加国家\n增 编:从国家移至多氯乙烷,而不是(挽救红力量和装甲)\n增 编:为投机提供信息(如未装载)\n增 编:拉迪松"
-            },
-            "0.0.2-alpha.14": {
-                "en": "Added: Support for SVG elements. SVG will be an area inside the workspace and allows to paste pure SVG data (#31)\nAdded: Support for own images. The user is responsible how to upload the image to ioBroker, as the adapter has no upload possibility\nAdded: Support to arrange pictures and elements in levels. They can now be moved to fore- or background\nAdded: Consumption calculation - Currently, only single-mode (positive and negative) states are supported. Different states for battery charge/discharge and public grid-feed/grid-consumption will be added in next version\nAdded: Some error handling improved",
-                "de": "Hinzugefügt: Unterstützung für SVG-Elemente. SVG wird ein Bereich innerhalb des Arbeitsraums sein und erlaubt es, reine SVG-Daten #(31) einzufügen\nHinzugefügt: Unterstützung für eigene Bilder. Der Benutzer ist verantwortlich, wie das Bild auf ioBroker hochzuladen, da der Adapter keine Upload-Möglichkeit hat\nHinzugefügt: Unterstützung, um Bilder und Elemente in Ebenen zu arrangieren. Sie können nun nach Vor- oder Hintergrund bewegt werden\nHinzugefügt: Verbrauchsberechnung - Derzeit werden nur Singlemode (positive und negative) Zustände unterstützt. In der nächsten Version werden verschiedene Zustände für Batterieladung/Entladung und öffentliche Netz-Feed/Grid-Verbrauch hinzugefügt\nHinzugefügt: Einige Fehlerbehandlung verbessert",
-                "ru": "Добавлена: Поддержка элементов SVG. SVG будет зоной внутри рабочего пространства и позволяет вставить чистые SVG данные #(31)\nДобавлена: Поддержка собственных изображений. Пользователь несет ответственность, как загрузить изображение на ioBroker, так как адаптер не имеет возможности загрузки\nДобавлена: Поддержка для организации фотографий и элементов в уровнях. Они теперь могут быть перемещены в fore- или фон\nДобавлена: Расчёт потребления - В настоящее время поддерживаются только однорежимные (положительные и отрицательные) государства. Различные штаты для заряда батареи/разряда и общественного питания/grid-consumption будут добавлены в следующей версии\nДобавлена: Некоторая обработка ошибок улучшена",
-                "pt": "Adicionado: Suporte para elementos SVG. SVG será uma área dentro do espaço de trabalho e permite colar dados SVG puros #(31)\nAdicionado: Suporte para imagens próprias. O usuário é responsável como carregar a imagem para ioBroker, pois o adaptador não tem possibilidade de upload\nAdicionado: Suporte para organizar imagens e elementos em níveis. Eles podem agora ser movidos para ante- ou fundo\nAdicionado: Cálculo de consumo - Atualmente, apenas estados de monomodo (positivo e negativo) são suportados. Diferentes estados para carga/descarga da bateria e consumo público da grade/grid serão adicionados na próxima versão\nAdicionado: Alguns manipulação de erro melhorou",
-                "nl": "Versterking voor SVG elementen. SVG zal een gebied zijn in de werkruimte en toestaan om pure SVG data te vullen\nVersterking voor eigen beelden. De gebruiker is verantwoordelijk om het beeld te uploaden naar ioBroker, want de adapter heeft geen mogelijkheid om te uploaden\nVersterking om foto's en elementen in niveaus te regelen. Ze kunnen nu verplaatst worden naar voor of achtergrond\nConsumptie berekening, op dit moment, alleen een enkele manier, gesteund en negatief. Verschillende staten voor batterijlading en publieke grid-voed/grid-consumptie zullen worden toegevoegd in volgende versie\nToegevoegd",
-                "fr": "Ajouté : Support pour les éléments SVG. SVG sera une zone à l'intérieur de l'espace de travail et permet de coller des données SVG pures #(31)\nAjouté : Support pour ses propres images. L'utilisateur est responsable de télécharger l'image sur ioBroker, car l'adaptateur n'a pas de possibilité de téléchargement\nAjouté: Soutien pour organiser des photos et des éléments dans les niveaux. Ils peuvent maintenant être déplacés avant ou arrière-plan\nAjouté : Calcul de la consommation - Actuellement, seuls les états monomodes (positifs et négatifs) sont pris en charge. Différents états de charge/décharge de la batterie et d'alimentation/consommation du réseau public seront ajoutés dans la prochaine version\nAjouté: Une manipulation d'erreurs améliorée",
-                "it": "Aggiunto: Supporto per elementi SVG. SVG sarà un'area all'interno dello spazio di lavoro e permette di incollare dati SVG puri #(31)\nAggiunto: Supporto per proprie immagini. L'utente è responsabile di come caricare l'immagine su ioBroker, in quanto l'adattatore non ha alcuna possibilità di upload\nAggiunto: Supporto per organizzare immagini ed elementi a livelli. Ora possono essere spostati in prima o in background\nAggiunto: Consum calcolo - Attualmente, solo monomode (positivo e negativo) stati sono supportati. Verranno aggiunti diversi stati per la carica della batteria/scarica e l'alimentazione della griglia pubblica/grid-consum nella prossima versione\nAggiunto: Alcuni errori di gestione migliorata",
-                "es": "Añadido: Soporte para elementos SVG. SVG será un área dentro del espacio de trabajo y permite pegar datos SVG puros #(31)\nAñadido: Soporte para imágenes propias. El usuario es responsable de cómo subir la imagen a ioBroker, ya que el adaptador no tiene posibilidad de subir\nAñadido: Soporte para organizar imágenes y elementos en niveles. Ahora pueden ser movidos al frente o al fondo\nAñadido: Cálculo de consumo - Actualmente, solo se admiten estados monomodo (positivos y negativos). En la próxima versión se añadirán diferentes estados para carga/descarga de baterías y alimentación pública/consumo de grúas\nAñadido: Algo de manejo de errores mejorado",
-                "pl": "Added: Wsparcie dla elementów SVG. SVG będzie obszarem wewnątrz przestrzeni roboczej i umożliwia paste clean SVG data #(31)\nWstęp: Wsparcie dla własnych obrazów. Użytkownik jest odpowiedzialny za przeciążenie obrazu na ioBroker, ponieważ adapter nie ma możliwości ładowania\nAdded: Wsparcie do aranżacji obrazów i elementów na poziomach. Mogą być obecnie przenoszone do przed- lub tła\nWspierane są: obliczenia konsumpcyjne – obecnie tylko jednomode (pozytywne i negatywne) stany. Różne stany ładowania akumulatora i rozładunku sieciowego/grudowe będą dodane do następnej wersji\nWstęp: Niektóre uchylenie błędów poprawiło",
-                "uk": "Додано: Підтримка елементів SVG. SVG стане зоною всередині робочого простору і дозволяє вставляти чисті дані SVG #(31)\nДодано: Підтримка власних зображень. Користувач несе відповідальність за те, як завантажити зображення в ioBroker, оскільки адаптер не має можливості завантаження\nДодано: Підтримка розміщення зображень і елементів в рівнях. Вони тепер можуть бути переміщені в fore- або фоновому режимі\nДодано: Розрахунок споживання - В даний час підтримуються тільки одномодові (позитивні та негативні) стани. У наступній версії буде додано різні стани для зарядки акумулятора/розрядної та публічної сітки\nДоданий: Деякі поліпшення обробки помилок",
-                "zh-cn": "增加:支助SVG部分。 SVG将是工作空间内的一个领域,并允许过去获得的SVG数据(31)\n增加:支持自己的图像。 用户负责如何将图像传给水器,因为适应者没有足够的可能。\n增加:支持安排各级的图像和要素。 他们现在可以移到表面上或背景。\n增加:目前,只支持单一的消费(积极和消极)国家。 下一版本将增加电池费/分销和公共电网/底层消费的不同州。\n增加:处理一些错误的改进"
-            },
-            "0.0.2-alpha.13": {
-                "en": "Added: Build-in Object Browser for faster loading and saving bandwith (get rid of the default ioBroker one)\nAdded: Autocomplete for Datasources Boxes - Datasource will be fetched during typing\nAdded: Language for some boxes were missing\nAdded: Disable all other Datasources in list while editing to prevent mixup\nAdded: New states for 'battery_remaining_target', which shows the target time in Unixtime and 'battery_remaining_target_DT', which shows the time in human readable format\nFIX: Icon-Proxy was not showing icons under some circumstances\nFIX: Reverse steps for alignment was in the wrong order (#37)",
-                "de": "Hinzugefügt: Build-in Object Browser für schnelleres Laden und Speichern von Bandmit (Entfernen Sie die Standard-ioBroker ein)\nHinzugefügt: Autocomplete für Datasources Boxes - Datasource wird beim Eingeben abgerufen\nHinzugefügt: Sprache für einige Boxen fehlte\nHinzugefügt: Deaktivieren Sie alle anderen Datenquellen in der Liste während der Bearbeitung, um die Mischung zu verhindern\nHinzugefügt: Neue Zustände für Battery_remaining_target, die die Zielzeit in Unixtime und Battery_remaining_target_DT zeigt, die die Zeit im menschlichen lesbaren Format zeigt\nFIX: Icon-Proxy zeigte unter Umständen keine Icons\nFIX: Umkehrschritte zur Ausrichtung lag in der falschen Reihenfolge #(37)",
-                "ru": "Добавлена: Build-in Object Browser для более быстрой загрузки и экономии bandwith (выберите из по умолчанию ioBroker один)\nДобавлен: Автозаполнение для Datasources Boxes - Datasource будет выбит во время ввода\nДобавлена: Язык для некоторых коробок отсутствует\nДобавлена: Отключить все другие Datasources в списке при редактировании, чтобы предотвратить сведение\nДобавлено: Новые состояния для Battery_remaining_target, который показывает целевое время в Unixtime и Battery_remaining_target_DT, который показывает время в читаемом человеке формате\nFIX: Icon-Proxy не показывал иконки при некоторых обстоятельствах\nFIX: Обратные шаги для выравнивания были в неправильном порядке #(37)",
-                "pt": "Adicionado: Build-in Object Browser para carregamento mais rápido e salvar bandawith (get rid of the default ioBroker one)\nAdicionado: Autocompleto para Datasources Boxes - Datasource será buscar durante a digitação\nAdicionado: Linguagem para algumas caixas estavam faltando\nAdicionado: Desativar todos os outros Datasources na lista durante a edição para evitar mixup\nAdicionado: Novos estados para battery_remaining_target, que mostra o tempo de destino em Unixtime e battery_remaining_target_DT, que mostra o tempo em formato legível humano\nFIX: Icon-Proxy não estava mostrando ícones em algumas circunstâncias\nFIX: Os passos inversos para alinhamento estavam na ordem errada #(37)",
-                "nl": "Gebouw in Object Browser voor snellere lading en het redden van band met de default ioBroker 1\nAutocomplete voor Datasources Boxes. De dataource zal worden opgehaald tijdens het typen\nVertaling:\nVertaling:\nVertaling:\nIcon-Proxy toonde geen icoon onder sommige omstandigheden\nOmgekeerde stappen voor uitspraak was in de verkeerde volgorde",
-                "fr": "Ajouté: Navigateur d'objets Build-in pour le chargement et l'enregistrement plus rapide de la bande avec (se débarrasser de la par défaut ioBroker one)\nAjouté: Autocomplete for Datasources Boxes - La source de données sera saisie lors de la typographie\nAjouté: Langue pour certaines boîtes étaient manquantes\nAjouté: Désactiver toutes les autres sources de données dans la liste tout en éditant pour empêcher le mixup\nAjouté: Nouveaux états pour Battery_remaining_target, qui montre le temps cible dans Unixtime et Battery_remaining_target_DT, qui montre le temps dans le format lisible humain\nFIX: Icon-Proxy n'a pas montré d'icônes dans certaines circonstances\nFIX: Les étapes inversées pour l'alignement étaient dans le mauvais ordre #(37)",
-                "it": "Aggiunto: Build-in Object Browser per il caricamento e il salvataggio più veloce bandwith (get rid of the default ioBroker one)\nAggiunto: Autocomplete for Datasources Boxes - Le risorse dati saranno recuperate durante la digitazione\nAggiunto: lingua per alcuni scatole erano mancanti\nAggiunto: Disattiva tutti gli altri Datasources in lista durante la modifica per evitare mixup\nAggiunto: Nuovi stati per Battery_remaining_target, che mostra il tempo di destinazione in Unixtime e Battery_remaining_target_DT, che mostra il tempo in formato leggibile umano\nFIX: Icon-Proxy non mostrava icone in alcune circostanze\nFIX: I passi inverso per l'allineamento erano nell'ordine sbagliato #(37)",
-                "es": "Añadido: Navegador de objetos incorporados para una carga más rápida y banda de ahorro con (deshacerse del ioBroker predeterminado)\nAñadido: Autocompleto para cajas de fuentes de datos - Datasource will betched during typing\nAñadido: Lenguaje para algunas cajas faltaban\nAñadido: Desactivar todos los demás Datasources en la lista mientras se edita para evitar la mezcla\nAñadido: Nuevos estados para Battery_remaining_target, que muestra el tiempo de destino en Unixtime y Battery_remaining_target_DT, que muestra el tiempo en formato legible humano\nFIX: Icon-Proxy no estaba mostrando iconos bajo algunas circunstancias\nFIX: Los pasos inversos para la alineación estaban en el orden equivocado #(37)",
-                "pl": "Added: Build-in Object Browser dla szybszego ładowania i oszczędnościowego zespołu z domyślnym ioBrokerem\nAdded: Autocomplete for Datasources Boxes (ang.). Źródło danych zostanie udostępnione podczas typowania danych\nW: Język dla niektórych skrzydeł zaginął\nAdded: Dysable all other Datasources in list, edytacja zapobiegająca miksowaniu\nAdded: Nowe stany na baterię_remaining_target, ukazujące czas na cel w uniksowym czasie i baterie_Turget_DT, który pokazuje czas w ludzkim gotowym formacie\nFIX: Icon-Proxy nie wykazuje ikon w niektórych okolicznościach\nFIX: Odwrotowe kroki do dopasowania były w złamanym porządku #(37)",
-                "uk": "Додано: Вбудований браузер об'єкта для швидкого завантаження та збереження смуги з (позбутися від за замовчуванням ioBroker)\nДодано: Автозаповнення для сховищ даних - Під час натискання на сховище даних\nДодано: Мова для деяких ящиків відсутні\nДодано: Вимкніть всі інші джерела даних у списку під час редагування, щоб запобігти перемішування\nДодано: Нові стани для акумулятора_remaining_target, які показують час цілі в Unixtime і акумулятор_remaining_target_DT, який показує час в режимі читання людини\nFIX: Ікона-Проксі не показала іконки за певних обставин\nFIX: Зворотні дії для вирівнювання були в неправильному порядку #(37)",
-                "zh-cn": "增加:布兰德-尼目标Browser以更快地装载和挽救匪(目标1)\n增加:数据来源的自动化- 数据来源将在分类期间分期。\n增加:一些箱的语文失踪\n增 编:在清单中摘除所有其他数据来源,同时编辑防止混杂\n增加:电池新建国:重塑目标——目标,它显示了非固定和电池的预定时间。\nFIX:在某些情况下,Icon-Proxy没有说明理由。\nFIX:调整的逆向步骤是错误的命令(37)"
-            },
-            "0.0.2-alpha.12": {
-                "en": "Added: Improved Icon - Proxy, to serve icons for all symbols (if enabled)\nAdded: Language translations for live-view variables",
-                "de": "Hinzugefügt: Verbesserte Icon - Proxy, um Icons für alle Symbole zu dienen (wenn aktiviert)\nHinzugefügt: Sprachübersetzungen für Live-View-Variablen",
-                "ru": "Добавлено: Улучшенная икона - Прокси, чтобы служить иконки для всех символов (если включено)\nДобавлена: Языковые переводы для переменных live-view",
-                "pt": "Adicionado: Icon melhorado - Proxy, para servir ícones para todos os símbolos (se habilitado)\nAdicionado: Traduções linguísticas para variáveis live-view",
-                "nl": "Geïmproviseerd Icon - Proxy, om iconen te dienen voor alle symbolen\nVertaling:",
-                "fr": "Ajouté: Icône amélioré - Proxy, pour servir des icônes pour tous les symboles (si activé)\nAjouté : Traductions linguistiques pour les variables en direct",
-                "it": "Aggiunto: Migliorato icona - proxy, per servire icone per tutti i simboli (se abilitato)\nAggiunto: Traduzioni linguistiche per variabili live-view",
-                "es": "Añadido: Icono mejorado - Proxy, para servir iconos para todos los símbolos (si está habilitado)\nAñadido: Traducción de idiomas para variables de visión en vivo",
-                "pl": "Added: Improved Icon - Proxy, by służyć ikonom dla wszystkich symboli\nTłumaczenie języka dla zmiennych na żywo",
-                "uk": "Додано: Покращена ікона - Проксі, щоб служити іконки для всіх символів (якщо включений)\nДодано: Мови переклади для змінних зображень",
-                "zh-cn": "增加:改善Icon- Proxy,为所有标志(如果能够)服务。\n增 编:用于生活审查变量的语文翻译"
-            }
-        },
-        "titleLang": {
-            "en": "Energiefluss - erweitert",
-            "de": "Energiefluss - erweitert",
-            "ru": "Energiefluss - erweitert",
-            "pt": "Energiefluss - erweitert",
-            "nl": "Energiefluss - erweitert",
-            "fr": "Energiefluss - erweitert",
-            "it": "Energiefluss - erweitert",
-            "es": "Energiefluss - erweitert",
-            "pl": "Energiefluss - erweitert",
-            "zh-cn": "Energiefluss-erweitert",
-            "uk": "Energiefluss - erweitert"
-        },
-        "desc": {
-            "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
-            "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
-        },
-        "authors": [
-            "SKB <info@skb-web.de>"
-        ],
-        "keywords": [
-            "energy",
-            "energy-flow",
-            "energie",
-            "energiefluss"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "energiefluss-erweitert.png",
-        "enabled": true,
-        "localLinks": {
-            "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
-        },
-        "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
-        "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "visualization",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "assumption",
-        "materialize": true,
-        "materializeTab": false,
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22",
-                "web": ">=3.0.12"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ],
-        "messagebox": true,
-        "subscribe": "messagebox"
+  "common": {
+    "name": "energiefluss-erweitert",
+    "version": "0.0.2-alpha.19",
+    "news": {
+      "0.0.2-alpha.19": {
+        "en": "FIX: Since number animation, it could occur, that decimal places got cut off on initial values\nFIX: Save & Exit was not working correctly, if an high amount of data should be saved\nAdded: Made previously count up/down Animation for numbers configurable for each datasource element\nAdded: Low power mode for animations (can be enabled generaly or via URL parameter on each device)\nAdded: If Element is filled depending on value, it is now possible, to use the basic color as fill for the remaining space or none as transparent",
+        "de": "FIX: Seit Zahlenanimation kann es vorkommen, dass Dezimalstellen auf Anfangswerte abgeschnitten wurden\nFIX: Speichern & Ausführen funktionierte nicht richtig, wenn eine hohe Datenmenge gespeichert werden sollte\nHinzugefügt: Hergestellt vorher Count up/down Animation für Zahlen konfigurierbar für jedes Datenquellenelement\nHinzugefügt: Low-Power-Modus für Animationen (kann generell oder über URL-Parameter auf jedem Gerät aktiviert werden)\nHinzugefügt: Wenn Element je nach Wert ausgefüllt wird, ist es nun möglich, die Grundfarbe als Füllung für den verbleibenden Raum oder keine als transparent zu verwenden",
+        "ru": "FIX: Поскольку анимация номера, это могло произойти, что десятичные места отрезались на начальных значениях\nFIX: Save & Exit не работал правильно, если необходимо сохранить высокое количество данных\nДобавлена: Сделано ранее подсчет вверх/вниз Анимация для конфигурируемых номеров для каждого элемента datasource\nДобавлен: Низкий режим питания для анимаций (может быть включена в целом или через параметр URL на каждом устройстве)\nДобавлено: Если элемент заполнен в зависимости от значения, то теперь возможно, использовать базовый цвет как заполните для оставшегося пространства или не как прозрачный",
+        "pt": "FIX: Desde a animação numérica, pode ocorrer, que os lugares decimais foram cortados em valores iniciais\nFIX: Salvar e saída não estava funcionando corretamente, se uma alta quantidade de dados deve ser salva\nAdicionado: Made before count up/down Animação para números configuráveis para cada elemento de datasource\nAdicionado: Modo de baixa potência para animações (pode ser habilitado generaly ou via parâmetro URL em cada dispositivo)\nAdicionado: Se Element é preenchido dependendo do valor, agora é possível, usar a cor básica como preenchimento para o espaço restante ou nenhum tão transparente",
+        "nl": "Gezien het aantal animaties kon het gebeuren dat decimale plaatsen werden afgesneden op eerste waarden\nSave Exit werkte niet correct, als een hoge hoeveelheid gegevens gered moeten worden\nVervolgens liet hij voorheen aftellen voor cijfers die configurabel waren voor elke dataource element\nVerlaagde machtsmacht voor animaties (kan gehandicapte generaalschap of via URL parameter op elk apparaat)\nAls Element afhankelijk is van waarde, is het nu mogelijk de basiskleur te gebruiken voor de resterende ruimte of niet zo transparant",
+        "fr": "FIX: Depuis l'animation du nombre, il pourrait se produire, que les lieux décimaux ont été coupés sur les valeurs initiales\nFIX: Save & Exit ne fonctionnait pas correctement, si une quantité élevée de données devrait être enregistrée\nAjouté: Réalisé précédemment comptage/down Animation pour les nombres configurables pour chaque élément de datasource\nAjouté : Mode faible puissance pour les animations (peut être activé général ou par paramètre URL sur chaque appareil)\nAjouté: Si Element est rempli en fonction de la valeur, il est maintenant possible d'utiliser la couleur de base comme remplissage pour l'espace restant ou aucun aussi transparent",
+        "it": "FIX: Dal momento che l'animazione numero, potrebbe verificarsi, che i luoghi decimali sono stati tagliati sui valori iniziali\nFIX: Save & Exit non funziona correttamente, se si deve salvare un'elevata quantità di dati\nAggiunto: Fatto in precedenza conteggio su / giù Animazione per i numeri configurabile per ogni elemento datasource\nAggiunto: Modalità di bassa potenza per le animazioni (può essere abilitato generaly o tramite parametro URL su ogni dispositivo)\nAggiunto: Se Element è riempito a seconda del valore, è ora possibile, usare il colore di base come riempimento per lo spazio rimanente o nessuno come trasparente",
+        "es": "FIX: Desde la animación número, podría ocurrir, que los lugares decimales se cortaron en valores iniciales\nFIX: Guardar \" La salida no funcionaba correctamente, si se debía guardar una alta cantidad de datos\nAñadido: Hecho anteriormente cuenta arriba / abajo Animación para números configurable para cada elemento fuente de datos\nAñadido: Modo de baja potencia para animaciones (puede ser habilitado en general o mediante parámetro URL en cada dispositivo)\nAñadido: Si el Elemento se llena dependiendo del valor, ahora es posible utilizar el color básico como relleno para el espacio restante o ninguno como transparente",
+        "pl": "FIX: Od czasu animacji liczbowej może wystąpić, że miejsca dziesiętne odcinały się od wartości początkowych\nFIX: Save & Exit nie pracowało poprawnie, jeżeli należy ocalić ilość danych\nAdded: Made upliczał/down Animation do liczb konfigurowalnych\nDodał: Niższy tryb władzy dla animacji (może być może uogólniony lub poprzez parametr URL na każdym urządzeniem)\nWstęp: Jeśli element jest wypełniony w zależności od wartości, jest teraz możliwe, aby używać podstawowego koloru jako wypełniania pozostałej przestrzeni lub none jako przezroczyste",
+        "uk": "FIX: Оскільки кількість анімацій, це може статися, що десяткові місця знімалися на початкових значеннях\nFIX: Заощаджувати & Вимкнути не було належним чином, якщо висока кількість даних слід зберігати\nДодано: Виготовлений раніше підрахунок / вниз Анімація для чисел, налаштованих для кожного елемента даних\nДодано: Низький режим живлення для анімації (може бути ввімкнений загальний або через параметр URL на кожному пристрої)\nДоданий: Якщо Елемент заповнюється в залежності від значення, тепер можна, щоб використовувати основний колір, як заповнити решту простору або ні про прозорий",
+        "zh-cn": "FIX:由于数量的推移,可能发生这种情况,降水地点在初始价值上被切断。\nFIX:Save & Exit如果不正确开展工作,如果大量数据应予挽救。\n增加:对每个数据来源要素来说,以前计算/减少数量\n增删:电压低(每种装置可以普遍或通过URL参数)。\n增加:如果根据价值填补,现在可以使用基本颜色作为补足剩余空间,或者没有透明度。"
+      },
+      "0.0.2-alpha.18": {
+        "en": "Added: Count up/down Animation for numbers added. Instead of directly changing numbers, they are animated.",
+        "de": "Hinzugefügt: Count up/down Animation für Zahlen hinzugefügt. Anstelle von direkt wechselnden Zahlen werden sie animiert.",
+        "ru": "Добавлен: Подсчет вверх/вниз Анимация для добавленных номеров. Вместо прямого изменения числа они анимированы.",
+        "pt": "Adicionado: Contar up/down Animação para números adicionados. Em vez de alterar números diretamente, eles são animados.",
+        "nl": "Toegevoegd: graaf up/down Dieimation voor getallen toegevoegd. In plaats van het veranderen van nummers, zijn ze geanimeerd.",
+        "fr": "Ajouté : Comptez sur Animation pour les nombres ajoutés. Au lieu de changer directement les nombres, ils sont animés.",
+        "it": "Aggiunto: Count up/down Animation per i numeri aggiunti. Invece di cambiare direttamente i numeri, sono animati.",
+        "es": "Añadido: Cuenta arriba / abajo Animación para números añadidos. En lugar de cambiar directamente los números, están animados.",
+        "pl": "Added: Count up/down Animation (ang.). Zamiast zmieniać liczby, są one animowane.",
+        "uk": "Додано: Розрахувати / вимкнути анімацію для доданих чисел. Замість безпосередньо мінливих чисел, вони анімовані.",
+        "zh-cn": "增加:增加人数减少/减少。 这些数字不是直接变化的数字,而是造成。."
+      },
+      "0.0.2-alpha.17": {
+        "en": "FIX: Object browser did not show all states - especially not the ones in Channel or Folders",
+        "de": "FIX: Objekt-Browser hat nicht alle Zustände gezeigt - vor allem nicht die in Channel oder Folders",
+        "ru": "FIX: браузер объектов не показал все государства - особенно не те, кто в канале или Folders",
+        "pt": "FIX: O navegador de objetos não mostrou todos os estados - especialmente os não no canal ou pastas",
+        "nl": "Object Browser liet niet alle staten zien, vooral niet degenen in Channel of Folders",
+        "fr": "FIX: Le navigateur d'objet n'a pas montré tous les états - surtout pas ceux dans Channel ou Folders",
+        "it": "FIX: Il browser non ha mostrato tutti gli stati - soprattutto non quelli in Canale o Cartella",
+        "es": "FIX: El navegador de objetos no mostró todos los estados - especialmente no los de Canal o Carpetas",
+        "pl": "FIX: przeglądarka obiektów nie pokazywała wszystkich stanów, zwłaszcza w Channel czy Folders",
+        "uk": "FIX: Об'єктний браузер не показує всіх штатів - особливо не ті, які в Каналі або Плакати",
+        "zh-cn": "九、FIX:物体袋没有显示所有各州,特别是海峡或女兵。"
+      },
+      "0.0.2-alpha.16": {
+        "en": "FIX: Adapter crashed sometimes, due to accessing invalid ids\nAdded: Possibility to addition values to other values\nAdded: Directly display animations and values after startup instead of waiting till first value changes\nAdded: Adapter depencies and stability\nAdded: New Translations for new functions",
+        "de": "FIX: Adapter stürzte manchmal ab, aufgrund des Zugriffs auf ungültige IDs\nHinzugefügt: Möglichkeit, Werte zu anderen Werten hinzuzufügen\nHinzugefügt: Direkt anzeigen Animationen und Werte nach dem Start statt warten bis erste Wertänderungen\nHinzugefügt: Adapter-Depencies und Stabilität\nHinzugefügt: Neue Übersetzungen für neue Funktionen",
+        "ru": "FIX: адаптер иногда сбился из-за доступа недействительных идентификаторов\nДобавлена: Возможность добавления значений к другим значениям\nДобавлена: Непосредственно отображать анимации и значения после запуска вместо ожидания до изменения первого значения\nДобавлена: Адаптерные частоты и стабильность\nДобавлено: Новые переводы для новых функций",
+        "pt": "CORREÇÃO: O adaptador caiu às vezes, devido ao acesso a ids inválidos\nAdicionado: Possibilidade de adição de valores para outros valores\nAdicionado: Exibir diretamente animações e valores após a inicialização em vez de esperar até primeiras mudanças de valor\nAdicionado: Adapter competências e estabilidade\nAdicionado: Novas traduções para novas funções",
+        "nl": "Adapter crashte soms door toegang tot invalides\nToegevoegd aan andere waarden\nToegevoegd: direct vertoon je animatie en waarden na de start in plaats van te wachten tot de eerste waarde verandert\nVertaling:\nVertaling:",
+        "fr": "FIX: L'adaptateur s'est écrasé parfois, en raison de l'accès aux id invalides\nAjouté: Possibilité d'ajouter des valeurs à d'autres valeurs\nAjouté: Afficher directement les animations et les valeurs après le démarrage au lieu d'attendre jusqu'à ce que la première valeur change\nAjouté: Dépéances de l'adaptateur et stabilité\nAjouté : Nouvelles traductions pour de nouvelles fonctions",
+        "it": "FIX: L'adattatore si è schiantato a volte, a causa dell'accesso a id non validi\nAggiunto: Possibilità di aggiungere valori ad altri valori\nAggiunto: Direttamente visualizzare animazioni e valori dopo l'avvio invece di aspettare fino al primo valore modifiche\nAggiunto: Adattatore dipendenze e stabilità\nAggiunto: Nuove traduzioni per nuove funzioni",
+        "es": "FIX: Adaptador se estrelló a veces, debido al acceso a los ids inválidos\nAñadido: Posibilidad de añadir valores a otros valores\nAñadido: Mostrar directamente animaciones y valores después de la puesta en marcha en lugar de esperar hasta los cambios de primer valor\nAñadido: Dependencias y estabilidad del adaptador\nAñadido: Nuevas traducciones para nuevas funciones",
+        "pl": "FIX: Adapter rozbił się czasem z powodu dostępu do nieprawidłowych idów\nAdded: Possibility to dodanie wartości innych wartości\nAdded: wyświetlanie animacji i wartości po uruchomieniu, zamiast czekania, aż pierwsza wartość zmienia się\nAdapter: depozyty i stabilność\nAdded: Nowe tłumaczenia dla nowych funkcji",
+        "uk": "FIX: Адаптер збитий іноді, через доступ до недійсних потоків\nДодано: Можливість додавання значень до інших значень\nДодано: Безперервно відображати анімацію та значення після запуску замість очікування до перших змін значення\nДодано: Перехідники та стійкість\nДодано: Нові переклади для нових функцій",
+        "zh-cn": "FIX:由于接触无效,有时拖拉了。\n增加:增加其他价值的可能性\n增加:在开工后直接展示动画和价值观,而不是等待第一值变化\n增加:紧缩和稳定\n增 编:新职能的翻译"
+      },
+      "0.0.2-alpha.15": {
+        "en": "FIX: Under some circumstances symbols, texts and images could run out off workspace\nFIX: consumption calculation produced high CPU load on some systems (#43)\nFIX: Crash-Handler for animations optimized - if animation is present before value is updated, the adapter could crash\nAdded: Better duplication of items\nAdded: Actions for Datasources and Icons (on, off, toggle) - State can be display in Datasource as well\nAdded: Consumption calculation - Added states if battery charge/discharge and public grid-feed/grid-consumption are not the same\nAdded: Backup moved from states to ioBroker folder instead (saving Redis power and states loading)\nAdded: Loading information for object browser (if not loaded already)\nAdded: Darkmode for Layout",
+        "de": "FIX: Unter Umständen könnten Symbole, Texte und Bilder aus dem Arbeitsraum auslaufen\nFIX: Verbrauchsberechnung erzeugte hohe CPU-Last auf einigen Systemen #(43)\nFIX: Crash-Handler für Animationen optimiert - wenn Animation vorhanden ist, bevor der Wert aktualisiert wird, könnte der Adapter abstürzen\nHinzugefügt: Bessere Vervielfältigung der Artikel\nHinzugefügt: Aktionen für Datenquellen und Icons (on, off, toggle) - Staat kann auch in Datasource angezeigt werden\nHinzugefügt: Verbrauchsberechnung - Hinzugefügt Zustände, wenn Batterie-Ladung/Entladung und öffentliche Netz-Feed/Grid-Verbrauch sind nicht die gleichen\nHinzugefügt: Backup bewegt von Zuständen in ioBroker Ordner statt (sparen Redis Power und Zustände laden)\nHinzugefügt: Loading information for object browser (falls nicht bereits geladen)\nHinzugefügt: Darkmode für Layout",
+        "ru": "FIX: При некоторых обстоятельствах символы, тексты и изображения могут запустить рабочее пространство\nFIX: расчет расхода произведена высокая нагрузка CPU на некоторые системы #(43)\nFIX: Crash-Handler для оптимизации анимации - если анимация присутствует перед обновлением стоимости, адаптер может сбой\nДобавлено: Лучшее дублирование предметов\nДобавленные: Действия для Datasources и Icons (on, off, toggle) - Государство может отображаться в Datasource а также\nДобавлен: Расчёт потребления - Добавлены государства, если заряд батареи/разряд и публичная сетка-покорение не то же самое\nДобавлена: Backup переехал из штатов в папку ioBroker вместо (сохранение силы Redis и состояния загрузки)\nДобавлена: Загрузка информации для браузера объекта (если не загружено уже)\nДобавлено: Darkmode для Layout",
+        "pt": "FIX: Em algumas circunstâncias, símbolos, textos e imagens podem ser executados fora do espaço de trabalho\nFIX: cálculo de consumo produziu alta carga de CPU em alguns sistemas #(43)\nFIX: Crash-Handler para animações otimizadas - se a animação estiver presente antes que o valor seja atualizado, o adaptador pode falhar\nAdicionado: Melhor duplicação de itens\nAdicionado: Actions for Datasources and Icons (em, off, toggle) - Estado pode ser exibido em Datasource bem\nAdicionado: cálculo de consumo - estados adicionados se carga da bateria/descarga e público grid-feed/grid-consumption não são o mesmo\nAdicionado: Backup movido de estados para pasta ioBroker em vez ( economizando energia Redis e estados carregando)\nAdicionado: Carregando informações para navegador objeto (se não carregado já)\nAdicionado: Darkmode for Layout",
+        "nl": "Onder sommige omstandigheden symbolen, sms'en en beelden kunnen de werkruimte verlaten\nCPU-lading op sommige systemen\nCrash-Handler voor animatie, als animatie aanwezig is voordat de waarde wordt geüpload, kan de adapter crashen\nVertaling:\nAktie voor Datasources en Icons (on, off, toggle) Staat kan ook tentoongesteld worden in Datasource\nToegegeven, consumptie berekening, toegevoegde staten als batterij beschuldiging en publieke grid-voeding niet hetzelfde zijn\nVersterking verplaatst van staten naar ioBroker map in plaats van Redis macht en staatsladen\nVertaling:\nVertaling:",
+        "fr": "FIX: Dans certaines circonstances, des symboles, des textes et des images pourraient s'échapper de l'espace de travail\nFIX: calcul de la consommation produit une charge CPU élevée sur certains systèmes #(43)\nFIX : Crash-Handler pour les animations optimisées - si l'animation est présente avant la mise à jour de la valeur, l'adaptateur pourrait s'écraser\nAjouté : Meilleure duplication des articles\nAjouté: Actions pour les Datasources et les Icônes (on, off, toggle) - L'État peut également être affiché dans Datasource\nAjouté : Calcul de la consommation - États ajoutés si la charge/décharge de la batterie et la consommation de réseau public/consommation de la batterie ne sont pas les mêmes\nAjouté: Backup déplacé des états vers le dossier ioBroker à la place (économie de puissance Redis et les états de chargement)\nAjouté: Chargement des informations pour le navigateur objet (si pas déjà chargé)\nAjouté : Darkmode for Layout",
+        "it": "FIX: In alcune circostanze simboli, testi e immagini potrebbero esaurire lo spazio di lavoro\nFIX: il calcolo dei consumi ha prodotto un elevato carico della CPU su alcuni sistemi #(43)\nFIX: Crash-Handler per animazioni ottimizzate - se l'animazione è presente prima dell'aggiornamento del valore, l'adattatore potrebbe crash\nAggiunto: Meglio duplicazione di elementi\nAggiunto: Actions for Datasources and Icons (on, off, toggle) - Lo stato può essere visualizzato anche in Datasource\nAggiunto: Consum Calcolo - Aggiunto stati se carica batteria / scarico e pubblico griglia-feed/grid-consum non sono lo stesso\nAggiunto: Backup spostato dagli stati alla cartella ioBroker invece (risparmio di potenza Redis e stato di caricamento)\nAggiunto: Caricamento informazioni per il browser oggetto (se non caricato già)\nAggiunto: Darkmode for Layout",
+        "es": "FIX: Bajo algunas circunstancias, los símbolos, textos e imágenes podrían salir del espacio de trabajo\nFIX: cálculo del consumo producido alta carga CPU en algunos sistemas #(43)\nFIX: Crash-Handler para animaciones optimizadas - si la animación está presente antes de que se actualice el valor, el adaptador podría estrellarse\nAñadido: Mejor duplicación de artículos\nAñadido: Actions for Datasources and Icons (on, off, toggle) - State can be display in Datasource as well\nAñadido: Cálculo de consumo - Estados añadidos si la carga/descarga de la batería y el consumo público de red/grid-consumo no son los mismos\nAñadido: Backup movido de estados a carpeta de yoBroker en su lugar (salvando la energía de Redis y la carga de estados)\nAñadido: Información de carga para el navegador de objetos (si no está cargado ya)\nAñadido: Modo oscuro para el diseño",
+        "pl": "FIX: W niektórych okolicznościach symbole teksty i obrazy mogą wyprowadzić poza przestrzeń roboczą\nFIX: obliczenia zużycia wytwarzały duże obciążenie procesora na niektórych systemach #(43)\nFIX: Crash-Handler dla animacji zoptymalizowane – jeśli animacja jest aktualizowana, adapter może rozbić się\nLepsze duplikacje\nAdded: Akcje dla źródeł danych i Icons (nawet do toggle) – Państwo może być wyświetlane w danych oraz w danych\nObliczenia konsumpcyjne - Państwa Addowane, jeżeli ładunek akumulatorowy lub rozładowanie sieci publicznej nie są takie same, że nie są one takie same\nAdded: Backup przeniósł się z stanów do foldera ioBrokera, zamiast tego (saving Redis power and states loading)\nAdded: Dostarczanie informacji dla przeglądarki obiektowej (jeśli już nie załadowano)\nAdded: Darkmode for Layout",
+        "uk": "FIX: У деяких випадках символи, тексти та зображення можуть вийти з робочого простору\nFIX: розрахунок споживання виробляв на деяких системах No(43)\nFIX: Crash-Handler для анімацій оптимізовано - якщо анімація присутній до оновлення значення, адаптер може збитись\nДоданий: Краще дублювання предметів\nДодано: Дії для Datasources і ікон (на, off, toggle) - Держава може відображатися в Datasource, а також\nДодано: Розрахунок споживання - Додані стани, якщо заряд акумулятора/розрядна та публічна сітчаста/грід-споживання не однакові\nДодано: Резервне копіювання переміщається з станів до папки ioBroker замість (потрібне навантаження Redis та станів)\nДодано: Завантаження інформації для браузера об'єкта (якщо не завантажено вже)\nДоданий: Darkmode для Layout",
+        "zh-cn": "FIX:在某些情况下,象征、文字和图像可以排除在工作空间之外\nFIX:消费计算对某些系统生产的高全氟化气体(43)\n九、FIX:在更新价值之前,在最大程度地实现降水的Crash-Handler 可以减少事故\n增 编:改进项目重复\n增加:数据来源和Icons(从中获益)――国家可在数据来源和数据来源上展示。\n增 编:如果电池费/分销和公共电网/电网的消费与否,消费计算 - 添加国家\n增 编:从国家移至多氯乙烷,而不是(挽救红力量和装甲)\n增 编:为投机提供信息(如未装载)\n增 编:拉迪松"
+      },
+      "0.0.2-alpha.14": {
+        "en": "Added: Support for SVG elements. SVG will be an area inside the workspace and allows to paste pure SVG data (#31)\nAdded: Support for own images. The user is responsible how to upload the image to ioBroker, as the adapter has no upload possibility\nAdded: Support to arrange pictures and elements in levels. They can now be moved to fore- or background\nAdded: Consumption calculation - Currently, only single-mode (positive and negative) states are supported. Different states for battery charge/discharge and public grid-feed/grid-consumption will be added in next version\nAdded: Some error handling improved",
+        "de": "Hinzugefügt: Unterstützung für SVG-Elemente. SVG wird ein Bereich innerhalb des Arbeitsraums sein und erlaubt es, reine SVG-Daten #(31) einzufügen\nHinzugefügt: Unterstützung für eigene Bilder. Der Benutzer ist verantwortlich, wie das Bild auf ioBroker hochzuladen, da der Adapter keine Upload-Möglichkeit hat\nHinzugefügt: Unterstützung, um Bilder und Elemente in Ebenen zu arrangieren. Sie können nun nach Vor- oder Hintergrund bewegt werden\nHinzugefügt: Verbrauchsberechnung - Derzeit werden nur Singlemode (positive und negative) Zustände unterstützt. In der nächsten Version werden verschiedene Zustände für Batterieladung/Entladung und öffentliche Netz-Feed/Grid-Verbrauch hinzugefügt\nHinzugefügt: Einige Fehlerbehandlung verbessert",
+        "ru": "Добавлена: Поддержка элементов SVG. SVG будет зоной внутри рабочего пространства и позволяет вставить чистые SVG данные #(31)\nДобавлена: Поддержка собственных изображений. Пользователь несет ответственность, как загрузить изображение на ioBroker, так как адаптер не имеет возможности загрузки\nДобавлена: Поддержка для организации фотографий и элементов в уровнях. Они теперь могут быть перемещены в fore- или фон\nДобавлена: Расчёт потребления - В настоящее время поддерживаются только однорежимные (положительные и отрицательные) государства. Различные штаты для заряда батареи/разряда и общественного питания/grid-consumption будут добавлены в следующей версии\nДобавлена: Некоторая обработка ошибок улучшена",
+        "pt": "Adicionado: Suporte para elementos SVG. SVG será uma área dentro do espaço de trabalho e permite colar dados SVG puros #(31)\nAdicionado: Suporte para imagens próprias. O usuário é responsável como carregar a imagem para ioBroker, pois o adaptador não tem possibilidade de upload\nAdicionado: Suporte para organizar imagens e elementos em níveis. Eles podem agora ser movidos para ante- ou fundo\nAdicionado: Cálculo de consumo - Atualmente, apenas estados de monomodo (positivo e negativo) são suportados. Diferentes estados para carga/descarga da bateria e consumo público da grade/grid serão adicionados na próxima versão\nAdicionado: Alguns manipulação de erro melhorou",
+        "nl": "Versterking voor SVG elementen. SVG zal een gebied zijn in de werkruimte en toestaan om pure SVG data te vullen\nVersterking voor eigen beelden. De gebruiker is verantwoordelijk om het beeld te uploaden naar ioBroker, want de adapter heeft geen mogelijkheid om te uploaden\nVersterking om foto's en elementen in niveaus te regelen. Ze kunnen nu verplaatst worden naar voor of achtergrond\nConsumptie berekening, op dit moment, alleen een enkele manier, gesteund en negatief. Verschillende staten voor batterijlading en publieke grid-voed/grid-consumptie zullen worden toegevoegd in volgende versie\nToegevoegd",
+        "fr": "Ajouté : Support pour les éléments SVG. SVG sera une zone à l'intérieur de l'espace de travail et permet de coller des données SVG pures #(31)\nAjouté : Support pour ses propres images. L'utilisateur est responsable de télécharger l'image sur ioBroker, car l'adaptateur n'a pas de possibilité de téléchargement\nAjouté: Soutien pour organiser des photos et des éléments dans les niveaux. Ils peuvent maintenant être déplacés avant ou arrière-plan\nAjouté : Calcul de la consommation - Actuellement, seuls les états monomodes (positifs et négatifs) sont pris en charge. Différents états de charge/décharge de la batterie et d'alimentation/consommation du réseau public seront ajoutés dans la prochaine version\nAjouté: Une manipulation d'erreurs améliorée",
+        "it": "Aggiunto: Supporto per elementi SVG. SVG sarà un'area all'interno dello spazio di lavoro e permette di incollare dati SVG puri #(31)\nAggiunto: Supporto per proprie immagini. L'utente è responsabile di come caricare l'immagine su ioBroker, in quanto l'adattatore non ha alcuna possibilità di upload\nAggiunto: Supporto per organizzare immagini ed elementi a livelli. Ora possono essere spostati in prima o in background\nAggiunto: Consum calcolo - Attualmente, solo monomode (positivo e negativo) stati sono supportati. Verranno aggiunti diversi stati per la carica della batteria/scarica e l'alimentazione della griglia pubblica/grid-consum nella prossima versione\nAggiunto: Alcuni errori di gestione migliorata",
+        "es": "Añadido: Soporte para elementos SVG. SVG será un área dentro del espacio de trabajo y permite pegar datos SVG puros #(31)\nAñadido: Soporte para imágenes propias. El usuario es responsable de cómo subir la imagen a ioBroker, ya que el adaptador no tiene posibilidad de subir\nAñadido: Soporte para organizar imágenes y elementos en niveles. Ahora pueden ser movidos al frente o al fondo\nAñadido: Cálculo de consumo - Actualmente, solo se admiten estados monomodo (positivos y negativos). En la próxima versión se añadirán diferentes estados para carga/descarga de baterías y alimentación pública/consumo de grúas\nAñadido: Algo de manejo de errores mejorado",
+        "pl": "Added: Wsparcie dla elementów SVG. SVG będzie obszarem wewnątrz przestrzeni roboczej i umożliwia paste clean SVG data #(31)\nWstęp: Wsparcie dla własnych obrazów. Użytkownik jest odpowiedzialny za przeciążenie obrazu na ioBroker, ponieważ adapter nie ma możliwości ładowania\nAdded: Wsparcie do aranżacji obrazów i elementów na poziomach. Mogą być obecnie przenoszone do przed- lub tła\nWspierane są: obliczenia konsumpcyjne – obecnie tylko jednomode (pozytywne i negatywne) stany. Różne stany ładowania akumulatora i rozładunku sieciowego/grudowe będą dodane do następnej wersji\nWstęp: Niektóre uchylenie błędów poprawiło",
+        "uk": "Додано: Підтримка елементів SVG. SVG стане зоною всередині робочого простору і дозволяє вставляти чисті дані SVG #(31)\nДодано: Підтримка власних зображень. Користувач несе відповідальність за те, як завантажити зображення в ioBroker, оскільки адаптер не має можливості завантаження\nДодано: Підтримка розміщення зображень і елементів в рівнях. Вони тепер можуть бути переміщені в fore- або фоновому режимі\nДодано: Розрахунок споживання - В даний час підтримуються тільки одномодові (позитивні та негативні) стани. У наступній версії буде додано різні стани для зарядки акумулятора/розрядної та публічної сітки\nДоданий: Деякі поліпшення обробки помилок",
+        "zh-cn": "增加:支助SVG部分。 SVG将是工作空间内的一个领域,并允许过去获得的SVG数据(31)\n增加:支持自己的图像。 用户负责如何将图像传给水器,因为适应者没有足够的可能。\n增加:支持安排各级的图像和要素。 他们现在可以移到表面上或背景。\n增加:目前,只支持单一的消费(积极和消极)国家。 下一版本将增加电池费/分销和公共电网/底层消费的不同州。\n增加:处理一些错误的改进"
+      },
+      "0.0.2-alpha.13": {
+        "en": "Added: Build-in Object Browser for faster loading and saving bandwith (get rid of the default ioBroker one)\nAdded: Autocomplete for Datasources Boxes - Datasource will be fetched during typing\nAdded: Language for some boxes were missing\nAdded: Disable all other Datasources in list while editing to prevent mixup\nAdded: New states for 'battery_remaining_target', which shows the target time in Unixtime and 'battery_remaining_target_DT', which shows the time in human readable format\nFIX: Icon-Proxy was not showing icons under some circumstances\nFIX: Reverse steps for alignment was in the wrong order (#37)",
+        "de": "Hinzugefügt: Build-in Object Browser für schnelleres Laden und Speichern von Bandmit (Entfernen Sie die Standard-ioBroker ein)\nHinzugefügt: Autocomplete für Datasources Boxes - Datasource wird beim Eingeben abgerufen\nHinzugefügt: Sprache für einige Boxen fehlte\nHinzugefügt: Deaktivieren Sie alle anderen Datenquellen in der Liste während der Bearbeitung, um die Mischung zu verhindern\nHinzugefügt: Neue Zustände für Battery_remaining_target, die die Zielzeit in Unixtime und Battery_remaining_target_DT zeigt, die die Zeit im menschlichen lesbaren Format zeigt\nFIX: Icon-Proxy zeigte unter Umständen keine Icons\nFIX: Umkehrschritte zur Ausrichtung lag in der falschen Reihenfolge #(37)",
+        "ru": "Добавлена: Build-in Object Browser для более быстрой загрузки и экономии bandwith (выберите из по умолчанию ioBroker один)\nДобавлен: Автозаполнение для Datasources Boxes - Datasource будет выбит во время ввода\nДобавлена: Язык для некоторых коробок отсутствует\nДобавлена: Отключить все другие Datasources в списке при редактировании, чтобы предотвратить сведение\nДобавлено: Новые состояния для Battery_remaining_target, который показывает целевое время в Unixtime и Battery_remaining_target_DT, который показывает время в читаемом человеке формате\nFIX: Icon-Proxy не показывал иконки при некоторых обстоятельствах\nFIX: Обратные шаги для выравнивания были в неправильном порядке #(37)",
+        "pt": "Adicionado: Build-in Object Browser para carregamento mais rápido e salvar bandawith (get rid of the default ioBroker one)\nAdicionado: Autocompleto para Datasources Boxes - Datasource será buscar durante a digitação\nAdicionado: Linguagem para algumas caixas estavam faltando\nAdicionado: Desativar todos os outros Datasources na lista durante a edição para evitar mixup\nAdicionado: Novos estados para battery_remaining_target, que mostra o tempo de destino em Unixtime e battery_remaining_target_DT, que mostra o tempo em formato legível humano\nFIX: Icon-Proxy não estava mostrando ícones em algumas circunstâncias\nFIX: Os passos inversos para alinhamento estavam na ordem errada #(37)",
+        "nl": "Gebouw in Object Browser voor snellere lading en het redden van band met de default ioBroker 1\nAutocomplete voor Datasources Boxes. De dataource zal worden opgehaald tijdens het typen\nVertaling:\nVertaling:\nVertaling:\nIcon-Proxy toonde geen icoon onder sommige omstandigheden\nOmgekeerde stappen voor uitspraak was in de verkeerde volgorde",
+        "fr": "Ajouté: Navigateur d'objets Build-in pour le chargement et l'enregistrement plus rapide de la bande avec (se débarrasser de la par défaut ioBroker one)\nAjouté: Autocomplete for Datasources Boxes - La source de données sera saisie lors de la typographie\nAjouté: Langue pour certaines boîtes étaient manquantes\nAjouté: Désactiver toutes les autres sources de données dans la liste tout en éditant pour empêcher le mixup\nAjouté: Nouveaux états pour Battery_remaining_target, qui montre le temps cible dans Unixtime et Battery_remaining_target_DT, qui montre le temps dans le format lisible humain\nFIX: Icon-Proxy n'a pas montré d'icônes dans certaines circonstances\nFIX: Les étapes inversées pour l'alignement étaient dans le mauvais ordre #(37)",
+        "it": "Aggiunto: Build-in Object Browser per il caricamento e il salvataggio più veloce bandwith (get rid of the default ioBroker one)\nAggiunto: Autocomplete for Datasources Boxes - Le risorse dati saranno recuperate durante la digitazione\nAggiunto: lingua per alcuni scatole erano mancanti\nAggiunto: Disattiva tutti gli altri Datasources in lista durante la modifica per evitare mixup\nAggiunto: Nuovi stati per Battery_remaining_target, che mostra il tempo di destinazione in Unixtime e Battery_remaining_target_DT, che mostra il tempo in formato leggibile umano\nFIX: Icon-Proxy non mostrava icone in alcune circostanze\nFIX: I passi inverso per l'allineamento erano nell'ordine sbagliato #(37)",
+        "es": "Añadido: Navegador de objetos incorporados para una carga más rápida y banda de ahorro con (deshacerse del ioBroker predeterminado)\nAñadido: Autocompleto para cajas de fuentes de datos - Datasource will betched during typing\nAñadido: Lenguaje para algunas cajas faltaban\nAñadido: Desactivar todos los demás Datasources en la lista mientras se edita para evitar la mezcla\nAñadido: Nuevos estados para Battery_remaining_target, que muestra el tiempo de destino en Unixtime y Battery_remaining_target_DT, que muestra el tiempo en formato legible humano\nFIX: Icon-Proxy no estaba mostrando iconos bajo algunas circunstancias\nFIX: Los pasos inversos para la alineación estaban en el orden equivocado #(37)",
+        "pl": "Added: Build-in Object Browser dla szybszego ładowania i oszczędnościowego zespołu z domyślnym ioBrokerem\nAdded: Autocomplete for Datasources Boxes (ang.). Źródło danych zostanie udostępnione podczas typowania danych\nW: Język dla niektórych skrzydeł zaginął\nAdded: Dysable all other Datasources in list, edytacja zapobiegająca miksowaniu\nAdded: Nowe stany na baterię_remaining_target, ukazujące czas na cel w uniksowym czasie i baterie_Turget_DT, który pokazuje czas w ludzkim gotowym formacie\nFIX: Icon-Proxy nie wykazuje ikon w niektórych okolicznościach\nFIX: Odwrotowe kroki do dopasowania były w złamanym porządku #(37)",
+        "uk": "Додано: Вбудований браузер об'єкта для швидкого завантаження та збереження смуги з (позбутися від за замовчуванням ioBroker)\nДодано: Автозаповнення для сховищ даних - Під час натискання на сховище даних\nДодано: Мова для деяких ящиків відсутні\nДодано: Вимкніть всі інші джерела даних у списку під час редагування, щоб запобігти перемішування\nДодано: Нові стани для акумулятора_remaining_target, які показують час цілі в Unixtime і акумулятор_remaining_target_DT, який показує час в режимі читання людини\nFIX: Ікона-Проксі не показала іконки за певних обставин\nFIX: Зворотні дії для вирівнювання були в неправильному порядку #(37)",
+        "zh-cn": "增加:布兰德-尼目标Browser以更快地装载和挽救匪(目标1)\n增加:数据来源的自动化- 数据来源将在分类期间分期。\n增加:一些箱的语文失踪\n增 编:在清单中摘除所有其他数据来源,同时编辑防止混杂\n增加:电池新建国:重塑目标——目标,它显示了非固定和电池的预定时间。\nFIX:在某些情况下,Icon-Proxy没有说明理由。\nFIX:调整的逆向步骤是错误的命令(37)"
+      }
     },
-    "native": {
-        "enable_proxy": false,
-        "proxy_port": 10123
+    "titleLang": {
+      "en": "Energiefluss - erweitert",
+      "de": "Energiefluss - erweitert",
+      "ru": "Energiefluss - erweitert",
+      "pt": "Energiefluss - erweitert",
+      "nl": "Energiefluss - erweitert",
+      "fr": "Energiefluss - erweitert",
+      "it": "Energiefluss - erweitert",
+      "es": "Energiefluss - erweitert",
+      "pl": "Energiefluss - erweitert",
+      "zh-cn": "Energiefluss-erweitert",
+      "uk": "Energiefluss - erweitert"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "configuration",
-            "type": "state",
-            "common": {
-                "name": "Parameters for HTML Output",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": "{}"
-            },
-            "native": {}
+    "desc": {
+      "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
+      "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
+    },
+    "authors": [
+      "SKB <info@skb-web.de>"
+    ],
+    "keywords": [
+      "energy",
+      "energy-flow",
+      "energie",
+      "energiefluss"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "energiefluss-erweitert.png",
+    "enabled": true,
+    "localLinks": {
+      "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
+    },
+    "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
+    "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "visualization",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "assumption",
+    "materialize": true,
+    "materializeTab": false,
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22",
+        "web": ">=3.0.12"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
+    ],
+    "messagebox": true,
+    "subscribe": "messagebox"
+  },
+  "native": {
+    "enable_proxy": false,
+    "proxy_port": 10123
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "configuration",
+      "type": "state",
+      "common": {
+        "name": "Parameters for HTML Output",
+        "type": "json",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": "{}"
+      },
+      "native": {}
+    },
+    {
+      "_id": "data",
+      "type": "state",
+      "common": {
+        "name": "Data for HTML Output",
+        "type": "json",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining",
+      "type": "state",
+      "common": {
+        "name": "Remaining Time of the battery",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining_target",
+      "type": "state",
+      "common": {
+        "name": "Target of the remaining Time of the battery",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining_target_DT",
+      "type": "state",
+      "common": {
+        "name": "Target of the remaining Time of the battery (Date&Time)",
+        "type": "string",
+        "role": "value",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.consumption.consumption",
+      "type": "state",
+      "common": {
+        "name": "Current Consumption",
+        "type": "number",
+        "role": "value.power",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "W"
+      },
+      "native": {}
+    },
+    {
+      "_id": "",
+      "type": "meta",
+      "common": {
+        "name": {
+          "en": "File storage",
+          "de": "Dateispeicher",
+          "ru": "???????? ?????????",
+          "pt": "Armazenamento de arquivos",
+          "nl": "Veldopslag",
+          "fr": "Stockage de fichiers",
+          "it": "Archiviazione file",
+          "es": "Almacenamiento de archivos",
+          "pl": "Storage room",
+          "uk": "?????????? ??????",
+          "zh-cn": "????"
         },
-        {
-            "_id": "data",
-            "type": "state",
-            "common": {
-                "name": "Data for HTML Output",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining",
-            "type": "state",
-            "common": {
-                "name": "Remaining Time of the battery",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining_target",
-            "type": "state",
-            "common": {
-                "name": "Target of the remaining Time of the battery",
-                "type": "number",
-                "role": "value.time",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining_target_DT",
-            "type": "state",
-            "common": {
-                "name": "Target of the remaining Time of the battery (Date&Time)",
-                "type": "string",
-                "role": "value",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.consumption.consumption",
-            "type": "state",
-            "common": {
-                "name": "Current Consumption",
-                "type": "number",
-                "role": "value.power",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "unit": "W"
-            },
-            "native": {}
-        },
-        {
-            "_id": "",
-            "type": "meta",
-            "common": {
-                "name": {
-                    "en": "File storage",
-                    "de": "Dateispeicher",
-                    "ru": "???????? ?????????",
-                    "pt": "Armazenamento de arquivos",
-                    "nl": "Veldopslag",
-                    "fr": "Stockage de fichiers",
-                    "it": "Archiviazione file",
-                    "es": "Almacenamiento de archivos",
-                    "pl": "Storage room",
-                    "uk": "?????????? ??????",
-                    "zh-cn": "????"
-                },
-                "type": "meta.user"
-            },
-            "native": {}
-        }
-    ]
+        "type": "meta.user"
+      },
+      "native": {}
+    }
+  ]
 }

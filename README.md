@@ -32,7 +32,7 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.19 (2023-09-14)
 - FIX: Since number animation, it could occur, that decimal places got cut off on initial values
 - FIX: Save & Exit was not working correctly, if an high amount of data should be saved
 - Added: Made previously count up/down Animation for numbers configurable for each datasource element
