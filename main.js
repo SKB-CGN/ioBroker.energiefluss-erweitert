@@ -215,7 +215,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							if (err) {
 								this.sendTo(obj.from, obj.command, { err }, obj.callback);
 							} else {
-								this.sendTo(obj.from, obj.command, { error: null, data: "Success!" }, obj.callback);
+								this.sendTo(obj.from, obj.command, { error: null, data: "Backup stored successfully!" }, obj.callback);
 							}
 						});
 
@@ -676,7 +676,6 @@ class EnergieflussErweitert extends utils.Adapter {
 				// Check, if that Source belongs to battery-charge or discharge, to determine the time
 				if (globalConfig.hasOwnProperty('calculation')) {
 					// Battery Remaining
-
 					if (globalConfig.calculation.hasOwnProperty('battery')) {
 						let batObj = globalConfig.calculation.battery;
 						if (soObj.id == batObj.charge || soObj.id == batObj.discharge) {

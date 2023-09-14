@@ -191,6 +191,10 @@ a:hover {
     border: 1px solid var(--primary);
 }
 
+stop {
+    transition: .4s;
+}
+
 .align_element {
     float: left;
 }
@@ -424,8 +428,8 @@ legend>span {
     stroke-dasharray: 4 12 4 12 4 100;
     stroke-linecap: round;
     fill: none;
-    text-rendering: optimizeSpeed;
     stroke: #ffce4a;
+    text-rendering: optimizeLegibility;
 }
 
 @keyframes dashdraw {
@@ -663,13 +667,18 @@ legend>span {
     font-style: normal;
 }
 
-.input_text:focus~.form_label,
-.input_number:focus~.form_label,
-.input_text:not(:placeholder-shown)~.form_label,
-.input_number:not(:placeholder-shown)~.form_label {
-    transform: scale(0.8)translateY(-20px);
-    color: var(--primary);
+
+/* Edge */
+/*
+@supports (-ms-ime-align:auto) {
+
+    .input_text:not(:invalid)~.form_label,
+    .input_number:not(:invalid)~.form_label {
+        transform: scale(0.8)translateY(-20px);
+        color: var(--primary);
+    }
 }
+*/
 
 .input_text~.form_label,
 .input_number~.form_label {
@@ -679,8 +688,16 @@ legend>span {
     top: 0;
     color: #999;
     pointer-events: none;
-    transform-origin: left;
+    transform-origin: center left;
     transition: transform .3s;
+}
+
+.input_text:focus~.form_label,
+.input_number:focus~.form_label,
+.input_text:not(:placeholder-shown)~.form_label,
+.input_number:not(:placeholder-shown)~.form_label {
+    transform: translateY(-20px) scale(0.8);
+    color: var(--primary);
 }
 
 .input_text:invalid {
