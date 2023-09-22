@@ -14,12 +14,17 @@
     font-size: 14px;
     border: none;
     outline: none;
-    border-bottom: 2px solid var(--grey);
+    border-bottom: 2px solid var(--darkestGrey);
     padding: 5px 0;
     transition: border .5s;
     background: transparent;
     cursor: pointer;
     height: 28px;
+}
+
+.ms-options-wrap>button:hover {
+    border-color: var(--black);
+    transition: .5s;
 }
 
 .ms-options-wrap>button>span {

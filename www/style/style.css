@@ -9,8 +9,9 @@
         --darkestGrey: #999;
         --input-text: #000;
         --input-button-bg: #538ea3;
-        --input-background: #FFF;
+        --input-background: transparent;
         --input-button-text: #FFF;
+        --msBackground: #FFF;
         --table-font: #4b4b59;
         --title-background: #538ea3;
         --creme: #F5F5F5;
@@ -49,6 +50,7 @@
         --silvergrey: #d3d3d3;
         --input-button-bg: #323232;
         --input-background: #323232;
+        --msBackground: #323232;
         --title-background: #242424;
         --input-button-text: #ccc;
         --table-font: #ccc;
@@ -236,7 +238,6 @@ stop {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-
     background: var(--container-background);
     background-position-x: 0%, 0px, 0%, 0px;
     background-position-y: 0%, 100%, 0%, 100%;
@@ -725,13 +726,19 @@ legend>span {
 }
 
 /* Multiselect */
+.ms-options-wrap>.ms-options {
+    box-shadow: var(--box-shadow);
+}
+
+.ms-options-wrap>button {}
+
 .ms-options-wrap>button>span {
     color: var(--input-text);
 }
 
 .ms-options-wrap>.ms-options>.ms-search input,
 .ms-options-wrap>.ms-options {
-    background: var(--input-background);
+    background: var(--msBackground);
     color: var(--input-text);
 }
 
