@@ -32,6 +32,12 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: states in user environment (userdata and javascript) do not need ACK flags anymore
+- FIX: Darkmode cleanups and some layout improvements
+- FIX: Changed some CSS styles to be consistent
+- Added: Version Checker to check the version on Github and inform the user
+
 ### 0.0.2-alpha.19 (2023-09-14)
 - FIX: Since number animation, it could occur, that decimal places got cut off on initial values
 - FIX: Save & Exit was not working correctly, if an high amount of data should be saved
