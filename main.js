@@ -157,6 +157,12 @@ class EnergieflussErweitert extends utils.Adapter {
 		if (id && state) {
 			// The state is acknowledged
 			if (state.ack) {
+				this.log.debug('Refreshing ACK state from foreign state!');
+				this.refreshData(id, state);
+			}
+			// For userdata and Javascript
+			if (id.includes('0_userdata.') || id.includes('javascript.')) {
+				this.log.debug('Refreshing state from user environment!');
 				this.refreshData(id, state);
 			}
 		}
