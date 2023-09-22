@@ -161,7 +161,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				this.refreshData(id, state);
 			}
 			// For userdata and Javascript
-			if (id.includes('0_userdata.') || id.includes('javascript.')) {
+			if (id.toLowerCase().includes('0_userdata.') || id.toLowerCase().includes('javascript.')) {
 				this.log.debug('Refreshing state from user environment!');
 				this.refreshData(id, state);
 			}

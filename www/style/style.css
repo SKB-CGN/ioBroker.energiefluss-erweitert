@@ -6,10 +6,10 @@
         --legend-text: #FFF;
         --legend-background: #538ea3;
         --font: #000;
-        --input-border-bottom: #999;
+        --darkestGrey: #999;
         --input-text: #000;
         --input-button-bg: #538ea3;
-        --input-background: transparent;
+        --input-background: #FFF;
         --input-button-text: #FFF;
         --table-font: #4b4b59;
         --title-background: #538ea3;
@@ -44,7 +44,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #323232;
-        --input-border-bottom: #777;
+        --darkestGrey: #777;
         --creme: #777;
         --silvergrey: #d3d3d3;
         --input-button-bg: #323232;
@@ -370,10 +370,6 @@ legend>span {
     pointer-events: none;
 }
 
-/*
-.draggable-multi,
-.draggable-multi-group,
-*/
 .dragging {
     pointer-events: visible;
     opacity: 0.6 !important;
@@ -614,7 +610,7 @@ legend>span {
     font-size: 14px;
     border: none;
     outline: none;
-    border-bottom: 2px solid var(--input-border-bottom);
+    border-bottom: 2px solid var(--darkestGrey);
     padding: 5px 0;
     transition: border .5s;
     background: var(--input-background);
@@ -670,19 +666,6 @@ legend>span {
     font-style: normal;
 }
 
-
-/* Edge */
-/*
-@supports (-ms-ime-align:auto) {
-
-    .input_text:not(:invalid)~.form_label,
-    .input_number:not(:invalid)~.form_label {
-        transform: scale(0.8)translateY(-20px);
-        color: var(--primary);
-    }
-}
-*/
-
 .input_text~.form_label,
 .input_number~.form_label {
     font-size: 16px;
@@ -721,6 +704,8 @@ legend>span {
     border: 2px solid #eee;
     cursor: pointer;
     transition: .5s;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .input_button:hover {
@@ -737,6 +722,22 @@ legend>span {
     right: 0;
     top: 0;
     z-index: 10;
+}
+
+/* Multiselect */
+.ms-options-wrap>button>span {
+    color: var(--input-text);
+}
+
+.ms-options-wrap>.ms-options>.ms-search input,
+.ms-options-wrap>.ms-options {
+    background: var(--input-background);
+    color: var(--input-text);
+}
+
+.ms-options-wrap>.ms-options>ul li.selected label,
+.ms-options-wrap>.ms-options>ul label:hover {
+    background-color: var(--darkgrey);
 }
 
 .icon_in_input {
@@ -905,6 +906,48 @@ select[disabled] {
 }
 
 /* Checkbox Style */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 1px solid var(--black);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--primary);
+    background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:disabled {
+    border: 1px solid var(--darkestGrey);
+    cursor: not-allowed;
+}
+
+input[type="checkbox"]:disabled::before {
+    box-shadow: inset 1em 1em var(--darkestGrey);
+}
+
+/* Checkbox Style - OnOffSwitch */
 
 .onoffswitch {
     position: relative;
