@@ -387,17 +387,15 @@ legend>span {
     animation-iteration-count: infinite;
 }
 
-@keyframes animation_blink {
-    0% {
-        opacity: 1;
-    }
+.newVersion {
+    animation: animation_blink 2s linear infinite;
+    color: var(--successMessage);
+    cursor: pointer;
+}
 
+@keyframes animation_blink {
     50% {
         opacity: 0.4;
-    }
-
-    100% {
-        opacity: 1;
     }
 }
 
@@ -1225,6 +1223,21 @@ text {
     min-width: 100%;
     clear: both;
     max-width: 100%;
+}
+
+.tabbed nav>.version {
+    white-space: nowrap;
+    padding-right: 5px;
+    font-weight: 600;
+    text-align: right;
+    width: 100%;
+    display: inline-block;
+}
+
+@media only screen and (max-width: 1050px) {
+    .tabbed nav>.version {
+        display: none;
+    }
 }
 
 #tab1:checked~figure .tab1,
