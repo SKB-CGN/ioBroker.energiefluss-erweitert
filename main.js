@@ -1089,45 +1089,49 @@ class EnergieflussErweitert extends utils.Adapter {
 			for (var key of Object.keys(globalConfig.elements)) {
 				const value = globalConfig.elements[key];
 				if (value.source != -1 && value.hasOwnProperty('source')) {
-					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
-					if (stateValue) {
-						// Save Settings for each object
-						settingsObject[key] = {
-							threshold: value.threshold || 0,
-							calculate_kw: value.calculate_kw,
-							decimal_places: value.decimal_places,
-							convert: value.convert,
-							type: value.type,
-							source_option: value.source_option,
-							source_display: value.source_display,
-							subtract: value.subtract,
-							add: value.add,
-							css_general: value.css_general,
-							css_active_positive: value.css_active_positive,
-							css_inactive_positive: value.css_inactive_positive,
-							css_active_negative: value.css_active_negative,
-							css_inactive_negative: value.css_inactive_negative,
-							fill_type: value.fill_type,
-							border_type: value.border_type
-						};
+					if (globalConfig.datasources.hasOwnProperty(value.source)) {
+						const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
+						if (stateValue) {
+							// Save Settings for each object
+							settingsObject[key] = {
+								threshold: value.threshold || 0,
+								calculate_kw: value.calculate_kw,
+								decimal_places: value.decimal_places,
+								convert: value.convert,
+								type: value.type,
+								source_option: value.source_option,
+								source_display: value.source_display,
+								subtract: value.subtract,
+								add: value.add,
+								css_general: value.css_general,
+								css_active_positive: value.css_active_positive,
+								css_inactive_positive: value.css_inactive_positive,
+								css_active_negative: value.css_active_negative,
+								css_inactive_negative: value.css_inactive_negative,
+								fill_type: value.fill_type,
+								border_type: value.border_type
+							};
 
-						// Append and prepend
-						outputValues.append[key] = value.append;
-						outputValues.prepend[key] = value.prepend;
+							// Append and prepend
+							outputValues.append[key] = value.append;
+							outputValues.prepend[key] = value.prepend;
 
-						// Unit
-						outputValues.unit[key] = value.unit;
+							// Unit
+							outputValues.unit[key] = value.unit;
 
-						// Put into timer object for re-requesting
-						if (value.source_option == 'relative') {
-							relativeTimeCheck[key] = {
-								source: globalConfig.datasources[value.source].source,
-								option: value.source_option
+							// Put into timer object for re-requesting
+							if (value.source_option == 'relative') {
+								relativeTimeCheck[key] = {
+									source: globalConfig.datasources[value.source].source,
+									option: value.source_option
+								}
 							}
-						}
 
-						// Put Elm into Source
-						sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
+							// Put Elm into Source
+							sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
+						}
+					} else {
+						this.log.warn(`Element with ID ${key} of Type ${value.type} is using source ${value.source}, which ist not available!`);
 					}
 				}
 			}
