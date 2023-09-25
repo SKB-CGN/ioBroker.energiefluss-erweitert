@@ -1131,7 +1131,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
 						}
 					} else {
-						this.log.warn(`Element with ID ${key} of Type ${value.type} is using source ${value.source}, which ist not available!`);
+						this.log.warn(`Element with ID ${key} of Type ${value.type} is using source '${value.source}', which ist not available!`);
 					}
 				}
 			}
