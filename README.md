@@ -32,6 +32,9 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: When using animation depencies with dots, it could be the case, that an icorrect amount of dots was displayed
+
 ### 0.0.2-alpha.20 (2023-09-22)
 - FIX: states in user environment (userdata and javascript) do not need ACK flags anymore
 - FIX: Darkmode cleanups and some layout improvements
