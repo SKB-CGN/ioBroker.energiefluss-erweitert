@@ -540,27 +540,27 @@ class EnergieflussErweitert extends utils.Adapter {
 	 */
 
 	calculateStrokeArray(maxDots, maxPower, currentPower) {
-		// First calculate, what we have
-		let dots = Math.round((((currentPower / maxPower) * 100) * maxDots) / 100);
 		// Collect all Values
 		let strokeDash = '';
 		let total = 136;
-		let l_amount = dots;
+		let l_amount = Math.round((((currentPower / maxPower) * 100) * maxDots) / 100);
 		let l_distance = globalConfig.animation_configuration.distance;
 		let l_length = globalConfig.animation_configuration.length;
 
-		for (let i = 0; i < l_amount; i++) {
-			if (l_distance > 0 && l_length > 0) {
-				strokeDash += l_length + ' ';
-				if (i != l_amount - 1) {
-					strokeDash += l_distance + ' ';
-					total -= l_distance;
-				}
-				total -= l_length;
-			}
-		}
 		if (l_amount > 0 && l_length > 0 && l_distance) {
+			for (let i = 0; i < l_amount; i++) {
+				if (l_distance > 0 && l_length > 0) {
+					strokeDash += l_length + ' ';
+					if (i != l_amount - 1) {
+						strokeDash += l_distance + ' ';
+						total -= l_distance;
+					}
+					total -= l_length;
+				}
+			}
 			strokeDash += ` ${total < 0 ? l_distance : total}`;
+		} else {
+			strokeDash = l_length + ' ' + (total - l_length);
 		}
 
 		return strokeDash;
