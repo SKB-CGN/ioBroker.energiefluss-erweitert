@@ -379,11 +379,9 @@ class EnergieflussErweitert extends utils.Adapter {
 							let subArray = obj.subtract;
 							if (subArray != undefined && typeof (subArray) == 'object') {
 								if (subArray.length > 0) {
-									for (var sub in subArray) {
-										if (subArray[sub] != -1) {
-											subValue = subValue + Math.abs(rawValues.sourceValues[subArray[sub]]);
-											this.log.debug("Subtracted by: " + subArray.toString());
-										}
+									if (subArray[0] != -1) {
+										subValue = subArray.reduce((acc, value) => acc - (rawValues.sourceValues[value]), 0);
+										this.log.debug("Subtracted by: " + subArray.toString());
 									}
 								}
 							}
@@ -392,15 +390,14 @@ class EnergieflussErweitert extends utils.Adapter {
 							let addArray = obj.add;
 							if (addArray != undefined && typeof (addArray) == 'object') {
 								if (addArray.length > 0) {
-									for (var add in addArray) {
-										if (addArray[add] != -1) {
-											addValue = addValue + Math.abs(rawValues.sourceValues[addArray[add]]);
-											this.log.debug("Added to Value: " + addArray.toString());
-										}
+									if (addArray[0] != -1) {
+										addValue = addArray.reduce((acc, value) => acc + (rawValues.sourceValues[value]), 0);
+										this.log.debug("Added to Value: " + addArray.toString());
 									}
 								}
 							}
-							formatValue = value > 0 ? value + (addValue) - (subValue) : value - (addValue) + (subValue);
+
+							formatValue = (Number(value) + Number(subValue) + Number(addValue));
 
 							// Check, if value is over threshold
 							if (Math.abs(formatValue) >= obj.threshold) {
@@ -421,11 +418,6 @@ class EnergieflussErweitert extends utils.Adapter {
 			if (obj.border_type != -1 && obj.border_type) {
 				outputValues.borderValues[id] = value;
 			}
-		}
-		// Overrides for elements
-		if (obj.override) {
-			outputValues.override[id] = this.getOverrides(value, obj.override);
-			this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[id])}`);
 		}
 	}
 
@@ -656,11 +648,12 @@ class EnergieflussErweitert extends utils.Adapter {
 
 	/**
 	 * 
+	 * @param {number} id 
 	 * @param {number} condValue 
 	 * @param {object} object 
 	 * @returns 
 	 */
-	getOverrides(condValue, object) {
+	getOverrides(id, condValue, object) {
 		let result = {};
 		let tmpObj = {};
 
@@ -677,14 +670,15 @@ class EnergieflussErweitert extends utils.Adapter {
 					},
 					{}
 				);
-			Object.entries(tmpObj[_key]).forEach(entry => {
-				// Check, which condition works
-				const [key, value] = entry;
-				let func = Function(`return ${condValue}${key}`)();
+			try {
+				let func = Function(`return ${condValue}${_key}`)();
 				if (func) {
-					result[_key] = value;
+					result = object[_key];
 				}
-			});
+			}
+			catch (error) {
+				this.log.warn(`Overrides for element ${id} can not be processed, as they are not correctly formatted!`);
+			}
 		}
 		return result;
 	}
