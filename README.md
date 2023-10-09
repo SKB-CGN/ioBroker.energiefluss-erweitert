@@ -22,14 +22,14 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 Documentation:
 
 * [Forum thread](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
-* [???? English description](./docs/en/README.md)
-* [???? Deutsche Beschreibung](./docs/de/README.md)
+* [English description](./docs/en/README.md)
+* [Deutsche Beschreibung](./docs/de/README.md)
 
 ## Documentation
 
-[???? Documentation](./docs/en/README.md)
+[Documentation](./docs/en/README.md)
 
-[???? Dokumentation](./docs/de/README.md)
+[Dokumentation](./docs/de/README.md)
 
 **Please note, this currently only alpha state**
 
