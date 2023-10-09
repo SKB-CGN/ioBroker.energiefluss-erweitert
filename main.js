@@ -33,7 +33,8 @@ let outputValues = {
 	borderValues: {},
 	prepend: {},
 	append: {},
-	css: {}
+	css: {},
+	override: {}
 };
 
 let relativeTimeCheck = {};
@@ -327,10 +328,10 @@ class EnergieflussErweitert extends utils.Adapter {
 	}
 
 	/**
-	 * @param {number} src
+	 * @param {string} src
 	 * @param {number} value
 	*/
-	valueOutput(src, value) {
+	formatOutputValue(src, value) {
 		let seObj = settingsObject[src];
 		// Convert to positive if necessary
 		let cValue = seObj.convert ? this.convertToPositive(value) : value;
@@ -339,6 +340,90 @@ class EnergieflussErweitert extends utils.Adapter {
 		// Set decimal places
 		cValue = seObj.decimal_places >= 0 ? this.decimalPlaces(cValue, seObj.decimal_places) : cValue;
 		return cValue;
+	}
+
+	/**
+	 * 
+	 * @param {string} id 
+	 * @param {object} obj 
+	 * @param {object} state
+	 * @param {number} value 
+	 * @returns 'Calculated Value'
+	 */
+	calculateValue(id, obj, state, value) {
+		if (obj.type == 'text') {
+			// Check, if we have source options for text - Date
+			if (obj.source_option != -1) {
+				this.log.debug('Source Option detected! ' + obj.source_option + 'Generating DateString for ' + state.ts + ' ' + this.getTimeStamp(state.ts, obj.source_option));
+				outputValues.values[id] = this.getTimeStamp(state.ts, obj.source_option);
+				rawValues.values[id] = 0;
+			} else {
+				switch (obj.source_display) {
+					case 'text':
+						outputValues.values[id] = state.val;
+						rawValues.values[id] = state.val;
+						break;
+					case 'bool':
+						outputValues.values[id] = value ? systemDictionary['on'][systemLang] : systemDictionary['off'][systemLang];
+						rawValues.values[id] = value;
+						break;
+					default:
+						// Threshold need to be positive
+						if (obj.threshold >= 0) {
+							let subValue = 0;
+							let addValue = 0;
+							let formatValue;
+							this.log.debug('Threshold for: ' + id + ' is: ' + obj.threshold);
+
+							// Check, if we have Subtractions for this value
+							let subArray = obj.subtract;
+							if (subArray != undefined && typeof (subArray) == 'object') {
+								if (subArray.length > 0) {
+									if (subArray[0] != -1) {
+										subValue = subArray.reduce((acc, value) => acc - (rawValues.sourceValues[value]), 0);
+										this.log.debug("Subtracted by: " + subArray.toString());
+									}
+								}
+							}
+
+							// Check, if we have Additions for this value
+							let addArray = obj.add;
+							if (addArray != undefined && typeof (addArray) == 'object') {
+								if (addArray.length > 0) {
+									if (addArray[0] != -1) {
+										addValue = addArray.reduce((acc, value) => acc + (rawValues.sourceValues[value]), 0);
+										this.log.debug("Added to Value: " + addArray.toString());
+									}
+								}
+							}
+
+							formatValue = (Number(value) + Number(subValue) + Number(addValue));
+
+							// Check, if value is over threshold
+							if (Math.abs(formatValue) >= obj.threshold) {
+								// Format Value
+								outputValues.values[id] = this.formatOutputValue(id, formatValue);
+							} else {
+								outputValues.values[id] = obj.decimal_places >= 0 ? this.decimalPlaces(0, obj.decimal_places) : value;
+							}
+						}
+						rawValues.values[id] = value;
+						break;
+				}
+			}
+		} else {
+			if (obj.fill_type != -1 && obj.fill_type) {
+				outputValues.fillValues[id] = value;
+			}
+			if (obj.border_type != -1 && obj.border_type) {
+				outputValues.borderValues[id] = value;
+			}
+		}
+		// Overrides for elements
+		if (obj.override) {
+			outputValues.override[id] = this.getOverrides(id, value, obj.override);
+			this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[id])}`);
+		}
 	}
 
 	/**
@@ -567,6 +652,43 @@ class EnergieflussErweitert extends utils.Adapter {
 	}
 
 	/**
+	 * 
+	 * @param {number} id 
+	 * @param {number} condValue 
+	 * @param {object} object 
+	 * @returns 
+	 */
+	getOverrides(id, condValue, object) {
+		let result = {};
+		let tmpObj = {};
+
+		for (var _key in object) {
+			// Order them
+			let workObj = typeof (object[_key]) === 'string' ? JSON.parse(object[_key]) : object[_key];
+			tmpObj[_key] = Object.keys(workObj)
+				.sort(
+					(a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
+				.reduce(
+					(obj, key) => {
+						obj[key] = workObj[key];
+						return obj;
+					},
+					{}
+				);
+			try {
+				let func = Function(`return ${condValue}${_key}`)();
+				if (func) {
+					result = object[_key];
+				}
+			}
+			catch (error) {
+				this.log.warn(`Overrides for element ${id} can not be processed, as they are not correctly formatted!`);
+			}
+		}
+		return result;
+	}
+
+	/**
 	 * @param {string} id	ID of the state
 	 * @param {object} state	State itself
 	 */
@@ -577,104 +699,65 @@ class EnergieflussErweitert extends utils.Adapter {
 			this.log.info('Configuration changed via Workspace! Reloading config!');
 			this.getConfig();
 		} else {
-			// Correct the Value if not Number
-			if (typeof (state.val) === 'string') {
-				clearValue = Number(state.val.replace(/[^\d.-]/g, ''));
-			} else {
-				clearValue = state.val;
-			}
-
 			// Check, if we handle this source inside our subscribtion
 			if (sourceObject.hasOwnProperty(id)) {
-				let soObj = sourceObject[id];
-				// Loop through each Element, which belongs to that source
-				if (soObj.hasOwnProperty('elmSources')) {
-					// Put Value into RAW-Source-Values
-					rawValues.sourceValues[soObj.id] = clearValue;
-					this.log.debug(JSON.stringify(rawValues.sourceValues));
+				// Correct the Value if not Number
+				if (typeof (state.val) === 'string') {
+					clearValue = Number(state.val.replace(/[^\d.-]/g, ''));
+				} else {
+					clearValue = state.val;
+				}
 
+				// sourceObject for this state-id
+				let soObj = sourceObject[id];
+
+				// Put Value into RAW-Source-Values
+				rawValues.sourceValues[soObj.id] = clearValue;
+
+				// Loop through each addSource
+				if (soObj.hasOwnProperty('addSources') && soObj['addSources'].length) {
+					this.log.debug(`Updated through addSources: ${JSON.stringify(rawValues.sourceValues)}`);
+
+					// Run through element addition to update the addition
+					for (var _key of Object.keys(soObj.addSources)) {
+						let src = soObj.addSources[_key];
+
+						if (settingsObject.hasOwnProperty(src)) {
+							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
+							this.calculateValue(src, settingsObject[src], state, rawValues.values[src]);
+						}
+					}
+				}
+
+				// Loop through each subtractSource
+				if (soObj.hasOwnProperty('subtractSources') && soObj['subtractSources'].length) {
+					this.log.debug(`Updated through subtractSources: ${JSON.stringify(rawValues.sourceValues)}`);
+
+					// Run through element addition to update the addition
+					for (var _key of Object.keys(soObj.subtractSources)) {
+						let src = soObj.subtractSources[_key];
+
+						if (settingsObject.hasOwnProperty(src)) {
+							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
+							this.calculateValue(src, settingsObject[src], state, rawValues.values[src]);
+						}
+					}
+				}
+
+				// Loop through each Element, which belongs to that source
+				if (soObj.hasOwnProperty('elmSources') && soObj['elmSources'].length) {
+					this.log.debug(`Updated through sources: ${JSON.stringify(rawValues.sourceValues)}`);
+
+					// Run through element sources to update the sources
 					for (var _key of Object.keys(soObj.elmSources)) {
 						let src = soObj.elmSources[_key];
 
 						// Put ID into CSS-Rule for later use
 						cssRules.push(src);
 
-						// Work on elements
 						if (settingsObject.hasOwnProperty(src)) {
 							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
-							// Convertible
-							let seObj = settingsObject[src];
-							if (seObj.type == 'text') {
-								// Check, if we have source options for text - Date
-								if (seObj.source_option != -1) {
-									this.log.debug('Source Option detected! ' + seObj.source_option + 'Generating DateString for ' + state.ts + ' ' + this.getTimeStamp(state.ts, seObj.source_option));
-									outputValues.values[src] = this.getTimeStamp(state.ts, seObj.source_option);
-									rawValues.values[src] = 0;
-								} else {
-									switch (seObj.source_display) {
-										case 'text':
-											outputValues.values[src] = state.val;
-											rawValues.values[src] = state.val;
-											break;
-										case 'bool':
-											outputValues.values[src] = clearValue ? systemDictionary['on'][systemLang] : systemDictionary['off'][systemLang];
-											rawValues.values[src] = clearValue;
-											break;
-										default:
-											// Threshold need to be positive
-											if (seObj.threshold >= 0) {
-												let subValue = 0;
-												let addValue = 0;
-												let formatValue;
-												this.log.debug('Threshold for: ' + src + ' is: ' + seObj.threshold);
-
-												// Check, if we have Subtractions for this value
-												let subArray = seObj.subtract;
-												if (subArray != undefined && typeof (subArray) == 'object') {
-													if (subArray.length > 0) {
-														for (var sub in subArray) {
-															if (subArray[sub] != -1) {
-																subValue = subValue + Math.abs(rawValues.sourceValues[subArray[sub]]);
-																this.log.debug("Subtracted by: " + subArray.toString());
-															}
-														}
-													}
-												}
-
-												// Check, if we have Additions for this value
-												let addArray = seObj.add;
-												if (addArray != undefined && typeof (addArray) == 'object') {
-													if (addArray.length > 0) {
-														for (var add in addArray) {
-															if (addArray[add] != -1) {
-																addValue = addValue + Math.abs(rawValues.sourceValues[addArray[add]]);
-																this.log.debug("Added to Value: " + addArray.toString());
-															}
-														}
-													}
-												}
-												formatValue = clearValue > 0 ? clearValue + (addValue) - (subValue) : clearValue - (addValue) + (subValue);
-
-												// Check, if value is over threshold
-												if (Math.abs(formatValue) >= seObj.threshold) {
-													// Format Value
-													outputValues.values[src] = this.valueOutput(src, formatValue);
-												} else {
-													outputValues.values[src] = seObj.decimal_places >= 0 ? this.decimalPlaces(0, seObj.decimal_places) : clearValue;
-												}
-											}
-											rawValues.values[src] = clearValue;
-											break;
-									}
-								}
-							} else {
-								if (seObj.fill_type != -1 && seObj.fill_type) {
-									outputValues.fillValues[src] = clearValue;
-								}
-								if (seObj.border_type != -1 && seObj.border_type) {
-									outputValues.borderValues[src] = clearValue;
-								}
-							}
+							this.calculateValue(src, settingsObject[src], state, clearValue);
 						}
 					}
 				}
@@ -1004,14 +1087,14 @@ class EnergieflussErweitert extends utils.Adapter {
 				this.log.debug(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements: ${soObj.elmSources.toString()}`);
 
 				// Build Output
-				this.setData();
+				this.setDataState();
 			} else {
 				this.log.warn(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements, which were not found! Please check them!`);
 			}
 		}
 	}
 
-	async setData() {
+	async setDataState() {
 		await this.setStateChangedAsync('data', { val: JSON.stringify(outputValues), ack: true });
 	}
 
@@ -1031,7 +1114,8 @@ class EnergieflussErweitert extends utils.Adapter {
 			animationProperties: {},
 			prepend: {},
 			append: {},
-			css: {}
+			css: {},
+			override: {}
 		};
 		rawValues = {
 			values: {},
@@ -1064,11 +1148,13 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (value.source != '' && value.hasOwnProperty('source')) {
 					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[key].source);
 					if (stateValue) {
-						// Add, to find it better
+						// Create sourceObject, for handling sources
 						sourceObject[globalConfig.datasources[key].source] = {
 							id: parseInt(key),
 							elmSources: [],
 							elmAnimations: [],
+							addSources: [],
+							subtractSources: []
 						};
 						rawValues.sourceValues[key] = stateValue.val;
 
@@ -1109,7 +1195,8 @@ class EnergieflussErweitert extends utils.Adapter {
 								css_active_negative: value.css_active_negative,
 								css_inactive_negative: value.css_inactive_negative,
 								fill_type: value.fill_type,
-								border_type: value.border_type
+								border_type: value.border_type,
+								override: value.override
 							};
 
 							// Append and prepend
@@ -1127,8 +1214,30 @@ class EnergieflussErweitert extends utils.Adapter {
 								}
 							}
 
-							// Put Elm into Source
+							// Put elment ID into Source
 							sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
+
+							// Put add ID's into addition array
+							if (value.add != undefined && typeof (value.add) == 'object') {
+								if (value.add.length > 0) {
+									for (var add in value.add) {
+										if (value.add[add] != -1) {
+											sourceObject[globalConfig.datasources[value.add[add]].source].addSources.push(key);
+										}
+									}
+								}
+							}
+
+							// Put subtract ID's into substraction array
+							if (value.subtract != undefined && typeof (value.subtract) == 'object') {
+								if (value.subtract.length > 0) {
+									for (var subtract in value.subtract) {
+										if (value.subtract[subtract] != -1) {
+											sourceObject[globalConfig.datasources[value.subtract[subtract]].source].subtractSources.push(key);
+										}
+									}
+								}
+							}
 						}
 					} else {
 						this.log.warn(`Element with ID ${key} of Type ${value.type} is using source '${value.source}', which ist not available!`);
@@ -1156,7 +1265,8 @@ class EnergieflussErweitert extends utils.Adapter {
 						css_active_positive: value.css_active_positive,
 						css_inactive_positive: value.css_inactive_positive,
 						css_active_negative: value.css_active_negative,
-						css_inactive_negative: value.css_inactive_negative
+						css_inactive_negative: value.css_inactive_negative,
+						override: value.override
 					};
 
 					// Put Animation into Source
@@ -1190,7 +1300,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				this.getRelativeTimeObjects(relativeTimeCheck);
 			}, 10000);
 		}
-		this.setData();
+		this.setDataState();
 
 		this.log.info('Configuration loaded!');
 		this.log.info(`Requesting the following states: ${subscribeArray.toString()}`);

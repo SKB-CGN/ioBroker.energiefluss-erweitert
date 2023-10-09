@@ -22,8 +22,14 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 Documentation:
 
 * [Forum thread](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
-* [English description](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/docs/en/energiefluss-erweitert.md)
-* [Deutsche Beschreibung](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/docs/de/energiefluss-erweitert.md)
+* [???? English description](./docs/en/README.md)
+* [???? Deutsche Beschreibung](./docs/de/README.md)
+
+## Documentation
+
+[???? Documentation](./docs/en/README.md)
+
+[???? Dokumentation](./docs/de/README.md)
 
 **Please note, this currently only alpha state**
 
@@ -33,7 +39,15 @@ Documentation:
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- FIX: When using animation depencies with dots, it could be the case, that an icorrect amount of dots was displayed
+- Added: Using left over space in configbar, to display wider text/number boxes and more text without using more space
+- Added: Static navigation in config bar for easier switching between basic and extended settings of the element
+- Added: Better handling of boxes in tab menu. Now we use flex views to grow or shrink boxes. Some boxes a re-aligned to use the available space in a more efficient way.
+- Added: ACE-Editor with syntax highlighting, autocompletion for properties and error notification while using in CSS tab (more user friendly when applying styles). Style of Log output is also formated with syntax highlighting
+- Added: Override function for elements with datasources. Its now possible to add overrides to any element which uses a datasource. With this function, you are able to style the element depending on the value of the datasource
+- FIX: Alignment of elements was not working correctly for text append, text prepend and grouped icons
+- FIX: When using animation depencies with dots, it could be the case that an icorrect amount of dots was displayed
+- FIX: When using subtraction or addition on a datasource the displayed value was not updated if one of the subtraction or addition value changed
+- FIX: Some layout fixes
 
 ### 0.0.2-alpha.20 (2023-09-22)
 - FIX: states in user environment (userdata and javascript) do not need ACK flags anymore

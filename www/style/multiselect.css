@@ -10,7 +10,7 @@
 .ms-options-wrap>button:focus,
 .ms-options-wrap>button {
     text-align: left;
-    width: 176px;
+    width: 100%;
     font-size: 14px;
     border: none;
     outline: none;

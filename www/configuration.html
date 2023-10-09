@@ -24,6 +24,8 @@
     <script src="js/words.js"></script>
     <script src="js/jscolor.min.js"></script>
     <script src="js/multiselect.min.js"></script>
+    <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/ace/ext-language_tools.js"></script>
     <script src="js/functions.min.js"></script>
 
     <style id="style_animation"></style>
@@ -64,6 +66,25 @@
                     data-lang-value="value_cancel">
             </div>
         </div>
+        <div id="codeEditorContainer">
+            <div class="title">
+                <span class="translate" data-lang="title_codeEditor">Code Editor</span>
+                <div class="close codeEditor_close"></div>
+            </div>
+            <!-- ACE Editor -->
+            <div id="codeEditor" class="scrollbar"></div>
+            <div style="width: 100%;">
+                <div style="text-align: left; padding: 10px;float: left;"><input type="button" value="Save"
+                        id="jsonOverride" class="input_button translateV" data-lang-value="lbl_format_json"
+                        style="width: auto;"></div>
+                <div style="text-align: right; padding: 10px;">
+                    <input type="button" value="Save" id="save_code" class="input_button translateV"
+                        data-lang-value="lbl_save">
+                    <input type="button" value="Cancel" class="input_button translateV codeEditor_close red"
+                        data-lang-value="value_cancel">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="tabbed">
         <input checked="checked" id="tab1" type="radio" name="tabs">
@@ -92,7 +113,7 @@
             <label for="tab7"><span class="iconify menu" data-icon="material-symbols:save" data-width="24"
                     data-height="24"></span><span class="translate" data-lang="lbl_save">Save</span></label>
             <span class="version">
-                <span id="runningVersion">Version: xxx</span>
+                <span id="runningVersion"></span>
                 <span id="newVersion" class="newVersion">ddd</span>
             </span>
         </nav>
@@ -104,8 +125,8 @@
                         <div id="config_swap" class="swap translateT tt-element" data-lang-title="btn_swap"></div>
                         <div id="config_close" class="close translateT tt-element" data-lang-title="btn_close"></div>
                     </div>
-                    <div class="scrollbar config_display" id="config_bar_content">
-                        <div class="tabbed" style="width: 98%;">
+                    <div class="config_display" id="config_bar_content">
+                        <div class="tabbed" style="width: 98%;height: calc(100vh - 36px);">
                             <input checked="checked" id="tab1_config" type="radio" name="tabs_config">
                             <input id="tab2_config" type="radio" name="tabs_config">
                             <nav>
@@ -118,8 +139,8 @@
                                         data-height="24"></span><span class="translate"
                                         data-lang="lbl_config_extended">Extended</span></label>
                             </nav>
-                            <figure>
-                                <div class="tab1_config">
+                            <figure style="height: 100%;">
+                                <div class="tab1_config scrollbar resized">
                                     <div class="detail_box">
                                         <span class="config_sec translate" data-lang="lbl_config_element">Element</span>
                                         <table class="element_config_table">
@@ -267,14 +288,14 @@
                                                             data-lang="legend_alignment">Alignment</label>
                                                         <select class="input_select elm_config" id="elm_align"
                                                             name="elm_align">
-                                                            <option value="end" class="translate" data-lang="opt_left">
+                                                            <option value="start" class="translate"
+                                                                data-lang="opt_left">
                                                                 Left
                                                             </option>
                                                             <option value="middle" class="translate"
                                                                 data-lang="opt_middle">
                                                                 Middle</option>
-                                                            <option value="start" class="translate"
-                                                                data-lang="opt_right">
+                                                            <option value="end" class="translate" data-lang="opt_right">
                                                                 Right</option>
                                                         </select>
                                                     </div>
@@ -359,21 +380,6 @@
                                         <table class="element_config_table">
                                             <tr>
                                                 <td>
-                                                    <div class="cb_onfoffswitch">
-                                                        <div class="onoffswitch">
-                                                            <input type="checkbox" name="elm_shadow"
-                                                                class="onoffswitch-checkbox elm_config" id="elm_shadow"
-                                                                value="yes">
-                                                            <label class="onoffswitch-label" for="elm_shadow">
-                                                                <span class="onoffswitch-inner"></span>
-                                                                <span class="onoffswitch-switch"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
                                                     <div class="form_div text">
                                                         <input type="text" class="input_text color elm_config "
                                                             name="elm_shadow_color" id="elm_shadow_color" placeholder=""
@@ -408,8 +414,7 @@
                                                         <label for="elm_svg_content" class="form_label translate"
                                                             data-lang="lbl_svg_content">SVG Content</label>
                                                         <textarea id="elm_svg_content" name="elm_svg_content" cols="30"
-                                                            rows="10" class="input_textbox elm_config"
-                                                            style="width: 200px;"></textarea>
+                                                            rows="10" class="input_textbox elm_config"></textarea>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -495,9 +500,9 @@
                                             <tr>
                                                 <td>
                                                     <div class="form_div text">
-                                                        <input type="text" class="input_text elm_config" name="elm_font"
-                                                            id="elm_font" placeholder="" autocorrect="off"
-                                                            autocomplete="off">
+                                                        <input type="text" class="input_text elm_config"
+                                                            name="elm_font_family" id="elm_font_family" placeholder=""
+                                                            autocorrect="off" autocomplete="off">
                                                         <label for="elm_font" class="form_label translate"
                                                             data-lang="lbl_font_family">Font family</label>
                                                     </div>
@@ -761,7 +766,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="tab2_config">
+                                <div class="tab2_config scrollbar resized">
                                     <div
                                         class="detail_box elm_config_datasource elm_config_use elm_config_icon elm_config_rect elm_config_circle elm_config_image">
                                         <span class="config_sec translate"
@@ -975,8 +980,7 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div
-                                        class="detail_box elm_config_datasource elm_config_icon elm_config_image elm_config_svg">
+                                    <div class="detail_box elm_config_datasource elm_config_icon elm_config_image">
                                         <span class="config_sec translate" data-lang="lbl_action_options">Actions
                                             Options</span>
                                         <table class="element_config_table">
@@ -1333,14 +1337,51 @@
                                                             below
                                                             threshold (negative)</label>
                                                     </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
                                                     <img src='img/icon_help.png' style='margin-top:10px;'
                                                         class="translateP help" data-lang-placeholder="help_css_class"
-                                                        placeholder="<p><b>General:</b><br>Add CSS classes, that are always assigned to that element</p><p><b>Source over threshold (positive):</b><br>CSS classes, to be added if the source is positive and over threshold (active)</p><p><b>Source below threshold (positive):</b><br>CSS classes, to be added if the source is positive and below threshold (inactive)</p><p><b>Source over threshold (negative):</b><br>CSS classes, to be added if the source is negative and over threshold (active)</p><p><b>Source below threshold (negative):</b><br>CSS classes, to be added if the source is negative and below threshold (inactive)</p><p><b>Usage:</b><br>Add class-names seperated by space and define them in '
-                                                    CSS/Styles-Tab'></p>">
-                                                    <br>
-                                                    <a href="https://www.w3schools.com/css/" target="_blank"
+                                                        placeholder="help_css_class">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://www.w3schools.com/css/" target="_blank"
                                                         class="translate" data-lang="ex_how_to_use_css">How to use
-                                                        CSS</a>
+                                                        CSS</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div
+                                        class="detail_box elm_config_circle elm_config_datasource elm_config_rect elm_config_icon elm_config_use elm_config_image">
+                                        <span class="config_sec translate" style="height: auto;"
+                                            data-lang="lbl_override_settings">Override settings
+                                            depending on value</span>
+                                        <table class="element_config_table">
+                                            <tr>
+                                                <td><input type="button" value="Color" id="override_settings"
+                                                        class="input_button translateV override_settings"
+                                                        data-lang-value="lbl_override" style="width: auto;">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <img src='img/icon_help.png' style='margin-top:10px;'
+                                                        class="translateP help" data-lang-placeholder="help_override"
+                                                        placeholder="help_override">
+                                                    <p>The element can be styled with overrides. For that to work, you
+                                                        need to create a JSON-formatted value list.
+                                                        Example:<br><code>{'>10':{'color':'#FF0000'}, '>5':{'color':'#538ea3'}}</code>
+                                                        For a value greater than 5, the color #538ea3 will be applied.
+                                                        For a value greater than 10, the color will be #FF0000.<br>
+                                                        You can add as many conditions as you like. The conditions will
+                                                        be
+                                                        ordered according to their key before they are processed.
+                                                        <a href='https://www.kreyenborg.koeln/go/hlz4j'
+                                                            target='_blank'>Look into Wiki</a>
+                                                    </p>
                                                 </td>
                                             </tr>
                                         </table>
@@ -1354,7 +1395,7 @@
                     <div><input type="button" class="input_button translateV" data-lang-value="value_hide_controls"
                             id="show_hide_config" value="Hide Controls" style="width: auto;">
                     </div>
-                    <div class="container scrollbar" id="container_menu">
+                    <div class="container top scrollbar" id="container_menu">
                         <fieldset>
                             <legend><span class="iconify legend"
                                     data-icon="material-symbols:photo-size-select-small-rounded" data-width="24"
@@ -1379,7 +1420,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="form_div">
+                                        <div class="form_div text">
                                             <input type="number" value="500" id="svg_height_value" min="1" max="2000"
                                                 class="input_number input_number_small svg_size_value" placeholder=""
                                                 autocorrect="off" autocomplete="off">
@@ -1455,8 +1496,9 @@
                                 <span class="translate" data-lang="legend_alignment">Alignment</span>
                             </legend>
                             <table class="config_table">
-                                <tr style="height: 42px;">
-                                    <td style="width: 140px;white-space: nowrap;">
+                                <tr>
+                                    <td
+                                        style="width: 120px;min-width: 120px;max-width: 120px;vertical-align: top;height: 82px;">
                                         <a title="Align left" class="align_elements tt-element translateT"
                                             id="align_left" data-lang-title="title_align_left"><span
                                                 class="iconify add_element_area"
@@ -1472,16 +1514,6 @@
                                                 class="iconify add_element_area"
                                                 data-icon="material-symbols:format-align-right-rounded" data-width="48"
                                                 data-height="48"></span></a>
-                                    </td>
-                                    <td style="width: 260px;"><span id="ex_how_align" class="translate"
-                                            data-lang="ex_align">Choose an
-                                            alignment and select a
-                                            reference
-                                            element</span>
-                                    </td>
-                                </tr>
-                                <tr style="height: 42px;">
-                                    <td>
                                         <a title=" Align Top" class="align_elements tt-element translateT"
                                             id="align_top" data-lang-title="title_align_top"><span
                                                 class="iconify add_element_area"
@@ -1498,7 +1530,11 @@
                                                 data-icon="material-symbols:vertical-align-bottom-rounded"
                                                 data-width="48" data-height="48"></span></a>
                                     </td>
-                                    <td>
+                                    <td style="width: 260px;vertical-align: top;"><span id="ex_how_align"
+                                            class="translate" data-lang="ex_align">Choose an
+                                            alignment and select a
+                                            reference
+                                            element</span>
                                         <div id="all_undo_align_elements"
                                             style="width:100%;align-items: center;display: none;">
                                             <span style="font-weight: bold; padding-right: 20px;" class="translate"
@@ -1513,7 +1549,6 @@
                                             </div>
                                         </div>
                                     </td>
-
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
@@ -1642,47 +1677,51 @@
                 </div>
             </div>
             <div class="tab2">
-                <fieldset style="margin-left: 0px; width: 300px;">
-                    <legend><span class="iconify legend" data-icon="mdi:database-search" data-width="24"
-                            data-height="24"></span>
-                        <span class="translate" data-lang="lbl_datasources">Datasources</span>
-                    </legend>
-                    <form id="frm-addDataSource">
-                        <table class="config_table">
-                            <tr>
-                                <td>
-                                    <div class="form_div text">
-                                        <input type="text" class="input_text icon_in_input_pad datasource_autocomplete"
-                                            name="elm_ds_source" id="elm_ds_source" placeholder="" autocorrect="off"
-                                            autocomplete="off" minlength="3" required="">
-                                        <label for="elm_ds_source" class="form_label translate"
-                                            data-lang="lbl_datasource">Datasource</label>
-                                        <div class="icon_wrapper">
-                                            <a class="datasource icon_in_input">
-                                                <span class="iconify" data-icon="mdi:database-search" data-width="24"
-                                                    data-height="24"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="form_div text">
-                                        <input type="text" class="input_text icon_in_input_pad" name="elm_ds_alias"
-                                            id="elm_ds_alias" placeholder="" autocorrect="off" autocomplete="off">
-                                        <label for="elm_ds_alias" class="form_label translate"
-                                            data-lang="lbl_alias">Alias</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="submit" class="input_button translateV" data-lang-value="value_add"
-                                        value="Add">
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                </fieldset>
                 <div class="container scrollbar">
-                    <fieldset style="width: 642px;">
+                    <div>
+                        <fieldset class="flex">
+                            <legend><span class="iconify legend" data-icon="mdi:database-search" data-width="24"
+                                    data-height="24"></span>
+                                <span class="translate" data-lang="lbl_datasources">Datasources</span>
+                            </legend>
+                            <form id="frm-addDataSource">
+                                <table class="config_table">
+                                    <tr>
+                                        <td>
+                                            <div class="form_div text">
+                                                <input type="text"
+                                                    class="input_text icon_in_input_pad datasource_autocomplete"
+                                                    name="elm_ds_source" id="elm_ds_source" placeholder=""
+                                                    autocorrect="off" autocomplete="off" minlength="3" required="">
+                                                <label for="elm_ds_source" class="form_label translate"
+                                                    data-lang="lbl_datasource">Datasource</label>
+                                                <div class="icon_wrapper">
+                                                    <a class="datasource icon_in_input">
+                                                        <span class="iconify" data-icon="mdi:database-search"
+                                                            data-width="24" data-height="24"></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="form_div text">
+                                                <input type="text" class="input_text icon_in_input_pad"
+                                                    name="elm_ds_alias" id="elm_ds_alias" placeholder=""
+                                                    autocorrect="off" autocomplete="off">
+                                                <label for="elm_ds_alias" class="form_label translate"
+                                                    data-lang="lbl_alias">Alias</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="submit" class="input_button translateV"
+                                                data-lang-value="value_add" value="Add">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </fieldset>
+                    </div>
+                    <fieldset class="flex">
                         <legend><span class="iconify legend" data-icon="mdi:database-search" data-width="24"
                                 data-height="24"></span>
                             <span class="translate" data-lang="legend_av_datasources">Available Datasources</span>
@@ -1710,7 +1749,7 @@
             </div>
             <div class="tab3">
                 <div class="container scrollbar">
-                    <fieldset style="width: 300px;">
+                    <fieldset class="flex">
                         <legend><span class="iconify legend" data-icon="clarity:animation-line" data-width="24"
                                 data-height="24"></span>
                             <span class="translate" data-lang="lbl_animation">Animation</span>
@@ -1772,7 +1811,7 @@
                                         <input type="number" class="input_number line_preview" id="animation_duration"
                                             placeholder="" autocorrect="off" autocomplete="off" min="1" max="5000">
                                         <label for="animation_duration" class="form_label translate"
-                                            data-lang="lbl_line_size">Duration</label>
+                                            data-lang="lbl_duration">Duration</label>
                                     </div>
                                 </td>
                             </tr>
@@ -1825,8 +1864,8 @@
                             </tr>
                         </table>
                     </fieldset>
-                    <fieldset style="width: 300px;">
-                        <legend><span class="iconify legend" data-icon="fontisto:preview" data-width="24"
+                    <fieldset class="flex">
+                        <legend><span class=" iconify legend" data-icon="fontisto:preview" data-width="24"
                                 data-height="24"></span>
                             <span class="translate" data-lang="legend_preview">Preview</span>
                         </legend>
@@ -1861,7 +1900,7 @@
             </div>
             <div class="tab4">
                 <div class="container scrollbar">
-                    <fieldset style="width: 300px;">
+                    <fieldset class="flex">
                         <legend><span class="iconify legend" data-icon="game-icons:battery-100" data-width="24"
                                 data-height="24"></span>
                             <span class="translate" data-lang="legend_remaining_byttery">Remaining battery
@@ -2028,8 +2067,7 @@
                             </tr>
                         </table>
                     </fieldset>
-                    <!-- HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                    <fieldset style="width: 300px;height:max-content ;">
+                    <fieldset class="flex">
                         <legend><span class="iconify legend" data-icon="mdi:power" data-width="24"
                                 data-height="24"></span>
                             <span class="translate" data-lang="legend_consumption">Consumption</span>
@@ -2294,15 +2332,15 @@
             </div>
             <div class="tab5">
                 <div class="container scrollbar">
-                    <fieldset>
+                    <fieldset class="flex">
                         <legend><span class="iconify legend" data-icon="material-symbols:css-rounded" data-width="24"
                                 data-height="24"></span>
                             <span class="translate" data-lang="lbl_styles">Styles</span>
                         </legend>
                         <table class="config_table">
                             <tr>
-                                <td><textarea id="own_css" rows="30" cols="100" spellcheck="false" autocorrect="off"
-                                        class="input_textbox"></textarea>
+                                <td>
+                                    <div id="own_css"></div></textarea>
                                 </td>
                             </tr>
                         </table>
@@ -2311,94 +2349,97 @@
             </div>
             <div class="tab6">
                 <div class="container scrollbar">
-                    <fieldset style="max-width: 300px;">
-                        <legend><span class="iconify legend" data-icon="mdi:cog" data-width="24"
-                                data-height="24"></span>
-                            <span class="translate" data-lang="lbl_settings">Settings</span>
-                        </legend>
-                        <table class="config_table">
-                            <tr>
-                                <td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="enable_config_icon"
-                                            class="onoffswitch-checkbox elm_config" id="enable_config_icon" value="yes">
-                                        <label class="onoffswitch-label" for="enable_config_icon">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td><label class="label translate" for="enable_config_icon"
-                                        data-lang="lbl_settings_show_icon">Show Config Icon on
-                                        Live-View</label><img src='img/icon_help.png' class="translateP help"
-                                        data-lang-placeholder="help_settings"
-                                        placeholder='If you disable the Config Wheel on the live-view, you need to use the browsers access-key <b>"e"</b> to get back into this configuration again'>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="enable_last_id"
-                                            class="onoffswitch-checkbox elm_config" id="enable_last_id" value="yes">
-                                        <label class="onoffswitch-label" for="enable_last_id">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td><label class="label translate" for="enable_last_id"
-                                        data-lang="lbl_settings_lastSource">Show last Source in Object
-                                        Browser, if
-                                        current source is
-                                        empty</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="enable_proxy"
-                                            class="onoffswitch-checkbox elm_config" id="enable_proxy" value="yes"
-                                            data-lang-title="ex_icon_proxy" disabled="disabled">
-                                        <label class="onoffswitch-label" for="enable_proxy">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td><label class="label translate translateT" for="enable_proxy"
-                                        data-lang="lbl_settings_enable_proxy" data-lang-title="ex_icon_proxy">Use
-                                        Icon-Proxy for all request</label> <img src='img/icon_help.png'
-                                        class="translateP help" data-lang-placeholder="help_icon_proxy"
-                                        placeholder='<p><b>Icon-Proxy</b>:<br>The Icon - Proxy need to be configured inside the Adapter settings of ioBroker.<br>If you want to use the Proxy for all requests, activate this here. The benefit of this is, that:<ul><li>devices inside your network do not need internet access to receive the icons</li><li>all icons are stored inside the cache of the adapter as long as it runs (performance plus) </ul></p>'>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="low_performance"
-                                            class="onoffswitch-checkbox elm_config" id="low_performance" value="yes"
-                                            data-lang-title="ex_icon_proxy">
-                                        <label class="onoffswitch-label" for="low_performance">
-                                            <span class="onoffswitch-inner"></span>
-                                            <span class="onoffswitch-switch"></span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td><label class="label translate translateT" for="low_performance"
-                                        data-lang="lbl_settings_low_performance">Use less power mode for
-                                        animations</label> <img src='img/icon_help.png' class="translateP help"
-                                        data-lang-placeholder="help_low_performance"
-                                        placeholder='<p>This mode allows you to use the animations on less powerful devices. The only limitation to this is that you can no longer adjust the speed of the animation! The layout and number of points remain unaffected!</p>'>
-                                </td>
-                            </tr>
-                        </table>
-                    </fieldset>
-                    <fieldset style="width: 750px;">
+                    <div>
+                        <fieldset class="flex">
+                            <legend><span class="iconify legend" data-icon="mdi:cog" data-width="24"
+                                    data-height="24"></span>
+                                <span class="translate" data-lang="lbl_settings">Settings</span>
+                            </legend>
+                            <table class="config_table">
+                                <tr>
+                                    <td>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="enable_config_icon"
+                                                class="onoffswitch-checkbox elm_config" id="enable_config_icon"
+                                                value="yes">
+                                            <label class="onoffswitch-label" for="enable_config_icon">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><label class="label translate" for="enable_config_icon"
+                                            data-lang="lbl_settings_show_icon">Show Config Icon on
+                                            Live-View</label><img src='img/icon_help.png' class="translateP help"
+                                            data-lang-placeholder="help_settings"
+                                            placeholder='If you disable the Config Wheel on the live-view, you need to use the browsers access-key <b>"e"</b> to get back into this configuration again'>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="enable_last_id"
+                                                class="onoffswitch-checkbox elm_config" id="enable_last_id" value="yes">
+                                            <label class="onoffswitch-label" for="enable_last_id">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><label class="label translate" for="enable_last_id"
+                                            data-lang="lbl_settings_lastSource">Show last Source in Object
+                                            Browser, if
+                                            current source is
+                                            empty</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="enable_proxy"
+                                                class="onoffswitch-checkbox elm_config" id="enable_proxy" value="yes"
+                                                data-lang-title="ex_icon_proxy" disabled="disabled">
+                                            <label class="onoffswitch-label" for="enable_proxy">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><label class="label translate translateT" for="enable_proxy"
+                                            data-lang="lbl_settings_enable_proxy" data-lang-title="ex_icon_proxy">Use
+                                            Icon-Proxy for all request</label> <img src='img/icon_help.png'
+                                            class="translateP help" data-lang-placeholder="help_icon_proxy"
+                                            placeholder='<p><b>Icon-Proxy</b>:<br>The Icon - Proxy need to be configured inside the Adapter settings of ioBroker.<br>If you want to use the Proxy for all requests, activate this here. The benefit of this is, that:<ul><li>devices inside your network do not need internet access to receive the icons</li><li>all icons are stored inside the cache of the adapter as long as it runs (performance plus) </ul></p>'>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="low_performance"
+                                                class="onoffswitch-checkbox elm_config" id="low_performance" value="yes"
+                                                data-lang-title="ex_icon_proxy">
+                                            <label class="onoffswitch-label" for="low_performance">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td><label class="label translate translateT" for="low_performance"
+                                            data-lang="lbl_settings_low_performance">Use less power mode for
+                                            animations</label> <img src='img/icon_help.png' class="translateP help"
+                                            data-lang-placeholder="help_low_performance"
+                                            placeholder='<p>This mode allows you to use the animations on less powerful devices. The only limitation to this is that you can no longer adjust the speed of the animation! The layout and number of points remain unaffected!</p> <p><u>Please note:</u> If you only want to enable this mode on less powerful devices, attach the following parameter to the URL "<code>lowPerformance=true</code>" </p>'>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+                    <fieldset class="flex">
                         <legend><span class="iconify legend" data-icon="material-symbols:format-list-bulleted"
                                 data-width="24" data-height="24"></span>
                             <span class="translate" data-lang="legend_basic_settings">Basic Settings</span>
                         </legend>
                         <div style="display: flex; flex-direction: row; max-width: 100%;flex-wrap: wrap;">
-                            <div class="detail_box no_flex">
+                            <div class="detail_box flex">
                                 <span class="config_sec translate" data-lang="lbl_text">Text</span>
                                 <table class="config_table">
                                     <tr>
@@ -2455,11 +2496,11 @@
                                                     data-lang="legend_alignment">Alignment</label>
                                                 <select class="input_select" id="basic_font_align"
                                                     name="basic_font_align">
-                                                    <option value="end" class="translate" data-lang="opt_left">Left
+                                                    <option value="start" class="translate" data-lang="opt_left">Left
                                                     </option>
                                                     <option value="middle" class="translate" data-lang="opt_middle">
                                                         Middle</option>
-                                                    <option value="start" class="translate" data-lang="opt_right">Right
+                                                    <option value="end" class="translate" data-lang="opt_right">Right
                                                     </option>
                                                 </select>
                                             </div>
@@ -2467,7 +2508,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="detail_box no_flex">
+                            <div class="detail_box flex">
                                 <span class="config_sec translate" data-lang="lbl_rectangle">Rectangle</span>
                                 <table class="config_table">
                                     <tr>
@@ -2506,7 +2547,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="detail_box no_flex">
+                            <div class="detail_box flex">
                                 <span class="config_sec translate" data-lang="lbl_circle">Circle</span>
                                 <table class="config_table">
                                     <tr>
@@ -2522,7 +2563,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="detail_box no_flex">
+                            <div class="detail_box flex">
                                 <span class="config_sec translate" data-lang="lbl_rect_circle">Rectangle / Circle</span>
                                 <table class="config_table">
                                     <tr>
@@ -2563,7 +2604,7 @@
 
                                 </table>
                             </div>
-                            <div class="detail_box no_flex">
+                            <div class="detail_box flex">
                                 <span class="config_sec translate" data-lang="lbl_icons">Icons</span>
                                 <table class="config_table">
                                     <tr>
@@ -2601,7 +2642,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="detail_box no_flex">
+                            <div class="detail_box flex">
                                 <span class="config_sec translate" data-lang="lbl_coordinates">Coordinates</span>
                                 <table class="config_table">
                                     <tr>
@@ -2633,7 +2674,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="translate" data-lang="ex_coordinates_info">
+                            <div class="translate" data-lang="ex_coordinates_info" style="width: 100%;min-width: 100%;">
                                 <b><u>Please note</u></b>: For the changes to take effect, you need to save them!
                             </div>
                         </div>
@@ -2643,7 +2684,7 @@
             <div class="tab7">
                 <div class="container scrollbar">
                     <div>
-                        <fieldset style="width: 300px;">
+                        <fieldset class="flex">
                             <legend><span class="iconify legend" data-icon="material-symbols:save" data-width="24"
                                     data-height="24"></span>
                                 <span class="translate" data-lang="lbl_save">Save</span>
@@ -2672,35 +2713,41 @@
                                 </tr>
                             </table>
                         </fieldset>
-                        <fieldset style="width: 300px;margin-left: 0px; margin-top: 25px;">
+                        <fieldset class="flex">
                             <legend><span class="iconify legend" data-icon="material-symbols:backup" data-width="24"
                                     data-height="24"></span>
                                 <span class="translate" data-lang="lbl_backup">Backup</span>
                             </legend>
                             <table class="config_table">
                                 <tr>
-                                    <td class="bold"><select id="backup_list" name="backup_list"
-                                            class="input_select"></select>
+                                    <td>
+                                        <div class="form_div select">
+                                            <label for="backup_list" class="form_label translate"
+                                                data-lang="lbl_backup">Backup
+                                                *</label>
+                                            <select id="backup_list" name="backup_list" class="input_select"></select>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="bold"><input type="button" class="input_button translateV"
-                                            value="Restore Backup" id="restore_backup"
-                                            data-lang-value="value_save_restore" style="width: auto;">
+                                    <td><input type="button" class="input_button translateV" value="Restore Backup"
+                                            id="restore_backup" data-lang-value="value_save_restore"
+                                            style="width: auto;">
                                     </td>
                                 </tr>
                             </table>
                         </fieldset>
                     </div>
-                    <fieldset>
+                    <fieldset class="flex">
                         <legend><span class="iconify legend" data-icon="mdi:math-log" data-width="24"
                                 data-height="24">Output</span>
                             <span class="translate" data-lang="lbl_save_output">Output</span>
                         </legend>
                         <table class="config_table">
                             <tr>
-                                <td><textarea id="save_output" rows="30" cols="100" spellcheck="false" autocorrect="off"
-                                        autocomplete="off" class="input_textbox" readonly></textarea></td>
+                                <td>
+                                    <div id="save_output"></div>
+                                </td>
                             </tr>
                         </table>
                     </fieldset>
