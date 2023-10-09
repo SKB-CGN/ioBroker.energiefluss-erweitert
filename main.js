@@ -380,6 +380,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							if (subArray != undefined && typeof (subArray) == 'object') {
 								if (subArray.length > 0) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 									if (subArray[0] != -1) {
 										subValue = subArray.reduce((acc, value) => acc - (rawValues.sourceValues[value]), 0);
 										this.log.debug("Subtracted by: " + subArray.toString());
@@ -390,6 +391,11 @@ class EnergieflussErweitert extends utils.Adapter {
 											this.log.debug("Subtracted by: " + subArray.toString());
 										}
 >>>>>>> 50dd78ee77dc954402596c6c56736a4a515d1f4a
+=======
+									if (subArray[0] != -1) {
+										subValue = subArray.reduce((acc, value) => acc - (rawValues.sourceValues[value]), 0);
+										this.log.debug("Subtracted by: " + subArray.toString());
+>>>>>>> d9c68ad9fe66b7776792fa2c0650980b59b22bc8
 									}
 								}
 							}
@@ -398,6 +404,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							let addArray = obj.add;
 							if (addArray != undefined && typeof (addArray) == 'object') {
 								if (addArray.length > 0) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 									if (addArray[0] != -1) {
 										addValue = addArray.reduce((acc, value) => acc + (rawValues.sourceValues[value]), 0);
@@ -418,6 +425,16 @@ class EnergieflussErweitert extends utils.Adapter {
 							}
 							formatValue = value > 0 ? value + (addValue) - (subValue) : value - (addValue) + (subValue);
 >>>>>>> 50dd78ee77dc954402596c6c56736a4a515d1f4a
+=======
+									if (addArray[0] != -1) {
+										addValue = addArray.reduce((acc, value) => acc + (rawValues.sourceValues[value]), 0);
+										this.log.debug("Added to Value: " + addArray.toString());
+									}
+								}
+							}
+
+							formatValue = (Number(value) + Number(subValue) + Number(addValue));
+>>>>>>> d9c68ad9fe66b7776792fa2c0650980b59b22bc8
 
 							// Check, if value is over threshold
 							if (Math.abs(formatValue) >= obj.threshold) {
@@ -439,6 +456,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				outputValues.borderValues[id] = value;
 			}
 		}
+<<<<<<< HEAD
 		// Overrides for elements
 		if (obj.override) {
 <<<<<<< HEAD
@@ -448,6 +466,8 @@ class EnergieflussErweitert extends utils.Adapter {
 >>>>>>> 50dd78ee77dc954402596c6c56736a4a515d1f4a
 			this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[id])}`);
 		}
+=======
+>>>>>>> d9c68ad9fe66b7776792fa2c0650980b59b22bc8
 	}
 
 	/**
@@ -678,18 +698,26 @@ class EnergieflussErweitert extends utils.Adapter {
 	/**
 	 * 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	 * @param {number} id 
 =======
 >>>>>>> 50dd78ee77dc954402596c6c56736a4a515d1f4a
+=======
+	 * @param {number} id 
+>>>>>>> d9c68ad9fe66b7776792fa2c0650980b59b22bc8
 	 * @param {number} condValue 
 	 * @param {object} object 
 	 * @returns 
 	 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 	getOverrides(id, condValue, object) {
 =======
 	getOverrides(condValue, object) {
 >>>>>>> 50dd78ee77dc954402596c6c56736a4a515d1f4a
+=======
+	getOverrides(id, condValue, object) {
+>>>>>>> d9c68ad9fe66b7776792fa2c0650980b59b22bc8
 		let result = {};
 		let tmpObj = {};
 
@@ -707,6 +735,7 @@ class EnergieflussErweitert extends utils.Adapter {
 					{}
 				);
 <<<<<<< HEAD
+<<<<<<< HEAD
 			try {
 				let func = Function(`return ${condValue}${_key}`)();
 				if (func) {
@@ -721,11 +750,22 @@ class EnergieflussErweitert extends utils.Adapter {
 				// Check, which condition works
 				const [key, value] = entry;
 				let func = Function(`return ${condValue}${key}`)();
+=======
+			try {
+				let func = Function(`return ${condValue}${_key}`)();
+>>>>>>> d9c68ad9fe66b7776792fa2c0650980b59b22bc8
 				if (func) {
-					result[_key] = value;
+					result = object[_key];
 				}
+<<<<<<< HEAD
 			});
 >>>>>>> 50dd78ee77dc954402596c6c56736a4a515d1f4a
+=======
+			}
+			catch (error) {
+				this.log.warn(`Overrides for element ${id} can not be processed, as they are not correctly formatted!`);
+			}
+>>>>>>> d9c68ad9fe66b7776792fa2c0650980b59b22bc8
 		}
 		return result;
 	}
