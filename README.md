@@ -33,6 +33,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	### **WORK IN PROGRESS**
 -->
 ### 0.0.2-alpha.21 (2023-10-17)
+- Added: Using left over space in configbar, to display wider text/number boxes and more text without using more space
+- Added: Static navigation in config bar for easier switching between basic and extended settings of the element
+- Added: Better handling of boxes in tab menu. Now we use flex views to grow or shrink boxes. Some boxes a re-aligned to use the available space in a more efficient way.
+- Added: ACE-Editor with syntax highlighting, autocompletion for properties and error notification while using in CSS tab (more user friendly when applying styles). Style of Log output is also formated with syntax highlighting
+- Added: Override function for elements with datasources. Its now possible to add overrides to any element which uses a datasource. With this function, you are able to style the element depending on the value of the datasource
 - FIX: Alignment of elements was not working correctly for text append, text prepend and grouped icons
 - FIX: When using animation depencies with dots, it could be the case that an icorrect amount of dots was displayed
 - FIX: When using subtraction or addition on a datasource, the displayed value was not updated if one of the subtraction or addition values were changed
