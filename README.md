@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.21 (2023-10-17)
 - Added: Using left over space in configbar, to display wider text/number boxes and more text without using more space
 - Added: Static navigation in config bar for easier switching between basic and extended settings of the element
 - Added: Better handling of boxes in tab menu. Now we use flex views to grow or shrink boxes. Some boxes a re-aligned to use the available space in a more efficient way.
