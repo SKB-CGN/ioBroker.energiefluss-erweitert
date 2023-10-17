@@ -653,7 +653,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 	/**
 	 * 
-	 * @param {number} id 
+	 * @param {string} id 
 	 * @param {number} condValue 
 	 * @param {object} object 
 	 * @returns 
@@ -1019,6 +1019,19 @@ class EnergieflussErweitert extends utils.Adapter {
 								stroke: tmpStroke,
 								option: tmpOption
 							};
+
+							// Overrides for Animations
+							if (seObj.override) {
+								outputValues.override[src] = this.getOverrides(id, clearValue, seObj.override);
+								this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[src])}`);
+							}
+
+							// Overrides for Lines
+							let line_id = src.replace('anim', 'line');
+							if (settingsObject.hasOwnProperty(line_id)) {
+								outputValues.override[line_id] = this.getOverrides(id, clearValue, settingsObject[line_id].override);
+								this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[line_id])}`);
+							}
 						}
 					}
 				}
@@ -1272,6 +1285,14 @@ class EnergieflussErweitert extends utils.Adapter {
 					// Put Animation into Source
 					sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
 
+					// Check, if corresponding line has override properties as well
+					let line_id = key.replace('anim', 'line');
+					if (globalConfig.lines[line_id].hasOwnProperty('override')) {
+						this.log.debug(`Found override for line ${line_id} in combination with Animation ${key}`);
+						settingsObject[line_id] = {
+							override: globalConfig.lines[line_id].override
+						}
+					}
 				} else {
 					this.log.debug(`Animation for Source: ${value.source} not found!`);
 				}
