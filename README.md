@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.21 (2023-10-17)
 - FIX: Alignment of elements was not working correctly for text append, text prepend and grouped icons
 - FIX: When using animation depencies with dots, it could be the case that an icorrect amount of dots was displayed
 - FIX: When using subtraction or addition on a datasource, the displayed value was not updated if one of the subtraction or addition values were changed
