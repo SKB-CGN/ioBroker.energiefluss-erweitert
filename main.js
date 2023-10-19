@@ -693,7 +693,9 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * @param {object} state	State itself
 	 */
 	async refreshData(id, state) {
+		let _this = this;
 		let clearValue;
+		let boolVal = false;
 		let cssRules = new Array();
 		if (id == this.namespace + '.configuration') {
 			this.log.info('Configuration changed via Workspace! Reloading config!');
@@ -1042,55 +1044,71 @@ class EnergieflussErweitert extends utils.Adapter {
 						let seObj = settingsObject[src];
 
 						// CSS Rules
-						if (seObj.threshold >= 0) {
-							if (Math.abs(clearValue) > seObj.threshold) {
-								// CSS Rules
-								if (clearValue > 0) {
-									// CSS Rules - Positive
-									outputValues.css[src] = {
-										actPos: seObj.css_active_positive,
-										inactPos: seObj.css_inactive_positive,
-										actNeg: "",
-										inactNeg: seObj.css_active_negative
-									};
+						if (seObj.source_type == 'boolean') {
+							this.log.debug(`Setting for boolean ${JSON.stringify(seObj)} and ID: ${src}`);
+							if (clearValue == 1) {
+								outputValues.css[src] = {
+									actPos: seObj.css_active_positive,
+									inactPos: seObj.css_inactive_positive
 								}
-								if (clearValue < 0) {
-									// CSS Rules - Negative
-									outputValues.css[src] = {
-										actNeg: seObj.css_active_negative,
-										inactNeg: seObj.css_inactive_negative,
-										actPos: "",
-										inactPos: seObj.css_active_positive
-									};
+							}
+							if (clearValue == 0) {
+								outputValues.css[src] = {
+									actPos: seObj.css_inactive_positive,
+									inactPos: seObj.css_active_positive
 								}
-							} else {
-								// CSS Rules
-								if (clearValue > 0) {
-									// CSS Rules - Positive
-									outputValues.css[src] = {
-										actPos: seObj.css_inactive_positive,
-										inactPos: seObj.css_active_positive,
-										actNeg: "",
-										inactNeg: seObj.css_active_negative
-									};
-								}
-								if (clearValue < 0) {
-									// CSS Rules - Negative
-									outputValues.css[src] = {
-										actNeg: seObj.css_inactive_negative,
-										inactNeg: seObj.css_active_negative,
-										actPos: "",
-										inactPos: seObj.css_active_positive
-									};
-								}
-								if (clearValue == 0) {
-									// CSS Rules - Positive
-									outputValues.css[src] = {
-										actPos: "",
-										inactPos: seObj.css_active_positive + ' ' + seObj.css_inactive_positive,
-										actNeg: "",
-										inactNeg: seObj.css_active_negative + ' ' + seObj.css_inactive_negative
-									};
+							}
+						} else {
+							if (seObj.threshold >= 0) {
+								if (Math.abs(clearValue) > seObj.threshold) {
+									// CSS Rules
+									if (clearValue > 0) {
+										// CSS Rules - Positive
+										outputValues.css[src] = {
+											actPos: seObj.css_active_positive,
+											inactPos: seObj.css_inactive_positive,
+											actNeg: "",
+											inactNeg: seObj.css_active_negative
+										};
+									}
+									if (clearValue < 0) {
+										// CSS Rules - Negative
+										outputValues.css[src] = {
+											actNeg: seObj.css_active_negative,
+											inactNeg: seObj.css_inactive_negative,
+											actPos: "",
+											inactPos: seObj.css_active_positive
+										};
+									}
+								} else {
+									// CSS Rules
+									if (clearValue > 0) {
+										// CSS Rules - Positive
+										outputValues.css[src] = {
+											actPos: seObj.css_inactive_positive,
+											inactPos: seObj.css_active_positive,
+											actNeg: "",
+											inactNeg: seObj.css_active_negative
+										};
+									}
+									if (clearValue < 0) {
+										// CSS Rules - Negative
+										outputValues.css[src] = {
+											actNeg: seObj.css_inactive_negative,
+											inactNeg: seObj.css_active_negative,
+											actPos: "",
+											inactPos: seObj.css_active_positive
+										};
+									}
+									if (clearValue == 0) {
+										// CSS Rules - Positive
+										outputValues.css[src] = {
+											actPos: "",
+											inactPos: seObj.css_active_positive + ' ' + seObj.css_inactive_positive,
+											actNeg: "",
+											inactNeg: seObj.css_active_negative + ' ' + seObj.css_inactive_negative
+										};
+									}
 								}
 							}
 						}
@@ -1190,6 +1208,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (value.source != -1 && value.hasOwnProperty('source')) {
 					if (globalConfig.datasources.hasOwnProperty(value.source)) {
 						const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
+						const objObject = await this.getForeignObjectAsync(globalConfig.datasources[value.source].source);
 						if (stateValue) {
 							// Save Settings for each object
 							settingsObject[key] = {
@@ -1209,7 +1228,8 @@ class EnergieflussErweitert extends utils.Adapter {
 								css_inactive_negative: value.css_inactive_negative,
 								fill_type: value.fill_type,
 								border_type: value.border_type,
-								override: value.override
+								override: value.override,
+								source_type: objObject.common.type
 							};
 
 							// Append and prepend

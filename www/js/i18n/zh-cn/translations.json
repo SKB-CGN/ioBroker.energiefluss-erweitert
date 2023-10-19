@@ -29,7 +29,7 @@
     "ex_connect_ref": "现在选择第一个元素！您可以选择元素或连接点！",
     "ex_connect_same": "不要选择相同的元素！",
     "ex_connect_start": "已选择起始元素！<br>请选择目标元素！",
-    "ex_consumption_help": "<u>信息：</u>填写完所有必要的值后，消耗量将出现在数据点<code>energiefluss.Instance-No#.calculation.conspiration.conclusion</code>中，可以通过数据源添加。",
+    "ex_consumption_help": "<u>信息：</u>填写所有必要的值后，消耗量将出现在数据点<code>energiefluss.Instance-No#.calculation.conspiration.conclusion</code>中，可以通过数据源添加。",
     "ex_coordinates": "这些坐标（+ 0 到 50 之间的随机数）将在添加新元素时用作起始值。",
     "ex_coordinates_info": "<b><u>请注意</u></b>：为了使更改生效，您需要保存它们！",
     "ex_how_to_use_css": "如何使用CSS",
