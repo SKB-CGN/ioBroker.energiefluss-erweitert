@@ -114,7 +114,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		}
 
 		// Get language of ioBroker
-		this.getForeignObject('system.config', function (err, obj) {
+		this.getForeignObjectAsync('system.config', function (err, obj) {
 			if (err) {
 				_this.log.error("Could not get language of ioBroker! Using english instead!");
 			} else {
@@ -140,7 +140,7 @@ class EnergieflussErweitert extends utils.Adapter {
 	onUnload(callback) {
 		try {
 			// Here you must clear all timeouts or intervals that may still be active
-			clearInterval(globalInterval);
+			this.clearInterval(globalInterval);
 			this.log.info('Cleared interval for relative values!');
 			callback();
 		} catch (e) {
