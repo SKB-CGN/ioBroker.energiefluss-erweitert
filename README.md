@@ -36,7 +36,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Support for boolean states to apply CSS Class, if their value is true/false
 - Added: Refresh Button for object browser - if a new state was added through objects, the configuration needed a complete refresh to receive the new state
 - Added: Support for own Text inside a datasource element. Useful, if you want to style text depending on the value of the datasource
-- FIX: Overrides were not correctly loading, when adapter starts
+- FIX: Overrides were not correctly loaded when adapter starts
 
 ### 0.0.2-alpha.21 (2023-10-17)
 - Added: Using left over space in configbar, to display wider text/number boxes and more text without using more space
