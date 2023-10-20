@@ -1160,6 +1160,34 @@ img {
     display: inline-block;
 }
 
+.cv-spinner {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 4px var(--darkgrey) solid;
+    border-top: 4px var(--primary) solid;
+    border-radius: 50%;
+    animation: sp-anime 0.8s infinite linear;
+}
+
+@keyframes sp-anime {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#stateExplorerContainer>.button_area,
+#codeEditorContainer>.button_area {
+    width: 100%;
+    border-top: 1px solid var(--title-background);
+}
+
 #config_bar>.title>.swap {
     position: absolute;
     right: 50px;
@@ -1552,7 +1580,6 @@ ul.tree-main li div.active {
 
 .folderOpen {
     background-image: var(--folder-open);
-    transition: background-image .4s ease-in-out;
 }
 
 .folderClosed {

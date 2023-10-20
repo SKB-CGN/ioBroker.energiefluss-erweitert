@@ -54,16 +54,24 @@
             </div>
             <div id="stateExplorer" class="scrollbar">
                 <span id="stateExplorer_placeholder" style="padding: 5px;margin: 5px;display: inline-block;">
-                    <img src='img/ajax_loading.gif' class="img" style="padding-right: 5px;">
-                    <span class="translate" data-lang="title_stateExplorer_loading">Loading
-                        Object Browser ...</span>
+                    <div class="cv-spinner">
+                        <span class="spinner"></span>
+                        <span class="translate" data-lang="title_stateExplorer_loading"
+                            style="padding-left: 5px;">Loading
+                            Object Browser ...</span>
+                    </div>
                 </span>
             </div>
-            <div style="text-align: right;padding: 10px;">
-                <input type="button" value="Select" id="select_state" class="input_button translateV"
-                    data-lang-value="value_select">
-                <input type="button" value="Cancel" class="input_button translateV stateExplorer_close red"
-                    data-lang-value="value_cancel">
+            <div class="button_area">
+                <div style="text-align: left; padding: 10px;float: left;"><input type="button" value="Save"
+                        id="reloadStateExplorer" class="input_button translateV"
+                        data-lang-value="lbl_reload_stateExplorer" style="width: auto;"></div>
+                <div style="text-align: right;padding: 10px;">
+                    <input type="button" value="Select" id="select_state" class="input_button translateV"
+                        data-lang-value="value_select">
+                    <input type="button" value="Cancel" class="input_button translateV stateExplorer_close red"
+                        data-lang-value="value_cancel">
+                </div>
             </div>
         </div>
         <div id="codeEditorContainer">
@@ -73,7 +81,7 @@
             </div>
             <!-- ACE Editor -->
             <div id="codeEditor" class="scrollbar"></div>
-            <div style="width: 100%;">
+            <div class="button_area">
                 <div style="text-align: left; padding: 10px;float: left;"><input type="button" value="Save"
                         id="jsonOverride" class="input_button translateV" data-lang-value="lbl_format_json"
                         style="width: auto;"></div>
@@ -589,6 +597,9 @@
                                                                 Value</option>
                                                             <option value="text" class="translate" data-lang="opt_text">
                                                                 Text</option>
+                                                            <option value="own_text" class="translate"
+                                                                data-lang="opt_own_text">
+                                                                Own text (enter above)</option>
                                                             <option value="bool" class="translate"
                                                                 data-lang="opt_state">
                                                                 state (on/off)
@@ -1391,24 +1402,6 @@
                                                     <img src='img/icon_help.png' style='margin-top:10px;'
                                                         class="translateP help" data-lang-placeholder="help_override"
                                                         placeholder="help_override">
-                                                    <p>The element can be styled with overrides. For that to work, you
-                                                        need to create a JSON-formatted value list.
-                                                        Example:<br><code>{'>10':{'color':'#FF0000'}, '>5':{'color':'#538ea3'}}</code>
-                                                        For a value greater than 5, the color #538ea3 will be applied.
-                                                        For a value greater than 10, the color will be #FF0000.<br>
-                                                        You can add as many conditions as you like. The conditions will
-                                                        be ordered according to their key before they are
-                                                        processed. <br><br>
-                                                        <u>Please note:</u><br>The overrides will not return to the
-                                                        initial layout from itself. This means that if you have set a
-                                                        color by a value and it is exceeded or fallen below, you also
-                                                        have to set the opposite color for the respective exceedance or
-                                                        fall below.<br>
-                                                        Detailed description can be found inside the Wiki of the
-                                                        Adapter.
-                                                        <a href='https://www.kreyenborg.koeln/go/hlz4j'
-                                                            target='_blank'>Look into Wiki</a>
-                                                    </p>
                                                 </td>
                                             </tr>
                                         </table>

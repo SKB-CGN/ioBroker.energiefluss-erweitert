@@ -367,6 +367,10 @@ class EnergieflussErweitert extends utils.Adapter {
 						outputValues.values[id] = value ? systemDictionary['on'][systemLang] : systemDictionary['off'][systemLang];
 						rawValues.values[id] = value;
 						break;
+					case 'own_text':
+						outputValues.values[id] = obj.text;
+						rawValues.values[id] = value;
+						break;
 					default:
 						// Threshold need to be positive
 						if (obj.threshold >= 0) {
@@ -693,9 +697,7 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * @param {object} state	State itself
 	 */
 	async refreshData(id, state) {
-		let _this = this;
 		let clearValue;
-		let boolVal = false;
 		let cssRules = new Array();
 		if (id == this.namespace + '.configuration') {
 			this.log.info('Configuration changed via Workspace! Reloading config!');
@@ -1229,7 +1231,8 @@ class EnergieflussErweitert extends utils.Adapter {
 								fill_type: value.fill_type,
 								border_type: value.border_type,
 								override: value.override,
-								source_type: objObject.common.type
+								source_type: objObject.common.type,
+								text: value.text
 							};
 
 							// Append and prepend
