@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.22 (2023-10-20)
 - Added: Support for boolean states to apply CSS Class, if their value is true/false
 - Added: Refresh Button for object browser - if a new state was added through objects, the configuration needed a complete refresh to receive the new state
 - Added: Support for own Text inside a datasource element. Useful, if you want to style text depending on the value of the datasource

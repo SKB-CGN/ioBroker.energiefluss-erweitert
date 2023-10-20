@@ -1,268 +1,268 @@
 {
-    "common": {
-        "name": "energiefluss-erweitert",
-        "version": "0.0.2-alpha.21",
-        "news": {
-            "0.0.2-alpha.21": {
-                "en": "FIX: Alignment of elements was not working correctly for text append, text prepend and grouped icons\nFIX: When using animation depencies with dots, it could be the case that an icorrect amount of dots was displayed\nFIX: When using subtraction or addition on a datasource, the displayed value was not updated if one of the subtraction or addition values were changed\nFIX: Thresholds were only possible for Integers - now decimal numbers are also possible\nFIX: If values were set to be animated, they stopped being updated after some time\nFIX: Some layout fixes",
-                "de": "FIX: Die Ausrichtung der Elemente funktionierte nicht korrekt für Textanhang, Textvorgabe und gruppierte Symbole\nFIX: Bei der Verwendung von Animations-Depencies mit Punkten könnte es der Fall sein, dass eine falsche Anzahl von Punkten angezeigt wurde\nFIX: Bei Verwendung von Subtraktion oder Addition auf einer Datenquelle wurde der angezeigte Wert nicht aktualisiert, wenn einer der Subtraktions- oder Additionswerte geändert wurde\nFIX: Schwellen waren nur für Integer möglich - jetzt sind auch Dezimalzahlen möglich\nFIX: Wenn Werte eingestellt wurden, um animiert zu werden, werden sie nach einiger Zeit nicht mehr aktualisiert\nFIX: Einige Layout-Behebungen",
-                "ru": "FIX: Настройка элементов не работала правильно для текстовых приложений, текстовых препенд и группированных иконок\nFIX: При использовании анимационных отложений с точками, это может быть тот случай, что отображается количество точек\nFIX: При использовании субтракта или добавлении на источник данных, отображаемое значение не было обновлено, если одно из субтрактных или дополнительных значений было изменено\nFIX: Пороги были возможны только для Целых - теперь десятичные цифры также возможны\nFIX: Если значения были настроены, они перестали обновляться после некоторого времени\nFIX: Некоторые исправления макетов",
-                "pt": "CORREÇÃO: Alinhamento de elementos não estava funcionando corretamente para apêndice de texto, preposição de texto e ícones agrupados\nFIX: Ao usar deficiências de animação com pontos, pode ser o caso de uma quantidade icorreta de pontos foi exibida\nFIX: Ao usar subtração ou adição em uma fonte de dados, o valor exibido não foi atualizado se um dos valores de subtração ou adição foram alterados\nFIX: Os limiares só foram possíveis para os inteiros - agora números decimais também são possíveis\nFIX: Se os valores foram ajustados para ser animado, eles deixaram de ser atualizados após algum tempo\nFIX: Algumas correções de layout",
-                "nl": "Vertaling:\nAls het gebruik van animatie afhankelijk is van stippen, zou het de zaak kunnen zijn dat een icorrect aantal stippen werd getoond\nAls met behulp van aantrekkingskracht of toevoeging op een dataource, werd de vertoonde waarde niet geüpload als een van de subtractie of extra waarden werden veranderd\nDe drempels waren alleen mogelijk voor Integers\nAls de waarden werden geanimeerd, zijn ze gestopt met updaten na enige tijd\nWat laagjes",
-                "fr": "FIX: L'alignement des éléments ne fonctionnait pas correctement pour les appendices de texte, les prédépendances de texte et les icônes regroupées\nFIX: Lors de l'utilisation de dépéances d'animation avec des points, il pourrait être le cas qu'une quantité d'iorect de points a été affichée\nFIX : En utilisant la soustraction ou l'ajout sur une source de données, la valeur affichée n'a pas été mise à jour si l'une des valeurs de soustraction ou d'ajout a été modifiée\nFIX: Les seuils étaient seulement possibles pour les entiers - maintenant les nombres décimaux sont également possibles\nFIX : Si les valeurs étaient programmées pour être animées, elles ont cessé d'être mises à jour après un certain temps\nFIX: Quelques corrections de mise en page",
-                "it": "FIX: L'allineamento degli elementi non funziona correttamente per l'append di testo, le icone prepend e raggruppate\nFIX: Quando si utilizzano depencies di animazione con punti, potrebbe essere il caso che una quantità errata di punti è stato visualizzato\nFIX: Quando si utilizza la sottrazione o l'aggiunta su una datasource, il valore visualizzato non è stato aggiornato se uno dei valori di sottrazione o di aggiunta è stato modificato\nFIX: Le soglie erano possibili solo per gli Integer - ora sono possibili anche numeri decimali\nFIX: Se i valori sono stati impostati per essere animati, hanno smesso di essere aggiornati dopo qualche tempo\nFIX: Alcune correzioni di layout",
-                "es": "FIX: La alineación de elementos no funcionaba correctamente para el apéndice de texto, los iconos prependientes de texto y agrupados\nFIX: Al utilizar depencies de animación con puntos, podría ser el caso de que se muestre una cantidad incorrecta de puntos\nFIX: Al utilizar la resta o la adición en un fuente de datos, el valor mostrado no fue actualizado si uno de los valores de resta o adición fueron cambiados\nFIX: Los umbrales sólo eran posibles para los enteros - ahora los números decimales también son posibles\nFIX: Si se fijaban valores para ser animados, dejaron de ser actualizados después de algún tiempo\nFIX: Algunos arreglos de diseño",
-                "pl": "FIX: Wyobraźnia elementów nie była prawidłowo pracowita dla dodatków tekstowych, tekstu wstępnego i grupowanych ikon\nFIX: W przypadku używania animacji z kropkami, może to być przypadek, w którym wykazano ilość kropek\nFIX: Kiedy wykorzystanie subtractionukcja lub dodanie do danych, wartość wyświetlana nie została uaktualniona, jeśli jedna z subtractionów lub dodatków została zmieniona\nFIX: Thresholds było możliwe tylko dla Integersa – obecnie liczba dziesiętna jest również możliwe\nFIX: Jeśli wartości miały być animowane, przestały być aktualizowane po pewnym czasie\nFIX: Niektóre konfiguracje",
-                "uk": "FIX: Вирівнювання елементів не працює належним чином для текстового додатка, текстового препенда та позначених іконок\nFIX: При використанні анімаційних депенцій з точками, це може бути випадок, що позначена кількість точок\nFIX: При використанні підпункту або додавання на джерело даних, значення відображення не було оновлено, якщо змінено значення одного з підпунктів або додаткових значень\nFIX: Пороги були тільки можливими для Інтегерів - тепер можливі також десяткові числа\nFIX: Якщо значення було встановлено, щоб бути анімованими, вони припинили оновлення після певного часу\nFIX: Деякі виправлення макетів",
-                "zh-cn": "九.FIX:对内容的调整没有正确地为案文附录、案文预先拟订和编组论\nFIX:在利用喷雾剂时,可以看到一台错误的投机。\nIX:在使用分解或增加数据来源时,如果分解或附加值发生变化,则未更新所显示的价值。\n九、FIX:仅有可能为伪造者提供抵押品,现在还可能出现降解人数。\nFIX:如果确定价值是目的,则在一段时间之后停止更新。\nFIX:有些布局"
-            },
-            "0.0.2-alpha.20": {
-                "en": "FIX: states in user environment (userdata and javascript) do not need ACK flags anymore\nFIX: Darkmode cleanups and some layout improvements\nFIX: Changed some CSS styles to be consistent\nAdded: Version Checker to check the version on Github and inform the user",
-                "de": "FIX: Zustände in Benutzerumgebung (Userdaten und Javascript) brauchen keine ACK-Flags mehr\nFIX: Darkmode-Reinigungen und einige Layoutverbesserungen\nFIX: Einige CSS-Stile geändert, um konsequent zu sein\nHinzugefügt: Version Checker, um die Version auf Github überprüfen und den Benutzer informieren",
-                "ru": "FIX: состояния в среде пользователя (userdata и javascript) больше не нужны флаги ACK\nFIX: Darkmode очистка и некоторые улучшения планировки\nFIX: Изменили некоторые CSS стили, чтобы быть последовательными\nДобавлена: Проверка версий для проверки версии на Github и информирования пользователя",
-                "pt": "FIX: estados em ambiente de usuário (userdata e javascript) não precisam mais de bandeiras ACK\nFIX: Limpezas Darkmode e algumas melhorias de layout\nFIX: Mudou alguns estilos CSS para ser consistente\nAdicionado: Versão Checker para verificar a versão no Github e informar o usuário",
-                "nl": "VIX: staat in gebruikersomgeving (userdata en javascript)\nDarkmode schoonmaak en wat verbeteringen\nVerander wat CSS stijl om consistent te zijn\nVersiechequeer om de versie van Github te controleren en de gebruiker te informeren",
-                "fr": "FIX: les états dans l'environnement utilisateur (utilisateurdata et javascript) n'ont plus besoin de drapeaux ACK\nFIX: Nettoyage Darkmode et quelques améliorations de mise en page\nFIX : Changement de styles CSS pour être cohérent\nAjouté: Version Checker pour vérifier la version sur Github et informer l'utilisateur",
-                "it": "FIX: gli stati in ambiente utente (userdata e javascript) non hanno più bisogno di bandiere ACK\nFIX: pulizia Darkmode e alcuni miglioramenti del layout\nFIX: Cambiato alcuni stili CSS per essere coerente\nAggiunto: Versione Checker per controllare la versione su Github e informare l'utente",
-                "es": "FIX: estados en el entorno de usuario (userdata y javascript) ya no necesitan banderas ACK\nFIX: Limpiezas oscuras y algunas mejoras de diseño\nFIX: Cambiar algunos estilos CSS para ser consistentes\nAñadido: Checker de versión para comprobar la versión en Github e informar al usuario",
-                "pl": "FIX: stany w środowisku użytkownika (userdata i javascript) nie wymagają flagi ACK\nFIX: Darkmode cleanup oraz niektóre ulepszenia układów\nFIX: Zmienił niektóre style CSS\nAdded: Wersja Checker w celu sprawdzenia wersji na Github i informowania użytkownika",
-                "uk": "FIX: стани в середовищі користувачів (користувацькі дані та javascript) не потрібні прапорці ACK\nFIX: Darkmode очищає і деякі поліпшення макета\nFIX: Змінено деякі стилі CSS, щоб бути послідовним\nДодано: Перевірник версії для перевірки версії на Github і інформування користувача",
-                "zh-cn": "FIX:在用户环境中(用户数据和丛瓦文)不需要ACK旗帜作任何更多的说明\nFIX:Darkmode清洁和一些改进\nFIX:改变一些SS风格,使之符合规定。\n增 编:Besion Checker检查ithub版本,并告知用户"
-            },
-            "0.0.2-alpha.19": {
-                "en": "FIX: Since number animation, it could occur, that decimal places got cut off on initial values\nFIX: Save & Exit was not working correctly, if an high amount of data should be saved\nAdded: Made previously count up/down Animation for numbers configurable for each datasource element\nAdded: Low power mode for animations (can be enabled generaly or via URL parameter on each device)\nAdded: If Element is filled depending on value, it is now possible, to use the basic color as fill for the remaining space or none as transparent",
-                "de": "FIX: Seit Zahlenanimation kann es vorkommen, dass Dezimalstellen auf Anfangswerte abgeschnitten wurden\nFIX: Speichern & Ausführen funktionierte nicht richtig, wenn eine hohe Datenmenge gespeichert werden sollte\nHinzugefügt: Hergestellt vorher Count up/down Animation für Zahlen konfigurierbar für jedes Datenquellenelement\nHinzugefügt: Low-Power-Modus für Animationen (kann generell oder über URL-Parameter auf jedem Gerät aktiviert werden)\nHinzugefügt: Wenn Element je nach Wert ausgefüllt wird, ist es nun möglich, die Grundfarbe als Füllung für den verbleibenden Raum oder keine als transparent zu verwenden",
-                "ru": "FIX: Поскольку анимация номера, это могло произойти, что десятичные места отрезались на начальных значениях\nFIX: Save & Exit не работал правильно, если необходимо сохранить высокое количество данных\nДобавлена: Сделано ранее подсчет вверх/вниз Анимация для конфигурируемых номеров для каждого элемента datasource\nДобавлен: Низкий режим питания для анимаций (может быть включена в целом или через параметр URL на каждом устройстве)\nДобавлено: Если элемент заполнен в зависимости от значения, то теперь возможно, использовать базовый цвет как заполните для оставшегося пространства или не как прозрачный",
-                "pt": "FIX: Desde a animação numérica, pode ocorrer, que os lugares decimais foram cortados em valores iniciais\nFIX: Salvar e saída não estava funcionando corretamente, se uma alta quantidade de dados deve ser salva\nAdicionado: Made before count up/down Animação para números configuráveis para cada elemento de datasource\nAdicionado: Modo de baixa potência para animações (pode ser habilitado generaly ou via parâmetro URL em cada dispositivo)\nAdicionado: Se Element é preenchido dependendo do valor, agora é possível, usar a cor básica como preenchimento para o espaço restante ou nenhum tão transparente",
-                "nl": "Gezien het aantal animaties kon het gebeuren dat decimale plaatsen werden afgesneden op eerste waarden\nSave Exit werkte niet correct, als een hoge hoeveelheid gegevens gered moeten worden\nVervolgens liet hij voorheen aftellen voor cijfers die configurabel waren voor elke dataource element\nVerlaagde machtsmacht voor animaties (kan gehandicapte generaalschap of via URL parameter op elk apparaat)\nAls Element afhankelijk is van waarde, is het nu mogelijk de basiskleur te gebruiken voor de resterende ruimte of niet zo transparant",
-                "fr": "FIX: Depuis l'animation du nombre, il pourrait se produire, que les lieux décimaux ont été coupés sur les valeurs initiales\nFIX: Save & Exit ne fonctionnait pas correctement, si une quantité élevée de données devrait être enregistrée\nAjouté: Réalisé précédemment comptage/down Animation pour les nombres configurables pour chaque élément de datasource\nAjouté : Mode faible puissance pour les animations (peut être activé général ou par paramètre URL sur chaque appareil)\nAjouté: Si Element est rempli en fonction de la valeur, il est maintenant possible d'utiliser la couleur de base comme remplissage pour l'espace restant ou aucun aussi transparent",
-                "it": "FIX: Dal momento che l'animazione numero, potrebbe verificarsi, che i luoghi decimali sono stati tagliati sui valori iniziali\nFIX: Save & Exit non funziona correttamente, se si deve salvare un'elevata quantità di dati\nAggiunto: Fatto in precedenza conteggio su / giù Animazione per i numeri configurabile per ogni elemento datasource\nAggiunto: Modalità di bassa potenza per le animazioni (può essere abilitato generaly o tramite parametro URL su ogni dispositivo)\nAggiunto: Se Element è riempito a seconda del valore, è ora possibile, usare il colore di base come riempimento per lo spazio rimanente o nessuno come trasparente",
-                "es": "FIX: Desde la animación número, podría ocurrir, que los lugares decimales se cortaron en valores iniciales\nFIX: Guardar \" La salida no funcionaba correctamente, si se debía guardar una alta cantidad de datos\nAñadido: Hecho anteriormente cuenta arriba / abajo Animación para números configurable para cada elemento fuente de datos\nAñadido: Modo de baja potencia para animaciones (puede ser habilitado en general o mediante parámetro URL en cada dispositivo)\nAñadido: Si el Elemento se llena dependiendo del valor, ahora es posible utilizar el color básico como relleno para el espacio restante o ninguno como transparente",
-                "pl": "FIX: Od czasu animacji liczbowej może wystąpić, że miejsca dziesiętne odcinały się od wartości początkowych\nFIX: Save & Exit nie pracowało poprawnie, jeżeli należy ocalić ilość danych\nAdded: Made upliczał/down Animation do liczb konfigurowalnych\nDodał: Niższy tryb władzy dla animacji (może być może uogólniony lub poprzez parametr URL na każdym urządzeniem)\nWstęp: Jeśli element jest wypełniony w zależności od wartości, jest teraz możliwe, aby używać podstawowego koloru jako wypełniania pozostałej przestrzeni lub none jako przezroczyste",
-                "uk": "FIX: Оскільки кількість анімацій, це може статися, що десяткові місця знімалися на початкових значеннях\nFIX: Заощаджувати & Вимкнути не було належним чином, якщо висока кількість даних слід зберігати\nДодано: Виготовлений раніше підрахунок / вниз Анімація для чисел, налаштованих для кожного елемента даних\nДодано: Низький режим живлення для анімації (може бути ввімкнений загальний або через параметр URL на кожному пристрої)\nДоданий: Якщо Елемент заповнюється в залежності від значення, тепер можна, щоб використовувати основний колір, як заповнити решту простору або ні про прозорий",
-                "zh-cn": "FIX:由于数量的推移,可能发生这种情况,降水地点在初始价值上被切断。\nFIX:Save & Exit如果不正确开展工作,如果大量数据应予挽救。\n增加:对每个数据来源要素来说,以前计算/减少数量\n增删:电压低(每种装置可以普遍或通过URL参数)。\n增加:如果根据价值填补,现在可以使用基本颜色作为补足剩余空间,或者没有透明度。"
-            },
-            "0.0.2-alpha.18": {
-                "en": "Added: Count up/down Animation for numbers added. Instead of directly changing numbers, they are animated.",
-                "de": "Hinzugefügt: Count up/down Animation für Zahlen hinzugefügt. Anstelle von direkt wechselnden Zahlen werden sie animiert.",
-                "ru": "Добавлен: Подсчет вверх/вниз Анимация для добавленных номеров. Вместо прямого изменения числа они анимированы.",
-                "pt": "Adicionado: Contar up/down Animação para números adicionados. Em vez de alterar números diretamente, eles são animados.",
-                "nl": "Toegevoegd: graaf up/down Dieimation voor getallen toegevoegd. In plaats van het veranderen van nummers, zijn ze geanimeerd.",
-                "fr": "Ajouté : Comptez sur Animation pour les nombres ajoutés. Au lieu de changer directement les nombres, ils sont animés.",
-                "it": "Aggiunto: Count up/down Animation per i numeri aggiunti. Invece di cambiare direttamente i numeri, sono animati.",
-                "es": "Añadido: Cuenta arriba / abajo Animación para números añadidos. En lugar de cambiar directamente los números, están animados.",
-                "pl": "Added: Count up/down Animation (ang.). Zamiast zmieniać liczby, są one animowane.",
-                "uk": "Додано: Розрахувати / вимкнути анімацію для доданих чисел. Замість безпосередньо мінливих чисел, вони анімовані.",
-                "zh-cn": "增加:增加人数减少/减少。 这些数字不是直接变化的数字,而是造成。."
-            },
-            "0.0.2-alpha.17": {
-                "en": "FIX: Object browser did not show all states - especially not the ones in Channel or Folders",
-                "de": "FIX: Objekt-Browser hat nicht alle Zustände gezeigt - vor allem nicht die in Channel oder Folders",
-                "ru": "FIX: браузер объектов не показал все государства - особенно не те, кто в канале или Folders",
-                "pt": "FIX: O navegador de objetos não mostrou todos os estados - especialmente os não no canal ou pastas",
-                "nl": "Object Browser liet niet alle staten zien, vooral niet degenen in Channel of Folders",
-                "fr": "FIX: Le navigateur d'objet n'a pas montré tous les états - surtout pas ceux dans Channel ou Folders",
-                "it": "FIX: Il browser non ha mostrato tutti gli stati - soprattutto non quelli in Canale o Cartella",
-                "es": "FIX: El navegador de objetos no mostró todos los estados - especialmente no los de Canal o Carpetas",
-                "pl": "FIX: przeglądarka obiektów nie pokazywała wszystkich stanów, zwłaszcza w Channel czy Folders",
-                "uk": "FIX: Об'єктний браузер не показує всіх штатів - особливо не ті, які в Каналі або Плакати",
-                "zh-cn": "九、FIX:物体袋没有显示所有各州,特别是海峡或女兵。"
-            },
-            "0.0.2-alpha.16": {
-                "en": "FIX: Adapter crashed sometimes, due to accessing invalid ids\nAdded: Possibility to addition values to other values\nAdded: Directly display animations and values after startup instead of waiting till first value changes\nAdded: Adapter depencies and stability\nAdded: New Translations for new functions",
-                "de": "FIX: Adapter stürzte manchmal ab, aufgrund des Zugriffs auf ungültige IDs\nHinzugefügt: Möglichkeit, Werte zu anderen Werten hinzuzufügen\nHinzugefügt: Direkt anzeigen Animationen und Werte nach dem Start statt warten bis erste Wertänderungen\nHinzugefügt: Adapter-Depencies und Stabilität\nHinzugefügt: Neue Übersetzungen für neue Funktionen",
-                "ru": "FIX: адаптер иногда сбился из-за доступа недействительных идентификаторов\nДобавлена: Возможность добавления значений к другим значениям\nДобавлена: Непосредственно отображать анимации и значения после запуска вместо ожидания до изменения первого значения\nДобавлена: Адаптерные частоты и стабильность\nДобавлено: Новые переводы для новых функций",
-                "pt": "CORREÇÃO: O adaptador caiu às vezes, devido ao acesso a ids inválidos\nAdicionado: Possibilidade de adição de valores para outros valores\nAdicionado: Exibir diretamente animações e valores após a inicialização em vez de esperar até primeiras mudanças de valor\nAdicionado: Adapter competências e estabilidade\nAdicionado: Novas traduções para novas funções",
-                "nl": "Adapter crashte soms door toegang tot invalides\nToegevoegd aan andere waarden\nToegevoegd: direct vertoon je animatie en waarden na de start in plaats van te wachten tot de eerste waarde verandert\nVertaling:\nVertaling:",
-                "fr": "FIX: L'adaptateur s'est écrasé parfois, en raison de l'accès aux id invalides\nAjouté: Possibilité d'ajouter des valeurs à d'autres valeurs\nAjouté: Afficher directement les animations et les valeurs après le démarrage au lieu d'attendre jusqu'à ce que la première valeur change\nAjouté: Dépéances de l'adaptateur et stabilité\nAjouté : Nouvelles traductions pour de nouvelles fonctions",
-                "it": "FIX: L'adattatore si è schiantato a volte, a causa dell'accesso a id non validi\nAggiunto: Possibilità di aggiungere valori ad altri valori\nAggiunto: Direttamente visualizzare animazioni e valori dopo l'avvio invece di aspettare fino al primo valore modifiche\nAggiunto: Adattatore dipendenze e stabilità\nAggiunto: Nuove traduzioni per nuove funzioni",
-                "es": "FIX: Adaptador se estrelló a veces, debido al acceso a los ids inválidos\nAñadido: Posibilidad de añadir valores a otros valores\nAñadido: Mostrar directamente animaciones y valores después de la puesta en marcha en lugar de esperar hasta los cambios de primer valor\nAñadido: Dependencias y estabilidad del adaptador\nAñadido: Nuevas traducciones para nuevas funciones",
-                "pl": "FIX: Adapter rozbił się czasem z powodu dostępu do nieprawidłowych idów\nAdded: Possibility to dodanie wartości innych wartości\nAdded: wyświetlanie animacji i wartości po uruchomieniu, zamiast czekania, aż pierwsza wartość zmienia się\nAdapter: depozyty i stabilność\nAdded: Nowe tłumaczenia dla nowych funkcji",
-                "uk": "FIX: Адаптер збитий іноді, через доступ до недійсних потоків\nДодано: Можливість додавання значень до інших значень\nДодано: Безперервно відображати анімацію та значення після запуску замість очікування до перших змін значення\nДодано: Перехідники та стійкість\nДодано: Нові переклади для нових функцій",
-                "zh-cn": "FIX:由于接触无效,有时拖拉了。\n增加:增加其他价值的可能性\n增加:在开工后直接展示动画和价值观,而不是等待第一值变化\n增加:紧缩和稳定\n增 编:新职能的翻译"
-            },
-            "0.0.2-alpha.15": {
-                "en": "FIX: Under some circumstances symbols, texts and images could run out off workspace\nFIX: consumption calculation produced high CPU load on some systems (#43)\nFIX: Crash-Handler for animations optimized - if animation is present before value is updated, the adapter could crash\nAdded: Better duplication of items\nAdded: Actions for Datasources and Icons (on, off, toggle) - State can be display in Datasource as well\nAdded: Consumption calculation - Added states if battery charge/discharge and public grid-feed/grid-consumption are not the same\nAdded: Backup moved from states to ioBroker folder instead (saving Redis power and states loading)\nAdded: Loading information for object browser (if not loaded already)\nAdded: Darkmode for Layout",
-                "de": "FIX: Unter Umständen könnten Symbole, Texte und Bilder aus dem Arbeitsraum auslaufen\nFIX: Verbrauchsberechnung erzeugte hohe CPU-Last auf einigen Systemen #(43)\nFIX: Crash-Handler für Animationen optimiert - wenn Animation vorhanden ist, bevor der Wert aktualisiert wird, könnte der Adapter abstürzen\nHinzugefügt: Bessere Vervielfältigung der Artikel\nHinzugefügt: Aktionen für Datenquellen und Icons (on, off, toggle) - Staat kann auch in Datasource angezeigt werden\nHinzugefügt: Verbrauchsberechnung - Hinzugefügt Zustände, wenn Batterie-Ladung/Entladung und öffentliche Netz-Feed/Grid-Verbrauch sind nicht die gleichen\nHinzugefügt: Backup bewegt von Zuständen in ioBroker Ordner statt (sparen Redis Power und Zustände laden)\nHinzugefügt: Loading information for object browser (falls nicht bereits geladen)\nHinzugefügt: Darkmode für Layout",
-                "ru": "FIX: При некоторых обстоятельствах символы, тексты и изображения могут запустить рабочее пространство\nFIX: расчет расхода произведена высокая нагрузка CPU на некоторые системы #(43)\nFIX: Crash-Handler для оптимизации анимации - если анимация присутствует перед обновлением стоимости, адаптер может сбой\nДобавлено: Лучшее дублирование предметов\nДобавленные: Действия для Datasources и Icons (on, off, toggle) - Государство может отображаться в Datasource а также\nДобавлен: Расчёт потребления - Добавлены государства, если заряд батареи/разряд и публичная сетка-покорение не то же самое\nДобавлена: Backup переехал из штатов в папку ioBroker вместо (сохранение силы Redis и состояния загрузки)\nДобавлена: Загрузка информации для браузера объекта (если не загружено уже)\nДобавлено: Darkmode для Layout",
-                "pt": "FIX: Em algumas circunstâncias, símbolos, textos e imagens podem ser executados fora do espaço de trabalho\nFIX: cálculo de consumo produziu alta carga de CPU em alguns sistemas #(43)\nFIX: Crash-Handler para animações otimizadas - se a animação estiver presente antes que o valor seja atualizado, o adaptador pode falhar\nAdicionado: Melhor duplicação de itens\nAdicionado: Actions for Datasources and Icons (em, off, toggle) - Estado pode ser exibido em Datasource bem\nAdicionado: cálculo de consumo - estados adicionados se carga da bateria/descarga e público grid-feed/grid-consumption não são o mesmo\nAdicionado: Backup movido de estados para pasta ioBroker em vez ( economizando energia Redis e estados carregando)\nAdicionado: Carregando informações para navegador objeto (se não carregado já)\nAdicionado: Darkmode for Layout",
-                "nl": "Onder sommige omstandigheden symbolen, sms'en en beelden kunnen de werkruimte verlaten\nCPU-lading op sommige systemen\nCrash-Handler voor animatie, als animatie aanwezig is voordat de waarde wordt geüpload, kan de adapter crashen\nVertaling:\nAktie voor Datasources en Icons (on, off, toggle) Staat kan ook tentoongesteld worden in Datasource\nToegegeven, consumptie berekening, toegevoegde staten als batterij beschuldiging en publieke grid-voeding niet hetzelfde zijn\nVersterking verplaatst van staten naar ioBroker map in plaats van Redis macht en staatsladen\nVertaling:\nVertaling:",
-                "fr": "FIX: Dans certaines circonstances, des symboles, des textes et des images pourraient s'échapper de l'espace de travail\nFIX: calcul de la consommation produit une charge CPU élevée sur certains systèmes #(43)\nFIX : Crash-Handler pour les animations optimisées - si l'animation est présente avant la mise à jour de la valeur, l'adaptateur pourrait s'écraser\nAjouté : Meilleure duplication des articles\nAjouté: Actions pour les Datasources et les Icônes (on, off, toggle) - L'État peut également être affiché dans Datasource\nAjouté : Calcul de la consommation - États ajoutés si la charge/décharge de la batterie et la consommation de réseau public/consommation de la batterie ne sont pas les mêmes\nAjouté: Backup déplacé des états vers le dossier ioBroker à la place (économie de puissance Redis et les états de chargement)\nAjouté: Chargement des informations pour le navigateur objet (si pas déjà chargé)\nAjouté : Darkmode for Layout",
-                "it": "FIX: In alcune circostanze simboli, testi e immagini potrebbero esaurire lo spazio di lavoro\nFIX: il calcolo dei consumi ha prodotto un elevato carico della CPU su alcuni sistemi #(43)\nFIX: Crash-Handler per animazioni ottimizzate - se l'animazione è presente prima dell'aggiornamento del valore, l'adattatore potrebbe crash\nAggiunto: Meglio duplicazione di elementi\nAggiunto: Actions for Datasources and Icons (on, off, toggle) - Lo stato può essere visualizzato anche in Datasource\nAggiunto: Consum Calcolo - Aggiunto stati se carica batteria / scarico e pubblico griglia-feed/grid-consum non sono lo stesso\nAggiunto: Backup spostato dagli stati alla cartella ioBroker invece (risparmio di potenza Redis e stato di caricamento)\nAggiunto: Caricamento informazioni per il browser oggetto (se non caricato già)\nAggiunto: Darkmode for Layout",
-                "es": "FIX: Bajo algunas circunstancias, los símbolos, textos e imágenes podrían salir del espacio de trabajo\nFIX: cálculo del consumo producido alta carga CPU en algunos sistemas #(43)\nFIX: Crash-Handler para animaciones optimizadas - si la animación está presente antes de que se actualice el valor, el adaptador podría estrellarse\nAñadido: Mejor duplicación de artículos\nAñadido: Actions for Datasources and Icons (on, off, toggle) - State can be display in Datasource as well\nAñadido: Cálculo de consumo - Estados añadidos si la carga/descarga de la batería y el consumo público de red/grid-consumo no son los mismos\nAñadido: Backup movido de estados a carpeta de yoBroker en su lugar (salvando la energía de Redis y la carga de estados)\nAñadido: Información de carga para el navegador de objetos (si no está cargado ya)\nAñadido: Modo oscuro para el diseño",
-                "pl": "FIX: W niektórych okolicznościach symbole teksty i obrazy mogą wyprowadzić poza przestrzeń roboczą\nFIX: obliczenia zużycia wytwarzały duże obciążenie procesora na niektórych systemach #(43)\nFIX: Crash-Handler dla animacji zoptymalizowane – jeśli animacja jest aktualizowana, adapter może rozbić się\nLepsze duplikacje\nAdded: Akcje dla źródeł danych i Icons (nawet do toggle) – Państwo może być wyświetlane w danych oraz w danych\nObliczenia konsumpcyjne - Państwa Addowane, jeżeli ładunek akumulatorowy lub rozładowanie sieci publicznej nie są takie same, że nie są one takie same\nAdded: Backup przeniósł się z stanów do foldera ioBrokera, zamiast tego (saving Redis power and states loading)\nAdded: Dostarczanie informacji dla przeglądarki obiektowej (jeśli już nie załadowano)\nAdded: Darkmode for Layout",
-                "uk": "FIX: У деяких випадках символи, тексти та зображення можуть вийти з робочого простору\nFIX: розрахунок споживання виробляв на деяких системах No(43)\nFIX: Crash-Handler для анімацій оптимізовано - якщо анімація присутній до оновлення значення, адаптер може збитись\nДоданий: Краще дублювання предметів\nДодано: Дії для Datasources і ікон (на, off, toggle) - Держава може відображатися в Datasource, а також\nДодано: Розрахунок споживання - Додані стани, якщо заряд акумулятора/розрядна та публічна сітчаста/грід-споживання не однакові\nДодано: Резервне копіювання переміщається з станів до папки ioBroker замість (потрібне навантаження Redis та станів)\nДодано: Завантаження інформації для браузера об'єкта (якщо не завантажено вже)\nДоданий: Darkmode для Layout",
-                "zh-cn": "FIX:在某些情况下,象征、文字和图像可以排除在工作空间之外\nFIX:消费计算对某些系统生产的高全氟化气体(43)\n九、FIX:在更新价值之前,在最大程度地实现降水的Crash-Handler 可以减少事故\n增 编:改进项目重复\n增加:数据来源和Icons(从中获益)――国家可在数据来源和数据来源上展示。\n增 编:如果电池费/分销和公共电网/电网的消费与否,消费计算 - 添加国家\n增 编:从国家移至多氯乙烷,而不是(挽救红力量和装甲)\n增 编:为投机提供信息(如未装载)\n增 编:拉迪松"
-            }
-        },
-        "titleLang": {
-            "en": "Energiefluss - erweitert",
-            "de": "Energiefluss - erweitert",
-            "ru": "Energiefluss - erweitert",
-            "pt": "Energiefluss - erweitert",
-            "nl": "Energiefluss - erweitert",
-            "fr": "Energiefluss - erweitert",
-            "it": "Energiefluss - erweitert",
-            "es": "Energiefluss - erweitert",
-            "pl": "Energiefluss - erweitert",
-            "zh-cn": "Energiefluss-erweitert",
-            "uk": "Energiefluss - erweitert"
-        },
-        "desc": {
-            "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
-            "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
-        },
-        "authors": [
-            "SKB <info@skb-web.de>"
-        ],
-        "keywords": [
-            "energy",
-            "energy-flow",
-            "energie",
-            "energiefluss"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "energiefluss-erweitert.png",
-        "enabled": true,
-        "localLinks": {
-            "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
-        },
-        "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
-        "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "visualization",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "assumption",
-        "materialize": true,
-        "materializeTab": false,
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22",
-                "web": ">=3.0.12"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ],
-        "messagebox": true,
-        "subscribe": "messagebox"
+  "common": {
+    "name": "energiefluss-erweitert",
+    "version": "0.0.2-alpha.22",
+    "news": {
+      "0.0.2-alpha.22": {
+        "en": "Added: Support for boolean states to apply CSS Class, if their value is true/false\nAdded: Refresh Button for object browser - if a new state was added through objects, the configuration needed a complete refresh to receive the new state\nAdded: Support for own Text inside a datasource element. Useful, if you want to style text depending on the value of the datasource\nFIX: Overrides were not correctly loading, when adapter starts",
+        "de": "Hinzugefügt: Unterstützung für booleanische Staaten, um CSS-Klasse anzuwenden, wenn ihr Wert wahr/false ist\nHinzugefügt: Refresh Button für Objekt-Browser - wenn ein neuer Zustand durch Objekte hinzugefügt wurde, die Konfiguration brauchte eine vollständige Aktualisierung, um den neuen Zustand zu erhalten\nHinzugefügt: Unterstützung für eigenen Text innerhalb eines Datenquellenelements. Nützlich, wenn Sie Text je nach Wert der Datenquelle stilisieren möchten\nFIX: Overrides wurden nicht korrekt geladen, wenn der Adapter startet",
+        "ru": "Добавлена: Поддержка болевых штатов, чтобы применить класс CSS, если их значение верно/ложное\nДобавлена: Refresh Button для браузера объектов - если новое состояние было добавлено через объекты, конфигурация требовала полного обновления для получения нового государства\nДобавлена: Поддержка собственного текста внутри элемента datasource. Полезно, если вы хотите стилизировать текст в зависимости от стоимости ресурса данных\nFIX: Overrides не были правильно загружаться, когда адаптер начинается",
+        "pt": "Adicionado: Suporte para estados booleanos para aplicar classe CSS, se o seu valor é verdadeiro / falso\nAdicionado: Refresh Button for object browser - se um novo estado foi adicionado através de objetos, a configuração precisava de uma atualização completa para receber o novo estado\nAdicionado: Support for own Text inside a datasource element. Útil, se você quiser digitar texto dependendo do valor da fonte de dados\nFIX: As sobreposições não foram corretamente carregando, quando o adaptador começa",
+        "nl": "Versterking voor boolean staten om CSS-class toe te passen, als hun waarde waar is/false\nVerfriss Button voor object browser - als er een nieuwe staat werd toegevoegd door objecten, had het vertrouwen een volledige verfrissing nodig om de nieuwe staat te ontvangen\nVersterking voor eigen Text in een dataource element. Nuttig, als je wilt sms'en afhankelijk van de waarde van de dataource\nOverrides waren niet correct aan het laden toen de adapter begon",
+        "fr": "Ajouté: Soutien aux États booléens pour appliquer la classe CSS, si leur valeur est vraie/false\nAjouté: Refresh Button pour navigateur objet - si un nouvel état a été ajouté par des objets, la configuration a besoin d'un rafraîchissement complet pour recevoir le nouvel état\nAjouté : Support pour son propre texte dans un élément de datasource. Utile, si vous voulez style texte en fonction de la valeur de la source de données\nFIX: Les surcharges n'étaient pas correctement chargées, lorsque l'adaptateur démarre",
+        "it": "Aggiunto: Supporto per gli stati booleani per applicare la classe CSS, se il loro valore è vero/falso\nAggiunto: Refresh Button for object browser - se un nuovo stato è stato aggiunto attraverso gli oggetti, la configurazione necessaria un aggiornamento completo per ricevere il nuovo stato\nAggiunto: Supporto per proprio Testo all'interno di un elemento datasource. Utile, se si desidera definire il testo a seconda del valore della datasource\nFIX: Gli override non sono stati caricati correttamente, quando l'adattatore inizia",
+        "es": "Añadido: Apoyo a los estados booleanos para aplicar Clase CSS, si su valor es verdadero/falso\nAñadido: Refresh Button para el navegador de objetos - si un nuevo estado fue añadido a través de objetos, la configuración necesitaba un refresco completo para recibir el nuevo estado\nAñadido: Soporte para el propio texto dentro de un elemento fuente de datos. Útil, si desea escribir texto dependiendo del valor del fuente de datos\nFIX: Los overrides no estaban cargando correctamente, cuando el adaptador comienza",
+        "pl": "Added: Wsparcie dla stanów boolean w celu określenia klasy CSS, jeśli ich wartość jest prawdziwa/fałszowa\nAdded: Refresh Button dla przeglądarki obiektowej – jeśli nowy stan został dodany przez obiekty, konfiguracja wymaga odświeżenia, aby otrzymać nowy stan\nAdded: Wsparcie dla własnego tekstu wewnątrz elementu źródłowego. Użycie, jeśli chcesz stylizować tekst w zależności od wartości źródła danych\nFIX: Override nie były poprawnie ładowane, gdy adapter rozpoczynał starty",
+        "uk": "Додано: Підтримка болеанських станів, щоб застосувати CSS-клас, якщо їх значення true/false\nДодано: Refresh Кнопка для браузера об'єкта - якщо новий стан було додано через об'єкти, конфігурація необхідна для отримання нового стану\nДодано: Підтримка власних текстів в елементі джерела даних. Корисно, якщо ви хочете вписати текст залежно від значення джерела даних\nFIX: Перевищення не були коректними завантаженнями, коли стартує перехідник",
+        "zh-cn": "增加:支持假释国适用CSS类,如果其价值是真实/合理的。\n添加:如果新国家通过物体得到增加,那么,配置需要一个完整的修缮站来接收新州。\n增加:在数据来源要素内支持自己的案文。 如果你想根据数据来源的价值,采用案文。\n九、FIX:当适应者开始时,推翻者并不正确地负荷。"
+      },
+      "0.0.2-alpha.21": {
+        "en": "FIX: Alignment of elements was not working correctly for text append, text prepend and grouped icons\nFIX: When using animation depencies with dots, it could be the case that an icorrect amount of dots was displayed\nFIX: When using subtraction or addition on a datasource, the displayed value was not updated if one of the subtraction or addition values were changed\nFIX: Thresholds were only possible for Integers - now decimal numbers are also possible\nFIX: If values were set to be animated, they stopped being updated after some time\nFIX: Some layout fixes",
+        "de": "FIX: Die Ausrichtung der Elemente funktionierte nicht korrekt für Textanhang, Textvorgabe und gruppierte Symbole\nFIX: Bei der Verwendung von Animations-Depencies mit Punkten könnte es der Fall sein, dass eine falsche Anzahl von Punkten angezeigt wurde\nFIX: Bei Verwendung von Subtraktion oder Addition auf einer Datenquelle wurde der angezeigte Wert nicht aktualisiert, wenn einer der Subtraktions- oder Additionswerte geändert wurde\nFIX: Schwellen waren nur für Integer möglich - jetzt sind auch Dezimalzahlen möglich\nFIX: Wenn Werte eingestellt wurden, um animiert zu werden, werden sie nach einiger Zeit nicht mehr aktualisiert\nFIX: Einige Layout-Behebungen",
+        "ru": "FIX: Настройка элементов не работала правильно для текстовых приложений, текстовых препенд и группированных иконок\nFIX: При использовании анимационных отложений с точками, это может быть тот случай, что отображается количество точек\nFIX: При использовании субтракта или добавлении на источник данных, отображаемое значение не было обновлено, если одно из субтрактных или дополнительных значений было изменено\nFIX: Пороги были возможны только для Целых - теперь десятичные цифры также возможны\nFIX: Если значения были настроены, они перестали обновляться после некоторого времени\nFIX: Некоторые исправления макетов",
+        "pt": "CORREÇÃO: Alinhamento de elementos não estava funcionando corretamente para apêndice de texto, preposição de texto e ícones agrupados\nFIX: Ao usar deficiências de animação com pontos, pode ser o caso de uma quantidade icorreta de pontos foi exibida\nFIX: Ao usar subtração ou adição em uma fonte de dados, o valor exibido não foi atualizado se um dos valores de subtração ou adição foram alterados\nFIX: Os limiares só foram possíveis para os inteiros - agora números decimais também são possíveis\nFIX: Se os valores foram ajustados para ser animado, eles deixaram de ser atualizados após algum tempo\nFIX: Algumas correções de layout",
+        "nl": "Vertaling:\nAls het gebruik van animatie afhankelijk is van stippen, zou het de zaak kunnen zijn dat een icorrect aantal stippen werd getoond\nAls met behulp van aantrekkingskracht of toevoeging op een dataource, werd de vertoonde waarde niet geüpload als een van de subtractie of extra waarden werden veranderd\nDe drempels waren alleen mogelijk voor Integers\nAls de waarden werden geanimeerd, zijn ze gestopt met updaten na enige tijd\nWat laagjes",
+        "fr": "FIX: L'alignement des éléments ne fonctionnait pas correctement pour les appendices de texte, les prédépendances de texte et les icônes regroupées\nFIX: Lors de l'utilisation de dépéances d'animation avec des points, il pourrait être le cas qu'une quantité d'iorect de points a été affichée\nFIX : En utilisant la soustraction ou l'ajout sur une source de données, la valeur affichée n'a pas été mise à jour si l'une des valeurs de soustraction ou d'ajout a été modifiée\nFIX: Les seuils étaient seulement possibles pour les entiers - maintenant les nombres décimaux sont également possibles\nFIX : Si les valeurs étaient programmées pour être animées, elles ont cessé d'être mises à jour après un certain temps\nFIX: Quelques corrections de mise en page",
+        "it": "FIX: L'allineamento degli elementi non funziona correttamente per l'append di testo, le icone prepend e raggruppate\nFIX: Quando si utilizzano depencies di animazione con punti, potrebbe essere il caso che una quantità errata di punti è stato visualizzato\nFIX: Quando si utilizza la sottrazione o l'aggiunta su una datasource, il valore visualizzato non è stato aggiornato se uno dei valori di sottrazione o di aggiunta è stato modificato\nFIX: Le soglie erano possibili solo per gli Integer - ora sono possibili anche numeri decimali\nFIX: Se i valori sono stati impostati per essere animati, hanno smesso di essere aggiornati dopo qualche tempo\nFIX: Alcune correzioni di layout",
+        "es": "FIX: La alineación de elementos no funcionaba correctamente para el apéndice de texto, los iconos prependientes de texto y agrupados\nFIX: Al utilizar depencies de animación con puntos, podría ser el caso de que se muestre una cantidad incorrecta de puntos\nFIX: Al utilizar la resta o la adición en un fuente de datos, el valor mostrado no fue actualizado si uno de los valores de resta o adición fueron cambiados\nFIX: Los umbrales sólo eran posibles para los enteros - ahora los números decimales también son posibles\nFIX: Si se fijaban valores para ser animados, dejaron de ser actualizados después de algún tiempo\nFIX: Algunos arreglos de diseño",
+        "pl": "FIX: Wyobraźnia elementów nie była prawidłowo pracowita dla dodatków tekstowych, tekstu wstępnego i grupowanych ikon\nFIX: W przypadku używania animacji z kropkami, może to być przypadek, w którym wykazano ilość kropek\nFIX: Kiedy wykorzystanie subtractionukcja lub dodanie do danych, wartość wyświetlana nie została uaktualniona, jeśli jedna z subtractionów lub dodatków została zmieniona\nFIX: Thresholds było możliwe tylko dla Integersa – obecnie liczba dziesiętna jest również możliwe\nFIX: Jeśli wartości miały być animowane, przestały być aktualizowane po pewnym czasie\nFIX: Niektóre konfiguracje",
+        "uk": "FIX: Вирівнювання елементів не працює належним чином для текстового додатка, текстового препенда та позначених іконок\nFIX: При використанні анімаційних депенцій з точками, це може бути випадок, що позначена кількість точок\nFIX: При використанні підпункту або додавання на джерело даних, значення відображення не було оновлено, якщо змінено значення одного з підпунктів або додаткових значень\nFIX: Пороги були тільки можливими для Інтегерів - тепер можливі також десяткові числа\nFIX: Якщо значення було встановлено, щоб бути анімованими, вони припинили оновлення після певного часу\nFIX: Деякі виправлення макетів",
+        "zh-cn": "九.FIX:对内容的调整没有正确地为案文附录、案文预先拟订和编组论\nFIX:在利用喷雾剂时,可以看到一台错误的投机。\nIX:在使用分解或增加数据来源时,如果分解或附加值发生变化,则未更新所显示的价值。\n九、FIX:仅有可能为伪造者提供抵押品,现在还可能出现降解人数。\nFIX:如果确定价值是目的,则在一段时间之后停止更新。\nFIX:有些布局"
+      },
+      "0.0.2-alpha.20": {
+        "en": "FIX: states in user environment (userdata and javascript) do not need ACK flags anymore\nFIX: Darkmode cleanups and some layout improvements\nFIX: Changed some CSS styles to be consistent\nAdded: Version Checker to check the version on Github and inform the user",
+        "de": "FIX: Zustände in Benutzerumgebung (Userdaten und Javascript) brauchen keine ACK-Flags mehr\nFIX: Darkmode-Reinigungen und einige Layoutverbesserungen\nFIX: Einige CSS-Stile geändert, um konsequent zu sein\nHinzugefügt: Version Checker, um die Version auf Github überprüfen und den Benutzer informieren",
+        "ru": "FIX: состояния в среде пользователя (userdata и javascript) больше не нужны флаги ACK\nFIX: Darkmode очистка и некоторые улучшения планировки\nFIX: Изменили некоторые CSS стили, чтобы быть последовательными\nДобавлена: Проверка версий для проверки версии на Github и информирования пользователя",
+        "pt": "FIX: estados em ambiente de usuário (userdata e javascript) não precisam mais de bandeiras ACK\nFIX: Limpezas Darkmode e algumas melhorias de layout\nFIX: Mudou alguns estilos CSS para ser consistente\nAdicionado: Versão Checker para verificar a versão no Github e informar o usuário",
+        "nl": "VIX: staat in gebruikersomgeving (userdata en javascript)\nDarkmode schoonmaak en wat verbeteringen\nVerander wat CSS stijl om consistent te zijn\nVersiechequeer om de versie van Github te controleren en de gebruiker te informeren",
+        "fr": "FIX: les états dans l'environnement utilisateur (utilisateurdata et javascript) n'ont plus besoin de drapeaux ACK\nFIX: Nettoyage Darkmode et quelques améliorations de mise en page\nFIX : Changement de styles CSS pour être cohérent\nAjouté: Version Checker pour vérifier la version sur Github et informer l'utilisateur",
+        "it": "FIX: gli stati in ambiente utente (userdata e javascript) non hanno più bisogno di bandiere ACK\nFIX: pulizia Darkmode e alcuni miglioramenti del layout\nFIX: Cambiato alcuni stili CSS per essere coerente\nAggiunto: Versione Checker per controllare la versione su Github e informare l'utente",
+        "es": "FIX: estados en el entorno de usuario (userdata y javascript) ya no necesitan banderas ACK\nFIX: Limpiezas oscuras y algunas mejoras de diseño\nFIX: Cambiar algunos estilos CSS para ser consistentes\nAñadido: Checker de versión para comprobar la versión en Github e informar al usuario",
+        "pl": "FIX: stany w środowisku użytkownika (userdata i javascript) nie wymagają flagi ACK\nFIX: Darkmode cleanup oraz niektóre ulepszenia układów\nFIX: Zmienił niektóre style CSS\nAdded: Wersja Checker w celu sprawdzenia wersji na Github i informowania użytkownika",
+        "uk": "FIX: стани в середовищі користувачів (користувацькі дані та javascript) не потрібні прапорці ACK\nFIX: Darkmode очищає і деякі поліпшення макета\nFIX: Змінено деякі стилі CSS, щоб бути послідовним\nДодано: Перевірник версії для перевірки версії на Github і інформування користувача",
+        "zh-cn": "FIX:在用户环境中(用户数据和丛瓦文)不需要ACK旗帜作任何更多的说明\nFIX:Darkmode清洁和一些改进\nFIX:改变一些SS风格,使之符合规定。\n增 编:Besion Checker检查ithub版本,并告知用户"
+      },
+      "0.0.2-alpha.19": {
+        "en": "FIX: Since number animation, it could occur, that decimal places got cut off on initial values\nFIX: Save & Exit was not working correctly, if an high amount of data should be saved\nAdded: Made previously count up/down Animation for numbers configurable for each datasource element\nAdded: Low power mode for animations (can be enabled generaly or via URL parameter on each device)\nAdded: If Element is filled depending on value, it is now possible, to use the basic color as fill for the remaining space or none as transparent",
+        "de": "FIX: Seit Zahlenanimation kann es vorkommen, dass Dezimalstellen auf Anfangswerte abgeschnitten wurden\nFIX: Speichern & Ausführen funktionierte nicht richtig, wenn eine hohe Datenmenge gespeichert werden sollte\nHinzugefügt: Hergestellt vorher Count up/down Animation für Zahlen konfigurierbar für jedes Datenquellenelement\nHinzugefügt: Low-Power-Modus für Animationen (kann generell oder über URL-Parameter auf jedem Gerät aktiviert werden)\nHinzugefügt: Wenn Element je nach Wert ausgefüllt wird, ist es nun möglich, die Grundfarbe als Füllung für den verbleibenden Raum oder keine als transparent zu verwenden",
+        "ru": "FIX: Поскольку анимация номера, это могло произойти, что десятичные места отрезались на начальных значениях\nFIX: Save & Exit не работал правильно, если необходимо сохранить высокое количество данных\nДобавлена: Сделано ранее подсчет вверх/вниз Анимация для конфигурируемых номеров для каждого элемента datasource\nДобавлен: Низкий режим питания для анимаций (может быть включена в целом или через параметр URL на каждом устройстве)\nДобавлено: Если элемент заполнен в зависимости от значения, то теперь возможно, использовать базовый цвет как заполните для оставшегося пространства или не как прозрачный",
+        "pt": "FIX: Desde a animação numérica, pode ocorrer, que os lugares decimais foram cortados em valores iniciais\nFIX: Salvar e saída não estava funcionando corretamente, se uma alta quantidade de dados deve ser salva\nAdicionado: Made before count up/down Animação para números configuráveis para cada elemento de datasource\nAdicionado: Modo de baixa potência para animações (pode ser habilitado generaly ou via parâmetro URL em cada dispositivo)\nAdicionado: Se Element é preenchido dependendo do valor, agora é possível, usar a cor básica como preenchimento para o espaço restante ou nenhum tão transparente",
+        "nl": "Gezien het aantal animaties kon het gebeuren dat decimale plaatsen werden afgesneden op eerste waarden\nSave Exit werkte niet correct, als een hoge hoeveelheid gegevens gered moeten worden\nVervolgens liet hij voorheen aftellen voor cijfers die configurabel waren voor elke dataource element\nVerlaagde machtsmacht voor animaties (kan gehandicapte generaalschap of via URL parameter op elk apparaat)\nAls Element afhankelijk is van waarde, is het nu mogelijk de basiskleur te gebruiken voor de resterende ruimte of niet zo transparant",
+        "fr": "FIX: Depuis l'animation du nombre, il pourrait se produire, que les lieux décimaux ont été coupés sur les valeurs initiales\nFIX: Save & Exit ne fonctionnait pas correctement, si une quantité élevée de données devrait être enregistrée\nAjouté: Réalisé précédemment comptage/down Animation pour les nombres configurables pour chaque élément de datasource\nAjouté : Mode faible puissance pour les animations (peut être activé général ou par paramètre URL sur chaque appareil)\nAjouté: Si Element est rempli en fonction de la valeur, il est maintenant possible d'utiliser la couleur de base comme remplissage pour l'espace restant ou aucun aussi transparent",
+        "it": "FIX: Dal momento che l'animazione numero, potrebbe verificarsi, che i luoghi decimali sono stati tagliati sui valori iniziali\nFIX: Save & Exit non funziona correttamente, se si deve salvare un'elevata quantità di dati\nAggiunto: Fatto in precedenza conteggio su / giù Animazione per i numeri configurabile per ogni elemento datasource\nAggiunto: Modalità di bassa potenza per le animazioni (può essere abilitato generaly o tramite parametro URL su ogni dispositivo)\nAggiunto: Se Element è riempito a seconda del valore, è ora possibile, usare il colore di base come riempimento per lo spazio rimanente o nessuno come trasparente",
+        "es": "FIX: Desde la animación número, podría ocurrir, que los lugares decimales se cortaron en valores iniciales\nFIX: Guardar \" La salida no funcionaba correctamente, si se debía guardar una alta cantidad de datos\nAñadido: Hecho anteriormente cuenta arriba / abajo Animación para números configurable para cada elemento fuente de datos\nAñadido: Modo de baja potencia para animaciones (puede ser habilitado en general o mediante parámetro URL en cada dispositivo)\nAñadido: Si el Elemento se llena dependiendo del valor, ahora es posible utilizar el color básico como relleno para el espacio restante o ninguno como transparente",
+        "pl": "FIX: Od czasu animacji liczbowej może wystąpić, że miejsca dziesiętne odcinały się od wartości początkowych\nFIX: Save & Exit nie pracowało poprawnie, jeżeli należy ocalić ilość danych\nAdded: Made upliczał/down Animation do liczb konfigurowalnych\nDodał: Niższy tryb władzy dla animacji (może być może uogólniony lub poprzez parametr URL na każdym urządzeniem)\nWstęp: Jeśli element jest wypełniony w zależności od wartości, jest teraz możliwe, aby używać podstawowego koloru jako wypełniania pozostałej przestrzeni lub none jako przezroczyste",
+        "uk": "FIX: Оскільки кількість анімацій, це може статися, що десяткові місця знімалися на початкових значеннях\nFIX: Заощаджувати & Вимкнути не було належним чином, якщо висока кількість даних слід зберігати\nДодано: Виготовлений раніше підрахунок / вниз Анімація для чисел, налаштованих для кожного елемента даних\nДодано: Низький режим живлення для анімації (може бути ввімкнений загальний або через параметр URL на кожному пристрої)\nДоданий: Якщо Елемент заповнюється в залежності від значення, тепер можна, щоб використовувати основний колір, як заповнити решту простору або ні про прозорий",
+        "zh-cn": "FIX:由于数量的推移,可能发生这种情况,降水地点在初始价值上被切断。\nFIX:Save & Exit如果不正确开展工作,如果大量数据应予挽救。\n增加:对每个数据来源要素来说,以前计算/减少数量\n增删:电压低(每种装置可以普遍或通过URL参数)。\n增加:如果根据价值填补,现在可以使用基本颜色作为补足剩余空间,或者没有透明度。"
+      },
+      "0.0.2-alpha.18": {
+        "en": "Added: Count up/down Animation for numbers added. Instead of directly changing numbers, they are animated.",
+        "de": "Hinzugefügt: Count up/down Animation für Zahlen hinzugefügt. Anstelle von direkt wechselnden Zahlen werden sie animiert.",
+        "ru": "Добавлен: Подсчет вверх/вниз Анимация для добавленных номеров. Вместо прямого изменения числа они анимированы.",
+        "pt": "Adicionado: Contar up/down Animação para números adicionados. Em vez de alterar números diretamente, eles são animados.",
+        "nl": "Toegevoegd: graaf up/down Dieimation voor getallen toegevoegd. In plaats van het veranderen van nummers, zijn ze geanimeerd.",
+        "fr": "Ajouté : Comptez sur Animation pour les nombres ajoutés. Au lieu de changer directement les nombres, ils sont animés.",
+        "it": "Aggiunto: Count up/down Animation per i numeri aggiunti. Invece di cambiare direttamente i numeri, sono animati.",
+        "es": "Añadido: Cuenta arriba / abajo Animación para números añadidos. En lugar de cambiar directamente los números, están animados.",
+        "pl": "Added: Count up/down Animation (ang.). Zamiast zmieniać liczby, są one animowane.",
+        "uk": "Додано: Розрахувати / вимкнути анімацію для доданих чисел. Замість безпосередньо мінливих чисел, вони анімовані.",
+        "zh-cn": "增加:增加人数减少/减少。 这些数字不是直接变化的数字,而是造成。."
+      },
+      "0.0.2-alpha.17": {
+        "en": "FIX: Object browser did not show all states - especially not the ones in Channel or Folders",
+        "de": "FIX: Objekt-Browser hat nicht alle Zustände gezeigt - vor allem nicht die in Channel oder Folders",
+        "ru": "FIX: браузер объектов не показал все государства - особенно не те, кто в канале или Folders",
+        "pt": "FIX: O navegador de objetos não mostrou todos os estados - especialmente os não no canal ou pastas",
+        "nl": "Object Browser liet niet alle staten zien, vooral niet degenen in Channel of Folders",
+        "fr": "FIX: Le navigateur d'objet n'a pas montré tous les états - surtout pas ceux dans Channel ou Folders",
+        "it": "FIX: Il browser non ha mostrato tutti gli stati - soprattutto non quelli in Canale o Cartella",
+        "es": "FIX: El navegador de objetos no mostró todos los estados - especialmente no los de Canal o Carpetas",
+        "pl": "FIX: przeglądarka obiektów nie pokazywała wszystkich stanów, zwłaszcza w Channel czy Folders",
+        "uk": "FIX: Об'єктний браузер не показує всіх штатів - особливо не ті, які в Каналі або Плакати",
+        "zh-cn": "九、FIX:物体袋没有显示所有各州,特别是海峡或女兵。"
+      },
+      "0.0.2-alpha.16": {
+        "en": "FIX: Adapter crashed sometimes, due to accessing invalid ids\nAdded: Possibility to addition values to other values\nAdded: Directly display animations and values after startup instead of waiting till first value changes\nAdded: Adapter depencies and stability\nAdded: New Translations for new functions",
+        "de": "FIX: Adapter stürzte manchmal ab, aufgrund des Zugriffs auf ungültige IDs\nHinzugefügt: Möglichkeit, Werte zu anderen Werten hinzuzufügen\nHinzugefügt: Direkt anzeigen Animationen und Werte nach dem Start statt warten bis erste Wertänderungen\nHinzugefügt: Adapter-Depencies und Stabilität\nHinzugefügt: Neue Übersetzungen für neue Funktionen",
+        "ru": "FIX: адаптер иногда сбился из-за доступа недействительных идентификаторов\nДобавлена: Возможность добавления значений к другим значениям\nДобавлена: Непосредственно отображать анимации и значения после запуска вместо ожидания до изменения первого значения\nДобавлена: Адаптерные частоты и стабильность\nДобавлено: Новые переводы для новых функций",
+        "pt": "CORREÇÃO: O adaptador caiu às vezes, devido ao acesso a ids inválidos\nAdicionado: Possibilidade de adição de valores para outros valores\nAdicionado: Exibir diretamente animações e valores após a inicialização em vez de esperar até primeiras mudanças de valor\nAdicionado: Adapter competências e estabilidade\nAdicionado: Novas traduções para novas funções",
+        "nl": "Adapter crashte soms door toegang tot invalides\nToegevoegd aan andere waarden\nToegevoegd: direct vertoon je animatie en waarden na de start in plaats van te wachten tot de eerste waarde verandert\nVertaling:\nVertaling:",
+        "fr": "FIX: L'adaptateur s'est écrasé parfois, en raison de l'accès aux id invalides\nAjouté: Possibilité d'ajouter des valeurs à d'autres valeurs\nAjouté: Afficher directement les animations et les valeurs après le démarrage au lieu d'attendre jusqu'à ce que la première valeur change\nAjouté: Dépéances de l'adaptateur et stabilité\nAjouté : Nouvelles traductions pour de nouvelles fonctions",
+        "it": "FIX: L'adattatore si è schiantato a volte, a causa dell'accesso a id non validi\nAggiunto: Possibilità di aggiungere valori ad altri valori\nAggiunto: Direttamente visualizzare animazioni e valori dopo l'avvio invece di aspettare fino al primo valore modifiche\nAggiunto: Adattatore dipendenze e stabilità\nAggiunto: Nuove traduzioni per nuove funzioni",
+        "es": "FIX: Adaptador se estrelló a veces, debido al acceso a los ids inválidos\nAñadido: Posibilidad de añadir valores a otros valores\nAñadido: Mostrar directamente animaciones y valores después de la puesta en marcha en lugar de esperar hasta los cambios de primer valor\nAñadido: Dependencias y estabilidad del adaptador\nAñadido: Nuevas traducciones para nuevas funciones",
+        "pl": "FIX: Adapter rozbił się czasem z powodu dostępu do nieprawidłowych idów\nAdded: Possibility to dodanie wartości innych wartości\nAdded: wyświetlanie animacji i wartości po uruchomieniu, zamiast czekania, aż pierwsza wartość zmienia się\nAdapter: depozyty i stabilność\nAdded: Nowe tłumaczenia dla nowych funkcji",
+        "uk": "FIX: Адаптер збитий іноді, через доступ до недійсних потоків\nДодано: Можливість додавання значень до інших значень\nДодано: Безперервно відображати анімацію та значення після запуску замість очікування до перших змін значення\nДодано: Перехідники та стійкість\nДодано: Нові переклади для нових функцій",
+        "zh-cn": "FIX:由于接触无效,有时拖拉了。\n增加:增加其他价值的可能性\n增加:在开工后直接展示动画和价值观,而不是等待第一值变化\n增加:紧缩和稳定\n增 编:新职能的翻译"
+      }
     },
-    "native": {
-        "enable_proxy": false,
-        "proxy_port": 10123
+    "titleLang": {
+      "en": "Energiefluss - erweitert",
+      "de": "Energiefluss - erweitert",
+      "ru": "Energiefluss - erweitert",
+      "pt": "Energiefluss - erweitert",
+      "nl": "Energiefluss - erweitert",
+      "fr": "Energiefluss - erweitert",
+      "it": "Energiefluss - erweitert",
+      "es": "Energiefluss - erweitert",
+      "pl": "Energiefluss - erweitert",
+      "zh-cn": "Energiefluss-erweitert",
+      "uk": "Energiefluss - erweitert"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "configuration",
-            "type": "state",
-            "common": {
-                "name": "Parameters for HTML Output",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": "{}"
-            },
-            "native": {}
+    "desc": {
+      "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
+      "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
+    },
+    "authors": [
+      "SKB <info@skb-web.de>"
+    ],
+    "keywords": [
+      "energy",
+      "energy-flow",
+      "energie",
+      "energiefluss"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "energiefluss-erweitert.png",
+    "enabled": true,
+    "localLinks": {
+      "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
+    },
+    "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
+    "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "visualization",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "assumption",
+    "materialize": true,
+    "materializeTab": false,
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22",
+        "web": ">=3.0.12"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
+    ],
+    "messagebox": true,
+    "subscribe": "messagebox"
+  },
+  "native": {
+    "enable_proxy": false,
+    "proxy_port": 10123
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "configuration",
+      "type": "state",
+      "common": {
+        "name": "Parameters for HTML Output",
+        "type": "json",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": "{}"
+      },
+      "native": {}
+    },
+    {
+      "_id": "data",
+      "type": "state",
+      "common": {
+        "name": "Data for HTML Output",
+        "type": "json",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining",
+      "type": "state",
+      "common": {
+        "name": "Remaining Time of the battery",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining_target",
+      "type": "state",
+      "common": {
+        "name": "Target of the remaining Time of the battery",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining_target_DT",
+      "type": "state",
+      "common": {
+        "name": "Target of the remaining Time of the battery (Date&Time)",
+        "type": "string",
+        "role": "value",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.consumption.consumption",
+      "type": "state",
+      "common": {
+        "name": "Current Consumption",
+        "type": "number",
+        "role": "value.power",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "W"
+      },
+      "native": {}
+    },
+    {
+      "_id": "",
+      "type": "meta",
+      "common": {
+        "name": {
+          "en": "File storage",
+          "de": "Dateispeicher",
+          "ru": "???????? ?????????",
+          "pt": "Armazenamento de arquivos",
+          "nl": "Veldopslag",
+          "fr": "Stockage de fichiers",
+          "it": "Archiviazione file",
+          "es": "Almacenamiento de archivos",
+          "pl": "Storage room",
+          "uk": "?????????? ??????",
+          "zh-cn": "????"
         },
-        {
-            "_id": "data",
-            "type": "state",
-            "common": {
-                "name": "Data for HTML Output",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining",
-            "type": "state",
-            "common": {
-                "name": "Remaining Time of the battery",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining_target",
-            "type": "state",
-            "common": {
-                "name": "Target of the remaining Time of the battery",
-                "type": "number",
-                "role": "value.time",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining_target_DT",
-            "type": "state",
-            "common": {
-                "name": "Target of the remaining Time of the battery (Date&Time)",
-                "type": "string",
-                "role": "value",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.consumption.consumption",
-            "type": "state",
-            "common": {
-                "name": "Current Consumption",
-                "type": "number",
-                "role": "value.power",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "unit": "W"
-            },
-            "native": {}
-        },
-        {
-            "_id": "",
-            "type": "meta",
-            "common": {
-                "name": {
-                    "en": "File storage",
-                    "de": "Dateispeicher",
-                    "ru": "???????? ?????????",
-                    "pt": "Armazenamento de arquivos",
-                    "nl": "Veldopslag",
-                    "fr": "Stockage de fichiers",
-                    "it": "Archiviazione file",
-                    "es": "Almacenamiento de archivos",
-                    "pl": "Storage room",
-                    "uk": "?????????? ??????",
-                    "zh-cn": "????"
-                },
-                "type": "meta.user"
-            },
-            "native": {}
-        }
-    ]
+        "type": "meta.user"
+      },
+      "native": {}
+    }
+  ]
 }
