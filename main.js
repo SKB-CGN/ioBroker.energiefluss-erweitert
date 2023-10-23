@@ -1179,25 +1179,29 @@ class EnergieflussErweitert extends utils.Adapter {
 				const value = globalConfig.datasources[key];
 				this.log.debug(`Datasource: ${JSON.stringify(value)}`);
 				if (value.source != '' && value.hasOwnProperty('source')) {
-					const stateValue = await this.getForeignStateAsync(globalConfig.datasources[key].source);
-					if (stateValue) {
-						// Create sourceObject, for handling sources
-						sourceObject[globalConfig.datasources[key].source] = {
-							id: parseInt(key),
-							elmSources: [],
-							elmAnimations: [],
-							addSources: [],
-							subtractSources: []
-						};
-						rawValues.sourceValues[key] = stateValue.val;
+					try {
+						const stateValue = await this.getForeignStateAsync(globalConfig.datasources[key].source);
+						if (stateValue) {
+							// Create sourceObject, for handling sources
+							sourceObject[globalConfig.datasources[key].source] = {
+								id: parseInt(key),
+								elmSources: [],
+								elmAnimations: [],
+								addSources: [],
+								subtractSources: []
+							};
+							rawValues.sourceValues[key] = stateValue.val;
 
-						// Add to SubscribeArray
-						subscribeArray.push(value.source);
+							// Add to SubscribeArray
+							subscribeArray.push(value.source);
 
-						// Complete state for temporary use
-						stateObject[globalConfig.datasources[key].source] = stateValue;
-					} else {
-						this.log.warn(`The adapter could not find the state '${value.source}'! Please review your configuration of the adapter!`);
+							// Complete state for temporary use
+							stateObject[globalConfig.datasources[key].source] = stateValue;
+						} else {
+							this.log.warn(`The adapter could not find the state '${value.source}'! Please review your configuration of the adapter!`);
+						}
+					} catch (error) {
+						this.log.warn(`The adapter could not access the state '${value.source}'! The state seems to be deleted! Please review your configuration of the adapter!`);
 					}
 				}
 			}
@@ -1209,71 +1213,75 @@ class EnergieflussErweitert extends utils.Adapter {
 				const value = globalConfig.elements[key];
 				if (value.source != -1 && value.hasOwnProperty('source')) {
 					if (globalConfig.datasources.hasOwnProperty(value.source)) {
-						const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
-						const objObject = await this.getForeignObjectAsync(globalConfig.datasources[value.source].source);
-						if (stateValue) {
-							// Save Settings for each object
-							settingsObject[key] = {
-								threshold: value.threshold || 0,
-								calculate_kw: value.calculate_kw,
-								decimal_places: value.decimal_places,
-								convert: value.convert,
-								type: value.type,
-								source_option: value.source_option,
-								source_display: value.source_display,
-								subtract: value.subtract,
-								add: value.add,
-								css_general: value.css_general,
-								css_active_positive: value.css_active_positive,
-								css_inactive_positive: value.css_inactive_positive,
-								css_active_negative: value.css_active_negative,
-								css_inactive_negative: value.css_inactive_negative,
-								fill_type: value.fill_type,
-								border_type: value.border_type,
-								override: value.override,
-								source_type: objObject.common.type,
-								text: value.text
-							};
+						try {
+							const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
+							const objObject = await this.getForeignObjectAsync(globalConfig.datasources[value.source].source);
+							if (stateValue) {
+								// Save Settings for each object
+								settingsObject[key] = {
+									threshold: value.threshold || 0,
+									calculate_kw: value.calculate_kw,
+									decimal_places: value.decimal_places,
+									convert: value.convert,
+									type: value.type,
+									source_option: value.source_option,
+									source_display: value.source_display,
+									subtract: value.subtract,
+									add: value.add,
+									css_general: value.css_general,
+									css_active_positive: value.css_active_positive,
+									css_inactive_positive: value.css_inactive_positive,
+									css_active_negative: value.css_active_negative,
+									css_inactive_negative: value.css_inactive_negative,
+									fill_type: value.fill_type,
+									border_type: value.border_type,
+									override: value.override,
+									source_type: objObject.common.type,
+									text: value.text
+								};
 
-							// Append and prepend
-							outputValues.append[key] = value.append;
-							outputValues.prepend[key] = value.prepend;
+								// Append and prepend
+								outputValues.append[key] = value.append;
+								outputValues.prepend[key] = value.prepend;
 
-							// Unit
-							outputValues.unit[key] = value.unit;
+								// Unit
+								outputValues.unit[key] = value.unit;
 
-							// Put into timer object for re-requesting
-							if (value.source_option == 'relative') {
-								relativeTimeCheck[key] = {
-									source: globalConfig.datasources[value.source].source,
-									option: value.source_option
+								// Put into timer object for re-requesting
+								if (value.source_option == 'relative') {
+									relativeTimeCheck[key] = {
+										source: globalConfig.datasources[value.source].source,
+										option: value.source_option
+									}
 								}
-							}
 
-							// Put elment ID into Source
-							sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
+								// Put elment ID into Source
+								sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
 
-							// Put add ID's into addition array
-							if (value.add != undefined && typeof (value.add) == 'object') {
-								if (value.add.length > 0) {
-									for (var add in value.add) {
-										if (value.add[add] != -1) {
-											sourceObject[globalConfig.datasources[value.add[add]].source].addSources.push(key);
+								// Put add ID's into addition array
+								if (value.add != undefined && typeof (value.add) == 'object') {
+									if (value.add.length > 0) {
+										for (var add in value.add) {
+											if (value.add[add] != -1) {
+												sourceObject[globalConfig.datasources[value.add[add]].source].addSources.push(key);
+											}
+										}
+									}
+								}
+
+								// Put subtract ID's into substraction array
+								if (value.subtract != undefined && typeof (value.subtract) == 'object') {
+									if (value.subtract.length > 0) {
+										for (var subtract in value.subtract) {
+											if (value.subtract[subtract] != -1) {
+												sourceObject[globalConfig.datasources[value.subtract[subtract]].source].subtractSources.push(key);
+											}
 										}
 									}
 								}
 							}
-
-							// Put subtract ID's into substraction array
-							if (value.subtract != undefined && typeof (value.subtract) == 'object') {
-								if (value.subtract.length > 0) {
-									for (var subtract in value.subtract) {
-										if (value.subtract[subtract] != -1) {
-											sourceObject[globalConfig.datasources[value.subtract[subtract]].source].subtractSources.push(key);
-										}
-									}
-								}
-							}
+						} catch (error) {
+							this.log.warn(`The adapter could not access the state '${globalConfig.datasources[value.source].source}'! The state seems to be deleted! Please review your configuration of the adapter!`);
 						}
 					} else {
 						this.log.warn(`Element with ID ${key} of Type ${value.type} is using source '${value.source}', which ist not available!`);
