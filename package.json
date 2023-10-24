@@ -21,7 +21,7 @@
     "url": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert.git"
   },
   "engines": {
-    "node": ">= 12"
+    "node": ">= 14"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.0.4"
