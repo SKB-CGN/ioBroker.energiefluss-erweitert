@@ -229,6 +229,8 @@
     "opt_animation_type_4": "même vitesse",
     "opt_b_to_t": "De bas en haut",
     "opt_bottom": "Bas",
+    "opt_calculate_auto": "Calcul automatique incluant l'unité (W, kW)",
+    "opt_calculate_kw": "Calculer la valeur de W en kW",
     "opt_ccw": "dans le sens inverse des aiguilles d'une montre",
     "opt_cw": "dans le sens des aiguilles d'une montre",
     "opt_elm_circle": "Cercles (de haut en bas)",

@@ -32,6 +32,10 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Font face was not applied if changed
+- FIX: When a state inside the "alias" environment was deleted and not removed from the workspace The adapter could crash unexpectedly
+
 ### 0.0.2-alpha.22 (2023-10-20)
 - Added: Support for boolean states to apply CSS Class, if their value is true/false
 - Added: Refresh Button for object browser - if a new state was added through objects, the configuration needed a complete refresh to receive the new state

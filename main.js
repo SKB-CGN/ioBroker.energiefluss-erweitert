@@ -328,21 +328,6 @@ class EnergieflussErweitert extends utils.Adapter {
 	}
 
 	/**
-	 * @param {string} src
-	 * @param {number} value
-	*/
-	formatOutputValue(src, value) {
-		let seObj = settingsObject[src];
-		// Convert to positive if necessary
-		let cValue = seObj.convert ? this.convertToPositive(value) : value;
-		// Convert to kW if set
-		cValue = seObj.calculate_kw ? this.recalculateValue(cValue) : cValue;
-		// Set decimal places
-		cValue = seObj.decimal_places >= 0 ? this.decimalPlaces(cValue, seObj.decimal_places) : cValue;
-		return cValue;
-	}
-
-	/**
 	 * 
 	 * @param {string} id 
 	 * @param {object} obj 
@@ -376,7 +361,6 @@ class EnergieflussErweitert extends utils.Adapter {
 						if (obj.threshold >= 0) {
 							let subValue = 0;
 							let addValue = 0;
-							let formatValue;
 							this.log.debug('Threshold for: ' + id + ' is: ' + obj.threshold);
 
 							// Check, if we have Subtractions for this value
@@ -401,12 +385,37 @@ class EnergieflussErweitert extends utils.Adapter {
 								}
 							}
 
-							formatValue = (Number(value) + Number(subValue) + Number(addValue));
+							let formatValue = (Number(value) + Number(subValue) + Number(addValue));
 
 							// Check, if value is over threshold
 							if (Math.abs(formatValue) >= obj.threshold) {
 								// Format Value
-								outputValues.values[id] = this.formatOutputValue(id, formatValue);
+								let cValue = obj.convert ? (value * -1) : value;
+								// Calculation
+								switch (obj.calculate_kw) {
+									case 'calc':
+									case true:
+										// Convert to kW if set
+										cValue = (Math.round((cValue / 1000) * 100) / 100);
+										break;
+									case 'auto':
+										if (cValue >= 1000) {
+											outputValues.unit[id] = 'kW';
+											// Convert to kW if set
+											cValue = (Math.round((cValue / 1000) * 100) / 100);
+										} else {
+											outputValues.unit[id] = 'W';
+										}
+										break;
+									case 'none':
+									case false:
+										cValue = cValue;
+										break;
+								}
+								// Set decimal places
+								cValue = obj.decimal_places >= 0 ? this.decimalPlaces(cValue, obj.decimal_places) : cValue;
+
+								outputValues.values[id] = cValue;
 							} else {
 								outputValues.values[id] = obj.decimal_places >= 0 ? this.decimalPlaces(0, obj.decimal_places) : value;
 							}
@@ -585,24 +594,10 @@ class EnergieflussErweitert extends utils.Adapter {
 
 	/**
 	 * @param {number} value
-	 */
-	recalculateValue(value) {
-		return (Math.round((value / 1000) * 100) / 100);
-	}
-
-	/**
-	 * @param {number} value
 	 * @param {number} decimal_places
 	 */
 	decimalPlaces(value, decimal_places) {
 		return Number(value).toFixed(decimal_places);
-	}
-
-	/**
-	 * @param {number} value
-	 */
-	convertToPositive(value) {
-		return value < 0 ? (value * -1) : value;
 	}
 
 	/**

@@ -229,6 +229,8 @@
     "opt_animation_type_4": "均匀的速度",
     "opt_b_to_t": "从下到上",
     "opt_bottom": "底部",
+    "opt_calculate_auto": "自动计算包括单位（W、kW）",
+    "opt_calculate_kw": "计算从 W 到 kW 的值",
     "opt_ccw": "逆时针",
     "opt_cw": "顺时针",
     "opt_elm_circle": "圆圈（从上到下）",
