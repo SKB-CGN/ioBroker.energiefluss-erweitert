@@ -207,6 +207,7 @@
     "legend_preview": "Avance",
     "legend_remaining_byttery": "Autonomía restante de la batería",
     "msg_backup_restore": "¿Está seguro de que desea restaurar la copia de seguridad seleccionada? <br> ¡Su configuración actual se guardará como copia de seguridad y la copia de seguridad seleccionada se establecerá como configuración activa!",
+    "msg_ds_not_empty": "¡La fuente de datos no puede estar vacía!",
     "msg_instance_loading": "¡Esperando que la instancia %s de 'Energiefluss - erweitert' vuelva a estar en línea!",
     "msg_json_malformmated": "¡La sintaxis es incorrecta y por lo tanto no se puede formatear!",
     "msg_loading_config": "Aplicando una nueva configuración a su Energiefluss - erweitert",

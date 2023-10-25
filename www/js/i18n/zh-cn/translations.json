@@ -207,6 +207,7 @@
     "legend_preview": "预览",
     "legend_remaining_byttery": "剩余电池运行时间",
     "msg_backup_restore": "您确定要恢复选定的备份吗？ <br> 您当前的配置将被保存为备份，并且所选的备份将被设置为活动配置！",
+    "msg_ds_not_empty": "数据源不能为空！",
     "msg_instance_loading": "等待'Energiefluss - erweitert'实例%s再次上线！",
     "msg_json_malformmated": "语法不正确，因此无法格式化！",
     "msg_loading_config": "将新配置应用于您的 Energiefluss - erweitert",

@@ -207,6 +207,7 @@
     "legend_preview": "Preview",
     "legend_remaining_byttery": "Remaining battery runtime",
     "msg_backup_restore": "Are you sure, you want to restore the selected backup? <br> Your current configuration will be saved as backup and the selected backup will be set as active configuration!",
+    "msg_ds_not_empty": "The data source cannot be empty!",
     "msg_instance_loading": "Waiting for the instance %s of 'Energiefluss - erweitert' to be online again!",
     "msg_json_malformmated": "The syntax is incorrect and therefore cannot be formatted!",
     "msg_loading_config": "Applying new configuration to your Energiefluss - erweitert",

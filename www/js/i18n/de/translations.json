@@ -207,6 +207,7 @@
     "legend_preview": "Vorschau",
     "legend_remaining_byttery": "Verbleibende Akkulaufzeit",
     "msg_backup_restore": "Sind Sie sicher, dass Sie das ausgewählte Backup wiederherstellen möchten? <br> Ihre aktuelle Konfiguration wird als Backup gespeichert und das ausgewählte Backup wird als aktive Konfiguration festgelegt!",
+    "msg_ds_not_empty": "Die Datenquelle darf nicht leer sein!",
     "msg_instance_loading": "Ich warte darauf, dass die Instanz %s von „Energiefluss – erweitert“ wieder online ist!",
     "msg_json_malformmated": "Die Syntax ist falsch und daher nicht formatierbar!",
     "msg_loading_config": "Anwenden einer neuen Konfiguration auf Ihren Energiefluss - erweitert",

@@ -133,7 +133,7 @@
                         <div id="config_swap" class="swap translateT tt-element" data-lang-title="btn_swap"></div>
                         <div id="config_close" class="close translateT tt-element" data-lang-title="btn_close"></div>
                     </div>
-                    <div class="config_display" id="config_bar_content">
+                    <div class="config_display">
                         <div class="tabbed" style="width: 98%;height: calc(100vh - 36px);">
                             <input checked="checked" id="tab1_config" type="radio" name="tabs_config">
                             <input id="tab2_config" type="radio" name="tabs_config">
@@ -511,7 +511,7 @@
                                                         <input type="text" class="input_text elm_config"
                                                             name="elm_font_family" id="elm_font_family" placeholder=""
                                                             autocorrect="off" autocomplete="off">
-                                                        <label for="elm_font" class="form_label translate"
+                                                        <label for="elm_font_family" class="form_label translate"
                                                             data-lang="lbl_font_family">Font family</label>
                                                     </div>
                                                 </td>
@@ -786,25 +786,6 @@
                                             <tr class="elm_config_datasource">
                                                 <td style="width: auto;">
                                                     <div class="onoffswitch">
-                                                        <input type="checkbox" name="elm_calculate_kw"
-                                                            class="onoffswitch-checkbox elm_config"
-                                                            id="elm_calculate_kw" value="yes">
-                                                        <label class="onoffswitch-label" for="elm_calculate_kw">
-                                                            <span class="onoffswitch-inner"></span>
-                                                            <span class="onoffswitch-switch"></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td style="width: 100%;">
-                                                    <label class="label translate" for="elm_calculate_kw"
-                                                        data-lang="lbl_config_calculate"> Calculate Value
-                                                        from W to
-                                                        kW</label>
-                                                </td>
-                                            </tr>
-                                            <tr class="elm_config_datasource">
-                                                <td>
-                                                    <div class="onoffswitch">
                                                         <input type="checkbox" name="elm_convert"
                                                             class="onoffswitch-checkbox elm_config" id="elm_convert"
                                                             value="yes">
@@ -814,10 +795,29 @@
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td style="width: 100%;">
                                                     <label class="label translate" for="elm_convert"
                                                         data-lang="lbl_config_convert_value"> Convert value to
                                                         positive</label>
+                                                </td>
+                                            </tr>
+                                            <tr class="elm_config_datasource">
+                                                <td colspan="2">
+                                                    <div class="form_div select">
+                                                        <label for="elm_calculate_kw" class="form_label translate"
+                                                            data-lang="lbl_calculation">Calculation</label>
+                                                        <select class="input_select elm_config" name="elm_calculate_kw"
+                                                            id="elm_calculate_kw">
+                                                            <option value="none" class=" translate" data-lang="opt_none"
+                                                                selected="">Deactivated</option>
+                                                            <option value="calc" class="translate"
+                                                                data-lang="opt_calculate_kw">Calculate Value
+                                                                from W to kW</option>
+                                                            <option value="auto" class="translate"
+                                                                data-lang="opt_calculate_auto">Automatic calculation
+                                                                including unit (W, kW)</option>
+                                                        </select>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -867,10 +867,8 @@
                                                     <div class="form_div select">
                                                         <label for="elm_add" class="form_label translate"
                                                             data-lang="lbl_config_add">Add this to the value</label>
-
                                                         <select class="elm_config" name="elm_add" id="elm_add"
                                                             multiple></select>
-
                                                     </div>
                                                 </td>
                                             </tr>

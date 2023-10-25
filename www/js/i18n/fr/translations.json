@@ -207,6 +207,7 @@
     "legend_preview": "Aperçu",
     "legend_remaining_byttery": "Autonomie restante de la batterie",
     "msg_backup_restore": "Êtes-vous sûr de vouloir restaurer la sauvegarde sélectionnée ? <br> Votre configuration actuelle sera enregistrée en tant que sauvegarde et la sauvegarde sélectionnée sera définie comme configuration active !",
+    "msg_ds_not_empty": "La source de données ne peut pas être vide !",
     "msg_instance_loading": "En attendant que l'instance %s de 'Energiefluss - erweitert' soit à nouveau en ligne !",
     "msg_json_malformmated": "La syntaxe est incorrecte et ne peut donc pas être formatée !",
     "msg_loading_config": "Appliquer une nouvelle configuration à votre Energiefluss - erweitert",

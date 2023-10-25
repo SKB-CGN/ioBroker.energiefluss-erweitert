@@ -207,6 +207,7 @@
     "legend_preview": "Anteprima",
     "legend_remaining_byttery": "Autonomia residua della batteria",
     "msg_backup_restore": "Sei sicuro di voler ripristinare il backup selezionato? <br> La tua configurazione corrente verrà salvata come backup e il backup selezionato verrà impostato come configurazione attiva!",
+    "msg_ds_not_empty": "L'origine dati non può essere vuota!",
     "msg_instance_loading": "In attesa che l'istanza %s di 'Energiefluss - erweitert' sia di nuovo online!",
     "msg_json_malformmated": "La sintassi non è corretta e quindi non può essere formattata!",
     "msg_loading_config": "Applica nuova configurazione al tuo Energiefluss - erweitert",

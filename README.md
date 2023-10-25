@@ -33,8 +33,10 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- Added: Extended the value calculation from 'Calculate Value from W to kW' to: deactivated, Calculate Value from W to kW, Automatic calculation including unit (W, kW)
+- Added: Some crash-handler if states were deleted
 - FIX: Font face was not applied if changed
-- FIX: When a state inside the "alias" environment was deleted and not removed from the workspace The adapter could crash unexpectedly
+- FIX: When a state inside the "alias" environment was deleted and not removed from the workspace the adapter could crash unexpectedly
 
 ### 0.0.2-alpha.22 (2023-10-20)
 - Added: Support for boolean states to apply CSS Class, if their value is true/false

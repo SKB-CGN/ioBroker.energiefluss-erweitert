@@ -207,6 +207,7 @@
     "legend_preview": "Zapowiedź",
     "legend_remaining_byttery": "Pozostały czas pracy na baterii",
     "msg_backup_restore": "Czy na pewno chcesz przywrócić wybraną kopię zapasową? <br> Twoja aktualna konfiguracja zostanie zapisana jako kopia zapasowa, a wybrana kopia zapasowa zostanie ustawiona jako konfiguracja aktywna!",
+    "msg_ds_not_empty": "Źródło danych nie może być puste!",
     "msg_instance_loading": "Oczekiwanie, aż instancja %s „Energiefluss - erweitert” znów będzie online!",
     "msg_json_malformmated": "Składnia jest niepoprawna i dlatego nie można jej sformatować!",
     "msg_loading_config": "Stosowanie nowej konfiguracji do Energiefluss - erweitert",

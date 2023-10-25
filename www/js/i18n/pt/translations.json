@@ -207,6 +207,7 @@
     "legend_preview": "Visualização",
     "legend_remaining_byttery": "Tempo de execução restante da bateria",
     "msg_backup_restore": "Tem certeza de que deseja restaurar o backup selecionado? <br> Sua configuração atual será salva como backup e o backup selecionado será definido como configuração ativa!",
+    "msg_ds_not_empty": "A fonte de dados não pode estar vazia!",
     "msg_instance_loading": "Aguardando a instância %s de 'Energiefluss - erweitert' estar online novamente!",
     "msg_json_malformmated": "A sintaxe está incorreta e portanto não pode ser formatada!",
     "msg_loading_config": "Aplicando nova configuração ao seu Energiefluss - erweitert",

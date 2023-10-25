@@ -685,7 +685,8 @@ legend>span {
     color: var(--primary);
 }
 
-.input_text:invalid {
+.input_text:invalid,
+.input_number:invalid {
     color: var(--red);
 }
 

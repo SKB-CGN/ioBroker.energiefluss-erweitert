@@ -390,7 +390,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							// Check, if value is over threshold
 							if (Math.abs(formatValue) >= obj.threshold) {
 								// Format Value
-								let cValue = obj.convert ? (value * -1) : value;
+								let cValue = obj.convert ? (formatValue * -1) : formatValue;
 								// Calculation
 								switch (obj.calculate_kw) {
 									case 'calc':
@@ -399,7 +399,7 @@ class EnergieflussErweitert extends utils.Adapter {
 										cValue = (Math.round((cValue / 1000) * 100) / 100);
 										break;
 									case 'auto':
-										if (cValue >= 1000) {
+										if (Math.abs(cValue) >= 1000) {
 											outputValues.unit[id] = 'kW';
 											// Convert to kW if set
 											cValue = (Math.round((cValue / 1000) * 100) / 100);
@@ -409,6 +409,7 @@ class EnergieflussErweitert extends utils.Adapter {
 										break;
 									case 'none':
 									case false:
+									default:
 										cValue = cValue;
 										break;
 								}
@@ -1175,10 +1176,10 @@ class EnergieflussErweitert extends utils.Adapter {
 				this.log.debug(`Datasource: ${JSON.stringify(value)}`);
 				if (value.source != '' && value.hasOwnProperty('source')) {
 					try {
-						const stateValue = await this.getForeignStateAsync(globalConfig.datasources[key].source);
+						const stateValue = await this.getForeignStateAsync(value.source);
 						if (stateValue) {
 							// Create sourceObject, for handling sources
-							sourceObject[globalConfig.datasources[key].source] = {
+							sourceObject[value.source] = {
 								id: parseInt(key),
 								elmSources: [],
 								elmAnimations: [],
@@ -1191,12 +1192,12 @@ class EnergieflussErweitert extends utils.Adapter {
 							subscribeArray.push(value.source);
 
 							// Complete state for temporary use
-							stateObject[globalConfig.datasources[key].source] = stateValue;
+							stateObject[value.source] = stateValue;
 						} else {
 							this.log.warn(`The adapter could not find the state '${value.source}'! Please review your configuration of the adapter!`);
 						}
 					} catch (error) {
-						this.log.warn(`The adapter could not access the state '${value.source}'! The state seems to be deleted! Please review your configuration of the adapter!`);
+						this.log.warn(`The adapter could not request the state '${value.source}'! The state seems to be deleted! Please review your configuration of the adapter!`);
 					}
 				}
 			}
@@ -1207,79 +1208,82 @@ class EnergieflussErweitert extends utils.Adapter {
 			for (var key of Object.keys(globalConfig.elements)) {
 				const value = globalConfig.elements[key];
 				if (value.source != -1 && value.hasOwnProperty('source')) {
-					if (globalConfig.datasources.hasOwnProperty(value.source)) {
-						try {
-							const stateValue = await this.getForeignStateAsync(globalConfig.datasources[value.source].source);
-							const objObject = await this.getForeignObjectAsync(globalConfig.datasources[value.source].source);
-							if (stateValue) {
-								// Save Settings for each object
-								settingsObject[key] = {
-									threshold: value.threshold || 0,
-									calculate_kw: value.calculate_kw,
-									decimal_places: value.decimal_places,
-									convert: value.convert,
-									type: value.type,
-									source_option: value.source_option,
-									source_display: value.source_display,
-									subtract: value.subtract,
-									add: value.add,
-									css_general: value.css_general,
-									css_active_positive: value.css_active_positive,
-									css_inactive_positive: value.css_inactive_positive,
-									css_active_negative: value.css_active_negative,
-									css_inactive_negative: value.css_inactive_negative,
-									fill_type: value.fill_type,
-									border_type: value.border_type,
-									override: value.override,
-									source_type: objObject.common.type,
-									text: value.text
-								};
+					if (sourceObject.hasOwnProperty(globalConfig.datasources[value.source].source)) {
+						const objObject = await this.getForeignObjectAsync(globalConfig.datasources[value.source].source);
+						if (objObject) {
+							// Save Settings for each object
+							settingsObject[key] = {
+								threshold: value.threshold || 0,
+								calculate_kw: value.calculate_kw,
+								decimal_places: value.decimal_places,
+								convert: value.convert,
+								type: value.type,
+								source_option: value.source_option,
+								source_display: value.source_display,
+								subtract: value.subtract,
+								add: value.add,
+								css_general: value.css_general,
+								css_active_positive: value.css_active_positive,
+								css_inactive_positive: value.css_inactive_positive,
+								css_active_negative: value.css_active_negative,
+								css_inactive_negative: value.css_inactive_negative,
+								fill_type: value.fill_type,
+								border_type: value.border_type,
+								override: value.override,
+								source_type: objObject.common.type,
+								text: value.text
+							};
 
-								// Append and prepend
-								outputValues.append[key] = value.append;
-								outputValues.prepend[key] = value.prepend;
+							// Append and prepend
+							outputValues.append[key] = value.append;
+							outputValues.prepend[key] = value.prepend;
 
-								// Unit
-								outputValues.unit[key] = value.unit;
+							// Unit
+							outputValues.unit[key] = value.unit;
 
-								// Put into timer object for re-requesting
-								if (value.source_option == 'relative') {
-									relativeTimeCheck[key] = {
-										source: globalConfig.datasources[value.source].source,
-										option: value.source_option
-									}
+							// Put into timer object for re-requesting
+							if (value.source_option == 'relative') {
+								relativeTimeCheck[key] = {
+									source: globalConfig.datasources[value.source].source,
+									option: value.source_option
 								}
+							}
 
-								// Put elment ID into Source
-								sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
+							// Put elment ID into Source
+							sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
 
-								// Put add ID's into addition array
-								if (value.add != undefined && typeof (value.add) == 'object') {
-									if (value.add.length > 0) {
-										for (var add in value.add) {
-											if (value.add[add] != -1) {
+							// Put add ID's into addition array
+							if (value.add != undefined && typeof (value.add) == 'object') {
+								if (value.add.length > 0) {
+									for (var add in value.add) {
+										if (value.add[add] != -1) {
+											if (sourceObject.hasOwnProperty(globalConfig.datasources[value.add[add]].source)) {
 												sourceObject[globalConfig.datasources[value.add[add]].source].addSources.push(key);
-											}
-										}
-									}
-								}
-
-								// Put subtract ID's into substraction array
-								if (value.subtract != undefined && typeof (value.subtract) == 'object') {
-									if (value.subtract.length > 0) {
-										for (var subtract in value.subtract) {
-											if (value.subtract[subtract] != -1) {
-												sourceObject[globalConfig.datasources[value.subtract[subtract]].source].subtractSources.push(key);
+											} else {
+												this.log.warn(`The adapter could not find the state '${globalConfig.datasources[value.add[add]].source}' which is used for addition in element '${key}'! Please review your configuration of the adapter!`);
 											}
 										}
 									}
 								}
 							}
-						} catch (error) {
-							this.log.warn(`The adapter could not access the state '${globalConfig.datasources[value.source].source}'! The state seems to be deleted! Please review your configuration of the adapter!`);
+
+							// Put subtract ID's into substraction array
+							if (value.subtract != undefined && typeof (value.subtract) == 'object') {
+								if (value.subtract.length > 0) {
+									for (var subtract in value.subtract) {
+										if (value.subtract[subtract] != -1) {
+											if (sourceObject.hasOwnProperty(globalConfig.datasources[value.subtract[subtract]].source)) {
+												sourceObject[globalConfig.datasources[value.subtract[subtract]].source].subtractSources.push(key);
+											} else {
+												this.log.warn(`The adapter could not find the state '${globalConfig.datasources[value.subtract[subtract]].source}' which is used for subtracton in element '${key}'! Please review your configuration of the adapter!`);
+											}
+										}
+									}
+								}
+							}
 						}
 					} else {
-						this.log.warn(`Element with ID ${key} of Type ${value.type} is using source '${value.source}', which ist not available!`);
+						this.log.warn(`State '${globalConfig.datasources[value.source].source}' which is used for element with ID ${key} of type ${value.type}  is not available! Please review your configuration of the adapter!`);
 					}
 				}
 			}
@@ -1309,7 +1313,11 @@ class EnergieflussErweitert extends utils.Adapter {
 					};
 
 					// Put Animation into Source
-					sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
+					if (sourceObject.hasOwnProperty(globalConfig.datasources[value.source].source)) {
+						sourceObject[globalConfig.datasources[value.source].source].elmAnimations.push(key);
+					} else {
+						this.log.warn(`State '${globalConfig.datasources[value.source].source}' which is used as animation for '${key.replace('anim', 'line')}' is not available! Please review your configuration of the adapter!`);
+					}
 
 					// Check, if corresponding line has override properties as well
 					let line_id = key.replace('anim', 'line');
@@ -1356,7 +1364,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		await this.subscribeForeignStatesAsync(subscribeArray);
 	}
 
-	startServer() {
+	async startServer() {
 		function requestListener(req, res) {
 			try {
 				let query = url.parse(req.url, true).query;

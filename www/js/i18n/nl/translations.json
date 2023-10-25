@@ -207,6 +207,7 @@
     "legend_preview": "Voorbeeld",
     "legend_remaining_byttery": "Resterende batterijduur",
     "msg_backup_restore": "Weet u zeker dat u de geselecteerde back-up wilt herstellen? <br> Uw huidige configuratie wordt opgeslagen als back-up en de geselecteerde back-up wordt ingesteld als actieve configuratie!",
+    "msg_ds_not_empty": "De gegevensbron mag niet leeg zijn!",
     "msg_instance_loading": "Wachten tot instantie %s van 'Energiefluss - erweitert' weer online is!",
     "msg_json_malformmated": "De syntaxis is onjuist en kan daarom niet worden geformatteerd!",
     "msg_loading_config": "Nieuwe configuratie toepassen op uw Energiefluss - erweitert",
