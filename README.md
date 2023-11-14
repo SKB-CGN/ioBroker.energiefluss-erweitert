@@ -33,7 +33,6 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- Added: Lacy loading for Object-Browser. The Object-Browser will not be loaded on configuration start. It will load necessary objects on request, to not block UI anymore
 - Added: Support for line-breaks inside Text or Datasource elements. Line break can be done via <br> or \n. (#10)
 - Added: Overrides can now handle 'text', 'unit', 'append' and 'prepend' values to be replaced
 - Added: Check for Datasources - inside Datasources is a button, which is able to check you sources
@@ -43,7 +42,6 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - FIX: If shadow color was entered in hex instead of rgb(a) it was not saved correctly (#90)
 - FIX: Alias values without acknowledge were not updating (#96)
 - FIX: Border-Fill on element was not showing, if value has changed the sign and should be displayed in the other direction
-- FIX: Removed javascript warnings for some icons
 
 ### 0.0.2-alpha.23 (2023-10-25)
 - Added: Extended the value calculation 'Calculate Value from W to kW' to: deactivated, Calculate Value from W to kW, Automatic calculation including unit (W, kW)
