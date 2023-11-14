@@ -399,9 +399,13 @@ class EnergieflussErweitert extends utils.Adapter {
 										cValue = (Math.round((cValue / 1000) * 100) / 100);
 										break;
 									case 'auto':
-										if (Math.abs(cValue) >= 1000000) {
+										if (Math.abs(cValue) >= 1000000000) {
+											outputValues.unit[id] = 'GW';
+											// Convert to GW if set
+											cValue = (Math.round((cValue / 1000000000) * 100) / 100);
+										} else if (Math.abs(cValue) >= 1000000) {
 											outputValues.unit[id] = 'MW';
-											// Convert to kW if set
+											// Convert to MW if set
 											cValue = (Math.round((cValue / 1000000) * 100) / 100);
 										} else if (Math.abs(cValue) >= 1000) {
 											outputValues.unit[id] = 'kW';
