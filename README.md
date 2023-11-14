@@ -36,7 +36,8 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Lacy loading for Object-Browser. The Object-Browser will not be loaded on configuration start. It will load necessary objects on request, to not block UI anymore
 - Added: Support for line-breaks inside Text or Datasource elements. Line break can be done via <br> or \n. (#10)
 - Added: Overrides can now handle 'text', 'unit', 'append' and 'prepend' values to be replaced
-- Added: Check for Datasources - inside Datasources is a button, which is able to check you sources 
+- Added: Check for Datasources - inside Datasources is a button, which is able to check you sources
+- Added: Faster loading due to code optimizations
 - FIX: Convert Value to positiv was not working. If value is positiv, it was displayed as negative
 - FIX: After waking up displaying device (phone/tablet) from standby, datasources were not refreshed anymore (#99)
 - FIX: If shadow color was entered in hex instead of rgb(a) it was not saved correctly (#90)
