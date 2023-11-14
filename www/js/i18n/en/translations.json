@@ -316,6 +316,7 @@
     "title_stateExplorer_loading": "Loading Object Browser ...",
     "value_add": "Add",
     "value_cancel": "Abort",
+    "value_check": "Check datasources",
     "value_connect": "Connect",
     "value_delete": "Delete",
     "value_done": "Done",

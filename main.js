@@ -1370,7 +1370,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				let query = url.parse(req.url, true).query;
 				let callback = query.callback;
 				let message;
-				res.setHeader("Content-Type", "text");
+				res.setHeader("Content-Type", "application/javascript");
 				// Query for icon
 				switch (query.serve) {
 					case "icon":
