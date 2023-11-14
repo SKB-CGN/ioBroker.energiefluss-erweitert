@@ -609,7 +609,7 @@ legend>span {
 .input_text,
 .input_number,
 .input_select,
-.input_textbox {
+.input_textarea {
     width: 100%;
     font-size: 14px;
     border: none;
@@ -621,7 +621,7 @@ legend>span {
     color: var(--input-text);
 }
 
-.input_textbox {
+.input_textarea {
     width: 100%;
     resize: none;
 }
@@ -648,6 +648,7 @@ legend>span {
     width: max-content;
 }
 
+.input_textarea:hover,
 .input_text:hover,
 .input_number:hover,
 .input_select:hover {
@@ -655,6 +656,7 @@ legend>span {
     transition: .5s;
 }
 
+.input_textarea:focus,
 .input_text:focus,
 .input_number:focus,
 .input_select:focus {

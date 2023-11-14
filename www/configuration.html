@@ -422,7 +422,8 @@
                                                         <label for="elm_svg_content" class="form_label translate"
                                                             data-lang="lbl_svg_content">SVG Content</label>
                                                         <textarea id="elm_svg_content" name="elm_svg_content" cols="30"
-                                                            rows="10" class="input_textbox elm_config"></textarea>
+                                                            rows="10" class="input_textarea elm_config"
+                                                            autocomplete="off" autocorrect="off"></textarea>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -497,11 +498,12 @@
                                             <tr class="elm_config_text_not_ds">
                                                 <td>
                                                     <div class="form_div text">
-                                                        <input type="text" class="input_text elm_config" name="elm_text"
-                                                            id="elm_text" placeholder="" autocorrect="off"
-                                                            autocomplete="off">
                                                         <label for="elm_text" class="form_label translate"
                                                             data-lang="lbl_text">Text</label>
+                                                        <textarea id="elm_text" name="elm_text" cols="30" rows="5"
+                                                            class="input_textarea elm_config" autocomplete="off"
+                                                            autocorrect="off"></textarea>
+
                                                     </div>
                                                 </td>
                                             </tr>
@@ -2357,7 +2359,7 @@
                         <table class="config_table">
                             <tr>
                                 <td>
-                                    <div id="own_css"></div></textarea>
+                                    <div id="own_css"></div>
                                 </td>
                             </tr>
                         </table>

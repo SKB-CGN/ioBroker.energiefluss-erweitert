@@ -162,8 +162,8 @@ class EnergieflussErweitert extends utils.Adapter {
 				this.refreshData(id, state);
 			}
 			// For userdata and Javascript
-			if (id.toLowerCase().includes('0_userdata.') || id.toLowerCase().includes('javascript.')) {
-				this.log.debug('Refreshing state from user environment!');
+			if (id.toLowerCase().startsWith('0_userdata.') || id.toLowerCase().startsWith('javascript.') || id.toLowerCase().startsWith('alias.')) {
+				this.log.debug(`Refreshing state from user environment! ${id}`);
 				this.refreshData(id, state);
 			}
 		}
@@ -335,7 +335,7 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * @param {number} value 
 	 * @returns 'Calculated Value'
 	 */
-	calculateValue(id, obj, state, value) {
+	async calculateValue(id, obj, state, value) {
 		if (obj.type == 'text') {
 			// Check, if we have source options for text - Date
 			if (obj.source_option != -1) {
@@ -390,7 +390,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							// Check, if value is over threshold
 							if (Math.abs(formatValue) >= obj.threshold) {
 								// Format Value
-								let cValue = obj.convert ? (formatValue * -1) : formatValue;
+								let cValue = obj.convert ? Math.abs(formatValue) : formatValue;
 								// Calculation
 								switch (obj.calculate_kw) {
 									case 'calc':
@@ -409,6 +409,7 @@ class EnergieflussErweitert extends utils.Adapter {
 										break;
 									case 'none':
 									case false:
+										break;
 									default:
 										cValue = cValue;
 										break;
@@ -724,7 +725,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						if (settingsObject.hasOwnProperty(src)) {
 							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
-							this.calculateValue(src, settingsObject[src], state, rawValues.values[src]);
+							await this.calculateValue(src, settingsObject[src], state, rawValues.values[src]);
 						}
 					}
 				}
@@ -739,7 +740,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						if (settingsObject.hasOwnProperty(src)) {
 							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
-							this.calculateValue(src, settingsObject[src], state, rawValues.values[src]);
+							await this.calculateValue(src, settingsObject[src], state, rawValues.values[src]);
 						}
 					}
 				}
@@ -757,7 +758,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						if (settingsObject.hasOwnProperty(src)) {
 							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
-							this.calculateValue(src, settingsObject[src], state, clearValue);
+							await this.calculateValue(src, settingsObject[src], state, clearValue);
 						}
 					}
 				}
@@ -1116,7 +1117,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				this.log.debug(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements: ${soObj.elmSources.toString()}`);
 
 				// Build Output
-				this.setDataState();
+				await this.setDataState();
 			} else {
 				this.log.warn(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements, which were not found! Please check them!`);
 			}
@@ -1344,7 +1345,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 		// Run once through all sources, to generate a proper output on startup
 		for (var key of Object.keys(sourceObject)) {
-			this.refreshData(key, stateObject[key]);
+			await this.refreshData(key, stateObject[key]);
 		}
 
 		// Starting Timer
@@ -1355,7 +1356,6 @@ class EnergieflussErweitert extends utils.Adapter {
 				this.getRelativeTimeObjects(relativeTimeCheck);
 			}, 10000);
 		}
-		this.setDataState();
 
 		this.log.info('Configuration loaded!');
 		this.log.info(`Requesting the following states: ${subscribeArray.toString()}`);
