@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.2-alpha.24 (2023-11-14)
 - Added: Support for line-breaks inside Text or Datasource elements. Line break can be done via <br> or \n. (#10)
 - Added: Overrides can now handle 'text', 'unit', 'append' and 'prepend' values to be replaced
 - Added: Check for Datasources - inside Datasources is a button, which is able to check you sources
