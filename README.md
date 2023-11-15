@@ -32,6 +32,10 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Alignment of texts and group movement was not possible, after changing to new multiline texts
+- FIX: Saved default fill and outline colors were not applied if adding new text or datasource to workspace
+
 ### 0.0.2-alpha.24 (2023-11-14)
 - Added: Lacy loading for Object-Browser. The Object-Browser will not be loaded on configuration start. It will load necessary objects on request, to not block UI anymore
 - Added: Support for line-breaks inside Text or Datasource elements. Line break can be done via <br> or \n. (#10)
