@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.0 (2023-11-15)
 - FIX: Alignment of texts and group movement was not possible, after changing to new multiline texts
 - FIX: Saved default fill and outline colors were not applied if adding new text or datasource to workspace
 - Added: Extended the auto calculation to W, kW, MW and GW

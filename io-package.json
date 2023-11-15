@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energiefluss-erweitert",
-    "version": "0.0.2-alpha.24",
+    "version": "0.1.0",
     "news": {
+      "0.1.0": {
+        "en": "FIX: Alignment of texts and group movement was not possible, after changing to new multiline texts\nFIX: Saved default fill and outline colors were not applied if adding new text or datasource to workspace\nAdded: Extended the auto calculation to W, kW, MW and GW",
+        "de": "FIX: Die Ausrichtung von Texten und Gruppenbewegungen war nach dem Wechsel auf neue Mehrlinientexte nicht möglich\nFIX: Gespeicherte Standard-Füll- und Umrissfarben wurden nicht angewendet, wenn neue Text- oder Datenquellen in den Workspace hinzugefügt wurden\nHinzugefügt: Erweiterung der Autorechnung auf W, kW, MW und GW",
+        "ru": "FIX: Выявление текстов и групповое движение не было возможно, после изменения новых многострочных текстов\nFIX: Сохраненный заполнение по умолчанию и очертания цвета не были применены, если добавить новый текст или источник данных для рабочего пространства\nДобавлена: Расширенный автоматический расчет на W, кВт, MW и GW",
+        "pt": "FIX: Alinhamento de textos e movimento de grupo não foi possível, depois de mudar para novos textos multilinhas\nFIX: As cores de preenchimento e contorno padrão salvos não foram aplicadas se adicionar novo texto ou datasource ao workspace\nAdicionado: Estendido o cálculo automático para W, kW, MW e GW",
+        "nl": "Vertaling:\nBespaarde default vul en uitspraktijken werden niet toegevoegd als het toevoegen van nieuwe sms of dataource om te werken\nVerlengde de autoberekening naar W, KW en GW",
+        "fr": "FIX: L'alignement des textes et du mouvement de groupe n'était pas possible, après avoir changé de texte multiligne\nFIX: Les couleurs de remplissage par défaut sauvegardées et de contour n'ont pas été appliquées si l'ajout de nouveau texte ou source de données à l'espace de travail\nAjouté: Extended the auto calculation to W, kW, MW and GW",
+        "it": "FIX: L'allineamento dei testi e dei movimenti di gruppo non è stato possibile, dopo il passaggio a nuovi testi multilinei\nFIX: non sono stati applicati i colori di riempimento e profilo predefiniti salvati se si aggiunge un nuovo testo o datasource allo spazio di lavoro\nAggiunto: Esteso il calcolo automatico a W, kW, MW e GW",
+        "es": "FIX: La alineación de textos y el movimiento de grupos no fue posible, después de cambiar a nuevos textos multilíneas\nFIX: No se aplicaron los colores de relleno y esbozo por defecto guardados si se añadieron texto nuevo o fuente de datos al espacio de trabajo\nAñadido: Extendido el cálculo auto a W, kW, MW y GW",
+        "pl": "FIX: Wykorzystanie tekstów i ruchów grupowych nie było możliwe po zmianie na nowe, wielolinijowe teksty\nFIX: Domyślne wypełnianie i zarys kolorów nie zostały zastosowane, jeśli dodanie nowego tekstu lub źródła danych do pracy Przestrzeni\nAdded: rozszerzone obliczenia auto do W, kW, MW i GW",
+        "uk": "FIX: Вирівнювання текстів і групового руху неможливе, після зміни до нових багатолінійних текстів\nFIX: Збережені за замовчуванням заповнення та контурні кольори не застосовуються, якщо додавання нового тексту або джерела даних до робочого простору\nДодано: Розширений автоматичний розрахунок до В, кВт, МВт та ГВт",
+        "zh-cn": "FIX:在修改新的多线案文之后,不可能对案文和团体运动进行调整。\nFIX:如果增加新的案文或数据来源以工作空间,则未采用无减的补缺和概要。\n增加:向W、 kW、MW和GW的汽车计算。"
+      },
       "0.0.2-alpha.24": {
         "en": "Added: Support for line-breaks inside Text or Datasource elements. Line break can be done via <br> or \\n. (#10)\nAdded: Overrides can now handle 'text', 'unit', 'append' and 'prepend' values to be replaced\nAdded: Check for Datasources - inside Datasources is a button, which is able to check you sources\nAdded: Faster loading due to code optimizations\nFIX: Convert Value to positiv was not working. If value is positiv, it was displayed as negative\nFIX: After waking up displaying device (phone/tablet) from standby, datasources were not refreshed anymore (#99)\nFIX: If shadow color was entered in hex instead of rgb(a) it was not saved correctly (#90)\nFIX: Alias values without acknowledge were not updating (#96)\nFIX: Border-Fill on element was not showing, if value has changed the sign and should be displayed in the other direction",
         "de": "Hinzugefügt: Unterstützung für Zeilenumbrüche innerhalb von Text- oder Datenquellenelementen. Linienbruch kann über <br> oder \\n erfolgen. (#10)\nHinzugefügt: Overrides können jetzt Text, Einheit, anhängen und vorgeben Werte zu ersetzen\nHinzugefügt: Überprüfen Sie Datasources - innerhalb Datasources ist eine Schaltfläche, die Sie Quellen überprüfen kann\nHinzugefügt: Schnellere Belastung durch Codeoptimierungen\nFIX: Umrechnen von Wert zu Positiv funktionierte nicht. Wenn der Wert positiv ist, wurde er als negativ angezeigt\nFIX: Nach dem Aufwachen des Anzeigegerätes (Telefon/Tablet) aus Standby wurden Datenquellen nicht mehr aktualisiert (#99)\nFIX: Wurde die Schattenfarbe anstelle von rgb(a) in Hex eingegeben, wurde sie nicht korrekt gespeichert (#90)\nFIX: Alias-Werte ohne Bestätigung wurden nicht aktualisiert (#96)\nFIX: Border-Fill auf Element wurde nicht angezeigt, wenn der Wert das Zeichen geändert hat und in die andere Richtung angezeigt werden sollte",
@@ -80,19 +93,6 @@
         "pl": "FIX: Od czasu animacji liczbowej może wystąpić, że miejsca dziesiętne odcinały się od wartości początkowych\nFIX: Save & Exit nie pracowało poprawnie, jeżeli należy ocalić ilość danych\nAdded: Made upliczał/down Animation do liczb konfigurowalnych\nDodał: Niższy tryb władzy dla animacji (może być może uogólniony lub poprzez parametr URL na każdym urządzeniem)\nWstęp: Jeśli element jest wypełniony w zależności od wartości, jest teraz możliwe, aby używać podstawowego koloru jako wypełniania pozostałej przestrzeni lub none jako przezroczyste",
         "uk": "FIX: Оскільки кількість анімацій, це може статися, що десяткові місця знімалися на початкових значеннях\nFIX: Заощаджувати & Вимкнути не було належним чином, якщо висока кількість даних слід зберігати\nДодано: Виготовлений раніше підрахунок / вниз Анімація для чисел, налаштованих для кожного елемента даних\nДодано: Низький режим живлення для анімації (може бути ввімкнений загальний або через параметр URL на кожному пристрої)\nДоданий: Якщо Елемент заповнюється в залежності від значення, тепер можна, щоб використовувати основний колір, як заповнити решту простору або ні про прозорий",
         "zh-cn": "FIX:由于数量的推移,可能发生这种情况,降水地点在初始价值上被切断。\nFIX:Save & Exit如果不正确开展工作,如果大量数据应予挽救。\n增加:对每个数据来源要素来说,以前计算/减少数量\n增删:电压低(每种装置可以普遍或通过URL参数)。\n增加:如果根据价值填补,现在可以使用基本颜色作为补足剩余空间,或者没有透明度。"
-      },
-      "0.0.2-alpha.18": {
-        "en": "Added: Count up/down Animation for numbers added. Instead of directly changing numbers, they are animated.",
-        "de": "Hinzugefügt: Count up/down Animation für Zahlen hinzugefügt. Anstelle von direkt wechselnden Zahlen werden sie animiert.",
-        "ru": "Добавлен: Подсчет вверх/вниз Анимация для добавленных номеров. Вместо прямого изменения числа они анимированы.",
-        "pt": "Adicionado: Contar up/down Animação para números adicionados. Em vez de alterar números diretamente, eles são animados.",
-        "nl": "Toegevoegd: graaf up/down Dieimation voor getallen toegevoegd. In plaats van het veranderen van nummers, zijn ze geanimeerd.",
-        "fr": "Ajouté : Comptez sur Animation pour les nombres ajoutés. Au lieu de changer directement les nombres, ils sont animés.",
-        "it": "Aggiunto: Count up/down Animation per i numeri aggiunti. Invece di cambiare direttamente i numeri, sono animati.",
-        "es": "Añadido: Cuenta arriba / abajo Animación para números añadidos. En lugar de cambiar directamente los números, están animados.",
-        "pl": "Added: Count up/down Animation (ang.). Zamiast zmieniać liczby, są one animowane.",
-        "uk": "Додано: Розрахувати / вимкнути анімацію для доданих чисел. Замість безпосередньо мінливих чисел, вони анімовані.",
-        "zh-cn": "增加:增加人数减少/减少。 这些数字不是直接变化的数字,而是造成。."
       }
     },
     "titleLang": {
