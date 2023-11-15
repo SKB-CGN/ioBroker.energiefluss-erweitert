@@ -35,6 +35,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 ### **WORK IN PROGRESS**
 - FIX: Alignment of texts and group movement was not possible, after changing to new multiline texts
 - FIX: Saved default fill and outline colors were not applied if adding new text or datasource to workspace
+- Added: Extended the auto calculation to W, kW, MW and GW
 
 ### 0.0.2-alpha.24 (2023-11-14)
 - Added: Lacy loading for Object-Browser. The Object-Browser will not be loaded on configuration start. It will load necessary objects on request, to not block UI anymore
