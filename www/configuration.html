@@ -34,7 +34,7 @@
 
 <body>
     <div id="help_section" class="translateT" title="Help Section" data-lang-title="lbl_help_section"></div>
-    <div id="backup_section" class="translateT" title="Backup Section" data-lang-title="lbl_backup_section"></div>
+    <div id="dialog_section" title="Backup Section"></div>
 
     <div id="loading">
         <div class="loading-spinner">
@@ -122,7 +122,7 @@
                     data-height="24"></span><span class="translate" data-lang="lbl_save">Save</span></label>
             <span class="version">
                 <span id="runningVersion"></span>
-                <span id="newVersion" class="newVersion">ddd</span>
+                <span id="newVersion" class="newVersion"></span>
             </span>
         </nav>
         <figure>
@@ -651,7 +651,7 @@
                                                         <div class="onoffswitch">
                                                             <input type="checkbox" name="elm_counter_animation"
                                                                 class="onoffswitch-checkbox elm_config"
-                                                                id="elm_counter_animation" value="yes" style="">
+                                                                id="elm_counter_animation" value="yes">
                                                             <label class="onoffswitch-label"
                                                                 for="elm_counter_animation">
                                                                 <span class="onoffswitch-inner"></span>
@@ -1448,7 +1448,7 @@
                                                 data-lang="lbl_height">Height</label>
                                         </div>
                                     </td>
-                                    <td><input type="range" value="500" id="svg_height_slider" min="1" max="1000"
+                                    <td><input type="range" value="500" id="svg_height_slider" min="1" max="2000"
                                             class="slider svg_size_slider translateT" data-lang-title="title_slider"
                                             title="Move the slider to adjust the size">
                                     </td>
@@ -1728,6 +1728,17 @@
                                                 <label for="elm_ds_alias" class="form_label translate"
                                                     data-lang="lbl_alias">Alias</label>
                                             </div>
+                                            <div class="form_div select">
+                                                <label for="elm_ds_factor" class="translate form_label"
+                                                    data-lang="lbl_ds_unit">Unit of the source</label>
+                                                <select class="input_select" name="elm_ds_factor" id="elm_ds_factor">
+                                                    <option value="1" class="translate" data-lang="opt_ds_unit_w"
+                                                        selected>
+                                                        watts (w)</option>
+                                                    <option value="1000" class="translate" data-lang="opt_ds_unit_kw">
+                                                        kilowatts (kW)</option>
+                                                </select>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1752,12 +1763,14 @@
                                 </th>
                                 <th><em class="translate" data-lang="lbl_datasource"
                                         style="font-style:normal;">Datasource</em> <span class="sort_icon"></span></th>
+                                <th><em class="translate" data-lang="lbl_unit" style="font-style:normal;">Unit</em>
                                 <th><em class="translate" data-lang="lbl_action" style="font-style:normal;">Action</em>
                                 </th>
                             </thead>
                             <tbody>
                                 <tr id="ds_tmp_line" data-id="-1">
                                     <td>There are currently no Datasources added!</td>
+                                    <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                 </tr>
@@ -1832,7 +1845,7 @@
                                 <td>
                                     <div class="form_div text">
                                         <input type="number" class="input_number line_preview" id="animation_duration"
-                                            placeholder="" autocorrect="off" autocomplete="off" min="1" max="5000">
+                                            placeholder="" autocorrect="off" autocomplete="off" min="1">
                                         <label for="animation_duration" class="form_label translate"
                                             data-lang="lbl_duration">Duration</label>
                                     </div>

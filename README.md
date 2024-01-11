@@ -32,6 +32,15 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Control for not deleting sources, if they are in use as source, addition or subtraction (elements which use this one, will be displayed with additional information)
+- Added: IDs for datasources will be displayed inside configuration bar, to better find the ID the element for reason mentioned before
+- Added: Control for not adding duplicate datasources from ioBroker as this will lead into crashes cause of duplicate keys
+- Added: Form on  datasources configuration page will be deactivated during the time a datasource is edited
+- Added: A unit for the datasource is selectable - this makes it easier to use those values for addition&subtraction without using Auxiliary data points
+- Added: New translations, design modifcations and various code optimizations
+- FIX: Crash Handler for missing datasources extended (if datasource from ioBroker was deleted and used as source, addition or subtraction in any element)
+
 ### 0.1.0 (2023-11-15)
 - FIX: Alignment of texts and group movement was not possible, after changing to new multiline texts
 - FIX: Saved default fill and outline colors were not applied if adding new text or datasource to workspace

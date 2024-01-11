@@ -387,9 +387,9 @@ class EnergieflussErweitert extends utils.Adapter {
 
 							let formatValue = (Number(value) + Number(subValue) + Number(addValue));
 
-							// Check, if value is over threshold
+							// Check if value is over threshold
 							if (Math.abs(formatValue) >= obj.threshold) {
-								// Format Value
+								// Convert Value to positive
 								let cValue = obj.convert ? Math.abs(formatValue) : formatValue;
 								// Calculation
 								switch (obj.calculate_kw) {
@@ -710,15 +710,15 @@ class EnergieflussErweitert extends utils.Adapter {
 		} else {
 			// Check, if we handle this source inside our subscribtion
 			if (sourceObject.hasOwnProperty(id)) {
-				// Correct the Value if not Number
-				if (typeof (state.val) === 'string') {
-					clearValue = Number(state.val.replace(/[^\d.-]/g, ''));
-				} else {
-					clearValue = state.val;
-				}
-
 				// sourceObject for this state-id
 				let soObj = sourceObject[id];
+
+				// Correct the Value if not Number
+				if (typeof (state.val) === 'string') {
+					clearValue = Number(state.val.replace(/[^\d.-]/g, '')) * soObj.factor;
+				} else {
+					clearValue = state.val * soObj.factor;
+				}
 
 				// Put Value into RAW-Source-Values
 				rawValues.sourceValues[soObj.id] = clearValue;
@@ -1190,12 +1190,13 @@ class EnergieflussErweitert extends utils.Adapter {
 							// Create sourceObject, for handling sources
 							sourceObject[value.source] = {
 								id: parseInt(key),
+								factor: value.factor || 1,
 								elmSources: [],
 								elmAnimations: [],
 								addSources: [],
 								subtractSources: []
 							};
-							rawValues.sourceValues[key] = stateValue.val;
+							rawValues.sourceValues[key] = stateValue.val * sourceObject[value.source].factor;
 
 							// Add to SubscribeArray
 							subscribeArray.push(value.source);
@@ -1266,10 +1267,10 @@ class EnergieflussErweitert extends utils.Adapter {
 								if (value.add.length > 0) {
 									for (var add in value.add) {
 										if (value.add[add] != -1) {
-											if (sourceObject.hasOwnProperty(globalConfig.datasources[value.add[add]].source)) {
+											if (globalConfig.datasources.hasOwnProperty(value.add[add])) {
 												sourceObject[globalConfig.datasources[value.add[add]].source].addSources.push(key);
 											} else {
-												this.log.warn(`The adapter could not find the state '${globalConfig.datasources[value.add[add]].source}' which is used for addition in element '${key}'! Please review your configuration of the adapter!`);
+												this.log.warn(`The addition datasource with ID '${value.add[add]}' which is used in element '${key}' of type ${value.type} was not found! Please review your configuration of the adapter!`);
 											}
 										}
 									}
@@ -1281,10 +1282,10 @@ class EnergieflussErweitert extends utils.Adapter {
 								if (value.subtract.length > 0) {
 									for (var subtract in value.subtract) {
 										if (value.subtract[subtract] != -1) {
-											if (sourceObject.hasOwnProperty(globalConfig.datasources[value.subtract[subtract]].source)) {
+											if (globalConfig.datasources.hasOwnProperty(value.subtract[subtract])) {
 												sourceObject[globalConfig.datasources[value.subtract[subtract]].source].subtractSources.push(key);
 											} else {
-												this.log.warn(`The adapter could not find the state '${globalConfig.datasources[value.subtract[subtract]].source}' which is used for subtracton in element '${key}'! Please review your configuration of the adapter!`);
+												this.log.warn(`The subtraction datasource with ID '${value.subtract[subtract]}' which is used in element '${key}' of type ${value.type} was not found! Please review your configuration of the adapter!`);
 											}
 										}
 									}

@@ -19,7 +19,7 @@
         --darkgrey: #efefef;
         --white: #FFF;
         --red: lightcoral;
-        --background-color: transparent;
+        --background-color: rgba(255, 255, 255, 0);
         --stateExplorerBackground: #fff;
         --stateExplorerFont: #369;
         --middle-grey: #edf2f5;
@@ -35,9 +35,9 @@
         --configbar-background: #fff;
         --container-background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
             linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
-            radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.4),
+            radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.6),
                 rgba(0, 0, 0, 0)),
-            radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.4),
+            radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.6),
                 rgba(0, 0, 0, 0)) 0 100%;
     }
 }
@@ -79,9 +79,9 @@
         --configbar-background: #323232;
         --container-background: linear-gradient(to right, #323232 30%, rgba(255, 255, 255, 0)),
             linear-gradient(to right, rgba(255, 255, 255, 0), #323232 70%) 0 100%,
-            radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.4),
+            radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.6),
                 rgba(0, 0, 0, 0)),
-            radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.4),
+            radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.6),
                 rgba(0, 0, 0, 0)) 0 100%;
     }
 }
@@ -322,7 +322,7 @@ legend>span {
 }
 
 #help_section,
-#backup_section {
+#dialog_section {
     display: none;
 }
 
@@ -504,7 +504,7 @@ legend>span {
     text-align: center;
     border-radius: 5px;
     padding: 16px;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -864,25 +864,39 @@ fieldset.flex {
     width: 120px;
 }
 
-.data-table {
+.data-table,
+.used-ds-table {
     box-shadow: var(--box-shadow);
     border-collapse: separate;
     border-radius: 5px;
     border: 1px solid var(--silvergrey);
     width: 100%;
+    text-align: left;
+    border-spacing: 0px;
 }
 
 .data-table td:last-child,
-.data-table th:last-child {
+.data-table th:last-child,
+.used-ds-table td:last-child,
+.used-ds-table th:last-child {
     white-space: nowrap;
-    width: 106px;
-    min-width: 106px;
-    max-width: 106px;
+    width: 115px;
+    min-width: 100px;
+    max-width: 115px;
     text-align: right;
     padding-right: 5px;
 }
 
-.data-table th:last-child {
+.used-ds-table td:last-child,
+.used-ds-table th:last-child {
+    text-align: left;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.data-table th:last-child,
+.used-ds-table th:last-child {
     padding-right: 8px;
 }
 
@@ -891,41 +905,77 @@ fieldset.flex {
     vertical-align: middle;
 }
 
+.used-ds-table th {
+    line-height: 25px;
+}
+
 .data-table td:nth-child(2),
 .data-table th:nth-child(2),
 .data-table td:nth-child(1),
-.data-table th:nth-child(1) {
+.data-table th:nth-child(1),
+.used-ds-table td:nth-child(2),
+.used-ds-table th:nth-child(2),
+.used-ds-table td:nth-child(1),
+.used-ds-table th:nth-child(1) {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     width: auto;
+    max-width: 48px;
 }
 
-.data-table td:nth-child(1),
-.data-table th:nth-child(1) {
-    width: auto;
-    max-width: 50px;
+.used-ds-table td:nth-child(1),
+.used-ds-table th:nth-child(1) {
+    max-width: 75px;
+    width: 75px;
+}
+
+.data-table th:nth-child(3),
+.data-table th:nth-child(3) {
+    max-width: 80px;
+    width: 80px;
+}
+
+.used-ds-table td:nth-child(2),
+.used-ds-table th:nth-child(2) {
+    max-width: 90px;
+    width: 90px;
 }
 
 .data-table td:nth-child(2),
 .data-table th:nth-child(2) {
-    width: auto;
-    max-width: 100px;
+    max-width: 98px;
 }
 
-.data-table tbody tr:nth-child(2n+1) {
+.data-table td:nth-child(3),
+.data-table th:nth-child(3) {
+    width: 90px;
+    max-width: 90px;
+    min-width: 90px;
+}
+
+.data-table tbody tr:nth-child(2n+1),
+.used-ds-table tbody tr:nth-child(2n+1) {
     background-color: var(--creme);
 }
 
-.data-table tr {
+.data-table tbody tr,
+.used-ds-table tbody tr {
+    transition: .5s;
+}
+
+.data-table tr,
+.used-ds-table tr {
     border: 1px solid var(--silvergrey);
 }
 
-.data-table td {
+.data-table td,
+.used-ds-table td {
     border-top: 1px solid var(--silvergrey);
 }
 
-.data-table tbody tr:hover {
+.data-table tbody tr:hover,
+.used-ds-table tbody tr:hover {
     background-color: var(--darkgrey);
     transition: .5s;
 }
@@ -1465,6 +1515,10 @@ nav label:active {
 
 .ui-menu-item .ui-menu-item-wrapper {
     white-space: nowrap;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
 }
 
 /* State Explorer */
