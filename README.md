@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.0 (2024-01-11)
 - Added: Control for not deleting sources, if they are in use as source, addition or subtraction (elements which use this one, will be displayed with additional information)
 - Added: IDs for datasources will be displayed inside configuration bar, to better find the ID the element for reason mentioned before
 - Added: Control for not adding duplicate datasources from ioBroker as this will lead into crashes cause of duplicate keys
