@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.1 (2024-01-25)
 - Added: Support for datasources as image URL's (explanation is given via question mark)
 - Added: Background for workspace can now be set in basic settings (CSS still works as well)
 - FIX: SVG element was not correctly saved after saving the workspace
