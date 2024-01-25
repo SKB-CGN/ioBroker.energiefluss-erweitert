@@ -442,6 +442,9 @@
                                                         <label for="elm_href" class="form_label translate"
                                                             data-lang="lbl_href">Address:</label>
                                                     </div>
+                                                    <img src="img/icon_help.png" style="margin-top:10px;"
+                                                        class="translateP help" data-lang-placeholder="help_img_url"
+                                                        placeholder="You can use a direct URL for the image or you can use a datasource, which needs to be in curly braces (e.g. {weatherunderground.0.forecast.0d.iconURL}).">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1711,7 +1714,7 @@
                                                 <input type="text"
                                                     class="input_text icon_in_input_pad datasource_autocomplete"
                                                     name="elm_ds_source" id="elm_ds_source" placeholder=""
-                                                    autocorrect="off" autocomplete="off" minlength="3" required="">
+                                                    autocorrect="off" autocomplete="off" minlength="3" required>
                                                 <label for="elm_ds_source" class="form_label translate"
                                                     data-lang="lbl_datasource">Datasource</label>
                                                 <div class="icon_wrapper">
@@ -2707,6 +2710,23 @@
                                                 will be used as a
                                                 starting value when adding a new
                                                 element.</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="detail_box flex">
+                                <span class="config_sec translate" data-lang="lbl_background">Background</span>
+                                <table class="config_table">
+                                    <tr>
+                                        <td>
+                                            <div class="form_div text">
+                                                <input type="text" class="input_text color"
+                                                    name="basic_background_color" id="basic_background_color"
+                                                    placeholder="" autocorrect="off" autocomplete="off"
+                                                    data-jscolor="{}">
+                                                <label for="basic_background_color" class="form_label translate"
+                                                    data-lang="lbl_background_color">Background color</label>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>

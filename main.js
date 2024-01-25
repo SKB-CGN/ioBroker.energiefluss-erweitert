@@ -18,6 +18,7 @@ let backupDir = "/backup";
 /* Variables for runtime */
 let globalConfig = {};
 let sourceObject = {};
+let imgObject = {};
 let settingsObject = {};
 let rawValues = {
 	values: {},
@@ -34,7 +35,8 @@ let outputValues = {
 	prepend: {},
 	append: {},
 	css: {},
-	override: {}
+	override: {},
+	img_href: {}
 };
 
 let relativeTimeCheck = {};
@@ -344,6 +346,10 @@ class EnergieflussErweitert extends utils.Adapter {
 				rawValues.values[id] = 0;
 			} else {
 				switch (obj.source_display) {
+					case 'href':
+						outputValues.img_href[id] = state.val;
+						rawValues.values[id] = state.val;
+						break;
 					case 'text':
 						outputValues.values[id] = state.val;
 						rawValues.values[id] = state.val;
@@ -767,6 +773,14 @@ class EnergieflussErweitert extends utils.Adapter {
 						if (settingsObject.hasOwnProperty(src)) {
 							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
 							await this.calculateValue(src, settingsObject[src], state, clearValue);
+							/*
+							if (id == 'weatherunderground.0.forecast.0d.iconURL') {
+								this.log.info(src);
+								this.log.info(JSON.stringify(settingsObject[src]));
+								this.log.info(state);
+								this.log.info(clearValue);
+							}
+							*/
 						}
 					}
 				}
@@ -1153,13 +1167,15 @@ class EnergieflussErweitert extends utils.Adapter {
 			prepend: {},
 			append: {},
 			css: {},
-			override: {}
+			override: {},
+			img_href: {}
 		};
 		rawValues = {
 			values: {},
 			sourceValues: {}
 		};
 		sourceObject = {};
+		imgObject = {};
 		settingsObject = {};
 		let stateObject = {};
 		relativeTimeCheck = {};
@@ -1217,6 +1233,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		if (globalConfig.hasOwnProperty('elements')) {
 			for (var key of Object.keys(globalConfig.elements)) {
 				const value = globalConfig.elements[key];
+				// Normal sources via Datasources
 				if (value.source != -1 && value.hasOwnProperty('source')) {
 					if (sourceObject.hasOwnProperty(globalConfig.datasources[value.source].source)) {
 						const objObject = await this.getForeignObjectAsync(globalConfig.datasources[value.source].source);
@@ -1262,7 +1279,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							// Put elment ID into Source
 							sourceObject[globalConfig.datasources[value.source].source].elmSources.push(key);
 
-							// Put add ID's into addition array
+							// Put addition ID's into addition array
 							if (value.add != undefined && typeof (value.add) == 'object') {
 								if (value.add.length > 0) {
 									for (var add in value.add) {
@@ -1293,7 +1310,42 @@ class EnergieflussErweitert extends utils.Adapter {
 							}
 						}
 					} else {
-						this.log.warn(`State '${globalConfig.datasources[value.source].source}' which is used for element with ID ${key} of type ${value.type}  is not available! Please review your configuration of the adapter!`);
+						this.log.warn(`State '${globalConfig.datasources[value.source].source}' which is used for element with ID ${key} of type ${value.type} is not available! Please review your configuration of the adapter!`);
+					}
+				}
+
+				// Datasources for image href
+				if (value.href != undefined) {
+					if (value.href.length > 0) {
+						if (value.href.startsWith('{')) {
+							let hrefString = value.href.substring(1, value.href.lastIndexOf('}'));
+							this.log.info(`Found Brace for ${hrefString}`);
+
+							// Create sourceObject, for handling sources
+							sourceObject[hrefString] = {
+								id: parseInt(key),
+								elmSources: [key]
+							};
+
+
+							const stateValue = await this.getForeignStateAsync(hrefString);
+							if (stateValue) {
+								const objObject = await this.getForeignObjectAsync(hrefString);
+								settingsObject[key] = {
+									source_display: 'href',
+									source_type: objObject.common.type,
+									source_option: -1,
+									href: stateValue.val,
+									type: 'text'
+								};
+							}
+
+							// Add to SubscribeArray
+							subscribeArray.push(hrefString);
+
+							// Complete state for temporary use
+							stateObject[hrefString] = stateValue;
+						}
 					}
 				}
 			}

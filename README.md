@@ -32,6 +32,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Support for datasources as image URL's (explanation is given via question mark)
+- Added: Background for workspace can now be set in basic settings (CSS still works as well)
+- FIX: SVG element was not correctly saved after saving the workspace
+
 ### 0.2.0 (2024-01-11)
 - Added: Control for not deleting sources, if they are in use as source, addition or subtraction (elements which use this one, will be displayed with additional information)
 - Added: IDs for datasources will be displayed inside configuration bar, to better find the ID the element for reason mentioned before
