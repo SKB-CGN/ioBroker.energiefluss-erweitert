@@ -1319,7 +1319,7 @@ class EnergieflussErweitert extends utils.Adapter {
 					if (value.href.length > 0) {
 						if (value.href.startsWith('{')) {
 							let hrefString = value.href.substring(1, value.href.lastIndexOf('}'));
-							this.log.info(`Found Brace for ${hrefString}`);
+							this.log.debug(`Using datasource '${hrefString}' as href for image with ID ${key}`);
 
 							// Create sourceObject, for handling sources
 							sourceObject[hrefString] = {

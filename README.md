@@ -32,6 +32,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: if using datasource as an image URL, in some cases the picture url is empty (for forecasts e.g.) - Chrome displayed a broken image
+- Added: current active element receives a dashed border. This helps, to identify a picture element with empty url (if served via datasource)
+- FIX: Broken SVG corrected
+
 ### 0.2.1 (2024-01-25)
 - Added: Support for datasources as image URL's (explanation is given via question mark)
 - Added: Background for workspace can now be set in basic settings (CSS still works as well)

@@ -164,10 +164,11 @@
                                         </table>
                                     </div>
                                     <div
-                                        class="detail_box elm_config_circle elm_config_rect elm_config_icon elm_config_svg elm_config_image">
+                                        class="detail_box elm_config_circle elm_config_rect elm_config_icon elm_config_svg elm_config_image elm_config_fObj">
                                         <span class="config_sec translate" data-lang="lbl_config_size">Size</span>
                                         <table class="element_config_table">
-                                            <tr class="elm_config_rect elm_config_icon elm_config_svg elm_config_image">
+                                            <tr
+                                                class="elm_config_rect elm_config_icon elm_config_svg elm_config_image elm_config_fObj">
                                                 <td>
                                                     <div class="form_div text">
                                                         <input type="number" class="input_number elm_config" min="1"
@@ -231,7 +232,7 @@
                                         </table>
                                     </div>
                                     <div
-                                        class="detail_box elm_config_circle elm_config_rect elm_config_text elm_config_icon elm_config_svg elm_config_image">
+                                        class="detail_box elm_config_circle elm_config_rect elm_config_text elm_config_icon elm_config_svg elm_config_image elm_config_fObj">
                                         <span class="config_sec translate" data-lang="lbl_coordinates">Position</span>
                                         <table class="element_config_table">
                                             <tr>
@@ -423,6 +424,23 @@
                                                             data-lang="lbl_svg_content">SVG Content</label>
                                                         <textarea id="elm_svg_content" name="elm_svg_content" cols="30"
                                                             rows="10" class="input_textarea elm_config"
+                                                            autocomplete="off" autocorrect="off"></textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="detail_box elm_config_fObj">
+                                        <span class="config_sec translate" data-lang="lbl_fObj_settings">Foreign Object
+                                            Settings</span>
+                                        <table class="element_config_table">
+                                            <tr>
+                                                <td>
+                                                    <div class="form_div text">
+                                                        <label for="elm_fObj_content" class="form_label translate"
+                                                            data-lang="lbl_fObj_content">SVG Content</label>
+                                                        <textarea id="elm_fObj_content" name="elm_fObj_content"
+                                                            cols="30" rows="10" class="input_textarea elm_config"
                                                             autocomplete="off" autocorrect="off"></textarea>
                                                     </div>
                                                 </td>
@@ -1488,9 +1506,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="border-right: 1px solid black;"><a title="Add Text with Datasource"
-                                            class="add_element tt-element translateT" id="add_datasource"
-                                            data-lang-title="title_add_ds"><span class="iconify add_element_area"
+                                    <td style="border-right: 1px solid black;">
+                                        <a title="Add Text with Datasource" class="add_element tt-element translateT"
+                                            id="add_datasource" data-lang-title="title_add_ds"><span
+                                                class="iconify add_element_area"
                                                 data-icon="material-symbols:data-check-rounded" data-width="48"
                                                 data-height="48"></span></a>
                                         <a title="Add Icon" class="add_element tt-element translateT" id="add_icon"
@@ -1503,10 +1522,15 @@
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-right: 1px solid black;"><a title="Add SVG"
-                                            class="add_element tt-element translateT" id="add_svg"
+                                    <td style="border-right: 1px solid black;">
+                                        <a title="Add SVG" class="add_element tt-element translateT" id="add_svg"
                                             data-lang-title="title_add_svg"><span class="iconify add_element_area"
                                                 data-icon="bi:filetype-svg" data-width="48" data-height="48"></span></a>
+                                        <!-- <a title="Add Foreign Object" class="add_element tt-element translateT"
+                                            id="add_fObj" data-lang-title="title_add_foreignObject"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:data-object" data-width="48"
+                                                data-height="48"></span></a>!-->
                                     </td>
                                     <td>&nbsp;</td>
                                 </tr>
