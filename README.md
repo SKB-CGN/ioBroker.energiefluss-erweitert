@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.2 (2024-02-15)
 - Added: if using datasource as an image URL, in some cases the picture url is empty (for forecasts e.g.) - Chrome displayed a broken image
 - Added: current active element receives a dashed border. This helps, to identify a picture element with empty url (if served via datasource)
 - Added: Changed the previous added "unit" column for watts and kilowatts inside datasources into "factor" with a description
