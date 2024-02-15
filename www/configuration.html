@@ -1757,12 +1757,13 @@
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_ds_factor" class="translate form_label"
-                                                    data-lang="lbl_ds_unit">Unit of the source</label>
+                                                    data-lang="lbl_ds_factor">Unit of the source</label>
                                                 <select class="input_select" name="elm_ds_factor" id="elm_ds_factor">
-                                                    <option value="1" class="translate" data-lang="opt_ds_unit_w"
+                                                    <option value="1" class="translate" data-lang="opt_ds_factor_1"
                                                         selected>
                                                         watts (w)</option>
-                                                    <option value="1000" class="translate" data-lang="opt_ds_unit_kw">
+                                                    <option value="1000" class="translate"
+                                                        data-lang="opt_ds_factor_1000">
                                                         kilowatts (kW)</option>
                                                 </select>
                                             </div>
@@ -1790,7 +1791,7 @@
                                 </th>
                                 <th><em class="translate" data-lang="lbl_datasource"
                                         style="font-style:normal;">Datasource</em> <span class="sort_icon"></span></th>
-                                <th><em class="translate" data-lang="lbl_unit" style="font-style:normal;">Unit</em>
+                                <th><em class="translate" data-lang="lbl_factor" style="font-style:normal;">Factor</em>
                                 <th><em class="translate" data-lang="lbl_action" style="font-style:normal;">Action</em>
                                 </th>
                             </thead>
@@ -1805,7 +1806,9 @@
                         </table>
                         <form style="padding-top: 8px;">
                             <input type="button" class="input_button translateV" data-lang-value="value_check"
-                                id="check_datasources" value="Check datasources" style="width: auto;">
+                                id="check_datasources" value="Check datasources" style="width: auto;"><input
+                                type="button" class="input_button translateV" data-lang-value="value_in_use"
+                                id="check_datasources_in_use" value="Datasource in use" style="width: auto;">
                         </form>
                     </fieldset>
                 </div>

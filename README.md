@@ -35,6 +35,9 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 ### **WORK IN PROGRESS**
 - Added: if using datasource as an image URL, in some cases the picture url is empty (for forecasts e.g.) - Chrome displayed a broken image
 - Added: current active element receives a dashed border. This helps, to identify a picture element with empty url (if served via datasource)
+- Added: Changed the previous added "unit" column for watts and kilowatts inside datasources into "factor" with a description
+- Added: A new button inside datsources is able to check which datasources are in use
+- Added: New translations and some code optimizations
 - FIX: Broken SVG corrected
 
 ### 0.2.1 (2024-01-25)
