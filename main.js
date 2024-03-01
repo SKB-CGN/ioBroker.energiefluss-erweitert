@@ -1063,21 +1063,22 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (cssRules.length > 0) {
 					cssRules.forEach((src) => {
 						let seObj = settingsObject[src];
+						let tmpCssRules = undefined;
 
 						// CSS Rules
 						if (seObj.source_type == 'boolean') {
 							this.log.debug(`Setting for boolean ${JSON.stringify(seObj)} and ID: ${src}`);
 							if (clearValue == 1) {
-								outputValues.css[src] = {
+								tmpCssRules = {
 									actPos: seObj.css_active_positive,
 									inactPos: seObj.css_inactive_positive
-								}
+								};
 							}
 							if (clearValue == 0) {
-								outputValues.css[src] = {
+								tmpCssRules = {
 									actPos: seObj.css_inactive_positive,
 									inactPos: seObj.css_active_positive
-								}
+								};
 							}
 						} else {
 							if (seObj.threshold >= 0) {
@@ -1085,19 +1086,19 @@ class EnergieflussErweitert extends utils.Adapter {
 									// CSS Rules
 									if (clearValue > 0) {
 										// CSS Rules - Positive
-										outputValues.css[src] = {
+										tmpCssRules = {
 											actPos: seObj.css_active_positive,
 											inactPos: seObj.css_inactive_positive,
-											actNeg: "",
+											actNeg: undefined,
 											inactNeg: seObj.css_active_negative
 										};
 									}
 									if (clearValue < 0) {
 										// CSS Rules - Negative
-										outputValues.css[src] = {
+										tmpCssRules = {
 											actNeg: seObj.css_active_negative,
 											inactNeg: seObj.css_inactive_negative,
-											actPos: "",
+											actPos: undefined,
 											inactPos: seObj.css_active_positive
 										};
 									}
@@ -1105,32 +1106,47 @@ class EnergieflussErweitert extends utils.Adapter {
 									// CSS Rules
 									if (clearValue > 0) {
 										// CSS Rules - Positive
-										outputValues.css[src] = {
+										tmpCssRules = {
 											actPos: seObj.css_inactive_positive,
 											inactPos: seObj.css_active_positive,
-											actNeg: "",
+											actNeg: undefined,
 											inactNeg: seObj.css_active_negative
 										};
 									}
 									if (clearValue < 0) {
 										// CSS Rules - Negative
-										outputValues.css[src] = {
+										tmpCssRules = {
 											actNeg: seObj.css_inactive_negative,
 											inactNeg: seObj.css_active_negative,
-											actPos: "",
+											actPos: undefined,
 											inactPos: seObj.css_active_positive
 										};
 									}
 									if (clearValue == 0) {
 										// CSS Rules - Positive
-										outputValues.css[src] = {
-											actPos: "",
-											inactPos: seObj.css_active_positive + ' ' + seObj.css_inactive_positive,
-											actNeg: "",
-											inactNeg: seObj.css_active_negative + ' ' + seObj.css_inactive_negative
+										// Inactive Positive
+										let inactPos = seObj.css_active_positive ? seObj.css_active_positive + ' ' : undefined;
+										inactPos = seObj.css_inactive_positive ? inactPos + seObj.css_inactive_positive : inactPos;
+										// Inactive Negative
+										let inactNeg = seObj.css_active_negative ? seObj.css_active_negative + ' ' : undefined;
+										inactNeg = seObj.css_inactive_negative ? inactNeg + seObj.css_inactive_negative : inactNeg;
+										tmpCssRules = {
+											actPos: undefined,
+											inactPos: inactPos,
+											actNeg: undefined,
+											inactNeg: inactNeg
 										};
 									}
 								}
+							}
+						}
+						// Add to Output
+						if (tmpCssRules !== undefined) {
+							// Clean the rules
+							Object.keys(tmpCssRules).forEach(key => tmpCssRules[key] === undefined && delete tmpCssRules[key]);
+
+							if (Object.keys(tmpCssRules).length > 0) {
+								outputValues.css[src] = tmpCssRules;
 							}
 						}
 					});
@@ -1395,7 +1411,6 @@ class EnergieflussErweitert extends utils.Adapter {
 			}
 		}
 
-		this.log.debug(`CSS: ${JSON.stringify(outputValues.css)}`);
 		this.log.debug(`Settings: ${JSON.stringify(settingsObject)}`);
 		this.log.debug(`Initial Values: ${JSON.stringify(outputValues.values)}`);
 		this.log.debug(`Initial Fill-Values: ${JSON.stringify(outputValues.fillValues)}`);
@@ -1407,6 +1422,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		// Run once through all sources, to generate a proper output on startup
 		for (var key of Object.keys(sourceObject)) {
 			await this.refreshData(key, stateObject[key]);
+			delete stateObject[key];
 		}
 
 		// Starting Timer

@@ -32,6 +32,17 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Up to 50% faster performance on saving data to the "data" datapoint due to removing unnecessary stuff
+- Added: Support for light and dark theme manual selection with URL parameter "theme=dark" or "theme=light" for overwriting the system darkmode (if applicable)
+- Added: Code optimization during start-up
+- Added: Releasing memory cause of not using start-up stuff during runtime anymore
+- Added: New override features for elements added. The override features are explained inside the Wiki of the adapter
+
+- FIX: If image URL from datapoint is empty - remove the displayed image (useful for weather datapoints)
+- FIX: If icon or svg was duplicated, the defined color was not adopted
+- FIX: Datasource could not be deleted (#145)
+
 ### 0.2.2 (2024-02-15)
 - Added: if using datasource as an image URL, in some cases the picture url is empty (for forecasts e.g.) - Chrome displayed a broken image
 - Added: current active element receives a dashed border. This helps, to identify a picture element with empty url (if served via datasource)
