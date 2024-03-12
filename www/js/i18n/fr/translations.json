@@ -49,6 +49,7 @@
     "failmsg_ds_already_exists": "Cette source de données existe déjà !",
     "failmsg_duplicate": "Une erreur s'est produite lors de la duplication du ou des éléments !",
     "failmsg_duplicate_no_elm": "Aucun élément(s) à dupliquer sélectionné !",
+    "failmsg_duplicate_no_line": "Une ligne de connexion ne peut pas être dupliquée !",
     "failmsg_element_delete": "L'élément ne peut pas être supprimé ! Connexion existante !",
     "failmsg_failed_config": "Échec du chargement de la configuration de base !<br>L'adaptateur est peut-être corrompu !",
     "failmsg_instance": "L'instance ${instance} à laquelle vous essayez d'accéder n'existe pas !",

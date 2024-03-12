@@ -38,10 +38,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Code optimization during start-up
 - Added: Releasing memory cause of not using start-up stuff during runtime anymore
 - Added: New override features for elements added. The override features are explained inside the Wiki of the adapter
-
-- FIX: If image URL from datapoint is empty - remove the displayed image (useful for weather datapoints)
+- Added: When duplicating an element, the override properties are also duplicated
+- FIX: If image URL from datapoint is empty or NULL - remove the displayed image (useful for weather datapoints)
 - FIX: If icon or svg was duplicated, the defined color was not adopted
 - FIX: Datasource could not be deleted (#145)
+- FIX: Added fail handler, if trying to duplicate a line, which is not possible
 
 ### 0.2.2 (2024-02-15)
 - Added: if using datasource as an image URL, in some cases the picture url is empty (for forecasts e.g.) - Chrome displayed a broken image
@@ -60,7 +61,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Control for not deleting sources, if they are in use as source, addition or subtraction (elements which use this one, will be displayed with additional information)
 - Added: IDs for datasources will be displayed inside configuration bar, to better find the ID the element for reason mentioned before
 - Added: Control for not adding duplicate datasources from ioBroker as this will lead into crashes cause of duplicate keys
-- Added: Form on  datasources configuration page will be deactivated during the time a datasource is edited
+- Added: Form on datasources configuration page will be deactivated during the time a datasource is edited
 - Added: A unit for the datasource is selectable - this makes it easier to use those values for addition&subtraction without using Auxiliary data points
 - Added: New translations, design modifcations and various code optimizations
 - FIX: Crash Handler for missing datasources extended (if datasource from ioBroker was deleted and used as source, addition or subtraction in any element)

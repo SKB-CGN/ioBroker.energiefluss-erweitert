@@ -49,6 +49,7 @@
     "failmsg_ds_already_exists": "To źródło danych już istnieje!",
     "failmsg_duplicate": "Wystąpił błąd podczas duplikowania elementów!",
     "failmsg_duplicate_no_elm": "Nie wybrano elementów do powielenia!",
+    "failmsg_duplicate_no_line": "Linia łącząca nie może być powielana!",
     "failmsg_element_delete": "Elementu nie można usunąć! Istniejące połączenie!",
     "failmsg_failed_config": "Nie udało się załadować konfiguracji podstawowej!<br>Adapter może być uszkodzony!",
     "failmsg_instance": "Instancja ${instance}, do której próbujesz uzyskać dostęp, nie istnieje!",

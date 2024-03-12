@@ -49,6 +49,7 @@
     "failmsg_ds_already_exists": "Diese Datenquelle existiert bereits!",
     "failmsg_duplicate": "Beim Duplizieren der Elemente ist ein Fehler aufgetreten!",
     "failmsg_duplicate_no_elm": "Keine Elemente zum Duplizieren ausgewählt!",
+    "failmsg_duplicate_no_line": "Eine Verbindungslinie kann nicht dupliziert werden!",
     "failmsg_element_delete": "Element kann nicht gelöscht werden! Bestehende Verbindung!",
     "failmsg_failed_config": "Die Grundkonfiguration konnte nicht geladen werden!<br>Der Adapter ist möglicherweise beschädigt!",
     "failmsg_instance": "Die Instanz ${instance}, auf die Sie zugreifen möchten, existiert nicht!",

@@ -125,6 +125,9 @@ class EnergieflussErweitert extends utils.Adapter {
 			}
 		});
 
+		// Delete old Objects
+		this.deleteStateAsync('backup');
+
 		this.log.info("Adapter started. Loading config!");
 
 		/* Start the Icon Proxy Server */
@@ -349,10 +352,12 @@ class EnergieflussErweitert extends utils.Adapter {
 					case 'href':
 						outputValues.img_href[id] = state.val;
 						rawValues.values[id] = state.val;
+						value = state.val;
 						break;
 					case 'text':
 						outputValues.values[id] = state.val;
 						rawValues.values[id] = state.val;
+						value = state.val;
 						break;
 					case 'bool':
 						outputValues.values[id] = value ? systemDictionary['on'][systemLang] : systemDictionary['off'][systemLang];
@@ -441,6 +446,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				}
 			}
 		} else {
+			// Element is not Text - It is Rect or Circle
 			if (obj.fill_type != -1 && obj.fill_type) {
 				outputValues.fillValues[id] = value;
 			}
@@ -451,7 +457,6 @@ class EnergieflussErweitert extends utils.Adapter {
 		// Overrides for elements
 		if (obj.override) {
 			outputValues.override[id] = this.getOverrides(id, value, obj.override);
-			this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[id])}`);
 		}
 	}
 
@@ -644,6 +649,8 @@ class EnergieflussErweitert extends utils.Adapter {
 		let strokeDash = '';
 		let total = 136;
 		let l_amount = Math.round((((currentPower / maxPower) * 100) * maxDots) / 100);
+		// Correct dots, if maximum exceeded
+		l_amount = l_amount > maxDots ? maxDots : l_amount;
 		let l_distance = globalConfig.animation_configuration.distance;
 		let l_length = globalConfig.animation_configuration.length;
 
@@ -670,9 +677,67 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * 
 	 * @param {string} id 
 	 * @param {number} condValue 
-	 * @param {object} object 
-	 * @returns 
+	 * @param {object} obj 
+	 * @returns {object} tmpWorker
 	 */
+	getOverrides(id, condValue, obj) {
+		let tmpWorker = {};
+		const workObj = typeof (obj) === 'string' ? JSON.parse(obj) : JSON.parse(JSON.stringify(obj));
+
+		if (workObj.hasOwnProperty(condValue)) {
+			// Check, if Property exists - if yes, directly return it, because thats the best match
+			tmpWorker = workObj[condValue];
+		} else {
+			// Property not found. We need to check the values!
+			const operators = new RegExp('[=><!]');
+			Object.keys(workObj)
+				.sort(
+					(a, b) => a.toLowerCase().localeCompare(b.toLowerCase(), undefined, { numeric: true, sensitivity: 'base' }))
+				.forEach((item) => {
+					if (operators.test(item)) {
+						// Now, we need to check, if condValue is a number
+						if (!isNaN(condValue)) {
+							// Operator found - check for condition
+							try {
+								const func = Function(`return ${condValue}${item}`)();
+								if (func) {
+									tmpWorker = workObj[item];
+								}
+							}
+							catch (func) {
+								tmpWorker.error = {
+									status: false,
+									error: func.toString(),
+									function: condValue + item
+								}
+							}
+						}
+					}
+				});
+		}
+
+		if (Object.keys(tmpWorker).length == 0) {
+			// Check, if we have a default fallback for it
+			if (workObj.hasOwnProperty('default')) {
+				tmpWorker = workObj['default'];
+			}
+		}
+
+		// Now we process the found values inside tmpWorker Obj
+		if (Object.keys(tmpWorker).length > 0) {
+			Object.keys(tmpWorker).forEach(item => {
+				try {
+					const func = new Function(`return ${tmpWorker[item]}`)();
+					tmpWorker[item] = func(condValue);
+				}
+				catch (func) {
+					tmpWorker[item] = tmpWorker[item];
+				}
+			});
+		}
+		return tmpWorker;
+	}
+	/* Old function left for testing
 	getOverrides(id, condValue, object) {
 		let result = {};
 		let tmpObj = {};
@@ -690,8 +755,10 @@ class EnergieflussErweitert extends utils.Adapter {
 					},
 					{}
 				);
+			this.log.info(JSON.stringify(tmpObj));
 			try {
 				let func = Function(`return ${condValue}${_key}`)();
+				this.log.info(func);
 				if (func) {
 					result = object[_key];
 				}
@@ -702,6 +769,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		}
 		return result;
 	}
+	*/
 
 	/**
 	 * @param {string} id	ID of the state
@@ -748,7 +816,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (soObj.hasOwnProperty('subtractSources') && soObj['subtractSources'].length) {
 					this.log.debug(`Updated through subtractSources: ${JSON.stringify(rawValues.sourceValues)}`);
 
-					// Run through element addition to update the addition
+					// Run through element subtraction to update the subtraction
 					for (var _key of Object.keys(soObj.subtractSources)) {
 						let src = soObj.subtractSources[_key];
 
@@ -773,14 +841,6 @@ class EnergieflussErweitert extends utils.Adapter {
 						if (settingsObject.hasOwnProperty(src)) {
 							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
 							await this.calculateValue(src, settingsObject[src], state, clearValue);
-							/*
-							if (id == 'weatherunderground.0.forecast.0d.iconURL') {
-								this.log.info(src);
-								this.log.info(JSON.stringify(settingsObject[src]));
-								this.log.info(state);
-								this.log.info(clearValue);
-							}
-							*/
 						}
 					}
 				}

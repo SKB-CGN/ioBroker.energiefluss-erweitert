@@ -49,6 +49,7 @@
     "failmsg_ds_already_exists": "Questa origine dati esiste già!",
     "failmsg_duplicate": "Si è verificato un errore durante la duplicazione degli elementi!",
     "failmsg_duplicate_no_elm": "Nessun elemento(i) da duplicare selezionato!",
+    "failmsg_duplicate_no_line": "Una linea di connessione non può essere duplicata!",
     "failmsg_element_delete": "L'elemento non può essere eliminato! Connessione esistente!",
     "failmsg_failed_config": "Impossibile caricare la configurazione di base!<br>L'adattatore potrebbe essere danneggiato!",
     "failmsg_instance": "L'istanza ${instance} a cui stai tentando di accedere non esiste!",

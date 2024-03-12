@@ -49,6 +49,7 @@
     "failmsg_ds_already_exists": "Deze gegevensbron bestaat al!",
     "failmsg_duplicate": "Er is een fout opgetreden bij het dupliceren van de elementen!",
     "failmsg_duplicate_no_elm": "Geen element(en) voor dupliceren geselecteerd!",
+    "failmsg_duplicate_no_line": "Een verbindingslijn kan niet worden gedupliceerd!",
     "failmsg_element_delete": "Element kan niet worden verwijderd! Bestaande verbinding!",
     "failmsg_failed_config": "Kan de basisconfiguratie niet laden!<br>De adapter is mogelijk beschadigd!",
     "failmsg_instance": "De instance ${instance} waartoe u toegang probeert te krijgen, bestaat niet!",

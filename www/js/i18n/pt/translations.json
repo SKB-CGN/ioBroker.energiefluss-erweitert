@@ -49,6 +49,7 @@
     "failmsg_ds_already_exists": "Esta fonte de dados já existe!",
     "failmsg_duplicate": "Ocorreu um erro ao duplicar o(s) elemento(s)!",
     "failmsg_duplicate_no_elm": "Nenhum elemento(s) para duplicação selecionado!",
+    "failmsg_duplicate_no_line": "Uma linha de conexão não pode ser duplicada!",
     "failmsg_element_delete": "O elemento não pode ser excluído! Conexão existente!",
     "failmsg_failed_config": "Falha ao carregar a configuração básica!<br>O adaptador pode estar corrompido!",
     "failmsg_instance": "A instância ${instance} que você está tentando acessar não existe!",
