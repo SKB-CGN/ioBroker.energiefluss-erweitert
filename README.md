@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.0 (2024-03-12)
 - Added: Up to 50% faster performance on saving data to the "data" datapoint due to removing unnecessary stuff
 - Added: Support for light and dark theme manual selection with URL parameter "theme=dark" or "theme=light" for overwriting the system darkmode (if applicable)
 - Added: Code optimization during start-up and releasing memory cause of not using start-up stuff during runtime anymore
