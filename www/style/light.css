@@ -1,0 +1,41 @@
+:root {
+    --primary: #538ea3;
+    --secondary: #b2dfee;
+    --black: #000;
+    --legend-text: #FFF;
+    --legend-background: #538ea3;
+    --font: #000;
+    --darkestGrey: #999;
+    --input-text: #000;
+    --input-button-bg: #538ea3;
+    --input-background: transparent;
+    --input-button-text: #FFF;
+    --msBackground: #FFF;
+    --table-font: #4b4b59;
+    --title-background: #538ea3;
+    --creme: #F5F5F5;
+    --silvergrey: #d3d3d3;
+    --darkgrey: #efefef;
+    --white: #FFF;
+    --red: lightcoral;
+    --background-color: rgba(255, 255, 255, 0);
+    --stateExplorerBackground: #fff;
+    --stateExplorerFont: #369;
+    --middle-grey: #edf2f5;
+    --top-label-text: #111;
+    --onoffswitch-background: #d3d3d3;
+    --onoffswitch-text: #fff;
+    --scrollbar-foreground: #538ea3;
+    --scrollbar-background: #F5F5F5;
+    --loading-background: rgba(243, 243, 243, 0.9);
+    --successMessage: lightgreen;
+    --box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    --box-shadow-hover: 0 12px 18px rgba(0, 0, 0, .200);
+    --configbar-background: #fff;
+    --container-background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
+        linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
+        radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0)),
+        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0)) 0 100%;
+}
