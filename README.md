@@ -35,14 +35,14 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 ### **WORK IN PROGRESS**
 - Added: Up to 50% faster performance on saving data to the "data" datapoint due to removing unnecessary stuff
 - Added: Support for light and dark theme manual selection with URL parameter "theme=dark" or "theme=light" for overwriting the system darkmode (if applicable)
-- Added: Code optimization during start-up
-- Added: Releasing memory cause of not using start-up stuff during runtime anymore
-- Added: New override features for elements added. The override features are explained inside the Wiki of the adapter
+- Added: Code optimization during start-up and releasing memory cause of not using start-up stuff during runtime anymore
 - Added: When duplicating an element, the override properties are also duplicated
+- Added: Elements can now be selected while holding ctrl key 
+- Added: New override features for all elements added. The override features are explained inside the Wiki of the adapter (#153)
+- FIX: Datasource could not be deleted (#145)
+- FIX: If there is more power on a line than configured, the maximum amount of dots was ignored (#160)
 - FIX: If image URL from datapoint is empty or NULL - remove the displayed image (useful for weather datapoints)
 - FIX: If icon or svg was duplicated, the defined color was not adopted
-- FIX: Datasource could not be deleted (#145)
-- FIX: Added fail handler, if trying to duplicate a line, which is not possible
 
 ### 0.2.2 (2024-02-15)
 - Added: if using datasource as an image URL, in some cases the picture url is empty (for forecasts e.g.) - Chrome displayed a broken image
