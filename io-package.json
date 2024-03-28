@@ -157,7 +157,11 @@
             "energiefluss",
             "energiefluss-erweitert"
         ],
-        "license": "MIT",
+        "licenseInformation": {
+            "license": "MIT",
+            "type": "free",
+            "link": "https://www.kreyenborg.koeln/"
+        },
         "platform": "Javascript/Node.js",
         "main": "main.js",
         "icon": "energiefluss-erweitert.png",
