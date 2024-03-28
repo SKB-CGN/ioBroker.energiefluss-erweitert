@@ -127,6 +127,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 		// Delete old Objects
 		this.deleteStateAsync('backup');
+		this.deleteStateAsync('battery_remaining');
 
 		this.log.info("Adapter started. Loading config!");
 
