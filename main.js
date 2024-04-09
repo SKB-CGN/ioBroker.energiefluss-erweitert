@@ -18,8 +18,7 @@ let backupDir = "/backup";
 /* Variables for runtime */
 let globalConfig = {};
 let sourceObject = {};
-let imgObject = {};
-let settingsObject = {};
+let settingsObj = {};
 let rawValues = {
 	values: {},
 	sourceValues: {}
@@ -279,21 +278,42 @@ class EnergieflussErweitert extends utils.Adapter {
 	}
 
 	/**
-	*  @param {number}	consumption
-	*/
+	 * @param {number} consumption
+	 */
 	async setConsumption(consumption) {
 		await this.setStateChangedAsync('calculation.consumption.consumption', { val: consumption, ack: true });
 	}
 
 	/**
+	 * @param {number} production
+	 */
+	async setProduction(production) {
+		await this.setStateChangedAsync('calculation.production.production', { val: production, ack: true });
+	}
+
+	/**
+	 * @param {number} grid
+	 * @param {number} solar
+	 */
+	async setBatteryCharge(grid, solar) {
+		await this.setStateChangedAsync('calculation.battery.charging_grid', { val: grid, ack: true });
+		await this.setStateChangedAsync('calculation.battery.charging_solar', { val: solar, ack: true });
+	}
+
+	/**
 	 *  @param {string}	direction
 	 *  @param {number}	energy
-	 *  @param {number} battery_capacity
-	 *  @param {number} battery_dod
 	 */
-	async calculateBatteryRemaining(direction, energy, battery_capacity, battery_dod) {
+	async calculateBatteryRemaining(direction, energy) {
 		const battPercent = await this.getForeignStateAsync(globalConfig.datasources[globalConfig.calculation.battery.percent].source);
 		if (battPercent) {
+			/* Get States for additional Battery Details if present */
+			// Capacity
+			let capacity = rawValues.sourceValues[globalConfig.calculation.battery.capacity] || globalConfig.calculation.battery.capacity;
+
+			// Deep of Discharge
+			let dod = rawValues.sourceValues[globalConfig.calculation.battery.dod] || globalConfig.calculation.battery.dod;
+
 			let percent = battPercent.val;
 			let rest = 0;
 			let mins = 0;
@@ -302,12 +322,12 @@ class EnergieflussErweitert extends utils.Adapter {
 			if (percent > 0 && energy > 0) {
 				if (direction == "charge") {
 					// Get the Rest to Full Charge
-					rest = battery_capacity - ((battery_capacity * percent) / 100);
+					rest = capacity - ((capacity * percent) / 100);
 				}
 
 				if (direction == "discharge") {
 					// Get the Rest to Full Discharge
-					rest = (battery_capacity * (percent - battery_dod)) / 100;
+					rest = (capacity * (percent - dod)) / 100;
 				}
 
 				mins = Math.round((rest / energy) * 60);
@@ -553,6 +573,11 @@ class EnergieflussErweitert extends utils.Adapter {
 					month: "2-digit",
 					hour12: false
 				});
+			case 'timestamp_de_hhmm':
+				return date.toLocaleString('de-DE', {
+					hour: "2-digit",
+					minute: "2-digit"
+				});
 			case 'timestamp_us':
 				return date.toLocaleString('en-US', {
 					hour: "numeric",
@@ -578,6 +603,12 @@ class EnergieflussErweitert extends utils.Adapter {
 					minute: "2-digit",
 					day: "2-digit",
 					month: "2-digit",
+					hour12: true
+				});
+			case 'timestamp_us_hhmm':
+				return date.toLocaleString('de-DE', {
+					hour: "2-digit",
+					minute: "2-digit",
 					hour12: true
 				});
 			case 'relative':
@@ -738,39 +769,6 @@ class EnergieflussErweitert extends utils.Adapter {
 		}
 		return tmpWorker;
 	}
-	/* Old function left for testing
-	getOverrides(id, condValue, object) {
-		let result = {};
-		let tmpObj = {};
-
-		for (var _key in object) {
-			// Order them
-			let workObj = typeof (object[_key]) === 'string' ? JSON.parse(object[_key]) : object[_key];
-			tmpObj[_key] = Object.keys(workObj)
-				.sort(
-					(a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
-				.reduce(
-					(obj, key) => {
-						obj[key] = workObj[key];
-						return obj;
-					},
-					{}
-				);
-			this.log.info(JSON.stringify(tmpObj));
-			try {
-				let func = Function(`return ${condValue}${_key}`)();
-				this.log.info(func);
-				if (func) {
-					result = object[_key];
-				}
-			}
-			catch (error) {
-				this.log.warn(`Overrides for element ${id} can not be processed, as they are not correctly formatted!`);
-			}
-		}
-		return result;
-	}
-	*/
 
 	/**
 	 * @param {string} id	ID of the state
@@ -806,9 +804,9 @@ class EnergieflussErweitert extends utils.Adapter {
 					for (var _key of Object.keys(soObj.addSources)) {
 						let src = soObj.addSources[_key];
 
-						if (settingsObject.hasOwnProperty(src)) {
+						if (settingsObj.hasOwnProperty(src)) {
 							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
-							await this.calculateValue(src, settingsObject[src], state, rawValues.values[src]);
+							await this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
 						}
 					}
 				}
@@ -821,9 +819,9 @@ class EnergieflussErweitert extends utils.Adapter {
 					for (var _key of Object.keys(soObj.subtractSources)) {
 						let src = soObj.subtractSources[_key];
 
-						if (settingsObject.hasOwnProperty(src)) {
+						if (settingsObj.hasOwnProperty(src)) {
 							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
-							await this.calculateValue(src, settingsObject[src], state, rawValues.values[src]);
+							await this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
 						}
 					}
 				}
@@ -839,9 +837,9 @@ class EnergieflussErweitert extends utils.Adapter {
 						// Put ID into CSS-Rule for later use
 						cssRules.push(src);
 
-						if (settingsObject.hasOwnProperty(src)) {
+						if (settingsObj.hasOwnProperty(src)) {
 							this.log.debug("Value-Settings for Element " + src + " found! Applying Settings!");
-							await this.calculateValue(src, settingsObject[src], state, clearValue);
+							await this.calculateValue(src, settingsObj[src], state, clearValue);
 						}
 					}
 				}
@@ -855,7 +853,6 @@ class EnergieflussErweitert extends utils.Adapter {
 							if (batObj.charge != -1 && batObj.discharge != -1 && batObj.percent != -1) {
 								let direction = 'none';
 								let energy = 0;
-								let dod = batObj.dod ? batObj.dod : 0;
 
 								// Battery
 								let batteryCharge = batObj.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
@@ -894,7 +891,7 @@ class EnergieflussErweitert extends utils.Adapter {
 										}
 									}
 								}
-								this.calculateBatteryRemaining(direction, energy, batObj.capacity, dod);
+								this.calculateBatteryRemaining(direction, energy);
 							}
 						}
 					}
@@ -922,6 +919,10 @@ class EnergieflussErweitert extends utils.Adapter {
 								// Consumption
 								let consumption = 0;
 
+								// Battery Charge - via Grid or Solar
+								let battChargeGrid = 0;
+								let battChargeSolar = 0;
+
 								// Production state(s)
 								if (prodArray.length > 0) {
 									for (var sub in prodArray) {
@@ -931,8 +932,13 @@ class EnergieflussErweitert extends utils.Adapter {
 									}
 								}
 
-								// Put all things together
-								consumption = consObj.production_kw ? prodValue * 1000 : prodValue;
+								// Write production to state
+								this.setProduction(prodValue);
+
+								prodValue = consObj.production_kw ? prodValue * 1000 : prodValue;
+
+								// Calculate Production
+								consumption = prodValue;
 
 								// Subtract or add grid - different States
 								if (consObj.gridFeed != consObj.gridConsume) {
@@ -973,6 +979,10 @@ class EnergieflussErweitert extends utils.Adapter {
 									// Charge - Subtract
 									if (Math.abs(batteryCharge) > Math.abs(batteryDischarge)) {
 										consumption = consumption - Math.abs(batteryCharge);
+
+										// Battery Charge - via Grid or Solar
+										battChargeGrid = prodValue < Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
+										battChargeSolar = prodValue > Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
 									}
 
 									// Discharge - Add
@@ -986,6 +996,10 @@ class EnergieflussErweitert extends utils.Adapter {
 									if (batteryCharge > 0) {
 										if (!consObj.batteryCharge_prop) {
 											consumption = consumption - Math.abs(batteryCharge);
+
+											// Battery Charge - via Grid or Solar
+											battChargeGrid = prodValue < Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
+											battChargeSolar = prodValue > Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
 										}
 										if (!consObj.batteryDischarge_prop) {
 											consumption = consumption + Math.abs(batteryDischarge);
@@ -995,6 +1009,10 @@ class EnergieflussErweitert extends utils.Adapter {
 									if (batteryCharge < 0) {
 										if (consObj.batteryCharge_prop) {
 											consumption = consumption - Math.abs(batteryCharge);
+
+											// Battery Charge - via Grid or Solar
+											battChargeGrid = prodValue < Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
+											battChargeSolar = prodValue > Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
 										}
 										if (consObj.batteryDischarge_prop) {
 											consumption = consumption + Math.abs(batteryDischarge);
@@ -1002,10 +1020,16 @@ class EnergieflussErweitert extends utils.Adapter {
 									}
 								}
 
+								// Battery Charge
+								this.log.debug(`Battery Charging. Grid: ${battChargeGrid} | Solar: ${battChargeSolar}. ID: ${soObj.id}`);
+
+								// Write battery to state
+								this.setBatteryCharge(battChargeGrid, battChargeSolar);
+
 								// Debug Log
 								this.log.debug(`Current Values for calculation of consumption: Production: ${prodValue}, Battery: ${batteryCharge} / ${batteryDischarge} , Grid: ${gridFeed} / ${gridConsume} - Consumption: ${consumption}`);
 
-								// Write to state
+								// Write consumption to state
 								this.setConsumption(consumption);
 							}
 						}
@@ -1025,9 +1049,9 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						let tmpAnimValid = true;
 						// Animations
-						if (settingsObject.hasOwnProperty(src)) {
+						if (settingsObj.hasOwnProperty(src)) {
 							this.log.debug(`Animation-Settings for Element ${src} found! Applying Settings!`);
-							let seObj = settingsObject[src];
+							let seObj = settingsObj[src];
 
 							if (seObj.type != -1 && seObj != undefined) {
 								if (seObj.type == 'dots') {
@@ -1112,8 +1136,8 @@ class EnergieflussErweitert extends utils.Adapter {
 
 							// Overrides for Lines
 							let line_id = src.replace('anim', 'line');
-							if (settingsObject.hasOwnProperty(line_id)) {
-								outputValues.override[line_id] = this.getOverrides(id, clearValue, settingsObject[line_id].override);
+							if (settingsObj.hasOwnProperty(line_id)) {
+								outputValues.override[line_id] = this.getOverrides(id, clearValue, settingsObj[line_id].override);
 								this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[line_id])}`);
 							}
 						}
@@ -1123,7 +1147,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				// Put CSS together
 				if (cssRules.length > 0) {
 					cssRules.forEach((src) => {
-						let seObj = settingsObject[src];
+						let seObj = settingsObj[src];
 						let tmpCssRules = undefined;
 
 						// CSS Rules
@@ -1252,8 +1276,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			sourceValues: {}
 		};
 		sourceObject = {};
-		imgObject = {};
-		settingsObject = {};
+		settingsObj = {};
 		let stateObject = {};
 		relativeTimeCheck = {};
 
@@ -1311,12 +1334,12 @@ class EnergieflussErweitert extends utils.Adapter {
 			for (var key of Object.keys(globalConfig.elements)) {
 				const value = globalConfig.elements[key];
 				// Normal sources via Datasources
-				if (value.source != -1 && value.hasOwnProperty('source')) {
+				if (value.source != -1 && value.source != '' && value.hasOwnProperty('source')) {
 					if (sourceObject.hasOwnProperty(globalConfig.datasources[value.source].source)) {
 						const objObject = await this.getForeignObjectAsync(globalConfig.datasources[value.source].source);
 						if (objObject) {
 							// Save Settings for each object
-							settingsObject[key] = {
+							settingsObj[key] = {
 								threshold: value.threshold || 0,
 								calculate_kw: value.calculate_kw,
 								decimal_places: value.decimal_places,
@@ -1408,7 +1431,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							const stateValue = await this.getForeignStateAsync(hrefString);
 							if (stateValue) {
 								const objObject = await this.getForeignObjectAsync(hrefString);
-								settingsObject[key] = {
+								settingsObj[key] = {
 									source_display: 'href',
 									source_type: objObject.common.type,
 									source_option: -1,
@@ -1435,7 +1458,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (value.source != -1 && value.hasOwnProperty('source')) {
 					this.log.debug(`Animation for Source: ${value.source} is: ${key}`);
 					// Save Settings for each object
-					settingsObject[key] = {
+					settingsObj[key] = {
 						properties: value.animation_properties,
 						option: value.animation_option,
 						threshold: value.threshold,
@@ -1462,7 +1485,7 @@ class EnergieflussErweitert extends utils.Adapter {
 					let line_id = key.replace('anim', 'line');
 					if (globalConfig.lines[line_id].hasOwnProperty('override')) {
 						this.log.debug(`Found override for line ${line_id} in combination with Animation ${key}`);
-						settingsObject[line_id] = {
+						settingsObj[line_id] = {
 							override: globalConfig.lines[line_id].override
 						}
 					}
@@ -1472,7 +1495,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			}
 		}
 
-		this.log.debug(`Settings: ${JSON.stringify(settingsObject)}`);
+		this.log.debug(`Settings: ${JSON.stringify(settingsObj)}`);
 		this.log.debug(`Initial Values: ${JSON.stringify(outputValues.values)}`);
 		this.log.debug(`Initial Fill-Values: ${JSON.stringify(outputValues.fillValues)}`);
 		this.log.debug(`Sources: ${JSON.stringify(sourceObject)}`);

@@ -19,6 +19,7 @@
     "ex_align_undo_steps": "(Étapes enregistrées : -)",
     "ex_animation_preview": "Ici, vous définissez uniquement les propriétés de l'animation.<br>Toutes les couleurs seront définies pour chaque élément !",
     "ex_battery_help": "<u>Info :</u> Après avoir renseigné toutes les valeurs nécessaires, l'autonomie restante de la batterie apparaîtra dans le point de données <code>energiefluss.Instance-No#.calculation.battery.battery_remaining</code>, qui peut être ajouté via des sources de données. <br><u>Veuillez noter :</u> L'heure indique les deux sens : le temps de charge, s'il est en charge, et le temps de décharge, s'il est en décharge.",
+    "ex_battery_help_extended": "<u>Informations supplémentaires :</u> L'adaptateur fournit également 2 points de données supplémentaires, qui peuvent indiquer si la batterie est chargée via le réseau ou l'énergie solaire. Pour que cela fonctionne, vous devez fournir le(s) point(s) de données de production dans la zone supérieure à droite.",
     "ex_battery_info": "Pour que le calcul fonctionne, les champs marqués d'une étoile sont nécessaires",
     "ex_border_fill": "Cette couleur est définie dans la section de base et n'est affichée qu'à titre de référence",
     "ex_config_align": "Cela changera si vous faites pivoter l'élément",

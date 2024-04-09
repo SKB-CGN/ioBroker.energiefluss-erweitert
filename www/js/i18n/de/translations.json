@@ -19,6 +19,7 @@
     "ex_align_undo_steps": "(Gespeicherte Schritte: -)",
     "ex_animation_preview": "Hier legen Sie nur die Animationseigenschaften fest.<br>Alle Farben werden für jedes Element definiert!",
     "ex_battery_help": "<u>Info:</u> Nach dem Ausfüllen aller notwendigen Werte erscheint die verbleibende Batterielaufzeit im Datenpunkt <code>energiefluss.Instance-No#.calculation.battery.battery_remaining</code>, der hinzugefügt werden kann über Datenquellen. <br><u>Bitte beachten Sie:</u> Die Zeit zeigt beide Richtungen an – die Ladezeit, wenn geladen wird, und die Entladezeit, wenn entladen wird",
+    "ex_battery_help_extended": "<u>Zusätzliche Informationen:</u> Der Adapter bietet außerdem 2 zusätzliche Datenpunkte, die anzeigen können, ob die Batterie über Netz oder Solar geladen wird. Damit dies funktioniert, müssen Sie im oberen Bereich auf der rechten Seite den/die Produktionsdatenpunkt(e) bereitstellen.",
     "ex_battery_info": "Damit die Berechnung funktioniert, sind die mit einem Stern gekennzeichneten Felder erforderlich",
     "ex_border_fill": "Diese Farbe ist im Basisbereich definiert und wird nur als Referenz angezeigt",
     "ex_config_align": "Dies ändert sich, wenn Sie das Element drehen",

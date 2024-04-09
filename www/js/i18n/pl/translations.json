@@ -19,6 +19,7 @@
     "ex_align_undo_steps": "(Zapisane kroki: -)",
     "ex_animation_preview": "Tutaj ustawiasz tylko właściwości animacji.<br>Wszystkie kolory zostaną zdefiniowane dla każdego elementu!",
     "ex_battery_help": "<u>Informacje:</u> Po uzupełnieniu wszystkich niezbędnych wartości, pozostały czas pracy baterii pojawi się w Datapoint <code>energiefluss.Instance-No#.calculation.battery.battery_remaining</code>, który można dodać za pośrednictwem źródeł danych. <br><u>Uwaga:</u> Czas pokazuje oba kierunki - czas ładowania, jeśli trwa ładowanie i czas rozładowywania, jeśli trwa rozładowywanie",
+    "ex_battery_help_extended": "<u>Informacje dodatkowe:</u> Adapter zapewnia również 2 dodatkowe punkty danych, które mogą pokazać, czy akumulator jest ładowany za pośrednictwem sieci lub energii słonecznej. Aby to zadziałało, musisz podać produkcyjne punkty danych w górnym obszarze po prawej stronie.",
     "ex_battery_info": "Aby obliczenia zadziałały, niezbędne są pola oznaczone gwiazdką",
     "ex_border_fill": "Kolor ten jest zdefiniowany w części podstawowej i jest wyświetlany jedynie jako odniesienie",
     "ex_config_align": "To się zmieni, jeśli obrócisz element",

@@ -19,6 +19,7 @@
     "ex_align_undo_steps": "(Opgeslagen stappen: -)",
     "ex_animation_preview": "Hier stelt u alleen de animatie-eigenschappen in.<br>Alle kleuren worden voor elk element gedefinieerd!",
     "ex_battery_help": "<u>Info:</u> Nadat alle benodigde waarden zijn ingevuld, verschijnt de resterende batterijduur in het Datapoint <code>energiefluss.Instance-No#.calculation.battery.battery_remaining</code>, dat kan worden toegevoegd via Gegevensbronnen. <br><u>Let op:</u> De tijd geeft beide richtingen weer: de tijd voor opladen, als deze aan het opladen is, en de tijd voor ontladen, als deze aan het ontladen is",
+    "ex_battery_help_extended": "<u>Aanvullende informatie:</u> De adapter biedt ook 2 extra datapunten, die kunnen laten zien of de batterij is opgeladen via het elektriciteitsnet of via zonne-energie. Om dit te laten werken, moet u de productiegegevenspunt(en) in het bovenste gebied aan de rechterkant opgeven.",
     "ex_battery_info": "Om de berekening te laten werken, zijn de gemarkeerde velden met een ster noodzakelijk",
     "ex_border_fill": "Deze kleur wordt gedefinieerd in het basisgedeelte en wordt alleen ter referentie weergegeven",
     "ex_config_align": "Dit verandert als u het element roteert",

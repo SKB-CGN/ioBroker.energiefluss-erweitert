@@ -19,6 +19,7 @@
     "ex_align_undo_steps": "(Passaggi salvati: -)",
     "ex_animation_preview": "Qui imposti solo le proprietà dell'animazione.<br>Tutti i colori saranno definiti per ciascun elemento!",
     "ex_battery_help": "<u>Informazioni:</u> Dopo aver inserito tutti i valori necessari, la durata residua della batteria verrà visualizzata nel Datapoint <code>energiefluss.Instance-No#.calculation.battery.battery_remaining</code>, che può essere aggiunto tramite origini dati. <br><u>Nota:</u> l'ora mostra entrambe le direzioni: il tempo per la ricarica, se è in carica e il tempo per la scarica, se è in fase di scarica",
+    "ex_battery_help_extended": "<u>Informazioni aggiuntive:</u> L'adattatore fornisce anche 2 punti dati aggiuntivi, che possono mostrare se la batteria viene caricata tramite rete o energia solare. Affinché ciò funzioni, è necessario fornire i punti dati di produzione nell'area superiore a destra.",
     "ex_battery_info": "Perché il calcolo funzioni sono necessari i campi contrassegnati con un asterisco",
     "ex_border_fill": "Questo colore è definito nella sezione base e viene visualizzato solo come riferimento",
     "ex_config_align": "Questo cambierà se ruoti l'elemento",

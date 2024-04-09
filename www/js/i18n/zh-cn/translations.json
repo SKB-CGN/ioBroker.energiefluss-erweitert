@@ -19,6 +19,7 @@
     "ex_align_undo_steps": "（已保存的步骤：-）",
     "ex_animation_preview": "这里您只需设置动画属性。<br>将为每个元素定义所有颜色！",
     "ex_battery_help": "<u>信息：</u>填写完所有必要的值后，剩余电池时间将出现在数据点<code>energiefluss.Instance-No#.calculation.battery.battery_remaining</code>中，可以添加通过数据源。 <br><u>请注意：</u>时间显示两个方向 - 如果正在充电，则显示充电时间；如果正在放电，则显示放电时间",
+    "ex_battery_help_extended": "<u>其他信息：</u>适配器还提供 2 个附加数据点，可以显示电池是通过电网还是太阳能充电。为此，您需要在右侧上部区域提供生产数据点。",
     "ex_battery_info": "为了使计算正常进行，带有星号的标记字段是必需的",
     "ex_border_fill": "该颜色在基本部分定义，仅显示作为参考",
     "ex_config_align": "如果旋转元素，这将会改变",

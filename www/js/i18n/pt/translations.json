@@ -19,6 +19,7 @@
     "ex_align_undo_steps": "(Etapas salvas: -)",
     "ex_animation_preview": "Aqui você define apenas as propriedades da Animação.<br>Todas as cores serão definidas para cada elemento!",
     "ex_battery_help": "<u>Info:</u> Após preencher todos os valores necessários, o tempo restante da bateria aparecerá no Datapoint <code>energiefluss.Instance-No#.calculation.battery.battery_remaining</code>, que pode ser adicionado por meio de fontes de dados. <br><u>Observação:</u> O tempo mostra ambas as direções - o tempo para carregar, se estiver carregando, e o tempo para descarregar, se estiver descarregando",
+    "ex_battery_help_extended": "<u>Informações adicionais:</u> O adaptador também fornece 2 pontos de dados adicionais, que podem mostrar se a bateria está carregada via rede ou solar. Para que isso funcione, você precisa fornecer os pontos de dados de produção na área superior do lado direito.",
     "ex_battery_info": "Para que o cálculo funcione são necessários os campos marcados com estrela",
     "ex_border_fill": "Esta cor é definida na seção básica e é exibida apenas como referência",
     "ex_config_align": "Isso mudará se você girar o elemento",
