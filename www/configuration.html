@@ -561,8 +561,8 @@
                                                     <div class="form_div select">
                                                         <label for="elm_source" class="form_label translate"
                                                             data-lang="lbl_datasource">Source</label>
-                                                        <select class="input_select elm_config" name="elm_source"
-                                                            id="elm_source"></select>
+                                                        <select class="input_select elm_config elm_config_update"
+                                                            name="elm_source" id="elm_source"></select>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -573,8 +573,8 @@
                                                             data-lang="lbl_config_show_timestamp">Show
                                                             Timestamp of
                                                             last change</label>
-                                                        <select class="input_select elm_config" name="elm_source_option"
-                                                            id="elm_source_option">
+                                                        <select class="input_select elm_config elm_config_update"
+                                                            name="elm_source_option" id="elm_source_option">
                                                             <option value="-1" selected class="translate"
                                                                 data-lang="opt_none">
                                                                 None
@@ -602,6 +602,9 @@
                                                             <option value="relative" class="translate"
                                                                 data-lang="opt_timestamp_relative">Relative to now
                                                             </option>
+                                                            <option value="ms" class="translate"
+                                                                data-lang="opt_timestamp_ms">Milliseconds
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -613,7 +616,7 @@
                                                             data-lang="lbl_display_source">Display
                                                             source
                                                             as</label>
-                                                        <select class="input_select elm_config"
+                                                        <select class="input_select elm_config elm_config_update"
                                                             name="elm_source_display" id="elm_source_display">
                                                             <option value="value" class="translate"
                                                                 data-lang="opt_value">
@@ -829,8 +832,8 @@
                                                     <div class="form_div select">
                                                         <label for="elm_calculate_kw" class="form_label translate"
                                                             data-lang="lbl_calculation">Calculation</label>
-                                                        <select class="input_select elm_config" name="elm_calculate_kw"
-                                                            id="elm_calculate_kw">
+                                                        <select class="input_select elm_config elm_config_update"
+                                                            name="elm_calculate_kw" id="elm_calculate_kw">
                                                             <option value="none" class=" translate" data-lang="opt_none"
                                                                 selected="">Deactivated</option>
                                                             <option value="calc" class="translate"
@@ -846,7 +849,8 @@
                                             <tr>
                                                 <td colspan="2">
                                                     <div class="form_div text">
-                                                        <input type="number" class="input_number elm_config"
+                                                        <input type="number"
+                                                            class="input_number elm_config elm_config_update"
                                                             name="elm_threshold" id="elm_threshold" placeholder=""
                                                             autocorrect="off" autocomplete="off" min="0">
                                                         <label for="elm_threshold" class="form_label translate"
@@ -862,7 +866,7 @@
                                                         <label for="elm_decimal_places" class="form_label translate"
                                                             data-lang="lbl_config_decimal_places">Decimal
                                                             places</label>
-                                                        <select class="input_select elm_config"
+                                                        <select class="input_select elm_config elm_config_update"
                                                             name="elm_decimal_places" id="elm_decimal_places">
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
@@ -1785,30 +1789,36 @@
                                 data-height="24"></span>
                             <span class="translate" data-lang="legend_av_datasources">Available Datasources</span>
                         </legend>
-                        <table class="data-table config_table">
-                            <thead>
-                                <th><em class="translate" data-lang="lbl_alias" style="font-style:normal;">Alias</em>
-                                    <span class="sort_icon"></span>
-                                </th>
-                                <th><em class="translate" data-lang="lbl_datasource"
-                                        style="font-style:normal;">Datasource</em> <span class="sort_icon"></span></th>
-                                <th><em class="translate" data-lang="lbl_factor" style="font-style:normal;">Factor</em>
-                                <th><em class="translate" data-lang="lbl_action" style="font-style:normal;">Action</em>
-                                </th>
-                            </thead>
-                            <tbody>
-                                <tr id="ds_tmp_line" data-id="-1">
-                                    <td>There are currently no Datasources added!</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="data-table-div">
+                            <table class="data-table config_table">
+                                <thead>
+                                    <th><em class="translate" data-lang="lbl_alias"
+                                            style="font-style:normal;">Alias</em>
+                                        <span class="sort_icon"></span>
+                                    </th>
+                                    <th><em class="translate" data-lang="lbl_datasource"
+                                            style="font-style:normal;">Datasource</em> <span class="sort_icon"></span>
+                                    </th>
+                                    <th><em class="translate" data-lang="lbl_factor"
+                                            style="font-style:normal;">Factor</em>
+                                    <th><em class="translate" data-lang="lbl_action"
+                                            style="font-style:normal;">Action</em>
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr id="ds_tmp_line" data-id="-1">
+                                        <td>There are currently no Datasources added!</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <form style="padding-top: 8px;">
                             <input type="button" class="input_button translateV" data-lang-value="value_check"
-                                id="check_datasources" value="Check datasources" style="width: auto;"><input
-                                type="button" class="input_button translateV" data-lang-value="value_in_use"
+                                id="check_datasources" value="Check datasources" style="width: auto;">
+                            <input type="button" class="input_button translateV" data-lang-value="value_in_use"
                                 id="check_datasources_in_use" value="Datasource in use" style="width: auto;">
                         </form>
                     </fieldset>
@@ -1977,25 +1987,23 @@
                             <tr>
                                 <td colspan="2">
                                     <div class="form_div text">
-                                        <input type="number" class="input_number" min="1" value=""
-                                            name="calc_battery_capacity" id="calc_battery_capacity" placeholder=""
-                                            autocorrect="off" autocomplete="off">
                                         <label for="calc_battery_capacity" class="form_label translate"
                                             data-lang="lbl_battery_capacity">Battery capacity
                                             (watt)
                                             *</label>
+                                        <select class="input_select calculation" name="calc_battery_capacity"
+                                            id="calc_battery_capacity"></select>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <div class="form_div text">
-                                        <input type="number" class="input_number" min="0" value=""
-                                            name="calc_battery_dod" id="calc_battery_dod" placeholder=""
-                                            autocorrect="off" autocomplete="off">
                                         <label for="calc_battery_dod" class="form_label translate"
                                             data-lang="lbl_battery_discharge_till">Discharge till
                                             %</label>
+                                        <select class="input_select calculation" name="calc_battery_dod"
+                                            id="calc_battery_dod"></select>
                                     </div>
                                 </td>
                             </tr>
@@ -2005,7 +2013,7 @@
                                         <label for="calc_battery_percent" class="form_label translate"
                                             data-lang="lbl_battery_percent">Battery percent
                                             *</label>
-                                        <select class="input_select" name="calc_battery_percent"
+                                        <select class="input_select calculation" name="calc_battery_percent"
                                             id="calc_battery_percent"></select>
                                     </div>
                                 </td>
@@ -2016,7 +2024,7 @@
                                         <label for="calc_battery_charge" class="form_label translate"
                                             data-lang="lbl_battery_charge">Battery charge
                                             *</label>
-                                        <select class="input_select" name="calc_battery_charge"
+                                        <select class="input_select calculation" name="calc_battery_charge"
                                             id="calc_battery_charge"></select>
                                     </div>
                                 </td>
@@ -2064,7 +2072,7 @@
                                             data-lang="lbl_battery_discharge">Battery
                                             discharge
                                             *</label>
-                                        <select class="input_select" name="calc_battery_discharge"
+                                        <select class="input_select calculation" name="calc_battery_discharge"
                                             id="calc_battery_discharge"></select>
                                     </div>
                                 </td>
@@ -2132,6 +2140,18 @@
                                         time for charging, if it is charging and the time for discharging, if it is
                                         discharging</span></td>
                             </tr>
+                            <tr style="height: 10px;line-height: 10px;">
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="translate"
+                                        data-lang="ex_battery_help_extended"><u>Additional Info:</u> The adapter also
+                                        provides 2 additional Datapoints, which can show, if the battery is charged via
+                                        grid or solar. For this to work, you need to provide the production datapoint(s)
+                                        in the upper area on the right side.
+                                    </span>
+                                </td>
+                            </tr>
                         </table>
                     </fieldset>
                     <fieldset class="flex">
@@ -2145,7 +2165,7 @@
                                     <div class="form_div">
                                         <label for="calc_consumption_production" class="form_label translate"
                                             data-lang="lbl_consumption_production">Production</label>
-                                        <select class="input_select" name="calc_consumption_production"
+                                        <select class="input_select calculation" name="calc_consumption_production"
                                             id="calc_consumption_production" multiple></select>
                                     </div>
                                 </td>
@@ -2177,7 +2197,7 @@
                                     <div class="form_div">
                                         <label for="calc_consumption_gridFeed" class="form_label translate"
                                             data-lang="lbl_consumption_gridFeed">Public grid feed-in</label>
-                                        <select class="input_select" name="calc_consumption_gridFeed"
+                                        <select class="input_select calculation" name="calc_consumption_gridFeed"
                                             id="calc_consumption_gridFeed"></select>
                                     </div>
                                 </td>
@@ -2226,7 +2246,7 @@
                                     <div class="form_div">
                                         <label for="calc_consumption_gridConsume" class="form_label translate"
                                             data-lang="lbl_consumption_gridConsume">Consumption public grid *</label>
-                                        <select class="input_select" name="calc_consumption_gridConsume"
+                                        <select class="input_select calculation" name="calc_consumption_gridConsume"
                                             id="calc_consumption_gridConsume"></select>
                                     </div>
                                 </td>
@@ -2275,7 +2295,7 @@
                                     <div class="form_div">
                                         <label for="calc_consumption_batteryCharge" class="form_label translate"
                                             data-lang="lbl_consumption_charge">Battery charge</label>
-                                        <select class="input_select" name="calc_consumption_batteryCharge"
+                                        <select class="input_select calculation" name="calc_consumption_batteryCharge"
                                             id="calc_consumption_batteryCharge"></select>
                                     </div>
                                 </td>
@@ -2328,7 +2348,8 @@
                                     <div class="form_div">
                                         <label for="calc_consumption_batteryDischarge" class="form_label translate"
                                             data-lang="lbl_consumption_discharge">Battery discharge</label>
-                                        <select class="input_select" name="calc_consumption_batteryDischarge"
+                                        <select class="input_select calculation"
+                                            name="calc_consumption_batteryDischarge"
                                             id="calc_consumption_batteryDischarge"></select>
                                     </div>
                                 </td>

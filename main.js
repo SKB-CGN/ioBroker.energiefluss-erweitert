@@ -179,7 +179,7 @@ class EnergieflussErweitert extends utils.Adapter {
 	  * Using this method requires "common.messagebox" property to be set to true in io-package.json
 	  * @param {ioBroker.Message} obj
 	 */
-	onMessage(obj) {
+	async onMessage(obj) {
 		this.log.debug(`[onMessage] received command: ${obj.command} with message: ${JSON.stringify(obj.message)}`);
 		if (obj && obj.message) {
 			if (typeof obj.message === 'object') {
@@ -256,6 +256,34 @@ class EnergieflussErweitert extends utils.Adapter {
 							}
 						});
 						break;
+					case '_updateElementInView':
+						// Receive Object from ioBroker to show it in Configuration
+						let id = `tmp_${obj.message.id}`;
+						let state = await this.getForeignStateAsync(obj.message.source);
+						if (state) {
+							await this.calculateValue(id, obj.message, state, state.val);
+							this.log.debug(`Found ${obj.message.source} and calculated the value for Web-ID: ${id}!`);
+							if (outputValues.values.hasOwnProperty(id)) {
+								let override = {};
+								override[obj.message.id] = outputValues.override[id];
+
+								this.sendTo(obj.from, obj.command, {
+									error: null,
+									data: {
+										id: obj.message.id,
+										value: outputValues.values[id],
+										override: override
+									}
+								}, obj.callback);
+
+								// Delete temporary values
+								delete outputValues.override[id];
+								delete outputValues.values[id];
+							} else {
+								this.sendTo(obj.from, obj.command, { error: "There was an error, while getting the updated value!" }, obj.callback);
+							}
+						}
+						break;
 				}
 			} else {
 				this.log.error(`[onMessage] Received incomplete message via "sendTo"`);
@@ -305,51 +333,55 @@ class EnergieflussErweitert extends utils.Adapter {
 	 *  @param {number}	energy
 	 */
 	async calculateBatteryRemaining(direction, energy) {
-		const battPercent = await this.getForeignStateAsync(globalConfig.datasources[globalConfig.calculation.battery.percent].source);
-		if (battPercent) {
-			/* Get States for additional Battery Details if present */
-			// Capacity
-			let capacity = rawValues.sourceValues[globalConfig.calculation.battery.capacity] || globalConfig.calculation.battery.capacity;
+		if (globalConfig.datasources.hasOwnProperty(globalConfig.calculation.battery.percent)) {
+			const battPercent = await this.getForeignStateAsync(globalConfig.datasources[globalConfig.calculation.battery.percent].source);
+			if (battPercent) {
+				/* Get States for additional Battery Details if present */
+				// Capacity
+				let capacity = rawValues.sourceValues[globalConfig.calculation.battery.capacity] || globalConfig.calculation.battery.capacity;
 
-			// Deep of Discharge
-			let dod = rawValues.sourceValues[globalConfig.calculation.battery.dod] || globalConfig.calculation.battery.dod;
+				// Deep of Discharge
+				let dod = rawValues.sourceValues[globalConfig.calculation.battery.dod] || globalConfig.calculation.battery.dod;
 
-			let percent = battPercent.val;
-			let rest = 0;
-			let mins = 0;
-			let string = "--:--h";
-			let target = 0;
-			if (percent > 0 && energy > 0) {
-				if (direction == "charge") {
-					// Get the Rest to Full Charge
-					rest = capacity - ((capacity * percent) / 100);
+				let percent = battPercent.val;
+				let rest = 0;
+				let mins = 0;
+				let string = "--:--h";
+				let target = 0;
+				if (percent > 0 && energy > 0) {
+					if (direction == "charge") {
+						// Get the Rest to Full Charge
+						rest = capacity - ((capacity * percent) / 100);
+					}
+
+					if (direction == "discharge") {
+						// Get the Rest to Full Discharge
+						rest = (capacity * (percent - dod)) / 100;
+					}
+
+					mins = Math.round((rest / energy) * 60);
+					if (mins > 0) {
+						string = this.getMinHours(mins) + "h";
+						// Calculate the target time
+						target = Math.floor(Date.now() / 1000) + (mins * 60);
+					}
 				}
 
-				if (direction == "discharge") {
-					// Get the Rest to Full Discharge
-					rest = (capacity * (percent - dod)) / 100;
-				}
+				this.log.debug(`Direction: ${direction} Battery-Time: ${string} Percent: ${percent} Energy: ${energy}`);
 
-				mins = Math.round((rest / energy) * 60);
-				if (mins > 0) {
-					string = this.getMinHours(mins) + "h";
-					// Calculate the target time
-					target = Math.floor(Date.now() / 1000) + (mins * 60);
-				}
+				// Set remaining time
+				await this.setStateChangedAsync("calculation.battery.remaining", { val: string, ack: true });
+
+				// Set target of the remaining time
+				await this.setStateChangedAsync("calculation.battery.remaining_target", { val: target, ack: true });
+
+				// Set target of the remaining time in readable form
+				await this.setStateChangedAsync("calculation.battery.remaining_target_DT", { val: this.getDateTime(target * 1000), ack: true });
+			} else {
+				this.log.warn(`Specified State for Battery-percent is invalid or NULL. Please check your configuration!`);
 			}
-
-			this.log.debug(`Direction: ${direction} Battery-Time: ${string} Percent: ${percent} Energy: ${energy}`);
-
-			// Set remaining time
-			await this.setStateChangedAsync("calculation.battery.remaining", { val: string, ack: true });
-
-			// Set target of the remaining time
-			await this.setStateChangedAsync("calculation.battery.remaining_target", { val: target, ack: true });
-
-			// Set target of the remaining time in readable form
-			await this.setStateChangedAsync("calculation.battery.remaining_target_DT", { val: this.getDateTime(target * 1000), ack: true });
 		} else {
-			this.log.warn(`Specified State for Battery-percent is invalid or NULL. Please check your configuration!`);
+			this.log.warn(`The adapter could not find the state with ID '${globalConfig.calculation.battery.percent}' which is provided for battery calculation! Please review your configuration of the adapter!`);
 		}
 	}
 
@@ -359,15 +391,16 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * @param {object} obj 
 	 * @param {object} state
 	 * @param {number} value 
-	 * @returns 'Calculated Value'
 	 */
 	async calculateValue(id, obj, state, value) {
 		if (obj.type == 'text') {
 			// Check, if we have source options for text - Date
 			if (obj.source_option != -1) {
 				this.log.debug('Source Option detected! ' + obj.source_option + 'Generating DateString for ' + state.ts + ' ' + this.getTimeStamp(state.ts, obj.source_option));
-				outputValues.values[id] = this.getTimeStamp(state.ts, obj.source_option);
-				rawValues.values[id] = 0;
+				let timeStamp = this.getTimeStamp(state.ts, obj.source_option);
+				outputValues.values[id] = timeStamp;
+				rawValues.values[id] = state.val;
+				value = timeStamp;
 			} else {
 				switch (obj.source_display) {
 					case 'href':
@@ -477,7 +510,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		}
 		// Overrides for elements
 		if (obj.override) {
-			outputValues.override[id] = this.getOverrides(id, value, obj.override);
+			outputValues.override[id] = await this.getOverrides(value, obj.override);
 		}
 	}
 
@@ -613,6 +646,8 @@ class EnergieflussErweitert extends utils.Adapter {
 				});
 			case 'relative':
 				return this.msToTime(Number(now - date));
+			case 'ms':
+				return ts;
 		}
 	}
 
@@ -707,12 +742,11 @@ class EnergieflussErweitert extends utils.Adapter {
 
 	/**
 	 * 
-	 * @param {string} id 
 	 * @param {number} condValue 
 	 * @param {object} obj 
 	 * @returns {object} tmpWorker
 	 */
-	getOverrides(id, condValue, obj) {
+	async getOverrides(condValue, obj) {
 		let tmpWorker = {};
 		const workObj = typeof (obj) === 'string' ? JSON.parse(obj) : JSON.parse(JSON.stringify(obj));
 
@@ -757,13 +791,38 @@ class EnergieflussErweitert extends utils.Adapter {
 
 		// Now we process the found values inside tmpWorker Obj
 		if (Object.keys(tmpWorker).length > 0) {
-			Object.keys(tmpWorker).forEach(item => {
+			Object.keys(tmpWorker).forEach(async item => {
+				// Temp Storage of workerValue
+				let itemToWorkWith = tmpWorker[item];
+
+				// Check if we are not destroying the error object
+				if (typeof itemToWorkWith != 'object') {
+					itemToWorkWith = itemToWorkWith.toString();
+					const dp_regex = /{([^}]+)}/g;
+					const foundDPS = [...itemToWorkWith.matchAll(dp_regex)];
+					if (foundDPS.length > 0) {
+						for (const match of foundDPS) {
+							// Check, if match contains min. 2 dots - then its a state
+							const checkForState = match[1].match(/\./g);
+							if (checkForState != null && checkForState.length >= 2) {
+								const origin = match[0];
+								const state = await this.getForeignStateAsync(match[1]);
+								if (state) {
+									if (state.val) {
+										itemToWorkWith = itemToWorkWith.replace(origin, state.val);
+									}
+								}
+							}
+						}
+					}
+				}
+
 				try {
-					const func = new Function(`return ${tmpWorker[item]}`)();
+					const func = await new Function(`return ${itemToWorkWith}`)();
 					tmpWorker[item] = func(condValue);
 				}
 				catch (func) {
-					tmpWorker[item] = tmpWorker[item];
+					tmpWorker[item] = itemToWorkWith;
 				}
 			});
 		}
@@ -1130,14 +1189,14 @@ class EnergieflussErweitert extends utils.Adapter {
 
 							// Overrides for Animations
 							if (seObj.override) {
-								outputValues.override[src] = this.getOverrides(id, clearValue, seObj.override);
+								outputValues.override[src] = this.getOverrides(clearValue, seObj.override);
 								this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[src])}`);
 							}
 
 							// Overrides for Lines
 							let line_id = src.replace('anim', 'line');
 							if (settingsObj.hasOwnProperty(line_id)) {
-								outputValues.override[line_id] = this.getOverrides(id, clearValue, settingsObj[line_id].override);
+								outputValues.override[line_id] = this.getOverrides(clearValue, settingsObj[line_id].override);
 								this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[line_id])}`);
 							}
 						}
@@ -1417,20 +1476,20 @@ class EnergieflussErweitert extends utils.Adapter {
 				// Datasources for image href
 				if (value.href != undefined) {
 					if (value.href.length > 0) {
-						if (value.href.startsWith('{')) {
-							let hrefString = value.href.substring(1, value.href.lastIndexOf('}'));
-							this.log.debug(`Using datasource '${hrefString}' as href for image with ID ${key}`);
+						const dp_regex = new RegExp('{([^)]+)\}');
+						let hrefString = value.href.match(dp_regex);
+						if (hrefString && hrefString.length > 0) {
+							this.log.debug(`Using datasource '${hrefString[1]}' as href for image with ID ${key}`);
 
 							// Create sourceObject, for handling sources
-							sourceObject[hrefString] = {
+							sourceObject[hrefString[1]] = {
 								id: parseInt(key),
 								elmSources: [key]
 							};
 
-
-							const stateValue = await this.getForeignStateAsync(hrefString);
+							const stateValue = await this.getForeignStateAsync(hrefString[1]);
 							if (stateValue) {
-								const objObject = await this.getForeignObjectAsync(hrefString);
+								const objObject = await this.getForeignObjectAsync(hrefString[1]);
 								settingsObj[key] = {
 									source_display: 'href',
 									source_type: objObject.common.type,
@@ -1441,10 +1500,10 @@ class EnergieflussErweitert extends utils.Adapter {
 							}
 
 							// Add to SubscribeArray
-							subscribeArray.push(hrefString);
+							subscribeArray.push(hrefString[1]);
 
 							// Complete state for temporary use
-							stateObject[hrefString] = stateValue;
+							stateObject[hrefString[1]] = stateValue;
 						}
 					}
 				}
