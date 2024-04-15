@@ -30,7 +30,6 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
 - Added: The adapter provides 3 new states. charging_grid (battery charged via grid), charging_solar (battery charged via solar) and production (overall production) (#173, #152, #148)
 - Added: Datasources for the battery calculation now need to be provided via the datasources tab and selected in the calculation tab (!!! Important: !!! This is a major change)
@@ -39,7 +38,6 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Better support inside configuration area for smaller devices like mobilephones and tablets
 - Added: A new override property (img_url) has been added, to change pictures addresses for picture elements
 - Added: Overrides can now contain states from iobroker, to directly read and for example calculate a value with an additional state. Please provide the name in curly braces.
-- FIX: After adding a new source, it was not sorted alphabetically into the list
 - FIX: Wrong allingment of rectangle with border-fill if height and width are different (#172)
 - FIX: The adapter could crash if the data source inside calculation was missing or deleted (#178)
 
