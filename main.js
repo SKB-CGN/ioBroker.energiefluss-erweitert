@@ -1600,20 +1600,20 @@ class EnergieflussErweitert extends utils.Adapter {
 				let query = url.parse(req.url, true).query;
 				let callback = query.callback;
 				let message;
-				res.setHeader('Content-Type', 'application/javascript');
+				res.setHeader("Content-Type", "application/javascript");
 				// Query for icon
 				switch (query.serve) {
-					case 'icon':
+					case "icon":
 						if (query.icon) {
 							// Check, if icon is available in Cache
 							if (iconCacheObject.hasOwnProperty(query.icon)) {
 								iconCacheObject[query.icon].status = 'served via Cache';
 								res.writeHead(200);
-								res.end(callback + '(' + JSON.stringify(iconCacheObject[query.icon]) + ')');
-								_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[query.icon].status} `);
+								res.end(`${callback}(${JSON.stringify(iconCacheObject[query.icon])})`);
+								_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[query.icon].status}`);
 							} else {
-								let icon = query.icon.split(':');
-								let url = `${BASEURL}${icon[0]} /${icon[1]}.svg?width=${query.width}&height=${query.height}`;
+								let icon = query.icon.split(":");
+								let url = `${BASEURL}${icon[0]}/${icon[1]}.svg?width=${query.width}&height=${query.height}`;
 								https.get(url, result => {
 									let data = [];
 									result.on('data', chunk => {
@@ -1630,7 +1630,7 @@ class EnergieflussErweitert extends utils.Adapter {
 													status: 'served via Server'
 												}
 												res.writeHead(200);
-												res.end(callback + '(' + JSON.stringify(iconCacheObject[query.icon]) + ')');
+												res.end(`${callback}(${JSON.stringify(iconCacheObject[query.icon])})`);
 											} else {
 												// Put Icon into cache
 												iconCacheObject[query.icon] = {
@@ -1639,13 +1639,13 @@ class EnergieflussErweitert extends utils.Adapter {
 													status: 'served via Server'
 												}
 												res.writeHead(200);
-												res.end(callback + '(' + JSON.stringify(iconCacheObject[query.icon]) + ')');
+												res.end(`${callback}(${JSON.stringify(iconCacheObject[query.icon])})`);
 											}
 											_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[query.icon].status}`);
 										} else {
 											// Server down or not found
 											res.writeHead(200);
-											res.end(callback + '(' + JSON.stringify(error_icon) + ')');
+											res.end(`${callback}(${JSON.stringify(error_icon)})`);
 										}
 									});
 								}).on('error', err => {
@@ -1654,12 +1654,12 @@ class EnergieflussErweitert extends utils.Adapter {
 							}
 						} else {
 							res.writeHead(404);
-							res.end('No Icon specified!');
+							res.end("No Icon specified!");
 						}
 						break;
 					default:
 						res.writeHead(404);
-						res.end('Request could not be handled! Please make sure, to request the icon via: ?serve=icon&icon=NameOfIcon');
+						res.end("Request could not be handled! Please make sure, to request the icon via: ?serve=icon&icon=NameOfIcon");
 				}
 			}
 			catch (error) {
