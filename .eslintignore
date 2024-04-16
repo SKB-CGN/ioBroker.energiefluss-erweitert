@@ -1,2 +1,4 @@
 **/.eslintrc.js
 admin/words.js
+lib/dictionary.js
+www/js/*
