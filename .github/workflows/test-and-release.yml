@@ -31,7 +31,7 @@ jobs:
           node-version: '18.x'
           # Uncomment the following line if your adapter cannot be installed using 'npm ci'
           # install-command: 'npm install'
-          lint: false
+          lint: true
           lint-command: 'npm run lint .'
 
   # Runs adapter tests on all supported node versions and OSes
