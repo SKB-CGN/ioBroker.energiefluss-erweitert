@@ -30,7 +30,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.1 (2024-04-18)
 -Hotfix: After uprading the Adapter, it could happen, that the first datasource was not updated properly
 
 ### 0.4.0 (2024-04-15)
