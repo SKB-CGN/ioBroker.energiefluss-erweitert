@@ -261,7 +261,7 @@ class EnergieflussErweitert extends utils.Adapter {
 						let id = `tmp_${obj.message.id}`;
 						let state = await this.getForeignStateAsync(obj.message.source);
 						if (state) {
-							await this.calculateValue(id, obj.message, state, state.val);
+							this.calculateValue(id, obj.message, state, state.val);
 							this.log.debug(`Found ${obj.message.source} and calculated the value for Web-ID: ${id}!`);
 							if (outputValues.values.hasOwnProperty(id)) {
 								let override = {};
@@ -392,7 +392,7 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * @param {object} state
 	 * @param {number} value 
 	 */
-	async calculateValue(id, obj, state, value) {
+	calculateValue(id, obj, state, value) {
 		if (obj.type == 'text') {
 			// Check, if we have source options for text - Date
 			if (obj.source_option != -1) {
@@ -837,484 +837,480 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * @param {object} state	State itself
 	 */
 	async refreshData(id, state) {
-		return new Promise(async (resolve) => {
+		let clearValue;
+		let cssRules = new Array();
+		if (id == this.namespace + '.configuration') {
+			this.log.info('Configuration changed via Workspace! Reloading config!');
+			this.getConfig();
+		} else {
+			// Check, if we handle this source inside our subscribtion
+			if (sourceObject.hasOwnProperty(id)) {
+				// sourceObject for this state-id
+				let soObj = sourceObject[id];
 
-			let clearValue;
-			let cssRules = new Array();
-			if (id == this.namespace + '.configuration') {
-				this.log.info('Configuration changed via Workspace! Reloading config!');
-				this.getConfig();
-			} else {
-				// Check, if we handle this source inside our subscribtion
-				if (sourceObject.hasOwnProperty(id)) {
-					// sourceObject for this state-id
-					let soObj = sourceObject[id];
+				// Correct the Value if not Number
+				if (typeof (state.val) === 'string') {
+					clearValue = Number(state.val.replace(/[^\d.-]/g, '')) * soObj.factor;
+				} else {
+					clearValue = state.val * soObj.factor;
+				}
 
-					// Correct the Value if not Number
-					if (typeof (state.val) === 'string') {
-						clearValue = Number(state.val.replace(/[^\d.-]/g, '')) * soObj.factor;
-					} else {
-						clearValue = state.val * soObj.factor;
-					}
+				// Put Value into RAW-Source-Values
+				rawValues.sourceValues[soObj.id] = clearValue;
 
-					// Put Value into RAW-Source-Values
-					rawValues.sourceValues[soObj.id] = clearValue;
+				// Loop through each addSource
+				if (soObj.hasOwnProperty('addSources') && soObj['addSources'].length) {
+					this.log.debug(`Updated through addSources: ${JSON.stringify(rawValues.sourceValues)} `);
 
-					// Loop through each addSource
-					if (soObj.hasOwnProperty('addSources') && soObj['addSources'].length) {
-						this.log.debug(`Updated through addSources: ${JSON.stringify(rawValues.sourceValues)} `);
+					// Run through element addition to update the addition
+					for (var _key of Object.keys(soObj.addSources)) {
+						let src = soObj.addSources[_key];
 
-						// Run through element addition to update the addition
-						for (var _key of Object.keys(soObj.addSources)) {
-							let src = soObj.addSources[_key];
-
-							if (settingsObj.hasOwnProperty(src)) {
-								this.log.debug(`Value-Settings for Element ${src} found! Applying Settings!`);
-								await this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
-							}
+						if (settingsObj.hasOwnProperty(src)) {
+							this.log.debug(`Value-Settings for Element ${src} found! Applying Settings!`);
+							this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
 						}
 					}
+				}
 
-					// Loop through each subtractSource
-					if (soObj.hasOwnProperty('subtractSources') && soObj['subtractSources'].length) {
-						this.log.debug(`Updated through subtractSources: ${JSON.stringify(rawValues.sourceValues)} `);
+				// Loop through each subtractSource
+				if (soObj.hasOwnProperty('subtractSources') && soObj['subtractSources'].length) {
+					this.log.debug(`Updated through subtractSources: ${JSON.stringify(rawValues.sourceValues)} `);
 
-						// Run through element subtraction to update the subtraction
-						for (var _key of Object.keys(soObj.subtractSources)) {
-							let src = soObj.subtractSources[_key];
+					// Run through element subtraction to update the subtraction
+					for (var _key of Object.keys(soObj.subtractSources)) {
+						let src = soObj.subtractSources[_key];
 
-							if (settingsObj.hasOwnProperty(src)) {
-								this.log.debug(`Value-Settings for Element ${src} found! Applying Settings!`);
-								await this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
-							}
+						if (settingsObj.hasOwnProperty(src)) {
+							this.log.debug(`Value-Settings for Element ${src} found! Applying Settings!`);
+							this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
 						}
 					}
+				}
 
-					// Loop through each Element, which belongs to that source
-					if (soObj.hasOwnProperty('elmSources') && soObj['elmSources'].length) {
-						this.log.debug(`Updated through sources: ${JSON.stringify(rawValues.sourceValues)} `);
+				// Loop through each Element, which belongs to that source
+				if (soObj.hasOwnProperty('elmSources') && soObj['elmSources'].length) {
+					this.log.debug(`Updated through sources: ${JSON.stringify(rawValues.sourceValues)} `);
 
-						// Run through element sources to update the sources
-						for (var _key of Object.keys(soObj.elmSources)) {
-							let src = soObj.elmSources[_key];
+					// Run through element sources to update the sources
+					for (var _key of Object.keys(soObj.elmSources)) {
+						let src = soObj.elmSources[_key];
 
-							// Put ID into CSS-Rule for later use
-							cssRules.push(src);
+						// Put ID into CSS-Rule for later use
+						cssRules.push(src);
 
-							if (settingsObj.hasOwnProperty(src)) {
-								this.log.debug(`Value-Settings for Element ${src} found! Applying Settings!`);
-								await this.calculateValue(src, settingsObj[src], state, clearValue);
-							}
+						if (settingsObj.hasOwnProperty(src)) {
+							this.log.debug(`Value-Settings for Element ${src} found! Applying Settings!`);
+							this.calculateValue(src, settingsObj[src], state, clearValue);
 						}
 					}
+				}
 
-					// Check, if that Source belongs to battery-charge or discharge, to determine the time
-					if (globalConfig.hasOwnProperty('calculation')) {
-						// Battery Remaining
-						if (globalConfig.calculation.hasOwnProperty('battery')) {
-							let batObj = globalConfig.calculation.battery;
-							if (soObj.id == batObj.charge || soObj.id == batObj.discharge) {
-								if (batObj.charge != -1 && batObj.discharge != -1 && batObj.percent != -1) {
-									let direction = 'none';
-									let energy = 0;
+				// Check, if that Source belongs to battery-charge or discharge, to determine the time
+				if (globalConfig.hasOwnProperty('calculation')) {
+					// Battery Remaining
+					if (globalConfig.calculation.hasOwnProperty('battery')) {
+						let batObj = globalConfig.calculation.battery;
+						if (soObj.id == batObj.charge || soObj.id == batObj.discharge) {
+							if (batObj.charge != -1 && batObj.discharge != -1 && batObj.percent != -1) {
+								let direction = 'none';
+								let energy = 0;
 
-									// Battery
-									let batteryCharge = batObj.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
-									let batteryDischarge = batObj.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+								// Battery
+								let batteryCharge = batObj.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+								let batteryDischarge = batObj.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
 
-									if (batObj.charge != batObj.discharge) {
-										if (soObj.id == batObj.charge) {
+								if (batObj.charge != batObj.discharge) {
+									if (soObj.id == batObj.charge) {
+										direction = 'charge';
+										energy = batteryCharge;
+									}
+									if (soObj.id == batObj.discharge) {
+										direction = 'discharge';
+										energy = batteryDischarge;
+									}
+								}
+
+								if (batObj.charge == batObj.discharge) {
+									if (clearValue > 0) {
+										if (!batObj.charge_prop) {
 											direction = 'charge';
 											energy = batteryCharge;
 										}
-										if (soObj.id == batObj.discharge) {
+										if (!batObj.discharge_prop) {
 											direction = 'discharge';
 											energy = batteryDischarge;
 										}
 									}
-
-									if (batObj.charge == batObj.discharge) {
-										if (clearValue > 0) {
-											if (!batObj.charge_prop) {
-												direction = 'charge';
-												energy = batteryCharge;
-											}
-											if (!batObj.discharge_prop) {
-												direction = 'discharge';
-												energy = batteryDischarge;
-											}
+									if (clearValue < 0) {
+										if (batObj.charge_prop) {
+											direction = 'charge';
+											energy = batteryCharge
 										}
-										if (clearValue < 0) {
-											if (batObj.charge_prop) {
-												direction = 'charge';
-												energy = batteryCharge
-											}
-											if (batObj.discharge_prop) {
-												direction = 'discharge';
-												energy = batteryDischarge;
-											}
+										if (batObj.discharge_prop) {
+											direction = 'discharge';
+											energy = batteryDischarge;
 										}
 									}
-									this.calculateBatteryRemaining(direction, energy);
 								}
+								this.calculateBatteryRemaining(direction, energy);
 							}
 						}
+					}
 
-						// Consumption calculation
-						if (globalConfig.calculation.hasOwnProperty('consumption')) {
-							let consObj = globalConfig.calculation.consumption;
-							if (soObj.id == consObj.gridFeed || soObj.id == consObj.gridConsume || soObj.id == consObj.batteryCharge ||
-								soObj.id == consObj.batteryDischarge || consObj.production.indexOf(soObj.id) >= 0) {
-								if (consObj.production.indexOf(-1) != 0) {
-									this.log.debug('Calculation for consumption should be possible!');
+					// Consumption calculation
+					if (globalConfig.calculation.hasOwnProperty('consumption')) {
+						let consObj = globalConfig.calculation.consumption;
+						if (soObj.id == consObj.gridFeed || soObj.id == consObj.gridConsume || soObj.id == consObj.batteryCharge ||
+							soObj.id == consObj.batteryDischarge || consObj.production.indexOf(soObj.id) >= 0) {
+							if (consObj.production.indexOf(-1) != 0) {
+								this.log.debug('Calculation for consumption should be possible!');
 
-									// Calc all Production states
-									let prodArray = consObj.production;
-									let prodValue = 0;
+								// Calc all Production states
+								let prodArray = consObj.production;
+								let prodValue = 0;
 
-									// Grid
-									let gridFeed = consObj.gridFeed_kw ? rawValues.sourceValues[consObj.gridFeed] * 1000 : rawValues.sourceValues[consObj.gridFeed];
-									let gridConsume = consObj.gridConsume_kw ? rawValues.sourceValues[consObj.gridConsume] * 1000 : rawValues.sourceValues[consObj.gridConsume];
+								// Grid
+								let gridFeed = consObj.gridFeed_kw ? rawValues.sourceValues[consObj.gridFeed] * 1000 : rawValues.sourceValues[consObj.gridFeed];
+								let gridConsume = consObj.gridConsume_kw ? rawValues.sourceValues[consObj.gridConsume] * 1000 : rawValues.sourceValues[consObj.gridConsume];
 
-									// Battery
-									let batteryCharge = consObj.batteryCharge_kw ? rawValues.sourceValues[consObj.batteryCharge] * 1000 : rawValues.sourceValues[consObj.batteryCharge];
-									let batteryDischarge = consObj.batteryDischarge_kw ? rawValues.sourceValues[consObj.batteryDischarge] * 1000 : rawValues.sourceValues[consObj.batteryDischarge];
+								// Battery
+								let batteryCharge = consObj.batteryCharge_kw ? rawValues.sourceValues[consObj.batteryCharge] * 1000 : rawValues.sourceValues[consObj.batteryCharge];
+								let batteryDischarge = consObj.batteryDischarge_kw ? rawValues.sourceValues[consObj.batteryDischarge] * 1000 : rawValues.sourceValues[consObj.batteryDischarge];
 
-									// Consumption
-									let consumption = 0;
+								// Consumption
+								let consumption = 0;
 
-									// Battery Charge - via Grid or Solar
-									let battChargeGrid = 0;
-									let battChargeSolar = 0;
+								// Battery Charge - via Grid or Solar
+								let battChargeGrid = 0;
+								let battChargeSolar = 0;
 
-									// Production state(s)
-									if (prodArray.length > 0) {
-										for (var sub in prodArray) {
-											if (prodArray[sub] != -1) {
-												prodValue = prodValue + Math.abs(rawValues.sourceValues[prodArray[sub]]);
-											}
+								// Production state(s)
+								if (prodArray.length > 0) {
+									for (var sub in prodArray) {
+										if (prodArray[sub] != -1) {
+											prodValue = prodValue + Math.abs(rawValues.sourceValues[prodArray[sub]]);
 										}
 									}
+								}
 
-									// Write production to state
-									this.setProduction(prodValue);
+								// Write production to state
+								this.setProduction(prodValue);
 
-									prodValue = consObj.production_kw ? prodValue * 1000 : prodValue;
+								prodValue = consObj.production_kw ? prodValue * 1000 : prodValue;
 
-									// Calculate Production
-									consumption = prodValue;
+								// Calculate Production
+								consumption = prodValue;
 
-									// Subtract or add grid - different States
-									if (consObj.gridFeed != consObj.gridConsume) {
-										// Feed-In - Subtract
-										if (Math.abs(gridFeed) > Math.abs(gridConsume)) {
+								// Subtract or add grid - different States
+								if (consObj.gridFeed != consObj.gridConsume) {
+									// Feed-In - Subtract
+									if (Math.abs(gridFeed) > Math.abs(gridConsume)) {
+										consumption = consumption - Math.abs(gridFeed);
+									}
+
+									// Feed-Consumption - Add
+									if (Math.abs(gridFeed) < Math.abs(gridConsume)) {
+										consumption = consumption + Math.abs(gridConsume);
+									}
+								}
+
+								// Subtract or add grid - same States
+								if (consObj.gridFeed == consObj.gridConsume) {
+									if (gridFeed > 0) {
+										if (!consObj.gridFeed_prop) {
 											consumption = consumption - Math.abs(gridFeed);
 										}
-
-										// Feed-Consumption - Add
-										if (Math.abs(gridFeed) < Math.abs(gridConsume)) {
+										if (!consObj.gridConsume_prop) {
 											consumption = consumption + Math.abs(gridConsume);
 										}
 									}
-
-									// Subtract or add grid - same States
-									if (consObj.gridFeed == consObj.gridConsume) {
-										if (gridFeed > 0) {
-											if (!consObj.gridFeed_prop) {
-												consumption = consumption - Math.abs(gridFeed);
-											}
-											if (!consObj.gridConsume_prop) {
-												consumption = consumption + Math.abs(gridConsume);
-											}
+									// Consuming from grid
+									if (gridFeed < 0) {
+										if (consObj.gridFeed_prop) {
+											consumption = consumption - Math.abs(gridFeed);
 										}
-										// Consuming from grid
-										if (gridFeed < 0) {
-											if (consObj.gridFeed_prop) {
-												consumption = consumption - Math.abs(gridFeed);
-											}
-											if (consObj.gridConsume_prop) {
-												consumption = consumption + Math.abs(gridConsume);
-											}
+										if (consObj.gridConsume_prop) {
+											consumption = consumption + Math.abs(gridConsume);
 										}
 									}
+								}
 
-									// Subtract or add battery
-									if (consObj.batteryCharge != consObj.batteryDischarge) {
-										// Charge - Subtract
-										if (Math.abs(batteryCharge) > Math.abs(batteryDischarge)) {
+								// Subtract or add battery
+								if (consObj.batteryCharge != consObj.batteryDischarge) {
+									// Charge - Subtract
+									if (Math.abs(batteryCharge) > Math.abs(batteryDischarge)) {
+										consumption = consumption - Math.abs(batteryCharge);
+
+										// Battery Charge - via Grid or Solar
+										battChargeGrid = prodValue < Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
+										battChargeSolar = prodValue > Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
+									}
+
+									// Discharge - Add
+									if (Math.abs(batteryCharge) < Math.abs(batteryDischarge)) {
+										consumption = consumption + Math.abs(batteryDischarge);
+									}
+								}
+
+								// Subtract or add battery - same States
+								if (consObj.batteryCharge == consObj.batteryDischarge) {
+									if (batteryCharge > 0) {
+										if (!consObj.batteryCharge_prop) {
 											consumption = consumption - Math.abs(batteryCharge);
 
 											// Battery Charge - via Grid or Solar
 											battChargeGrid = prodValue < Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
 											battChargeSolar = prodValue > Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
 										}
-
-										// Discharge - Add
-										if (Math.abs(batteryCharge) < Math.abs(batteryDischarge)) {
+										if (!consObj.batteryDischarge_prop) {
 											consumption = consumption + Math.abs(batteryDischarge);
 										}
 									}
 
-									// Subtract or add battery - same States
-									if (consObj.batteryCharge == consObj.batteryDischarge) {
-										if (batteryCharge > 0) {
-											if (!consObj.batteryCharge_prop) {
-												consumption = consumption - Math.abs(batteryCharge);
+									if (batteryCharge < 0) {
+										if (consObj.batteryCharge_prop) {
+											consumption = consumption - Math.abs(batteryCharge);
 
-												// Battery Charge - via Grid or Solar
-												battChargeGrid = prodValue < Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
-												battChargeSolar = prodValue > Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
-											}
-											if (!consObj.batteryDischarge_prop) {
-												consumption = consumption + Math.abs(batteryDischarge);
-											}
+											// Battery Charge - via Grid or Solar
+											battChargeGrid = prodValue < Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
+											battChargeSolar = prodValue > Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
 										}
-
-										if (batteryCharge < 0) {
-											if (consObj.batteryCharge_prop) {
-												consumption = consumption - Math.abs(batteryCharge);
-
-												// Battery Charge - via Grid or Solar
-												battChargeGrid = prodValue < Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
-												battChargeSolar = prodValue > Math.abs(batteryCharge) ? Math.abs(batteryCharge) : 0;
-											}
-											if (consObj.batteryDischarge_prop) {
-												consumption = consumption + Math.abs(batteryDischarge);
-											}
+										if (consObj.batteryDischarge_prop) {
+											consumption = consumption + Math.abs(batteryDischarge);
 										}
 									}
-
-									// Battery Charge
-									this.log.debug(`Battery Charging.Grid: ${battChargeGrid} | Solar: ${battChargeSolar}.ID: ${soObj.id} `);
-
-									// Write battery to state
-									this.setBatteryCharge(battChargeGrid, battChargeSolar);
-
-									// Debug Log
-									this.log.debug(`Current Values for calculation of consumption: Production: ${prodValue}, Battery: ${batteryCharge} / ${batteryDischarge} , Grid: ${gridFeed} / ${gridConsume} - Consumption: ${consumption} `);
-
-									// Write consumption to state
-									this.setConsumption(consumption);
 								}
+
+								// Battery Charge
+								this.log.debug(`Battery Charging.Grid: ${battChargeGrid} | Solar: ${battChargeSolar}.ID: ${soObj.id} `);
+
+								// Write battery to state
+								this.setBatteryCharge(battChargeGrid, battChargeSolar);
+
+								// Debug Log
+								this.log.debug(`Current Values for calculation of consumption: Production: ${prodValue}, Battery: ${batteryCharge} / ${batteryDischarge} , Grid: ${gridFeed} / ${gridConsume} - Consumption: ${consumption} `);
+
+								// Write consumption to state
+								this.setConsumption(consumption);
 							}
 						}
 					}
+				}
 
-					// Animations
-					if (soObj.hasOwnProperty('elmAnimations')) {
-						this.log.debug(`Found corresponding animations for ID: ${id} !Applying!`);
-						for (var _key of Object.keys(soObj.elmAnimations)) {
-							let src = soObj.elmAnimations[_key];
-							// Object Variables
-							let tmpType, tmpStroke, tmpDuration, tmpOption;
+				// Animations
+				if (soObj.hasOwnProperty('elmAnimations')) {
+					this.log.debug(`Found corresponding animations for ID: ${id} !Applying!`);
+					for (var _key of Object.keys(soObj.elmAnimations)) {
+						let src = soObj.elmAnimations[_key];
+						// Object Variables
+						let tmpType, tmpStroke, tmpDuration, tmpOption;
 
-							// Put ID into CSS-Rule for later use
-							cssRules.push(src);
+						// Put ID into CSS-Rule for later use
+						cssRules.push(src);
 
-							let tmpAnimValid = true;
-							// Animations
-							if (settingsObj.hasOwnProperty(src)) {
-								this.log.debug(`Animation - Settings for Element ${src} found! Applying Settings!`);
-								let seObj = settingsObj[src];
-
-								if (seObj.type != -1 && seObj != undefined) {
-									if (seObj.type == 'dots') {
-										tmpType = 'dots';
-										tmpStroke = this.calculateStrokeArray(seObj.dots, seObj.power, Math.abs(clearValue));
-									}
-									if (seObj.type == 'duration') {
-										tmpType = 'duration';
-										tmpDuration = this.calculateDuration(seObj.duration, seObj.power, Math.abs(clearValue));
-									}
-								}
-
-								switch (seObj.properties) {
-									case 'positive':
-										this.log.debug('Animation has a positive factor!');
-										if (clearValue > 0) {
-											if (clearValue >= seObj.threshold) {
-												this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold}. Applying Animation!`);
-												tmpAnimValid = true;
-												tmpOption = '';
-											} else {
-												this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold}. Deactivating Animation!`);
-												tmpAnimValid = false;
-											}
-										} else {
-											if (seObj.option) {
-												if (clearValue <= seObj.threshold * -1) {
-													tmpAnimValid = true;
-													// Set Option
-													tmpOption = 'reverse';
-												} else {
-													tmpAnimValid = false;
-												}
-											} else {
-												tmpAnimValid = false;
-											}
-										}
-										break;
-									case 'negative':
-										this.log.debug('Animation has a negative factor!');
-										if (clearValue < 0) {
-											if (clearValue <= seObj.threshold * -1) {
-												this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold * -1}. Applying Animation!`);
-												tmpAnimValid = true;
-												tmpOption = '';
-											} else {
-												this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold * -1}. Deactivating Animation!`);
-												tmpAnimValid = false;
-											}
-										} else {
-											if (seObj.option) {
-												if (clearValue >= seObj.threshold) {
-													tmpAnimValid = true;
-													// Set Option
-													tmpOption = 'reverse';
-												} else {
-													tmpAnimValid = false;
-												}
-											} else {
-												tmpAnimValid = false;
-											}
-										}
-										break;
-								}
-
-								// Set Animation
-								outputValues.animations[src] = tmpAnimValid;
-
-								// Create Animation Object
-								outputValues.animationProperties[src] = {
-									type: tmpType,
-									duration: tmpDuration,
-									stroke: tmpStroke,
-									option: tmpOption
-								};
-
-								// Overrides for Animations
-								if (seObj.override) {
-									this.getOverridesAsync(clearValue, seObj.override).then((response) => {
-										outputValues.override[src] = response;
-									});
-									this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[src])} `);
-								}
-
-								// Overrides for Lines
-								let line_id = src.replace('anim', 'line');
-								if (settingsObj.hasOwnProperty(line_id)) {
-									this.getOverridesAsync(clearValue, settingsObj[line_id].override).then((response) => {
-										outputValues.override[line_id] = response;
-									});
-									this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[line_id])} `);
-								}
-							}
-						}
-					}
-
-					// Put CSS together
-					if (cssRules.length > 0) {
-						cssRules.forEach((src) => {
+						let tmpAnimValid = true;
+						// Animations
+						if (settingsObj.hasOwnProperty(src)) {
+							this.log.debug(`Animation - Settings for Element ${src} found! Applying Settings!`);
 							let seObj = settingsObj[src];
-							let tmpCssRules = undefined;
 
-							// CSS Rules
-							if (seObj.source_type == 'boolean') {
-								this.log.debug(`Setting for boolean ${JSON.stringify(seObj)} and ID: ${src} `);
-								if (clearValue == 1) {
-									tmpCssRules = {
-										actPos: seObj.css_active_positive,
-										inactPos: seObj.css_inactive_positive
-									};
+							if (seObj.type != -1 && seObj != undefined) {
+								if (seObj.type == 'dots') {
+									tmpType = 'dots';
+									tmpStroke = this.calculateStrokeArray(seObj.dots, seObj.power, Math.abs(clearValue));
 								}
-								if (clearValue == 0) {
-									tmpCssRules = {
-										actPos: seObj.css_inactive_positive,
-										inactPos: seObj.css_active_positive
-									};
+								if (seObj.type == 'duration') {
+									tmpType = 'duration';
+									tmpDuration = this.calculateDuration(seObj.duration, seObj.power, Math.abs(clearValue));
 								}
-							} else {
-								if (seObj.threshold >= 0) {
-									if (Math.abs(clearValue) > seObj.threshold) {
-										// CSS Rules
-										if (clearValue > 0) {
-											// CSS Rules - Positive
-											tmpCssRules = {
-												actPos: seObj.css_active_positive,
-												inactPos: seObj.css_inactive_positive,
-												actNeg: undefined,
-												inactNeg: seObj.css_active_negative
-											};
-										}
-										if (clearValue < 0) {
-											// CSS Rules - Negative
-											tmpCssRules = {
-												actNeg: seObj.css_active_negative,
-												inactNeg: seObj.css_inactive_negative,
-												actPos: undefined,
-												inactPos: seObj.css_active_positive
-											};
+							}
+
+							switch (seObj.properties) {
+								case 'positive':
+									this.log.debug('Animation has a positive factor!');
+									if (clearValue > 0) {
+										if (clearValue >= seObj.threshold) {
+											this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold}. Applying Animation!`);
+											tmpAnimValid = true;
+											tmpOption = '';
+										} else {
+											this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold}. Deactivating Animation!`);
+											tmpAnimValid = false;
 										}
 									} else {
-										// CSS Rules
-										if (clearValue > 0) {
-											// CSS Rules - Positive
-											tmpCssRules = {
-												actPos: seObj.css_inactive_positive,
-												inactPos: seObj.css_active_positive,
-												actNeg: undefined,
-												inactNeg: seObj.css_active_negative
-											};
+										if (seObj.option) {
+											if (clearValue <= seObj.threshold * -1) {
+												tmpAnimValid = true;
+												// Set Option
+												tmpOption = 'reverse';
+											} else {
+												tmpAnimValid = false;
+											}
+										} else {
+											tmpAnimValid = false;
 										}
-										if (clearValue < 0) {
-											// CSS Rules - Negative
-											tmpCssRules = {
-												actNeg: seObj.css_inactive_negative,
-												inactNeg: seObj.css_active_negative,
-												actPos: undefined,
-												inactPos: seObj.css_active_positive
-											};
+									}
+									break;
+								case 'negative':
+									this.log.debug('Animation has a negative factor!');
+									if (clearValue < 0) {
+										if (clearValue <= seObj.threshold * -1) {
+											this.log.debug(`Value: ${clearValue} is greater than Threshold: ${seObj.threshold * -1}. Applying Animation!`);
+											tmpAnimValid = true;
+											tmpOption = '';
+										} else {
+											this.log.debug(`Value: ${clearValue} is smaller than Threshold: ${seObj.threshold * -1}. Deactivating Animation!`);
+											tmpAnimValid = false;
 										}
-										if (clearValue == 0) {
-											// CSS Rules - Positive
-											// Inactive Positive
-											let inactPos = seObj.css_active_positive ? seObj.css_active_positive + ' ' : undefined;
-											inactPos = seObj.css_inactive_positive ? inactPos + seObj.css_inactive_positive : inactPos;
-											// Inactive Negative
-											let inactNeg = seObj.css_active_negative ? seObj.css_active_negative + ' ' : undefined;
-											inactNeg = seObj.css_inactive_negative ? inactNeg + seObj.css_inactive_negative : inactNeg;
-											tmpCssRules = {
-												actPos: undefined,
-												inactPos: inactPos,
-												actNeg: undefined,
-												inactNeg: inactNeg
-											};
+									} else {
+										if (seObj.option) {
+											if (clearValue >= seObj.threshold) {
+												tmpAnimValid = true;
+												// Set Option
+												tmpOption = 'reverse';
+											} else {
+												tmpAnimValid = false;
+											}
+										} else {
+											tmpAnimValid = false;
 										}
+									}
+									break;
+							}
+
+							// Set Animation
+							outputValues.animations[src] = tmpAnimValid;
+
+							// Create Animation Object
+							outputValues.animationProperties[src] = {
+								type: tmpType,
+								duration: tmpDuration,
+								stroke: tmpStroke,
+								option: tmpOption
+							};
+
+							// Overrides for Animations
+							if (seObj.override) {
+								this.getOverridesAsync(clearValue, seObj.override).then((response) => {
+									outputValues.override[src] = response;
+								});
+								this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[src])} `);
+							}
+
+							// Overrides for Lines
+							let line_id = src.replace('anim', 'line');
+							if (settingsObj.hasOwnProperty(line_id)) {
+								this.getOverridesAsync(clearValue, settingsObj[line_id].override).then((response) => {
+									outputValues.override[line_id] = response;
+								});
+								this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[line_id])} `);
+							}
+						}
+					}
+				}
+
+				// Put CSS together
+				if (cssRules.length > 0) {
+					cssRules.forEach((src) => {
+						let seObj = settingsObj[src];
+						let tmpCssRules = undefined;
+
+						// CSS Rules
+						if (seObj.source_type == 'boolean') {
+							this.log.debug(`Setting for boolean ${JSON.stringify(seObj)} and ID: ${src} `);
+							if (clearValue == 1) {
+								tmpCssRules = {
+									actPos: seObj.css_active_positive,
+									inactPos: seObj.css_inactive_positive
+								};
+							}
+							if (clearValue == 0) {
+								tmpCssRules = {
+									actPos: seObj.css_inactive_positive,
+									inactPos: seObj.css_active_positive
+								};
+							}
+						} else {
+							if (seObj.threshold >= 0) {
+								if (Math.abs(clearValue) > seObj.threshold) {
+									// CSS Rules
+									if (clearValue > 0) {
+										// CSS Rules - Positive
+										tmpCssRules = {
+											actPos: seObj.css_active_positive,
+											inactPos: seObj.css_inactive_positive,
+											actNeg: undefined,
+											inactNeg: seObj.css_active_negative
+										};
+									}
+									if (clearValue < 0) {
+										// CSS Rules - Negative
+										tmpCssRules = {
+											actNeg: seObj.css_active_negative,
+											inactNeg: seObj.css_inactive_negative,
+											actPos: undefined,
+											inactPos: seObj.css_active_positive
+										};
+									}
+								} else {
+									// CSS Rules
+									if (clearValue > 0) {
+										// CSS Rules - Positive
+										tmpCssRules = {
+											actPos: seObj.css_inactive_positive,
+											inactPos: seObj.css_active_positive,
+											actNeg: undefined,
+											inactNeg: seObj.css_active_negative
+										};
+									}
+									if (clearValue < 0) {
+										// CSS Rules - Negative
+										tmpCssRules = {
+											actNeg: seObj.css_inactive_negative,
+											inactNeg: seObj.css_active_negative,
+											actPos: undefined,
+											inactPos: seObj.css_active_positive
+										};
+									}
+									if (clearValue == 0) {
+										// CSS Rules - Positive
+										// Inactive Positive
+										let inactPos = seObj.css_active_positive ? seObj.css_active_positive + ' ' : undefined;
+										inactPos = seObj.css_inactive_positive ? inactPos + seObj.css_inactive_positive : inactPos;
+										// Inactive Negative
+										let inactNeg = seObj.css_active_negative ? seObj.css_active_negative + ' ' : undefined;
+										inactNeg = seObj.css_inactive_negative ? inactNeg + seObj.css_inactive_negative : inactNeg;
+										tmpCssRules = {
+											actPos: undefined,
+											inactPos: inactPos,
+											actNeg: undefined,
+											inactNeg: inactNeg
+										};
 									}
 								}
 							}
-							// Add to Output
-							if (tmpCssRules !== undefined) {
-								// Clean the rules
-								Object.keys(tmpCssRules).forEach(key => tmpCssRules[key] === undefined && delete tmpCssRules[key]);
+						}
+						// Add to Output
+						if (tmpCssRules !== undefined) {
+							// Clean the rules
+							Object.keys(tmpCssRules).forEach(key => tmpCssRules[key] === undefined && delete tmpCssRules[key]);
 
-								if (Object.keys(tmpCssRules).length > 0) {
-									outputValues.css[src] = tmpCssRules;
-								}
+							if (Object.keys(tmpCssRules).length > 0) {
+								outputValues.css[src] = tmpCssRules;
 							}
-						});
-					}
-
-					this.log.debug(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements: ${soObj.elmSources.toString()} `);
-
-					// Build Output
-					await this.setStateChangedAsync('data', { val: JSON.stringify(outputValues), ack: true });
-				} else {
-					this.log.warn(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements, which were not found! Please check them!`);
+						}
+					});
 				}
+
+				this.log.debug(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements: ${soObj.elmSources.toString()} `);
+
+				// Build Output
+				await this.setStateChangedAsync('data', { val: JSON.stringify(outputValues), ack: true });
+			} else {
+				this.log.warn(`State changed! New value for Source: ${id} with Value: ${clearValue} belongs to Elements, which were not found! Please check them!`);
 			}
-			resolve(true);
-		});
+		}
 	}
 
 	async getConfig() {
@@ -1400,7 +1396,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			for (var key of Object.keys(globalConfig.elements)) {
 				const value = globalConfig.elements[key];
 				// Normal sources via Datasources
-				if (value.source != -1 && value.source != '' && value.hasOwnProperty('source')) {
+				if (value.hasOwnProperty('source') && globalConfig.datasources.hasOwnProperty(value.source)) {
 					if (sourceObject.hasOwnProperty(globalConfig.datasources[value.source].source)) {
 						const objObject = await this.getForeignObjectAsync(globalConfig.datasources[value.source].source);
 						if (objObject) {
