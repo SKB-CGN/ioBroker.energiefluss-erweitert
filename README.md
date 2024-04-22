@@ -31,7 +31,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	### **WORK IN PROGRESS**
 -->
 ### 0.4.1 (2024-04-18)
--Hotfix: After uprading the Adapter, it could happen, that the first datasource was not updated properly
+- Hotfix: After uprading the Adapter, it could happen, that the first datasource was not updated properly
 
 ### 0.4.0 (2024-04-15)
 - Added: The adapter provides 3 new states. charging_grid (battery charged via grid), charging_solar (battery charged via solar) and production (overall production) (#173, #152, #148)
