@@ -12,6 +12,14 @@ const path = require('path');
 const systemDictionary = require('./lib/dictionary.js');
 let instanceDir;
 const backupDir = '/backup';
+const userFiles = '/userFiles';
+
+let sharp;
+try {
+	sharp = require('sharp');
+} catch (e) {
+	console.error(`Cannot load sharp: ${e}`);
+}
 // Load your modules here, e.g.:
 // const fs = require('fs');
 
@@ -81,10 +89,22 @@ class EnergieflussErweitert extends utils.Adapter {
 		proxy_port = this.config.proxy_port || 10123;
 		_this = this;
 
-		/* Create Adapter Directory */
+		/* Create Adapter Directory - Backup */
 		instanceDir = utils.getAbsoluteInstanceDataDir(this);
 		if (!fs.existsSync(instanceDir + backupDir)) {
 			fs.mkdirSync(instanceDir + backupDir, { recursive: true });
+		}
+
+		/* Create Adapter Directory - UserFiles */
+		if (!fs.existsSync(instanceDir + userFiles)) {
+			fs.mkdirSync(instanceDir + userFiles, { recursive: true });
+		}
+
+		/* Create Folder thumbnails, if 'sharp' was found and can be used */
+		if (sharp) {
+			if (!fs.existsSync(instanceDir + userFiles + '/thumbnail')) {
+				fs.mkdirSync(instanceDir + userFiles + '/thumbnail', { recursive: true });
+			}
 		}
 
 		/* Check, if we have an old backup state */
@@ -180,14 +200,71 @@ class EnergieflussErweitert extends utils.Adapter {
 	  * @param {ioBroker.Message} obj
 	 */
 	async onMessage(obj) {
-		this.log.debug(`[onMessage] received command: ${obj.command} with message: ${JSON.stringify(obj.message)}`);
+		//this.log.debug(`[onMessage] received command: ${obj.command} with message: ${JSON.stringify(obj.message)}`);
 		if (obj && obj.message) {
 			if (typeof obj.message === 'object') {
 				// Request the list of Backups
 				let fileList = [];
 				switch (obj.command) {
+					case '_deleteUpload':
+						const unlinkPath = path.join(instanceDir + userFiles, obj.message.fileName);
+						fs.unlink(unlinkPath, (err) => {
+							if (err) {
+								this.log.error(`Could not delete the file ${unlinkPath}. Error: ${err}`);
+								this.sendTo(obj.from, obj.command, { error: err, url: null }, obj.callback);
+							} else {
+								this.sendTo(obj.from, obj.command, { error: null, url: obj.message.fileName, msg: 'File successfully deleted!' }, obj.callback);
+							}
+						});
+						break;
+					case '_getUploads':
+						const listUploads = path.join(instanceDir + userFiles);
+						const dirents = fs.readdirSync(listUploads, { withFileTypes: true });
+						const filesNames = dirents
+							.filter(dirent => dirent.isFile())
+							.map(dirent => dirent.name);
+
+						this.sendTo(obj.from, obj.command, { error: null, data: filesNames }, obj.callback);
+						break;
+					case '_uploadFile':
+						const uploadPath = path.join(instanceDir + userFiles, obj.message.fileName);
+						this.log.info(`Checking requirements for uploading a new file to: ${uploadPath}`);
+						if (!fs.existsSync(uploadPath)) {
+							this.log.info('Uploading!');
+							const imgData = Buffer.from(obj.message.fileData, "base64");
+							fs.writeFile(uploadPath, imgData, (error) => {
+								if (error) {
+									this.log.error(`Could not upload the file ${uploadPath}. Error: ${err}`);
+									this.sendTo(obj.from, obj.command, { error: err, url: null }, obj.callback);
+								} else {
+									this.log.info('Trying to create thumbail!');
+
+									/* Create the thumbnail here */
+									if (sharp) {
+										sharp(imgData)
+											.resize({
+												width: 100,
+												fit: 'contain'
+											})
+											.toFile(path.join(instanceDir + userFiles + '/thumbnail/' + obj.message.fileName))
+											.then(() => {
+												this.log.info('Thumbnail created!');
+												this.sendTo(obj.from, obj.command, { error: null, url: obj.message.fileName, msg: 'File uploaded successfully!', storage: 'thumbnail/' }, obj.callback);
+											});
+									} else {
+										this.log.warn('Module sharp is not installed, which is needed for Thumbail creation. Please install it to create thumbail images!');
+										this.sendTo(obj.from, obj.command, { error: null, url: obj.message.fileName, msg: 'File uploaded successfully!', storage: '' }, obj.callback);
+									}
+								}
+							});
+						} else {
+							this.log.warn('The file already exists!');
+							this.sendTo(obj.from, obj.command, { error: 'File already exists!', url: obj.message.fileName }, obj.callback);
+						}
+						break;
 					case '_getBackups':
-						fs.readdir(instanceDir + backupDir, (err, files) => {
+						const listBackups = path.join(instanceDir + backupDir)
+						fs.readdir(listBackups, (err, files) => {
 							if (err) {
 								this.sendTo(obj.from, obj.command, { err }, obj.callback);
 							} else {
@@ -284,6 +361,10 @@ class EnergieflussErweitert extends utils.Adapter {
 							}
 						}
 						break;
+					default:
+						this.log.warn(`[onMessage] Received command "${obj.command}" via 'sendTo', which is not implemented!`);
+						this.sendTo(obj.from, obj.command, { error: `Received command "${obj.command}" via 'sendTo', which is not implemented!` }, obj.callback);
+						break;
 				}
 			} else {
 				this.log.error(`[onMessage] Received incomplete message via 'sendTo'`);
@@ -294,6 +375,7 @@ class EnergieflussErweitert extends utils.Adapter {
 			}
 		}
 	}
+
 	/**
 	 *  @param {number}	minutes
 	 */
@@ -338,10 +420,10 @@ class EnergieflussErweitert extends utils.Adapter {
 			if (battPercent) {
 				/* Get States for additional Battery Details if present */
 				// Capacity
-				let capacity = rawValues.sourceValues[globalConfig.calculation.battery.capacity] || globalConfig.calculation.battery.capacity;
+				let capacity = rawValues.sourceValues.hasOwnProperty(globalConfig.calculation.battery.capacity) ? rawValues.sourceValues[globalConfig.calculation.battery.capacity] : globalConfig.calculation.battery.capacity;
 
 				// Deep of Discharge
-				let dod = rawValues.sourceValues[globalConfig.calculation.battery.dod] || globalConfig.calculation.battery.dod;
+				let dod = rawValues.sourceValues.hasOwnProperty(globalConfig.calculation.battery.dod) ? rawValues.sourceValues[globalConfig.calculation.battery.dod] : globalConfig.calculation.battery.dod;
 
 				let percent = battPercent.val;
 				let rest = 0;
@@ -367,7 +449,7 @@ class EnergieflussErweitert extends utils.Adapter {
 					}
 				}
 
-				this.log.debug(`Direction: ${direction} Battery-Time: ${string} Percent: ${percent} Energy: ${energy}`);
+				this.log.debug(`Direction: ${direction} Battery-Time: ${string} Percent: ${percent} Energy: ${energy} Rest-Capacity: ${rest} DoD: ${dod}`);
 
 				// Set remaining time
 				await this.setStateChangedAsync('calculation.battery.remaining', { val: string, ack: true });
@@ -409,9 +491,18 @@ class EnergieflussErweitert extends utils.Adapter {
 						value = state.val;
 						break;
 					case 'text':
-						outputValues.values[id] = state.val;
-						rawValues.values[id] = state.val;
-						value = state.val;
+						// Linebreak Option
+						let strOutput;
+						if (obj.linebreak > 0) {
+							let splitOpt = new RegExp(`.{0,${obj.linebreak}}(?:\\s|$)`, 'g');
+							let splitted = state.val.toString().match(splitOpt);
+							strOutput = splitted.join('<br>');
+						} else {
+							strOutput = state.val;
+						}
+						outputValues.values[id] = strOutput;
+						rawValues.values[id] = strOutput;
+						value = strOutput;
 						break;
 					case 'bool':
 						outputValues.values[id] = value ? systemDictionary['on'][systemLang] : systemDictionary['off'][systemLang];
@@ -912,13 +1003,13 @@ class EnergieflussErweitert extends utils.Adapter {
 					if (globalConfig.calculation.hasOwnProperty('battery')) {
 						let batObj = globalConfig.calculation.battery;
 						if (soObj.id == batObj.charge || soObj.id == batObj.discharge) {
-							if (batObj.charge != -1 && batObj.discharge != -1 && batObj.percent != -1) {
+							if (batObj.charge != -1 && batObj.charge != null && batObj.discharge != -1 && batObj.discharge != null && batObj.percent != -1 && batObj.percent != null) {
 								let direction = 'none';
 								let energy = 0;
 
 								// Battery
-								let batteryCharge = batObj.charge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
-								let batteryDischarge = batObj.discharge_kw ? Math.abs(clearValue * 1000) : Math.abs(clearValue);
+								let batteryCharge = Math.abs(clearValue);
+								let batteryDischarge = Math.abs(clearValue);
 
 								if (batObj.charge != batObj.discharge) {
 									if (soObj.id == batObj.charge) {
@@ -971,12 +1062,12 @@ class EnergieflussErweitert extends utils.Adapter {
 								let prodValue = 0;
 
 								// Grid
-								let gridFeed = consObj.gridFeed_kw ? rawValues.sourceValues[consObj.gridFeed] * 1000 : rawValues.sourceValues[consObj.gridFeed];
-								let gridConsume = consObj.gridConsume_kw ? rawValues.sourceValues[consObj.gridConsume] * 1000 : rawValues.sourceValues[consObj.gridConsume];
+								let gridFeed = rawValues.sourceValues[consObj.gridFeed];
+								let gridConsume = rawValues.sourceValues[consObj.gridConsume];
 
 								// Battery
-								let batteryCharge = consObj.batteryCharge_kw ? rawValues.sourceValues[consObj.batteryCharge] * 1000 : rawValues.sourceValues[consObj.batteryCharge];
-								let batteryDischarge = consObj.batteryDischarge_kw ? rawValues.sourceValues[consObj.batteryDischarge] * 1000 : rawValues.sourceValues[consObj.batteryDischarge];
+								let batteryCharge = rawValues.sourceValues[consObj.batteryCharge];
+								let batteryDischarge = rawValues.sourceValues[consObj.batteryDischarge];
 
 								// Consumption
 								let consumption = 0;
@@ -997,7 +1088,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								// Write production to state
 								this.setProduction(prodValue);
 
-								prodValue = consObj.production_kw ? prodValue * 1000 : prodValue;
+								prodValue = prodValue;
 
 								// Calculate Production
 								consumption = prodValue;

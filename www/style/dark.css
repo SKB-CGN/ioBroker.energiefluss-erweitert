@@ -1,37 +1,20 @@
 :root {
-    --background-color: #323232;
-    --darkestGrey: #777;
-    --creme: #777;
-    --silvergrey: #d3d3d3;
-    --input-button-bg: #323232;
-    --input-background: #323232;
-    --msBackground: #323232;
-    --title-background: #242424;
-    --input-button-text: #ccc;
-    --table-font: #ccc;
-    --input-text: #ccc;
-    --legend-text: #111;
-    --top-label-text: #111;
-    --legend-background: #a3a3a3;
     --primary: #d3d3d3;
     --secondary: #aaaaaa;
-    --white: #a3a3a3;
-    --red: rgb(139, 21, 41);
     --black: #ccc;
-    --font: #ccc;
-    --middle-grey: #323232;
-    --stateExplorerBackground: #777;
-    --stateExplorerFont: #111;
-    --onoffswitch-background: none;
-    --onoffswitch-text: #999999;
-    --scrollbar-foreground: #999999;
-    --scrollbar-background: #323232;
+    --blackTrans: rgba(255, 255, 255, 0.4);
+    --white: #323232;
+    --darkestGrey: #777;
+    --transparent: #323232;
+    --creme: #777;
+    --silvergrey: #9e9d9d;
     --darkgrey: #a3a3a3;
+    --red: #c96969;
+    --middle-grey: #323232;
     --loading-background: #323232e6;
-    --successMessage: darkgreen;
+    --green: rgb(2, 138, 2);
     --box-shadow: 0 6px 12px rgba(255, 255, 255, 0.175);
     --box-shadow-hover: 0 12px 18px rgba(255, 255, 255, .200);
-    --configbar-background: #323232;
     --container-background: linear-gradient(to right, #323232 30%, rgba(255, 255, 255, 0)),
         linear-gradient(to right, rgba(255, 255, 255, 0), #323232 70%) 0 100%,
         radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.6),

@@ -145,6 +145,7 @@
     "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
     "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
     "loglevel": "info",
+    "webExtension": "lib/web.js",
     "mode": "daemon",
     "tier": 3,
     "type": "visualization",
@@ -192,7 +193,8 @@
   ],
   "native": {
     "enable_proxy": false,
-    "proxy_port": 10123
+    "proxy_port": 10123,
+    "webInstance": "*"
   },
   "objects": [],
   "instanceObjects": [

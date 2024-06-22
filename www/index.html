@@ -18,6 +18,7 @@
     <script src="../../socket.io/socket.io.js"></script>
 
     <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
     <script src="js/translate.min.js"></script>
     <script src="js/words.js"></script>
     <script src="js/functions.min.js"></script>
@@ -40,6 +41,13 @@
         </div>
         <span id="loading_text" class="translate" data-lang="msg_loading_liveview">Loading your Energiefluss -
             erweitert</span>
+        <span id="loading_text_error"><a
+                href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Troubleshooting" class="translate"
+                data-lang="failmsg_not_reachable" target="_blank">If the page is not
+                loading, please refer here, to
+                find out, how
+                to
+                fix it!</a></span>
         <div id="frameContainer">
             <div class="title">
                 <div id="iframe_close" class="close"></div>
@@ -47,6 +55,18 @@
             <iframe id="overlay_frame" src="" class="framed scrollbar"
                 sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts allow-top-navigation"></iframe>
         </div>
+    </div>
+    <div id="action_change_value" class="translateT" data-lang-title="title_change_value" title="Change the value">
+        <div class="detail_box shortcut" id="shortcuts.action">
+            <div class="contentBox">
+                <div class="form_div text">
+                    <input type="text" class="input_number" name="shortcuts.action.value" id="shortcuts.action.value"
+                        placeholder="" autocorrect="off" autocomplete="off">
+                    <label for="shortcuts.action.value" class="form_label translate" data-lang="opt_value">Value</label>
+                </div>
+            </div>
+        </div>
+        <div class="detail_box shortcut" id="shortcuts.elements"></div>
     </div>
     <svg viewBox="0 0 800 500" class="" preserveAspectRatio="xMinYMid meet" id="svg_display">
         <!-- Definations-->
