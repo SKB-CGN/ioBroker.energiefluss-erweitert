@@ -31,7 +31,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	### **WORK IN PROGRESS**
 -->
 ### 0.5.0-alpha.0 (2024-06-24)
-**!!! Please note, this currently a Alpha-Version, because many things are changed and needed to be tested!!!** 
+**!!! Please note, this currently a Alpha-Version, because many things are changed and needed to be tested!!!**  
 The core of the adapter keeps running on the same 0.4.1 version like before, but the configuration page has many improvements. See the list below! 
 
 Note: save content of the state 'configuration' inside the instance, as text on your disk to be able, to restore it, it case needed! 
