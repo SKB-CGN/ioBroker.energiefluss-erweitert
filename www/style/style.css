@@ -105,10 +105,6 @@ a:hover {
     opacity: 1;
 }
 
-.ui-widget-overlay {
-    transition: opacity .5s ease-in;
-}
-
 .flex-box {
     display: flex;
     height: 100%;
@@ -1846,6 +1842,11 @@ nav label:active {
     border: 2px dashed var(--darkestGrey);
     box-sizing: border-box;
     padding: 2px;
+    height: 105px;
+}
+
+#drop_zone div {
+    text-align: center;
 }
 
 #drop_zone.dragFile {

@@ -20,8 +20,6 @@ try {
 } catch (e) {
 	console.error(`Cannot load sharp: ${e}`);
 }
-// Load your modules here, e.g.:
-// const fs = require('fs');
 
 /* Variables for runtime */
 let globalConfig = {};
@@ -207,35 +205,46 @@ class EnergieflussErweitert extends utils.Adapter {
 				let fileList = [];
 				switch (obj.command) {
 					case '_deleteUpload':
-						const unlinkPath = path.join(instanceDir + userFiles, obj.message.fileName);
+						const unlinkPath = path.join(instanceDir + userFiles, obj.message.filename);
 						fs.unlink(unlinkPath, (err) => {
 							if (err) {
 								this.log.error(`Could not delete the file ${unlinkPath}. Error: ${err}`);
-								this.sendTo(obj.from, obj.command, { error: err, url: null }, obj.callback);
+								this.sendTo(obj.from, obj.command, { error: err, filename: null }, obj.callback);
 							} else {
-								this.sendTo(obj.from, obj.command, { error: null, url: obj.message.fileName, msg: 'File successfully deleted!' }, obj.callback);
+								this.sendTo(obj.from, obj.command, { error: null, filename: obj.message.filename, msg: 'File successfully deleted!' }, obj.callback);
+
+								// Delete the thumbnail as well
+								if (fs.existsSync(instanceDir + userFiles + '/thumbnail')) {
+									fs.unlinkSync(path.join(instanceDir + userFiles + '/thumbnail/' + obj.message.filename));
+								}
 							}
 						});
 						break;
 					case '_getUploads':
+						let filePath = '/';
+						/* If thumbnail folder is found, we can use the thumbnails to be delivered */
+						if (fs.existsSync(instanceDir + userFiles + '/thumbnail')) {
+							filePath = '/thumbnail/';
+						}
+
 						const listUploads = path.join(instanceDir + userFiles);
 						const dirents = fs.readdirSync(listUploads, { withFileTypes: true });
 						const filesNames = dirents
 							.filter(dirent => dirent.isFile())
 							.map(dirent => dirent.name);
 
-						this.sendTo(obj.from, obj.command, { error: null, data: filesNames }, obj.callback);
+						this.sendTo(obj.from, obj.command, { error: null, files: filesNames, path: filePath }, obj.callback);
 						break;
 					case '_uploadFile':
-						const uploadPath = path.join(instanceDir + userFiles, obj.message.fileName);
+						const uploadPath = path.join(instanceDir + userFiles, obj.message.filename);
 						this.log.info(`Checking requirements for uploading a new file to: ${uploadPath}`);
 						if (!fs.existsSync(uploadPath)) {
 							this.log.info('Uploading!');
 							const imgData = Buffer.from(obj.message.fileData, "base64");
 							fs.writeFile(uploadPath, imgData, (error) => {
 								if (error) {
-									this.log.error(`Could not upload the file ${uploadPath}. Error: ${err}`);
-									this.sendTo(obj.from, obj.command, { error: err, url: null }, obj.callback);
+									this.log.error(`Could not upload the file ${uploadPath}. Error: ${error}`);
+									this.sendTo(obj.from, obj.command, { error: error, url: null }, obj.callback);
 								} else {
 									this.log.info('Trying to create thumbail!');
 
@@ -246,20 +255,20 @@ class EnergieflussErweitert extends utils.Adapter {
 												width: 100,
 												fit: 'contain'
 											})
-											.toFile(path.join(instanceDir + userFiles + '/thumbnail/' + obj.message.fileName))
+											.toFile(path.join(instanceDir + userFiles + '/thumbnail/' + obj.message.filename))
 											.then(() => {
 												this.log.info('Thumbnail created!');
-												this.sendTo(obj.from, obj.command, { error: null, url: obj.message.fileName, msg: 'File uploaded successfully!', storage: 'thumbnail/' }, obj.callback);
+												this.sendTo(obj.from, obj.command, { error: null, filename: obj.message.filename, msg: 'File uploaded successfully!', path: '/thumbnail/' }, obj.callback);
 											});
 									} else {
 										this.log.warn('Module sharp is not installed, which is needed for Thumbail creation. Please install it to create thumbail images!');
-										this.sendTo(obj.from, obj.command, { error: null, url: obj.message.fileName, msg: 'File uploaded successfully!', storage: '' }, obj.callback);
+										this.sendTo(obj.from, obj.command, { error: null, filename: obj.message.filename, msg: 'File uploaded successfully!', path: '/' }, obj.callback);
 									}
 								}
 							});
 						} else {
 							this.log.warn('The file already exists!');
-							this.sendTo(obj.from, obj.command, { error: 'File already exists!', url: obj.message.fileName }, obj.callback);
+							this.sendTo(obj.from, obj.command, { error: 'File already exists!', filename: obj.message.filename }, obj.callback);
 						}
 						break;
 					case '_getBackups':
@@ -280,7 +289,7 @@ class EnergieflussErweitert extends utils.Adapter {
 					case '_restoreBackup':
 						// Restore Backup
 						this.log.info('Starting restoring Backup from disk!');
-						const restorePath = path.join(instanceDir + backupDir, `BACKUP_${obj.message.fileName}.json`);
+						const restorePath = path.join(instanceDir + backupDir, `BACKUP_${obj.message.filename}.json`);
 						fs.readFile(restorePath, 'utf8', (err, data) => {
 							if (err) {
 								this.log.info(`Error during ${err}`);
@@ -298,8 +307,8 @@ class EnergieflussErweitert extends utils.Adapter {
 					case '_storeBackup':
 						// Store Backup
 						this.log.debug('Saving Backup to disk!');
-						let fileName = new Date().getTime();
-						const storePath = path.join(instanceDir + backupDir, `BACKUP_${fileName}.json`);
+						let filename = new Date().getTime();
+						const storePath = path.join(instanceDir + backupDir, `BACKUP_${filename}.json`);
 						fs.writeFile(storePath, JSON.stringify(obj.message), (err) => {
 							if (err) {
 								this.sendTo(obj.from, obj.command, { err }, obj.callback);

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style/jquery-ui.css">
     <link rel="stylesheet" href="style/loading-spinner.css">
     <link rel="stylesheet" href="style/multiselect.css">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css?v=0.5">
 
     <script src="../../socket.io/socket.io.js"></script>
 
@@ -26,7 +26,7 @@
     <script src="js/multiselect.min.js"></script>
     <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/ace/ext-language_tools.js"></script>
-    <script src="js/functions.min.js"></script>
+    <script src="js/functions.min.js?v=0.5"></script>
 
     <style id="style_animation"></style>
     <style id="style_user"></style>
@@ -1977,7 +1977,7 @@
                             </legend>
                             <div id="drop_zone">
                                 <div id="drag_upload_file">
-                                    <form id="frm-addUpload">
+                                    <form>
                                         <input type="file" name="uploadFile" id="uploadFile" accept="image/*"
                                             style="display: none;" multiple>
                                         <div class="form_div text">
@@ -2024,8 +2024,8 @@
                                 data-height="24"></span>
                             <span class="translate" data-lang="lbl_gallery">Gallery</span>
                         </legend>
-                        <div id="userImages" class="userImages"><span class="translate"
-                                data-lang="txt_upload_no_images">There are
+                        <div id="userImages" class="userImages"><span class="translate" data-lang="txt_upload_no_images"
+                                id="userImages_dummy">There are
                                 currently no images inside
                                 the gallery! You can upload some using the upload function!</span></div>
                         <div id="userImagesBrowseDialog">
