@@ -39,7 +39,22 @@ Note: save content of the state 'configuration' inside the instance, as text on 
 After downloading the BETA Version of the adapter, please manually proceed with uploading the adapter (this has to be done, after adapters are installed via Github) 
 described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#uploadvonadapterdateien
 
-Have a look on Github, to verify, whats new in this Alpha release!
+- Added: Support for Websockets is now integrated. Adapter uses the faster Websockets if available. If not, the connection falls back to socket polling 
+- Added: Better Darkmode Support (including Log, Overrides and CSS Styles layout)
+- Added: New option "Manual value change" for click options of datasources. With this you can directly modify the associated state inside ioBroker. Also predefined value(s) for quick accesses are possible.
+- Added: Automatic line-break after x characters for datasources, which provide longer text (e.g. weather forecasts)
+- Added: Define one Datasource as display and choose an other one to control (e.g. display the energy of a wallsocket, but switch it on or off with a different state via click-option)
+- Added: Language and dependencies are updated
+- Added: Better support for iOS devices as the values are not calculated via the objects itself anymore (should work for thickness and alignments)
+- Added: Autocomplete when adding or modifying sources inside datasources (if active)
+- Added: Import and Exports elements (e.g. for sharing a nice designed element with others)
+- Added: Preview elements (circle and rect) with their fill or outline layout
+- Added: Image gallery and query via web implementation of ioBroker
+- Added: Select datasources which contain image paths for images (e.g. WeatherAdapter)
+- Added: Improved workspace (better adding of elements, when scrolled, many design and element improvements etc.)
+- FIX: Some bugs or routines where not working as they should
+- FIX: Battery-Discharge was wrongly calculated, if the DoD should discharge till 0%
+- FIX: Removed kW settings in calculation tab as they are already set as factor inside the datasource area
 
 ### 0.4.1 (2024-04-18)
 - Hotfix: After uprading the Adapter, it could happen, that the first datasource was not updated properly
