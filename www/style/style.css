@@ -230,6 +230,7 @@ stop {
     border: 1px solid var(--primary);
     padding: 5px;
     margin-top: 4px;
+    overscroll-behavior: none;
 }
 
 /* Area Catch */
@@ -712,7 +713,7 @@ circle.action_element:active {
     transition: .5s;
 }
 
-.form_div:not(.noFoc):focus-within::after {
+.form_div:not(.noFocusLine):focus-within::after {
     width: 100%;
     background: var(--primary);
     border-radius: 10px;
@@ -1011,8 +1012,8 @@ a[disabled],
     margin: 15px 10px;
     flex: 1 1 auto;
     box-shadow: var(--box-shadow);
-    transition: All .2s linear;
-    -webkit-transition: All .2s linear;
+    transition: box-shadow .2s linear;
+    -webkit-transition: box-shadow .2s linear;
     border-radius: 5px;
 }
 
@@ -1024,8 +1025,8 @@ a[disabled],
 
 .detail_box:hover {
     box-shadow: var(--box-shadow-hover);
-    transition: All .2s linear;
-    -webkit-transition: All .2s linear;
+    transition: box-shadow .2s linear;
+    -webkit-transition: box-shadow .2s linear;
 }
 
 .detail_box.flex {
@@ -1826,7 +1827,7 @@ nav label:active {
 .tab2_config.resized {
     overflow-x: hidden;
     overflow-y: scroll;
-    height: calc(100% - 36px);
+    height: calc(100% - 80px);
 }
 
 #svg_line_preview {
@@ -1895,6 +1896,11 @@ nav label:active {
     display: none;
 }
 
+#upload_info {
+    align-items: center;
+    display: flex;
+}
+
 .userImages {
     width: 100%;
     display: flex;
@@ -1910,13 +1916,23 @@ nav label:active {
     align-content: center;
     flex-wrap: wrap;
     border-radius: 5px;
+    flex: 1 1 120px;
     border: 1px solid var(--silvergrey);
     box-shadow: var(--box-shadow);
+    transition: box-shadow .2s linear;
+    -webkit-transition: box-shadow .2s linear;
+}
+
+.userImages .imgContainer:hover {
+    box-shadow: var(--box-shadow-hover);
+    transition: box-shadow .2s linear;
+    -webkit-transition: box-shadow .2s linear;
 }
 
 .userImages .imgContainer div {
     text-align: center;
     padding-bottom: 5px;
+    width: 100%;
 }
 
 .userImages .imgContainer div.uploads_img {
@@ -2133,7 +2149,7 @@ nav label:active {
 }
 
 .ui-widget-header {
-    border: 1px solid var(--silvergrey);
+    border: 1px solid var(--darkestGrey);
     background: var(--primary);
     color: var(--white);
     font-weight: bold;
@@ -2263,6 +2279,11 @@ nav label:active {
     .scrollbar {
         scrollbar-width: none;
     }
+
+    .userImages .imgContainer {
+        min-width: 110px;
+        max-width: 124px;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -2314,7 +2335,7 @@ nav label:active {
     }
 
     .userImages .imgContainer {
-        max-width: 110px;
+        max-width: 170px;
     }
 }
 
@@ -2335,7 +2356,7 @@ nav label:active {
     }
 
     .userImages .imgContainer {
-        max-width: 120px;
+        max-width: 44%;
     }
 }
 
@@ -2348,6 +2369,10 @@ nav label:active {
     .detail_box.flex {
         width: 180px;
         min-width: 180px;
+    }
+
+    .userImages .imgContainer {
+        max-width: 128px;
     }
 }
 
