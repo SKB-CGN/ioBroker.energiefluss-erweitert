@@ -41,7 +41,7 @@ described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#
 
 - Added: Support for Websockets is now integrated. Adapter uses the faster Websockets if available. If not, the connection falls back to socket polling 
 - Added: Better Darkmode Support (including Log, Overrides and CSS Styles layout)
-- Added: New option "Manual value change" for click options of datasources. With this you can directly modify the associated state inside ioBroker. Also predefined value(s) for quick accesses are possible. Brightness for a lamp or charging current for a wallbox. Furthermore, a free-form field can be displayed, which allows the input of values
+- Added: New option "Manual value change" for click options of datasources. With this you can directly modify the associated state inside ioBroker. Also predefined value(s) for quick accesses are possible.
 - Added: Automatic line-break after x characters for datasources, which provide longer text (e.g. weather forecasts)
 - Added: Define one Datasource as display and choose an other one to control (e.g. display the energy of a wallsocket, but switch it on or off with a different state via click-option)
 - Added: Language and dependencies are updated
