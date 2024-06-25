@@ -1009,7 +1009,7 @@ a[disabled],
     width: auto;
     background: var(--middle-grey);
     padding: 12px;
-    margin: 15px 10px;
+    margin: 16px 10px;
     flex: 1 1 auto;
     box-shadow: var(--box-shadow);
     transition: box-shadow .2s linear;
@@ -1100,6 +1100,12 @@ fieldset.flex {
 
 #shortcut-table {
     padding-bottom: 10px;
+}
+
+#shortcut-table td,
+#shortcut-table th {
+    min-width: 80px;
+    width: 120px;
 }
 
 .used-ds-table th,
@@ -1198,6 +1204,7 @@ fieldset.flex {
     width: 100%;
     overflow: auto;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .data-table tbody tr:nth-child(2n+1),
@@ -1902,21 +1909,19 @@ nav label:active {
 }
 
 .userImages {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    column-gap: 10px;
 }
 
 .userImages .imgContainer {
+    min-width: 110px;
     display: flex;
-    padding: 6px;
-    margin: 6px;
-    max-width: 120px;
+    padding: 12px;
+    margin: 16px 10px;
     align-content: center;
     flex-wrap: wrap;
     border-radius: 5px;
-    flex: 1 1 120px;
     border: 1px solid var(--silvergrey);
     box-shadow: var(--box-shadow);
     transition: box-shadow .2s linear;
@@ -2279,11 +2284,6 @@ nav label:active {
     .scrollbar {
         scrollbar-width: none;
     }
-
-    .userImages .imgContainer {
-        min-width: 110px;
-        max-width: 124px;
-    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -2333,17 +2333,12 @@ nav label:active {
     .tabbed nav {
         padding-bottom: 8px;
     }
-
-    .userImages .imgContainer {
-        max-width: 170px;
-    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .detail_box.flex {
-        width: 170px;
-        min-width: 170px;
+        min-width: 168px;
     }
 
     fieldset.flex {
@@ -2352,11 +2347,7 @@ nav label:active {
     }
 
     .container>div {
-        width: auto;
-    }
-
-    .userImages .imgContainer {
-        max-width: 44%;
+        width: 100%;
     }
 }
 
@@ -2369,10 +2360,6 @@ nav label:active {
     .detail_box.flex {
         width: 180px;
         min-width: 180px;
-    }
-
-    .userImages .imgContainer {
-        max-width: 128px;
     }
 }
 
