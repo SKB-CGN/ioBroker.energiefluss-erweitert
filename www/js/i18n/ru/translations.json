@@ -245,6 +245,8 @@
     "lbl_unit": "Единица",
     "lbl_upload": "Загрузить",
     "lbl_used_as": "используется",
+    "lbl_valueAnimation": "Анимация значений",
+    "lbl_value_animation": "Время в мс",
     "lbl_value_changed": "Если значение поменяло знак, заполняем в другом направлении (обратном)",
     "lbl_viewbox": "ViewBox",
     "lbl_width": "Ширина",

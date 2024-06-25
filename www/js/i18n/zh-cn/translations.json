@@ -245,6 +245,8 @@
     "lbl_unit": "单元",
     "lbl_upload": "上传",
     "lbl_used_as": "用来",
+    "lbl_valueAnimation": "数值动画",
+    "lbl_value_animation": "时间（毫秒）",
     "lbl_value_changed": "如果值改变了符号，则填充另一个方向（相反）",
     "lbl_viewbox": "视图框",
     "lbl_width": "宽度",

@@ -245,6 +245,8 @@
     "lbl_unit": "Jednostka",
     "lbl_upload": "Wgrywać",
     "lbl_used_as": "Jest używane",
+    "lbl_valueAnimation": "Animacja wartości",
+    "lbl_value_animation": "Czas w ms",
     "lbl_value_changed": "Jeśli wartość zmieniła znak, wypełnij drugi kierunek (odwrotny)",
     "lbl_viewbox": "ZobaczBox",
     "lbl_width": "Szerokość",

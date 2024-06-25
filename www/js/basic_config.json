@@ -10,6 +10,7 @@
         "enable_ds_autocomplete": false,
         "height": 540,
         "width": 530,
+        "animation_timer": 1000,
         "background_color": "",
         "styles": "",
         "font": {

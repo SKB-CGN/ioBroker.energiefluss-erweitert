@@ -245,6 +245,8 @@
     "lbl_unit": "Einheit",
     "lbl_upload": "Hochladen",
     "lbl_used_as": "wird eingesetzt",
+    "lbl_valueAnimation": "Werteanimation",
+    "lbl_value_animation": "Zeit in ms",
     "lbl_value_changed": "Wenn der Wert das Vorzeichen geändert hat, füllen Sie ihn in die andere Richtung (umgekehrt).",
     "lbl_viewbox": "ViewBox",
     "lbl_width": "Breite",

@@ -245,6 +245,8 @@
     "lbl_unit": "Unità",
     "lbl_upload": "Caricamento",
     "lbl_used_as": "si usa",
+    "lbl_valueAnimation": "Animazione del valore",
+    "lbl_value_animation": "Tempo in ms",
     "lbl_value_changed": "Se il valore ha cambiato segno, riempire l'altra direzione (inversa)",
     "lbl_viewbox": "ViewBox",
     "lbl_width": "Larghezza",

@@ -1910,7 +1910,7 @@ nav label:active {
 
 .userImages {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     column-gap: 10px;
 }
 
@@ -1961,6 +1961,10 @@ nav label:active {
     text-overflow: ellipsis;
     display: block;
     white-space: nowrap;
+}
+
+.userImages .imgContainer div.uploads_btn input {
+    width: 100px;
 }
 
 #userImagesBrowseDialog {
@@ -2347,7 +2351,7 @@ nav label:active {
     }
 
     .container>div {
-        width: 100%;
+        width: 350px;
     }
 }
 

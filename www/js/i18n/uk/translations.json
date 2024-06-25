@@ -245,6 +245,8 @@
     "lbl_unit": "одиниця",
     "lbl_upload": "Завантажити",
     "lbl_used_as": "використовується",
+    "lbl_valueAnimation": "Значення анімації",
+    "lbl_value_animation": "Час у мс",
     "lbl_value_changed": "Якщо значення змінило знак, заповніть інший бік (зворотний).",
     "lbl_viewbox": "ViewBox",
     "lbl_width": "Ширина",

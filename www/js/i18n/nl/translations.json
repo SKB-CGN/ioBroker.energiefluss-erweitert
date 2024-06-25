@@ -245,6 +245,8 @@
     "lbl_unit": "Eenheid",
     "lbl_upload": "Uploaden",
     "lbl_used_as": "is gebruikt",
+    "lbl_valueAnimation": "Waarde animatie",
+    "lbl_value_animation": "Tijd in ms",
     "lbl_value_changed": "Als de waarde van teken is veranderd, vul dan de andere richting in (omgekeerd)",
     "lbl_viewbox": "BekijkBox",
     "lbl_width": "Breedte",
