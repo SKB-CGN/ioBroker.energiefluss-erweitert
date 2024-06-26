@@ -378,24 +378,13 @@ legend>span {
     border: 1px solid var(--darkestGrey);
 }
 
-text.action_element:hover,
-text.active_element:focus,
-text.active_element:active {
-    opacity: .6;
-    pointer-events: all;
+.action_element {
     cursor: pointer;
+    pointer-events: all;
 }
 
-rect.action_element:hover,
-rect.action_element:focus,
-rect.action_element:active,
-circle.action_element:hover,
-circle.action_element:focus,
-circle.action_element:active {
+text.action_element:hover {
     opacity: .6;
-    pointer-events: all;
-    cursor: pointer;
-    transition: .5s;
 }
 
 #help_section,
@@ -1417,7 +1406,6 @@ fieldset.flex {
 }
 
 #config_bar {
-    height: 99%;
     max-height: 99%;
     width: 355px;
     max-width: 100%;
@@ -1430,9 +1418,19 @@ fieldset.flex {
     box-shadow: var(--box-shadow);
 }
 
-#config_bar>.config_display {
-    overflow: hidden;
-    margin: 0 0px;
+#config_bar .tabbed {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#config_bar .tabbed figure {
+    height: calc(100% - 42px);
+}
+
+#config_bar .tabbed figure>div {
+    height: calc(100% - 35px);
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #config_bar.right {
@@ -1642,7 +1640,6 @@ text {
 .tabbed figure {
     display: block;
     margin: -1px 0;
-    /* border-bottom: 1px solid silver; */
     min-width: 100%;
     clear: both;
     max-width: 100%;
@@ -1828,13 +1825,6 @@ nav label:active {
     background: var(--white);
     left: 0;
     bottom: -2px;
-}
-
-.tab1_config.resized,
-.tab2_config.resized {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: calc(100% - 80px);
 }
 
 #svg_line_preview {
@@ -2351,7 +2341,7 @@ nav label:active {
     }
 
     .container>div {
-        width: 350px;
+        width: 100%;
     }
 }
 
@@ -2372,6 +2362,10 @@ nav label:active {
     .detail_box.flex {
         width: 200px;
         max-width: 200px;
+    }
+
+    .container>div {
+        width: 350px;
     }
 }
 
