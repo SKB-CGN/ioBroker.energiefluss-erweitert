@@ -667,8 +667,8 @@ text.action_element:hover {
     margin-top: 6px;
 }
 
-.form_div span {
-    font-size: 14px;
+.form_div.info span {
+    font-size: 12px;
 }
 
 .form_div span.red {
@@ -1450,13 +1450,13 @@ fieldset.flex {
 #config_bar.show.right {
     left: 100%;
     transform: translate(-100%, 0);
-    transition: all .5s ease-in;
+    transition: all .5s linear;
 }
 
 #config_bar.show.left {
     right: 100%;
     transform: translate(100%, 0);
-    transition: all .5s ease-in;
+    transition: all .5s linear;
 }
 
 

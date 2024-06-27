@@ -24,6 +24,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 * [Forum thread](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
 * [English description](./docs/en/README.md)
 * [Deutsche Beschreibung](./docs/de/README.md)
+* [Views Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
 
 ## Changelog
 <!--
@@ -36,7 +37,7 @@ The core of the adapter keeps running on the same 0.4.1 version like before, but
 
 Note: save content of the state 'configuration' inside the instance as text on your disk to be able, to restore it, it case needed or downgrading to the official version again! 
 
-After downloading the BETA Version of the adapter, please manually proceed with uploading the adapter (this has to be done, after adapters are installed via Github) 
+After downloading the BETA Version, please manually proceed with uploading the adapter (this has to be done, after adapters are installed via Github) 
 described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#uploadvonadapterdateien
 
 - Added: Support for Websockets is now integrated. Adapter uses the faster Websockets if available. If not, the connection falls back to socket polling 
