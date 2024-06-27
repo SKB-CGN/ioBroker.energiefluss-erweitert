@@ -93,6 +93,7 @@ a:hover {
 
 /* Loading Animation before iFrame */
 
+.ui-widget-overlay-fading,
 .ui-widget-overlay,
 #loading {
     background-color: var(--loading-background);
