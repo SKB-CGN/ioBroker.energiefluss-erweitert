@@ -39,7 +39,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - FIX: Under some circumstances an element could not be deleted (Error: Existing connection!)
 - Added: Text-Elements can now be used as date and time element
 - Added: Icons can now be rotated and flipped (even when using overrides for them)
-- Added: New overrides parameter 'icon' available to change icons (Explained in [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements#for-icons)
+- Added: New overrides parameter 'icon' available to change icons (Explained in [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements#for-icons))
 
 ### 0.5.0-alpha.0 (2024-06-24)
 **!!! Please note, this currently an Alpha-Version, because many things are changed and needed to be tested!!!**  
