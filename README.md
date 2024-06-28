@@ -31,7 +31,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.1-alpha.0 (2024-06-28)
 - FIX: The coordinates and size of an added icon could not be changed
 - FIX: Cursor as Pointer (hand) did not appear on elements with action
 - FIX: NPM dependency for gallery was not fetched properly
