@@ -1696,20 +1696,27 @@ class EnergieflussErweitert extends utils.Adapter {
 				let query = url.parse(req.url, true).query;
 				let callback = query.callback;
 				let message;
-				res.setHeader("Content-Type", "application/javascript");
+
 				// Query for icon
 				switch (query.serve) {
+					case 'listCache':
+						res.setHeader("Content-Type", "application/json");
+						res.writeHead(200);
+						res.end(JSON.stringify(iconCacheObject));
+						break;
 					case "icon":
 						if (query.icon) {
+							const queryIcon = `${query.icon}|${query.width}|${query.height}|${query.flip}|${query.rotate}`;
+							res.setHeader("Content-Type", "application/javascript");
 							// Check, if icon is available in Cache
-							if (iconCacheObject.hasOwnProperty(query.icon)) {
-								iconCacheObject[query.icon].status = 'served via Cache';
+							if (iconCacheObject.hasOwnProperty(queryIcon)) {
+								iconCacheObject[queryIcon].status = 'served via Cache';
 								res.writeHead(200);
-								res.end(`${callback}(${JSON.stringify(iconCacheObject[query.icon])})`);
-								_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[query.icon].status}`);
+								res.end(`${callback}(${JSON.stringify(iconCacheObject[queryIcon])})`);
+								_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[queryIcon].status}`);
 							} else {
 								let icon = query.icon.split(":");
-								let url = `${BASEURL}${icon[0]}/${icon[1]}.svg?width=${query.width}&height=${query.height}`;
+								let url = `${BASEURL}${icon[0]}/${icon[1]}.svg?width=${query.width}&height=${query.height}&flip=${query.flip}&rotate=${query.rotate}`;
 								https.get(url, result => {
 									let data = [];
 									result.on('data', chunk => {
@@ -1721,23 +1728,23 @@ class EnergieflussErweitert extends utils.Adapter {
 											message = Buffer.concat(data).toString();
 											if (message != 404) {
 												// Put Icon into cache
-												iconCacheObject[query.icon] = {
+												iconCacheObject[queryIcon] = {
 													icon: message,
 													status: 'served via Server'
 												}
 												res.writeHead(200);
-												res.end(`${callback}(${JSON.stringify(iconCacheObject[query.icon])})`);
+												res.end(`${callback}(${JSON.stringify(iconCacheObject[queryIcon])})`);
 											} else {
 												// Put Icon into cache
-												iconCacheObject[query.icon] = {
+												iconCacheObject[queryIcon] = {
 													icon: error_icon,
 													message: 'Icon not found!',
 													status: 'served via Server'
 												}
 												res.writeHead(200);
-												res.end(`${callback}(${JSON.stringify(iconCacheObject[query.icon])})`);
+												res.end(`${callback}(${JSON.stringify(iconCacheObject[queryIcon])})`);
 											}
-											_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[query.icon].status}`);
+											_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[queryIcon].status}`);
 										} else {
 											// Server down or not found
 											res.writeHead(200);

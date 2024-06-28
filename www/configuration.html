@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style/jquery-ui.css">
     <link rel="stylesheet" href="style/loading-spinner.css">
     <link rel="stylesheet" href="style/multiselect.css">
-    <link rel="stylesheet" href="style/style.css?v=0.5">
+    <link rel="stylesheet" href="style/style.css?v=0.5.1">
 
     <script src="../../socket.io/socket.io.js"></script>
 
@@ -26,7 +26,7 @@
     <script src="js/multiselect.min.js"></script>
     <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/ace/ext-language_tools.js"></script>
-    <script src="js/functions.min.js?v=0.5"></script>
+    <script src="js/functions.min.js?v=0.5.1"></script>
 
     <style id="style_animation"></style>
     <style id="style_user"></style>
@@ -348,7 +348,7 @@
                                                     Right</option>
                                             </select>
                                         </div>
-                                        <div class="form_div">
+                                        <div class="form_div info">
                                             <span class="translate" data-lang="ex_config_align">This will
                                                 change, if
                                                 you
@@ -367,6 +367,44 @@
                                                 title="Rotate counter-clockwise"><span class="iconify add_element_area"
                                                     data-icon="material-symbols:rotate-90-degrees-ccw-outline-rounded"
                                                     data-height="24" data-width="24"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detail_box elm_config_box icon">
+                                    <span class="config_sec translate" data-lang="legend_alignment">Alignment</span>
+                                    <div class="contentBox">
+                                        <div class="form_div select">
+                                            <label for="elm_flip" class="translate form_label"
+                                                data-lang="lbl_flip">Horizontal/Vertical flip</label>
+                                            <select class="input_select elm_config" id="elm_flip" name="elm_flip">
+                                                <option value="" class="translate" data-lang="opt_none" selected>
+                                                    Deactivated
+                                                </option>
+                                                <option value="horizontal" class="translate" data-lang="opt_horizontal">
+                                                    Horizontal
+                                                </option>
+                                                <option value="vertical" class="translate" data-lang="opt_vertical">
+                                                    Vertical</option>
+                                                <option value="horizontal,vertical" class="translate"
+                                                    data-lang="opt_horizontal_vertical">
+                                                    Horizontal and vertical</option>
+                                            </select>
+                                        </div>
+                                        <div class="form_div select">
+                                            <label for="elm_rotate" class="translate form_label"
+                                                data-lang="lbl_rotation">Rotation</label>
+                                            <select class="input_select elm_config" id="elm_rotate" name="elm_rotate">
+                                                <option value="0" class="translate" data-lang="opt_none" selected>
+                                                    Deactivated
+                                                </option>
+                                                <option value="90deg" class="translate" data-lang="opt_90_deg">
+                                                    90 Degree
+                                                </option>
+                                                <option value="180deg" class="translate" data-lang="opt_180_deg">
+                                                    180 Degree</option>
+                                                <option value="270deg" class="translate" data-lang="opt_270_deg">
+                                                    270 Degree</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -514,10 +552,11 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="detail_box elm_config_box text">
                                     <span class="config_sec translate" data-lang="lbl_text">Text</span>
                                     <div class="contentBox">
-                                        <div class="form_div textbox elm_config_text_not_ds">
+                                        <div class="form_div textbox text_not_ds">
                                             <label for="elm_text" class="form_label translate"
                                                 data-lang="lbl_text">Text</label>
                                             <textarea id="elm_text" name="elm_text" cols="30" rows="5"
@@ -540,14 +579,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="detail_box elm_config_box text">
-                                    <span class="config_sec translate" data-lang="lbl_textoptions">Text
+                                <div class="detail_box elm_config_box text text_only">
+                                    <span class="config_sec translate" data-lang="lbl_text_options">Text
                                         Options</span>
                                     <div class="contentBox">
                                         <div class="cb_switch">
-                                            <input type="checkbox" name="elm_clock.enable" class="elm_config"
-                                                id="elm_clock.enable" value="">
-                                            <label for="elm_clock.enable">
+                                            <input type="checkbox" name="elm_enable_clock" class="elm_config"
+                                                id="elm_enable_clock" value="">
+                                            <label for="elm_enable_clock">
                                                 <span></span>
                                                 <span class="translate" data-lang="lbl_enable_clock">Use as
                                                     Clock/Date</span>
@@ -555,53 +594,147 @@
                                         </div>
                                         <div class="enable_clock">
                                             <div class="cb_switch">
-                                                <input type="checkbox" name="elm_clock.format" class="elm_config"
-                                                    id="elm_clock.format" value="">
-                                                <label for="elm_clock.format">
+                                                <input type="checkbox" name="elm_clock.hour12" class="elm_config"
+                                                    id="elm_clock.hour12" value="">
+                                                <label for="elm_clock.hour12">
                                                     <span></span>
-                                                    <span class="translate" data-lang="lbl_clock_format24">Use 24h
+                                                    <span class="translate" data-lang="lbl_clock_format12">Use 12h
                                                         format</span>
                                                 </label>
                                             </div>
-                                            <div class="cb_switch">
-                                                <input type="checkbox" name="elm_clock.weekday" class="elm_config"
-                                                    id="elm_clock.weekday" value="">
-                                                <label for="elm_clock.weekday">
-                                                    <span></span>
-                                                    <span class="translate"
-                                                        data-lang="lbl_clock_weekday">Weekyday</span>
-                                                </label>
+                                            <div class="form_div select">
+                                                <label for="elm_clock.year" class="translate form_label"
+                                                    data-lang="lbl_clock_year">Year</label>
+                                                <select class="input_select elm_config" id="elm_clock.year"
+                                                    name="elm_clock.year">
+                                                    <option value="none" class="translate" data-lang="opt_none"
+                                                        selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
+                                                        2-digit
+                                                    </option>
+                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
+                                                        Numeric</option>
+                                                </select>
                                             </div>
-                                            <div class="cb_switch">
-                                                <input type="checkbox" name="elm_clock.date" class="elm_config"
-                                                    id="elm_clock.date" value="">
-                                                <label for="elm_clock.date">
-                                                    <span></span>
-                                                    <span class="translate" data-lang="lbl_clock_date">Date</span>
-                                                </label>
+                                            <div class="form_div select">
+                                                <label for="elm_clock.month" class="translate form_label"
+                                                    data-lang="lbl_clock_month">Month</label>
+                                                <select class="input_select elm_config" id="elm_clock.month"
+                                                    name="elm_clock.month">
+                                                    <option value="none" class="translate" data-lang="opt_none"
+                                                        selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
+                                                        2-digit
+                                                    </option>
+                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
+                                                        Numeric</option>
+                                                    <option value="long" class="translate" data-lang="opt_long">
+                                                        Long</option>
+                                                    <option value="short" class="translate" data-lang="opt_short">
+                                                        Short</option>
+                                                </select>
                                             </div>
-                                            <div class="form_div textbox">
-                                                <input type="text" class="input_text elm_config style"
-                                                    name="elm_clock.delimiter" id="elm_clock.delimiter" placeholder=""
-                                                    autocorrect="off" autocomplete="off">
-                                                <label for="elm_font_family" class="form_label translate"
-                                                    data-lang="lbl_clock_delimiter">Delimiter for date</label>
+                                            <div class="form_div select">
+                                                <label for="elm_clock.day" class="translate form_label"
+                                                    data-lang="lbl_clock_day">Day</label>
+                                                <select class="input_select elm_config" id="elm_clock.day"
+                                                    name="elm_clock.day">
+                                                    <option value="none" class="translate" data-lang="opt_none"
+                                                        selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
+                                                        2-digit
+                                                    </option>
+                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
+                                                        Numeric</option>
+                                                </select>
                                             </div>
-                                            <div class="cb_switch">
-                                                <input type="checkbox" name="elm_clock.time" class="elm_config"
-                                                    id="elm_clock.time" value="">
-                                                <label for="elm_clock.time">
-                                                    <span></span>
-                                                    <span class="translate" data-lang="lbl_clock_time">Time</span>
-                                                </label>
+                                            <div class="form_div select">
+                                                <label for="elm_clock.weekday" class="translate form_label"
+                                                    data-lang="lbl_clock_weekday">Day</label>
+                                                <select class="input_select elm_config" id="elm_clock.weekday"
+                                                    name="elm_clock.weekday">
+                                                    <option value="none" class="translate" data-lang="opt_none"
+                                                        selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="long" class="translate" data-lang="opt_long">
+                                                        Long</option>
+                                                    <option value="short" class="translate" data-lang="opt_short">
+                                                        Short</option>
+                                                </select>
                                             </div>
-                                            <div class="cb_switch">
-                                                <input type="checkbox" name="elm_clock.seconds" class="elm_config"
-                                                    id="elm_clock.seconds" value="">
-                                                <label for="elm_clock.seconds">
-                                                    <span></span>
-                                                    <span class="translate" data-lang="lbl_clock_seconds">Seconds</span>
-                                                </label>
+                                            <div class="form_div select">
+                                                <label for="elm_clock.hour" class="translate form_label"
+                                                    data-lang="lbl_clock_hour">Hour</label>
+                                                <select class="input_select elm_config" id="elm_clock.hour"
+                                                    name="elm_clock.hour">
+                                                    <option value="none" class="translate" data-lang="opt_none"
+                                                        selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
+                                                        2-digit
+                                                    </option>
+                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
+                                                        Numeric</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_div select">
+                                                <label for="elm_clock.minute" class="translate form_label"
+                                                    data-lang="lbl_clock_minute">Minute</label>
+                                                <select class="input_select elm_config" id="elm_clock.minute"
+                                                    name="elm_clock.minute">
+                                                    <option value="none" class="translate" data-lang="opt_none"
+                                                        selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
+                                                        2-digit
+                                                    </option>
+                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
+                                                        Numeric</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_div select">
+                                                <label for="elm_clock.second" class="translate form_label"
+                                                    data-lang="lbl_clock_second">Second</label>
+                                                <select class="input_select elm_config" id="elm_clock.second"
+                                                    name="elm_clock.second">
+                                                    <option value="none" class="translate" data-lang="opt_none"
+                                                        selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
+                                                        2-digit
+                                                    </option>
+                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
+                                                        Numeric</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_div select">
+                                                <label for="elm_clock.dayPeriod" class="translate form_label"
+                                                    data-lang="lbl_clock_dayperiod">Day</label>
+                                                <select class="input_select elm_config" id="elm_clock.dayPeriod"
+                                                    name="elm_clock.dayPeriod">
+                                                    <option value="none" class="translate" data-lang="opt_none"
+                                                        selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="long" class="translate" data-lang="opt_long">
+                                                        Long</option>
+                                                    <option value="short" class="translate" data-lang="opt_short">
+                                                        Short</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_div info">
+                                                <span class="translate" data-lang="ex_clock_dayperiod">Actions for the
+                                                    data source can be configured in the 'Advanced' tab</span>
                                             </div>
                                         </div>
                                     </div>
@@ -622,6 +755,10 @@
                                             <select class="input_select elm_config elm_config_update"
                                                 name="elm_source_action" id="elm_source_action"></select>
                                         </div>
+                                        <div class="form_div elm_config_box datasource">
+                                            <span class="translate" data-lang="ex_config_datasource">Actions for the
+                                                data source can be configured in the 'Advanced' tab</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="detail_box elm_config_box datasource">
@@ -639,7 +776,8 @@
                                                     None
                                                 </option>
                                                 <option value="timestamp_us" class="translate"
-                                                    data-lang="opt_timestamp_us">Timestamp US</option>
+                                                    data-lang="opt_timestamp_us">
+                                                    Timestamp US</option>
                                                 <option value="timestamp_us_short" class="translate"
                                                     data-lang="opt_timestamp_us_short">Timestamp US
                                                     short
@@ -651,7 +789,8 @@
                                                     (without
                                                     year)</option>
                                                 <option value="timestamp_de" class="translate"
-                                                    data-lang="opt_timestamp_de">Timestamp DE</option>
+                                                    data-lang="opt_timestamp_de">
+                                                    Timestamp DE</option>
                                                 <option value="timestamp_de_short" class="translate"
                                                     data-lang="opt_timestamp_de_short">Timestamp DE
                                                     short
@@ -829,13 +968,15 @@
                                                 <select class="input_select elm_config elm_config_update"
                                                     name="elm_calculate_kw" id="elm_calculate_kw">
                                                     <option value="none" class=" translate" data-lang="opt_none"
-                                                        selected="">Deactivated
+                                                        selected="">
+                                                        Deactivated
                                                     </option>
                                                     <option value="calc" class="translate" data-lang="opt_calculate_kw">
                                                         Calculate Value
                                                         from W to kW</option>
                                                     <option value="auto" class="translate"
-                                                        data-lang="opt_calculate_auto">Automatic calculation
+                                                        data-lang="opt_calculate_auto">
+                                                        Automatic calculation
                                                         including unit (W, kW)</option>
                                                 </select>
                                             </div>
@@ -872,7 +1013,8 @@
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_add" class="form_label translate"
-                                                    data-lang="lbl_config_add">Add this to the value</label>
+                                                    data-lang="lbl_config_add">Add
+                                                    this to the value</label>
                                                 <select class="elm_config" name="elm_add" id="elm_add"
                                                     multiple></select>
                                             </div>
@@ -900,7 +1042,7 @@
                                                 </option>
                                             </select>
                                         </div>
-                                        <div class="form_div textbox anim_type_duration">
+                                        <div class="form_div textbox anim_type_duration elm_config_box_sub">
                                             <input type="number" class="input_text elm_config " name="elm_duration"
                                                 id="elm_duration" placeholder="" autocorrect="off" autocomplete="off"
                                                 min="0">
@@ -909,7 +1051,7 @@
                                                 on the
                                                 line</label>
                                         </div>
-                                        <div class="form_div textbox anim_type_dots">
+                                        <div class="form_div textbox anim_type_dots elm_config_box_sub">
                                             <input type="number" class="input_text elm_config " name="elm_dots"
                                                 id="elm_dots" placeholder="" autocorrect="off" autocomplete="off"
                                                 min="0">
@@ -917,7 +1059,7 @@
                                                 data-lang="lbl_config_max_dots">Max dots on the
                                                 line</label>
                                         </div>
-                                        <div class="form_div textbox anim_type_dots anim_type_duration">
+                                        <div class="form_div textbox anim_type_power elm_config_box_sub">
                                             <input type="number" class="input_text elm_config " name="elm_power"
                                                 id="elm_power" placeholder="" autocorrect="off" autocomplete="off"
                                                 min="0">
@@ -944,7 +1086,8 @@
                                         </div>
                                         <div class="form_div select">
                                             <label for="elm_frame" class="form_label translate"
-                                                data-lang="lbl_frame_open">Open in</label>
+                                                data-lang="lbl_frame_open">Open
+                                                in</label>
                                             <select class="input_select elm_config" name="elm_frame" id="elm_frame">
                                                 <option value="_overlay" class="translate" data-lang="opt_frame_iframe">
                                                     iFrame overlay</option>
@@ -959,11 +1102,12 @@
                                         <img src='img/icon_help.png' style='margin-top:10px;' class="translateP help"
                                             data-lang-placeholder="help_frame"
                                             placeholder="<p><b>New Window:</b><br>Opens the URL in a new window</p> <p><b>Same window:</b><br>Opens the URL in the same window</p> <p><b>iFrame overlay:</b><br>Opens the URL inside an Overlay. Some pages cannot be opened inside overlay frames. If this does not work for you, please choose a different option!<p><u>Tipp:</u><br>For http pages, it is possible to pass login credentials via URL. E.g. 'http://yourUser'<b>:</b>yourPass@example.com - This does <u>not</u> work for https</p>">
-                                        <br>
-                                        <span class="translate frame_deactivated " data-lang="lbl_frame_deactivated"
-                                            style="color: var(--red);">You use
-                                            click options for this element. Therefore, the Browser-Frame
-                                            options are not useable!</span>
+                                        <div class="form_div info">
+                                            <span class="translate frame_deactivated " data-lang="lbl_frame_deactivated"
+                                                style="color: var(--red);">You use
+                                                click options for this element. Therefore, the Browser-Frame
+                                                options are not useable!</span>
+                                        </div>
                                         <div class="form_div button">
                                             <input type="button" id="preview_action_url"
                                                 class="input_button translateV preview_action"
@@ -1618,7 +1762,8 @@
                                 </div>
                                 <div class="form_div select">
                                     <label for="elm_ds_factor" class="translate form_label"
-                                        data-lang="lbl_ds_factor">Unit of the source</label>
+                                        data-lang="lbl_ds_factor">Unit of
+                                        the source</label>
                                     <select class="input_select" name="elm_ds_factor" id="elm_ds_factor">
                                         <option value="1" class="translate" data-lang="opt_ds_factor_1" selected>
                                             watts (w)</option>
