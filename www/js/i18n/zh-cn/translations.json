@@ -73,6 +73,7 @@
     "failmsg_not_reachable": "如果页面无法加载，请点击此处，了解如何修复它！",
     "failmsg_opening_frame": "您需要允许打开此网站的 URL！",
     "failmsg_opening_frame_preview": "在同一窗口内打开 URL 将导致配置数据丢失！<br>已取消！",
+    "failmsg_preview_element_no_action": "您没有选择可用的点击选项",
     "failmsg_preview_element_no_ds": "请选择该元素的来源！",
     "failmsg_preview_element_not_all": "无法预览！<br>请填写所有必填字段！",
     "failmsg_receiving_data": "接收数据时发生错误！",

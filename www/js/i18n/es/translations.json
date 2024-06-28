@@ -73,6 +73,7 @@
     "failmsg_not_reachable": "Si la página no se carga, haga clic aquí para descubrir cómo solucionarlo.",
     "failmsg_opening_frame": "¡Debe permitir la apertura de URL para este sitio web!",
     "failmsg_opening_frame_preview": "¡Abrir la URL dentro de la misma ventana provocará la pérdida de datos de configuración!<br>¡Cancelado!",
+    "failmsg_preview_element_no_action": "No elegiste una opción de clic disponible",
     "failmsg_preview_element_no_ds": "¡Seleccione una fuente para este elemento!",
     "failmsg_preview_element_not_all": "¡La vista previa no es posible!<br>¡Rellene todos los campos necesarios!",
     "failmsg_receiving_data": "¡Ocurrió un error al recibir datos!",

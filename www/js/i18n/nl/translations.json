@@ -73,6 +73,7 @@
     "failmsg_not_reachable": "Als de pagina niet wordt geladen, klik dan hier om te zien hoe u dit kunt oplossen!",
     "failmsg_opening_frame": "U moet het openen van URL's voor deze website toestaan!",
     "failmsg_opening_frame_preview": "Het openen van de URL in hetzelfde venster leidt tot verlies van configuratiegegevens!<br>Geannuleerd!",
+    "failmsg_preview_element_no_action": "U heeft geen beschikbare klikoptie gekozen",
     "failmsg_preview_element_no_ds": "Selecteer een bron voor dit element!",
     "failmsg_preview_element_not_all": "Voorbeeld niet mogelijk!<br>Vul alle benodigde velden in!",
     "failmsg_receiving_data": "Er is een fout opgetreden tijdens het ontvangen van gegevens!",

@@ -73,6 +73,7 @@
     "failmsg_not_reachable": "Se la pagina non si carica, clicca qui per scoprire come risolverlo!",
     "failmsg_opening_frame": "È necessario consentire l'apertura degli URL per questo sito Web!",
     "failmsg_opening_frame_preview": "L'apertura dell'URL all'interno della stessa finestra porterà alla perdita dei dati di configurazione!<br>Annullato!",
+    "failmsg_preview_element_no_action": "Non hai scelto un'opzione clic disponibile",
     "failmsg_preview_element_no_ds": "Seleziona una fonte per questo elemento!",
     "failmsg_preview_element_not_all": "Anteprima non possibile!<br>Compila tutti i campi necessari!",
     "failmsg_receiving_data": "Si è verificato un errore durante la ricezione dei dati!",

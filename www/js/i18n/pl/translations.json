@@ -73,6 +73,7 @@
     "failmsg_not_reachable": "Jeśli strona się nie ładuje, kliknij tutaj, aby dowiedzieć się, jak to naprawić!",
     "failmsg_opening_frame": "Musisz zezwolić na otwieranie adresów URL tej witryny!",
     "failmsg_opening_frame_preview": "Otwarcie adresu URL w tym samym oknie spowoduje utratę danych konfiguracyjnych!<br>Anulowano!",
+    "failmsg_preview_element_no_action": "Nie wybrałeś dostępnej opcji kliknięcia",
     "failmsg_preview_element_no_ds": "Proszę wybrać źródło tego elementu!",
     "failmsg_preview_element_not_all": "Podgląd nie jest możliwy!<br>Proszę wypełnić wszystkie niezbędne pola!",
     "failmsg_receiving_data": "Wystąpił błąd podczas odbierania danych!",

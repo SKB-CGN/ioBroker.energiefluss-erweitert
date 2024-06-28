@@ -73,6 +73,7 @@
     "failmsg_not_reachable": "Wenn die Seite nicht geladen wird, klicken Sie bitte hier, um herauszufinden, wie Sie das Problem beheben können!",
     "failmsg_opening_frame": "Sie müssen öffnende URLs für diese Website zulassen!",
     "failmsg_opening_frame_preview": "Das Öffnen der URL im selben Fenster führt zum Verlust von Konfigurationsdaten!<br>Abgebrochen!",
+    "failmsg_preview_element_no_action": "Sie haben keine verfügbare Klickoption ausgewählt",
     "failmsg_preview_element_no_ds": "Bitte wählen Sie eine Quelle für dieses Element!",
     "failmsg_preview_element_not_all": "Vorschau nicht möglich!<br>Bitte füllen Sie alle notwendigen Felder aus!",
     "failmsg_receiving_data": "Beim Datenempfang ist ein Fehler aufgetreten!",
