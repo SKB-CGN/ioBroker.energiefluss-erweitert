@@ -1713,11 +1713,6 @@ text {
     transition: all .5s;
 }
 
-.tabbed nav label:last-of-type {
-    -webkit-box-shadow: var(--box-shadow);
-    box-shadow: var(--box-shadow);
-}
-
 nav label>.menu {
     padding-right: 5px;
 }
