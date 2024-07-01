@@ -1629,9 +1629,7 @@
                                         data-lang-title="ex_align_undo" title="Undo" disabled="disabled"><span
                                             class="iconify" data-icon="mdi:undo" data-width="24"
                                             data-height="24"></span></button>
-                                    <span id="undo_steps" style="width: 100%; text-align: right;" class="translate"
-                                        data-lang="ex_align_undo_steps">(Saved Steps: -)
-                                    </span>
+                                    <span id="undo_steps" style="width: 100%; text-align: right;"></span>
                                 </div>
                                 <input type="button" value="Done" id="align_elements" class="input_button translateV"
                                     data-lang-value="value_done" style="display: none;">
@@ -1755,8 +1753,8 @@
                                     </div>
                                 </div>
                                 <div class="form_div textbox">
-                                    <input type="text" class="input_text icon_in_input_pad" name="elm_ds_alias"
-                                        id="elm_ds_alias" placeholder="" autocorrect="off" autocomplete="off">
+                                    <input type="text" class="input_text" name="elm_ds_alias" id="elm_ds_alias"
+                                        placeholder="" autocorrect="off" autocomplete="off">
                                     <label for="elm_ds_alias" class="form_label translate"
                                         data-lang="lbl_alias">Alias</label>
                                 </div>
@@ -2221,12 +2219,42 @@
                                 data-height="24"></span>
                             <span class="translate" data-lang="lbl_gallery">Gallery</span>
                         </legend>
-                        <div id="userImages" class="userImages"><span class="translate" data-lang="txt_upload_no_images"
-                                id="userImages_dummy">There are
-                                currently no images inside
-                                the gallery! You can upload some using the upload function!</span></div>
+                        <div id="userImagesContainer">
+                            <div class="userImagesFilter">
+                                <div class="form_div textbox">
+                                    <input type="text" class="input_text icon_in_input_pad userImages_filter"
+                                        placeholder="" autocorrect="off" autocomplete="off">
+                                    <label for="elm_ds_alias" class="translate form_label"
+                                        data-lang="lbl_filter">Filter</label>
+                                    <div class="icon_wrapper">
+                                        <span class="iconify" data-icon="mdi:search" data-width="24" data-height="24"
+                                            style="color: var(--primary);"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="userImages" class="userImages">
+                                <span class="translate" data-lang="txt_upload_no_images" id="userImages_dummy">There are
+                                    currently no images inside
+                                    the gallery! You can upload some using the upload function!</span>
+                            </div>
+                        </div>
                         <div id="userImagesBrowseDialog">
-                            <div id="userImagesBrowse" class="userImages"></div>
+                            <div id="userImagesBrowseContainer">
+                                <div class="userImagesFilter" style="display: inline-block;">
+                                    <div class="form_div textbox">
+                                        <input type="text" id="userImagesBrowseFilter" name="userImagesBrowseFilter"
+                                            class="input_text icon_in_input_pad userImages_filter" placeholder=""
+                                            autocorrect="off" autocomplete="off">
+                                        <label for="elm_ds_alias" class="translate form_label"
+                                            data-lang="lbl_filter">Filter</label>
+                                        <div class="icon_wrapper">
+                                            <span class="iconify" data-icon="mdi:search" data-width="24"
+                                                data-height="24" style="color: var(--primary);"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="userImagesBrowse" class="userImages"></div>
+                            </div>
                         </div>
                     </fieldset>
                 </div>

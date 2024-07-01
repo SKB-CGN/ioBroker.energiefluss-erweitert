@@ -1894,17 +1894,33 @@ nav label:active {
     display: flex;
 }
 
+.userImagesFilter,
+#userImages_dummy {
+    grid-column: 1 / -1;
+}
+
 .userImages {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    column-gap: 10px;
+    column-gap: 16px;
+    margin-left: 14px;
+    margin-top: 0;
+    margin-right: 16px;
+}
+
+.userImagesFilter {
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+    width: 100%;
+    padding-bottom: 5px;
 }
 
 .userImages .imgContainer {
     min-width: 110px;
     display: flex;
     padding: 12px;
-    margin: 16px 10px;
+    margin: 16px 0;
     align-content: center;
     flex-wrap: wrap;
     border-radius: 5px;
@@ -1955,6 +1971,8 @@ nav label:active {
 
 #userImagesBrowseDialog {
     display: none;
+    padding-top: 0px;
+    margin-top: 2px;
 }
 
 /* State Explorer */
