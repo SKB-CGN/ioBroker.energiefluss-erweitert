@@ -128,7 +128,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				}
 			}
 			// After creation of new backup - delete the state
-			this.deleteStateAsync('backup');
+			this.delStateAsync('backup');
 			this.log.info('Convertion of backups finished');
 		}
 
@@ -143,8 +143,8 @@ class EnergieflussErweitert extends utils.Adapter {
 		});
 
 		// Delete old Objects
-		this.deleteStateAsync('backup');
-		this.deleteStateAsync('battery_remaining');
+		this.delStateAsync('backup');
+		this.delStateAsync('battery_remaining');
 
 		this.log.info('Adapter started. Loading config!');
 
@@ -483,7 +483,7 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * @param {object} state
 	 * @param {number} value 
 	 */
-	calculateValue(id, obj, state, value) {
+	async calculateValue(id, obj, state, value) {
 		if (obj.type == 'text') {
 			// Check, if we have source options for text - Date
 			if (obj.source_option != -1) {
@@ -495,7 +495,8 @@ class EnergieflussErweitert extends utils.Adapter {
 			} else {
 				switch (obj.source_display) {
 					case 'href':
-						outputValues.img_href[id] = state.val;
+						let tmpImg = await this.getForeignStateAsync(obj.href);
+						outputValues.img_href[id] = tmpImg.val;
 						rawValues.values[id] = state.val;
 						value = state.val;
 						break;
@@ -1482,7 +1483,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							// Complete state for temporary use
 							stateObject[value.source] = stateValue;
 						} else {
-							this.log.warn(`The adapter could not find the state '${value.source}'! Please review your configuration of the adapter!`);
+							this.log.warn(`The adapter could not find the state '${value.source}' used as datasource! Please review your configuration of the adapter!`);
 						}
 					} catch (error) {
 						this.log.warn(`The adapter could not request the state '${value.source}'! The state seems to be deleted! Please review your configuration of the adapter!`);
@@ -1520,7 +1521,8 @@ class EnergieflussErweitert extends utils.Adapter {
 								border_type: value.border_type,
 								override: value.override,
 								source_type: objObject.common.type,
-								text: value.text
+								text: value.text,
+								linebreak: value.linebreak
 							};
 
 							// Append and prepend
@@ -1546,7 +1548,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								if (value.add.length > 0) {
 									for (var add in value.add) {
 										if (value.add[add] != -1) {
-											if (globalConfig.datasources.hasOwnProperty(value.add[add])) {
+											if (sourceObject.hasOwnProperty(globalConfig.datasources[value.add[add]].source)) {
 												sourceObject[globalConfig.datasources[value.add[add]].source].addSources.push(key);
 											} else {
 												this.log.warn(`The addition datasource with ID '${value.add[add]}' which is used in element '${key}' of type ${value.type
@@ -1562,7 +1564,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								if (value.subtract.length > 0) {
 									for (var subtract in value.subtract) {
 										if (value.subtract[subtract] != -1) {
-											if (globalConfig.datasources.hasOwnProperty(value.subtract[subtract])) {
+											if (sourceObject.hasOwnProperty(globalConfig.datasources[value.subtract[subtract]].source)) {
 												sourceObject[globalConfig.datasources[value.subtract[subtract]].source].subtractSources.push(key);
 											} else {
 												this.log.warn(`The subtraction datasource with ID '${value.subtract[subtract]}' which is used in element '${key}' of type ${value.type
@@ -1574,8 +1576,7 @@ class EnergieflussErweitert extends utils.Adapter {
 							}
 						}
 					} else {
-						this.log.warn(`State '${globalConfig.datasources[value.source].source}' which is used for element with ID ${key} of type ${value.type
-							} is not available! Please review your configuration of the adapter!`);
+						this.log.warn(`State '${globalConfig.datasources[value.source].source}' which is used for element with ID ${key} of type ${value.type} is not available! Please review your configuration of the adapter!`);
 					}
 				}
 
@@ -1587,29 +1588,30 @@ class EnergieflussErweitert extends utils.Adapter {
 						if (hrefString && hrefString.length > 0) {
 							this.log.debug(`Using datasource '${hrefString[1]}' as href for image with ID ${key} `);
 
-							// Create sourceObject, for handling sources
-							sourceObject[hrefString[1]] = {
-								id: parseInt(key),
-								elmSources: [key]
-							};
-
 							const stateValue = await this.getForeignStateAsync(hrefString[1]);
 							if (stateValue) {
-								const objObject = await this.getForeignObjectAsync(hrefString[1]);
 								settingsObj[key] = {
 									source_display: 'href',
-									source_type: objObject.common.type,
+									source_type: 'string',
 									source_option: -1,
-									href: stateValue.val,
+									href: hrefString[1],
 									type: 'text'
 								};
+
+								// Create sourceObject, for handling sources
+								sourceObject[hrefString[1]] = {
+									id: parseInt(key),
+									elmSources: [key]
+								};
+
+								// Add to SubscribeArray
+								subscribeArray.push(hrefString[1]);
+
+								// Complete state for temporary use
+								stateObject[hrefString[1]] = stateValue;
+							} else {
+								this.log.warn(`State '${hrefString[1]}' which is used for element with ID ${key} of type ${value.type} is not available! Please review your configuration of the adapter!`);
 							}
-
-							// Add to SubscribeArray
-							subscribeArray.push(hrefString[1]);
-
-							// Complete state for temporary use
-							stateObject[hrefString[1]] = stateValue;
 						}
 					}
 				}

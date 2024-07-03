@@ -31,6 +31,12 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: The image gallery now has a filter function that helps you find the images more easily
+- FIX: Added some crash-handler, which might throw an error, when an associated state is not found
+- FIX: Linebreak was not working correctly (Delimiter was ignored)
+- FIX: Under some circumstances a datasource could not be modified
+
 ### 0.5.1-alpha.0 (2024-06-28)
 - FIX: The coordinates and size of an added icon could not be changed
 - FIX: Cursor as Pointer (hand) did not appear on elements with action
