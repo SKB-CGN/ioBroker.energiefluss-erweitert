@@ -32,10 +32,12 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- Added: The image gallery now has a filter function that helps you find the images more easily
+- Added: The image gallery has now a filter function which helps you to find the images more easily
+- Added: The datasource object-browser has now a filter function which helps you to find the datasource more easily
 - FIX: Added some crash-handler, which might throw an error, when an associated state is not found
 - FIX: Linebreak was not working correctly (Delimiter was ignored)
 - FIX: Under some circumstances a datasource could not be modified
+- FIX: Text prepend was not working correctly, if source is displayed as text
 
 ### 0.5.1-alpha.0 (2024-06-28)
 - FIX: The coordinates and size of an added icon could not be changed

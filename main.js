@@ -503,7 +503,7 @@ class EnergieflussErweitert extends utils.Adapter {
 					case 'text':
 						// Linebreak Option
 						let strOutput;
-						if (obj.linebreak > 0) {
+						if (obj.linebreak > 0 && state.val && state.val.length > 0) {
 							let splitOpt = new RegExp(`.{0,${obj.linebreak}}(?:\\s|$)`, 'g');
 							let splitted = state.val.toString().match(splitOpt);
 							strOutput = splitted.join('<br>');
