@@ -31,7 +31,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.1-alpha.1 (2024-07-04)
 - Added: The image gallery has now a filter function which helps you to find the images more easily
 - Added: The datasource object-browser has now a filter function which helps you to find the datasource more easily
 - FIX: Added some crash-handler, which might throw an error, when the associated state is not found
