@@ -347,7 +347,7 @@ class EnergieflussErweitert extends utils.Adapter {
 						let id = `tmp_${obj.message.id}`;
 						let state = await this.getForeignStateAsync(obj.message.source);
 						if (state) {
-							this.calculateValue(id, obj.message, state, state.val);
+							await this.calculateValue(id, obj.message, state, state.val);
 							this.log.debug(`Found ${obj.message.source} and calculated the value for Web-ID: ${id}!`);
 							if (outputValues.values.hasOwnProperty(id)) {
 								let override = {};
@@ -611,9 +611,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		}
 		// Overrides for elements
 		if (obj.override) {
-			this.getOverridesAsync(value, obj.override).then((response) => {
-				outputValues.override[id] = response;
-			});
+			outputValues.override[id] = await this.getOverridesAsync(value, obj.override);
 		}
 	}
 
@@ -850,7 +848,7 @@ class EnergieflussErweitert extends utils.Adapter {
 	 * @returns {Promise} tmpWorker
 	 */
 	async getOverridesAsync(condValue, obj) {
-		return new Promise((resolve) => {
+		return new Promise(async (resolve) => {
 			let tmpWorker = {};
 			const workObj = typeof (obj) === 'string' ? JSON.parse(obj) : JSON.parse(JSON.stringify(obj));
 
@@ -895,7 +893,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 			// Now we process the found values inside tmpWorker Obj
 			if (Object.keys(tmpWorker).length > 0) {
-				Object.keys(tmpWorker).forEach(async item => {
+				for (var item of Object.keys(tmpWorker)) {
 					// Temp Storage of workerValue
 					let itemToWorkWith = tmpWorker[item];
 
@@ -927,7 +925,7 @@ class EnergieflussErweitert extends utils.Adapter {
 					catch (func) {
 						tmpWorker[item] = itemToWorkWith;
 					}
-				});
+				}
 			}
 			resolve(tmpWorker);
 		});
@@ -969,7 +967,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						if (settingsObj.hasOwnProperty(src)) {
 							this.log.debug(`Value-Settings for Element ${src} found! Applying Settings!`);
-							this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
+							await this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
 						}
 					}
 				}
@@ -984,7 +982,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						if (settingsObj.hasOwnProperty(src)) {
 							this.log.debug(`Value-Settings for Element ${src} found! Applying Settings!`);
-							this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
+							await this.calculateValue(src, settingsObj[src], state, rawValues.values[src]);
 						}
 					}
 				}
@@ -1002,7 +1000,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 						if (settingsObj.hasOwnProperty(src)) {
 							this.log.debug(`Value-Settings for Element ${src} found! Applying Settings!`);
-							this.calculateValue(src, settingsObj[src], state, clearValue);
+							await this.calculateValue(src, settingsObj[src], state, clearValue);
 						}
 					}
 				}
@@ -1293,18 +1291,14 @@ class EnergieflussErweitert extends utils.Adapter {
 
 							// Overrides for Animations
 							if (seObj.override) {
-								this.getOverridesAsync(clearValue, seObj.override).then((response) => {
-									outputValues.override[src] = response;
-								});
+								outputValues.override[src] = await this.getOverridesAsync(clearValue, seObj.override);
 								this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[src])} `);
 							}
 
 							// Overrides for Lines
 							let line_id = src.replace('anim', 'line');
 							if (settingsObj.hasOwnProperty(line_id)) {
-								this.getOverridesAsync(clearValue, settingsObj[line_id].override).then((response) => {
-									outputValues.override[line_id] = response;
-								});
+								outputValues.override[line_id] = await this.getOverridesAsync(clearValue, settingsObj[line_id].override);
 								this.log.debug(`Overrides: ${JSON.stringify(outputValues.override[line_id])} `);
 							}
 						}
