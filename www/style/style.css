@@ -1978,13 +1978,14 @@ nav label:active {
 }
 
 /* State Explorer */
-#stateExplorer,
-#codeEditor {
+#stateExplorer {
     overflow: auto;
     height: calc(100% - 135px);
 }
 
 #codeEditor {
+    overflow: auto;
+    height: calc(100% - 80px);
     width: 100%;
 }
 
@@ -2081,14 +2082,6 @@ nav label:active {
 
 #stateRoot .title span:nth-child(6) {
     width: 10%;
-}
-
-#stateRoot .title span:nth-child(2) {
-    width: 45%;
-}
-
-#stateRoot .title span:nth-child(3) {
-    width: 48%;
 }
 
 #stateRoot span {
@@ -2394,6 +2387,17 @@ nav label:active {
 
     .container>div {
         width: 350px;
+    }
+
+    #stateRoot .title span:nth-child(2),
+    #stateRoot .title span:nth-child(3) {
+        width: 30%;
+    }
+
+
+    #stateRoot .title span:nth-child(5),
+    #stateRoot .title span:nth-child(6) {
+        display: inline-block;
     }
 }
 

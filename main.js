@@ -49,15 +49,6 @@ let globalInterval;
 
 let subscribeArray = new Array();
 
-/* Variables for Icon Proxy */
-const http = require('http');
-const https = require('https');
-const url = require('url');
-const BASEURL = 'https://api.iconify.design/';
-const error_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="coral" d="M11 15h2v2h-2v-2m0-8h2v6h-2V7m1-5C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8Z"/></svg>';
-let iconCacheObject = {};
-let enable_proxy = false;
-let proxy_port = 10123;
 let _this;
 let systemLang = 'en';
 
@@ -83,8 +74,6 @@ class EnergieflussErweitert extends utils.Adapter {
 	 */
 	async onReady() {
 		// Initialize your adapter here
-		enable_proxy = this.config.enable_proxy;
-		proxy_port = this.config.proxy_port || 10123;
 		_this = this;
 
 		/* Create Adapter Directory - Backup */
@@ -147,11 +136,6 @@ class EnergieflussErweitert extends utils.Adapter {
 		this.delStateAsync('battery_remaining');
 
 		this.log.info('Adapter started. Loading config!');
-
-		/* Start the Icon Proxy Server */
-		if (enable_proxy && proxy_port > 0) {
-			this.startServer();
-		}
 
 		this.getConfig();
 	}
@@ -1685,93 +1669,6 @@ class EnergieflussErweitert extends utils.Adapter {
 		// Renew the subscriptions
 		await this.subscribeForeignStatesAsync(subscribeArray);
 	}
-
-	async startServer() {
-		function requestListener(req, res) {
-			try {
-				let query = url.parse(req.url, true).query;
-				let callback = query.callback;
-				let message;
-
-				// Query for icon
-				switch (query.serve) {
-					case 'listCache':
-						res.setHeader("Content-Type", "application/json");
-						res.writeHead(200);
-						res.end(JSON.stringify(iconCacheObject));
-						break;
-					case "icon":
-						if (query.icon) {
-							const queryIcon = `${query.icon}|${query.width}|${query.height}|${query.flip}|${query.rotate}`;
-							res.setHeader("Content-Type", "application/javascript");
-							// Check, if icon is available in Cache
-							if (iconCacheObject.hasOwnProperty(queryIcon)) {
-								iconCacheObject[queryIcon].status = 'served via Cache';
-								res.writeHead(200);
-								res.end(`${callback}(${JSON.stringify(iconCacheObject[queryIcon])})`);
-								_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[queryIcon].status}`);
-							} else {
-								let icon = query.icon.split(":");
-								let url = `${BASEURL}${icon[0]}/${icon[1]}.svg?width=${query.width}&height=${query.height}&flip=${query.flip}&rotate=${query.rotate}`;
-								https.get(url, result => {
-									let data = [];
-									result.on('data', chunk => {
-										data.push(chunk);
-									});
-
-									result.on('end', () => {
-										if (result.statusCode >= 200 && result.statusCode <= 299) {
-											message = Buffer.concat(data).toString();
-											if (message != 404) {
-												// Put Icon into cache
-												iconCacheObject[queryIcon] = {
-													icon: message,
-													status: 'served via Server'
-												}
-												res.writeHead(200);
-												res.end(`${callback}(${JSON.stringify(iconCacheObject[queryIcon])})`);
-											} else {
-												// Put Icon into cache
-												iconCacheObject[queryIcon] = {
-													icon: error_icon,
-													message: 'Icon not found!',
-													status: 'served via Server'
-												}
-												res.writeHead(200);
-												res.end(`${callback}(${JSON.stringify(iconCacheObject[queryIcon])})`);
-											}
-											_this.log.debug(`Icon ${query.icon} served via: ${iconCacheObject[queryIcon].status}`);
-										} else {
-											// Server down or not found
-											res.writeHead(200);
-											res.end(`${callback}(${JSON.stringify(error_icon)})`);
-										}
-									});
-								}).on('error', err => {
-									this.log.error('Icon-Proxy-Error: ', err.message);
-								});
-							}
-						} else {
-							res.writeHead(404);
-							res.end("No Icon specified!");
-						}
-						break;
-					default:
-						res.writeHead(404);
-						res.end("Request could not be handled! Please make sure, to request the icon via: ?serve=icon&icon=NameOfIcon");
-				}
-			}
-			catch (error) {
-				_this.log.error(`Something went wrong during processing Data inside Icon-Proxy! ${error}`);
-			}
-		}
-
-		const server = http.createServer(requestListener);
-		server.listen(proxy_port, () => {
-			this.log.info(`Icon Proxy - Server is running on Port: ${proxy_port}`);
-		});
-	}
-
 }
 
 if (require.main !== module) {
