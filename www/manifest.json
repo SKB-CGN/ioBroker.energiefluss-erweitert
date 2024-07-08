@@ -1,6 +1,11 @@
 {
     "short_name": "Energiefluss - erweitert",
     "name": "Energiefluss - erweitert",
+    "theme_color": "#538ea3",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "description": "Provides an animated energy-flow",
+    "start_url":"/",
     "icons": [
         {
             "src": "img/icons/windows11/SmallTile.scale-100.png",
@@ -450,9 +455,5 @@
             "src": "img/icons/ios/1024.png",
             "sizes": "1024x1024"
         }
-    ],
-    "theme_color": "#538ea3",
-    "background_color": "#FFFFFF",
-    "display": "standalone",
-    "description": "Provides an animated energy-flow"
+    ]
 }
