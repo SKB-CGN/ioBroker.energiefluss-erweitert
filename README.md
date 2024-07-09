@@ -31,7 +31,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.1-alpha.2 (2024-07-09)
 - Added: Support for https via Web-Adapter (own certificates necessary)
 - Added: Icon-Proxy is removed from the adapter settings and runs on the extension of the Web-Adapter (If you use it or not - no changes are required)
 - Added: 2 new override parameter "pos_x" and "pos_y" are available, to position text and datasource elements depending on their value
