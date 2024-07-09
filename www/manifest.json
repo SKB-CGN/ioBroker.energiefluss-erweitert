@@ -3,16 +3,21 @@
     "name": "Energiefluss - erweitert",
     "theme_color": "#538ea3",
     "background_color": "#FFFFFF",
+    "display_override": [
+        "fullscreen",
+        "minimal-ui"
+    ],
     "display": "standalone",
     "description": "Provides an animated energy-flow",
-    "start_url":"/",
+    "start_url": "./",
+    "id": "./",
     "icons": [
         {
             "src": "img/icons/windows11/SmallTile.scale-100.png",
             "sizes": "71x71"
         },
         {
-            "src": "img/icons/icons/windows11/SmallTile.scale-125.png",
+            "src": "img/icons/windows11/SmallTile.scale-125.png",
             "sizes": "89x89"
         },
         {
@@ -454,6 +459,46 @@
         {
             "src": "img/icons/ios/1024.png",
             "sizes": "1024x1024"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "img/icons/screenshots/screenshot_live_light.webp",
+            "sizes": "830x780",
+            "type": "image/webp",
+            "label": "Live view of the Energiefluss-erweitert in lightmode"
+        },
+        {
+            "src": "img/icons/screenshots/screenshot_live_dark.webp",
+            "sizes": "830x780",
+            "type": "image/webp",
+            "label": "Live view of the Energiefluss-erweitert in darkmode"
+        },
+        {
+            "src": "img/icons/screenshots/screenshot_config_small.webp",
+            "sizes": "830x780",
+            "type": "image/webp",
+            "label": "Configuration view of the Energiefluss-erweitert"
+        },
+        {
+            "src": "img/icons/screenshots/screenshot_config.webp",
+            "sizes": "1280x720",
+            "type": "image/webp",
+            "label": "Configuration view of the Energiefluss-erweitert",
+            "form_factor": "wide"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Configuration",
+            "url": "./configuration.html?instance=0",
+            "description": "Configuraton of your Energiefluss-erweitert",
+            "icons": [
+                {
+                    "src": "img/icons/android/android-launchericon-96-96.png",
+                    "sizes": "96x96"
+                }
+            ]
         }
     ]
 }

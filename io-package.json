@@ -152,6 +152,13 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "assumption",
+    "welcomeScreen": {
+      "link": "energiefluss-erweitert/",
+      "name": "energiefluss-erweitert",
+      "img": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
+      "color": "#538ea3",
+      "order": 0
+    },
     "materialize": true,
     "materializeTab": false,
     "dependencies": [
