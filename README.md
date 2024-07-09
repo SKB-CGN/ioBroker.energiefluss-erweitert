@@ -37,7 +37,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: 2 new override parameter "pos_x" and "pos_y" are available, to position text and datasource elements depending on their value
 - Added: Energiefluss-erweitert is now available through the welcome screen of the Web-Adapter
 - Added: Energiefluss-erweitert is now reachable via iobroker.net through the ioBroker-cloud adapter (No pro license required)
-- Added: If the Web-Adapter is configured to use valid certificates, the view of Energiefluss-erweitert can be installed as PWA (progressive Web App) on Android and iOS
+- Added: If the Web-Adapter is configured to use valid certificates, the view of Energiefluss-erweitert can be installed as PWA (progressive Web App) on Android and iOS [Explained here](https://www.google.de/search?q=what+is+a+pwa)
 - FIX: Sometimes, the object-browser could not load states and crashed
 
 ### 0.5.1-alpha.1 (2024-07-04)
