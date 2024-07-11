@@ -4,10 +4,10 @@
     "theme_color": "#538ea3",
     "background_color": "#FFFFFF",
     "display_override": [
-        "fullscreen",
+        "standalone",
         "minimal-ui"
     ],
-    "display": "standalone",
+    "display": "browser",
     "description": "Provides an animated energy-flow",
     "start_url": "./",
     "id": "./",
@@ -490,12 +490,25 @@
     ],
     "shortcuts": [
         {
+            "name": "Open",
+            "url": "./?instance=0",
+            "description": "Open your Energiefluss-erweitert",
+            "icons": [
+                {
+                    "src": "img/icons/android/android-launchericon-96-96.png",
+                    "type": "image/png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
             "name": "Configuration",
             "url": "./configuration.html?instance=0",
             "description": "Configuraton of your Energiefluss-erweitert",
             "icons": [
                 {
-                    "src": "img/icons/android/android-launchericon-96-96.png",
+                    "src": "img/icons/shortcuts/config.svg",
+                    "type": "image/svg+xml",
                     "sizes": "96x96"
                 }
             ]
