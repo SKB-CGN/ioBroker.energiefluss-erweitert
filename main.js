@@ -234,7 +234,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 									/* Create the thumbnail here */
 									if (sharp) {
-										sharp(imgData)
+										sharp(imgData, { failOnError: false })
 											.resize({
 												width: 100,
 												fit: 'contain'
@@ -1392,6 +1392,11 @@ class EnergieflussErweitert extends utils.Adapter {
 		}
 	}
 
+	/**
+	 * Retrieves the configuration data, processes it, and sets up necessary subscriptions and objects for further operations.
+	 *
+	 * @return {Promise<void>} Promise that resolves once the configuration setup is complete.
+	 */
 	async getConfig() {
 		// Unsubscribe from all states to avoid errors
 		await this.unsubscribeForeignStatesAsync(subscribeArray);
