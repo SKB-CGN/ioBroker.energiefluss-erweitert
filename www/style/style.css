@@ -136,6 +136,7 @@ a:hover {
     margin-top: 55px;
     text-align: center;
     width: auto;
+    min-width: 80%;
 }
 
 #loading #loading_text_error {
@@ -1197,6 +1198,7 @@ fieldset.flex {
     overflow: auto;
     margin: 0 auto;
     box-sizing: border-box;
+    padding-bottom: 12px;
 }
 
 .data-table tbody tr:nth-child(2n+1),
@@ -2341,10 +2343,6 @@ nav label:active {
         min-width: 200px;
     }
 
-    .tabbed nav>.version {
-        display: none;
-    }
-
     .tabbed nav {
         padding-bottom: 8px;
     }
@@ -2397,6 +2395,10 @@ nav label:active {
 
     #stateRoot .title span:nth-child(5),
     #stateRoot .title span:nth-child(6) {
+        display: inline-block;
+    }
+
+    .tabbed nav>.version {
         display: inline-block;
     }
 }

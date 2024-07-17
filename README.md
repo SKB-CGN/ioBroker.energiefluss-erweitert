@@ -31,6 +31,12 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Rewritten Upload engine (Using Web-POST instead of socket)
+- FIX: Warn message in Web-Adapter was missleading
+- FIX: Message, that adapter is not configured was handling a different exception
+
+
 ### 0.5.1-alpha.2 (2024-07-09)
 - Added: Support for https via Web-Adapter (own certificates necessary)
 - Added: Icon-Proxy is removed from the adapter settings and runs on the extension of the Web-Adapter (If you use it or not - no changes are required)

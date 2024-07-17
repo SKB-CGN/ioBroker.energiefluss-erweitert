@@ -12,14 +12,6 @@ const path = require('path');
 const systemDictionary = require('./lib/dictionary.js');
 let instanceDir;
 const backupDir = '/backup';
-const userFiles = '/userFiles';
-
-let sharp;
-try {
-	sharp = require('sharp');
-} catch (e) {
-	console.error(`Cannot load sharp: ${e}`);
-}
 
 /* Variables for runtime */
 let globalConfig = {};
@@ -80,18 +72,6 @@ class EnergieflussErweitert extends utils.Adapter {
 		instanceDir = utils.getAbsoluteInstanceDataDir(this);
 		if (!fs.existsSync(instanceDir + backupDir)) {
 			fs.mkdirSync(instanceDir + backupDir, { recursive: true });
-		}
-
-		/* Create Adapter Directory - UserFiles */
-		if (!fs.existsSync(instanceDir + userFiles)) {
-			fs.mkdirSync(instanceDir + userFiles, { recursive: true });
-		}
-
-		/* Create Folder thumbnails, if 'sharp' was found and can be used */
-		if (sharp) {
-			if (!fs.existsSync(instanceDir + userFiles + '/thumbnail')) {
-				fs.mkdirSync(instanceDir + userFiles + '/thumbnail', { recursive: true });
-			}
 		}
 
 		/* Check, if we have an old backup state */
@@ -188,73 +168,6 @@ class EnergieflussErweitert extends utils.Adapter {
 				// Request the list of Backups
 				let fileList = [];
 				switch (obj.command) {
-					case '_deleteUpload':
-						const unlinkPath = path.join(instanceDir + userFiles, obj.message.filename);
-						fs.unlink(unlinkPath, (err) => {
-							if (err) {
-								this.log.error(`Could not delete the file ${unlinkPath}. Error: ${err}`);
-								this.sendTo(obj.from, obj.command, { error: err, filename: null }, obj.callback);
-							} else {
-								this.sendTo(obj.from, obj.command, { error: null, filename: obj.message.filename, msg: 'File successfully deleted!' }, obj.callback);
-
-								// Delete the thumbnail as well
-								if (fs.existsSync(instanceDir + userFiles + '/thumbnail')) {
-									fs.unlinkSync(path.join(instanceDir + userFiles + '/thumbnail/' + obj.message.filename));
-								}
-							}
-						});
-						break;
-					case '_getUploads':
-						let filePath = '/';
-						/* If thumbnail folder is found, we can use the thumbnails to be delivered */
-						if (fs.existsSync(instanceDir + userFiles + '/thumbnail')) {
-							filePath = '/thumbnail/';
-						}
-
-						const listUploads = path.join(instanceDir + userFiles);
-						const dirents = fs.readdirSync(listUploads, { withFileTypes: true });
-						const filesNames = dirents
-							.filter(dirent => dirent.isFile())
-							.map(dirent => dirent.name);
-
-						this.sendTo(obj.from, obj.command, { error: null, files: filesNames, path: filePath }, obj.callback);
-						break;
-					case '_uploadFile':
-						const uploadPath = path.join(instanceDir + userFiles, obj.message.filename);
-						this.log.info(`Checking requirements for uploading a new file to: ${uploadPath}`);
-						if (!fs.existsSync(uploadPath)) {
-							this.log.info('Uploading!');
-							const imgData = Buffer.from(obj.message.fileData, "base64");
-							fs.writeFile(uploadPath, imgData, (error) => {
-								if (error) {
-									this.log.error(`Could not upload the file ${uploadPath}. Error: ${error}`);
-									this.sendTo(obj.from, obj.command, { error: error, url: null }, obj.callback);
-								} else {
-									this.log.info('Trying to create thumbail!');
-
-									/* Create the thumbnail here */
-									if (sharp) {
-										sharp(imgData, { failOnError: false })
-											.resize({
-												width: 100,
-												fit: 'contain'
-											})
-											.toFile(path.join(instanceDir + userFiles + '/thumbnail/' + obj.message.filename))
-											.then(() => {
-												this.log.info('Thumbnail created!');
-												this.sendTo(obj.from, obj.command, { error: null, filename: obj.message.filename, msg: 'File uploaded successfully!', path: '/thumbnail/' }, obj.callback);
-											});
-									} else {
-										this.log.warn('Module sharp is not installed, which is needed for Thumbail creation. Please install it to create thumbail images!');
-										this.sendTo(obj.from, obj.command, { error: null, filename: obj.message.filename, msg: 'File uploaded successfully!', path: '/' }, obj.callback);
-									}
-								}
-							});
-						} else {
-							this.log.warn('The file already exists!');
-							this.sendTo(obj.from, obj.command, { error: 'File already exists!', filename: obj.message.filename }, obj.callback);
-						}
-						break;
 					case '_getBackups':
 						const listBackups = path.join(instanceDir + backupDir)
 						fs.readdir(listBackups, (err, files) => {
