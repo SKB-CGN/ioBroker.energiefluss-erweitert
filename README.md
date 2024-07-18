@@ -31,7 +31,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.1-alpha.3 (2024-07-18)
 - Added: Rewritten Upload engine (Using Web-POST instead of sockets)
 - Added: Behaviour of the lines can be changed in the connection area. This includes the radius length (smaller and bigger) and the start of the curves (earlier and later)
 - Added: Several functions are optimized
