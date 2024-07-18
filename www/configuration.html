@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style/jquery-ui.css">
     <link rel="stylesheet" href="style/loading-spinner.css">
     <link rel="stylesheet" href="style/multiselect.css">
-    <link rel="stylesheet" href="style/style.css?v=0.5.1">
+    <link rel="stylesheet" href="style/style.css?v=0.5.2">
 
     <script src="../../socket.io/socket.io.js"></script>
 
@@ -28,7 +28,7 @@
     <script src="js/multiselect.min.js"></script>
     <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/ace/ext-language_tools.js"></script>
-    <script src="js/functions.min.js?v=0.5.1"></script>
+    <script src="js/functions.min.js?v=0.5.2"></script>
 
     <style id="style_animation"></style>
     <style id="style_user"></style>
@@ -918,16 +918,32 @@
                                     <span class="config_sec translate" data-lang="lbl_connection">Connection</span>
                                     <div class="contentBox">
                                         <div class="form_div textbox">
+                                            <input type="number" class="input_number elm_config" name="elm_line_arc"
+                                                id="elm_line_arc" placeholder="" autocorrect="off" autocomplete="off"
+                                                min="0" max="100" step="0.1">
+                                            <label for="elm_line_arc" class="form_label translate"
+                                                data-lang="lbl_conn_arc">Distance to the first curve (in
+                                                percent)</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number elm_config" name="elm_line_radius"
+                                                id="elm_line_radius" placeholder="" autocorrect="off" autocomplete="off"
+                                                min="0" max="100" step="0.1">
+                                            <label for="elm_line_radius" class="form_label translate"
+                                                data-lang="lbl_conn_radius">Length of the curve radius (in
+                                                pixel)</label>
+                                        </div>
+                                        <div class="form_div textbox">
                                             <input type="text" class="input_text elm_config" name="elm_start_slot"
                                                 id="elm_start_slot" placeholder="" autocorrect="off" autocomplete="off"
-                                                readonly>
+                                                readonly disabled>
                                             <label for="elm_start_slot" class="form_label translate"
                                                 data-lang="lbl_conn_start">Start slot</label>
                                         </div>
                                         <div class="form_div textbox">
                                             <input type="text" class="input_text elm_config" name="elm_end_slot"
                                                 id="elm_end_slot" placeholder="" autocorrect="off" autocomplete="off"
-                                                readonly>
+                                                readonly disabled>
                                             <label for="elm_end_slot" class="form_label translate"
                                                 data-lang="lbl_conn_end">End
                                                 slot</label>
