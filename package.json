@@ -27,7 +27,7 @@
     "@iobroker/adapter-core": "^3.1.6",
     "multer": "^1.4.5-lts.1",
     "sharp": "^0.33.4",
-    "url": "^0.11.3"
+    "url": "^0.11.4"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^3.8.0",
