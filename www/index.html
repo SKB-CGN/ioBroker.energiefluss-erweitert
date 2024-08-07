@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="style/jquery-ui.css">
     <link rel="stylesheet" href="style/loading-spinner.css">
-    <link rel="stylesheet" href="style/style.css?v=0.5.3">
+    <link rel="stylesheet" href="style/style.css?v=0.5.4">
 
     <script src="../../socket.io/socket.io.js"></script>
 
@@ -23,7 +23,7 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/translate.min.js"></script>
     <script src="js/words.js"></script>
-    <script src="js/functions.min.js?v=0.5.3"></script>
+    <script src="js/functions.min.js?v=0.5.4"></script>
 
     <style id="style_animation"></style>
     <style id="style_general"></style>
@@ -52,10 +52,8 @@
                 fix it!</a></span>
         <div id="frameContainer">
             <div class="title">
-                <div id="iframe_close" class="close"></div>
+                <div class="close" onclick="closeEditorContainer('frame');"></div>
             </div>
-            <iframe id="overlay_frame" src="" class="framed scrollbar"
-                sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts allow-top-navigation"></iframe>
         </div>
     </div>
     <div id="action_change_value" class="translateT" data-lang-title="title_change_value" title="Change the value">

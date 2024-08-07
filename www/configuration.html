@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style/jquery-ui.css">
     <link rel="stylesheet" href="style/loading-spinner.css">
     <link rel="stylesheet" href="style/multiselect.css">
-    <link rel="stylesheet" href="style/style.css?v=0.5.3">
+    <link rel="stylesheet" href="style/style.css?v=0.5.4">
 
     <script src="../../socket.io/socket.io.js"></script>
 
@@ -28,7 +28,7 @@
     <script src="js/multiselect.min.js"></script>
     <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/ace/ext-language_tools.js"></script>
-    <script src="js/functions.min.js?v=0.5.3"></script>
+    <script src="js/functions.min.js?v=0.5.4"></script>
 
     <style id="style_animation"></style>
     <style id="style_user"></style>
@@ -116,7 +116,7 @@
         <div id="stateExplorerContainer">
             <div class="title">
                 <span class="translate" data-lang="title_stateExplorer">Object Browser</span>
-                <div class="close stateExplorer_close"></div>
+                <div class="close" onclick="closeEditorContainer('stateExplorer');"></div>
             </div>
             <div class="formFilter">
                 <div class="form_div textbox">
@@ -145,16 +145,16 @@
                 </div>
                 <div style="justify-content: end; padding: 10px;">
                     <input type="button" value="Select" id="select_state" class="input_button translateV"
-                        data-lang-value="value_select">
-                    <input type="button" value="Cancel" class="input_button translateV stateExplorer_close red"
-                        data-lang-value="value_cancel">
+                        data-lang-value="value_select" disabled>
+                    <input type="button" value="Cancel" class="input_button translateV red"
+                        data-lang-value="value_cancel" onclick="closeEditorContainer('stateExplorer');">
                 </div>
             </div>
         </div>
         <div id="codeEditorContainer">
             <div class="title">
                 <span class="translate" data-lang="title_codeEditor">Code Editor</span>
-                <div class="close codeEditor_close"></div>
+                <div class="close" onclick="closeEditorContainer('codeEditor');"></div>
             </div>
             <!-- ACE Editor -->
             <div id="codeEditor" class="scrollbar"></div>
@@ -166,18 +166,16 @@
                 <div style="justify-content: end; padding: 10px;">
                     <input type="button" value="Save" id="save_code" class="input_button translateV"
                         data-lang-value="lbl_save">
-                    <input type="button" value="Cancel" class="input_button translateV codeEditor_close red"
-                        data-lang-value="value_cancel">
+                    <input type="button" value="Cancel" class="input_button translateV red"
+                        data-lang-value="value_cancel" onclick="closeEditorContainer('codeEditor');">
                 </div>
             </div>
         </div>
         <div id="elementDialog"> </div>
         <div id="frameContainer">
             <div class="title">
-                <div id="iframe_close" class="close"></div>
+                <div class="close" onclick="closeEditorContainer('frame');"></div>
             </div>
-            <iframe id="overlay_frame" src="" class="framed scrollbar"
-                sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts allow-top-navigation"></iframe>
         </div>
     </div>
     <div class="tabbed">
@@ -207,6 +205,9 @@
                     data-height="24"></span><span class="translate" data-lang="lbl_styles">Styles</span></label>
             <label for="tab7"><span class="iconify menu" data-icon="mdi:cog" data-width="24"
                     data-height="24"></span><span class="translate" data-lang="lbl_settings">Settings</span></label>
+            <label onclick="window.open('https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki')"><span
+                    class="iconify menu" data-icon="material-symbols:help-outline" data-width="24"
+                    data-height="24"></span><span class="translate" data-lang="lbl_help">Help</span></label>
             <label for="tab8"><span class="iconify menu" data-icon="material-symbols:save" data-width="24"
                     data-height="24"></span><span class="translate" data-lang="lbl_save">Save</span></label>
             <span class="version">
@@ -251,16 +252,16 @@
                                     <div class="contentBox">
                                         <div class="elm_config_box rect icon svg image fObj">
                                             <div class="form_div textbox">
-                                                <input type="number" class="input_number elm_config" min="1" value=""
-                                                    name="elm_width" id="elm_width" placeholder="" autocorrect="off"
-                                                    autocomplete="off">
+                                                <input type="number" class="input_number elm_config attribute" min="1"
+                                                    value="" name="elm_width" id="elm_width" placeholder=""
+                                                    autocorrect="off" autocomplete="off">
                                                 <label for="elm_width" class="form_label translate"
                                                     data-lang="lbl_width">Width</label>
                                             </div>
                                             <div class="form_div textbox">
-                                                <input type="number" class="input_number elm_config" min="1" value=""
-                                                    name="elm_height" id="elm_height" placeholder="" autocorrect="off"
-                                                    autocomplete="off">
+                                                <input type="number" class="input_number elm_config attribute" min="1"
+                                                    value="" name="elm_height" id="elm_height" placeholder=""
+                                                    autocorrect="off" autocomplete="off">
                                                 <label for="elm_height" class="form_label translate"
                                                     data-lang="lbl_height">Height</label>
                                             </div>
@@ -275,8 +276,8 @@
                                         </div>
                                         <div class="elm_config_box rect">
                                             <div class="form_div textbox">
-                                                <input type="number" class="input_number elm_config" min="0" value=""
-                                                    name="elm_rx" id="elm_rx" placeholder="" autocorrect="off"
+                                                <input type="number" class="input_number elm_config attribute" min="0"
+                                                    value="" name="elm_rx" id="elm_rx" placeholder="" autocorrect="off"
                                                     autocomplete="off">
                                                 <label for="elm_rx" class="form_label translate"
                                                     data-lang="lbl_rounded_corners">Rounded
@@ -285,9 +286,9 @@
                                         </div>
                                         <div class="elm_config_box circle">
                                             <div class="form_div textbox">
-                                                <input type="number" class="input_number elm_config" min="1" value=""
-                                                    name="elm_radius" id="elm_radius" placeholder="" autocorrect="off"
-                                                    autocomplete="off">
+                                                <input type="number" class="input_number elm_config attribute" min="1"
+                                                    value="" name="elm_radius" id="elm_radius" placeholder=""
+                                                    autocorrect="off" autocomplete="off">
                                                 <label for="elm_radius" class="form_label translate"
                                                     data-lang="lbl_radius">Radius</label>
                                             </div>
@@ -295,7 +296,7 @@
                                         </div>
                                         <div class="elm_config_box circle rect">
                                             <div class="form_div textbox">
-                                                <input type="number" class="input_number elm_config style" min="1"
+                                                <input type="number" class="input_number elm_config attribute" min="1"
                                                     value="" name="elm_stroke" id="elm_stroke" placeholder=""
                                                     autocorrect="off" autocomplete="off">
                                                 <label for="elm_stroke" class="form_label translate"
@@ -309,16 +310,16 @@
                                     <span class="config_sec translate" data-lang="lbl_coordinates">Position</span>
                                     <div class="contentBox">
                                         <div class="form_div textbox">
-                                            <input type="number" class="input_number elm_config" name="elm_pos_x"
-                                                id="elm_pos_x" placeholder="" autocorrect="off" autocomplete="off"
-                                                min="0">
+                                            <input type="number" class="input_number elm_config attribute"
+                                                name="elm_pos_x" id="elm_pos_x" placeholder="" autocorrect="off"
+                                                autocomplete="off" min="0.0" step="0.5">
                                             <label for="elm_pos_x" class="form_label translate">Pos
                                                 X</label>
                                         </div>
                                         <div class="form_div textbox">
-                                            <input type="number" class="input_number elm_config" name="elm_pos_y"
-                                                id="elm_pos_y" placeholder="" autocorrect="off" autocomplete="off"
-                                                min="0">
+                                            <input type="number" class="input_number elm_config attribute"
+                                                name="elm_pos_y" id="elm_pos_y" placeholder="" autocorrect="off"
+                                                autocomplete="off" min="0.0" step="0.5">
                                             <label for="elm_pos_y" class="form_label translate">Pos
                                                 Y</label>
                                         </div>
@@ -389,7 +390,8 @@
                                         <div class="form_div select">
                                             <label for="elm_flip" class="translate form_label"
                                                 data-lang="lbl_flip">Horizontal/Vertical flip</label>
-                                            <select class="input_select elm_config" id="elm_flip" name="elm_flip">
+                                            <select class="input_select elm_config attribute" id="elm_flip"
+                                                name="elm_flip">
                                                 <option value="" class="translate" data-lang="opt_none" selected>
                                                     Deactivated
                                                 </option>
@@ -406,7 +408,8 @@
                                         <div class="form_div select">
                                             <label for="elm_rotate" class="translate form_label"
                                                 data-lang="lbl_rotation">Rotation</label>
-                                            <select class="input_select elm_config" id="elm_rotate" name="elm_rotate">
+                                            <select class="input_select elm_config attribute" id="elm_rotate"
+                                                name="elm_rotate">
                                                 <option value="0" class="translate" data-lang="opt_none" selected>
                                                     Deactivated
                                                 </option>
@@ -421,7 +424,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="elm_config_box circle rect text use icon svg">
+                                <div class="elm_config_box circle rect text use icon svg fObj">
                                     <div class="detail_box">
                                         <span class="config_sec translate" data-lang="lbl_color">Color</span>
                                         <div class="contentBox">
@@ -459,40 +462,41 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="detail_box">
-                                        <span class="config_sec translate" data-lang="lbl_shadow">Shadow</span>
-                                        <div class="contentBox">
-                                            <div class="form_div textbox">
-                                                <input type="text" class="input_text color elm_config "
-                                                    name="elm_shadow" id="elm_shadow" placeholder="" autocorrect="off"
-                                                    autocomplete="off" data-jscolor="{}">
-                                                <label for="elm_shadow" class="form_label translate"
-                                                    data-lang="lbl_shadow_color">Shadow
-                                                    color</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="detail_box elm_config_box svg">
-                                        <span class="config_sec translate" data-lang="lbl_svg_settings">SVG
-                                            Settings</span>
-                                        <div class="contentBox">
-                                            <div class="form_div textbox">
-                                                <input type="text" class="input_text elm_config" name="elm_viewBox"
-                                                    id="elm_viewBox" placeholder="" autocorrect="off"
-                                                    autocomplete="off">
-                                                <label for="elm_viewBox" class="form_label translate"
-                                                    data-lang="lbl_viewbox">ViewBox</label>
-                                            </div>
-                                            <div class="form_div textbox">
-                                                <label for="elm_svg_content" class="form_label translate"
-                                                    data-lang="lbl_svg_content">SVG Content</label>
-                                                <textarea id="elm_svg_content" name="elm_svg_content" cols="30"
-                                                    rows="10" class="input_textarea elm_config" autocomplete="off"
-                                                    autocorrect="off"></textarea>
-                                            </div>
+                                </div>
+                                <div class="detail_box">
+                                    <span class="config_sec translate" data-lang="lbl_shadow">Shadow</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="text" class="input_text color elm_config " name="elm_shadow"
+                                                id="elm_shadow" placeholder="" autocorrect="off" autocomplete="off"
+                                                data-jscolor="{}">
+                                            <label for="elm_shadow" class="form_label translate"
+                                                data-lang="lbl_shadow_color">Shadow
+                                                color</label>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="detail_box elm_config_box svg">
+                                    <span class="config_sec translate" data-lang="lbl_svg_settings">SVG
+                                        Settings</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="text" class="input_text elm_config attribute"
+                                                name="elm_viewBox" id="elm_viewBox" placeholder="" autocorrect="off"
+                                                autocomplete="off">
+                                            <label for="elm_viewBox" class="form_label translate"
+                                                data-lang="lbl_viewbox">ViewBox</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <label for="elm_svg_content" class="form_label translate"
+                                                data-lang="lbl_svg_content">SVG Content</label>
+                                            <textarea id="elm_svg_content" name="elm_svg_content" cols="30" rows="10"
+                                                class="input_textarea elm_config attribute" autocomplete="off"
+                                                autocorrect="off"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="detail_box elm_config_box fObj">
                                     <span class="config_sec translate" data-lang="lbl_fObj_settings">Foreign
                                         Object
@@ -500,9 +504,9 @@
                                     <div class="contentBox">
                                         <div class="form_div textbox">
                                             <label for="elm_fObj_content" class="form_label translate"
-                                                data-lang="lbl_fObj_content">SVG Content</label>
+                                                data-lang="lbl_fObj_content">ForeignObject content</label>
                                             <textarea id="elm_fObj_content" name="elm_fObj_content" cols="30" rows="10"
-                                                class="input_textarea elm_config" autocomplete="off"
+                                                class="input_textarea elm_config attribute" autocomplete="off"
                                                 autocorrect="off"></textarea>
                                         </div>
                                     </div>
@@ -512,7 +516,8 @@
                                         Settings</span>
                                     <div class="contentBox">
                                         <div class="form_div textbox">
-                                            <input type="text" class="input_text elm_config icon_in_input_pad2"
+                                            <input type="text"
+                                                class="input_text elm_config attribute icon_in_input_pad2"
                                                 name="elm_href" id="elm_href" placeholder="" autocorrect="off"
                                                 autocomplete="off">
                                             <label for="elm_href" class="form_label translate"
@@ -534,7 +539,7 @@
                                             data-lang-placeholder="help_img_url"
                                             placeholder="You can use a direct URL for the image or you can use a datasource, which needs to be in curly braces (e.g. {weatherunderground.0.forecast.0d.iconURL}).">
                                         <div class="form_div textbox">
-                                            <input type="text" class="input_text elm_config"
+                                            <input type="text" class="input_text elm_config attribute"
                                                 name="elm_preserveAspectRatio" id="elm_preserveAspectRatio"
                                                 placeholder="" autocorrect="off" autocomplete="off">
                                             <label for="elm_preserveAspectRatio" class="form_label translate"
@@ -565,7 +570,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="detail_box elm_config_box text">
                                     <span class="config_sec translate" data-lang="lbl_text">Text</span>
                                     <div class="contentBox">
@@ -573,7 +577,7 @@
                                             <label for="elm_text" class="form_label translate"
                                                 data-lang="lbl_text">Text</label>
                                             <textarea id="elm_text" name="elm_text" cols="30" rows="5"
-                                                class="input_textarea elm_config" autocomplete="off"
+                                                class="input_textarea elm_config attribute" autocomplete="off"
                                                 autocorrect="off"></textarea>
                                         </div>
                                         <div class="form_div textbox">
@@ -849,20 +853,21 @@
                                                 Charaters</label>
                                         </div>
                                         <div class="form_div textbox">
-                                            <input type="text" class="input_text elm_config" name="elm_unit"
+                                            <input type="text" class="input_text elm_config attribute" name="elm_unit"
                                                 id="elm_unit" placeholder="" autocorrect="off" autocomplete="off">
                                             <label for="elm_unit" class="form_label translate"
                                                 data-lang="lbl_unit">Unit</label>
                                         </div>
                                         <div class="form_div textbox">
-                                            <input type="text" class="input_text elm_config" name="elm_prepend"
-                                                id="elm_prepend" placeholder="" autocorrect="off" autocomplete="off">
+                                            <input type="text" class="input_text elm_config attribute"
+                                                name="elm_prepend" id="elm_prepend" placeholder="" autocorrect="off"
+                                                autocomplete="off">
                                             <label for="elm_prepend" class="form_label translate"
                                                 data-lang="lbl_prepend">Prepend
                                                 Text</label>
                                         </div>
                                         <div class="form_div textbox">
-                                            <input type="text" class="input_text elm_config" name="elm_append"
+                                            <input type="text" class="input_text elm_config attribute" name="elm_append"
                                                 id="elm_append" placeholder="" autocorrect="off" autocomplete="off">
                                             <label for="elm_append" class="form_label translate"
                                                 data-lang="lbl_append">Append
@@ -1103,7 +1108,7 @@
                                             placeholder='<p><b>Duration:</b><br>The duration of the animation varies depending on the load on the line. The more load, the less the animation lasts<br><i><u>Info:</u></i> The minimum duration is set for the maximum power. If you set max power to 1000 and min Duration to 2000, a value of 100 will run 20.000ms</p><p><b>Dots</b>:<br>The more power the line has, the more dots appear - but not more than maximum defined</p>'>
                                     </div>
                                 </div>
-                                <div class="detail_box elm_config_box circle datasource icon image rect svg text">
+                                <div class="detail_box elm_config_box circle datasource icon image rect svg text use">
                                     <span class="config_sec translate" data-lang="lbl_frame_options">Browser
                                         Frame</span>
                                     <div class="contentBox">
@@ -1478,7 +1483,7 @@
                                         data-lang="lbl_override_settings">Override settings
                                         depending on value</span>
                                     <div class="contentBox">
-                                        <div class="form_div textbox">
+                                        <div class="form_div button">
                                             <div class="elm_config_box use">
                                                 <span class="translate" data-lang="lbl_override_line">Set
                                                     override for the line</span>
@@ -1595,6 +1600,10 @@
                                 <a title="Add SVG" class="add_element tt-element translateT" id="add_svg"
                                     data-lang-title="title_add_svg"><span class="iconify add_element_area"
                                         data-icon="bi:filetype-svg" data-width="48" data-height="48"></span></a>
+                                <a title="Add Foreign Object" class="add_element tt-element translateT" id="add_fObj"
+                                    data-lang-title="title_add_foreignObject"><span class="iconify add_element_area"
+                                        data-icon="material-symbols:data-object" data-width="48"
+                                        data-height="48"></span></a>
                             </div>
                             <div class="icon_list">
                                 <a title="Duplicate selected element(s)" class="tt-element translateT"
@@ -1605,11 +1614,7 @@
                                 <a title="Import Element" class="tt-element translateT" id="import_element"
                                     data-lang-title="lbl_import_element"><span class="iconify add_element_area"
                                         data-icon="mdi:import" data-width="48" data-height="48"></span></a>
-                                <!-- <a title="Add Foreign Object" class="add_element tt-element translateT"
-                                            id="add_fObj" data-lang-title="title_add_foreignObject"><span
-                                                class="iconify add_element_area"
-                                                data-icon="material-symbols:data-object" data-width="48"
-                                                data-height="48"></span></a>!-->
+
                             </div>
                         </fieldset>
                         <fieldset>
@@ -1619,28 +1624,28 @@
                                 <span class="translate" data-lang="legend_alignment">Alignment</span>
                             </legend>
                             <div class="icon_list">
-                                <a title="Align left" class="align_elements tt-element translateT" id="align_left"
+                                <a title="Align left" class="align_elements tt-element translateT" data-align="left"
                                     data-lang-title="title_align_left"><span class="iconify add_element_area"
                                         data-icon="material-symbols:format-align-left-rounded" data-width="48"
                                         data-height="48"></span></a>
-                                <a title="Align center" class="align_elements tt-element translateT" id="align_center"
+                                <a title="Align center" class="align_elements tt-element translateT" data-align="center"
                                     data-lang-title="title_align_center"><span class="iconify add_element_area"
                                         data-icon="material-symbols:format-align-center-rounded" data-width="48"
                                         data-height="48"></span></a>
-                                <a title="Align right" class="align_elements tt-element translateT" id="align_right"
+                                <a title="Align right" class="align_elements tt-element translateT" data-align="right"
                                     data-lang-title="title_align_right"><span class="iconify add_element_area"
                                         data-icon="material-symbols:format-align-right-rounded" data-width="48"
                                         data-height="48"></span></a>
-                                <a title=" Align Top" class="align_elements tt-element translateT" id="align_top"
+                                <a title=" Align Top" class="align_elements tt-element translateT" data-align="top"
                                     data-lang-title="title_align_top"><span class="iconify add_element_area"
                                         data-icon="material-symbols:vertical-align-top-rounded" data-width="48"
                                         data-height="48"></span></a>
                                 <a title="Align vertical center" class="align_elements tt-element translateT"
-                                    id="align_vcenter" data-lang-title="title_align_vc"><span
+                                    data-align="vcenter" data-lang-title="title_align_vc"><span
                                         class="iconify add_element_area"
                                         data-icon="material-symbols:vertical-align-center-rounded" data-width="48"
                                         data-height="48"></span></a>
-                                <a title="Align bottom" class="align_elements tt-element translateT" id="align_bottom"
+                                <a title="Align bottom" class="align_elements tt-element translateT" data-align="bottom"
                                     data-lang-title="title_align_bottom"><span class="iconify add_element_area"
                                         data-icon="material-symbols:vertical-align-bottom-rounded" data-width="48"
                                         data-height="48"></span></a>
@@ -1655,9 +1660,8 @@
                                 <div id="all_undo_align_elements"
                                     style="width:100%;flex: 1 1 auto;align-items: center;display: none;">
                                     <button class="translateT img_button" id="undo_align_elements"
-                                        data-lang-title="ex_align_undo" title="Undo" disabled="disabled"><span
-                                            class="iconify" data-icon="mdi:undo" data-width="24"
-                                            data-height="24"></span></button>
+                                        data-lang-title="ex_align_undo" title="Undo" disabled><span class="iconify"
+                                            data-icon="mdi:undo" data-width="24" data-height="24"></span></button>
                                     <span id="undo_steps" style="width: 100%; text-align: right;"></span>
                                 </div>
                                 <input type="button" value="Done" id="align_elements" class="input_button translateV"
@@ -2057,8 +2061,8 @@
                                 id="calculation.battery.charge_prop">
                             <label for="calculation.battery.charge_prop">
                                 <span></span>
-                                <span class="label translate" data-lang="cb_battery_source_negative">Source is
-                                    negative</span>
+                                <span class="label translate" data-lang="cb_consumption_batteryCharge">
+                                    Battery Charge is negative</span>
                             </label>
                         </div>
                         <div class="form_div select">
@@ -2074,8 +2078,8 @@
                                 id="calculation.battery.discharge_prop">
                             <label for="calculation.battery.discharge_prop">
                                 <span></span>
-                                <span class="label translate" data-lang="cb_battery_source_negative">Source is
-                                    negative</span>
+                                <span class="label translate" data-lang="cb_consumption_batteryDischarge">
+                                    Battery Discharge is negative</span>
                             </label>
                         </div>
                         <div class="translate" data-lang="ex_battery_info" style="padding-bottom: 20px;">

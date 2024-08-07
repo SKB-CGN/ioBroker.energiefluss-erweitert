@@ -31,6 +31,20 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Alignments for elements refactored (Better detection if they run out of the workspace)
+- Added: New element "ForeignObject" added. This allows normal HTML content inside the workspace.
+- Added: Images can now have a shadow
+- Added: Many functions have been updated to provide better handling
+- Added: UI-improvements
+- Added: Keyboard copy, paste and delete functions added (Strg/cmd + c and Strg/cmd + v, Entf/del)
+- Added: Double-Click on element or line opens the 'extended'-tab and single click opens 'basic'-tab inside the configbar
+- Added: The liveview can now be displayed in fullscreen via doubleclick oder double-tab
+- Added: Better handling of images through datasources (image will be hidden, if datasource is empty)
+- Added: Lines can now have frame options for opening URLs
+- Added: Object-Browser scrolls the first clicked parent folder to the top 
+- FIX: Element with linebreak was not able to be moved after applying linebreak
+
 ### 0.5.1-alpha.3 (2024-07-18)
 - Added: Rewritten Upload engine (Using Web-POST instead of sockets)
 - Added: Behaviour of the lines can be changed in the connection area. This includes the radius length (smaller and bigger) and the start of the curves (earlier and later)

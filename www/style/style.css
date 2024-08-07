@@ -5,14 +5,14 @@
         --black: #000;
         --blackTrans: rgba(0, 0, 0, 0.4);
         --white: #FFF;
-        --darkestGrey: #999;
+        --darkestGrey: rgb(153, 153, 153);
         --transparent: transparent;
         --creme: #F5F5F5;
         --silvergrey: #d3d3d3;
         --darkgrey: #efefef;
         --red: lightcoral;
         --middle-grey: #edf2f5;
-        --loading-background: rgba(243, 243, 243, 0.9);
+        --loading-background: rgba(153, 153, 153, 0.6);
         --green: #66b371;
         --box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
         --box-shadow-hover: 0 12px 18px rgba(0, 0, 0, .200);
@@ -32,14 +32,14 @@
         --black: #ccc;
         --blackTrans: rgba(255, 255, 255, 0.4);
         --white: #323232;
-        --darkestGrey: #777;
+        --darkestGrey: rgb(119, 119, 119);
         --transparent: #323232;
         --creme: #777;
         --silvergrey: #9e9d9d;
         --darkgrey: #a3a3a3;
         --red: #c96969;
         --middle-grey: #323232;
-        --loading-background: #323232e6;
+        --loading-background: rgba(119, 119, 119, 0.6);
         --green: rgb(2, 138, 2);
         --box-shadow: 0 6px 12px rgba(255, 255, 255, 0.175);
         --box-shadow-hover: 0 12px 18px rgba(255, 255, 255, .200);
@@ -98,6 +98,7 @@ a:hover {
 .ui-widget-overlay-fading,
 .ui-widget-overlay,
 #loading {
+    backdrop-filter: blur(8px);
     background-color: var(--loading-background);
     position: fixed;
     z-index: 1000;
@@ -173,6 +174,7 @@ stop {
     /* Firefox 63 compatibility */
     scrollbar-color: var(--primary) var(--creme);
     scrollbar-width: thin;
+    -moz-scrollbar-color: var(--primary) var(--creme);
 }
 
 .scrollbar::-webkit-scrollbar-track {
@@ -369,7 +371,7 @@ legend>span {
 #codeEditorContainer {
     display: none;
     position: fixed;
-    top: 5%;
+    top: 25px;
     left: 5%;
     width: 90vw;
     height: 90%;
@@ -384,7 +386,7 @@ legend>span {
 
 .action_element {
     cursor: pointer;
-    pointer-events: all;
+    pointer-events: visiblePainted;
 }
 
 text.action_element:hover {
@@ -435,8 +437,7 @@ text.action_element:hover {
     margin-right: 15px;
 }
 
-.draggable,
-.draggable-group {
+.draggable {
     cursor: move;
     pointer-events: visible;
     touch-action: none;
@@ -454,8 +455,7 @@ text.action_element:hover {
     outline: 1px dashed var(--red);
 }
 
-.draggable-multi,
-.draggable-multi-group {
+.draggable-multi:not(.active_element) {
     pointer-events: visible;
     cursor: move;
     animation-name: animation_blink;
@@ -489,10 +489,14 @@ text.action_element:hover {
 
 .line {
     fill: none;
+}
+
+.line_cfg {
     cursor: pointer;
     pointer-events: all;
 }
 
+.added_elements.not_selectable,
 .line.not_selectable {
     cursor: not-allowed;
 }
@@ -553,7 +557,7 @@ text.action_element:hover {
 }
 
 /* Hover for detecting the element better */
-#svg_config rect:hover,
+#svg_config rect:not(#lasso_rect):hover,
 #svg_config circle:hover,
 #svg_config use:hover {
     stroke: var(--red) !important;
@@ -796,6 +800,10 @@ text.action_element:hover {
 .input_text:invalid,
 .input_number:invalid {
     color: var(--red);
+}
+
+.input_text:read-only {
+    cursor: not-allowed;
 }
 
 .input_button {
@@ -1421,6 +1429,7 @@ fieldset.flex {
     background-color: var(--white);
     z-index: 10;
     box-shadow: var(--box-shadow);
+    transition: 0.5s ease-in-out;
 }
 
 #config_bar .tabbed {
@@ -1442,28 +1451,23 @@ fieldset.flex {
     border-top-left-radius: 10px;
     right: -357px;
     margin: 0 auto;
-    transition: all .3s ease-out;
 }
 
 #config_bar.left {
     border-top-right-radius: 10px;
     left: -357px;
     margin: 0;
-    transition: all .3s ease-out;
 }
 
 #config_bar.show.right {
     left: 100%;
     transform: translate(-100%, 0);
-    transition: all .5s linear;
 }
 
 #config_bar.show.left {
     right: 100%;
     transform: translate(100%, 0);
-    transition: all .5s linear;
 }
-
 
 #config_bar>.title,
 #stateExplorerContainer>.title,
@@ -1603,7 +1607,6 @@ img {
 
 text {
     text-rendering: geometricPrecision;
-    dominant-baseline: central;
     user-select: none;
 }
 
@@ -1715,6 +1718,7 @@ text {
     font-size: 14px;
     align-items: center;
     transition: all .5s;
+    white-space: nowrap;
 }
 
 nav label>.menu {
@@ -1959,6 +1963,14 @@ nav label:active {
     width: auto;
     max-height: 100px;
     max-width: 100px;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.userImages .imgContainer div img:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .userImages .imgContainer div.uploads_name {

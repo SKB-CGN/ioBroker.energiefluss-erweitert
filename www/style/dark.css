@@ -4,14 +4,14 @@
     --black: #ccc;
     --blackTrans: rgba(255, 255, 255, 0.4);
     --white: #323232;
-    --darkestGrey: #777;
+    --darkestGrey: rgb(119, 119, 119);
     --transparent: #323232;
     --creme: #777;
     --silvergrey: #9e9d9d;
     --darkgrey: #a3a3a3;
     --red: #c96969;
     --middle-grey: #323232;
-    --loading-background: #323232e6;
+    --loading-background: rgba(119, 119, 119, 0.6);
     --green: rgb(2, 138, 2);
     --box-shadow: 0 6px 12px rgba(255, 255, 255, 0.175);
     --box-shadow-hover: 0 12px 18px rgba(255, 255, 255, .200);
