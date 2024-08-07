@@ -327,6 +327,20 @@
       "native": {}
     },
     {
+      "_id": "calculation.battery.remaining_energy",
+      "type": "state",
+      "common": {
+        "name": "Current Power available in battery",
+        "type": "number",
+        "role": "value.power",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "Wh"
+      },
+      "native": {}
+    },
+    {
       "_id": "calculation.consumption.consumption",
       "type": "state",
       "common": {

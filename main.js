@@ -94,7 +94,6 @@ class EnergieflussErweitert extends utils.Adapter {
 				}
 			}
 			// After creation of new backup - delete the state
-			this.delStateAsync('backup');
 			this.log.info('Convertion of backups finished');
 		}
 
@@ -109,8 +108,8 @@ class EnergieflussErweitert extends utils.Adapter {
 		});
 
 		// Delete old Objects
-		this.delStateAsync('backup');
-		this.delStateAsync('battery_remaining');
+		this.delObjectAsync('backup');
+		this.delObjectAsync('battery_remaining');
 
 		this.log.info('Adapter started. Loading config!');
 
@@ -899,6 +898,7 @@ class EnergieflussErweitert extends utils.Adapter {
 									let mins = 0;
 									let string = '--:--h';
 									let target = 0;
+									const batt_energy = (capacity * (percent - dod)) / 100 || 0;
 
 									if (percent > 0 && energy > 0) {
 										if (direction === 'charge') {
@@ -917,6 +917,7 @@ class EnergieflussErweitert extends utils.Adapter {
 									this.log.debug(`Direction: ${direction} Time to fully ${direction}: ${string} Percent: ${percent} Energy: ${energy} Rest Energy to ${direction}: ${rest} DoD: ${dod}`);
 
 									// Set the states
+									this.setStateChangedAsync('calculation.battery.remaining_energy', { val: batt_energy, ack: true });
 									this.setStateChangedAsync('calculation.battery.remaining', { val: string, ack: true });
 									this.setStateChangedAsync('calculation.battery.remaining_target', { val: target, ack: true });
 									this.setStateChangedAsync('calculation.battery.remaining_target_DT', { val: this.getDateTime(target * 1000), ack: true });
@@ -940,13 +941,19 @@ class EnergieflussErweitert extends utils.Adapter {
 								const prodArray = consObj.production;
 								let prodValue = 0;
 
+								this.log.debug(`[Calculation] Datasources GridFeed: ${consObj.gridFeed}, GridConsume: ${consObj.gridConsume} | Optional: BatteryCharge: ${consObj.batteryCharge}, BatteryDischarge: ${consObj.batteryDischarge}`);
+								this.log.debug(`[Calculation] RAW-Values GridFeed: ${rawValues[consObj.gridFeed]}, GridConsume: ${Math.abs(rawValues[consObj.gridConsume])} | Optional: BatteryCharge: ${rawValues[consObj.batteryCharge]}, BatteryDischarge: ${Math.abs(rawValues[consObj.batteryDischarge])}`);
+
 								// Grid
-								const gridFeed = rawValues[consObj.gridFeed] * globalConfig.datasources[consObj.gridFeed].factor;
-								const gridConsume = Math.abs(rawValues[consObj.gridConsume] * globalConfig.datasources[consObj.gridConsume].factor);
+								const gridFeed = consObj.gridFeed >= 0 ? rawValues[consObj.gridFeed] * globalConfig.datasources[consObj.gridFeed].factor : 0;
+								const gridConsume = consObj.gridConsume >= 0 ? Math.abs(rawValues[consObj.gridConsume] * globalConfig.datasources[consObj.gridConsume].factor) : 0;
 
 								// Battery
-								const batteryCharge = rawValues[consObj.batteryCharge] * globalConfig.datasources[consObj.batteryCharge].factor;
-								const batteryDischarge = Math.abs(rawValues[consObj.batteryDischarge] * globalConfig.datasources[consObj.batteryDischarge].factor);
+								const batteryCharge = consObj.batteryCharge >= 0 ? rawValues[consObj.batteryCharge] * globalConfig.datasources[consObj.batteryCharge].factor : 0;
+								const batteryDischarge = consObj.batteryDischarge >= 0 ? Math.abs(rawValues[consObj.batteryDischarge] * globalConfig.datasources[consObj.batteryDischarge].factor) : 0;
+
+
+								this.log.debug(`[Calculation] Consumption. GridFeed: ${gridFeed}, GridConsume: ${gridConsume} | Optional: BatteryCharge: ${batteryCharge}, BatteryDischarge: ${batteryDischarge}`);
 
 								// Consumption
 								let consumption = 0;
