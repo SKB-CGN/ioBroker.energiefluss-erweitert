@@ -35,8 +35,6 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Alignments for elements refactored (Better detection if they run out of the workspace)
 - Added: New element "ForeignObject" added. This allows normal HTML content inside the workspace.
 - Added: Images can now have a shadow
-- Added: Many functions have been updated to provide better handling
-- Added: UI-improvements
 - Added: Keyboard copy, paste and delete functions added (Strg/cmd + c and Strg/cmd + v, Entf/del)
 - Added: Double-Click on element or line opens the 'extended'-tab and single click opens 'basic'-tab inside the configbar
 - Added: The liveview can now be displayed in fullscreen via doubleclick oder double-tab
