@@ -37,7 +37,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Images can now have a shadow
 - Added: Keyboard copy, paste and delete functions added (Strg/cmd + c and Strg/cmd + v, Entf/del)
 - Added: Double-Click on element or line opens the 'extended'-tab and single click opens 'basic'-tab inside the configbar
-- Added: The liveview can now be displayed in fullscreen via doubleclick oder double-tab
+- Added: The liveview can now be displayed in fullscreen via doubleclick oder double-tap
 - Added: Better handling of images through datasources (image will be hidden, if datasource is empty)
 - Added: Lines can now have frame options for opening URLs
 - Added: Object-Browser scrolls the first clicked parent folder to the top 
