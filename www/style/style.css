@@ -69,12 +69,17 @@ body {
     line-height: 20px;
     font-family: "Arial", sans-serif;
     font-size: 13px;
-    user-select: none;
     -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
     height: 98vh;
     width: 100%;
     background-color: var(--white);
     color: var(--black);
+}
+
+.config_icon {
+    color: var(--primary);
 }
 
 a,
@@ -98,6 +103,7 @@ a:hover {
 .ui-widget-overlay-fading,
 .ui-widget-overlay,
 #loading {
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     background-color: var(--loading-background);
     position: fixed;
@@ -172,14 +178,14 @@ stop {
     /* Firefox 63 compatibility */
     scrollbar-track-color: var(--creme);
     /* Firefox 63 compatibility */
+    -moz-scrollbar-color: var(--primary) var(--creme);
     scrollbar-color: var(--primary) var(--creme);
     scrollbar-width: thin;
-    -moz-scrollbar-color: var(--primary) var(--creme);
 }
 
 .scrollbar::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px var(--primary);
     -webkit-box-shadow: inset 0 0 6px var(--primary);
+    box-shadow: inset 0 0 6px var(--primary);
     border-radius: 10px;
     background-color: var(--creme);
 }
@@ -192,8 +198,8 @@ stop {
 
 .scrollbar::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    box-shadow: inset 0 0 6px var(--primary);
     -webkit-box-shadow: inset 0 0 6px var(--primary);
+    box-shadow: inset 0 0 6px var(--primary);
     background-color: var(--primary);
 }
 
@@ -333,6 +339,7 @@ fieldset {
     margin: 12px;
     min-width: 290px;
     width: max-content;
+    -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
 }
 
@@ -377,6 +384,7 @@ legend>span {
     height: 90%;
     overflow: hidden;
     border-radius: 10px;
+    -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
     background-color: var(--white);
     z-index: 1000;
@@ -599,6 +607,7 @@ text.action_element:hover {
     transform: translate(-50%, -50%);
     z-index: 1002;
     background-color: var(--green);
+    -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
 }
 
@@ -814,9 +823,9 @@ text.action_element:hover {
     font-weight: bold;
     color: var(--white);
     padding: 4px;
-    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    appearance: none;
     border: 2px solid #eee;
     cursor: pointer;
     transition: .5s;
@@ -866,6 +875,7 @@ text.action_element:hover {
 
 /* Multiselect */
 .ms-options-wrap>.ms-options {
+    -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
 }
 
@@ -937,11 +947,13 @@ text.action_element:hover {
     transform: scale(0);
     transform-origin: bottom left;
     transition: 120ms transform ease-in-out;
+    -webkit-box-shadow: inset 1em 1em var(--primary);
     box-shadow: inset 1em 1em var(--primary);
     background-color: CanvasText;
 }
 
 .ms-options>ul input[type="checkbox"]:hover::before {
+    -webkit-box-shadow: inset 1em 1em var(--white);
     box-shadow: inset 1em 1em var(--white);
 }
 
@@ -955,6 +967,7 @@ text.action_element:hover {
 }
 
 .ms-options>ul input[type="checkbox"]:disabled::before {
+    -webkit-box-shadow: inset 1em 1em var(--darkestGrey);
     box-shadow: inset 1em 1em var(--darkestGrey);
 }
 
@@ -1013,8 +1026,8 @@ a[disabled],
     margin: 16px 10px;
     flex: 1 1 auto;
     box-shadow: var(--box-shadow);
-    transition: box-shadow .2s linear;
     -webkit-transition: box-shadow .2s linear;
+    transition: box-shadow .2s linear;
     border-radius: 5px;
 }
 
@@ -1026,8 +1039,8 @@ a[disabled],
 
 .detail_box:hover {
     box-shadow: var(--box-shadow-hover);
-    transition: box-shadow .2s linear;
     -webkit-transition: box-shadow .2s linear;
+    transition: box-shadow .2s linear;
 }
 
 .detail_box.flex {
@@ -1607,6 +1620,8 @@ img {
 
 text {
     text-rendering: geometricPrecision;
+    -moz-user-select: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -1874,24 +1889,6 @@ nav label:active {
     transition: width 1s ease-in;
 }
 
-#upload_progress div.anim {
-    animation: uploadFile 2s infinite ease-in-out;
-}
-
-@keyframes uploadFile {
-    0% {
-        left: 2px;
-    }
-
-    50% {
-        left: 72px;
-    }
-
-    100% {
-        left: 2px;
-    }
-}
-
 #upload_errors {
     padding-top: 5px;
     display: none;
@@ -1934,14 +1931,14 @@ nav label:active {
     border-radius: 5px;
     border: 1px solid var(--silvergrey);
     box-shadow: var(--box-shadow);
-    transition: box-shadow .2s linear;
     -webkit-transition: box-shadow .2s linear;
+    transition: box-shadow .2s linear;
 }
 
 .userImages .imgContainer:hover {
     box-shadow: var(--box-shadow-hover);
-    transition: box-shadow .2s linear;
     -webkit-transition: box-shadow .2s linear;
+    transition: box-shadow .2s linear;
 }
 
 .userImages .imgContainer div {

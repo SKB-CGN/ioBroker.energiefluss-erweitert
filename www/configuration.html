@@ -72,16 +72,18 @@
                     <tr>
                         <td>
                             <div class="form_div no_margin">
-                                <input type="text" class="input_text" id="shortcut_alias" name="shortcut_alias"
-                                    autocorrect="off" autocomplete="off" value="" form="frm-addQuickAccess"
-                                    minlength="1">
+                                <input type="text" class="input_text translateP" id="shortcut_alias"
+                                    name="shortcut_alias" autocorrect="off" autocomplete="off" value=""
+                                    form="frm-addQuickAccess" minlength="1" placeholder="Alias"
+                                    data-lang-placeholder="lbl_alias">
                             </div>
                         </td>
                         <td>
                             <div class="form_div no_margin">
-                                <input type="text" class="input_text" id="shortcut_value" name="shortcut_value"
-                                    autocorrect="off" autocomplete="off" value="" form="frm-addQuickAccess"
-                                    minlength="1" required>
+                                <input type="text" class="input_text translateP" id="shortcut_value"
+                                    name="shortcut_value" autocorrect="off" autocomplete="off" value=""
+                                    form="frm-addQuickAccess" minlength="1" placeholder="Value"
+                                    data-lang-placeholder="opt_value" required>
                             </div>
                         </td>
                         <td>
@@ -121,8 +123,8 @@
             <div class="formFilter">
                 <div class="form_div textbox">
                     <input type="text" class="input_text icon_in_input_pad stateExplorerFilter" placeholder=""
-                        autocorrect="off" autocomplete="off">
-                    <label for="elm_ds_alias" class="translate form_label" data-lang="lbl_filter">Filter</label>
+                        autocorrect="off" autocomplete="off" name="stateExplorerFilter" id="stateExplorerFilter">
+                    <label for="stateExplorerFilter" class="translate form_label" data-lang="lbl_filter">Filter</label>
                     <div class="icon_wrapper">
                         <span class="iconify" data-icon="mdi:search" data-width="24" data-height="24"
                             style="color: var(--primary);"></span>
@@ -205,7 +207,8 @@
                     data-height="24"></span><span class="translate" data-lang="lbl_styles">Styles</span></label>
             <label for="tab7"><span class="iconify menu" data-icon="mdi:cog" data-width="24"
                     data-height="24"></span><span class="translate" data-lang="lbl_settings">Settings</span></label>
-            <label onclick="window.open('https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki')"><span
+            <label for="#"
+                onclick="window.open('https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki')"><span
                     class="iconify menu" data-icon="material-symbols:help-outline" data-width="24"
                     data-height="24"></span><span class="translate" data-lang="lbl_help">Help</span></label>
             <label for="tab8"><span class="iconify menu" data-icon="material-symbols:save" data-width="24"
@@ -369,7 +372,7 @@
                                                 rotate the element</span>
                                         </div>
                                         <div class="form_div select">
-                                            <label class="form_label translate"
+                                            <label for="#" class="form_label translate"
                                                 data-lang="lbl_rotation">Rotation</label>
                                             <a id="rotate_cw" class="degree tt-element translateT"
                                                 data-lang-title="title_rotate_cw" title="Rotate clockwise"><span
@@ -2206,8 +2209,8 @@
                             <div id="drop_zone">
                                 <div id="drag_upload_file">
                                     <form>
-                                        <input type="file" name="uploadFile" id="uploadFile" accept="image/*"
-                                            style="display: none;" multiple>
+                                        <input type="file" name="uploadFile" id="uploadFile" placeholder="Upload"
+                                            accept="image/*" style="display: none;" multiple>
                                         <div class="form_div text">
                                             <span class="translate" data-lang="txt_upload_init">Drag & Drop File here
                                                 or</span>
@@ -2256,8 +2259,9 @@
                             <div class="formFilter">
                                 <div class="form_div textbox">
                                     <input type="text" class="input_text icon_in_input_pad userImages_filter"
-                                        placeholder="" autocorrect="off" autocomplete="off">
-                                    <label for="elm_ds_alias" class="translate form_label"
+                                        placeholder="" autocorrect="off" autocomplete="off" name="userImagesFilter"
+                                        id="userImagesFilter">
+                                    <label for="userImagesFilter" class="translate form_label"
                                         data-lang="lbl_filter">Filter</label>
                                     <div class="icon_wrapper">
                                         <span class="iconify" data-icon="mdi:search" data-width="24" data-height="24"
@@ -2278,7 +2282,7 @@
                                         <input type="text" id="userImagesBrowseFilter" name="userImagesBrowseFilter"
                                             class="input_text icon_in_input_pad userImages_filter" placeholder=""
                                             autocorrect="off" autocomplete="off">
-                                        <label for="elm_ds_alias" class="translate form_label"
+                                        <label for="userImagesBrowseFilter" class="translate form_label"
                                             data-lang="lbl_filter">Filter</label>
                                         <div class="icon_wrapper">
                                             <span class="iconify" data-icon="mdi:search" data-width="24"
@@ -2451,7 +2455,7 @@
                                         <input type="number" class="input_number basic_config" id="basic.rect.width"
                                             name="basic.rect.width" placeholder="" autocorrect="off" autocomplete="off"
                                             min="1">
-                                        <label for="basic.rect_width" class="form_label translate"
+                                        <label for="basic.rect.width" class="form_label translate"
                                             data-lang="lbl_width">Width</label>
                                     </div>
                                     <div class="form_div textbox">
