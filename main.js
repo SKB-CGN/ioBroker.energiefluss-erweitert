@@ -847,12 +847,27 @@ class EnergieflussErweitert extends utils.Adapter {
 
 					// Check, if that Source belongs to battery-charge or discharge, to determine the time
 					if (globalConfig.hasOwnProperty('calculation')) {
+						// Check, if the provided source is a valied source
+						const isValidDatasource = (value) => {
+							if (value === null || value === undefined || value === '') {
+								return false;
+							}
+
+							// Überprüfen, ob der Wert vom Typ 'number' ist
+							if (typeof value !== 'number') {
+								return false;
+							}
+
+							// Überprüfen, ob der Wert größer oder gleich 0 ist
+							return !isNaN(value) && Number(value) >= 0;
+						};
+
 						// Battery Remaining
 						if (globalConfig.calculation.hasOwnProperty('battery')) {
 							const batObj = globalConfig.calculation.battery;
 							const isRelevantId = soObj.id == batObj.charge || soObj.id == batObj.discharge;
 
-							if (isRelevantId && batObj.charge != -1 && batObj.charge != null && batObj.discharge != -1 && batObj.discharge != null && batObj.percent != -1 && batObj.percent != null) {
+							if (isRelevantId && isValidDatasource(batObj.charge) && isValidDatasource(batObj.discharge) && isValidDatasource(batObj.percent)) {
 								let direction = 'none';
 								let energy = 0;
 
@@ -890,8 +905,8 @@ class EnergieflussErweitert extends utils.Adapter {
 
 								// Calculate the rest time of the battery
 								this.getForeignStateAsync(globalConfig.datasources[batObj.percent].source).then(state => {
-									const capacity = rawValues[batObj.capacity] * globalConfig.datasources[batObj.capacity].factor;
-									const dod = rawValues[batObj.dod] * globalConfig.datasources[batObj.dod].factor;
+									const capacity = isValidDatasource(batObj.capacity) ? rawValues[batObj.capacity] * globalConfig.datasources[batObj.capacity].factor : 0;
+									const dod = isValidDatasource(batObj.dod) ? rawValues[batObj.dod] * globalConfig.datasources[batObj.dod].factor : 0;
 									const percent = state.val;
 
 									let rest = 0;
@@ -945,12 +960,12 @@ class EnergieflussErweitert extends utils.Adapter {
 								this.log.debug(`[Calculation] RAW-Values GridFeed: ${rawValues[consObj.gridFeed]}, GridConsume: ${Math.abs(rawValues[consObj.gridConsume])} | Optional: BatteryCharge: ${rawValues[consObj.batteryCharge]}, BatteryDischarge: ${Math.abs(rawValues[consObj.batteryDischarge])}`);
 
 								// Grid
-								const gridFeed = consObj.gridFeed >= 0 ? rawValues[consObj.gridFeed] * globalConfig.datasources[consObj.gridFeed].factor : 0;
-								const gridConsume = consObj.gridConsume >= 0 ? Math.abs(rawValues[consObj.gridConsume] * globalConfig.datasources[consObj.gridConsume].factor) : 0;
+								const gridFeed = isValidDatasource(consObj.gridFeed) ? rawValues[consObj.gridFeed] * globalConfig.datasources[consObj.gridFeed].factor : 0;
+								const gridConsume = isValidDatasource(consObj.gridConsume) ? Math.abs(rawValues[consObj.gridConsume] * globalConfig.datasources[consObj.gridConsume].factor) : 0;
 
 								// Battery
-								const batteryCharge = consObj.batteryCharge >= 0 ? rawValues[consObj.batteryCharge] * globalConfig.datasources[consObj.batteryCharge].factor : 0;
-								const batteryDischarge = consObj.batteryDischarge >= 0 ? Math.abs(rawValues[consObj.batteryDischarge] * globalConfig.datasources[consObj.batteryDischarge].factor) : 0;
+								const batteryCharge = isValidDatasource(consObj.batteryCharge) ? rawValues[consObj.batteryCharge] * globalConfig.datasources[consObj.batteryCharge].factor : 0;
+								const batteryDischarge = isValidDatasource(consObj.batteryDischarge) ? Math.abs(rawValues[consObj.batteryDischarge] * globalConfig.datasources[consObj.batteryDischarge].factor) : 0;
 
 
 								this.log.debug(`[Calculation] Consumption. GridFeed: ${gridFeed}, GridConsume: ${gridConsume} | Optional: BatteryCharge: ${batteryCharge}, BatteryDischarge: ${batteryDischarge}`);
