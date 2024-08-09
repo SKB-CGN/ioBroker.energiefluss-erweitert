@@ -125,6 +125,7 @@
       "SKB <info@skb-web.de>"
     ],
     "keywords": [
+      "ioBroker",
       "energy",
       "energy-flow",
       "energie",
@@ -134,9 +135,7 @@
       "Photovoltaik",
       "Solar"
     ],
-    "license": "MIT",
     "platform": "Javascript/Node.js",
-    "main": "main.js",
     "icon": "energiefluss-erweitert.png",
     "enabled": true,
     "localLinks": {
@@ -159,11 +158,15 @@
       "color": "#538ea3",
       "order": 0
     },
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
     "materialize": true,
     "materializeTab": false,
     "dependencies": [
       {
-        "js-controller": ">=3.3.22",
+        "js-controller": ">=4.0.25",
         "web": ">=3.0.12"
       }
     ],
