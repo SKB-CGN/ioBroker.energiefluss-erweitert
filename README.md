@@ -31,6 +31,9 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Configbar was not opening, after clicking when another element was moved before (#232)
+
 ### 0.5.1-alpha.4 (2024-08-07)
 - Added: Alignments for elements refactored (Better detection if they run out of the workspace)
 - Added: New element "ForeignObject" added. This allows normal HTML content inside the workspace.
