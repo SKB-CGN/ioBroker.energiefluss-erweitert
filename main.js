@@ -1283,7 +1283,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		subscribeArray.push(this.namespace + '.configuration');
 
 		// Read configuration DataPoint
-		let tmpConfig = await this.getStateAsync('configuration');
+		const tmpConfig = await this.getStateAsync('configuration');
 		try {
 			globalConfig = JSON.parse(tmpConfig.val);
 		}
@@ -1513,12 +1513,12 @@ class EnergieflussErweitert extends utils.Adapter {
 		this.log.debug(`Settings: ${JSON.stringify(settingsObj)} `);
 		this.log.debug(`Initial Values: ${JSON.stringify(outputValues.values)} `);
 		this.log.debug(`Initial Fill - Values: ${JSON.stringify(outputValues.fillValues)} `);
-		this.log.debug(`Sources: ${JSON.stringify(sourceObject)} `);
+		this.log.info(`Sources: ${JSON.stringify(sourceObject)} `);
 
 		// Run once through all sources, to generate a proper output on startup
 		for (const key of Object.keys(sourceObject)) {
 			const tmpSource = await this.getForeignStateAsync(key);
-			this.log.debug(`Loading initial for ${key} with ${JSON.stringify(tmpSource)}`);
+			this.log.info(`Loading initial for ${key} with ${JSON.stringify(tmpSource)}`);
 			await this.refreshData(key, tmpSource);
 		}
 
