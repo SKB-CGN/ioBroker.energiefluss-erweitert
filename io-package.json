@@ -162,11 +162,11 @@
       "license": "MIT",
       "type": "free"
     },
-    "materialize": true,
+    "materialize": "adminUI",
     "materializeTab": false,
     "dependencies": [
       {
-        "js-controller": ">=4.0.25",
+        "js-controller": ">=5.0.19",
         "web": ">=3.0.12"
       }
     ],
