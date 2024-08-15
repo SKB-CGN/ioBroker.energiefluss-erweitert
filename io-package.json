@@ -175,8 +175,7 @@
       }
     ],
     "dataFolder": "energiefluss-erweitert.%INSTANCE%",
-    "messagebox": true,
-    "subscribe": "messagebox"
+    "messagebox": true
   },
   "messages": [
     {
