@@ -308,9 +308,12 @@ class EnergieflussErweitert extends utils.Adapter {
 		// Decide, which type we have
 		switch (obj.type) {
 			case 'image':
-				let tmpImg = await this.getForeignStateAsync(obj.href);
-				outputValues.img_href[id] = tmpImg.val || '#';
-				this.log.debug(`Loading Image for ${id} with: ${JSON.stringify(obj)} Result: ${outputValues.img_href[id]}`);
+				// Check, if we have a static picture or via state
+				if (obj.href) {
+					let tmpImg = await this.getForeignStateAsync(obj.href);
+					outputValues.img_href[id] = tmpImg.val || '#';
+					this.log.debug(`Loading Image for ${id} with: ${JSON.stringify(obj)} Result: ${outputValues.img_href[id]}`);
+				}
 				break;
 
 			case 'circle':
@@ -1443,7 +1446,6 @@ class EnergieflussErweitert extends utils.Adapter {
 							}
 							this.log.debug(`Href: ${value.href} Key: ${key} Object: ${JSON.stringify(settingsObj[key])}`);
 
-
 							// Create sourceObject, for handling sources
 							if (sourceObject.hasOwnProperty(hrefString[1])) {
 								sourceObject[hrefString[1]].elmSources.push(key);
@@ -1513,12 +1515,12 @@ class EnergieflussErweitert extends utils.Adapter {
 		this.log.debug(`Settings: ${JSON.stringify(settingsObj)} `);
 		this.log.debug(`Initial Values: ${JSON.stringify(outputValues.values)} `);
 		this.log.debug(`Initial Fill - Values: ${JSON.stringify(outputValues.fillValues)} `);
-		this.log.info(`Sources: ${JSON.stringify(sourceObject)} `);
+		this.log.debug(`Sources: ${JSON.stringify(sourceObject)} `);
 
 		// Run once through all sources, to generate a proper output on startup
 		for (const key of Object.keys(sourceObject)) {
 			const tmpSource = await this.getForeignStateAsync(key);
-			this.log.info(`Loading initial for ${key} with ${JSON.stringify(tmpSource)}`);
+			this.log.debug(`Loading initial for ${key} with ${JSON.stringify(tmpSource)}`);
 			await this.refreshData(key, tmpSource);
 		}
 
