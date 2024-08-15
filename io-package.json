@@ -162,7 +162,7 @@
       "license": "MIT",
       "type": "free"
     },
-    "materialize": "adminUI",
+    "materialize": true,
     "materializeTab": false,
     "dependencies": [
       {
