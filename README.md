@@ -33,6 +33,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 -->
 ### **WORK IN PROGRESS**
 - FIX: Configbar was not opening, after clicking when another element was moved before (#232)
+- FIX: Adapter was crashing, if a static picture from the gallery has had an associated datasource (#233)
 
 ### 0.5.1-alpha.4 (2024-08-07)
 - Added: Alignments for elements refactored (Better detection if they run out of the workspace)
