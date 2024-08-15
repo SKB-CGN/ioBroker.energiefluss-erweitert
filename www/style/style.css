@@ -394,7 +394,7 @@ legend>span {
 
 .action_element {
     cursor: pointer;
-    pointer-events: visiblePainted;
+    pointer-events: visible;
 }
 
 text.action_element:hover {
