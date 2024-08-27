@@ -315,20 +315,25 @@ stop {
 }
 
 .container.top fieldset:nth-child(2) {
-    min-width: 240px;
+    min-width: 184px;
 }
 
 .container.top fieldset:nth-child(3) {
-    min-width: 402px;
-    max-width: 402px;
+    min-width: 114px;
+    max-width: 114px;
 }
 
 .container.top fieldset:nth-child(4) {
+    min-width: 374px;
+    max-width: 374px;
+}
+
+.container.top fieldset:nth-child(5) {
     min-width: 220px;
     max-width: 220px;
 }
 
-.container.top fieldset:nth-child(5) {
+.container.top fieldset:nth-child(6) {
     min-width: 310px;
 }
 
@@ -343,6 +348,10 @@ fieldset {
     box-shadow: var(--box-shadow);
 }
 
+.container.top fieldset:nth-child(3) legend {
+    min-width: 98px;
+}
+
 .config_sec,
 legend {
     padding: 3px 6px;
@@ -354,7 +363,7 @@ legend {
     border-radius: 5px;
     font-weight: 600;
     display: flex;
-    min-width: 150px;
+    min-width: 144px;
     align-items: center;
     -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
@@ -381,7 +390,8 @@ legend>span {
     top: 25px;
     left: 5%;
     width: 90vw;
-    height: 90%;
+    height: calc(100% - 50px);
+    min-height: 40px;
     overflow: hidden;
     border-radius: 10px;
     -webkit-box-shadow: var(--box-shadow);
@@ -418,6 +428,8 @@ text.action_element:hover {
     cursor: help;
     vertical-align: bottom;
     padding-left: 5px;
+    width: 24px;
+    height: 24px;
 }
 
 .title_bar {
@@ -592,12 +604,71 @@ text.action_element:hover {
     pointer-events: none;
 }
 
+/* Mouse Contextmenu */
+#mouse_contextmenu {
+    display: none;
+    min-width: 120px;
+    border: 1px solid var(--silvergrey);
+    text-align: left;
+    position: absolute;
+    border-radius: 5px;
+    background-color: var(--white);
+    width: auto;
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+}
+
+#mouse_contextmenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    outline: 0;
+    border-radius: 5px;
+}
+
+#mouse_contextmenu ul li {
+    cursor: pointer;
+}
+
+#mouse_contextmenu ul li div {
+    padding: 3px 1em 3px .4em;
+    display: flex;
+}
+
+#mouse_contextmenu ul li div span {
+    padding-left: 10px;
+}
+
+#mouse_contextmenu ul li.not_active {
+    color: var(--darkestGrey);
+}
+
+#mouse_contextmenu ul li.not_active:hover {
+    cursor: not-allowed;
+}
+
+#mouse_contextmenu ul li:first-child:hover {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#mouse_contextmenu ul li:last-child:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#mouse_contextmenu ul li:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
 /* Success and Failed balloons */
 #message_success,
 #message_failed {
     display: none;
     min-width: 200px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--silvergrey);
     text-align: center;
     border-radius: 5px;
     padding: 16px;
@@ -630,39 +701,33 @@ text.action_element:hover {
     height: 8px;
     background: #d3d3d3;
     outline: none;
-    opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
     margin-top: 26px;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-    opacity: 1;
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 30px;
+    width: 10px;
     border-radius: 15px;
     height: 20px;
     background: var(--primary);
-    cursor: pointer;
+    cursor: grab;
 }
 
 .slider::-moz-range-thumb {
-    width: 30px;
+    -moz-appearance: none;
+    width: 10px;
     height: 20px;
     border-radius: 15px;
     background: var(--primary);
-    cursor: pointer;
+    cursor: grab;
 }
 
 .form_div {
     position: relative;
-    width: min-content;
     border: none;
     margin-top: 15px;
     width: 100%;
@@ -1599,12 +1664,16 @@ img {
     padding-left: 5px;
 }
 
-.icon_list:first-of-type {
-    border-right: 1px solid black;
-}
-
 .icon_list a {
     padding: 2px;
+}
+
+.icon_list a.not_active .add_element_area {
+    color: var(--darkestGrey);
+}
+
+.icon_list a.not_active .add_element_area:hover {
+    cursor: not-allowed;
 }
 
 #save_output,

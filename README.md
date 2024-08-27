@@ -32,8 +32,14 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- FIX: Configbar was not opening, after clicking when another element was moved before (#232)
+- FIX: Configbar was not opening when another element was moved before (#232)
 - FIX: Adapter was crashing, if a static picture from the gallery has had an associated datasource (#233)
+- FIX: Rounded corners inside rect were not correctly set
+- FIX: If workspace is completely empty, the first new added element could not be edited
+- FIX: Overrides were not correctly applied, if source value was converted to number and should be a string instead
+- FIX: Access key inside live-view was not working
+- Added: Rightclick contextmenu for quick access to some functions
+- Added: Global Undo&Redo functionality for moving, adding, removing and connecting elements (does not affect configuration dialog)
 
 ### 0.5.1-alpha.4 (2024-08-07)
 - Added: Alignments for elements refactored (Better detection if they run out of the workspace)

@@ -303,12 +303,12 @@ class EnergieflussErweitert extends utils.Adapter {
 	 */
 	async calculateValue(id, obj, state /* value */) {
 		this.log.debug(`Values for: ${id} - Using source: ${obj.source} rawValue: ${rawValues[obj.source]} Settings: ${JSON.stringify(obj)}`);
-		const sourceValue = globalConfig.datasources[obj.source] ? rawValues[obj.source] * globalConfig.datasources[obj.source].factor : rawValues[obj.source];
+		let sourceValue = globalConfig.datasources[obj.source] ? rawValues[obj.source] * globalConfig.datasources[obj.source].factor : rawValues[obj.source];
 
 		// Decide, which type we have
 		switch (obj.type) {
 			case 'image':
-				// Check, if we have a static picture or via state
+				// Check, if we have a static picture or one via state
 				if (obj.href) {
 					let tmpImg = await this.getForeignStateAsync(obj.href);
 					outputValues.img_href[id] = tmpImg.val || '#';
@@ -345,6 +345,7 @@ class EnergieflussErweitert extends utils.Adapter {
 								strOutput = state.val;
 							}
 							outputValues.values[id] = strOutput;
+							sourceValue = strOutput;
 							break;
 
 						case 'bool':
@@ -427,7 +428,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 		// Overrides for elements
 		if (obj.override) {
-			this.log.debug(`Gathering override for ID: ${id}, Value: ${sourceValue} and Override: ${JSON.stringify(obj.override)}`);
+			this.log.debug(`Gathering override for ID: ${id}, Processed-value: ${sourceValue}, Raw-value: ${rawValues[obj.source]}, Override: ${JSON.stringify(obj.override)}`);
 			outputValues.override[id] = await this.getOverridesAsync(sourceValue, obj.override);
 		}
 	}

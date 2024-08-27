@@ -1578,36 +1578,42 @@
                                 <span class="translate" data-lang="legend_add">Add element</span>
                             </legend>
                             <div class="icon_list">
-                                <a title="Add Circle" class="add_element tt-element translateT" id="add_circle"
+                                <a title="Add Circle" class="add_element tt-element translateT" data-id="circle"
                                     data-lang-title="title_add_circle"><span class="iconify add_element_area"
                                         data-icon="material-symbols:circle-outline" data-width="48"
                                         data-height="48"></span></a>
-                                <a title="Add Rectangle" class="add_element tt-element translateT" id="add_rect"
+                                <a title="Add Rectangle" class="add_element tt-element translateT" data-id="rect"
                                     data-lang-title="title_add_rect"><span class="iconify add_element_area"
                                         data-icon="material-symbols:rectangle-outline" data-width="48"
                                         data-height="48"></span></a>
-                                <a title="Add Text" class="add_element tt-element translateT" id="add_text"
+                                <a title="Add Text" class="add_element tt-element translateT" data-id="text"
                                     data-lang-title="title_add_text"><span class="iconify add_element_area"
                                         data-icon="material-symbols:text-format-rounded" data-width="48"
                                         data-height="48"></span></a>
                                 <a title="Add Text with Datasource" class="add_element tt-element translateT"
-                                    id="add_datasource" data-lang-title="title_add_ds"><span
+                                    data-id="datasource" data-lang-title="title_add_ds"><span
                                         class="iconify add_element_area" data-icon="material-symbols:data-check-rounded"
                                         data-width="48" data-height="48"></span></a>
-                                <a title="Add Icon" class="add_element tt-element translateT" id="add_icon"
+                                <a title="Add Icon" class="add_element tt-element translateT" data-id="icon"
                                     data-lang-title="title_add_icon"><span class="iconify add_element_area"
                                         data-icon="mdi:omega" data-width="48" data-height="48"></span></a>
-                                <a title="Add Image" class="add_element tt-element translateT" id="add_image"
+                                <a title="Add Image" class="add_element tt-element translateT" data-id="image"
                                     data-lang-title="title_add_image"><span class="iconify add_element_area"
                                         data-icon="mdi:file-image" data-width="48" data-height="48"></span></a>
-                                <a title="Add SVG" class="add_element tt-element translateT" id="add_svg"
+                                <a title="Add SVG" class="add_element tt-element translateT" data-id="svg"
                                     data-lang-title="title_add_svg"><span class="iconify add_element_area"
                                         data-icon="bi:filetype-svg" data-width="48" data-height="48"></span></a>
-                                <a title="Add Foreign Object" class="add_element tt-element translateT" id="add_fObj"
+                                <a title="Add Foreign Object" class="add_element tt-element translateT" data-id="fObj"
                                     data-lang-title="title_add_foreignObject"><span class="iconify add_element_area"
                                         data-icon="material-symbols:data-object" data-width="48"
                                         data-height="48"></span></a>
                             </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend><span class="iconify legend" data-icon="material-symbols:edit-road-rounded"
+                                    data-width="24" data-height="24"></span>
+                                <span class="translate" data-lang="lbl_actions">Actions</span>
+                            </legend>
                             <div class="icon_list">
                                 <a title="Duplicate selected element(s)" class="tt-element translateT"
                                     id="duplicate_elements" data-lang-title="title_align_duplicate"><span
@@ -1617,7 +1623,21 @@
                                 <a title="Import Element" class="tt-element translateT" id="import_element"
                                     data-lang-title="lbl_import_element"><span class="iconify add_element_area"
                                         data-icon="mdi:import" data-width="48" data-height="48"></span></a>
-
+                            </div>
+                            <div class="icon_list">
+                                <a title="Undo" class="tt-element translateT not_active undo_redo_element"
+                                    id="edit_undo" data-lang-title="title_edit_undo"><span
+                                        class="iconify add_element_area" data-icon="material-symbols:undo-rounded"
+                                        data-width="48" data-height="48"></span></a>
+                                <a title="Redo" class="tt-element translateT not_active undo_redo_element"
+                                    id="edit_redo" data-lang-title="title_edit_redo"><span
+                                        class="iconify add_element_area" data-icon="material-symbols:redo-rounded"
+                                        data-width="48" data-height="48"></span></a>
+                            </div>
+                            <div class="icon_list">
+                                <img src="img/icon_help.png" class="translateP help"
+                                    data-lang-placeholder="help_redo_undo"
+                                    placeholder="With the undo and redo actions you are able, to restore changes (e.g. moving, deleting, inserting) to elements which were performed on the workspace. This does <u> not </u> affect any changes made inside the configuration dialog.">
                             </div>
                         </fieldset>
                         <fieldset>
@@ -1653,22 +1673,20 @@
                                         data-icon="material-symbols:vertical-align-bottom-rounded" data-width="48"
                                         data-height="48"></span></a>
                             </div>
-                            <div class="icon_list" style="width: 280px;height:100%;flex-direction: column;">
-                                <span id="ex_how_align" class="translate" data-lang="ex_align"
-                                    style="min-height: 40px;">Choose
-                                    an
-                                    alignment and select a
-                                    reference
-                                    element</span>
-                                <div id="all_undo_align_elements"
-                                    style="width:100%;flex: 1 1 auto;align-items: center;display: none;">
-                                    <button class="translateT img_button" id="undo_align_elements"
-                                        data-lang-title="ex_align_undo" title="Undo" disabled><span class="iconify"
-                                            data-icon="mdi:undo" data-width="24" data-height="24"></span></button>
-                                    <span id="undo_steps" style="width: 100%; text-align: right;"></span>
+                            <div style="float: right;width:254px;">
+                                <div class="form_div text">
+                                    <span id="ex_how_align" class="translate" data-lang="ex_align"
+                                        style="min-height: 40px;display:inline-block;">Choose
+                                        an
+                                        alignment and select a
+                                        reference
+                                        element</span>
                                 </div>
-                                <input type="button" value="Done" id="align_elements" class="input_button translateV"
-                                    data-lang-value="value_done" style="display: none;">
+                                <div class="form_div button">
+                                    <input type="button" value="Done" id="align_elements"
+                                        class="input_button translateV" data-lang-value="value_done"
+                                        style="display: none;">
+                                </div>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -1864,122 +1882,79 @@
                                 data-height="24"></span>
                             <span class="translate" data-lang="lbl_animation">Animation</span>
                         </legend>
-                        <table class="config_table">
-                            <tr>
-                                <td>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number line_preview" id="line.stroke_width"
-                                            placeholder="" autocorrect="off" autocomplete="off" min="2" max="18">
-                                        <label for="line.stroke_width" class="form_label translate"
-                                            data-lang="lbl_line_size">Line-Size</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number line_preview"
-                                            id="animation_configuration.dots" placeholder="" autocorrect="off"
-                                            autocomplete="off" min="1" max="30">
-                                        <label for="animation_configuration.dots" class="form_label translate"
-                                            data-lang="lbl_dots">Dots</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number line_preview"
-                                            id="animation_configuration.distance" placeholder="" autocorrect="off"
-                                            autocomplete="off" min="1" max="100">
-                                        <label for="animation_configuration.distance" class="form_label translate"
-                                            data-lang="lbl_distance">Distance</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number line_preview"
-                                            id="animation_configuration.length" placeholder="" autocorrect="off"
-                                            autocomplete="off" min="1">
-                                        <label for="animation_configuration.length" class="form_label translate"
-                                            data-lang="lbl_length">Length</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number line_preview"
-                                            id="animation.stroke_width" placeholder="" autocorrect="off"
-                                            autocomplete="off" min="1">
-                                        <label for="animation.stroke_width" class="form_label translate"
-                                            data-lang="lbl_width">Width</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number line_preview"
-                                            id="animation.animation_duration" placeholder="" autocorrect="off"
-                                            autocomplete="off" min="1">
-                                        <label for="animation.animation_duration" class="form_label translate"
-                                            data-lang="lbl_duration">Duration</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form_div select">
-                                        <label for="animation.animation_timing_function" class="form_label translate"
-                                            data-lang="lbl_animation_type">Animation Type</label>
-                                        <select id="animation.animation_timing_function"
-                                            class="input_select line_preview">
-                                            <option value="ease" class="translate" data-lang="opt_animation_type_0">fast
-                                                till
-                                                middle of the
-                                                animation, slowing at the end</option>
-                                            <option value="ease-in" class="translate" data-lang="opt_animation_type_1">
-                                                starts slowly,
-                                                increasing until complete</option>
-                                            <option value="ease-out" class="translate" data-lang="opt_animation_type_2">
-                                                starts quickly,
-                                                slows down until end</option>
-                                            <option value="ease-in-out" class="translate"
-                                                data-lang="opt_animation_type_3">
-                                                slowly
-                                                transitioning, speeding up, and then slowing down again</option>
-                                            <option value="linear" class="translate" data-lang="opt_animation_type_4">
-                                                even
-                                                speed</option>
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form_div select">
-                                        <label for="animation.stroke_linecap" class="form_label translate"
-                                            data-lang="lbl_animation_end">Animation Ends</label>
-                                        <select id="animation.stroke_linecap" class="input_select line_preview">
-                                            <option value="butt" class="translate" data-lang="opt_animation_linecap_0">
-                                                rectangular ends
-                                                trimmed at the endpoints</option>
-                                            <option value="round" class="translate" data-lang="opt_animation_linecap_1">
-                                                rounded ends (beyond
-                                                the endpoints)</option>
-                                            <option value="square" class="translate"
-                                                data-lang="opt_animation_linecap_2">
-                                                square ends
-                                                (beyond the endpoints)</option>
-                                        </select>
-
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                        <div class="form_div textbox">
+                            <input type="number" class="input_number line_preview" id="line.stroke_width" placeholder=""
+                                autocorrect="off" autocomplete="off" min="2" max="18">
+                            <label for="line.stroke_width" class="form_label translate"
+                                data-lang="lbl_line_size">Line-Size</label>
+                        </div>
+                        <div class="form_div textbox">
+                            <input type="number" class="input_number line_preview" id="animation_configuration.dots"
+                                placeholder="" autocorrect="off" autocomplete="off" min="1" max="30">
+                            <label for="animation_configuration.dots" class="form_label translate"
+                                data-lang="lbl_dots">Dots</label>
+                        </div>
+                        <div class="form_div textbox">
+                            <input type="number" class="input_number line_preview" id="animation_configuration.distance"
+                                placeholder="" autocorrect="off" autocomplete="off" min="1" max="100">
+                            <label for="animation_configuration.distance" class="form_label translate"
+                                data-lang="lbl_distance">Distance</label>
+                        </div>
+                        <div class="form_div textbox">
+                            <input type="number" class="input_number line_preview" id="animation_configuration.length"
+                                placeholder="" autocorrect="off" autocomplete="off" min="1">
+                            <label for="animation_configuration.length" class="form_label translate"
+                                data-lang="lbl_length">Length</label>
+                        </div>
+                        <div class="form_div textbox">
+                            <input type="number" class="input_number line_preview" id="animation.stroke_width"
+                                placeholder="" autocorrect="off" autocomplete="off" min="1">
+                            <label for="animation.stroke_width" class="form_label translate"
+                                data-lang="lbl_width">Width</label>
+                        </div>
+                        <div class="form_div textbox">
+                            <input type="number" class="input_number line_preview" id="animation.animation_duration"
+                                placeholder="" autocorrect="off" autocomplete="off" min="1">
+                            <label for="animation.animation_duration" class="form_label translate"
+                                data-lang="lbl_duration">Duration</label>
+                        </div>
+                        <div class="form_div select">
+                            <label for="animation.animation_timing_function" class="form_label translate"
+                                data-lang="lbl_animation_type">Animation Type</label>
+                            <select id="animation.animation_timing_function" class="input_select line_preview">
+                                <option value="ease" class="translate" data-lang="opt_animation_type_0">fast
+                                    till
+                                    middle of the
+                                    animation, slowing at the end</option>
+                                <option value="ease-in" class="translate" data-lang="opt_animation_type_1">
+                                    starts slowly,
+                                    increasing until complete</option>
+                                <option value="ease-out" class="translate" data-lang="opt_animation_type_2">
+                                    starts quickly,
+                                    slows down until end</option>
+                                <option value="ease-in-out" class="translate" data-lang="opt_animation_type_3">
+                                    slowly
+                                    transitioning, speeding up, and then slowing down again</option>
+                                <option value="linear" class="translate" data-lang="opt_animation_type_4">
+                                    even
+                                    speed</option>
+                            </select>
+                        </div>
+                        <div class="form_div select">
+                            <label for="animation.stroke_linecap" class="form_label translate"
+                                data-lang="lbl_animation_end">Animation Ends</label>
+                            <select id="animation.stroke_linecap" class="input_select line_preview">
+                                <option value="butt" class="translate" data-lang="opt_animation_linecap_0">
+                                    rectangular ends
+                                    trimmed at the endpoints</option>
+                                <option value="round" class="translate" data-lang="opt_animation_linecap_1">
+                                    rounded ends (beyond
+                                    the endpoints)</option>
+                                <option value="square" class="translate" data-lang="opt_animation_linecap_2">
+                                    square ends
+                                    (beyond the endpoints)</option>
+                            </select>
+                        </div>
                     </fieldset>
                     <fieldset class="flex">
                         <legend><span class=" iconify legend" data-icon="fontisto:preview" data-width="24"
@@ -2674,7 +2649,34 @@
     </div>
     <div id="message_success"></div>
     <div id="message_failed"></div>
-</body>
+    <div id="mouse_contextmenu">
+        <ul>
+            <li id="ctx_copy" class="not_active">
+                <div><span class="iconify" data-height="24" data-width="24"
+                        data-icon="material-symbols:file-copy-outline-rounded"></span>
+                    <span class="translate" data-lang="btn_copy">Copy</span>
+                </div>
+            </li>
+            <li id="ctx_paste" class="not_active">
+                <div><span class="iconify" data-height="24" data-width="24"
+                        data-icon="material-symbols:content-paste-go-rounded"></span>
+                    <span class="translate" data-lang="value_insert">Paste</span>
+                </div>
+            </li>
+            <li id="ctx_delete" class="not_active">
+                <div><span class="iconify" data-height="24" data-width="24"
+                        data-icon="material-symbols:delete-outline"></span>
+                    <span class="translate" data-lang="value_delete">Delete</span>
+                </div>
+            </li>
+            <li id="ctx_export" class="not_active">
+                <div><span class="iconify" data-height="24" data-width="24" data-icon="mdi:export"></span>
+                    <span class="translate" data-lang="value_export_element">Export element</span>
+                </div>
+            </li>
+        </ul>
 
+    </div>
+</body>
 
 </html>
