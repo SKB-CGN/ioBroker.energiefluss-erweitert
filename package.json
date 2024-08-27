@@ -1,6 +1,6 @@
 {
   "name": "iobroker.energiefluss-erweitert",
-  "version": "0.5.1-alpha.4",
+  "version": "0.5.1-alpha.5",
   "description": "desc",
   "author": {
     "name": "SKB",
@@ -14,16 +14,16 @@
   "homepage": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert",
   "license": "MIT",
   "keywords": [
-      "ioBroker",
-      "energy",
-      "energy-flow",
-      "energie",
-      "energiefluss",
-      "energiefluss-erweitert",
-      "photovoltaics",
-      "Photovoltaik",
-      "Solar"
-    ],
+    "ioBroker",
+    "energy",
+    "energy-flow",
+    "energie",
+    "energiefluss",
+    "energiefluss-erweitert",
+    "photovoltaics",
+    "Photovoltaik",
+    "Solar"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert.git"
