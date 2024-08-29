@@ -252,6 +252,7 @@
     "lbl_settings_enable_proxy": "Use the Icon-Proxy for all icon requests",
     "lbl_settings_lastSource": "Show last Source in Object Browser, if current source is empty",
     "lbl_settings_low_performance": "Use less power mode for animations",
+    "lbl_settings_show_coordinates": "Show element coordinates when selecting and while dragging",
     "lbl_settings_show_icon": "Show config icon on live-view",
     "lbl_shadow": "Shadow",
     "lbl_shadow_color": "Shadow color",

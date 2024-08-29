@@ -31,6 +31,10 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Show element coordinates when selecting and while dragging (can be deactivated inside settings)
+- Added: Workspace can not be less height and width than the coordinates of the placed elements
+
 ### 0.5.1-alpha.5 (2024-08-27)
 - FIX: Configbar was not opening when another element was moved before (#232)
 - FIX: Adapter was crashing, if a static picture from the gallery has had an associated datasource (#233)

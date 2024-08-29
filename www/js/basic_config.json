@@ -8,6 +8,7 @@
         "enable_icon_proxy": false,
         "enable_low_performance": false,
         "enable_ds_autocomplete": false,
+        "enable_show_coordinates": true,
         "height": 540,
         "width": 530,
         "animation_timer": 1000,

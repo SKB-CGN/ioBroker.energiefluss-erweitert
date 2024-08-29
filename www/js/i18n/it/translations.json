@@ -252,6 +252,7 @@
     "lbl_settings_enable_proxy": "Utilizza Icon-Proxy per tutte le richieste di icone",
     "lbl_settings_lastSource": "Mostra l'ultima origine nel Visualizzatore oggetti, se l'origine corrente è vuota",
     "lbl_settings_low_performance": "Utilizza la modalità di risparmio energetico per le animazioni",
+    "lbl_settings_show_coordinates": "Mostra le coordinate dell'elemento durante la selezione e il trascinamento",
     "lbl_settings_show_icon": "Mostra l'icona di configurazione nella visualizzazione live",
     "lbl_shadow": "Ombra",
     "lbl_shadow_color": "Colore dell'ombra",

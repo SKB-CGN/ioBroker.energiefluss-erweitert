@@ -252,6 +252,7 @@
     "lbl_settings_enable_proxy": "Використовуйте Icon-Proxy для всіх запитів значків",
     "lbl_settings_lastSource": "Показати останнє джерело в браузері об’єктів, якщо поточне джерело порожнє",
     "lbl_settings_low_performance": "Використовуйте режим меншої потужності для анімації",
+    "lbl_settings_show_coordinates": "Показувати координати елемента під час вибору та перетягування",
     "lbl_settings_show_icon": "Показати піктограму конфігурації на live-view",
     "lbl_shadow": "Тінь",
     "lbl_shadow_color": "Колір тіні",

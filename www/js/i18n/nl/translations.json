@@ -252,6 +252,7 @@
     "lbl_settings_enable_proxy": "Gebruik de Icon-Proxy voor alle pictogramverzoeken",
     "lbl_settings_lastSource": "Toon laatste bron in de objectbrowser, als de huidige bron leeg is",
     "lbl_settings_low_performance": "Gebruik de minder energiemodus voor animaties",
+    "lbl_settings_show_coordinates": "Toon elementcoördinaten bij het selecteren en tijdens het slepen",
     "lbl_settings_show_icon": "Toon configuratiepictogram in liveweergave",
     "lbl_shadow": "Schaduw",
     "lbl_shadow_color": "Schaduw kleur",

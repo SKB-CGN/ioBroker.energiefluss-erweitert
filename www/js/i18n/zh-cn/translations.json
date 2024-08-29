@@ -252,6 +252,7 @@
     "lbl_settings_enable_proxy": "对所有图标请求使用图标代理",
     "lbl_settings_lastSource": "如果当前源为空，则在对象浏览器中显示最后一个源",
     "lbl_settings_low_performance": "对动画使用低功耗模式",
+    "lbl_settings_show_coordinates": "选择和拖动时显示元素坐标",
     "lbl_settings_show_icon": "在实时视图上显示配置图标",
     "lbl_shadow": "阴影",
     "lbl_shadow_color": "阴影颜色",

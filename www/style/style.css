@@ -311,7 +311,7 @@ stop {
 }
 
 .container.top fieldset:nth-child(1) {
-    min-width: 300px;
+    min-width: 280px;
 }
 
 .container.top fieldset:nth-child(2) {
@@ -473,6 +473,7 @@ text.action_element:hover {
     opacity: 0.6 !important;
     cursor: move;
     outline: 1px dashed var(--red);
+    outline-offset: 2px;
 }
 
 .draggable-multi:not(.active_element) {
@@ -483,6 +484,7 @@ text.action_element:hover {
     animation-duration: 1.6s;
     animation-iteration-count: infinite;
     outline: 1px dashed var(--red);
+    outline-offset: 2px;
 }
 
 .newVersion {
@@ -598,6 +600,7 @@ text.action_element:hover {
 
 .active_element {
     outline: 1px dashed var(--red);
+    outline-offset: 2px;
 }
 
 .no_click {
@@ -1692,6 +1695,23 @@ text {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+}
+
+.coord_desc {
+    filter: drop-shadow(var(--blackTrans) 0px 3px 3px);
+}
+
+.coord_desc div {
+    color: var(--black);
+    background-color: var(--white);
+    border: 1px solid var(--red);
+    border-radius: 5px;
+    height: 16px;
+    width: 94px;
+    display: flex;
+    align-items: center;
+    padding: 2px 4px;
+    vertical-align: top;
 }
 
 .connPoints {
