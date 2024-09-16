@@ -390,7 +390,7 @@ legend>span {
     top: 25px;
     left: 5%;
     width: 90vw;
-    height: calc(100% - 50px);
+    height: calc(100dvh - 50px);
     min-height: 40px;
     overflow: hidden;
     border-radius: 10px;
@@ -1699,6 +1699,7 @@ text {
 
 .coord_desc {
     filter: drop-shadow(var(--blackTrans) 0px 3px 3px);
+    overflow: visible;
 }
 
 .coord_desc div {
@@ -1707,11 +1708,13 @@ text {
     border: 1px solid var(--red);
     border-radius: 5px;
     height: 16px;
-    width: 94px;
+    min-width: 94px;
+    width: min-content;
     display: flex;
     align-items: center;
     padding: 2px 4px;
     vertical-align: top;
+    white-space: nowrap;
 }
 
 .connPoints {

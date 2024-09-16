@@ -35,6 +35,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Backup routine reworked to improve storage (sending/receiving data reduced)
 - Added: Elements, which have addition or subtraction in use, now create states with their values and can be re-used by the user
 - Added: Language and explanation improvements, some routines updated
+- Added: Optimized contextmenu for touch-devices
 
 ### 0.5.1-alpha.6 (2024-08-29)
 - Added: Show element coordinates when selecting and while dragging (can be deactivated inside settings)
