@@ -1,390 +1,390 @@
 {
-    "common": {
-        "name": "energiefluss-erweitert",
-        "version": "0.5.1-alpha.6",
-        "news": {
-            "0.5.1-alpha.6": {
-                "en": "Added: Show element coordinates when selecting and while dragging (can be deactivated inside settings)\nAdded: Workspace can not be less height and width than the coordinates of the placed elements",
-                "de": "Hinzugefügt: Zeigen Sie Elementkoordinaten bei der Auswahl und beim Ziehen (kann innerhalb der Einstellungen deaktiviert werden)\nHinzugefügt: Workspace kann nicht weniger Höhe und Breite als die Koordinaten der platzierten Elemente sein",
-                "ru": "Добавлено: Показать координаты элемента при выборе и во время волочения (можно деактивировать в настройках)\nДобавлено: Рабочее пространство не может быть меньше высоты и ширины, чем координаты размещенных элементов",
-                "pt": "Adicionado: Mostrar coordenadas do elemento ao selecionar e ao arrastar (pode ser desativado dentro configurações)\nAdicionado: Workspace não pode ser menos altura e largura do que as coordenadas dos elementos colocados",
-                "nl": "Toegevoegd: elementcoördinaten tonen bij het selecteren en tijdens het slepen (kan worden gedeactiveerd binnen instellingen)\nToegevoegd: Werkruimte kan niet minder hoogte en breedte zijn dan de coördinaten van de geplaatste elementen",
-                "fr": "Ajouté : Afficher les coordonnées de l'élément lors de la sélection et lors du glisser (peut être désactivé à l'intérieur des paramètres)\nAjouté : L'espace de travail ne peut pas être moins grand que les coordonnées des éléments placés",
-                "it": "Aggiunto: Mostra le coordinate degli elementi quando si seleziona e mentre si trascina (può essere disattivato all'interno delle impostazioni)\nAggiunto: Workspace non può essere meno altezza e larghezza delle coordinate degli elementi posizionati",
-                "es": "Añadido: Mostrar coordenadas de elementos al seleccionar y arrastrar (puede desactivarse dentro de la configuración)\nAñadido: Workspace no puede ser menos altura y ancho que las coordenadas de los elementos colocados",
-                "pl": "Dodano: Pokaż współrzędne elementów podczas wybierania i podczas przeciągania (można wyłączyć ustawienia wewnętrzne)\nDodano: Przestrzeń robocza nie może być mniejsza od współrzędnych umieszczonych elementów",
-                "uk": "Додано: Показати координати елемента при виборі та під час перетягування (може бути деактивовані всередині налаштування)\nДодано: Робочий простір не може бути меншою висотою і шириною, ніж координати розміщених елементів",
-                "zh-cn": "添加: 选择和拖曳时显示元素坐标( 可以在设置内关闭)\n添加:工作空间的高度和宽度不得低于所设置元素的坐标"
-            },
-            "0.5.1-alpha.5": {
-                "en": "FIX: Configbar was not opening when another element was moved before (#232)\nFIX: Adapter was crashing, if a static picture from the gallery has had an associated datasource (#233)\nFIX: Rounded corners inside rect were not correctly set\nFIX: If workspace is completely empty, the first new added element could not be edited\nFIX: Overrides were not correctly applied, if source value was converted to number and should be a string instead\nFIX: Access key inside live-view was not working\nAdded: Rightclick contextmenu for quick access to some functions\nAdded: Global Undo&Redo functionality for moving, adding, removing and connecting elements (does not affect configuration dialog)",
-                "de": "FIX: Configbar öffnete sich nicht, als ein anderes Element zuvor bewegt wurde (#232)\nFIX: Adapter stürzte ab, wenn ein statisches Bild aus der Galerie eine zugehörige Datenquelle hatte (#233)\nFIX: Runde Ecken innerhalb des Rekts wurden nicht korrekt eingestellt\nFIX: Wenn Workspace vollständig leer ist, konnte das erste neue hinzugefügte Element nicht bearbeitet werden\nFIX: Overrides wurden nicht korrekt angewendet, wenn der Quellwert in Nummer umgewandelt wurde und stattdessen ein String sein sollte\nFIX: Zugriffsschlüssel in Live-View funktionierte nicht\nHinzugefügt: Rightclick contextmenu für schnellen Zugriff auf einige Funktionen\nHinzugefügt: Global Undo&Redo-Funktionalität zum Bewegen, Hinzufügen, Entfernen und Verbinden von Elementen (beeinflusst den Konfigurationsdialog nicht)",
-                "ru": "FIX: Configbar не открывался, когда перед перемещением другого элемента (#232)\nFIX: Адаптер рушился, если статическая картинка из галереи имела соответствующий источник данных (#233)\nFIX: Закругленные углы внутри прямой не были правильно установлены\nFIX: Если рабочее пространство полностью пусто, первый новый добавленный элемент не может быть отредактирован\nFIX: Оверриды не были правильно применены, если исходное значение было преобразовано в число и должно быть строкой вместо\nFIX: Ключ доступа внутри живого просмотра не работал\nДобавить: Щелкните правой кнопкой мыши контекстмену для быстрого доступа к некоторым функциям\nДобавлено: функциональность Global Undo&Redo для перемещения, добавления, удаления и подключения элементов (не влияет на диалог конфигурации)",
-                "pt": "FIX: Configbar não estava abrindo quando outro elemento foi movido antes (#232)\nFIX: Adapter estava quebrando, se uma imagem estática da galeria teve uma datasource associada (#233)\nFIX: Os cantos arredondados no interior do rect não foram corretamente definidos\nFIX: Se o workspace estiver completamente vazio, o primeiro novo elemento adicionado não poderá ser editado\nFIX: As sobreposições não foram aplicadas corretamente, se o valor da fonte foi convertido para o número e deve ser uma string em vez\nFIX: A chave de acesso dentro da visualização ao vivo não estava funcionando\nAdicionado: Rightclick contextmenu para acesso rápido a algumas funções\nAdicionado: Global Undo&Redo funcionalidade para mover, adicionar, remover e conectar elementos (não afeta a configuração diálogo)",
-                "nl": "FIX: de configuratiebalk werd niet geopend toen een ander element werd verplaatst (#232)\nFIX: Adapter crashte, als een statische foto van de galerie een bijbehorende databron had (#233)\nFIX: Afgeronde hoeken binnenkant rect waren niet correct ingesteld\nFIX: Als de werkruimte volledig leeg is, kan het eerste nieuwe toegevoegde element niet bewerkt worden\nFIX: Overrides werden niet correct toegepast, als de bronwaarde werd omgezet in getal en in plaats daarvan een tekenreeks zou moeten zijn\nFIX: Toegangssleutel binnen live-view werkte niet\nToegevoegd: contextmenu met de rechtermuisknop voor snelle toegang tot sommige functies\nToegevoegd: Global Undo&Redo-functionaliteit voor het verplaatsen, toevoegen, verwijderen en verbinden van elementen (heeft geen invloed op configuratiedialoog)",
-                "fr": "FIXE: Configbar ne s'ouvrait pas quand un autre élément était déplacé avant (#232)\nFIX: L'adaptateur s'écrase, si une image statique de la galerie a une source de données associée (#233)\nFIX : Les coins arrondis à l'intérieur du rect n'étaient pas correctement définis\nFIX: Si l'espace de travail est complètement vide, le premier élément ajouté ne peut pas être édité\nFIX : Les dépassements n'ont pas été correctement appliqués, si la valeur source a été convertie en nombre et devrait plutôt être une chaîne\nFIX: La clé d'accès à l'intérieur live-view ne fonctionnait pas\nAjouté : Menu contextuel du clic droit pour accéder rapidement à certaines fonctions\nAjouté : Fonctions Global Undo&Redo pour déplacer, ajouter, supprimer et connecter des éléments (ne modifie pas la boîte de dialogue de configuration)",
-                "it": "FIX: Configbar non si apre quando un altro elemento è stato spostato prima (#232)\nFIX: L'adattatore si stava schiantando, se una foto statica dalla galleria ha avuto una fonte di dati associata (#233)\nFIX: Gli angoli arrotondati all'interno del ret non sono stati impostati correttamente\nFIX: Se lo spazio di lavoro è completamente vuoto, il primo nuovo elemento aggiunto non potrebbe essere modificato\nFIX: Gli override non sono stati applicati correttamente, se il valore sorgente è stato convertito in numero e dovrebbe essere una stringa invece\nFIX: La chiave di accesso all'interno della vista dal vivo non funzionava\nAggiunto: Rightclick contestmenu per un rapido accesso ad alcune funzioni\nAggiunto: Global Undo&Redo funzionalità per lo spostamento, l'aggiunta, la rimozione e la connessione degli elementi (non influisce sulla finestra di dialogo di configurazione)",
-                "es": "FIX: Configbar no se abrió cuando otro elemento fue movido antes (#232)\nFIX: Adaptador se estrelló, si una imagen estática de la galería ha tenido un fuente de datos asociado (#233)\nFIX: Las esquinas redondeadas dentro del rect no estaban correctamente establecidas\nFIX: Si el espacio de trabajo está completamente vacío, el primer nuevo elemento añadido no puede ser editado\nFIX: Las anulaciones no se aplicaron correctamente, si el valor de la fuente se convirtió en número y debería ser una cadena en su lugar\nFIX: Access key inside live-view was not working\nAñadido: contextmenu de clic derecho para el acceso rápido a algunas funciones\nAñadido: Funcionalidad global Undo limitadaRedo para mover, añadir, eliminar y conectar elementos (no afecta el diálogo de configuración)",
-                "pl": "FIX: Pasek konfiguracyjny nie otwierał się, gdy inny element został przeniesiony przed (# 232)\nFIX: Adapter się rozbił, jeśli obraz statyczny z galerii miał związane dane (# 233)\nFIX: Zaokrąglone narożniki wewnątrz rect nie były prawidłowo ustawione\nFIX: Jeśli przestrzeń robocza jest całkowicie pusta, pierwszy dodany element nie może być edytowany\nFIX: Przekroczenia nie zostały prawidłowo zastosowane, jeśli wartość źródłowa została przeliczona na liczbę i powinna być zamiast tego łańcuchem\nFIX: Klucz dostępu wewnątrz live- view nie działał\nDodano: Jughtclick contextmenu dla szybkiego dostępu do niektórych funkcji\nDodano: Globalna funkcja cofania i ponownego przywracania do poruszania, dodawania, usuwania i łączenia elementów (nie wpływa na okno konfiguracji)",
-                "uk": "FIX: Конфігбар не відкрився, коли інший елемент був перенесений до (#232)\nFIX: Адаптер був аварійним, якщо статична картина з галереї мала асоційоване джерело даних (#233)\nFIX: Закруглені кути всередині прямокутника не правильно встановлюють\nFIX: Якщо робоче місце повністю порожній, перший новий доданий елемент не можна редагувати\nFIX: Перевипуски не були правильно застосовані, якщо значення джерела було перетворено на номер і повинні бути рядок замість\nFIX: ключ доступу у живому перегляді не працює\nДодано: Rightclick контекстмену для швидкого доступу до деяких функцій\nДоданий: Global Undo&Redo функціональність для переміщення, додавання, видалення та підключення елементів (не впливає на діалог конфігурації)",
-                "zh-cn": "FIX: 当另一个元素移动之前(# 232) 配置栏没有打开\nFIX: 适配器正在崩溃, 如果一个来自画廊的静态图片有相关的数据源( # 233)\nFIX:矩形内部的圆角没有正确设置\nFIX: 如果工作空间是完全空的, 无法编辑第一个新增元素\nFIX: 如果将源值转换为数字, 覆盖没有被正确应用, 应该是一个字符串 \nFIX: 直播视图中的访问密钥无效\n添加: 右键单击上下文菜单以快速访问一些函数\n添加: 移动、 添加、 删除和连接元素的全局撤销和重置功能( 不影响配置对话框)"
-            },
-            "0.5.1-alpha.4": {
-                "en": "Added: Alignments for elements refactored (Better detection if they run out of the workspace)\nAdded: New element \"ForeignObject\" added. This allows normal HTML content inside the workspace.\nAdded: Images can now have a shadow\nAdded: Keyboard copy, paste and delete functions added (Strg/cmd + c and Strg/cmd + v, Entf/del)\nAdded: Double-Click on element or line opens the 'extended'-tab and single click opens 'basic'-tab inside the configbar\nAdded: The liveview can now be displayed in fullscreen via doubleclick oder double-tab\nAdded: Better handling of images through datasources (image will be hidden, if datasource is empty)\nAdded: Lines can now have frame options for opening URLs\nAdded: Object-Browser scrolls the first clicked parent folder to the top \nFIX: Element with linebreak was not able to be moved after applying linebreak",
-                "de": "Hinzugefügt: Ausrichtungen für wiederhergestellte Elemente (bessere Erkennung, wenn sie aus dem Arbeitsraum laufen)\nHinzugefügt: Neues Element \"ForeignObject\" hinzugefügt. Dies ermöglicht normale HTML-Inhalte innerhalb des Arbeitsraums.\nHinzugefügt: Bilder können jetzt einen Schatten haben\nHinzugefügt: Tastatur Kopieren, Einfügen und Löschen Funktionen hinzugefügt (Strg/cmd + c und Strg/cmd + v, Entf/del)\nHinzugefügt: Double-Click auf Element oder Zeile öffnet die 'extended'-tab und einzelne Klick öffnet 'basic'-tab innerhalb der configbar\nHinzugefügt: Die Liveview kann jetzt im Vollbild über Doppelklick oder Doppel-Tab angezeigt werden\nHinzugefügt: Bessere Handhabung von Bildern durch Datenquellen (Bild wird versteckt, wenn Datenquelle leer ist)\nHinzugefügt: Linien können jetzt Frame-Optionen für das Öffnen von URLs haben\nHinzugefügt: Object-Browser scrollt den ersten geklickten Elternordner nach oben\nFIX: Element mit Linebreak konnte nach dem Anwenden von Linebreak nicht bewegt werden",
-                "ru": "Добавлено: выравнивание элементов, рефакторированных (лучшее обнаружение, если они заканчиваются из рабочего пространства)\nДобавлен новый элемент \"ForeignObject\". Это позволяет нормальному HTML-контенту внутри рабочего пространства.\nДобавлено: теперь изображения могут иметь тень\nДобавлено: Клавиатура, вставка и удаление добавленных функций (Strg/cmd + c и Strg/cmd + v, Entf/del)\nДобавлено: Двойной щелчок на элементе или строке открывает «расширенный» таб и один щелчок открывает «основной» таб внутри настраиваемого блока\nДобавлено: теперь просмотр может быть показан в полном экране через двойной щелчок одер двойной tab\nДобавлено: Лучшее обращение с изображениями через источники данных (изображение будет скрыто, если источник данных пуст)\nДобавлено: Lines теперь может иметь параметры для открытия URL-адресов\nДобавлено: Object-Browser прокручивает первую нажатую родительскую папку в верхней части\nFIX: Элемент с расщеплением не мог быть перемещен после нанесения перебоя",
-                "pt": "Adicionado: Alinhamentos para elementos refactored (melhor detecção se eles correr para fora do workspace)\nAdicionado: Novo elemento \"ForeignObject\" adicionado. Isso permite conteúdo HTML normal dentro do espaço de trabalho.\nAdicionado: Imagens podem agora ter uma sombra\nAdicionado: cópia do teclado, colar e excluir funções adicionadas (Strg/cmd + c e Strg/cmd + v, Entf/del)\nAdicionado: Double-Click on elemento ou linha abre o 'extended'-tab e single click abre 'basic'-tab dentro do configbar\nAdicionado: O liveview agora pode ser exibido em fullscreen via doubleclick oder double-tab\nAdicionado: Melhor manuseio de imagens através de datasources (a imagem será ocultada, se o datasource estiver vazio)\nAdicionado: Linhas agora podem ter opções de quadros para abrir URLs\nAdicionado: Object-Browser scrolls the first clicked parent folder to the top\nFIX: Elemento com linebreak não foi capaz de ser movido depois de aplicar linebreak",
-                "nl": "Toegevoegd: Uitlijningen voor elementen gerefactoreerd (Betere detectie als ze uit de werkruimte raken)\nToegevoegd: Nieuw element \"ForeignObject\" toegevoegd. Dit maakt normale HTML-inhoud binnen de werkruimte mogelijk.\nToegevoegd: Afbeeldingen kunnen nu een schaduw hebben\nToegevoegd: Toetsenbord kopiëren, plakken en verwijderen functies toegevoegd (Strg/cmd + c en Strg/cmd + v, Entf/del)\nToegevoegd: Dubbelklik op element of regel opent de 'extended'-tab en enkele klik opent 'basic'-tab in de configuratiebalk\nToegevoegd: De liveview kan nu op volledig scherm worden weergegeven via dubbelklik oder double-tab\nToegevoegd: Betere omgang met afbeeldingen via databronnen (afbeelding wordt verborgen, als databron leeg is)\nToegevoegd: Lijnen kunnen nu frameopties hebben voor het openen van URL's\nToegevoegd: Object-Browser scrolt de eerste geklikte oudermap naar boven\nFIX: Element met lijnbreuk kon niet worden verplaatst na het aanbrengen van lijnbreuk",
-                "fr": "Ajout : Alignements pour éléments refacturés (Mieux détecter s'ils ne sont plus dans l'espace de travail)\nAjouté : ajout d'un nouvel élément \"ForeignObject\". Cela permet un contenu HTML normal dans l'espace de travail.\nAjouté : Les images peuvent maintenant avoir une ombre\nAjouté : Ajout de fonctions de copie, de collage et de suppression du clavier (Strg/cmd + c et Strg/cmd + v, Entf/del)\nAjouté : Double-Cliquer sur l'élément ou la ligne ouvre la tab 'extension' et un seul clic ouvre la tab 'base' dans la barre de configuration\nAjouté: La vue en direct peut maintenant être affichée en plein écran via double-clic oder double-tab\nAjouté : Meilleure gestion des images via les sources de données (l'image sera cachée, si la source de données est vide)\nAjouté : les lignes peuvent maintenant avoir des options d'image pour ouvrir des URL\nAjouté : Object-Browser défile le premier dossier parent cliqué en haut\nFIXE: L'élément avec linebreak n'a pas pu être déplacé après application de linebreak",
-                "it": "Aggiunto: Allineamenti per elementi refactored (Better detection if run out of the workspace)\nAggiunto: Nuovo elemento \"ForeignObject\" aggiunto. Questo consente il normale contenuto HTML all'interno dello spazio di lavoro.\nAggiunto: Images can now have a shadow\nAggiunto: Tastiera copia, incolla e cancella le funzioni aggiunte (Strg/cmd + c e Strg/cmd + v, Entf/del)\nAggiunto: Double-Click on element or line opens the 'extended'-tab and single click opens 'basic'-tab inside the configbar\nAggiunto: Il liveview può ora essere visualizzato in fullscreen via doubleclick oder double-tab\nAggiunto: Better handling of images through datasources (l'immagine sarà nascosta, se la datasource è vuota)\nAggiunto: Lines può ora avere opzioni di frame per l'apertura URL\nAggiunto: Object-Browser scorre la prima cartella madre cliccata in alto\nFIX: Elemento con linebreak non è stato in grado di essere spostato dopo aver applicato il linebreak",
-                "es": "Añadido: alineaciones para elementos refactorizados (Mejor detección si se escapan del espacio de trabajo)\nAñadido: Nuevo elemento \"Objeto extranjero\" añadido. Esto permite un contenido HTML normal dentro del espacio de trabajo.\nAñadido: Las imágenes ahora pueden tener una sombra\nAñadido: Copia de teclado, pegar y eliminar funciones agregadas (Strg/cmd + c y Strg/cmd + v, Entf/del)\nAñadido: Doble clic en el elemento o la línea abre el 'extended'-tab y un solo clic abre 'basic'-tab dentro del configbar\nAñadido: La vista en vivo ahora se puede mostrar en pantalla completa a través de doble clic oder\nAñadido: Mejor manejo de imágenes a través de fuentes de datos (la imagen estará oculta, si el fuente de datos está vacío)\nAñadido: Las líneas ahora pueden tener opciones de marco para abrir URLs\nAñadido: Object-Browser desplaza la primera carpeta de padres con clic en la parte superior\nFIX: Element with linebreak was not able to be moved after applying linebreak",
-                "pl": "Dodano: Dopasowywanie elementów do refakturowanych (lepsze wykrywanie, jeśli zabraknie miejsca pracy)\nDodano: Dodano nowy element \"ForeignObject\". Pozwala to na normalną zawartość HTML wewnątrz przestrzeni roboczej.\nDodano: Obrazy mogą teraz mieć cień\nDodano: Skopiowanie klawiatury, wklejenie i usuwanie funkcji (Strg / cmd + c i Strg / cmd + v, Entf / del)\nDodano: Double- Kliknij na element lub linię otwiera 'rozszerzony' -zakładkę i pojedyncze kliknięcie otwiera 'podstawowy' -zakładkę wewnątrz paska konfiguracji\nDodano: Liveview może być wyświetlany na pełnym ekranie przez dubleclick oder duble- tab\nDodano: Lepsza obsługa obrazów poprzez dane (obraz będzie ukryty, jeśli dane są puste)\nDodano: Linie mogą teraz mieć opcje ramki do otwierania adresów URL\nDodano: Object- Browser przewija pierwszy kliknięty folder rodzica do góry\nFIX: Element z linebreak nie mógł być przesunięty po zastosowaniu linebreak",
-                "uk": "Доданий: Вирівнювання елементів рефакторингу (Виявлення запасів, якщо вони виходять з робочого простору)\nДодано: Новий елемент \"ForeignObject\" Це дозволяє нормалізувати вміст HTML у робочому просторі.\nДоданий: Зображення тепер може мати тінь\nДодано: Клавіатура, паста та видалення функцій (Strg/cmd + c та Strg/cmd + v, Entf/del)\nДодано: Double-Click на елементі або рядку відкриває 'extended'-tab і один клік відкриває 'basic'-tab всередині панелі налаштувань\nДоданий: Liveview тепер може відображатися в повноекранному режимі через doubleclick oder double-tab\nДодано: Краще обслуговування зображень через джерела даних (зображення буде приховано, якщо джерело даних порожній)\nДодано: Лінії тепер можуть мати параметри кадру для відкриття URL\nДодано: Об'єкт-Броузер прокручує першу натиснуту папку до вершини\nFIX: Елемент з лінбрейком не вдалося перенести після нанесення лінії",
-                "zh-cn": "添加: 重构元素的对齐( 如果已耗尽工作空间, 更好的检测)\n添加:添加新元素\"外国对象\". 这允许工作空间内正常的HTML内容.\n添加: 图像现在可以有阴影\n添加:键盘复制,粘贴和删除所添加的函数(Strg/cmd + c和Strg/cmd + v, Entf/del)\n添加: 元素或线上的双点击打开“ 扩展的” - tab, 而单点击打开“ 基本的” - Tab\n添加: 现场视图现在可以通过双击 oder 双塔布在全屏显示\n添加:通过数据源更好地处理图像(如果数据源为空,图像会隐藏)\n添加: 现在行可以有打开 URL 的框架选项\n添加: 对象浏览器滚动第一个点击的父文件夹到顶端\nFIX: 带换行符的元素在应用换行符后无法移动"
-            },
-            "0.5.1-alpha.3": {
-                "en": "Added: Rewritten Upload engine (Using Web-POST instead of sockets)\nAdded: Behaviour of the lines can be changed in the connection area. This includes the radius length (smaller and bigger) and the start of the curves (earlier and later)\nAdded: Several functions are optimized\nFIX: Warn message in Web-Adapter was missleading (removed)\nFIX: Message, that adapter is not configured was handling a different exception (solved)",
-                "de": "Hinzugefügt: Rewritten Upload-Engine (Web-POST anstelle von Steckdosen verwenden)\nHinzugefügt: Verhalten der Leitungen kann im Anschlussbereich geändert werden. Dazu gehören die Radiuslänge (kleiner und größer) und der Beginn der Kurven (eher und später)\nHinzugefügt: Mehrere Funktionen sind optimiert\nFIX: Warnmeldung im Web-Adapter wurde verfehlt (entfernt)\nFIX: Nachricht, dass der Adapter nicht konfiguriert ist, war die Bearbeitung einer anderen Ausnahme (gelöst)",
-                "ru": "Добавлено: Переписать двигатель загрузки (Использование Web-POST вместо розеток)\nДобавлено: Поведение линий может быть изменено в области соединения. Это включает в себя длину радиуса (меньше и больше) и начало кривых (ранее и позднее)\nДобавлено: несколько функций оптимизированы\nFIX: Сообщение в Web-Adapter было пропущено (удалено)\nFIX: Сообщение, которое адаптер не настроен, было обработано другим исключением (растворено)",
-                "pt": "Adicionado: Reescrito Carregar motor (Usando Web-POST em vez de soquetes)\nAdicionado: Comportamento das linhas pode ser alterado na área de conexão. Isso inclui o comprimento do raio (mais pequeno e maior) e o início das curvas (mais cedo e mais tarde)\nAdicionado: Várias funções são otimizadas\nFIX: Mensagem avisada em Web-Adapter foi missleading (removed)\nFIX: Mensagem, esse adaptador não está configurado foi lidar com uma exceção diferente (solvido)",
-                "nl": "Toegevoegd: Herschreven Uploadengine (Met behulp van Web-POST in plaats van sockets)\nToegevoegd: Gedrag van de lijnen kan worden veranderd in het verbindingsgebied. Dit omvat de radiuslengte (kleiner en groter) en het begin van de curven (vroeger en later)\nToegevoegd: Verschillende functies zijn geoptimaliseerd\nFIX: Waarschuwingsbericht in Web-Adapter was missleading (verwijderd)\nFIX: Bericht, dat adapter niet is geconfigureerd was het hanteren van een andere uitzondering (opgelost)",
-                "fr": "Ajouté: Réécriture du moteur de chargement (utilisation Web-POST au lieu de sockets)\nAjout : Le comportement des lignes peut être modifié dans la zone de connexion. Cela inclut la longueur du rayon (plus petite et plus grande) et le début des courbes (plus tôt et plus tard)\nAjouté: Plusieurs fonctions sont optimisées\nFIX: Prévenir le message dans le Web-Adapter était une erreur (supprimé)\nFIX: Message, que l'adaptateur n'est pas configuré était gérer une exception différente (résolu)",
-                "it": "Aggiunto: Rewritten Upload engine (Usando Web-POST invece di sockets)\nAggiunto: Il comportamento delle linee può essere cambiato nella zona di connessione. Questo include la lunghezza del raggio (più piccola e più grande) e l'inizio delle curve (più piccolo e più tardi)\nAggiunto: Diverse funzioni sono ottimizzate\nFIX: Il messaggio caldo in Web-Adapter è stato missleading (removed)\nFIX: Il messaggio, che l'adattatore non è configurato è stato la gestione di un'eccezione diversa (solved)",
-                "es": "Añadido: Motor de carga reescrita (Usando Web-POST en lugar de sockets)\nAñadido: Comportamiento de las líneas se puede cambiar en el área de conexión. Esto incluye la longitud del radio (smaller y más grande) y el comienzo de las curvas (más temprano y más tarde)\nAñadido: Varias funciones están optimizadas\nFIX: El mensaje de alarma en Web-Adapter fue descabellado (removido)\nFIX: Mensaje, que el adaptador no está configurado estaba manejando una excepción diferente (solvado)",
-                "pl": "Dodano: Przepisany silnik wysyłania (Używanie Web- POST zamiast gniazd)\nDodano: Zachowanie linii można zmienić w obszarze połączenia. Obejmuje to długość promienia (mniejszy i większy) oraz początek krzywych (wcześniej i później)\nDodano: Kilka funkcji jest zoptymalizowanych\nFIX: Ostrzeżenie wiadomości w Web- Adapter był błąd (usunięte)\nFIX: Wiadomość, że adapter nie jest skonfigurowany obsługiwał inny wyjątek (rozwiązany)",
-                "uk": "Доданий: Записати завантаження двигуна (Використання Web-POST замість розеток)\nДодано: Поведінка рядків можна змінити в зоні з'єднання. До цього входить довжина радіуса (дрібна і більша) і початок вигинів (земля і пізніше)\nДодано: Кілька функцій оптимізовані\nFIX: Warn повідомлення в Web-адаптері пропущено (видалено)\nFIX: Повідомлення, що перехідник не налаштований, перебуваючи іншого виключення (розчинений)",
-                "zh-cn": "添加: 重写上传引擎( 使用 Web- POST 而不是套接字)\n添加:连接区域可以改变行的行为. 这包括半径长度(较小和较大)和曲线的起始(更远和较晚)\n添加: 优化了若干功能\nFIX: Web-Adapter 的警告信息误写( 已删除)\nFIX: 信件, 该适配器没有配置是处理不同的例外( 已解决)"
-            },
-            "0.5.1-alpha.2": {
-                "en": "Added: Support for https via Web-Adapter (own certificates necessary)\nAdded: Icon-Proxy is removed from the adapter settings and runs on the extension of the Web-Adapter (If you use it or not - no changes are required)\nAdded: 2 new override parameter \"pos_x\" and \"pos_y\" are available, to position text and datasource elements depending on their value\nAdded: Energiefluss-erweitert is now available through the welcome screen of the Web-Adapter\nAdded: Energiefluss-erweitert is now reachable via iobroker.net through the ioBroker-cloud adapter (No pro license required)\nFIX: Sometimes, the object-browser could not load states and crashed",
-                "de": "Hinzugefügt: Unterstützung für https über Web-Adapter (Eigenzertifikate erforderlich)\nHinzugefügt: Icon-Proxy wird aus den Adaptereinstellungen entfernt und läuft auf der Erweiterung des Web-Adapters (Wenn Sie es verwenden oder nicht - keine Änderungen erforderlich sind)\nHinzugefügt: 2 neue Override-Parameter \"pos_x\" und \"pos_y\" stehen zur Verfügung, um Text- und Datenquellenelemente abhängig von ihrem Wert zu positionieren\nHinzugefügt: Energiefluss-erweitert ist jetzt über den Willkommensbildschirm des Web-Adapters verfügbar\nHinzugefügt: Energiefluss-erweitert ist nun über iobroker.net über den ioBroker-cloud Adapter erreichbar (keine pro Lizenz erforderlich)\nFIX: Manchmal konnte der Objekt-Browser keine Zustände laden und abgestürzt",
-                "ru": "Добавлено: Поддержка https через Web-Adapter (собственные сертификаты необходимо)\nДобавлено: Icon-Proxy удаляется из настроек адаптера и работает на расширение Web-Adapter (если вы используете его или нет - никаких изменений не требуется)\nДобавлено: доступны 2 новых параметра переопределения \"pos_x\" и \"pos_y\" для позиционирования текстовых и элементов передачи данных в зависимости от их значения\nДобавлено: Energieflus-erweitert теперь доступен через приветственный экран Web-Adapter\nДобавлено: Energieflus-erweitert теперь доступен через iobroker.net через адаптер ioBroker-cloud (не требуется лицензия pro)\nFIX: Иногда объект-браузер не мог загружать состояния и потерпел крушение",
-                "pt": "Adicionado: Suporte para https via Web-Adapter (certificados próprios necessários)\nAdicionado: Icon-Proxy é removido das configurações do adaptador e é executado na extensão do Web-Adapter (Se você usá-lo ou não - sem alterações são necessárias)\nAdicionado: 2 novo parâmetro de substituição \"pos_x\" e \"pos_y\" estão disponíveis, para posicionar elementos de texto e datasource dependendo do seu valor\nAdicionado: Energiefluss-erweitert está agora disponível através da tela de boas-vindas do Web-Adapter\nAdicionado: Energiefluss-erweitert é agora acessível via iobroker.net através do adaptador ioBroker-cloud (nenhuma licença pro necessária)\nFIX: Às vezes, o objeto-browser não podia carregar estados e caiu",
-                "nl": "Toegevoegd: ondersteuning voor https via Web-Adapter (eigen certificaten noodzakelijk)\nToegevoegd: Icon-Proxy wordt verwijderd uit de adapterinstellingen en draait op de uitbreiding van de Web-Adapter (Als u het gebruikt of niet - er zijn geen wijzigingen nodig)\nToegevoegd: 2 nieuwe override parameter \"pos_x\" en \"pos_y\" zijn beschikbaar om tekst- en databronelementen te positioneren afhankelijk van hun waarde\nToegevoegd: Energiefluss-erweitert is nu beschikbaar via het welkomstscherm van de Web-Adapter\nToegevoegd: Energiefluss-erweitert is nu bereikbaar via iobroker.net via de ioBroker-cloud adapter (geen pro-licentie vereist)\nFIX: Soms kon de object-browser statussen niet laden en crashte",
-                "fr": "Ajouté: Support pour https via Web-Adapter (vos certificats nécessaires)\nAjouté: Icon-Proxy est supprimé des paramètres de l'adaptateur et fonctionne sur l'extension de l'adaptateur Web (Si vous l'utilisez ou non - aucun changement n'est nécessaire)\nAjouté : 2 nouveaux paramètres de redéfinition \"pos_x\" et \"pos_y\" sont disponibles, pour positionner des éléments texte et datasource en fonction de leur valeur\nAjouté : Energiefluss-erweitert est maintenant disponible via l'écran de bienvenue du Web-Adapter\nAjouté : Energiefluss-erweitert est maintenant accessible via iobroker.net via l'adaptateur ioBroker-cloud (pas de licence pro requise)\nFIX : Parfois, le navigateur objet ne pouvait pas charger les états et s'est écrasé",
-                "it": "Aggiunto: Supporto per https via Web-Adapter (certificati propri necessari)\nAggiunto: Icon-Proxy viene rimosso dalle impostazioni dell'adattatore e corre sull'estensione del Web-Adapter (Se lo usi o non - non sono necessarie modifiche)\nAggiunto: 2 nuovo parametro override \"pos_x\" e \"pos_y\" sono disponibili, per posizionare elementi di testo e datasource a seconda del loro valore\nAggiunto: Energiefluss-erweitert è ora disponibile attraverso la schermata di benvenuto del Web-Adapter\nAggiunto: Energiefluss-erweitert è ora raggiungibile tramite iobroker.net attraverso l'adattatore ioBroker-cloud (Nessuna licenza pro richiesta)\nFIX: A volte, il rogo-oggetto non poteva caricare stati e crash",
-                "es": "Añadido: Soporte para https vía Web-Adapter (certificados propios necesarios)\nAñadido: Icon-Proxy se elimina de la configuración del adaptador y se ejecuta en la extensión del Web-Adapter (Si lo usas o no - no se requieren cambios)\nAñadido: 2 nuevos parámetros de anulación \"pos_x\" y \"pos_y\" están disponibles, para posicionar elementos de texto y fuente de datos dependiendo de su valor\nAñadido: Energiefluss-erweitert está ahora disponible a través de la pantalla de bienvenida del Web-Adapter\nAñadido: Energiefluss-erweitert ahora se puede llegar a través de iobroker.net a través del adaptador ioBroker-cloud (No se requiere licencia de pro)\nFIX: A veces, el navegador no podía cargar estados y se estrelló",
-                "pl": "Dodano: Wsparcie dla https poprzez Web- Adapter (niezbędne certyfikaty własne)\nDodano: Icon- Proxy jest usuwany z ustawień adaptera i działa na rozszerzenie Web- Adapter (Jeśli go używasz lub nie - nie są wymagane żadne zmiany)\nDodano: dostępny jest 2 nowy parametr \"pos _ x\" i \"pos _ y\", aby umieścić tekst i elementy danych w zależności od ich wartości\nDodano: EnergieFluss- erweitert jest teraz dostępny przez ekran powitalny Web- Adapter\nDodano: Energiefluss- erweitert jest teraz osiągalny przez iobroker.net przez joBroker- cloud adapter (Nie wymaga licencji pro)\nFIX: Czasami przeglądarka obiekt- nie może wczytać stanów i rozbił",
-                "uk": "Додано: Підтримка HTTPS через Web-адаптер (власні сертифікати, необхідні)\nДодано: Ікона-Проксі видаляється з параметрів адаптера і працює на розширенні Web-адаптера (Якщо ви використовуєте його або не - не потрібно ніяких змін)\nДодано: 2 новий параметр Override \"pos_x\" і \"pos_y\" доступні, для розміщення елементів текстового та джерела даних залежно від їх значення\nДодано: Energieflus-erweitert тепер доступний через вітальний екран Web-адаптера\nДодано: Energieflus-erweitert тепер доступний через iobroker.net через ioBroker-cloud адаптер (не потрібно ліцензію)\nFIX: Іноді об'єкт-браузер не може завантажувати стани і збиток",
-                "zh-cn": "添加: 通过 Web-Adapter 对 https 的支持( 需要拥有证书)\n添加: Icon-Proxy 从适配器设置中删除,并在 Web-Adapter 的扩展上运行(如果使用与否 - 不需要更改)\n添加: 2 新的覆盖参数“ pos_ x” 和“ pos_ y” 可用, 以根据文本和数据源元素的值来定位它们\n添加:目前可通过Web-Adapter的欢迎屏幕获取能量荧光\n添加:目前通过iobroker-cloud适配器(不需要专业许可证)的iobroster.net可以到达能量fluss-erweitert\nFIX: 有时, 对象浏览器无法装入状态并崩溃"
-            },
-            "0.5.1-alpha.1": {
-                "en": "Added: The image gallery has now a filter function which helps you to find the images more easily\nAdded: The datasource object-browser has now a filter function which helps you to find the datasource more easily\nFIX: Added some crash-handler, which might throw an error, when the associated state is not found\nFIX: Linebreak was not working correctly (Delimiter was ignored)\nFIX: Under some circumstances a datasource could not be modified\nFIX: Text prepend was not working correctly if source is displayed as text",
-                "de": "Hinzugefügt: Die Bildergalerie hat nun eine Filterfunktion, die Ihnen hilft, die Bilder leichter zu finden\nHinzugefügt: Der Datasource-Objekt-Browser hat nun eine Filterfunktion, die Ihnen hilft, die Datenquelle leichter zu finden\nFIX: Hinzugefügt einige Crash-Handler, die einen Fehler werfen könnte, wenn der zugehörige Zustand nicht gefunden\nFIX: Linebreak funktionierte nicht richtig (Delimiter wurde ignoriert)\nFIX: Unter Umständen konnte eine Datenquelle nicht geändert werden\nFIX: Textvorgabe funktionierte nicht korrekt, wenn die Quelle als Text angezeigt wird",
-                "ru": "Добавлено: галерея изображений теперь имеет функцию фильтра, которая помогает вам легче находить изображения\nДобавлено: объект-браузер для передачи данных теперь имеет функцию фильтра, которая помогает вам легче найти источник данных\nFIX: Добавлен какой-то крушитель, который может бросить ошибку, когда ассоциированное состояние не найдено\nFIX: Linebreak не работал правильно (Delimiter был проигнорирован)\nFIX: При некоторых обстоятельствах источник данных не может быть изменен\nFIX: Текстовый перпенд не работал правильно, если источник отображается в виде текста",
-                "pt": "Adicionado: A galeria de imagens tem agora uma função de filtro que ajuda você a encontrar as imagens mais facilmente\nAdicionado: O datasource object-browser tem agora uma função de filtro que ajuda você a encontrar a datasource mais facilmente\nFIX: Adicionado alguns crash-handler, que pode jogar um erro, quando o estado associado não é encontrado\nFIX: Linebreak não estava funcionando corretamente (Delimitador foi ignorado)\nFIX: Em algumas circunstâncias, uma fonte de dados não poderia ser modificada\nFIX: O prepêndio de texto não estava funcionando corretamente se a fonte é exibida como texto",
-                "nl": "Toegevoegd: De afbeeldingengalerij heeft nu een filterfunctie die u helpt om de afbeeldingen gemakkelijker te vinden\nToegevoegd: De datasource object-browser heeft nu een filterfunctie die u helpt om de datasource gemakkelijker te vinden\nFIX: Toegevoegd sommige crash-handler, die een fout zou kunnen gooien, wanneer de geassocieerde staat is niet gevonden\nFIX: Linebreak werkte niet correct (Delimiter werd genegeerd)\nFIX: Onder bepaalde omstandigheden kon een gegevensbron niet worden gewijzigd\nFIX: Tekstprepend werkte niet correct als de bron als tekst wordt weergegeven",
-                "fr": "Ajouté : La galerie d'images a maintenant une fonction de filtre qui vous aide à trouver les images plus facilement\nAjouté : Le navigateur objet datasource a maintenant une fonction de filtre qui vous aide à trouver la source de données plus facilement\nFIX: Ajout d'un crash-handler, qui pourrait lancer une erreur, lorsque l'état associé n'est pas trouvé\nFIX: Linebreak ne fonctionnait pas correctement (Delimiter a été ignoré)\nFIX: Dans certaines circonstances, une source de données n'a pas pu être modifiée\nFIX: Le texte prépend ne fonctionnait pas correctement si la source est affichée comme texte",
-                "it": "Aggiunto: La galleria di immagini ha ora una funzione di filtro che aiuta a trovare le immagini più facilmente\nAggiunto: Il datasource object-browser ha ora una funzione di filtro che ti aiuta a trovare la datasource più facilmente\nFIX: Aggiunto un po 'di crash-handler, che potrebbe lanciare un errore, quando lo stato associato non è trovato\nFIX: Linebreak non funziona correttamente (Delimiter è stato ignorato)\nFIX: In alcune circostanze una fonte di dati non potrebbe essere modificata\nFIX: Il testo prepend non funziona correttamente se la sorgente viene visualizzata come testo",
-                "es": "Añadido: La galería de imágenes tiene ahora una función de filtro que le ayuda a encontrar las imágenes más fácilmente\nAñadido: El datasource objeto-browser tiene ahora una función de filtro que le ayuda a encontrar el datasource más fácilmente\nFIX: Agregó un poco de mando, que podría lanzar un error, cuando el estado asociado no se encuentra\nFIX: Linebreak no estaba funcionando correctamente (Delimiter fue ignorado)\nFIX: En algunas circunstancias, un fuente de datos no podía ser modificado\nFIX: El prependimiento de texto no funcionaba correctamente si la fuente se muestra como texto",
-                "pl": "Dodano: Galeria zdjęć posiada teraz funkcję filtrowania, która pomaga łatwiej znaleźć obrazy\nDodano: Przeglądarka obiektów danych posiada teraz funkcję filtrowania, która pomaga łatwiej znaleźć dane\nFIX: Dodano jakiś support-handler, który może spowodować błąd, gdy stan nie zostanie znaleziony\nFIX: Linebreak nie działał prawidłowo (Delimiter został zignorowany)\nFIX: W pewnych okolicznościach dane nie mogły zostać zmienione\nFIX: Premiowanie tekstu nie działało prawidłowo, jeśli wyświetlane jest źródło jako tekst",
-                "uk": "Додано: Галерея зображень тепер функція фільтра, яка допомагає вам знайти зображення більш легко\nДодано: Об'єкт джерела даних-браузер тепер функція фільтра, яка дозволяє легко знайти джерело даних\nFIX: Додана деяка аварійна ручка, яка може кинути помилку, коли асоційований стан не знайдено\nFIX: Стрічка не працює належним чином (Делімітатор ігнорував)\nFIX: За деяких обставин, що джерело даних не було змінено\nFIX: Текстовий препенд не працює належним чином, якщо джерело відображається як текст",
-                "zh-cn": "添加: 图像库现在有一个过滤功能, 帮助您更容易找到图像\n添加:数据源对象浏览器现在有一个过滤功能,可以帮助您更容易地找到数据源\nFIX: 当找不到关联状态时, 添加了可能丢出错误的崩溃处理器\nFIX: Linebreak 没有正确工作( 定义被忽略)\nFIX: 在某些情况下无法修改数据源\nFIX: 如果源代码显示为文本, 文本预置符无法正确工作"
-            },
-            "0.5.1-alpha.0": {
-                "en": "FIX: The coordinates and size of an added icon could not be changed\nFIX: Cursor as Pointer (hand) did not appear on elements with action\nFIX: NPM dependency for gallery was not fetched properly\nFIX: Newly added Text didnt save text (was empty instead)\nFIX: Under some circumstances an element could not be deleted (Error: Existing connection!)\nAdded: Text-Elements can now be used as date and time element\nAdded: Icons can now be rotated and flipped (even when using overrides for them)\nAdded: New overrides parameter 'icon' available to change icons (Explained in [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements#for-icons))",
-                "de": "FIX: Die Koordinaten und Größe eines hinzugefügten Icons konnten nicht geändert werden\nFIX: Cursor als Pointer (hand) nicht auf Elementen mit Aktion\nFIX: NPM-Abhängigkeit für die Galerie wurde nicht richtig abgeholt\nFIX: Neu hinzugefügt Text nicht speichern Text (war leer statt)\nFIX: Unter Umständen konnte ein Element nicht gelöscht werden (Fehler: bestehende Verbindung!)\nHinzugefügt: Text-Elemente können jetzt als Datum und Zeitelement verwendet werden\nHinzugefügt: Icons können jetzt gedreht und gekippt werden (auch bei Verwendung von Overrides für sie)\nHinzugefügt: Neuer Overrides-Parameter 'icon' zur Änderung von Icons (Erklärt in [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-Elemente#for-icons))",
-                "ru": "FIX: Координаты и размер добавленной иконы не могут быть изменены\nFIX: Cursor as Pointer (hand) не появлялся на элементах с действием\nFIX: Зависимость NPM для галереи не была доставлена должным образом\nFIX: Новый текст не сохранил текст (был пустым)\nFIX: При некоторых обстоятельствах элемент не может быть удален (Error: Существующее соединение!)\nДобавлено: Текстовые элементы теперь могут использоваться в качестве элемента даты и времени\nДобавлено: Иконы теперь могут быть повернуты и сброшены (даже при использовании для них решеток)\nДобавлено: новый параметр 'icon' доступен для изменения икон (объяснено в [Wiki] (https://github.com/SKB-CGN/ioBroker.energieflus-erweitert/wiki/Custom-Overrides-for-elements#for-icons))",
-                "pt": "FIX: As coordenadas e o tamanho de um ícone adicionado não podem ser alterados\nFIX: Cursor como Pointer (mão) não apareceu em elementos com ação\nFIX: A dependência de NPM para galeria não foi obtida corretamente\nFIX: Texto recém-adicionado não salvou texto (foi vazio em vez)\nCORREÇÃO: Em algumas circunstâncias, um elemento não poderia ser excluído (Error: conexão existente!)\nAdicionado: Text-Elements can now be used as date and time element\nAdicionado: Ícones agora pode ser girado e virado (mesmo quando usar overrides para eles)\nAdicionado: New overrides parâmetro 'icon' disponível para alterar ícones (Explained in [Wiki](https://github.com/SKB-CGN/ioBroker.energieflus-erweitert/wiki/Custom-Overrides-for-elements#for-icons)))",
-                "nl": "FIX: De coördinaten en grootte van een toegevoegd pictogram kon niet worden gewijzigd\nFIX: Cursor als Aanwijzer (hand) verscheen niet op elementen met actie\nFIX: NPM-afhankelijkheid voor galerij is niet correct opgehaald\nFIX: Nieuw toegevoegd Tekst niet opslaan (was leeg in plaats daarvan)\nFIX: Onder bepaalde omstandigheden kon een element niet worden verwijderd (Fout: Bestaande verbinding!)\nToegevoegd: Tekstelementen kunnen nu gebruikt worden als datum- en tijdelement\nToegevoegd: Pictogrammen kunnen nu worden gedraaid en omgedraaid (zelfs bij het gebruik van overrides voor hen)\nToegevoegd: Nieuwe override parameter 'icon' beschikbaar om pictogrammen te wijzigen (Uitgelicht in [Wiki](https://github.com/SKB-CGN/ioBroker.energyfluss-erweitert/wiki/Custom-Overrides-for-elements#for-icons))",
-                "fr": "FIX : Les coordonnées et la taille d'une icône ajoutée n'ont pas pu être modifiées\nFIX: Curseur comme Pointeur (main) n'est pas apparu sur les éléments avec action\nFIX: La dépendance NPM pour la galerie n'a pas été récupérée correctement\nFIX: Nouvellement ajouté Texte n'a pas enregistré de texte (était vide à la place)\nFIX: Dans certaines circonstances, un élément ne pouvait pas être supprimé (Erreur: Connexion existante!)\nAjouté : Les éléments texte peuvent maintenant être utilisés comme élément date et heure\nAjouté: Les icônes peuvent maintenant être tournées et retournées (même lorsque l'on utilise des overfores pour eux)\nAjout : Nouveau paramètre de remplacement 'icon' disponible pour modifier les icônes (Explained in [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements#for-icons))",
-                "it": "FIX: Le coordinate e le dimensioni di un'icona aggiuntiva non potrebbero essere cambiate\nFIX: Cursor come Pointer (mano) non è apparso su elementi con azione\nFIX: la dipendenza NPM per la galleria non è stata presa correttamente\nFIX: Nuovo aggiunto Testo non ha salvato il testo (era vuoto invece)\nFIX: In alcune circostanze un elemento non poteva essere cancellato (Errore: connessione esistente!)\nAggiunto: Text-Elements può ora essere utilizzato come data e ora elemento\nAggiunto: Icons può ora essere ruotato e capovolto (anche quando si utilizza overrides per loro)\nAggiunto: New overrides parametro 'icon' available to change icons (Spiegato in [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements#for-icons)))",
-                "es": "FIX: Las coordenadas y el tamaño de un icono añadido no se pueden cambiar\nFIX: Cursor como Pointer (mano) no apareció en elementos con acción\nFIX: La dependencia de NPM para la galería no fue capturada correctamente\nFIX: Nuevo texto añadido no guardó texto (en cambio estaba vacío)\nFIX: En algunas circunstancias un elemento no se puede eliminar (Error: ¡existing connection!)\nAñadido: Elementos de texto ahora se puede utilizar como elemento fecha y hora\nAñadido: Los iconos ahora pueden ser rotados y volteados (incluso cuando usan anulaciones para ellos)\nAñadido: New overrides parameter 'icon' available to change icons (Explained in [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements#for-icons))",
-                "pl": "FIX: Współrzędne i rozmiar dodanej ikony nie mogły zostać zmienione\nFIX: Kursor jako Pointer (ręka) nie pojawił się na elementach z akcji\nFIX: NPM zależność dla galerii nie została pobrana prawidłowo\nFIX: Nowy dodany tekst nie zapisał tekstu (zamiast tego był pusty)\nFIX: W pewnych okolicznościach element nie mógł zostać usunięty (Błąd: Istniejące połączenie!)\nDodano: Elementy tekstowe mogą być teraz używane jako element daty i czasu\nDodano: Ikony mogą być teraz obracane i obracane (nawet przy użyciu nadwozia)\nDodano: Nowy parametr overrides 'icon' available to change icones (Exploared in [Wiki] (https: / / github.com / SKB- CGN / ioBroker.energiefluss- erweitert / wiki / Custom- Overrides- for-elements # for- iconami))",
-                "uk": "FIX: Координати та розмір доданої іконки не можна змінити\nFIX: Куратор як Точка (ручна) не з'явився на елементах з дією\nFIX: NPM залежність для галереї не було належним чином\nFIX: Новий доданий текст не зберігав текст (порожній замість)\nFIX: У деяких випадках елемент не може бути видалений (отримувач: З'єднання з'єднанням!)\nДодано: Text-Elements тепер можна використовувати як елемент дати та часу\nДоданий: Ікони тепер можуть бути обертаються і мухуються (навіть при використанні перенаречених для них)\nДодано: Новий параметр Overrides 'icon' доступний для зміни іконок (Розкладений в [Wiki](https://github.com/SKB-CGN/ioBroker.energieflus-erweitert/wiki/Custom-Overrides-for-elements#for-icons))",
-                "zh-cn": "FIX: 添加图标的坐标和大小无法更改\nFIX: 光标为指针( 手) 未出现在带有动作的元素上\nFIX: 没有适当获取国家防范机制对画廊的依赖性\nFIX: 新添加的文本没有保存文本( 改为空)\nFIX:在某些情况下,无法删除一个元素(错误:现有连接!)\n添加:现在可使用文本元素作为日期和时间元素\n添加: 图标现在可以旋转和翻转( 即使为它们使用覆盖) \n添加:用于更改图标的新覆盖参数\"icon\"(解释于[维基] (https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides- for-elements#for-icons)) "
-            }
-        },
-        "titleLang": {
-            "en": "Energiefluss - erweitert",
-            "de": "Energiefluss - erweitert",
-            "ru": "Energiefluss - erweitert",
-            "pt": "Energiefluss - erweitert",
-            "nl": "Energiefluss - erweitert",
-            "fr": "Energiefluss - erweitert",
-            "it": "Energiefluss - erweitert",
-            "es": "Energiefluss - erweitert",
-            "pl": "Energiefluss - erweitert",
-            "zh-cn": "Energiefluss-erweitert",
-            "uk": "Energiefluss - erweitert"
-        },
-        "desc": {
-            "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
-            "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-            "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
-        },
-        "authors": [
-            "SKB <info@skb-web.de>"
-        ],
-        "keywords": [
-            "energy",
-            "energy-flow",
-            "energie",
-            "energiefluss",
-            "energiefluss-erweitert",
-            "photovoltaics",
-            "Photovoltaik",
-            "Solar"
-        ],
-        "platform": "Javascript/Node.js",
-        "icon": "energiefluss-erweitert.png",
-        "enabled": true,
-        "localLinks": {
-            "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
-        },
-        "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
-        "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
-        "loglevel": "info",
-        "webExtension": "lib/web.js",
-        "mode": "daemon",
-        "tier": 3,
-        "type": "visualization",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "assumption",
-        "welcomeScreen": {
-            "link": "energiefluss-erweitert/",
-            "name": "energiefluss-erweitert",
-            "img": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
-            "color": "#538ea3",
-            "order": 0
-        },
-        "licenseInformation": {
-            "license": "MIT",
-            "type": "free"
-        },
-        "adminUI": {
-            "config": "materialize",
-            "tab": false
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=5.0.19",
-                "web": ">=3.0.12"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.1.13"
-            }
-        ],
-        "dataFolder": "energiefluss-erweitert.%INSTANCE%",
-        "messagebox": true
+  "common": {
+    "name": "energiefluss-erweitert",
+    "version": "0.5.1-alpha.7",
+    "news": {
+      "0.5.1-alpha.7": {
+        "en": "Added: Backup routine reworked to improve storage (sending/receiving data reduced)\nAdded: Elements, which have addition or subtraction in use, now create states with their values and can be re-used by the user\nAdded: Language and explanation improvements, some routines updated\nAdded: Optimized contextmenu for touch-devices",
+        "de": "Hinzugefügt: Backup-Routine überarbeitet, um die Speicherung zu verbessern (Daten zu ändern / empfangen reduziert)\nHinzugefügt: Elemente, die Addition oder Subtraktion im Einsatz haben, erstellen nun Zustände mit ihren Werten und können vom Benutzer wieder verwendet werden\nHinzugefügt: Sprach- und Erklärungsverbesserungen, einige Routinen aktualisiert\nHinzugefügt: Optimierte Kontextmenüs für Touch-Devices",
+        "ru": "Добавлено: Резервная система переработана для улучшения хранения (сокращение отправки/получения данных)\nДобавлено: Элементы, которые имеют добавление или вычитание в использовании, теперь создают состояния с их значениями и могут быть повторно использованы пользователем\nДобавлено: Язык и улучшения объяснения, некоторые процедуры обновлены\nДобавлено: Оптимизированный контекстмену для сенсорных устройств",
+        "pt": "Adicionado: rotina de backup retrabalhado para melhorar o armazenamento (enviar/receber dados reduzidos)\nAdicionado: Elements, que têm adição ou subtração em uso, agora criar estados com seus valores e pode ser re-utilizado pelo usuário\nAdicionado: melhorias de linguagem e explicação, algumas rotinas atualizadas\nAdicionado: contextmenu otimizado para touch-devices",
+        "nl": "Toegevoegd: Back-up routine herwerkt om opslag te verbeteren (zenden/ontvangen van gegevens verminderd)\nToegevoegd: Elementen, die hebben optellen of aftrekken in gebruik, maken nu staten met hun waarden en kunnen worden hergebruikt door de gebruiker\nToegevoegd: Taal en uitleg verbeteringen, sommige routines bijgewerkt\nToegevoegd: Geoptimaliseerd contextmenu voor touch-apparaten",
+        "fr": "Ajouté: routine de sauvegarde retravaillée pour améliorer le stockage (envoi / réception des données réduites)\nAjouté : Les éléments qui ont une addition ou une soustraction en usage créent maintenant des états avec leurs valeurs et peuvent être réutilisés par l'utilisateur\nAjouté : Amélioration de la langue et des explications, certaines routines mises à jour\nAjouté : menu contextuel optimisé pour les appareils tactiles",
+        "it": "Aggiunto: Backup routine rielaborato per migliorare lo storage (sending/receiving dati ridotti)\nAggiunto: Elements, che hanno aggiunta o sottrazione in uso, ora creare stati con i loro valori e può essere riutilizzato dall'utente\nAggiunto: Miglioramenti di lingua e spiegazione, alcune routine aggiornate\nAggiunto: contestmenu ottimizzato per touch-devices",
+        "es": "Añadido: rutina de respaldo reelaborada para mejorar el almacenamiento (reducción de datos de recepción/recibimiento)\nAñadido: Elementos, que tienen adición o resta en uso, ahora crean estados con sus valores y pueden ser reutilizados por el usuario\nAñadido: Mejoras de lenguaje y explicación, algunas rutinas actualizadas\nAñadido: contextmenu optimizado para dispositivos táctiles",
+        "pl": "Dodano: Rutyna kopii zapasowej przepracowana w celu poprawy przechowywania (zmniejszona ilość danych wysyłających / odbierających)\nDodano: Elementy, które mają w użyciu dodawanie lub odejmowanie, teraz tworzyć stany z ich wartości i mogą być ponownie używane przez użytkownika\nDodano: Ulepszenia języka i wyjaśnień, niektóre procedury zaktualizowane\nDodano: Zoptymalizowane menu contextmenu dla urządzeń dotykowych",
+        "uk": "Додано: Резервне копіювання відновлено для поліпшення сховища (закінчення/відновлення даних зменшено)\nДодано: Елементи, які мають додаток або відступ у використанні, тепер створюють стани з їх значеннями і можуть бути використані користувачем\nДодано: Мова та пояснення вдосконалення, деякі процедури оновлено\nДодано: Оптимізований контекстмену для сенсорних пристроїв",
+        "zh-cn": "添加: 备份常规重修以改善存储(减少发送/接收数据)\n添加:在使用中含有增减的元素,现在创建带有其值的状态,可以被用户重新使用\n添加:语言和解释改进,更新了一些例行程序\n添加: 触摸设备的优化上下文菜单"
+      },
+      "0.5.1-alpha.6": {
+        "en": "Added: Show element coordinates when selecting and while dragging (can be deactivated inside settings)\nAdded: Workspace can not be less height and width than the coordinates of the placed elements",
+        "de": "Hinzugefügt: Zeigen Sie Elementkoordinaten bei der Auswahl und beim Ziehen (kann innerhalb der Einstellungen deaktiviert werden)\nHinzugefügt: Workspace kann nicht weniger Höhe und Breite als die Koordinaten der platzierten Elemente sein",
+        "ru": "Добавлено: Показать координаты элемента при выборе и во время волочения (можно деактивировать в настройках)\nДобавлено: Рабочее пространство не может быть меньше высоты и ширины, чем координаты размещенных элементов",
+        "pt": "Adicionado: Mostrar coordenadas do elemento ao selecionar e ao arrastar (pode ser desativado dentro configurações)\nAdicionado: Workspace não pode ser menos altura e largura do que as coordenadas dos elementos colocados",
+        "nl": "Toegevoegd: elementcoördinaten tonen bij het selecteren en tijdens het slepen (kan worden gedeactiveerd binnen instellingen)\nToegevoegd: Werkruimte kan niet minder hoogte en breedte zijn dan de coördinaten van de geplaatste elementen",
+        "fr": "Ajouté : Afficher les coordonnées de l'élément lors de la sélection et lors du glisser (peut être désactivé à l'intérieur des paramètres)\nAjouté : L'espace de travail ne peut pas être moins grand que les coordonnées des éléments placés",
+        "it": "Aggiunto: Mostra le coordinate degli elementi quando si seleziona e mentre si trascina (può essere disattivato all'interno delle impostazioni)\nAggiunto: Workspace non può essere meno altezza e larghezza delle coordinate degli elementi posizionati",
+        "es": "Añadido: Mostrar coordenadas de elementos al seleccionar y arrastrar (puede desactivarse dentro de la configuración)\nAñadido: Workspace no puede ser menos altura y ancho que las coordenadas de los elementos colocados",
+        "pl": "Dodano: Pokaż współrzędne elementów podczas wybierania i podczas przeciągania (można wyłączyć ustawienia wewnętrzne)\nDodano: Przestrzeń robocza nie może być mniejsza od współrzędnych umieszczonych elementów",
+        "uk": "Додано: Показати координати елемента при виборі та під час перетягування (може бути деактивовані всередині налаштування)\nДодано: Робочий простір не може бути меншою висотою і шириною, ніж координати розміщених елементів",
+        "zh-cn": "添加: 选择和拖曳时显示元素坐标( 可以在设置内关闭)\n添加:工作空间的高度和宽度不得低于所设置元素的坐标"
+      },
+      "0.5.1-alpha.5": {
+        "en": "FIX: Configbar was not opening when another element was moved before (#232)\nFIX: Adapter was crashing, if a static picture from the gallery has had an associated datasource (#233)\nFIX: Rounded corners inside rect were not correctly set\nFIX: If workspace is completely empty, the first new added element could not be edited\nFIX: Overrides were not correctly applied, if source value was converted to number and should be a string instead\nFIX: Access key inside live-view was not working\nAdded: Rightclick contextmenu for quick access to some functions\nAdded: Global Undo&Redo functionality for moving, adding, removing and connecting elements (does not affect configuration dialog)",
+        "de": "FIX: Configbar öffnete sich nicht, als ein anderes Element zuvor bewegt wurde (#232)\nFIX: Adapter stürzte ab, wenn ein statisches Bild aus der Galerie eine zugehörige Datenquelle hatte (#233)\nFIX: Runde Ecken innerhalb des Rekts wurden nicht korrekt eingestellt\nFIX: Wenn Workspace vollständig leer ist, konnte das erste neue hinzugefügte Element nicht bearbeitet werden\nFIX: Overrides wurden nicht korrekt angewendet, wenn der Quellwert in Nummer umgewandelt wurde und stattdessen ein String sein sollte\nFIX: Zugriffsschlüssel in Live-View funktionierte nicht\nHinzugefügt: Rightclick contextmenu für schnellen Zugriff auf einige Funktionen\nHinzugefügt: Global Undo&Redo-Funktionalität zum Bewegen, Hinzufügen, Entfernen und Verbinden von Elementen (beeinflusst den Konfigurationsdialog nicht)",
+        "ru": "FIX: Configbar не открывался, когда перед перемещением другого элемента (#232)\nFIX: Адаптер рушился, если статическая картинка из галереи имела соответствующий источник данных (#233)\nFIX: Закругленные углы внутри прямой не были правильно установлены\nFIX: Если рабочее пространство полностью пусто, первый новый добавленный элемент не может быть отредактирован\nFIX: Оверриды не были правильно применены, если исходное значение было преобразовано в число и должно быть строкой вместо\nFIX: Ключ доступа внутри живого просмотра не работал\nДобавить: Щелкните правой кнопкой мыши контекстмену для быстрого доступа к некоторым функциям\nДобавлено: функциональность Global Undo&Redo для перемещения, добавления, удаления и подключения элементов (не влияет на диалог конфигурации)",
+        "pt": "FIX: Configbar não estava abrindo quando outro elemento foi movido antes (#232)\nFIX: Adapter estava quebrando, se uma imagem estática da galeria teve uma datasource associada (#233)\nFIX: Os cantos arredondados no interior do rect não foram corretamente definidos\nFIX: Se o workspace estiver completamente vazio, o primeiro novo elemento adicionado não poderá ser editado\nFIX: As sobreposições não foram aplicadas corretamente, se o valor da fonte foi convertido para o número e deve ser uma string em vez\nFIX: A chave de acesso dentro da visualização ao vivo não estava funcionando\nAdicionado: Rightclick contextmenu para acesso rápido a algumas funções\nAdicionado: Global Undo&Redo funcionalidade para mover, adicionar, remover e conectar elementos (não afeta a configuração diálogo)",
+        "nl": "FIX: de configuratiebalk werd niet geopend toen een ander element werd verplaatst (#232)\nFIX: Adapter crashte, als een statische foto van de galerie een bijbehorende databron had (#233)\nFIX: Afgeronde hoeken binnenkant rect waren niet correct ingesteld\nFIX: Als de werkruimte volledig leeg is, kan het eerste nieuwe toegevoegde element niet bewerkt worden\nFIX: Overrides werden niet correct toegepast, als de bronwaarde werd omgezet in getal en in plaats daarvan een tekenreeks zou moeten zijn\nFIX: Toegangssleutel binnen live-view werkte niet\nToegevoegd: contextmenu met de rechtermuisknop voor snelle toegang tot sommige functies\nToegevoegd: Global Undo&Redo-functionaliteit voor het verplaatsen, toevoegen, verwijderen en verbinden van elementen (heeft geen invloed op configuratiedialoog)",
+        "fr": "FIXE: Configbar ne s'ouvrait pas quand un autre élément était déplacé avant (#232)\nFIX: L'adaptateur s'écrase, si une image statique de la galerie a une source de données associée (#233)\nFIX : Les coins arrondis à l'intérieur du rect n'étaient pas correctement définis\nFIX: Si l'espace de travail est complètement vide, le premier élément ajouté ne peut pas être édité\nFIX : Les dépassements n'ont pas été correctement appliqués, si la valeur source a été convertie en nombre et devrait plutôt être une chaîne\nFIX: La clé d'accès à l'intérieur live-view ne fonctionnait pas\nAjouté : Menu contextuel du clic droit pour accéder rapidement à certaines fonctions\nAjouté : Fonctions Global Undo&Redo pour déplacer, ajouter, supprimer et connecter des éléments (ne modifie pas la boîte de dialogue de configuration)",
+        "it": "FIX: Configbar non si apre quando un altro elemento è stato spostato prima (#232)\nFIX: L'adattatore si stava schiantando, se una foto statica dalla galleria ha avuto una fonte di dati associata (#233)\nFIX: Gli angoli arrotondati all'interno del ret non sono stati impostati correttamente\nFIX: Se lo spazio di lavoro è completamente vuoto, il primo nuovo elemento aggiunto non potrebbe essere modificato\nFIX: Gli override non sono stati applicati correttamente, se il valore sorgente è stato convertito in numero e dovrebbe essere una stringa invece\nFIX: La chiave di accesso all'interno della vista dal vivo non funzionava\nAggiunto: Rightclick contestmenu per un rapido accesso ad alcune funzioni\nAggiunto: Global Undo&Redo funzionalità per lo spostamento, l'aggiunta, la rimozione e la connessione degli elementi (non influisce sulla finestra di dialogo di configurazione)",
+        "es": "FIX: Configbar no se abrió cuando otro elemento fue movido antes (#232)\nFIX: Adaptador se estrelló, si una imagen estática de la galería ha tenido un fuente de datos asociado (#233)\nFIX: Las esquinas redondeadas dentro del rect no estaban correctamente establecidas\nFIX: Si el espacio de trabajo está completamente vacío, el primer nuevo elemento añadido no puede ser editado\nFIX: Las anulaciones no se aplicaron correctamente, si el valor de la fuente se convirtió en número y debería ser una cadena en su lugar\nFIX: Access key inside live-view was not working\nAñadido: contextmenu de clic derecho para el acceso rápido a algunas funciones\nAñadido: Funcionalidad global Undo limitadaRedo para mover, añadir, eliminar y conectar elementos (no afecta el diálogo de configuración)",
+        "pl": "FIX: Pasek konfiguracyjny nie otwierał się, gdy inny element został przeniesiony przed (# 232)\nFIX: Adapter się rozbił, jeśli obraz statyczny z galerii miał związane dane (# 233)\nFIX: Zaokrąglone narożniki wewnątrz rect nie były prawidłowo ustawione\nFIX: Jeśli przestrzeń robocza jest całkowicie pusta, pierwszy dodany element nie może być edytowany\nFIX: Przekroczenia nie zostały prawidłowo zastosowane, jeśli wartość źródłowa została przeliczona na liczbę i powinna być zamiast tego łańcuchem\nFIX: Klucz dostępu wewnątrz live- view nie działał\nDodano: Jughtclick contextmenu dla szybkiego dostępu do niektórych funkcji\nDodano: Globalna funkcja cofania i ponownego przywracania do poruszania, dodawania, usuwania i łączenia elementów (nie wpływa na okno konfiguracji)",
+        "uk": "FIX: Конфігбар не відкрився, коли інший елемент був перенесений до (#232)\nFIX: Адаптер був аварійним, якщо статична картина з галереї мала асоційоване джерело даних (#233)\nFIX: Закруглені кути всередині прямокутника не правильно встановлюють\nFIX: Якщо робоче місце повністю порожній, перший новий доданий елемент не можна редагувати\nFIX: Перевипуски не були правильно застосовані, якщо значення джерела було перетворено на номер і повинні бути рядок замість\nFIX: ключ доступу у живому перегляді не працює\nДодано: Rightclick контекстмену для швидкого доступу до деяких функцій\nДоданий: Global Undo&Redo функціональність для переміщення, додавання, видалення та підключення елементів (не впливає на діалог конфігурації)",
+        "zh-cn": "FIX: 当另一个元素移动之前(# 232) 配置栏没有打开\nFIX: 适配器正在崩溃, 如果一个来自画廊的静态图片有相关的数据源( # 233)\nFIX:矩形内部的圆角没有正确设置\nFIX: 如果工作空间是完全空的, 无法编辑第一个新增元素\nFIX: 如果将源值转换为数字, 覆盖没有被正确应用, 应该是一个字符串 \nFIX: 直播视图中的访问密钥无效\n添加: 右键单击上下文菜单以快速访问一些函数\n添加: 移动、 添加、 删除和连接元素的全局撤销和重置功能( 不影响配置对话框)"
+      },
+      "0.5.1-alpha.4": {
+        "en": "Added: Alignments for elements refactored (Better detection if they run out of the workspace)\nAdded: New element \"ForeignObject\" added. This allows normal HTML content inside the workspace.\nAdded: Images can now have a shadow\nAdded: Keyboard copy, paste and delete functions added (Strg/cmd + c and Strg/cmd + v, Entf/del)\nAdded: Double-Click on element or line opens the 'extended'-tab and single click opens 'basic'-tab inside the configbar\nAdded: The liveview can now be displayed in fullscreen via doubleclick oder double-tab\nAdded: Better handling of images through datasources (image will be hidden, if datasource is empty)\nAdded: Lines can now have frame options for opening URLs\nAdded: Object-Browser scrolls the first clicked parent folder to the top \nFIX: Element with linebreak was not able to be moved after applying linebreak",
+        "de": "Hinzugefügt: Ausrichtungen für wiederhergestellte Elemente (bessere Erkennung, wenn sie aus dem Arbeitsraum laufen)\nHinzugefügt: Neues Element \"ForeignObject\" hinzugefügt. Dies ermöglicht normale HTML-Inhalte innerhalb des Arbeitsraums.\nHinzugefügt: Bilder können jetzt einen Schatten haben\nHinzugefügt: Tastatur Kopieren, Einfügen und Löschen Funktionen hinzugefügt (Strg/cmd + c und Strg/cmd + v, Entf/del)\nHinzugefügt: Double-Click auf Element oder Zeile öffnet die 'extended'-tab und einzelne Klick öffnet 'basic'-tab innerhalb der configbar\nHinzugefügt: Die Liveview kann jetzt im Vollbild über Doppelklick oder Doppel-Tab angezeigt werden\nHinzugefügt: Bessere Handhabung von Bildern durch Datenquellen (Bild wird versteckt, wenn Datenquelle leer ist)\nHinzugefügt: Linien können jetzt Frame-Optionen für das Öffnen von URLs haben\nHinzugefügt: Object-Browser scrollt den ersten geklickten Elternordner nach oben\nFIX: Element mit Linebreak konnte nach dem Anwenden von Linebreak nicht bewegt werden",
+        "ru": "Добавлено: выравнивание элементов, рефакторированных (лучшее обнаружение, если они заканчиваются из рабочего пространства)\nДобавлен новый элемент \"ForeignObject\". Это позволяет нормальному HTML-контенту внутри рабочего пространства.\nДобавлено: теперь изображения могут иметь тень\nДобавлено: Клавиатура, вставка и удаление добавленных функций (Strg/cmd + c и Strg/cmd + v, Entf/del)\nДобавлено: Двойной щелчок на элементе или строке открывает «расширенный» таб и один щелчок открывает «основной» таб внутри настраиваемого блока\nДобавлено: теперь просмотр может быть показан в полном экране через двойной щелчок одер двойной tab\nДобавлено: Лучшее обращение с изображениями через источники данных (изображение будет скрыто, если источник данных пуст)\nДобавлено: Lines теперь может иметь параметры для открытия URL-адресов\nДобавлено: Object-Browser прокручивает первую нажатую родительскую папку в верхней части\nFIX: Элемент с расщеплением не мог быть перемещен после нанесения перебоя",
+        "pt": "Adicionado: Alinhamentos para elementos refactored (melhor detecção se eles correr para fora do workspace)\nAdicionado: Novo elemento \"ForeignObject\" adicionado. Isso permite conteúdo HTML normal dentro do espaço de trabalho.\nAdicionado: Imagens podem agora ter uma sombra\nAdicionado: cópia do teclado, colar e excluir funções adicionadas (Strg/cmd + c e Strg/cmd + v, Entf/del)\nAdicionado: Double-Click on elemento ou linha abre o 'extended'-tab e single click abre 'basic'-tab dentro do configbar\nAdicionado: O liveview agora pode ser exibido em fullscreen via doubleclick oder double-tab\nAdicionado: Melhor manuseio de imagens através de datasources (a imagem será ocultada, se o datasource estiver vazio)\nAdicionado: Linhas agora podem ter opções de quadros para abrir URLs\nAdicionado: Object-Browser scrolls the first clicked parent folder to the top\nFIX: Elemento com linebreak não foi capaz de ser movido depois de aplicar linebreak",
+        "nl": "Toegevoegd: Uitlijningen voor elementen gerefactoreerd (Betere detectie als ze uit de werkruimte raken)\nToegevoegd: Nieuw element \"ForeignObject\" toegevoegd. Dit maakt normale HTML-inhoud binnen de werkruimte mogelijk.\nToegevoegd: Afbeeldingen kunnen nu een schaduw hebben\nToegevoegd: Toetsenbord kopiëren, plakken en verwijderen functies toegevoegd (Strg/cmd + c en Strg/cmd + v, Entf/del)\nToegevoegd: Dubbelklik op element of regel opent de 'extended'-tab en enkele klik opent 'basic'-tab in de configuratiebalk\nToegevoegd: De liveview kan nu op volledig scherm worden weergegeven via dubbelklik oder double-tab\nToegevoegd: Betere omgang met afbeeldingen via databronnen (afbeelding wordt verborgen, als databron leeg is)\nToegevoegd: Lijnen kunnen nu frameopties hebben voor het openen van URL's\nToegevoegd: Object-Browser scrolt de eerste geklikte oudermap naar boven\nFIX: Element met lijnbreuk kon niet worden verplaatst na het aanbrengen van lijnbreuk",
+        "fr": "Ajout : Alignements pour éléments refacturés (Mieux détecter s'ils ne sont plus dans l'espace de travail)\nAjouté : ajout d'un nouvel élément \"ForeignObject\". Cela permet un contenu HTML normal dans l'espace de travail.\nAjouté : Les images peuvent maintenant avoir une ombre\nAjouté : Ajout de fonctions de copie, de collage et de suppression du clavier (Strg/cmd + c et Strg/cmd + v, Entf/del)\nAjouté : Double-Cliquer sur l'élément ou la ligne ouvre la tab 'extension' et un seul clic ouvre la tab 'base' dans la barre de configuration\nAjouté: La vue en direct peut maintenant être affichée en plein écran via double-clic oder double-tab\nAjouté : Meilleure gestion des images via les sources de données (l'image sera cachée, si la source de données est vide)\nAjouté : les lignes peuvent maintenant avoir des options d'image pour ouvrir des URL\nAjouté : Object-Browser défile le premier dossier parent cliqué en haut\nFIXE: L'élément avec linebreak n'a pas pu être déplacé après application de linebreak",
+        "it": "Aggiunto: Allineamenti per elementi refactored (Better detection if run out of the workspace)\nAggiunto: Nuovo elemento \"ForeignObject\" aggiunto. Questo consente il normale contenuto HTML all'interno dello spazio di lavoro.\nAggiunto: Images can now have a shadow\nAggiunto: Tastiera copia, incolla e cancella le funzioni aggiunte (Strg/cmd + c e Strg/cmd + v, Entf/del)\nAggiunto: Double-Click on element or line opens the 'extended'-tab and single click opens 'basic'-tab inside the configbar\nAggiunto: Il liveview può ora essere visualizzato in fullscreen via doubleclick oder double-tab\nAggiunto: Better handling of images through datasources (l'immagine sarà nascosta, se la datasource è vuota)\nAggiunto: Lines può ora avere opzioni di frame per l'apertura URL\nAggiunto: Object-Browser scorre la prima cartella madre cliccata in alto\nFIX: Elemento con linebreak non è stato in grado di essere spostato dopo aver applicato il linebreak",
+        "es": "Añadido: alineaciones para elementos refactorizados (Mejor detección si se escapan del espacio de trabajo)\nAñadido: Nuevo elemento \"Objeto extranjero\" añadido. Esto permite un contenido HTML normal dentro del espacio de trabajo.\nAñadido: Las imágenes ahora pueden tener una sombra\nAñadido: Copia de teclado, pegar y eliminar funciones agregadas (Strg/cmd + c y Strg/cmd + v, Entf/del)\nAñadido: Doble clic en el elemento o la línea abre el 'extended'-tab y un solo clic abre 'basic'-tab dentro del configbar\nAñadido: La vista en vivo ahora se puede mostrar en pantalla completa a través de doble clic oder\nAñadido: Mejor manejo de imágenes a través de fuentes de datos (la imagen estará oculta, si el fuente de datos está vacío)\nAñadido: Las líneas ahora pueden tener opciones de marco para abrir URLs\nAñadido: Object-Browser desplaza la primera carpeta de padres con clic en la parte superior\nFIX: Element with linebreak was not able to be moved after applying linebreak",
+        "pl": "Dodano: Dopasowywanie elementów do refakturowanych (lepsze wykrywanie, jeśli zabraknie miejsca pracy)\nDodano: Dodano nowy element \"ForeignObject\". Pozwala to na normalną zawartość HTML wewnątrz przestrzeni roboczej.\nDodano: Obrazy mogą teraz mieć cień\nDodano: Skopiowanie klawiatury, wklejenie i usuwanie funkcji (Strg / cmd + c i Strg / cmd + v, Entf / del)\nDodano: Double- Kliknij na element lub linię otwiera 'rozszerzony' -zakładkę i pojedyncze kliknięcie otwiera 'podstawowy' -zakładkę wewnątrz paska konfiguracji\nDodano: Liveview może być wyświetlany na pełnym ekranie przez dubleclick oder duble- tab\nDodano: Lepsza obsługa obrazów poprzez dane (obraz będzie ukryty, jeśli dane są puste)\nDodano: Linie mogą teraz mieć opcje ramki do otwierania adresów URL\nDodano: Object- Browser przewija pierwszy kliknięty folder rodzica do góry\nFIX: Element z linebreak nie mógł być przesunięty po zastosowaniu linebreak",
+        "uk": "Доданий: Вирівнювання елементів рефакторингу (Виявлення запасів, якщо вони виходять з робочого простору)\nДодано: Новий елемент \"ForeignObject\" Це дозволяє нормалізувати вміст HTML у робочому просторі.\nДоданий: Зображення тепер може мати тінь\nДодано: Клавіатура, паста та видалення функцій (Strg/cmd + c та Strg/cmd + v, Entf/del)\nДодано: Double-Click на елементі або рядку відкриває 'extended'-tab і один клік відкриває 'basic'-tab всередині панелі налаштувань\nДоданий: Liveview тепер може відображатися в повноекранному режимі через doubleclick oder double-tab\nДодано: Краще обслуговування зображень через джерела даних (зображення буде приховано, якщо джерело даних порожній)\nДодано: Лінії тепер можуть мати параметри кадру для відкриття URL\nДодано: Об'єкт-Броузер прокручує першу натиснуту папку до вершини\nFIX: Елемент з лінбрейком не вдалося перенести після нанесення лінії",
+        "zh-cn": "添加: 重构元素的对齐( 如果已耗尽工作空间, 更好的检测)\n添加:添加新元素\"外国对象\". 这允许工作空间内正常的HTML内容.\n添加: 图像现在可以有阴影\n添加:键盘复制,粘贴和删除所添加的函数(Strg/cmd + c和Strg/cmd + v, Entf/del)\n添加: 元素或线上的双点击打开“ 扩展的” - tab, 而单点击打开“ 基本的” - Tab\n添加: 现场视图现在可以通过双击 oder 双塔布在全屏显示\n添加:通过数据源更好地处理图像(如果数据源为空,图像会隐藏)\n添加: 现在行可以有打开 URL 的框架选项\n添加: 对象浏览器滚动第一个点击的父文件夹到顶端\nFIX: 带换行符的元素在应用换行符后无法移动"
+      },
+      "0.5.1-alpha.3": {
+        "en": "Added: Rewritten Upload engine (Using Web-POST instead of sockets)\nAdded: Behaviour of the lines can be changed in the connection area. This includes the radius length (smaller and bigger) and the start of the curves (earlier and later)\nAdded: Several functions are optimized\nFIX: Warn message in Web-Adapter was missleading (removed)\nFIX: Message, that adapter is not configured was handling a different exception (solved)",
+        "de": "Hinzugefügt: Rewritten Upload-Engine (Web-POST anstelle von Steckdosen verwenden)\nHinzugefügt: Verhalten der Leitungen kann im Anschlussbereich geändert werden. Dazu gehören die Radiuslänge (kleiner und größer) und der Beginn der Kurven (eher und später)\nHinzugefügt: Mehrere Funktionen sind optimiert\nFIX: Warnmeldung im Web-Adapter wurde verfehlt (entfernt)\nFIX: Nachricht, dass der Adapter nicht konfiguriert ist, war die Bearbeitung einer anderen Ausnahme (gelöst)",
+        "ru": "Добавлено: Переписать двигатель загрузки (Использование Web-POST вместо розеток)\nДобавлено: Поведение линий может быть изменено в области соединения. Это включает в себя длину радиуса (меньше и больше) и начало кривых (ранее и позднее)\nДобавлено: несколько функций оптимизированы\nFIX: Сообщение в Web-Adapter было пропущено (удалено)\nFIX: Сообщение, которое адаптер не настроен, было обработано другим исключением (растворено)",
+        "pt": "Adicionado: Reescrito Carregar motor (Usando Web-POST em vez de soquetes)\nAdicionado: Comportamento das linhas pode ser alterado na área de conexão. Isso inclui o comprimento do raio (mais pequeno e maior) e o início das curvas (mais cedo e mais tarde)\nAdicionado: Várias funções são otimizadas\nFIX: Mensagem avisada em Web-Adapter foi missleading (removed)\nFIX: Mensagem, esse adaptador não está configurado foi lidar com uma exceção diferente (solvido)",
+        "nl": "Toegevoegd: Herschreven Uploadengine (Met behulp van Web-POST in plaats van sockets)\nToegevoegd: Gedrag van de lijnen kan worden veranderd in het verbindingsgebied. Dit omvat de radiuslengte (kleiner en groter) en het begin van de curven (vroeger en later)\nToegevoegd: Verschillende functies zijn geoptimaliseerd\nFIX: Waarschuwingsbericht in Web-Adapter was missleading (verwijderd)\nFIX: Bericht, dat adapter niet is geconfigureerd was het hanteren van een andere uitzondering (opgelost)",
+        "fr": "Ajouté: Réécriture du moteur de chargement (utilisation Web-POST au lieu de sockets)\nAjout : Le comportement des lignes peut être modifié dans la zone de connexion. Cela inclut la longueur du rayon (plus petite et plus grande) et le début des courbes (plus tôt et plus tard)\nAjouté: Plusieurs fonctions sont optimisées\nFIX: Prévenir le message dans le Web-Adapter était une erreur (supprimé)\nFIX: Message, que l'adaptateur n'est pas configuré était gérer une exception différente (résolu)",
+        "it": "Aggiunto: Rewritten Upload engine (Usando Web-POST invece di sockets)\nAggiunto: Il comportamento delle linee può essere cambiato nella zona di connessione. Questo include la lunghezza del raggio (più piccola e più grande) e l'inizio delle curve (più piccolo e più tardi)\nAggiunto: Diverse funzioni sono ottimizzate\nFIX: Il messaggio caldo in Web-Adapter è stato missleading (removed)\nFIX: Il messaggio, che l'adattatore non è configurato è stato la gestione di un'eccezione diversa (solved)",
+        "es": "Añadido: Motor de carga reescrita (Usando Web-POST en lugar de sockets)\nAñadido: Comportamiento de las líneas se puede cambiar en el área de conexión. Esto incluye la longitud del radio (smaller y más grande) y el comienzo de las curvas (más temprano y más tarde)\nAñadido: Varias funciones están optimizadas\nFIX: El mensaje de alarma en Web-Adapter fue descabellado (removido)\nFIX: Mensaje, que el adaptador no está configurado estaba manejando una excepción diferente (solvado)",
+        "pl": "Dodano: Przepisany silnik wysyłania (Używanie Web- POST zamiast gniazd)\nDodano: Zachowanie linii można zmienić w obszarze połączenia. Obejmuje to długość promienia (mniejszy i większy) oraz początek krzywych (wcześniej i później)\nDodano: Kilka funkcji jest zoptymalizowanych\nFIX: Ostrzeżenie wiadomości w Web- Adapter był błąd (usunięte)\nFIX: Wiadomość, że adapter nie jest skonfigurowany obsługiwał inny wyjątek (rozwiązany)",
+        "uk": "Доданий: Записати завантаження двигуна (Використання Web-POST замість розеток)\nДодано: Поведінка рядків можна змінити в зоні з'єднання. До цього входить довжина радіуса (дрібна і більша) і початок вигинів (земля і пізніше)\nДодано: Кілька функцій оптимізовані\nFIX: Warn повідомлення в Web-адаптері пропущено (видалено)\nFIX: Повідомлення, що перехідник не налаштований, перебуваючи іншого виключення (розчинений)",
+        "zh-cn": "添加: 重写上传引擎( 使用 Web- POST 而不是套接字)\n添加:连接区域可以改变行的行为. 这包括半径长度(较小和较大)和曲线的起始(更远和较晚)\n添加: 优化了若干功能\nFIX: Web-Adapter 的警告信息误写( 已删除)\nFIX: 信件, 该适配器没有配置是处理不同的例外( 已解决)"
+      },
+      "0.5.1-alpha.2": {
+        "en": "Added: Support for https via Web-Adapter (own certificates necessary)\nAdded: Icon-Proxy is removed from the adapter settings and runs on the extension of the Web-Adapter (If you use it or not - no changes are required)\nAdded: 2 new override parameter \"pos_x\" and \"pos_y\" are available, to position text and datasource elements depending on their value\nAdded: Energiefluss-erweitert is now available through the welcome screen of the Web-Adapter\nAdded: Energiefluss-erweitert is now reachable via iobroker.net through the ioBroker-cloud adapter (No pro license required)\nFIX: Sometimes, the object-browser could not load states and crashed",
+        "de": "Hinzugefügt: Unterstützung für https über Web-Adapter (Eigenzertifikate erforderlich)\nHinzugefügt: Icon-Proxy wird aus den Adaptereinstellungen entfernt und läuft auf der Erweiterung des Web-Adapters (Wenn Sie es verwenden oder nicht - keine Änderungen erforderlich sind)\nHinzugefügt: 2 neue Override-Parameter \"pos_x\" und \"pos_y\" stehen zur Verfügung, um Text- und Datenquellenelemente abhängig von ihrem Wert zu positionieren\nHinzugefügt: Energiefluss-erweitert ist jetzt über den Willkommensbildschirm des Web-Adapters verfügbar\nHinzugefügt: Energiefluss-erweitert ist nun über iobroker.net über den ioBroker-cloud Adapter erreichbar (keine pro Lizenz erforderlich)\nFIX: Manchmal konnte der Objekt-Browser keine Zustände laden und abgestürzt",
+        "ru": "Добавлено: Поддержка https через Web-Adapter (собственные сертификаты необходимо)\nДобавлено: Icon-Proxy удаляется из настроек адаптера и работает на расширение Web-Adapter (если вы используете его или нет - никаких изменений не требуется)\nДобавлено: доступны 2 новых параметра переопределения \"pos_x\" и \"pos_y\" для позиционирования текстовых и элементов передачи данных в зависимости от их значения\nДобавлено: Energieflus-erweitert теперь доступен через приветственный экран Web-Adapter\nДобавлено: Energieflus-erweitert теперь доступен через iobroker.net через адаптер ioBroker-cloud (не требуется лицензия pro)\nFIX: Иногда объект-браузер не мог загружать состояния и потерпел крушение",
+        "pt": "Adicionado: Suporte para https via Web-Adapter (certificados próprios necessários)\nAdicionado: Icon-Proxy é removido das configurações do adaptador e é executado na extensão do Web-Adapter (Se você usá-lo ou não - sem alterações são necessárias)\nAdicionado: 2 novo parâmetro de substituição \"pos_x\" e \"pos_y\" estão disponíveis, para posicionar elementos de texto e datasource dependendo do seu valor\nAdicionado: Energiefluss-erweitert está agora disponível através da tela de boas-vindas do Web-Adapter\nAdicionado: Energiefluss-erweitert é agora acessível via iobroker.net através do adaptador ioBroker-cloud (nenhuma licença pro necessária)\nFIX: Às vezes, o objeto-browser não podia carregar estados e caiu",
+        "nl": "Toegevoegd: ondersteuning voor https via Web-Adapter (eigen certificaten noodzakelijk)\nToegevoegd: Icon-Proxy wordt verwijderd uit de adapterinstellingen en draait op de uitbreiding van de Web-Adapter (Als u het gebruikt of niet - er zijn geen wijzigingen nodig)\nToegevoegd: 2 nieuwe override parameter \"pos_x\" en \"pos_y\" zijn beschikbaar om tekst- en databronelementen te positioneren afhankelijk van hun waarde\nToegevoegd: Energiefluss-erweitert is nu beschikbaar via het welkomstscherm van de Web-Adapter\nToegevoegd: Energiefluss-erweitert is nu bereikbaar via iobroker.net via de ioBroker-cloud adapter (geen pro-licentie vereist)\nFIX: Soms kon de object-browser statussen niet laden en crashte",
+        "fr": "Ajouté: Support pour https via Web-Adapter (vos certificats nécessaires)\nAjouté: Icon-Proxy est supprimé des paramètres de l'adaptateur et fonctionne sur l'extension de l'adaptateur Web (Si vous l'utilisez ou non - aucun changement n'est nécessaire)\nAjouté : 2 nouveaux paramètres de redéfinition \"pos_x\" et \"pos_y\" sont disponibles, pour positionner des éléments texte et datasource en fonction de leur valeur\nAjouté : Energiefluss-erweitert est maintenant disponible via l'écran de bienvenue du Web-Adapter\nAjouté : Energiefluss-erweitert est maintenant accessible via iobroker.net via l'adaptateur ioBroker-cloud (pas de licence pro requise)\nFIX : Parfois, le navigateur objet ne pouvait pas charger les états et s'est écrasé",
+        "it": "Aggiunto: Supporto per https via Web-Adapter (certificati propri necessari)\nAggiunto: Icon-Proxy viene rimosso dalle impostazioni dell'adattatore e corre sull'estensione del Web-Adapter (Se lo usi o non - non sono necessarie modifiche)\nAggiunto: 2 nuovo parametro override \"pos_x\" e \"pos_y\" sono disponibili, per posizionare elementi di testo e datasource a seconda del loro valore\nAggiunto: Energiefluss-erweitert è ora disponibile attraverso la schermata di benvenuto del Web-Adapter\nAggiunto: Energiefluss-erweitert è ora raggiungibile tramite iobroker.net attraverso l'adattatore ioBroker-cloud (Nessuna licenza pro richiesta)\nFIX: A volte, il rogo-oggetto non poteva caricare stati e crash",
+        "es": "Añadido: Soporte para https vía Web-Adapter (certificados propios necesarios)\nAñadido: Icon-Proxy se elimina de la configuración del adaptador y se ejecuta en la extensión del Web-Adapter (Si lo usas o no - no se requieren cambios)\nAñadido: 2 nuevos parámetros de anulación \"pos_x\" y \"pos_y\" están disponibles, para posicionar elementos de texto y fuente de datos dependiendo de su valor\nAñadido: Energiefluss-erweitert está ahora disponible a través de la pantalla de bienvenida del Web-Adapter\nAñadido: Energiefluss-erweitert ahora se puede llegar a través de iobroker.net a través del adaptador ioBroker-cloud (No se requiere licencia de pro)\nFIX: A veces, el navegador no podía cargar estados y se estrelló",
+        "pl": "Dodano: Wsparcie dla https poprzez Web- Adapter (niezbędne certyfikaty własne)\nDodano: Icon- Proxy jest usuwany z ustawień adaptera i działa na rozszerzenie Web- Adapter (Jeśli go używasz lub nie - nie są wymagane żadne zmiany)\nDodano: dostępny jest 2 nowy parametr \"pos _ x\" i \"pos _ y\", aby umieścić tekst i elementy danych w zależności od ich wartości\nDodano: EnergieFluss- erweitert jest teraz dostępny przez ekran powitalny Web- Adapter\nDodano: Energiefluss- erweitert jest teraz osiągalny przez iobroker.net przez joBroker- cloud adapter (Nie wymaga licencji pro)\nFIX: Czasami przeglądarka obiekt- nie może wczytać stanów i rozbił",
+        "uk": "Додано: Підтримка HTTPS через Web-адаптер (власні сертифікати, необхідні)\nДодано: Ікона-Проксі видаляється з параметрів адаптера і працює на розширенні Web-адаптера (Якщо ви використовуєте його або не - не потрібно ніяких змін)\nДодано: 2 новий параметр Override \"pos_x\" і \"pos_y\" доступні, для розміщення елементів текстового та джерела даних залежно від їх значення\nДодано: Energieflus-erweitert тепер доступний через вітальний екран Web-адаптера\nДодано: Energieflus-erweitert тепер доступний через iobroker.net через ioBroker-cloud адаптер (не потрібно ліцензію)\nFIX: Іноді об'єкт-браузер не може завантажувати стани і збиток",
+        "zh-cn": "添加: 通过 Web-Adapter 对 https 的支持( 需要拥有证书)\n添加: Icon-Proxy 从适配器设置中删除,并在 Web-Adapter 的扩展上运行(如果使用与否 - 不需要更改)\n添加: 2 新的覆盖参数“ pos_ x” 和“ pos_ y” 可用, 以根据文本和数据源元素的值来定位它们\n添加:目前可通过Web-Adapter的欢迎屏幕获取能量荧光\n添加:目前通过iobroker-cloud适配器(不需要专业许可证)的iobroster.net可以到达能量fluss-erweitert\nFIX: 有时, 对象浏览器无法装入状态并崩溃"
+      },
+      "0.5.1-alpha.1": {
+        "en": "Added: The image gallery has now a filter function which helps you to find the images more easily\nAdded: The datasource object-browser has now a filter function which helps you to find the datasource more easily\nFIX: Added some crash-handler, which might throw an error, when the associated state is not found\nFIX: Linebreak was not working correctly (Delimiter was ignored)\nFIX: Under some circumstances a datasource could not be modified\nFIX: Text prepend was not working correctly if source is displayed as text",
+        "de": "Hinzugefügt: Die Bildergalerie hat nun eine Filterfunktion, die Ihnen hilft, die Bilder leichter zu finden\nHinzugefügt: Der Datasource-Objekt-Browser hat nun eine Filterfunktion, die Ihnen hilft, die Datenquelle leichter zu finden\nFIX: Hinzugefügt einige Crash-Handler, die einen Fehler werfen könnte, wenn der zugehörige Zustand nicht gefunden\nFIX: Linebreak funktionierte nicht richtig (Delimiter wurde ignoriert)\nFIX: Unter Umständen konnte eine Datenquelle nicht geändert werden\nFIX: Textvorgabe funktionierte nicht korrekt, wenn die Quelle als Text angezeigt wird",
+        "ru": "Добавлено: галерея изображений теперь имеет функцию фильтра, которая помогает вам легче находить изображения\nДобавлено: объект-браузер для передачи данных теперь имеет функцию фильтра, которая помогает вам легче найти источник данных\nFIX: Добавлен какой-то крушитель, который может бросить ошибку, когда ассоциированное состояние не найдено\nFIX: Linebreak не работал правильно (Delimiter был проигнорирован)\nFIX: При некоторых обстоятельствах источник данных не может быть изменен\nFIX: Текстовый перпенд не работал правильно, если источник отображается в виде текста",
+        "pt": "Adicionado: A galeria de imagens tem agora uma função de filtro que ajuda você a encontrar as imagens mais facilmente\nAdicionado: O datasource object-browser tem agora uma função de filtro que ajuda você a encontrar a datasource mais facilmente\nFIX: Adicionado alguns crash-handler, que pode jogar um erro, quando o estado associado não é encontrado\nFIX: Linebreak não estava funcionando corretamente (Delimitador foi ignorado)\nFIX: Em algumas circunstâncias, uma fonte de dados não poderia ser modificada\nFIX: O prepêndio de texto não estava funcionando corretamente se a fonte é exibida como texto",
+        "nl": "Toegevoegd: De afbeeldingengalerij heeft nu een filterfunctie die u helpt om de afbeeldingen gemakkelijker te vinden\nToegevoegd: De datasource object-browser heeft nu een filterfunctie die u helpt om de datasource gemakkelijker te vinden\nFIX: Toegevoegd sommige crash-handler, die een fout zou kunnen gooien, wanneer de geassocieerde staat is niet gevonden\nFIX: Linebreak werkte niet correct (Delimiter werd genegeerd)\nFIX: Onder bepaalde omstandigheden kon een gegevensbron niet worden gewijzigd\nFIX: Tekstprepend werkte niet correct als de bron als tekst wordt weergegeven",
+        "fr": "Ajouté : La galerie d'images a maintenant une fonction de filtre qui vous aide à trouver les images plus facilement\nAjouté : Le navigateur objet datasource a maintenant une fonction de filtre qui vous aide à trouver la source de données plus facilement\nFIX: Ajout d'un crash-handler, qui pourrait lancer une erreur, lorsque l'état associé n'est pas trouvé\nFIX: Linebreak ne fonctionnait pas correctement (Delimiter a été ignoré)\nFIX: Dans certaines circonstances, une source de données n'a pas pu être modifiée\nFIX: Le texte prépend ne fonctionnait pas correctement si la source est affichée comme texte",
+        "it": "Aggiunto: La galleria di immagini ha ora una funzione di filtro che aiuta a trovare le immagini più facilmente\nAggiunto: Il datasource object-browser ha ora una funzione di filtro che ti aiuta a trovare la datasource più facilmente\nFIX: Aggiunto un po 'di crash-handler, che potrebbe lanciare un errore, quando lo stato associato non è trovato\nFIX: Linebreak non funziona correttamente (Delimiter è stato ignorato)\nFIX: In alcune circostanze una fonte di dati non potrebbe essere modificata\nFIX: Il testo prepend non funziona correttamente se la sorgente viene visualizzata come testo",
+        "es": "Añadido: La galería de imágenes tiene ahora una función de filtro que le ayuda a encontrar las imágenes más fácilmente\nAñadido: El datasource objeto-browser tiene ahora una función de filtro que le ayuda a encontrar el datasource más fácilmente\nFIX: Agregó un poco de mando, que podría lanzar un error, cuando el estado asociado no se encuentra\nFIX: Linebreak no estaba funcionando correctamente (Delimiter fue ignorado)\nFIX: En algunas circunstancias, un fuente de datos no podía ser modificado\nFIX: El prependimiento de texto no funcionaba correctamente si la fuente se muestra como texto",
+        "pl": "Dodano: Galeria zdjęć posiada teraz funkcję filtrowania, która pomaga łatwiej znaleźć obrazy\nDodano: Przeglądarka obiektów danych posiada teraz funkcję filtrowania, która pomaga łatwiej znaleźć dane\nFIX: Dodano jakiś support-handler, który może spowodować błąd, gdy stan nie zostanie znaleziony\nFIX: Linebreak nie działał prawidłowo (Delimiter został zignorowany)\nFIX: W pewnych okolicznościach dane nie mogły zostać zmienione\nFIX: Premiowanie tekstu nie działało prawidłowo, jeśli wyświetlane jest źródło jako tekst",
+        "uk": "Додано: Галерея зображень тепер функція фільтра, яка допомагає вам знайти зображення більш легко\nДодано: Об'єкт джерела даних-браузер тепер функція фільтра, яка дозволяє легко знайти джерело даних\nFIX: Додана деяка аварійна ручка, яка може кинути помилку, коли асоційований стан не знайдено\nFIX: Стрічка не працює належним чином (Делімітатор ігнорував)\nFIX: За деяких обставин, що джерело даних не було змінено\nFIX: Текстовий препенд не працює належним чином, якщо джерело відображається як текст",
+        "zh-cn": "添加: 图像库现在有一个过滤功能, 帮助您更容易找到图像\n添加:数据源对象浏览器现在有一个过滤功能,可以帮助您更容易地找到数据源\nFIX: 当找不到关联状态时, 添加了可能丢出错误的崩溃处理器\nFIX: Linebreak 没有正确工作( 定义被忽略)\nFIX: 在某些情况下无法修改数据源\nFIX: 如果源代码显示为文本, 文本预置符无法正确工作"
+      }
     },
-    "messages": [
-        {
-            "condition": {
-                "operand": "and",
-                "rules": [
-                    "oldVersion<0.3.1",
-                    "newVersion>=0.3.1"
-                ]
-            },
-            "title": {
-                "en": "Mandatory changes inside Calculation Tab"
-            },
-            "text": {
-                "en": "For better handling of the battery charging calculation, the capacity and the DoD (Depth of Discharge) of the battery need to be provided via datasources now!"
-            },
-            "level": "warn",
-            "buttons": [
-                "agree",
-                "cancel"
-            ]
-        }
+    "titleLang": {
+      "en": "Energiefluss - erweitert",
+      "de": "Energiefluss - erweitert",
+      "ru": "Energiefluss - erweitert",
+      "pt": "Energiefluss - erweitert",
+      "nl": "Energiefluss - erweitert",
+      "fr": "Energiefluss - erweitert",
+      "it": "Energiefluss - erweitert",
+      "es": "Energiefluss - erweitert",
+      "pl": "Energiefluss - erweitert",
+      "zh-cn": "Energiefluss-erweitert",
+      "uk": "Energiefluss - erweitert"
+    },
+    "desc": {
+      "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "de": "Es stellt einen animierten Energiefluss fuer alle Elemente, die Du anlegst an. Dies kann sein: Photovoltaik, Batterie, Hausverbrauch, Einspeisung (Netzbezug), Auto-Ladung usw.",
+      "ru": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pt": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "nl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "fr": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "it": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "es": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "pl": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "zh-cn": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
+      "uk": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc."
+    },
+    "authors": [
+      "SKB <info@skb-web.de>"
     ],
-    "native": {
-        "webInstance": "*"
+    "keywords": [
+      "energy",
+      "energy-flow",
+      "energie",
+      "energiefluss",
+      "energiefluss-erweitert",
+      "photovoltaics",
+      "Photovoltaik",
+      "Solar"
+    ],
+    "platform": "Javascript/Node.js",
+    "icon": "energiefluss-erweitert.png",
+    "enabled": true,
+    "localLinks": {
+      "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "configuration",
-            "type": "state",
-            "common": {
-                "name": "JSON Configuration of the elements",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": "{}"
-            },
-            "native": {}
-        },
-        {
-            "_id": "data",
-            "type": "state",
-            "common": {
-                "name": "Data for HTML Output",
-                "type": "json",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation",
-            "type": "channel",
-            "common": {
-                "name": "Calculations provided by the adapter"
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery",
-            "type": "channel",
-            "common": {
-                "name": "Battery"
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.consumption",
-            "type": "channel",
-            "common": {
-                "name": "Consumption"
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.production",
-            "type": "channel",
-            "common": {
-                "name": "Production"
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.elements",
-            "type": "channel",
-            "common": {
-                "name": "Additions and Subtractions of elements"
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining",
-            "type": "state",
-            "common": {
-                "name": "Remaining Time of the battery",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining_target",
-            "type": "state",
-            "common": {
-                "name": "Target of the remaining Time of the battery",
-                "type": "number",
-                "role": "value.time",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining_target_DT",
-            "type": "state",
-            "common": {
-                "name": "Target of the remaining Time of the battery (Date&Time)",
-                "type": "string",
-                "role": "value",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.charging_grid",
-            "type": "state",
-            "common": {
-                "name": "Current Charging via Grid",
-                "type": "number",
-                "role": "value.power",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "unit": "W"
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.charging_solar",
-            "type": "state",
-            "common": {
-                "name": "Current Charging via Solar",
-                "type": "number",
-                "role": "value.power",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "unit": "W"
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.battery.remaining_energy",
-            "type": "state",
-            "common": {
-                "name": "Current Power available in battery",
-                "type": "number",
-                "role": "value.power",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "unit": "Wh"
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.consumption.consumption",
-            "type": "state",
-            "common": {
-                "name": "Current Consumption",
-                "type": "number",
-                "role": "value.power",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "unit": "W"
-            },
-            "native": {}
-        },
-        {
-            "_id": "calculation.production.production",
-            "type": "state",
-            "common": {
-                "name": "Current Production",
-                "type": "number",
-                "role": "value.power",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "unit": "W"
-            },
-            "native": {}
-        },
-        {
-            "_id": "",
-            "type": "meta",
-            "common": {
-                "name": "Storage for energiefluss-erweitert",
-                "type": "meta.user"
-            },
-            "native": {}
-        }
-    ]
+    "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
+    "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
+    "loglevel": "info",
+    "webExtension": "lib/web.js",
+    "mode": "daemon",
+    "tier": 3,
+    "type": "visualization",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "assumption",
+    "welcomeScreen": {
+      "link": "energiefluss-erweitert/",
+      "name": "energiefluss-erweitert",
+      "img": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
+      "color": "#538ea3",
+      "order": 0
+    },
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
+    "adminUI": {
+      "config": "materialize",
+      "tab": false
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.19",
+        "web": ">=3.0.12"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
+    ],
+    "dataFolder": "energiefluss-erweitert.%INSTANCE%",
+    "messagebox": true
+  },
+  "messages": [
+    {
+      "condition": {
+        "operand": "and",
+        "rules": [
+          "oldVersion<0.3.1",
+          "newVersion>=0.3.1"
+        ]
+      },
+      "title": {
+        "en": "Mandatory changes inside Calculation Tab"
+      },
+      "text": {
+        "en": "For better handling of the battery charging calculation, the capacity and the DoD (Depth of Discharge) of the battery need to be provided via datasources now!"
+      },
+      "level": "warn",
+      "buttons": [
+        "agree",
+        "cancel"
+      ]
+    }
+  ],
+  "native": {
+    "webInstance": "*"
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "configuration",
+      "type": "state",
+      "common": {
+        "name": "JSON Configuration of the elements",
+        "type": "json",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": "{}"
+      },
+      "native": {}
+    },
+    {
+      "_id": "data",
+      "type": "state",
+      "common": {
+        "name": "Data for HTML Output",
+        "type": "json",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation",
+      "type": "channel",
+      "common": {
+        "name": "Calculations provided by the adapter"
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery",
+      "type": "channel",
+      "common": {
+        "name": "Battery"
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.consumption",
+      "type": "channel",
+      "common": {
+        "name": "Consumption"
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.production",
+      "type": "channel",
+      "common": {
+        "name": "Production"
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.elements",
+      "type": "channel",
+      "common": {
+        "name": "Additions and Subtractions of elements"
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining",
+      "type": "state",
+      "common": {
+        "name": "Remaining Time of the battery",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining_target",
+      "type": "state",
+      "common": {
+        "name": "Target of the remaining Time of the battery",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining_target_DT",
+      "type": "state",
+      "common": {
+        "name": "Target of the remaining Time of the battery (Date&Time)",
+        "type": "string",
+        "role": "value",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.charging_grid",
+      "type": "state",
+      "common": {
+        "name": "Current Charging via Grid",
+        "type": "number",
+        "role": "value.power",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "W"
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.charging_solar",
+      "type": "state",
+      "common": {
+        "name": "Current Charging via Solar",
+        "type": "number",
+        "role": "value.power",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "W"
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.battery.remaining_energy",
+      "type": "state",
+      "common": {
+        "name": "Current Power available in battery",
+        "type": "number",
+        "role": "value.power",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "Wh"
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.consumption.consumption",
+      "type": "state",
+      "common": {
+        "name": "Current Consumption",
+        "type": "number",
+        "role": "value.power",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "W"
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.production.production",
+      "type": "state",
+      "common": {
+        "name": "Current Production",
+        "type": "number",
+        "role": "value.power",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "W"
+      },
+      "native": {}
+    },
+    {
+      "_id": "",
+      "type": "meta",
+      "common": {
+        "name": "Storage for energiefluss-erweitert",
+        "type": "meta.user"
+      },
+      "native": {}
+    }
+  ]
 }
