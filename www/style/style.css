@@ -632,6 +632,7 @@ text.action_element:hover {
 
 #mouse_contextmenu ul li {
     cursor: pointer;
+    white-space: nowrap;
 }
 
 #mouse_contextmenu ul li div {
