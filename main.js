@@ -188,8 +188,6 @@ class EnergieflussErweitert extends utils.Adapter {
 								this.log.info(`Error during ${err}`);
 								this.sendTo(obj.from, obj.command, { error: err }, obj.callback);
 							} else {
-								// Store current configuration in new Backup
-
 								// Send new config back to workspace and store in state
 								this.setStateChangedAsync('configuration', { val: data, ack: true });
 								this.sendTo(obj.from, obj.command, { error: null, data: JSON.parse(data) }, obj.callback);
@@ -197,18 +195,24 @@ class EnergieflussErweitert extends utils.Adapter {
 							}
 						});
 						break;
-					case '_storeBackup':
+					case '_saveConfiguration':
 						// Store Backup
 						this.log.debug('Saving Backup to disk!');
-						let filename = new Date().getTime();
+						const filename = new Date().getTime();
 						const storePath = path.join(instanceDir + backupDir, `BACKUP_${filename}.json`);
-						fs.writeFile(storePath, JSON.stringify(obj.message), (err) => {
+						// Get current configuration
+						const tmpConfig = await this.getStateAsync('configuration');
+
+						fs.writeFile(storePath, tmpConfig.val, (err) => {
 							if (err) {
 								this.sendTo(obj.from, obj.command, { err }, obj.callback);
 							} else {
 								this.sendTo(obj.from, obj.command, { error: null, data: 'Backup stored successfully!' }, obj.callback);
 							}
 						});
+
+						// Store the new configuration in state
+						await this.setStateChangedAsync('configuration', { val: JSON.stringify(obj.message), ack: true });
 
 						// Recycle old Backups
 						fileList = [];
@@ -367,6 +371,9 @@ class EnergieflussErweitert extends utils.Adapter {
 								if (Array.isArray(subArray) && subArray.length > 0 && subArray[0] != -1) {
 									subValue = subArray.reduce((acc, idx) => acc - (rawValues[idx] * globalConfig.datasources[idx].factor || 0), 0);
 									this.log.debug(`Subtracted by: ${subArray.toString()}`);
+
+									// Set the subtraction state
+									await this.setStateChangedAsync(`calculation.elements.element_${id}.subtract`, { val: Number(sourceValue) + Number(subValue), ack: true });
 								}
 
 								// Check, if we have Additions for this value
@@ -375,6 +382,9 @@ class EnergieflussErweitert extends utils.Adapter {
 								if (Array.isArray(addArray) && addArray.length > 0 && addArray[0] != -1) {
 									addValue = addArray.reduce((acc, idx) => acc + (rawValues[idx] * globalConfig.datasources[idx].factor || 0), 0);
 									this.log.debug(`Added to Value: ${addArray.toString()}`);
+
+									// Set the addition state
+									await this.setStateChangedAsync(`calculation.elements.element_${id}.addition`, { val: Number(sourceValue) + Number(addValue), ack: true });
 								}
 
 								let formatValue = (Number(sourceValue) + Number(subValue) + Number(addValue));
@@ -1297,6 +1307,26 @@ class EnergieflussErweitert extends utils.Adapter {
 		}
 		this.log.debug(JSON.stringify(globalConfig));
 
+		// Check, if calculation elements are still present
+		const elmIDs = Object.keys(globalConfig.elements);
+		const calcStates = await this.getStatesAsync('calculation.elements.*');
+
+		if (calcStates) {
+			for (const key of Object.keys(calcStates)) {
+				const keyParts = key.split('.');
+				if (keyParts.length > 4) {
+					const calcStateParts = keyParts[4].split('_');
+					const calcState = calcStateParts[1];
+					if (elmIDs.includes(calcState)) {
+						this.log.info(`Calculation for ID ${calcState} is valid, as the element is still in use!`);
+					} else {
+						this.log.info(`Calculation for ID ${calcState} is invalid, as the element does not exist anymore! Channel 'element_${calcState}' will be deleted!`);
+						await this.delObjectAsync(`calculation.elements.element_${calcState}`, { recursive: true });
+					}
+				}
+			}
+		}
+
 		// Collect all Datasources
 		if (globalConfig.hasOwnProperty('datasources')) {
 			for (const key of Object.keys(globalConfig.datasources)) {
@@ -1381,10 +1411,47 @@ class EnergieflussErweitert extends utils.Adapter {
 							// Put elment ID into Source
 							sourceObject[gDataSource.source].elmSources.push(parseInt(key));
 
+							// Create Channel for Element subtractions and additions
+							const addAvailable = value.add && typeof value.add == 'object' && value.add.length > 0 && value.add[0] != -1;
+							const subAvailable = value.subtract && typeof value.subtract == 'object' && value.subtract.length > 0 && value.subtract[0] != -1;
+							if (addAvailable || subAvailable) {
+								await this.setObjectNotExistsAsync(`calculation.elements.element_${key}`, {
+									type: 'channel',
+									common: {
+										name: `Additions and Subtractions of element with ID ${key}`,
+									},
+									native: {}
+								});
+								this.log.debug(`Calculation channel for Element with ID ${key} created!`);
+							} else {
+								// Delete the state, if not used anymore
+								await this.delObjectAsync(`calculation.elements.element_${key}`, { recursive: true });
+								this.log.debug(`Calculation channel for Element with ID ${key} deleted!`);
+							}
+
+
 							// Put addition ID's into addition array
 							if (value.add && typeof value.add === 'object') {
 								const addArray = value.add;
 								if (addArray.length > 0) {
+									// Create a state for Addition for this element
+									if (addArray[0] != -1) {
+										await this.setObjectNotExistsAsync(`calculation.elements.element_${key}.addition`, {
+											type: 'state',
+											common: {
+												name: `Additions of element with ID ${key}`,
+												type: 'number',
+												role: 'value.power',
+												read: true,
+												write: false,
+												def: 0,
+												unit: "W"
+											},
+											native: {}
+										});
+										this.log.debug(`Addition calculation for Element with ID ${key} created!`);
+									}
+
 									for (const add of addArray) {
 										if (add !== -1) {
 											const dataSource = globalConfig.datasources[add];
@@ -1402,6 +1469,24 @@ class EnergieflussErweitert extends utils.Adapter {
 							if (value.subtract && typeof value.subtract === 'object') {
 								const subtractArray = value.subtract;
 								if (subtractArray.length > 0) {
+									// Create a state for Addition for this element
+									if (subtractArray[0] != -1) {
+										await this.setObjectNotExistsAsync(`calculation.elements.element_${key}.subtract`, {
+											type: 'state',
+											common: {
+												name: `Subtractions of element with ID ${key}`,
+												type: 'number',
+												role: 'value.power',
+												read: true,
+												write: false,
+												def: 0,
+												unit: "W"
+											},
+											native: {}
+										});
+										this.log.debug(`Subtraction calculation for Element with ID ${key} created!`);
+									}
+
 									for (const subtract of subtractArray) {
 										if (subtract !== -1) {
 											const dataSource = globalConfig.datasources[subtract];

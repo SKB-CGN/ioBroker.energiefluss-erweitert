@@ -31,6 +31,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: Backup routine reworked to improve storage (sending/receiving data reduced)
+- Added: Elements, which have addition or subtraction in use, now create states with their values and can be re-used by the user
+- Added: Language and explanation improvements, some routines updated
+
 ### 0.5.1-alpha.6 (2024-08-29)
 - Added: Show element coordinates when selecting and while dragging (can be deactivated inside settings)
 - Added: Workspace can not be less height and width than the coordinates of the placed elements
