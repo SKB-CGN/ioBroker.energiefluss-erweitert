@@ -1307,26 +1307,6 @@ class EnergieflussErweitert extends utils.Adapter {
 		}
 		this.log.debug(JSON.stringify(globalConfig));
 
-		// Check, if calculation elements are still present
-		const elmIDs = Object.keys(globalConfig.elements);
-		const calcStates = await this.getStatesAsync('calculation.elements.*');
-
-		if (calcStates) {
-			for (const key of Object.keys(calcStates)) {
-				const keyParts = key.split('.');
-				if (keyParts.length > 4) {
-					const calcStateParts = keyParts[4].split('_');
-					const calcState = calcStateParts[1];
-					if (elmIDs.includes(calcState)) {
-						this.log.info(`Calculation for ID ${calcState} is valid, as the element is still in use!`);
-					} else {
-						this.log.info(`Calculation for ID ${calcState} is invalid, as the element does not exist anymore! Channel 'element_${calcState}' will be deleted!`);
-						await this.delObjectAsync(`calculation.elements.element_${calcState}`, { recursive: true });
-					}
-				}
-			}
-		}
-
 		// Collect all Datasources
 		if (globalConfig.hasOwnProperty('datasources')) {
 			for (const key of Object.keys(globalConfig.datasources)) {
@@ -1360,6 +1340,27 @@ class EnergieflussErweitert extends utils.Adapter {
 
 		// Collect the Elements, which are using the sources
 		if (globalConfig.hasOwnProperty('elements')) {
+			// Check, if calculation elements are still present
+			const elmIDs = Object.keys(globalConfig.elements);
+			const calcStates = await this.getStatesAsync('calculation.elements.*');
+
+			if (calcStates) {
+				for (const key of Object.keys(calcStates)) {
+					const keyParts = key.split('.');
+					if (keyParts.length > 4) {
+						const calcStateParts = keyParts[4].split('_');
+						const calcState = calcStateParts[1];
+						if (elmIDs.includes(calcState)) {
+							this.log.info(`Calculation for ID ${calcState} is valid, as the element is still in use!`);
+						} else {
+							this.log.info(`Calculation for ID ${calcState} is invalid, as the element does not exist anymore! Channel 'element_${calcState}' will be deleted!`);
+							await this.delObjectAsync(`calculation.elements.element_${calcState}`, { recursive: true });
+						}
+					}
+				}
+			}
+
+			// Loop through elements and get their data
 			for (const key of Object.keys(globalConfig.elements)) {
 				const value = globalConfig.elements[key];
 				// Normal sources via Datasources
