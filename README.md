@@ -31,7 +31,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.1-alpha.8 (2024-09-18)
 - Added: New option "Auto detect" for "Show source as". The source and unit (if present and not entered before) will be automatically detected
 - Added: UI improvements
 - FIX: Some basic values were not saved properly
