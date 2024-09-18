@@ -242,12 +242,22 @@ class EnergieflussErweitert extends utils.Adapter {
 					case '_updateElementInView':
 						// Receive Object from ioBroker to show it in Configuration
 						const id = `tmp_${obj.message.id}`;
-						const state = await this.getForeignStateAsync(obj.message.source);
+						const originSource = obj.message.source;
+						const state = await this.getForeignStateAsync(originSource);
+						let objectUnit = '';
 						rawValues[id] = state.val;
+
 						// Modify the source
 						obj.message.source = id;
 
 						if (state) {
+							// Get the type if auto
+							if (obj.message.source_display == 'auto') {
+								const type = await this.getForeignObjectAsync(originSource);
+								obj.message.source_type = type.common.type;
+								objectUnit = type.common.unit;
+							}
+
 							await this.calculateValue(id, obj.message, state);
 							this.log.debug(`Found ${obj.message.source} and calculated the value for Web-ID: ${id}!`);
 							if (outputValues.values.hasOwnProperty(id)) {
@@ -259,6 +269,7 @@ class EnergieflussErweitert extends utils.Adapter {
 									data: {
 										id: obj.message.id,
 										value: outputValues.values[id],
+										unit: objectUnit,
 										override: override
 									}
 								}, obj.callback);
@@ -337,101 +348,121 @@ class EnergieflussErweitert extends utils.Adapter {
 					let timeStamp = this.getTimeStamp(state.ts, obj.source_option);
 					outputValues.values[id] = timeStamp;
 				} else {
-					switch (obj.source_display) {
-						case 'text':
-							// Linebreak Option
-							let strOutput;
-							if (obj.linebreak > 0 && state.val && state.val.length > 0) {
-								let splitOpt = new RegExp(`.{0,${obj.linebreak}}(?:\\s|$)`, 'g');
-								let splitted = state.val.toString().match(splitOpt);
-								strOutput = splitted.join('<br>');
-							} else {
-								strOutput = state.val;
-							}
-							outputValues.values[id] = strOutput;
-							sourceValue = strOutput;
-							break;
+					const checkDisplay = async (method) => {
+						switch (method) {
+							case 'auto':
+								switch (obj.source_type) {
+									case 'boolean':
+										checkDisplay('bool');
+										break;
 
-						case 'bool':
-							outputValues.values[id] = sourceValue ? systemDictionary['on'][systemLang] : systemDictionary['off'][systemLang];
-							break;
+									case 'number':
+										checkDisplay('');
+										break;
 
-						case 'own_text':
-							outputValues.values[id] = obj.text;
-							break;
-
-						default:
-							// Threshold need to be positive
-							if (obj.threshold >= 0) {
-								this.log.debug(`Threshold for: ${id} is: ${obj.threshold}`);
-
-								// Check, if we have Subtractions for this value
-								const subArray = obj.subtract;
-								let subValue = 0;
-								if (Array.isArray(subArray) && subArray.length > 0 && subArray[0] != -1) {
-									subValue = subArray.reduce((acc, idx) => acc - (rawValues[idx] * globalConfig.datasources[idx].factor || 0), 0);
-									this.log.debug(`Subtracted by: ${subArray.toString()}`);
-
-									// Set the subtraction state
-									await this.setStateChangedAsync(`calculation.elements.element_${id}.subtract`, { val: Number(sourceValue) + Number(subValue), ack: true });
+									case 'string':
+										checkDisplay('text');
+										break;
 								}
+								break;
 
-								// Check, if we have Additions for this value
-								const addArray = obj.add;
-								let addValue = 0;
-								if (Array.isArray(addArray) && addArray.length > 0 && addArray[0] != -1) {
-									addValue = addArray.reduce((acc, idx) => acc + (rawValues[idx] * globalConfig.datasources[idx].factor || 0), 0);
-									this.log.debug(`Added to Value: ${addArray.toString()}`);
-
-									// Set the addition state
-									await this.setStateChangedAsync(`calculation.elements.element_${id}.addition`, { val: Number(sourceValue) + Number(addValue), ack: true });
+							case 'text':
+								// Linebreak Option
+								let strOutput;
+								if (obj.linebreak > 0 && state.val && state.val.length > 0) {
+									let splitOpt = new RegExp(`.{0,${obj.linebreak}}(?:\\s|$)`, 'g');
+									let splitted = state.val.toString().match(splitOpt);
+									strOutput = splitted.join('<br>');
+								} else {
+									strOutput = state.val;
 								}
+								outputValues.values[id] = strOutput;
+								sourceValue = strOutput;
+								break;
 
-								let formatValue = (Number(sourceValue) + Number(subValue) + Number(addValue));
+							case 'bool':
+								outputValues.values[id] = sourceValue ? systemDictionary['on'][systemLang] : systemDictionary['off'][systemLang];
+								break;
 
-								// Check if value is over threshold
-								if (Math.abs(formatValue) >= obj.threshold) {
-									// Convert Value to positive
-									let cValue = obj.convert ? Math.abs(formatValue) : formatValue;
-									// Calculation
-									switch (obj.calculate_kw) {
-										case 'calc':
-										case true:
-											// Convert to kW if set
-											cValue = (Math.round((cValue / 1000) * 100) / 100);
-											break;
-										case 'auto':
-											if (Math.abs(cValue) >= 1000000000) {
-												outputValues.unit[id] = 'GW';
-												// Convert to GW if set
-												cValue = (Math.round((cValue / 1000000000) * 100) / 100);
-											} else if (Math.abs(cValue) >= 1000000) {
-												outputValues.unit[id] = 'MW';
-												// Convert to MW if set
-												cValue = (Math.round((cValue / 1000000) * 100) / 100);
-											} else if (Math.abs(cValue) >= 1000) {
-												outputValues.unit[id] = 'kW';
-												// Convert to kW if set
-												cValue = (Math.round((cValue / 1000) * 100) / 100);
-											} else {
-												outputValues.unit[id] = 'W';
-											}
-											break;
-										case 'none':
-										case false:
-											break;
-										default:
-											cValue = cValue;
-											break;
+							case 'own_text':
+								outputValues.values[id] = obj.text;
+								break;
+
+							default:
+								// Threshold need to be positive
+								if (obj.threshold >= 0) {
+									this.log.debug(`Threshold for: ${id} is: ${obj.threshold}`);
+
+									// Check, if we have Subtractions for this value
+									const subArray = obj.subtract;
+									let subValue = 0;
+									if (Array.isArray(subArray) && subArray.length > 0 && subArray[0] != -1) {
+										subValue = subArray.reduce((acc, idx) => acc - (rawValues[idx] * globalConfig.datasources[idx].factor || 0), 0);
+										this.log.debug(`Subtracted by: ${subArray.toString()}`);
+
+										// Set the subtraction state
+										await this.setStateChangedAsync(`calculation.elements.element_${id}.subtract`, { val: Number(sourceValue) + Number(subValue), ack: true });
 									}
 
-									outputValues.values[id] = obj.decimal_places >= 0 ? this.decimalPlaces(cValue, obj.decimal_places) : cValue;
-								} else {
-									outputValues.values[id] = obj.decimal_places >= 0 ? this.decimalPlaces(0, obj.decimal_places) : sourceValue;
+									// Check, if we have Additions for this value
+									const addArray = obj.add;
+									let addValue = 0;
+									if (Array.isArray(addArray) && addArray.length > 0 && addArray[0] != -1) {
+										addValue = addArray.reduce((acc, idx) => acc + (rawValues[idx] * globalConfig.datasources[idx].factor || 0), 0);
+										this.log.debug(`Added to Value: ${addArray.toString()}`);
+
+										// Set the addition state
+										await this.setStateChangedAsync(`calculation.elements.element_${id}.addition`, { val: Number(sourceValue) + Number(addValue), ack: true });
+									}
+
+									let formatValue = (Number(sourceValue) + Number(subValue) + Number(addValue));
+
+									// Check if value is over threshold
+									if (Math.abs(formatValue) >= obj.threshold) {
+										// Convert Value to positive
+										let cValue = obj.convert ? Math.abs(formatValue) : formatValue;
+										// Calculation
+										switch (obj.calculate_kw) {
+											case 'calc':
+											case true:
+												// Convert to kW if set
+												cValue = (Math.round((cValue / 1000) * 100) / 100);
+												break;
+											case 'auto':
+												if (Math.abs(cValue) >= 1000000000) {
+													outputValues.unit[id] = 'GW';
+													// Convert to GW if set
+													cValue = (Math.round((cValue / 1000000000) * 100) / 100);
+												} else if (Math.abs(cValue) >= 1000000) {
+													outputValues.unit[id] = 'MW';
+													// Convert to MW if set
+													cValue = (Math.round((cValue / 1000000) * 100) / 100);
+												} else if (Math.abs(cValue) >= 1000) {
+													outputValues.unit[id] = 'kW';
+													// Convert to kW if set
+													cValue = (Math.round((cValue / 1000) * 100) / 100);
+												} else {
+													outputValues.unit[id] = 'W';
+												}
+												break;
+											case 'none':
+											case false:
+												break;
+											default:
+												cValue = cValue;
+												break;
+										}
+
+										outputValues.values[id] = obj.decimal_places >= 0 ? this.decimalPlaces(cValue, obj.decimal_places) : cValue;
+									} else {
+										outputValues.values[id] = obj.decimal_places >= 0 ? this.decimalPlaces(0, obj.decimal_places) : sourceValue;
+									}
 								}
-							}
-							break;
-					}
+								break;
+						}
+					};
+
+					checkDisplay(obj.source_display);
 				}
 				break;
 		}

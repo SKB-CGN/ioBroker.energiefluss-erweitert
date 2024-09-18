@@ -320,6 +320,7 @@
     "opt_animation_type_2": "starts quickly, slows down until end",
     "opt_animation_type_3": "slowly transitioning, speeding up, and then slowing down again",
     "opt_animation_type_4": "even speed",
+    "opt_autodetect": "Auto Detect",
     "opt_b_to_t": "From bottom to top",
     "opt_bottom": "Bottom",
     "opt_buttons": "Buttons",

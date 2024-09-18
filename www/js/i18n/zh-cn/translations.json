@@ -320,6 +320,7 @@
     "opt_animation_type_2": "快速开始，缓慢直至结束",
     "opt_animation_type_3": "缓慢过渡，加速，然后再次减速",
     "opt_animation_type_4": "均匀的速度",
+    "opt_autodetect": "自动检测",
     "opt_b_to_t": "从下到上",
     "opt_bottom": "底部",
     "opt_buttons": "按钮",

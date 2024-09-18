@@ -31,6 +31,12 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: New option "Auto detect" for "Show source as". The source and unit (if present and not entered before) will be automatically detected
+- Added: UI improvements
+- FIX: Some basic values were not saved properly
+- FIX: Skipping version check while in display-mode (reduces loading time and bandwidth)
+
 ### 0.5.1-alpha.7 (2024-09-16)
 - Added: Backup routine reworked to improve storage (sending/receiving data reduced)
 - Added: Elements, which have addition or subtraction in use, now create states with their values and can be re-used by the user

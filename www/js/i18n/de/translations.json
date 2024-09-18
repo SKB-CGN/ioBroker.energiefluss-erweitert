@@ -320,6 +320,7 @@
     "opt_animation_type_2": "Beginnt schnell, verlangsamt sich bis zum Ende",
     "opt_animation_type_3": "langsamer Übergang, Beschleunigung und dann wieder Verlangsamung",
     "opt_animation_type_4": "gleichmäßige Geschwindigkeit",
+    "opt_autodetect": "Automatische Erkennung",
     "opt_b_to_t": "Von unten nach oben",
     "opt_bottom": "Unten",
     "opt_buttons": "Knöpfe",

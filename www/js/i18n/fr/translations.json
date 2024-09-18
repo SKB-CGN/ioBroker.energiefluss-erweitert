@@ -320,6 +320,7 @@
     "opt_animation_type_2": "démarre vite, ralentit jusqu'à la fin",
     "opt_animation_type_3": "transition lente, accélération, puis ralentissement à nouveau",
     "opt_animation_type_4": "même vitesse",
+    "opt_autodetect": "Détection automatique",
     "opt_b_to_t": "De bas en haut",
     "opt_bottom": "Bas",
     "opt_buttons": "Boutons",
