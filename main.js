@@ -892,18 +892,18 @@ class EnergieflussErweitert extends utils.Adapter {
 
 					// Check, if that Source belongs to battery-charge or discharge, to determine the time
 					if (globalConfig.hasOwnProperty('calculation')) {
-						// Check, if the provided source is a valied source
+						// Check, if the provided source is a valid source
 						const isValidDatasource = (value) => {
 							if (value === null || value === undefined || value === '') {
 								return false;
 							}
 
-							// Überprüfen, ob der Wert vom Typ 'number' ist
+							// Check, if value is type 'number'
 							if (typeof value !== 'number') {
 								return false;
 							}
 
-							// Überprüfen, ob der Wert größer oder gleich 0 ist
+							// Check, if value is greater than or equal 0 ist
 							return !isNaN(value) && Number(value) >= 0;
 						};
 

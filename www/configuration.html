@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style/jquery-ui.css">
     <link rel="stylesheet" href="style/loading-spinner.css">
     <link rel="stylesheet" href="style/multiselect.css">
-    <link rel="stylesheet" href="style/style.css?v=0.5.4">
+    <link rel="stylesheet" href="style/style.css?v=0.5.8">
 
     <script src="../../socket.io/socket.io.js"></script>
 
@@ -342,9 +342,7 @@
                                                     class="iconify add_element_area "
                                                     data-icon="mdi:arrange-send-backward" data-height="24"
                                                     data-width="24"></span></a><br>
-                                            <img src="img/icon_help.png" style="margin-top:10px;"
-                                                class="translateP help" data-lang-placeholder="help_organize"
-                                                placeholder="<p>All elements are organized in groups (rects and circles, icons, texts, etc).</p><p>The overall order for the elements is Each element in each group can be moved to the fore- and background. Texts and icons are al</p>">
+                                            <img src="img/icon_help.png" class="help margin" data-help="help_organize">
                                         </div>
                                     </div>
                                 </div>
@@ -538,9 +536,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <img src="img/icon_help.png" style="margin-top:10px;" class="translateP help"
-                                            data-lang-placeholder="help_img_url"
-                                            placeholder="You can use a direct URL for the image or you can use a datasource, which needs to be in curly braces (e.g. {weatherunderground.0.forecast.0d.iconURL}).">
+                                        <img src="img/icon_help.png" class="help margin" data-help="help_img_url">
                                         <div class="form_div textbox">
                                             <input type="text" class="input_text elm_config attribute"
                                                 name="elm_preserveAspectRatio" id="elm_preserveAspectRatio"
@@ -548,9 +544,8 @@
                                             <label for="elm_preserveAspectRatio" class="form_label translate"
                                                 data-lang="lbl_preserveAspectRatio">preserveAspectRatio:</label>
                                         </div>
-                                        <img src="img/icon_help.png" style="margin-top:10px;" class="translateP help"
-                                            data-lang-placeholder="help_preserveAspectRatio"
-                                            placeholder="<p>The preserveAspectRatio attribute indicates how an element with a viewBox providing a given aspect ratio must fit into a viewport with a different aspect ratio.</p><p>Please refer to <a href='https://www.kreyenborg.koeln/go/96nit' target='_blank'>MDN Web Docs</a> to read more about">
+                                        <img src="img/icon_help.png" class="help margin"
+                                            data-help="help_preserveAspectRatio">
                                     </div>
                                 </div>
                                 <div class="detail_box elm_config_box icon">
@@ -980,8 +975,8 @@
                                             <input type="button" value="Delete" id="delete_element"
                                                 class="input_button red translateV" data-lang-value="value_delete">
                                         </div>
-                                        <img src="img/icon_help.png" style="margin-top:10px;" class="translateP help"
-                                            data-lang-placeholder="help_delete_restore" placeholder="<p>Something</p>">
+                                        <img src="img/icon_help.png" class="help margin"
+                                            data-help="help_delete_restore">
                                         </td>
                                     </div>
                                 </div>
@@ -1114,9 +1109,8 @@
                                                 the
                                                 line (raw value)</label>
                                         </div>
-                                        <img src='img/icon_help.png' class="translateP help"
-                                            data-lang-placeholder="help_animation_depency" style='margin-top:10px;'
-                                            placeholder='<p><b>Duration:</b><br>The duration of the animation varies depending on the load on the line. The more load, the less the animation lasts<br><i><u>Info:</u></i> The minimum duration is set for the maximum power. If you set max power to 1000 and min Duration to 2000, a value of 100 will run 20.000ms</p><p><b>Dots</b>:<br>The more power the line has, the more dots appear - but not more than maximum defined</p>'>
+                                        <img src='img/icon_help.png' class="help margin"
+                                            data-help="help_animation_depency">
                                     </div>
                                 </div>
                                 <div class="detail_box elm_config_box circle datasource icon image rect svg text use">
@@ -1144,9 +1138,7 @@
                                                     window</option>
                                             </select>
                                         </div>
-                                        <img src='img/icon_help.png' style='margin-top:10px;' class="translateP help"
-                                            data-lang-placeholder="help_frame"
-                                            placeholder="<p><b>New Window:</b><br>Opens the URL in a new window</p> <p><b>Same window:</b><br>Opens the URL in the same window</p> <p><b>iFrame overlay:</b><br>Opens the URL inside an Overlay. Some pages cannot be opened inside overlay frames. If this does not work for you, please choose a different option!<p><u>Tipp:</u><br>For http pages, it is possible to pass login credentials via URL. E.g. 'http://yourUser'<b>:</b>yourPass@example.com - This does <u>not</u> work for https</p>">
+                                        <img src='img/icon_help.png' class="help margin" data-help="help_frame">
                                         <div class="form_div info">
                                             <span class="translate frame_deactivated " data-lang="lbl_frame_deactivated"
                                                 style="color: var(--red);">You use
@@ -1184,9 +1176,7 @@
                                                 </option>
                                             </select>
                                         </div>
-                                        <img src='img/icon_help.png' style='margin:10px;' class="translateP help"
-                                            data-lang-placeholder="help_actions"
-                                            placeholder="<p><b>Toggle:</b><br>Toggles the current state (if state is off, turn it on - vice versa)</p><p><b>On:</b><br>Sets the state always to true</p><p><b>Off:</b><br>Sets the state always to false</p>">
+                                        <img src='img/icon_help.png' class="help margin" data-help="help_actions">
                                         <div class="elm_config_box action_shortcuts">
                                             <div class="form_div select">
                                                 <label for="elm_action_type" class="form_label translate"
@@ -1226,15 +1216,8 @@
                                                     data-lang-value="value_manage_shortcuts"
                                                     value="Manage Direct Accesses" style="width: auto;">
                                                 <br>
-                                                <img src='img/icon_help.png' style='margin:10px;'
-                                                    class=" help translateP"
-                                                    data-lang-placeholder="help_action_shortcuts" placeholder="<p><b>Type:</b> <br> This is the format for the freeform text field. On touch devices a numpad for the number and a
-                                                            keyboard for the text is shown. </p>
-                                                        <p><b>Show as:</b> <br> direct selection values can be displayed as 'Button or in a dropdown-list. </p>
-                                                        <p><b>Display freeform text field:</b> <br> Activate this option to enable the use of custom values </p>
-                                                        <p><b>Direct selection:</b> <br><b>Value</b> is the status to be set.<br>
-                                                            <b>Alias</b> is the readable title on the 'Button' or inside the dropdown-list. (Optional)
-                                                        </p>">
+                                                <img src='img/icon_help.png' class="help margin"
+                                                    data-help="help_action_shortcuts">
                                             </div>
                                         </div>
                                         <div class="form_div button">
@@ -1262,45 +1245,50 @@
                                                     Value</option>
                                             </select>
                                         </div>
-                                        <div class="form_div textbox select fill_type">
-                                            <label for="elm_fill_direction" class="form_label translate"
-                                                data-lang="lbl_direction">Direction</label>
-                                            <select class="input_select elm_config" name="elm_fill_direction"
-                                                id="elm_fill_direction">
-                                                <option value="90" class="translate" data-lang="opt_b_to_t">
-                                                    From
-                                                    bottom to top</option>
-                                                <option value="270" class="translate" data-lang="opt_t_to_b">
-                                                    From top to bottom</option>
-                                                <option value="0" class="translate" data-lang="opt_r_to_l">
-                                                    From
-                                                    right to left</option>
-                                                <option value="180" class="translate" data-lang="opt_l_to_r">
-                                                    From left to right</option>
-                                            </select>
-                                        </div>
-                                        <div class="form_div textbox fill_type">
-                                            <input type="text" class="input_text color elm_config" name="elm_fill_value"
-                                                id="elm_fill_value" placeholder="" autocorrect="off" autocomplete="off"
-                                                data-jscolor="{}">
-                                            <label for="elm_fill_value" class="form_label translate"
-                                                data-lang="lbl_fill_color">Fill
-                                                color</label>
-                                        </div>
-                                        <div class="form_div textbox fill_type_value">
-                                            <input type="number" class="input_number elm_config " name="elm_fill_max"
-                                                id="elm_fill_max" min="0" placeholder="" autocorrect="off"
-                                                autocomplete="off">
-                                            <label for="elm_fill_max" class="form_label translate"
-                                                data-lang="lbl_max_value">Max-Value</label>
-                                            <span class="translate" data-lang="ex_necessary_calc">Necessary
-                                                for
-                                                calculation</span>
-                                        </div>
-                                        <div class="form_div button fill_type">
-                                            <input type="button" id="preview_element_fill"
-                                                class="input_button translateV preview_element"
-                                                data-lang-value="legend_preview" value="Preview">
+                                        <div class="fill_type">
+                                            <div class="form_div textbox select">
+                                                <label for="elm_fill_direction" class="form_label translate"
+                                                    data-lang="lbl_direction">Direction</label>
+                                                <select class="input_select elm_config" name="elm_fill_direction"
+                                                    id="elm_fill_direction">
+                                                    <option value="90" class="translate" data-lang="opt_b_to_t">
+                                                        From
+                                                        bottom to top</option>
+                                                    <option value="270" class="translate" data-lang="opt_t_to_b">
+                                                        From top to bottom</option>
+                                                    <option value="0" class="translate" data-lang="opt_r_to_l">
+                                                        From
+                                                        right to left</option>
+                                                    <option value="180" class="translate" data-lang="opt_l_to_r">
+                                                        From left to right</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_div textbox">
+                                                <input type="text" class="input_text color elm_config"
+                                                    name="elm_fill_value" id="elm_fill_value" placeholder=""
+                                                    autocorrect="off" autocomplete="off" data-jscolor="{}">
+                                                <label for="elm_fill_value" class="form_label translate"
+                                                    data-lang="lbl_fill_color">Fill
+                                                    color</label>
+                                            </div>
+                                            <div class="fill_type_value">
+                                                <div class="form_div textbox">
+                                                    <input type="number" class="input_number elm_config "
+                                                        name="elm_fill_max" id="elm_fill_max" min="0" placeholder=""
+                                                        autocorrect="off" autocomplete="off">
+                                                    <label for="elm_fill_max" class="form_label translate"
+                                                        data-lang="lbl_config_max_power">Max expected power (raw value
+                                                        in watts)</label>
+                                                </div>
+                                                <span class="translate" data-lang="ex_necessary_calc">Necessary
+                                                    for
+                                                    calculation</span>
+                                            </div>
+                                            <div class="form_div button">
+                                                <input type="button" id="preview_element_fill"
+                                                    class="input_button translateV preview_element"
+                                                    data-lang-value="legend_preview" value="Preview">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1392,7 +1380,8 @@
                                                     name="elm_border_max" id="elm_border_max" min="0" placeholder=""
                                                     autocorrect="off" autocomplete="off">
                                                 <label for="elm_border_max" class="form_label translate"
-                                                    data-lang="lbl_max_value">Max-Value</label>
+                                                    data-lang="lbl_config_max_power">Max expected power (raw value in
+                                                    watts)</label>
                                             </div><span class="translate" data-lang="ex_necessary_calc">Necessary
                                                 for
                                                 calculation</span>
@@ -1417,9 +1406,7 @@
                                                 direction</label>
                                         </div>
                                         <div class="border_type">
-                                            <img src='img/icon_help.png' style='margin:10px;' class="translateP help"
-                                                data-lang-placeholder="help_outline"
-                                                placeholder='<p><b>Type:</b><br>Percent from 0 to 100% or value, which can also be negative</p> <p><b>Starting point:</b><br>Defines the start point, where the fill starts</p><p><b>Direction:</b><br>Defines the direction of the fill. clockwise (around the clock) or counter-clockwise (reverse)<p><b>Line style:</b><br>Style of the line ends (round or square)</p> <p><b>Unfilled area color:</b><br>This is the color of the <u>unfilled</u> area of the outline (background) </p> <p><b>Max Value:</b><br>This is necessary, to calculate the amount of fill </p><p><b>Reverse:</b><br>Reverse the fill, if the sign of the value has changed (Color for reverse can be different - if empty, same color will be used)</p>'>
+                                            <img src='img/icon_help.png' class="help margin" data-help="help_outline">
                                             <div class="form_div button">
                                                 <input type="button" id="preview_element_border"
                                                     class="input_button translateV preview_element"
@@ -1480,8 +1467,7 @@
                                                     threshold (negative)</label>
                                             </div>
                                         </div>
-                                        <img src='img/icon_help.png' style='margin:10px;' class="translateP help"
-                                            data-lang-placeholder="help_css_class" placeholder="help_css_class">
+                                        <img src='img/icon_help.png' class="help margin" data-help="help_css_class">
                                         <br>
                                         <a href="https://www.w3schools.com/css/" target="_blank" class="translate"
                                             data-lang="ex_how_to_use_css">How to
@@ -1516,8 +1502,7 @@
                                                 data-lang-value="lbl_override" style="width: auto;">
                                         </div>
                                         <br>
-                                        <img src='img/icon_help.png' style='margin:10px;' class="translateP help"
-                                            data-lang-placeholder="help_override" placeholder="help_override">
+                                        <img src='img/icon_help.png' class="help margin" data-help="help_override">
                                     </div>
                                 </div>
                                 <div class="detail_box elm_config_box text circle rect icon svg image fObj">
@@ -1643,9 +1628,7 @@
                                         data-width="48" data-height="48"></span></a>
                             </div>
                             <div class="icon_list">
-                                <img src="img/icon_help.png" class="translateP help"
-                                    data-lang-placeholder="help_redo_undo"
-                                    placeholder="With the undo and redo actions you are able, to restore changes (e.g. moving, deleting, inserting) to elements which were performed on the workspace. This does <u> not </u> affect any changes made inside the configuration dialog.">
+                                <img src="img/icon_help.png" class="help" data-help="help_redo_undo">
                             </div>
                         </fieldset>
                         <fieldset>
@@ -1764,6 +1747,9 @@
                             </g>
                             <!-- Definations-->
                             <defs id="placeholder_defs" class="placeholders"></defs>
+
+                            <!-- Webkit Filters -->
+                            <defs id="placeholder_filter" class="placeholder"></defs>
 
                             <!-- Lines -->
                             <g id="placeholder_lines" class="placeholders"></g>
@@ -2312,9 +2298,7 @@
                                         Live-View</span>
                                 </label>
                                 <div>
-                                    <img src='img/icon_help.png' class="translateP help"
-                                        data-lang-placeholder="help_settings"
-                                        placeholder='If you disable the Config Wheel on the live-view, you need to use the browsers access-key <b>"e"</b> to get back into this configuration again'>
+                                    <img src='img/icon_help.png' class="help" data-help="help_settings">
                                 </div>
                             </div>
                             <div class="cb_switch">
@@ -2350,9 +2334,7 @@
                                         Icon-Proxy for all request</span>
                                 </label>
                                 <div>
-                                    <img src='img/icon_help.png' class="translateP help"
-                                        data-lang-placeholder="help_icon_proxy"
-                                        placeholder='<p><b>Icon-Proxy</b>:<br>The Icon - Proxy need to be configured inside the Adapter settings of ioBroker.<br>If you want to use the Proxy for all requests, activate this here. The benefit of this is, that:<ul><li>devices inside your network do not need internet access to receive the icons</li><li>all icons are stored inside the cache of the adapter as long as it runs (performance plus) </ul></p>'>
+                                    <img src='img/icon_help.png' class="help" data-help="help_icon_proxy">
                                 </div>
                             </div>
                             <div class="cb_switch">
@@ -2365,9 +2347,7 @@
                                         animations</span>
                                 </label>
                                 <div>
-                                    <img src='img/icon_help.png' class="translateP help"
-                                        data-lang-placeholder="help_low_performance"
-                                        placeholder='<p>This mode allows you to use the animations on less powerful devices. The only limitation to this is that you can no longer adjust the speed of the animation! The layout and number of points remain unaffected!</p> <p><u>Please note:</u> If you only want to enable this mode on less powerful devices, attach the following parameter to the URL "<code>lowPerformance=true</code>" </p>'>
+                                    <img src='img/icon_help.png' class="help" data-help="help_low_performance">
                                 </div>
                             </div>
                             <div class="cb_switch">

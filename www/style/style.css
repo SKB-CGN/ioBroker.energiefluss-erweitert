@@ -59,6 +59,7 @@
     --file-selected: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23538ea3" d="M5 21q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.2 0 .375.038t.35.112L17.875 5H5v14h14v-6.65l2-2V19q0 .825-.588 1.413T19 21H5Zm6.525-6.8l8.5-8.5q.275-.275.675-.275t.7.275q.3.275.3.7t-.3.725L12.225 16.3q-.3.3-.7.3t-.7-.3l-4.25-4.25q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l3.55 3.55Z"%2F%3E%3C%2Fsvg%3E');
     --icon-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18C6.47 2 2 6.47 2 12s4.47 10 10 10s10-4.47 10-10S17.53 2 12 2m2.59 6L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41z'/%3E%3C/svg%3E");
     --icon-swap: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m3-13.5V9h-4v2h4v2.5l3.5-3.5zm-6 4L5.5 14L9 17.5V15h4v-2H9z'/%3E%3C/svg%3E");
+    --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 24 24'%3E%3Cpath fill='%23777' d='m11.565 13.873l-2.677-2.677q-.055-.055-.093-.129q-.037-.073-.037-.157q0-.168.11-.289q.112-.121.294-.121h5.677q.181 0 .292.124t.111.288q0 .042-.13.284l-2.677 2.677q-.093.093-.2.143t-.235.05t-.235-.05t-.2-.143'/%3E%3C/svg%3E");
 }
 
 /* Default HTML & Body */
@@ -430,6 +431,10 @@ text.action_element:hover {
     padding-left: 5px;
     width: 24px;
     height: 24px;
+}
+
+.help.margin {
+    margin-top: 10px;
 }
 
 .title_bar {
@@ -805,8 +810,9 @@ text.action_element:hover {
     border-bottom: 2px solid var(--darkestGrey);
     padding: 5px 0;
     transition: border .5s;
-    background: var(--transparent);
+    background-color: var(--transparent);
     color: var(--black);
+    border-radius: 0;
 }
 
 .input_textarea {
@@ -819,8 +825,14 @@ text.action_element:hover {
 }
 
 .input_select {
+    appearance: none;
     cursor: pointer;
     text-overflow: ellipsis;
+    background-image: var(--select-arrow);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-right: 18px;
 }
 
 .input_number_small {

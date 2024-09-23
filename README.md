@@ -31,6 +31,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Wording for some boxes updated and general improvements of help functions
+- Added: Support for Apple Devices including correct placement of texts and applying shadows to elements
+- Added: Error handling for 'Browser Frame' inside iFrame overlay - if the URL can not be loaded in 5 seconds, the overlay will be closed
+
 ### 0.5.1-alpha.8 (2024-09-18)
 - Added: New option "Auto detect" for "Show source as". The source and unit (if present and not entered before) will be automatically detected
 - Added: UI improvements
