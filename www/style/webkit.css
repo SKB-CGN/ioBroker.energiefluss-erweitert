@@ -1,0 +1,5 @@
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    text * {
+        alignment-baseline: central;
+    }
+}
