@@ -31,7 +31,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.1-alpha.10 (2024-10-24)
 - FIX: Applied fill color of element could not be removed or set to transparent
 - FIX: Own Styles could not be modified, if they were empty or not set
 - FIX: If width or height of a rect or circle is changed, the corresponding line-connection was not updated correctly
