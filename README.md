@@ -32,12 +32,12 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	### **WORK IN PROGRESS**
 -->
 ### 0.5.1-alpha.10 (2024-10-24)
-- FIX: Applied fill color of element could not be removed or set to transparent
+- ![#f03c15](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Applied fill color of element could not be removed or set to transparent
 - FIX: Own Styles could not be modified, if they were empty or not set
 - FIX: If width or height of a rect or circle is changed, the corresponding line-connection was not updated correctly
 - FIX: Less power mode was not working correctly, if line animation should be reversed
 - FIX: Shadow on a line was not saved (#264)
-- Added: Line can be hidden, if no animation is active (#263)
+- ![#f03c15](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Line can be hidden, if no animation is active (#263)
 - Added: Improved Less power mode. It now uses much less resources 
 - Added: Text and Datasource-Elements can be rotated continuously up to 360 degrees
 - Added: Option to make the configbar transparent, while changing settings (This is useful to see the changes on mobile devices, where the configbar could hide the element)
