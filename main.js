@@ -23,7 +23,6 @@ let outputValues = {
 	values: {},
 	unit: {},
 	animations: {},
-	animationProperties: {},
 	fillValues: {},
 	borderValues: {},
 	prepend: {},
@@ -832,7 +831,6 @@ class EnergieflussErweitert extends utils.Adapter {
 			this.log.info('Configuration changed via Workspace! Reloading config!');
 			this.getConfig();
 		} else {
-			//let clearValue;
 			let cssRules = new Array();
 
 			// Check, if we handle this source inside our subscribtion
@@ -849,7 +847,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (stateValue == rawValues[soObj.id]) {
 					this.log.debug(`Value of ${id} did not change. Ignoring!`);
 				} else {
-					this.log.debug(`Value of ${id} changed! Processing!`);
+					this.log.debug(`Value of ${id} changed! Old Value: ${rawValues[soObj.id]} | New Value: ${stateValue} Processing!`);
 
 					// Put Value into RAW-Source-Values
 					rawValues[soObj.id] = stateValue;
@@ -1191,10 +1189,8 @@ class EnergieflussErweitert extends utils.Adapter {
 								}
 
 								// Set Animation
-								outputValues.animations[src] = tmpAnimValid;
-
-								// Create Animation Object
-								outputValues.animationProperties[src] = {
+								outputValues.animations[src] = {
+									animation: tmpAnimValid,
 									type: tmpType,
 									duration: tmpDuration,
 									stroke: tmpStroke,
@@ -1312,7 +1308,6 @@ class EnergieflussErweitert extends utils.Adapter {
 			animations: {},
 			fillValues: {},
 			borderValues: {},
-			animationProperties: {},
 			prepend: {},
 			append: {},
 			css: {},

@@ -64,94 +64,95 @@
 </head>
 
 <body>
-	<div class="m adapter-container ">
+	<div class="m adapter-container">
 		<div class="row">
 			<div class="col s12">
 				<ul class="tabs">
-					<li class="tab col"><a href="#tab-main" class="translate active">Main settings</a></li>
-					<!-- <li class="tab col"><a href="#tab-proxy" class="translate">Icon Proxy</a></li> !-->
-					<li class="tab col"><a href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki"
+					<li class="tab col s5"><a href="#tab-main" class="translate active">Main settings</a></li>
+					<li class="tab col s5"><a href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki"
 							target="_blank" class="translate" data-lang="wiki">Wiki</a></li>
 				</ul>
 			</div>
-		</div>
 
-		<div id="tab-main" class="col s12">
-			<div class="row">
-				<div class="input-field col s6">
-					<img src="energiefluss-erweitert.png" class="logo">
+			<div id="tab-main" class="col s12 page">
+				<div class="row">
+					<div class="input-field col s6">
+						<img src="energiefluss-erweitert.png" class="logo">
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6">
-					<p class="translate" data-lang="donate">If you like this adapter, please consider making a donation
-						to support my work.</p>
-					<p><a href="https://www.paypal.me/StephanKreyenborg" target="_blank"><img src="paypal-donate-button.png"
-								alt="Donate" title="Donate"></a></p>
+				<div class="row">
+					<div class="col s12">
+						<p class="translate" data-lang="donate">If you like this adapter, please consider making a donation
+							to support my work.</p>
+						<p><a href="https://www.paypal.me/StephanKreyenborg" target="_blank"><img
+									src="paypal-donate-button.png" alt="Donate" title="Donate"></a></p>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col s12">
-					<h6 class="title translate" data-lang="main_settings">Main Settings</h6>
+				<div class="row">
+					<div class="col s12">
+						<h6 class="title translate" data-lang="main_settings">Main Settings</h6>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s3">
-					<p class="translate" data-lang="ex_config">To configure the adapter, please open it via the instance
-						link. There you will find the configuration wheel!</p>
+				<div class="row">
+					<div class="col s6">
+						<p class="translate" data-lang="ex_config">To configure the adapter, please open it via the instance
+							link. There you will find the configuration wheel!</p>
+					</div>
+					<div class=" col s6">
+						<p class="translate" data-lang="ex_lost_config">If you disabled the configuration wheel und need
+							again
+							access to the config, please follow the steps:</p>
+						<p class="translate" data-lang="ex_access_key">Use the browser access key <b style="color: red;">e</b>
+							inside the live
+							view, to reach out to the config page again.</p>
+						<p><a href="https://en.wikipedia.org/wiki/Access_key" target="_blank">AccessKey at Wikipedia</a></p>
+					</div>
 				</div>
-				<div class="input-field col s3">
-					<p class="translate" data-lang="ex_lost_config">If you disabled the configuration wheel und need
-						again
-						access to the config, please follow the steps:</p>
-					<p class="translate" data-lang="ex_access_key">Use the browser access key <b style="color: red;">e</b>
-						inside the live
-						view, to reach out to the config page again.</p>
-					<p><a href="https://en.wikipedia.org/wiki/Access_key" target="_blank">AccessKey at Wikipedia</a></p>
-				</div>
-				<div class="input-field col s3">
-					<table>
-						<thead>
-							<tr>
-								<th>Browser</th>
-								<th class="translate" data-lang="ex_key_combination">Key</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Chrome</td>
-								<td>Windows: <kbd>Alt</kbd> + (<kbd>⇧ Shift</kbd>) + <kbd>e</kbd><br>Mac:
-									<kbd>Ctrl</kbd>
-									+ <kbd>⌥ Opt</kbd> + e
-								</td>
-							</tr>
-							<tr>
-								<td>Firefox</td>
-								<td><kbd>Alt</kbd> + <kbd>⇧ Shift</kbd> + <kbd>e</kbd><br>Mac: <kbd>Ctrl</kbd>
-									+ <kbd>⌥ Opt</kbd> + e</td>
-							</tr>
-							<tr>
-								<td>Internet Explorer</td>
-								<td><kbd>Alt</kbd></td>
-							</tr>
-							<tr>
-								<td>Microsoft Edge</td>
-								<td><kbd>Alt</kbd></td>
-							</tr>
-							<tr>
-								<td>Opera >=15</td>
-								<td><kbd>Alt</kbd> + <kbd>⇧ Shift</kbd> + <kbd>e</kbd></td>
-							</tr>
-							<tr>
-								<td>Opera <= 12</td>
-								<td><kbd>⇧ Shift</kbd> + <kbd>ESC</kbd> + <kbd>e</kbd></td>
-							</tr>
-							<tr>
-								<td>Safari</td>
-								<td>Windows:<kbd>Alt</kbd> + <kbd>e</kbd><br>Mac: <kbd>Crtl</kbd> + <kbd>e</kbd></td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="row">
+					<div class="col s12">
+						<table>
+							<thead>
+								<tr>
+									<th>Browser</th>
+									<th class="translate" data-lang="ex_key_combination">Key</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Chrome</td>
+									<td>Windows: <kbd>Alt</kbd> + (<kbd>⇧ Shift</kbd>) + <kbd>e</kbd><br>Mac:
+										<kbd>Ctrl</kbd>
+										+ <kbd>⌥ Opt</kbd> + e
+									</td>
+								</tr>
+								<tr>
+									<td>Firefox</td>
+									<td><kbd>Alt</kbd> + <kbd>⇧ Shift</kbd> + <kbd>e</kbd><br>Mac: <kbd>Ctrl</kbd>
+										+ <kbd>⌥ Opt</kbd> + e</td>
+								</tr>
+								<tr>
+									<td>Internet Explorer</td>
+									<td><kbd>Alt</kbd></td>
+								</tr>
+								<tr>
+									<td>Microsoft Edge</td>
+									<td><kbd>Alt</kbd></td>
+								</tr>
+								<tr>
+									<td>Opera >=15</td>
+									<td><kbd>Alt</kbd> + <kbd>⇧ Shift</kbd> + <kbd>e</kbd></td>
+								</tr>
+								<tr>
+									<td>Opera <= 12</td>
+									<td><kbd>⇧ Shift</kbd> + <kbd>ESC</kbd> + <kbd>e</kbd></td>
+								</tr>
+								<tr>
+									<td>Safari</td>
+									<td>Windows:<kbd>Alt</kbd> + <kbd>e</kbd><br>Mac: <kbd>Crtl</kbd> + <kbd>e</kbd></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -55,8 +55,8 @@
             <table class="data-table config_table" id="shortcut-table">
                 <thead>
                     <tr>
-                        <th><em class="translate" data-lang="lbl_alias" style="font-style:normal;">Alias</em></th>
-                        <th><em class="translate" data-lang="opt_value" style="font-style:normal;">Value</em></th>
+                        <th><em class="translate" data-lang="lbl_alias">Alias</em></th>
+                        <th><em class="translate" data-lang="opt_value">Value</em></th>
                         <th><em class="translate" data-lang="lbl_action" style="font-style:normal;">Actions</em></th>
                     </tr>
                 </thead>
@@ -316,15 +316,17 @@
                                             <input type="number" class="input_number elm_config attribute"
                                                 name="elm_pos_x" id="elm_pos_x" placeholder="" autocorrect="off"
                                                 autocomplete="off" min="0.0" step="0.5">
-                                            <label for="elm_pos_x" class="form_label translate">Pos
-                                                X</label>
+                                            <label for="elm_pos_x" class="form_label translate"
+                                                data-lang="lbl_pos_x">Position
+                                                X-Axis</label>
                                         </div>
                                         <div class="form_div textbox">
                                             <input type="number" class="input_number elm_config attribute"
                                                 name="elm_pos_y" id="elm_pos_y" placeholder="" autocorrect="off"
                                                 autocomplete="off" min="0.0" step="0.5">
-                                            <label for="elm_pos_y" class="form_label translate">Pos
-                                                Y</label>
+                                            <label for="elm_pos_y" class="form_label translate"
+                                                data-lang="lbl_pos_y">Position
+                                                Y-Axis</label>
                                         </div>
                                     </div>
                                 </div>
@@ -352,36 +354,37 @@
                                         <div class="form_div select">
                                             <label for="elm_align" class="form_label translate"
                                                 data-lang="legend_alignment">Alignment</label>
-                                            <select class="input_select elm_config style" id="elm_align"
-                                                name="elm_align">
-                                                <option value="start" class="translate" data-lang="opt_left">
-                                                    Left
-                                                </option>
-                                                <option value="middle" class="translate" data-lang="opt_middle">
-                                                    Middle</option>
-                                                <option value="end" class="translate" data-lang="opt_right">
-                                                    Right</option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config style" id="elm_align"
+                                                    name="elm_align">
+                                                    <option value="start" class="translate" data-lang="opt_left">
+                                                        Left
+                                                    </option>
+                                                    <option value="middle" class="translate" data-lang="opt_middle">
+                                                        Middle</option>
+                                                    <option value="end" class="translate" data-lang="opt_right">
+                                                        Right</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="form_div info">
+                                        <div class="form_div text info">
                                             <span class="translate" data-lang="ex_config_align">This will
                                                 change, if
                                                 you
                                                 rotate the element</span>
                                         </div>
-                                        <div class="form_div select">
-                                            <label for="#" class="form_label translate"
-                                                data-lang="lbl_rotation">Rotation</label>
-                                            <a id="rotate_cw" class="degree tt-element translateT"
-                                                data-lang-title="title_rotate_cw" title="Rotate clockwise"><span
-                                                    class="iconify add_element_area"
-                                                    data-icon="material-symbols:rotate-90-degrees-cw-outline-rounded"
-                                                    data-height="24" data-width="24"></span></a>
-                                            <a id="rotate_ccw" class="degree tt-element translateT"
-                                                data-lang-title="title_rotate_ccw"
-                                                title="Rotate counter-clockwise"><span class="iconify add_element_area"
-                                                    data-icon="material-symbols:rotate-90-degrees-ccw-outline-rounded"
-                                                    data-height="24" data-width="24"></span></a>
+                                        <div class="slider_basic">
+                                            <div class="form_div textbox">
+                                                <input type="number" id="elm_degree" min="0" max="360"
+                                                    class="input_number input_number_small elm_config attribute"
+                                                    placeholder="" autocorrect="off" autocomplete="off">
+                                                <label for="elm_degree" class="form_label translate"
+                                                    data-lang="lbl_rotation">Rotation</label>
+                                            </div>
+                                            <div class="form_div noFocusLine">
+                                                <input type="range" value="0" id="elm_degree_slider" min="0" max="360"
+                                                    class="slider elm_config attribute">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -391,37 +394,42 @@
                                         <div class="form_div select">
                                             <label for="elm_flip" class="translate form_label"
                                                 data-lang="lbl_flip">Horizontal/Vertical flip</label>
-                                            <select class="input_select elm_config attribute" id="elm_flip"
-                                                name="elm_flip">
-                                                <option value="" class="translate" data-lang="opt_none" selected>
-                                                    Deactivated
-                                                </option>
-                                                <option value="horizontal" class="translate" data-lang="opt_horizontal">
-                                                    Horizontal
-                                                </option>
-                                                <option value="vertical" class="translate" data-lang="opt_vertical">
-                                                    Vertical</option>
-                                                <option value="horizontal,vertical" class="translate"
-                                                    data-lang="opt_horizontal_vertical">
-                                                    Horizontal and vertical</option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config attribute" id="elm_flip"
+                                                    name="elm_flip">
+                                                    <option value="" class="translate" data-lang="opt_none" selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="horizontal" class="translate"
+                                                        data-lang="opt_horizontal">
+                                                        Horizontal
+                                                    </option>
+                                                    <option value="vertical" class="translate" data-lang="opt_vertical">
+                                                        Vertical</option>
+                                                    <option value="horizontal,vertical" class="translate"
+                                                        data-lang="opt_horizontal_vertical">
+                                                        Horizontal and vertical</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form_div select">
                                             <label for="elm_rotate" class="translate form_label"
                                                 data-lang="lbl_rotation">Rotation</label>
-                                            <select class="input_select elm_config attribute" id="elm_rotate"
-                                                name="elm_rotate">
-                                                <option value="0" class="translate" data-lang="opt_none" selected>
-                                                    Deactivated
-                                                </option>
-                                                <option value="90deg" class="translate" data-lang="opt_90_deg">
-                                                    90 Degree
-                                                </option>
-                                                <option value="180deg" class="translate" data-lang="opt_180_deg">
-                                                    180 Degree</option>
-                                                <option value="270deg" class="translate" data-lang="opt_270_deg">
-                                                    270 Degree</option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config attribute" id="elm_rotate"
+                                                    name="elm_rotate">
+                                                    <option value="0" class="translate" data-lang="opt_none" selected>
+                                                        Deactivated
+                                                    </option>
+                                                    <option value="90deg" class="translate" data-lang="opt_90_deg">
+                                                        90 Degree
+                                                    </option>
+                                                    <option value="180deg" class="translate" data-lang="opt_180_deg">
+                                                        180 Degree</option>
+                                                    <option value="270deg" class="translate" data-lang="opt_270_deg">
+                                                        270 Degree</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -441,6 +449,13 @@
                                                     data-lang="lbl_animation_color">Animation
                                                     Color</label>
                                             </div>
+                                            <!--
+                                            <div class="form_div button">
+                                                <input type="button" value="Switch to gradient"
+                                                    class="input_button color_change translateV"
+                                                    data-lang-value="value_color_change_color">
+                                            </div>
+                                            -->
                                             <div class="elm_config_box use">
                                                 <div class="form_div textbox">
                                                     <input type="text" class="input_text color elm_config"
@@ -620,134 +635,162 @@
                                             <div class="form_div select">
                                                 <label for="elm_clock.year" class="translate form_label"
                                                     data-lang="lbl_clock_year">Year</label>
-                                                <select class="input_select elm_config" id="elm_clock.year"
-                                                    name="elm_clock.year">
-                                                    <option value="none" class="translate" data-lang="opt_none"
-                                                        selected>
-                                                        Deactivated
-                                                    </option>
-                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
-                                                        2-digit
-                                                    </option>
-                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
-                                                        Numeric</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" id="elm_clock.year"
+                                                        name="elm_clock.year">
+                                                        <option value="none" class="translate" data-lang="opt_none"
+                                                            selected>
+                                                            Deactivated
+                                                        </option>
+                                                        <option value="2-digit" class="translate"
+                                                            data-lang="opt_2digit">
+                                                            2-digit
+                                                        </option>
+                                                        <option value="numeric" class="translate"
+                                                            data-lang="opt_numeric">
+                                                            Numeric</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_clock.month" class="translate form_label"
                                                     data-lang="lbl_clock_month">Month</label>
-                                                <select class="input_select elm_config" id="elm_clock.month"
-                                                    name="elm_clock.month">
-                                                    <option value="none" class="translate" data-lang="opt_none"
-                                                        selected>
-                                                        Deactivated
-                                                    </option>
-                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
-                                                        2-digit
-                                                    </option>
-                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
-                                                        Numeric</option>
-                                                    <option value="long" class="translate" data-lang="opt_long">
-                                                        Long</option>
-                                                    <option value="short" class="translate" data-lang="opt_short">
-                                                        Short</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" id="elm_clock.month"
+                                                        name="elm_clock.month">
+                                                        <option value="none" class="translate" data-lang="opt_none"
+                                                            selected>
+                                                            Deactivated
+                                                        </option>
+                                                        <option value="2-digit" class="translate"
+                                                            data-lang="opt_2digit">
+                                                            2-digit
+                                                        </option>
+                                                        <option value="numeric" class="translate"
+                                                            data-lang="opt_numeric">
+                                                            Numeric</option>
+                                                        <option value="long" class="translate" data-lang="opt_long">
+                                                            Long</option>
+                                                        <option value="short" class="translate" data-lang="opt_short">
+                                                            Short</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_clock.day" class="translate form_label"
                                                     data-lang="lbl_clock_day">Day</label>
-                                                <select class="input_select elm_config" id="elm_clock.day"
-                                                    name="elm_clock.day">
-                                                    <option value="none" class="translate" data-lang="opt_none"
-                                                        selected>
-                                                        Deactivated
-                                                    </option>
-                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
-                                                        2-digit
-                                                    </option>
-                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
-                                                        Numeric</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" id="elm_clock.day"
+                                                        name="elm_clock.day">
+                                                        <option value="none" class="translate" data-lang="opt_none"
+                                                            selected>
+                                                            Deactivated
+                                                        </option>
+                                                        <option value="2-digit" class="translate"
+                                                            data-lang="opt_2digit">
+                                                            2-digit
+                                                        </option>
+                                                        <option value="numeric" class="translate"
+                                                            data-lang="opt_numeric">
+                                                            Numeric</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_clock.weekday" class="translate form_label"
                                                     data-lang="lbl_clock_weekday">Day</label>
-                                                <select class="input_select elm_config" id="elm_clock.weekday"
-                                                    name="elm_clock.weekday">
-                                                    <option value="none" class="translate" data-lang="opt_none"
-                                                        selected>
-                                                        Deactivated
-                                                    </option>
-                                                    <option value="long" class="translate" data-lang="opt_long">
-                                                        Long</option>
-                                                    <option value="short" class="translate" data-lang="opt_short">
-                                                        Short</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" id="elm_clock.weekday"
+                                                        name="elm_clock.weekday">
+                                                        <option value="none" class="translate" data-lang="opt_none"
+                                                            selected>
+                                                            Deactivated
+                                                        </option>
+                                                        <option value="long" class="translate" data-lang="opt_long">
+                                                            Long</option>
+                                                        <option value="short" class="translate" data-lang="opt_short">
+                                                            Short</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_clock.hour" class="translate form_label"
                                                     data-lang="lbl_clock_hour">Hour</label>
-                                                <select class="input_select elm_config" id="elm_clock.hour"
-                                                    name="elm_clock.hour">
-                                                    <option value="none" class="translate" data-lang="opt_none"
-                                                        selected>
-                                                        Deactivated
-                                                    </option>
-                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
-                                                        2-digit
-                                                    </option>
-                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
-                                                        Numeric</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" id="elm_clock.hour"
+                                                        name="elm_clock.hour">
+                                                        <option value="none" class="translate" data-lang="opt_none"
+                                                            selected>
+                                                            Deactivated
+                                                        </option>
+                                                        <option value="2-digit" class="translate"
+                                                            data-lang="opt_2digit">
+                                                            2-digit
+                                                        </option>
+                                                        <option value="numeric" class="translate"
+                                                            data-lang="opt_numeric">
+                                                            Numeric</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_clock.minute" class="translate form_label"
                                                     data-lang="lbl_clock_minute">Minute</label>
-                                                <select class="input_select elm_config" id="elm_clock.minute"
-                                                    name="elm_clock.minute">
-                                                    <option value="none" class="translate" data-lang="opt_none"
-                                                        selected>
-                                                        Deactivated
-                                                    </option>
-                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
-                                                        2-digit
-                                                    </option>
-                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
-                                                        Numeric</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" id="elm_clock.minute"
+                                                        name="elm_clock.minute">
+                                                        <option value="none" class="translate" data-lang="opt_none"
+                                                            selected>
+                                                            Deactivated
+                                                        </option>
+                                                        <option value="2-digit" class="translate"
+                                                            data-lang="opt_2digit">
+                                                            2-digit
+                                                        </option>
+                                                        <option value="numeric" class="translate"
+                                                            data-lang="opt_numeric">
+                                                            Numeric</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_clock.second" class="translate form_label"
                                                     data-lang="lbl_clock_second">Second</label>
-                                                <select class="input_select elm_config" id="elm_clock.second"
-                                                    name="elm_clock.second">
-                                                    <option value="none" class="translate" data-lang="opt_none"
-                                                        selected>
-                                                        Deactivated
-                                                    </option>
-                                                    <option value="2-digit" class="translate" data-lang="opt_2digit">
-                                                        2-digit
-                                                    </option>
-                                                    <option value="numeric" class="translate" data-lang="opt_numeric">
-                                                        Numeric</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" id="elm_clock.second"
+                                                        name="elm_clock.second">
+                                                        <option value="none" class="translate" data-lang="opt_none"
+                                                            selected>
+                                                            Deactivated
+                                                        </option>
+                                                        <option value="2-digit" class="translate"
+                                                            data-lang="opt_2digit">
+                                                            2-digit
+                                                        </option>
+                                                        <option value="numeric" class="translate"
+                                                            data-lang="opt_numeric">
+                                                            Numeric</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_clock.dayPeriod" class="translate form_label"
                                                     data-lang="lbl_clock_dayperiod">Day</label>
-                                                <select class="input_select elm_config" id="elm_clock.dayPeriod"
-                                                    name="elm_clock.dayPeriod">
-                                                    <option value="none" class="translate" data-lang="opt_none"
-                                                        selected>
-                                                        Deactivated
-                                                    </option>
-                                                    <option value="long" class="translate" data-lang="opt_long">
-                                                        Long</option>
-                                                    <option value="short" class="translate" data-lang="opt_short">
-                                                        Short</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" id="elm_clock.dayPeriod"
+                                                        name="elm_clock.dayPeriod">
+                                                        <option value="none" class="translate" data-lang="opt_none"
+                                                            selected>
+                                                            Deactivated
+                                                        </option>
+                                                        <option value="long" class="translate" data-lang="opt_long">
+                                                            Long</option>
+                                                        <option value="short" class="translate" data-lang="opt_short">
+                                                            Short</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="form_div info">
+                                            <div class="form_div text info">
                                                 <span class="translate" data-lang="ex_clock_dayperiod">Actions for the
                                                     data source can be configured in the 'Advanced' tab</span>
                                             </div>
@@ -760,17 +803,21 @@
                                         <div class="form_div select">
                                             <label for="elm_source" class="form_label translate"
                                                 data-lang="lbl_datasource_display">Source</label>
-                                            <select class="input_select elm_config elm_config_update" name="elm_source"
-                                                id="elm_source"></select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config elm_config_update"
+                                                    name="elm_source" id="elm_source"></select>
+                                            </div>
                                         </div>
                                         <div class="form_div select elm_config_box datasource">
                                             <label for="elm_source_action" class="form_label translate"
                                                 data-lang="lbl_datasource_action">Datasource for
                                                 control</label>
-                                            <select class="input_select elm_config elm_config_update"
-                                                name="elm_source_action" id="elm_source_action"></select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config elm_config_update"
+                                                    name="elm_source_action" id="elm_source_action"></select>
+                                            </div>
                                         </div>
-                                        <div class="form_div elm_config_box datasource">
+                                        <div class="form_div text info elm_config_box datasource">
                                             <span class="translate" data-lang="ex_config_datasource">Actions for the
                                                 data source can be configured in the 'Advanced' tab</span>
                                         </div>
@@ -785,64 +832,68 @@
                                                 data-lang="lbl_config_show_timestamp">Show
                                                 Timestamp of
                                                 last change</label>
-                                            <select class="input_select elm_config elm_config_update"
-                                                name="elm_source_option" id="elm_source_option">
-                                                <option value="-1" selected class="translate" data-lang="opt_none">
-                                                    None
-                                                </option>
-                                                <option value="timestamp_us" class="translate"
-                                                    data-lang="opt_timestamp_us">
-                                                    Timestamp US</option>
-                                                <option value="timestamp_us_short" class="translate"
-                                                    data-lang="opt_timestamp_us_short">Timestamp US
-                                                    short
-                                                </option>
-                                                <option value="timestamp_us_short_wo_year" class="translate"
-                                                    data-lang="opt_timestamp_us_short_wo_year">Timestamp
-                                                    US
-                                                    short
-                                                    (without
-                                                    year)</option>
-                                                <option value="timestamp_de" class="translate"
-                                                    data-lang="opt_timestamp_de">
-                                                    Timestamp DE</option>
-                                                <option value="timestamp_de_short" class="translate"
-                                                    data-lang="opt_timestamp_de_short">Timestamp DE
-                                                    short
-                                                </option>
-                                                <option value="timestamp_de_short_wo_year" class="translate"
-                                                    data-lang="opt_timestamp_de_short_wo_year">Timestamp
-                                                    DE
-                                                    short
-                                                    (without
-                                                    year)</option>
-                                                <option value="relative" class="translate"
-                                                    data-lang="opt_timestamp_relative">Relative to now
-                                                </option>
-                                                <option value="ms" class="translate" data-lang="opt_timestamp_ms">
-                                                    Milliseconds
-                                                </option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config elm_config_update"
+                                                    name="elm_source_option" id="elm_source_option">
+                                                    <option value="-1" selected class="translate" data-lang="opt_none">
+                                                        None
+                                                    </option>
+                                                    <option value="timestamp_us" class="translate"
+                                                        data-lang="opt_timestamp_us">
+                                                        Timestamp US</option>
+                                                    <option value="timestamp_us_short" class="translate"
+                                                        data-lang="opt_timestamp_us_short">Timestamp US
+                                                        short
+                                                    </option>
+                                                    <option value="timestamp_us_short_wo_year" class="translate"
+                                                        data-lang="opt_timestamp_us_short_wo_year">Timestamp
+                                                        US
+                                                        short
+                                                        (without
+                                                        year)</option>
+                                                    <option value="timestamp_de" class="translate"
+                                                        data-lang="opt_timestamp_de">
+                                                        Timestamp DE</option>
+                                                    <option value="timestamp_de_short" class="translate"
+                                                        data-lang="opt_timestamp_de_short">Timestamp DE
+                                                        short
+                                                    </option>
+                                                    <option value="timestamp_de_short_wo_year" class="translate"
+                                                        data-lang="opt_timestamp_de_short_wo_year">Timestamp
+                                                        DE
+                                                        short
+                                                        (without
+                                                        year)</option>
+                                                    <option value="relative" class="translate"
+                                                        data-lang="opt_timestamp_relative">Relative to now
+                                                    </option>
+                                                    <option value="ms" class="translate" data-lang="opt_timestamp_ms">
+                                                        Milliseconds
+                                                    </option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form_div select">
                                             <label for="elm_source_display" class="form_label translate"
                                                 data-lang="lbl_display_source">Display
                                                 source
                                                 as</label>
-                                            <select class="input_select elm_config elm_config_update"
-                                                name="elm_source_display" id="elm_source_display">
-                                                <option value="auto" class="translate" data-lang="opt_autodetect">
-                                                    Auto Detect</option>
-                                                <option value="value" class="translate" data-lang="opt_value">
-                                                    Value</option>
-                                                <option value="text" class="translate" data-lang="opt_text">
-                                                    Text</option>
-                                                <option value="own_text" class="translate" data-lang="opt_own_text">
-                                                    Own text (enter above)</option>
-                                                <option value="bool" class="translate" data-lang="opt_state">
-                                                    state (on/off)
-                                                </option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config elm_config_update"
+                                                    name="elm_source_display" id="elm_source_display">
+                                                    <option value="auto" class="translate" data-lang="opt_autodetect">
+                                                        Auto Detect</option>
+                                                    <option value="value" class="translate" data-lang="opt_value">
+                                                        Value</option>
+                                                    <option value="text" class="translate" data-lang="opt_text">
+                                                        Text</option>
+                                                    <option value="own_text" class="translate" data-lang="opt_own_text">
+                                                        Own text (enter above)</option>
+                                                    <option value="bool" class="translate" data-lang="opt_state">
+                                                        state (on/off)
+                                                    </option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form_div textbox elm_config_box linebreak_text">
                                             <input type="number" class="input_number elm_config elm_config_update"
@@ -891,20 +942,24 @@
                                             <label for="elm_animation" class="form_label translate"
                                                 data-lang="lbl_animation_ds">Source for
                                                 Animation</label>
-                                            <select class="input_select elm_config" name="elm_animation"
-                                                id="elm_animation"></select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config" name="elm_animation"
+                                                    id="elm_animation"></select>
+                                            </div>
                                         </div>
                                         <div class="form_div select">
                                             <label for="elm_animation_properties" class="form_label translate"
                                                 data-lang="lbl_animate_when">Animate when Source is
                                             </label>
-                                            <select class="input_select elm_config" name="elm_animation_properties"
-                                                id="elm_animation_properties">
-                                                <option value="positive" class="translate" data-lang="opt_positive">
-                                                    positive</option>
-                                                <option value="negative" class="translate" data-lang="opt_negative">
-                                                    negative</option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config" name="elm_animation_properties"
+                                                    id="elm_animation_properties">
+                                                    <option value="positive" class="translate" data-lang="opt_positive">
+                                                        positive</option>
+                                                    <option value="negative" class="translate" data-lang="opt_negative">
+                                                        negative</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="cb_switch">
                                             <input type="checkbox" name="elm_animation_option" class="elm_config"
@@ -915,6 +970,15 @@
                                                     value
                                                     has changed
                                                     sign, animate in the other direction (reverse)</span>
+                                            </label>
+                                        </div>
+                                        <div class="cb_switch">
+                                            <input type="checkbox" name="elm_active_only" class="elm_config"
+                                                id="elm_active_only">
+                                            <label for="elm_active_only">
+                                                <span></span>
+                                                <span class="translate" data-lang="lbl_animate_active_only">Show line
+                                                    only, when animation is active</span>
                                             </label>
                                         </div>
                                     </div>
@@ -999,20 +1063,23 @@
                                             <div class="form_div select">
                                                 <label for="elm_calculate_kw" class="form_label translate"
                                                     data-lang="lbl_calculation">Calculation</label>
-                                                <select class="input_select elm_config elm_config_update"
-                                                    name="elm_calculate_kw" id="elm_calculate_kw">
-                                                    <option value="none" class=" translate" data-lang="opt_none"
-                                                        selected="">
-                                                        Deactivated
-                                                    </option>
-                                                    <option value="calc" class="translate" data-lang="opt_calculate_kw">
-                                                        Calculate Value
-                                                        from W to kW</option>
-                                                    <option value="auto" class="translate"
-                                                        data-lang="opt_calculate_auto">
-                                                        Automatic calculation
-                                                        including unit (W, kW)</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config elm_config_update"
+                                                        name="elm_calculate_kw" id="elm_calculate_kw">
+                                                        <option value="none" class=" translate" data-lang="opt_none"
+                                                            selected="">
+                                                            Deactivated
+                                                        </option>
+                                                        <option value="calc" class="translate"
+                                                            data-lang="opt_calculate_kw">
+                                                            Calculate Value
+                                                            from W to kW</option>
+                                                        <option value="auto" class="translate"
+                                                            data-lang="opt_calculate_auto">
+                                                            Automatic calculation
+                                                            including unit (W, kW)</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form_div textbox">
@@ -1029,19 +1096,20 @@
                                                 <label for="elm_decimal_places" class="form_label translate"
                                                     data-lang="lbl_config_decimal_places">Decimal
                                                     places</label>
-                                                <select class="input_select elm_config elm_config_update"
-                                                    name="elm_decimal_places" id="elm_decimal_places">
-                                                    <option value="0">0</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config elm_config_update"
+                                                        name="elm_decimal_places" id="elm_decimal_places">
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_subtract" class="form_label translate"
                                                     data-lang="lbl_config_reduce">Reduce this
                                                     value
                                                     by</label>
-
                                                 <select class="elm_config" name="elm_subtract" id="elm_subtract"
                                                     multiple></select>
                                             </div>
@@ -1069,20 +1137,22 @@
                                         <div class="form_div select">
                                             <label for="elm_animation_type" class="form_label translate"
                                                 data-lang="lbl_type">Type</label>
-                                            <select class="input_select elm_config" name="elm_animation_type"
-                                                id="elm_animation_type">
-                                                <option value="-1" selected class="translate" data-lang="opt_none">
-                                                    None
-                                                </option>
-                                                <option value="dots" class="translate" data-lang="lbl_dots">
-                                                    Dots
-                                                </option>
-                                                <option value="duration" class="translate" data-lang="lbl_duration">
-                                                    Duration
-                                                </option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config" name="elm_animation_type"
+                                                    id="elm_animation_type">
+                                                    <option value="-1" selected class="translate" data-lang="opt_none">
+                                                        None
+                                                    </option>
+                                                    <option value="dots" class="translate" data-lang="lbl_dots">
+                                                        Dots
+                                                    </option>
+                                                    <option value="duration" class="translate" data-lang="lbl_duration">
+                                                        Duration
+                                                    </option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="form_div textbox anim_type_duration elm_config_box_sub">
+                                        <div class="form_div textbox elm_config_box_sub" id="sub_AnimDuration">
                                             <input type="number" class="input_text elm_config " name="elm_duration"
                                                 id="elm_duration" placeholder="" autocorrect="off" autocomplete="off"
                                                 min="0">
@@ -1091,7 +1161,7 @@
                                                 on the
                                                 line</label>
                                         </div>
-                                        <div class="form_div textbox anim_type_dots elm_config_box_sub">
+                                        <div class="form_div textbox elm_config_box_sub" id="sub_AnimDots">
                                             <input type="number" class="input_text elm_config " name="elm_dots"
                                                 id="elm_dots" placeholder="" autocorrect="off" autocomplete="off"
                                                 min="0">
@@ -1099,7 +1169,7 @@
                                                 data-lang="lbl_config_max_dots">Max dots on the
                                                 line</label>
                                         </div>
-                                        <div class="form_div textbox anim_type_power elm_config_box_sub">
+                                        <div class="form_div textbox elm_config_box_sub" id="sub_AnimPower">
                                             <input type="number" class="input_text elm_config " name="elm_power"
                                                 id="elm_power" placeholder="" autocorrect="off" autocomplete="off"
                                                 min="0">
@@ -1127,20 +1197,53 @@
                                             <label for="elm_frame" class="form_label translate"
                                                 data-lang="lbl_frame_open">Open
                                                 in</label>
-                                            <select class="input_select elm_config" name="elm_frame" id="elm_frame">
-                                                <option value="_overlay" class="translate" data-lang="opt_frame_iframe">
-                                                    iFrame overlay</option>
-                                                <option value="_blank" class="translate" data-lang="opt_frame_new">
-                                                    New
-                                                    window</option>
-                                                <option value="_self" class="translate" data-lang="opt_frame_self">
-                                                    Same
-                                                    window</option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config" name="elm_frame" id="elm_frame">
+                                                    <option value="_overlay" class="translate"
+                                                        data-lang="opt_frame_iframe">
+                                                        iFrame overlay</option>
+                                                    <option value="_blank" class="translate" data-lang="opt_frame_new">
+                                                        New
+                                                        window</option>
+                                                    <option value="_self" class="translate" data-lang="opt_frame_self">
+                                                        Same
+                                                        window</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="cb_switch elm_config_box_sub" id="sub_FrameUserDefined">
+                                            <input type="checkbox" name="elm_frame_userDefined"
+                                                id="elm_frame_userDefined">
+                                            <label for="elm_frame_userDefined">
+                                                <span></span>
+                                                <span class="translate" data-lang="lbl_config_frame">Use user
+                                                    defined Settings</span>
+                                            </label>
+                                        </div>
+                                        <div class="elm_config_box_sub" id="sub_FrameUserDefinedSettings">
+                                            <div class="form_div textbox">
+                                                <input type="text" class="input_number elm_config"
+                                                    name="elm_frame_width" id="elm_frame_width" placeholder=""
+                                                    autocorrect="off" autocomplete="off">
+                                                <label for="elm_frame_width" class="form_label translate"
+                                                    data-lang="lbl_width">Width</label>
+                                            </div>
+                                            <div class="form_div textbox">
+                                                <input type="text" class="input_number elm_config"
+                                                    name="elm_frame_height" id="elm_frame_height" placeholder=""
+                                                    autocorrect="off" autocomplete="off">
+                                                <label for="elm_frame_height" class="form_label translate"
+                                                    data-lang="lbl_height">Height</label>
+                                            </div>
+                                            <div class="form_div text info">
+                                                <span class="translate" data-lang="ex_config_frame">Width and height
+                                                    support
+                                                    values in percent or pixels. Please add the desired unit.</span>
+                                            </div>
                                         </div>
                                         <img src='img/icon_help.png' class="help margin" data-help="help_frame">
-                                        <div class="form_div info">
-                                            <span class="translate frame_deactivated " data-lang="lbl_frame_deactivated"
+                                        <div class="form_div text info elm_config_box_sub" id="sub_FrameDeactivated">
+                                            <span class="translate" data-lang="lbl_frame_deactivated"
                                                 style="color: var(--red);">You use
                                                 click options for this element. Therefore, the Browser-Frame
                                                 options are not useable!</span>
@@ -1160,45 +1263,54 @@
                                         <div class="form_div select">
                                             <label for="elm_action" class="form_label translate"
                                                 data-lang="lbl_action_click">Clickoptions</label>
-                                            <select class="input_select elm_config" name="elm_action" id="elm_action">
-                                                <option value="none" class=" translate" data-lang="opt_none" selected>
-                                                    None
-                                                </option>
-                                                <option value="toggle" class="translate" data-lang="opt_action_toggle">
-                                                    Toggle</option>
-                                                <option value="on" class="translate" data-lang="opt_action_on">
-                                                    On</option>
-                                                <option value="off" class="translate" data-lang="opt_action_off">
-                                                    Off</option>
-                                                <option value="change" class="translate elm_config_datasource"
-                                                    data-lang="opt_action_value">Manual
-                                                    value change
-                                                </option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config" name="elm_action"
+                                                    id="elm_action">
+                                                    <option value="none" class=" translate" data-lang="opt_none"
+                                                        selected>
+                                                        None
+                                                    </option>
+                                                    <option value="toggle" class="translate"
+                                                        data-lang="opt_action_toggle">
+                                                        Toggle</option>
+                                                    <option value="on" class="translate" data-lang="opt_action_on">
+                                                        On</option>
+                                                    <option value="off" class="translate" data-lang="opt_action_off">
+                                                        Off</option>
+                                                    <option value="change" class="translate elm_config_datasource"
+                                                        data-lang="opt_action_value">Manual
+                                                        value change
+                                                    </option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <img src='img/icon_help.png' class="help margin" data-help="help_actions">
-                                        <div class="elm_config_box action_shortcuts">
+                                        <img src='img/icon_help.png' class="help margin " data-help="help_actions">
+                                        <div class="elm_config_box_sub" id="sub_ActionShortcuts">
                                             <div class="form_div select">
                                                 <label for="elm_action_type" class="form_label translate"
                                                     data-lang="lbl_type">Type</label>
-                                                <select class="input_select elm_config" name="elm_action_type"
-                                                    id="elm_action_type">
-                                                    <option value="number" class="translate" data-lang="opt_value">
-                                                        Value</option>
-                                                    <option value="text" class="translate" data-lang="opt_text">
-                                                        Text</option>
-                                                    <option value="bool" class="translate" data-lang="opt_state">
-                                                        State (on/off)</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" name="elm_action_type"
+                                                        id="elm_action_type">
+                                                        <option value="number" class="translate" data-lang="opt_value">
+                                                            Value</option>
+                                                        <option value="text" class="translate" data-lang="opt_text">
+                                                            Text</option>
+                                                        <option value="bool" class="translate" data-lang="opt_state">
+                                                            State (on/off)</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_action_display" class="form_label translate"
                                                     data-lang="lbl_display_action">Type</label>
-                                                <select class="input_select elm_config" name="elm_action_display"
-                                                    id="elm_action_display">
-                                                    <option value="button">Buttons</option>
-                                                    <option value="select">Dropdown</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" name="elm_action_display"
+                                                        id="elm_action_display">
+                                                        <option value="button">Buttons</option>
+                                                        <option value="select">Dropdown</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="cb_switch">
                                                 <input type="checkbox" name="elm_action_display_freeform"
@@ -1220,10 +1332,17 @@
                                                     data-help="help_action_shortcuts">
                                             </div>
                                         </div>
-                                        <div class="form_div button">
-                                            <input type="button" id="preview_action_click"
-                                                class="input_button translateV preview_action"
-                                                data-lang-value="legend_preview" value="Preview">
+                                        <div class="elm_config_box_sub" id="sub_ActionBox">
+                                            <div class="form_div text info">
+                                                <span class="translate" data-lang="ex_config_action">By clicking on
+                                                    “Preview” the selected action is executed directly on the data
+                                                    source!</span>
+                                            </div>
+                                            <div class="form_div button">
+                                                <input type="button" id="preview_action_click"
+                                                    class="input_button translateV preview_action"
+                                                    data-lang-value="legend_preview" value="Preview">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1234,34 +1353,43 @@
                                     <div class="contentBox">
                                         <div class="form_div select">
                                             <label for="elm_fill_type" class="form_label translate">Type</label>
-                                            <select class="input_select elm_config" name="elm_fill_type"
-                                                id="elm_fill_type">
-                                                <option value="-1" selected class="translate" data-lang="opt_none">
-                                                    None
-                                                </option>
-                                                <option value="percent" class="translate" data-lang="opt_percent">
-                                                    Percent</option>
-                                                <option value="value" class="translate" data-lang="opt_value">
-                                                    Value</option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config" name="elm_fill_type"
+                                                    id="elm_fill_type">
+                                                    <option value="-1" selected class="translate" data-lang="opt_none">
+                                                        None
+                                                    </option>
+                                                    <option value="percent" class="translate" data-lang="opt_percent">
+                                                        Percent</option>
+                                                    <option value="value" class="translate" data-lang="opt_value">
+                                                        Value</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="fill_type">
-                                            <div class="form_div textbox select">
+                                        <div class="elm_config_box_sub" id="sub_FillType">
+                                            <div class="form_div select">
                                                 <label for="elm_fill_direction" class="form_label translate"
                                                     data-lang="lbl_direction">Direction</label>
-                                                <select class="input_select elm_config" name="elm_fill_direction"
-                                                    id="elm_fill_direction">
-                                                    <option value="90" class="translate" data-lang="opt_b_to_t">
-                                                        From
-                                                        bottom to top</option>
-                                                    <option value="270" class="translate" data-lang="opt_t_to_b">
-                                                        From top to bottom</option>
-                                                    <option value="0" class="translate" data-lang="opt_r_to_l">
-                                                        From
-                                                        right to left</option>
-                                                    <option value="180" class="translate" data-lang="opt_l_to_r">
-                                                        From left to right</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" name="elm_fill_direction"
+                                                        id="elm_fill_direction">
+                                                        <option value="90" class="translate" data-lang="opt_b_to_t">
+                                                            From
+                                                            bottom to top</option>
+                                                        <option value="270" class="translate" data-lang="opt_t_to_b">
+                                                            From top to bottom</option>
+                                                        <option value="0" class="translate" data-lang="opt_r_to_l">
+                                                            From
+                                                            right to left</option>
+                                                        <option value="180" class="translate" data-lang="opt_l_to_r">
+                                                            From left to right</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form_div">
+                                                <span class="translate" data-lang="ex_config_fill_type">The direction
+                                                    starts at 0° (3 o'clock) on the right side and rotates
+                                                    clockwise</span>
                                             </div>
                                             <div class="form_div textbox">
                                                 <input type="text" class="input_text color elm_config"
@@ -1271,7 +1399,13 @@
                                                     data-lang="lbl_fill_color">Fill
                                                     color</label>
                                             </div>
-                                            <div class="fill_type_value">
+                                            <div class="form_div">
+                                                <span class="translate" data-lang="ex_config_fill_type_gradient">If you
+                                                    use
+                                                    a gradient with an angle, it will be replaced with the one specified
+                                                    above.</span>
+                                            </div>
+                                            <div class="elm_config_box_sub" id="sub_FillTypeValue">
                                                 <div class="form_div textbox">
                                                     <input type="number" class="input_number elm_config "
                                                         name="elm_fill_max" id="elm_fill_max" min="0" placeholder=""
@@ -1299,59 +1433,67 @@
                                     <div class="contentBox">
                                         <div class="form_div select">
                                             <label for="elm_border_type" class="form_label translate">Type</label>
-                                            <select class="input_select elm_config" name="elm_border_type"
-                                                id="elm_border_type">
-                                                <option value="-1" selected class="translate" data-lang="opt_none">
-                                                    None
-                                                </option>
-                                                <option value="percent" class="translate" data-lang="opt_percent">
-                                                    Percent</option>
-                                                <option value="value" class="translate" data-lang="opt_value">
-                                                    Value</option>
-                                            </select>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config" name="elm_border_type"
+                                                    id="elm_border_type">
+                                                    <option value="-1" selected class="translate" data-lang="opt_none">
+                                                        None
+                                                    </option>
+                                                    <option value="percent" class="translate" data-lang="opt_percent">
+                                                        Percent</option>
+                                                    <option value="value" class="translate" data-lang="opt_value">
+                                                        Value</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="border_type">
+                                        <div class="elm_config_box_sub" id="sub_BorderType">
                                             <div class="form_div select">
                                                 <label for="elm_border_start" class="form_label translate"
                                                     data-lang="lbl_conn_start">Starting
                                                     point</label>
-                                                <select class="input_select elm_config" name="elm_border_start"
-                                                    id="elm_border_start">
-                                                    <option value="180" class="translate" data-lang="opt_left">
-                                                        left
-                                                    </option>
-                                                    <option value="270" class="translate" data-lang="opt_top">
-                                                        top
-                                                    </option>
-                                                    <option value="0" class="translate" data-lang="opt_right">
-                                                        right
-                                                    </option>
-                                                    <option value="90" class="translate" data-lang="opt_bottom">
-                                                        bottom</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" name="elm_border_start"
+                                                        id="elm_border_start">
+                                                        <option value="180" class="translate" data-lang="opt_left">
+                                                            left
+                                                        </option>
+                                                        <option value="270" class="translate" data-lang="opt_top">
+                                                            top
+                                                        </option>
+                                                        <option value="0" class="translate" data-lang="opt_right">
+                                                            right
+                                                        </option>
+                                                        <option value="90" class="translate" data-lang="opt_bottom">
+                                                            bottom</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select">
                                                 <label for="elm_border_direction" class="form_label translate"
                                                     data-lang="lbl_direction">Direction</label>
-                                                <select class="input_select elm_config" name="elm_border_direction"
-                                                    id="elm_border_direction">
-                                                    <option value="cw" class="translate" data-lang="opt_cw">
-                                                        clockwise</option>
-                                                    <option value="ccw" class="translate" data-lang="opt_ccw">
-                                                        counter clockwise</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" name="elm_border_direction"
+                                                        id="elm_border_direction">
+                                                        <option value="cw" class="translate" data-lang="opt_cw">
+                                                            clockwise</option>
+                                                        <option value="ccw" class="translate" data-lang="opt_ccw">
+                                                            counter clockwise</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div select ">
                                                 <label for="elm_border_style" class="form_label translate"
                                                     data-lang="lbl_line_end">Line
                                                     Style</label>
-                                                <select class="input_select elm_config" name="elm_border_style"
-                                                    id="elm_border_style">
-                                                    <option value="round" class="translate" data-lang="opt_round">
-                                                        round</option>
-                                                    <option value="square" class="translate" data-lang="opt_square">
-                                                        square</option>
-                                                </select>
+                                                <div class="select-option">
+                                                    <select class="input_select elm_config" name="elm_border_style"
+                                                        id="elm_border_style">
+                                                        <option value="round" class="translate" data-lang="opt_round">
+                                                            round</option>
+                                                        <option value="square" class="translate" data-lang="opt_square">
+                                                            square</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form_div textbox">
                                                 <input type="text" class="input_text color elm_config"
@@ -1374,7 +1516,7 @@
                                                     color</label>
                                             </div>
                                         </div>
-                                        <div class="border_type_value">
+                                        <div class="elm_config_box_sub" id="sub_BorderTypeValue">
                                             <div class="form_div textbox">
                                                 <input type="number" class="input_number elm_config "
                                                     name="elm_border_max" id="elm_border_max" min="0" placeholder=""
@@ -1445,9 +1587,7 @@
                                                     below
                                                     threshold (positive)</label>
                                             </div>
-
                                             <div class="hr-divide"></div>
-
                                             <div class="form_div textbox">
                                                 <input type="text" class="input_text elm_config"
                                                     name="elm_css_active_negative" id="elm_css_active_negative"
@@ -1532,38 +1672,34 @@
                                     data-height="24"></span>
                                 <span class="translate" data-lang="legend_area">Area Size</span>
                             </legend>
-                            <table class="config_table">
-                                <tr>
-                                    <td>
-                                        <div class="form_div">
-                                            <input type="number" value="800" id="basic.width" min="1" max="2000"
-                                                class="input_number input_number_small basic_config" placeholder=""
-                                                autocorrect="off" autocomplete="off">
-                                            <label for="basic.width" class="form_label translate"
-                                                data-lang="lbl_width">Width</label>
-                                        </div>
-                                    </td>
-                                    <td><input type="range" value="800" id="basic.width.slider" min="1" max="2000"
-                                            class="slider basic_config translateT" data-lang-title="title_slider"
-                                            title="Move the slider to adjust the size">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form_div textbox">
-                                            <input type="number" value="500" id="basic.height" min="1" max="2000"
-                                                class="input_number input_number_small basic_config" placeholder=""
-                                                autocorrect="off" autocomplete="off">
-                                            <label for="basic.height" class="form_label translate"
-                                                data-lang="lbl_height">Height</label>
-                                        </div>
-                                    </td>
-                                    <td><input type="range" value="500" id="basic.height.slider" min="1" max="2000"
-                                            class="slider basic_config translateT" data-lang-title="title_slider"
-                                            title="Move the slider to adjust the size">
-                                    </td>
-                                </tr>
-                            </table>
+                            <div class="slider_basic">
+                                <div class="form_div textbox">
+                                    <input type="number" value="800" id="basic.width" min="1" max="2000"
+                                        class="input_number input_number_small basic_config" placeholder=""
+                                        autocorrect="off" autocomplete="off">
+                                    <label for="basic.width" class="form_label translate"
+                                        data-lang="lbl_width">Width</label>
+                                </div>
+                                <div class="form_div noFocusLine">
+                                    <input type="range" value="800" id="basic.width.slider" min="1" max="2000"
+                                        class="slider basic_config translateT" data-lang-title="title_slider"
+                                        title="Move the slider to adjust the size">
+                                </div>
+                            </div>
+                            <div class="slider_basic">
+                                <div class="form_div textbox">
+                                    <input type="number" value="500" id="basic.height" min="1" max="2000"
+                                        class="input_number input_number_small basic_config" placeholder=""
+                                        autocorrect="off" autocomplete="off">
+                                    <label for="basic.height" class="form_label translate"
+                                        data-lang="lbl_height">Height</label>
+                                </div>
+                                <div class="form_div noFocusLine">
+                                    <input type="range" value="500" id="basic.height.slider" min="1" max="2000"
+                                        class="slider basic_config translateT" data-lang-title="title_slider"
+                                        title="Move the slider to adjust the size">
+                                </div>
+                            </div>
                         </fieldset>
                         <fieldset>
                             <legend><span class="iconify legend" data-icon="material-symbols:add-task" data-width="24"
@@ -1637,46 +1773,58 @@
                                     data-height="24"></span>
                                 <span class="translate" data-lang="legend_alignment">Alignment</span>
                             </legend>
-                            <div class="icon_list">
-                                <a title="Align left" class="align_elements tt-element translateT" data-align="left"
-                                    data-lang-title="title_align_left"><span class="iconify add_element_area"
-                                        data-icon="material-symbols:format-align-left-rounded" data-width="48"
-                                        data-height="48"></span></a>
-                                <a title="Align center" class="align_elements tt-element translateT" data-align="center"
-                                    data-lang-title="title_align_center"><span class="iconify add_element_area"
-                                        data-icon="material-symbols:format-align-center-rounded" data-width="48"
-                                        data-height="48"></span></a>
-                                <a title="Align right" class="align_elements tt-element translateT" data-align="right"
-                                    data-lang-title="title_align_right"><span class="iconify add_element_area"
-                                        data-icon="material-symbols:format-align-right-rounded" data-width="48"
-                                        data-height="48"></span></a>
-                                <a title=" Align Top" class="align_elements tt-element translateT" data-align="top"
-                                    data-lang-title="title_align_top"><span class="iconify add_element_area"
-                                        data-icon="material-symbols:vertical-align-top-rounded" data-width="48"
-                                        data-height="48"></span></a>
-                                <a title="Align vertical center" class="align_elements tt-element translateT"
-                                    data-align="vcenter" data-lang-title="title_align_vc"><span
-                                        class="iconify add_element_area"
-                                        data-icon="material-symbols:vertical-align-center-rounded" data-width="48"
-                                        data-height="48"></span></a>
-                                <a title="Align bottom" class="align_elements tt-element translateT" data-align="bottom"
-                                    data-lang-title="title_align_bottom"><span class="iconify add_element_area"
-                                        data-icon="material-symbols:vertical-align-bottom-rounded" data-width="48"
-                                        data-height="48"></span></a>
-                            </div>
-                            <div style="float: right;width:254px;">
-                                <div class="form_div text">
-                                    <span id="ex_how_align" class="translate" data-lang="ex_align"
-                                        style="min-height: 40px;display:inline-block;">Choose
-                                        an
-                                        alignment and select a
-                                        reference
-                                        element</span>
+                            <div style="display: flex;">
+                                <div style="width: 120px;">
+                                    <div class="icon_list">
+                                        <a title="Align left" class="align_elements tt-element translateT"
+                                            data-align="left" data-lang-title="title_align_left"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:format-align-left-rounded" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title="Align center" class="align_elements tt-element translateT"
+                                            data-align="center" data-lang-title="title_align_center"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:format-align-center-rounded" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title="Align right" class="align_elements tt-element translateT"
+                                            data-align="right" data-lang-title="title_align_right"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:format-align-right-rounded" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title=" Align Top" class="align_elements tt-element translateT"
+                                            data-align="top" data-lang-title="title_align_top"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:vertical-align-top-rounded" data-width="48"
+                                                data-height="48"></span></a>
+                                        <a title="Align vertical center" class="align_elements tt-element translateT"
+                                            data-align="vcenter" data-lang-title="title_align_vc"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:vertical-align-center-rounded"
+                                                data-width="48" data-height="48"></span></a>
+                                        <a title="Align bottom" class="align_elements tt-element translateT"
+                                            data-align="bottom" data-lang-title="title_align_bottom"><span
+                                                class="iconify add_element_area"
+                                                data-icon="material-symbols:vertical-align-bottom-rounded"
+                                                data-width="48" data-height="48"></span></a>
+                                    </div>
+                                    <div class="icon_list">
+                                        <img src='img/icon_help.png' class='help' data-help='ex_align_help'>
+                                    </div>
                                 </div>
-                                <div class="form_div button">
-                                    <input type="button" value="Done" id="align_elements"
-                                        class="input_button translateV" data-lang-value="value_done"
-                                        style="display: none;">
+                                <div style="float: right;width:180px;">
+                                    <div class="form_div text">
+                                        <span id="ex_how_align" class="translate" data-lang="ex_align"
+                                            style="min-height: 60px;display:inline-block;">Choose
+                                            an
+                                            alignment and select a
+                                            reference
+                                            element</span>
+                                    </div>
+                                    <div class="form_div button">
+                                        <input type="button" value="Done" id="align_elements"
+                                            class="input_button translateV" data-lang-value="value_done"
+                                            style="display: none;">
+                                    </div>
                                 </div>
                             </div>
                         </fieldset>
@@ -1685,7 +1833,6 @@
                                     data-height="24"></span>
                                 <span class="translate" data-lang="legend_connect">Connect Elements</span>
                             </legend>
-
                             <input type="button" value="Connect" id="connect_elements"
                                 class="connect_elements input_button translateV" data-lang-value="value_connect">
                             <br>
@@ -1749,7 +1896,10 @@
                             <defs id="placeholder_defs" class="placeholders"></defs>
 
                             <!-- Webkit Filters -->
-                            <defs id="placeholder_filter" class="placeholder"></defs>
+                            <defs id="placeholder_filter" class="placeholders"></defs>
+
+                            <!-- Element gradients -->
+                            <defs id="placeholder_gradients" class="placeholders"></defs>
 
                             <!-- Lines -->
                             <g id="placeholder_lines" class="placeholders"></g>
@@ -1813,12 +1963,14 @@
                                     <label for="elm_ds_factor" class="translate form_label"
                                         data-lang="lbl_ds_factor">Unit of
                                         the source</label>
-                                    <select class="input_select" name="elm_ds_factor" id="elm_ds_factor">
-                                        <option value="1" class="translate" data-lang="opt_ds_factor_1" selected>
-                                            watts (w)</option>
-                                        <option value="1000" class="translate" data-lang="opt_ds_factor_1000">
-                                            kilowatts (kW)</option>
-                                    </select>
+                                    <div class="select-option">
+                                        <select class="input_select" name="elm_ds_factor" id="elm_ds_factor">
+                                            <option value="1" class="translate" data-lang="opt_ds_factor_1" selected>
+                                                watts (w)</option>
+                                            <option value="1000" class="translate" data-lang="opt_ds_factor_1000">
+                                                kilowatts (kW)</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="form_div button">
                                     <input type="submit" class="input_button translateV" data-lang-value="value_add"
@@ -1918,39 +2070,43 @@
                         <div class="form_div select">
                             <label for="animation.animation_timing_function" class="form_label translate"
                                 data-lang="lbl_animation_type">Animation Type</label>
-                            <select id="animation.animation_timing_function" class="input_select line_preview">
-                                <option value="ease" class="translate" data-lang="opt_animation_type_0">fast
-                                    till
-                                    middle of the
-                                    animation, slowing at the end</option>
-                                <option value="ease-in" class="translate" data-lang="opt_animation_type_1">
-                                    starts slowly,
-                                    increasing until complete</option>
-                                <option value="ease-out" class="translate" data-lang="opt_animation_type_2">
-                                    starts quickly,
-                                    slows down until end</option>
-                                <option value="ease-in-out" class="translate" data-lang="opt_animation_type_3">
-                                    slowly
-                                    transitioning, speeding up, and then slowing down again</option>
-                                <option value="linear" class="translate" data-lang="opt_animation_type_4">
-                                    even
-                                    speed</option>
-                            </select>
+                            <div class="select-option">
+                                <select id="animation.animation_timing_function" class="input_select line_preview">
+                                    <option value="ease" class="translate" data-lang="opt_animation_type_0">fast
+                                        till
+                                        middle of the
+                                        animation, slowing at the end</option>
+                                    <option value="ease-in" class="translate" data-lang="opt_animation_type_1">
+                                        starts slowly,
+                                        increasing until complete</option>
+                                    <option value="ease-out" class="translate" data-lang="opt_animation_type_2">
+                                        starts quickly,
+                                        slows down until end</option>
+                                    <option value="ease-in-out" class="translate" data-lang="opt_animation_type_3">
+                                        slowly
+                                        transitioning, speeding up, and then slowing down again</option>
+                                    <option value="linear" class="translate" data-lang="opt_animation_type_4">
+                                        even
+                                        speed</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form_div select">
                             <label for="animation.stroke_linecap" class="form_label translate"
                                 data-lang="lbl_animation_end">Animation Ends</label>
-                            <select id="animation.stroke_linecap" class="input_select line_preview">
-                                <option value="butt" class="translate" data-lang="opt_animation_linecap_0">
-                                    rectangular ends
-                                    trimmed at the endpoints</option>
-                                <option value="round" class="translate" data-lang="opt_animation_linecap_1">
-                                    rounded ends (beyond
-                                    the endpoints)</option>
-                                <option value="square" class="translate" data-lang="opt_animation_linecap_2">
-                                    square ends
-                                    (beyond the endpoints)</option>
-                            </select>
+                            <div class="select-option">
+                                <select id="animation.stroke_linecap" class="input_select line_preview">
+                                    <option value="butt" class="translate" data-lang="opt_animation_linecap_0">
+                                        rectangular ends
+                                        trimmed at the endpoints</option>
+                                    <option value="round" class="translate" data-lang="opt_animation_linecap_1">
+                                        rounded ends (beyond
+                                        the endpoints)</option>
+                                    <option value="square" class="translate" data-lang="opt_animation_linecap_2">
+                                        square ends
+                                        (beyond the endpoints)</option>
+                                </select>
+                            </div>
                         </div>
                     </fieldset>
                     <fieldset class="flex">
@@ -1958,33 +2114,29 @@
                                 data-height="24"></span>
                             <span class="translate" data-lang="legend_preview">Preview</span>
                         </legend>
-                        <table class="config_table">
-                            <tr>
-                                <td class="bold translate" data-lang="legend_preview">Preview</td>
-                            </tr>
-                            <tr>
-                                <td class="bold">
-                                    <svg viewBox="-5 0 100 50" class="" width="100%" height="50" id="svg_line_preview"
-                                        preserveAspectRatio="xMinYMid meet">
-                                        <defs>
-                                            <path id="preview_line" d="M 0,25 h 324"></path>
-                                        </defs>
-                                        <use class="line preview" xlink:href="#preview_line" id="preview_line_bg"
-                                            style="cursor:default;">
-                                        </use>
-                                        <use class="animation animation_cfg" xlink:href="#preview_line"
-                                            id="preview_line_anim">
-                                        </use>
-                                    </svg>
-                                </td>
-                            <tr>
-                                <td><span class="translate" data-lang="ex_animation_preview">Here you only set the
-                                        Animation properties.<br>All colors
-                                        will be
-                                        defined for each
-                                        element!</span></td>
-                            </tr>
-                        </table>
+                        <div class="form_div textbox">
+                            <span class="bold translate" data-lang="legend_preview">Preview</span>
+                        </div>
+                        <div class="form_div textbox">
+                            <svg viewBox="-5 0 100 50" class="" width="100%" height="50" id="svg_line_preview"
+                                preserveAspectRatio="xMinYMid meet">
+                                <defs>
+                                    <path id="preview_line" d="M 0,25 h 324"></path>
+                                </defs>
+                                <use class="line preview" xlink:href="#preview_line" id="preview_line_bg"
+                                    style="cursor:default;">
+                                </use>
+                                <use class="animation animation_cfg" xlink:href="#preview_line" id="preview_line_anim">
+                                </use>
+                            </svg>
+                        </div>
+                        <div class="form_div textbox">
+                            <span class="translate" data-lang="ex_animation_preview">Here you only set the
+                                Animation properties.<br>All colors
+                                will be
+                                defined for each
+                                element!</span>
+                        </div>
                     </fieldset>
                 </div>
             </div>
@@ -2006,30 +2158,38 @@
                                 data-lang="lbl_battery_capacity">Battery capacity
                                 (watt)
                                 *</label>
-                            <select class="input_select basic_config" name="calculation.battery.capacity"
-                                id="calculation.battery.capacity"></select>
+                            <div class="select-option">
+                                <select class="input_select basic_config" name="calculation.battery.capacity"
+                                    id="calculation.battery.capacity"></select>
+                            </div>
                         </div>
                         <div class="form_div select">
                             <label for="calculation.battery.dod" class="form_label translate"
                                 data-lang="lbl_battery_dod">Discharge till
                                 % *</label>
-                            <select class="input_select basic_config" name="calculation.battery.dod"
-                                id="calculation.battery.dod"></select>
+                            <div class="select-option">
+                                <select class="input_select basic_config" name="calculation.battery.dod"
+                                    id="calculation.battery.dod"></select>
+                            </div>
                         </div>
                         <div class="form_div select">
                             <label for="calculation.battery.percent" class="form_label translate"
                                 data-lang="lbl_battery_percent">Battery percent
                                 *</label>
-                            <select class="input_select basic_config" name="calculation.battery.percent"
-                                id="calculation.battery.percent"></select>
+                            <div class="select-option">
+                                <select class="input_select basic_config" name="calculation.battery.percent"
+                                    id="calculation.battery.percent"></select>
+                            </div>
                         </div>
 
                         <div class="form_div select">
                             <label for="calculation.battery.charge" class="form_label translate"
                                 data-lang="lbl_battery_charge">Battery charge
                                 *</label>
-                            <select class="input_select basic_config" name="calculation.battery.charge"
-                                id="calculation.battery.charge"></select>
+                            <div class="select-option">
+                                <select class="input_select basic_config" name="calculation.battery.charge"
+                                    id="calculation.battery.charge"></select>
+                            </div>
                         </div>
                         <div class="cb_switch">
                             <input type="checkbox" name="calculation.battery.charge_prop" class="basic_config"
@@ -2045,8 +2205,10 @@
                                 data-lang="lbl_battery_discharge">Battery
                                 discharge
                                 *</label>
-                            <select class="input_select basic_config" name="calculation.battery.discharge"
-                                id="calculation.battery.discharge"></select>
+                            <div class="select-option">
+                                <select class="input_select basic_config" name="calculation.battery.discharge"
+                                    id="calculation.battery.discharge"></select>
+                            </div>
                         </div>
                         <div class="cb_switch">
                             <input type="checkbox" name="calculation.battery.discharge_prop" class="basic_config"
@@ -2097,8 +2259,10 @@
                         <div class="form_div select">
                             <label for="calculation.consumption.gridFeed" class="form_label translate"
                                 data-lang="lbl_consumption_gridFeed">Public grid feed-in</label>
-                            <select class="input_select basic_config" name="calc_consumption_gridFeed"
-                                id="calculation.consumption.gridFeed"></select>
+                            <div class="select-option">
+                                <select class="input_select basic_config" name="calc_consumption_gridFeed"
+                                    id="calculation.consumption.gridFeed"></select>
+                            </div>
                         </div>
                         <div class="cb_switch">
                             <input type="checkbox" name="calculation.consumption.gridFeed_prop" class="basic_config"
@@ -2112,8 +2276,10 @@
                         <div class="form_div select">
                             <label for="calculation.consumption.gridConsume" class="form_label translate"
                                 data-lang="lbl_consumption_gridConsume">Consumption public grid *</label>
-                            <select class="input_select basic_config" name="calculation.consumption.gridConsume"
-                                id="calculation.consumption.gridConsume"></select>
+                            <div class="select-option">
+                                <select class="input_select basic_config" name="calculation.consumption.gridConsume"
+                                    id="calculation.consumption.gridConsume"></select>
+                            </div>
                         </div>
                         <div class="cb_switch">
                             <input type="checkbox" name="calculation.consumption.gridConsume_prop" class="basic_config"
@@ -2127,8 +2293,10 @@
                         <div class="form_div select">
                             <label for="calculation.consumption.batteryCharge" class="form_label translate"
                                 data-lang="lbl_consumption_batteryCharge">Battery charge</label>
-                            <select class="input_select basic_config" name="calculation.consumption.batteryCharge"
-                                id="calculation.consumption.batteryCharge"></select>
+                            <div class="select-option">
+                                <select class="input_select basic_config" name="calculation.consumption.batteryCharge"
+                                    id="calculation.consumption.batteryCharge"></select>
+                            </div>
                         </div>
                         <div class="cb_switch">
                             <input type="checkbox" name="calculation.consumption.batteryCharge_prop"
@@ -2143,8 +2311,11 @@
                             <label for="calculation.consumption.batteryDischarge" class="form_label translate"
                                 data-lang="lbl_consumption_batteryDischarge">Battery
                                 discharge</label>
-                            <select class="input_select basic_config" name="calculation.consumption.batteryDischarge"
-                                id="calculation.consumption.batteryDischarge"></select>
+                            <div class="select-option">
+                                <select class="input_select basic_config"
+                                    name="calculation.consumption.batteryDischarge"
+                                    id="calculation.consumption.batteryDischarge"></select>
+                            </div>
                         </div>
                         <div class="cb_switch">
                             <input type="checkbox" name="calculation.consumption.batteryDischarge_prop"
@@ -2289,76 +2460,117 @@
                                     data-height="24"></span>
                                 <span class="translate" data-lang="lbl_settings">Settings</span>
                             </legend>
-                            <div class="cb_switch">
-                                <input type="checkbox" name="basic.enable_config_icon" class="basic_config"
-                                    id="basic.enable_config_icon">
-                                <label for="basic.enable_config_icon">
-                                    <span></span>
-                                    <span class="label translate" data-lang="lbl_settings_show_icon">Show Config Icon on
-                                        Live-View</span>
-                                </label>
-                                <div>
-                                    <img src='img/icon_help.png' class="help" data-help="help_settings">
-                                </div>
-                            </div>
-                            <div class="cb_switch">
-                                <input type="checkbox" name="basic.enable_last_id" class="basic_config"
-                                    id="basic.enable_last_id">
-                                <label for="basic.enable_last_id">
-                                    <span></span>
-                                    <span class="label translate" data-lang="lbl_settings_lastSource">Show last Source
-                                        in Object
-                                        Browser, if
-                                        current source is
-                                        empty</span>
-                                </label>
-                                <div></div>
-                            </div>
-                            <div class="cb_switch">
-                                <input type="checkbox" name="basic.enable_ds_autocomplete" class="basic_config"
-                                    id="basic.enable_ds_autocomplete">
-                                <label for="basic.enable_ds_autocomplete">
-                                    <span></span>
-                                    <span class="label translate" data-lang="lbl_settings_ds_autocomplete">Enable
-                                        autocomplete inside data
-                                        sources</span>
-                                </label>
-                                <div></div>
-                            </div>
-                            <div class="cb_switch">
-                                <input type="checkbox" name="basic.enable_icon_proxy" class="basic_config"
-                                    id="basic.enable_icon_proxy">
-                                <label for="basic.enable_icon_proxy">
-                                    <span></span>
-                                    <span class="translate" data-lang="lbl_settings_enable_proxy">Use
-                                        Icon-Proxy for all request</span>
-                                </label>
-                                <div>
-                                    <img src='img/icon_help.png' class="help" data-help="help_icon_proxy">
-                                </div>
-                            </div>
-                            <div class="cb_switch">
-                                <input type="checkbox" name="basic.enable_low_performance" class="basic_config"
-                                    id="basic.enable_low_performance">
-                                <label for="basic.enable_low_performance">
-                                    <span></span>
-                                    <span class="label translate" data-lang="lbl_settings_low_performance">Use less
-                                        power mode for
-                                        animations</span>
-                                </label>
-                                <div>
-                                    <img src='img/icon_help.png' class="help" data-help="help_low_performance">
-                                </div>
-                            </div>
-                            <div class="cb_switch">
-                                <input type="checkbox" name="basic.enable_show_coordinates" class="basic_config"
-                                    id="basic.enable_show_coordinates">
-                                <label for="basic.enable_show_coordinates">
-                                    <span></span>
-                                    <span class="label translate" data-lang="lbl_settings_show_coordinates">Show
-                                        coordinates of the element while moving</span>
-                                </label>
-                                <div></div>
+                            <div class="childContainer">
+                                <fieldset class="small">
+                                    <legend><span class="translate"
+                                            data-lang="lbl_settings_configuration">Configuration</span></legend>
+                                    <div class="cb_switch">
+                                        <input type="checkbox" name="basic.enable_config_icon" class="basic_config"
+                                            id="basic.enable_config_icon">
+                                        <label for="basic.enable_config_icon">
+                                            <span></span>
+                                            <span class="label translate" data-lang="lbl_settings_show_icon">Show Config
+                                                Icon on
+                                                Live-View</span>
+                                        </label>
+                                        <div>
+                                            <img src='img/icon_help.png' class="help" data-help="help_settings">
+                                        </div>
+                                    </div>
+                                    <div class="cb_switch">
+                                        <input type="checkbox" name="basic.enable_last_id" class="basic_config"
+                                            id="basic.enable_last_id">
+                                        <label for="basic.enable_last_id">
+                                            <span></span>
+                                            <span class="label translate" data-lang="lbl_settings_lastSource">Show last
+                                                Source
+                                                in Object
+                                                Browser, if
+                                                current source is
+                                                empty</span>
+                                        </label>
+                                        <div></div>
+                                    </div>
+                                    <div class="cb_switch">
+                                        <input type="checkbox" name="basic.enable_ds_autocomplete" class="basic_config"
+                                            id="basic.enable_ds_autocomplete">
+                                        <label for="basic.enable_ds_autocomplete">
+                                            <span></span>
+                                            <span class="label translate"
+                                                data-lang="lbl_settings_ds_autocomplete">Enable
+                                                autocomplete inside data
+                                                sources</span>
+                                        </label>
+                                        <div></div>
+                                    </div>
+                                    <div class="cb_switch">
+                                        <input type="checkbox" name="basic.enable_show_coordinates" class="basic_config"
+                                            id="basic.enable_show_coordinates">
+                                        <label for="basic.enable_show_coordinates">
+                                            <span></span>
+                                            <span class="label translate" data-lang="lbl_settings_show_coordinates">Show
+                                                coordinates of the element while moving</span>
+                                        </label>
+                                        <div></div>
+                                    </div>
+                                    <div class="cb_switch">
+                                        <input type="checkbox" name="basic.enable_hide_configbar" class="basic_config"
+                                            id="basic.enable_hide_configbar">
+                                        <label for="basic.enable_hide_configbar">
+                                            <span></span>
+                                            <span class="label translate" data-lang="lbl_settings_hideConfigbar">Make
+                                                configuration bar transparent when changing settings</span>
+                                        </label>
+                                        <div><img src='img/icon_help.png' class="help" data-help="help_hideConfigbar">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="small">
+                                    <legend><span class="translate" data-lang="lbl_settings_liveView">Live-View</span>
+                                    </legend>
+                                    <div class="cb_switch">
+                                        <input type="checkbox" name="basic.enable_low_performance" class="basic_config"
+                                            id="basic.enable_low_performance">
+                                        <label for="basic.enable_low_performance">
+                                            <span></span>
+                                            <span class="label translate" data-lang="lbl_settings_low_performance">Use
+                                                less
+                                                power mode for
+                                                animations</span>
+                                        </label>
+                                        <div>
+                                            <img src='img/icon_help.png' class="help" data-help="help_low_performance">
+                                        </div>
+                                    </div>
+                                    <div class="cb_switch">
+                                        <input type="checkbox" name="basic.enable_line_animation" class="basic_config"
+                                            id="basic.enable_line_animation">
+                                        <label for="basic.enable_line_animation">
+                                            <span></span>
+                                            <span class="label translate" data-lang="lbl_settings_line_animation">Line
+                                                animation during startup and while showing and hiding them</span>
+                                        </label>
+                                        <div>
+                                            <img src='img/icon_help.png' class="help" data-help="help_line_animation">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="small">
+                                    <legend><span class="translate" data-lang="lbl_settings_iconProxy">Icon-Proxy</span>
+                                    </legend>
+                                    <div class="cb_switch">
+                                        <input type="checkbox" name="basic.enable_icon_proxy" class="basic_config"
+                                            id="basic.enable_icon_proxy">
+                                        <label for="basic.enable_icon_proxy">
+                                            <span></span>
+                                            <span class="translate" data-lang="lbl_settings_enable_proxy">Use
+                                                Icon-Proxy for all request</span>
+                                        </label>
+                                        <div>
+                                            <img src='img/icon_help.png' class="help" data-help="help_icon_proxy">
+                                        </div>
+                                    </div>
+                                </fieldset>
                             </div>
                         </fieldset>
                     </div>
@@ -2367,7 +2579,7 @@
                                 data-width="24" data-height="24"></span>
                             <span class="translate" data-lang="legend_basic_settings">Basic Settings</span>
                         </legend>
-                        <div style="display: flex; flex-direction: row; max-width: 100%;flex-wrap: wrap;">
+                        <div class="childContainer">
                             <div class="detail_box flex">
                                 <span class="config_sec translate" data-lang="lbl_text">Text</span>
                                 <div class="contentBox">
@@ -2405,15 +2617,17 @@
                                     <div class="form_div select">
                                         <label for="basic.font.align" class="form_label translate"
                                             data-lang="legend_alignment">Alignment</label>
-                                        <select class="input_select basic_config" id="basic.font.align"
-                                            name="basic_font_align">
-                                            <option value="start" class="translate" data-lang="opt_left">Left
-                                            </option>
-                                            <option value="middle" class="translate" data-lang="opt_middle">
-                                                Middle</option>
-                                            <option value="end" class="translate" data-lang="opt_right">Right
-                                            </option>
-                                        </select>
+                                        <div class="select-option">
+                                            <select class="input_select basic_config" id="basic.font.align"
+                                                name="basic_font_align">
+                                                <option value="start" class="translate" data-lang="opt_left">Left
+                                                </option>
+                                                <option value="middle" class="translate" data-lang="opt_middle">
+                                                    Middle</option>
+                                                <option value="end" class="translate" data-lang="opt_right">Right
+                                                </option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2607,7 +2821,9 @@
                             <div class="form_div select">
                                 <label for="backup_list" class="form_label translate" data-lang="lbl_backup">Backup
                                     *</label>
-                                <select id="backup_list" name="backup_list" class="input_select"></select>
+                                <div class="select-option">
+                                    <select id="backup_list" name="backup_list" class="input_select"></select>
+                                </div>
                             </div>
                             <div class="form_div button">
                                 <input type="button" class="input_button translateV" value="Restore Backup"
