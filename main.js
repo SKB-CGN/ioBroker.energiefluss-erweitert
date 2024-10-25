@@ -99,7 +99,7 @@ class EnergieflussErweitert extends utils.Adapter {
 		// Get language of ioBroker
 		this.getForeignObjectAsync('system.config', function (err, obj) {
 			if (err) {
-				_this.log.error('Could not get language of ioBroker! Using english instead!');
+				_this.log.warn('Could not get language of ioBroker! Using english instead!');
 			} else {
 				systemLang = obj.common.language;
 				_this.log.debug(`Using language: ${systemLang}`);
