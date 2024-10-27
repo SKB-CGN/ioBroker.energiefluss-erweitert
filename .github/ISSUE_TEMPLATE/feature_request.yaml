@@ -4,7 +4,6 @@ description: Suggest an idea for this project
 body:
   - type: markdown
     attributes:
-      value: Feature
   - type: textarea
     validations:
       required: true
