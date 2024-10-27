@@ -44,6 +44,8 @@ body:
         A clear and concise description of what you expected to happen.
 
   - type: input
+    validations:
+      required: true
     attributes:
       label: Version
       description: >
