@@ -50,7 +50,7 @@ body:
       value:
       label: Additional Information
       description: >-
-        Add any other context about the problem here. E.g. Screenshots        
+        Add any other context about the problem here (e.g. Screenshots).
 
   - type: input
     validations:
