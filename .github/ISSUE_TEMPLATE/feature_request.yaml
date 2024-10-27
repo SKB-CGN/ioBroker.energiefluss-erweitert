@@ -3,8 +3,8 @@ description: Suggest an idea for this project
 
 body:
   - type: markdown
-    value: Describe, what you want to be added!
     attributes:
+      value: Describe, what you want to be added!
   - type: textarea
     validations:
       required: true
