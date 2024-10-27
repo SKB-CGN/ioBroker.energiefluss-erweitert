@@ -26,7 +26,7 @@ body:
     validations:
       required: true
     attributes:
-      value: ''
+      value: Enter here
       label: Describe alternatives you've considered
       description: >-
         A clear and concise description of any alternative solutions or features you've considered.
@@ -35,7 +35,7 @@ body:
     validations:
       required: true
     attributes:
-      value: Test
+      value: Enter here
       label: Additional Information
       description: >-
         Add any other context about the problem here. E.g. Screenshots
