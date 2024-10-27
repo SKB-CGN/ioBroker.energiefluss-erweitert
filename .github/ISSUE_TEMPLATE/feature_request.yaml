@@ -4,6 +4,7 @@ description: Suggest an idea for this project
 body:
   - type: markdown
     attributes:
+      value: Fill out the form to enter a feature request!
   - type: textarea
     validations:
       required: true
