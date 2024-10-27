@@ -1,0 +1,50 @@
+name: Bug report
+description: Something is not working as it should
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue form is for reporting issues only! If you want to start a discussion or ask a question, please use the [discussion forum][df].
+
+        [df]: https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/discussions
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: Describe the bug
+      description: >-
+        A clear and concise description of what the bug is.
+
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      value: |
+        Steps to reproduce the behavior:
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '....'
+        4. See error
+      label: Steps to reproduce
+      description: >-
+        Steps to reproduce the behavior.
+
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      value: |
+        1.
+        2.
+        3.
+        ...
+      label: Expected behavior
+      description: >-
+        A clear and concise description of what you expected to happen.
+
+  - type: input
+    attributes:
+      label: Version
+      description: >
+        Version of the installed Energiefluss-erweitert
