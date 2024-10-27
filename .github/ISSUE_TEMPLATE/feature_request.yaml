@@ -35,4 +35,4 @@ body:
     attributes:
       label: Additional Information
       description: >-
-        Add any other context about the problem here. E.g. Screenshots
+        Add any other context about the feature here (e.g. screenshots).
