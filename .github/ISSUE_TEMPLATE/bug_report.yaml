@@ -1,5 +1,8 @@
 name: Bug report
 description: Something is not working as it should
+title: "[Bug]: "
+assignees:
+  - SKB-CGN
 
 body:
   - type: markdown
@@ -9,6 +12,7 @@ body:
 
         [df]: https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/discussions
   - type: textarea
+    id: bug
     validations:
       required: true
     attributes:
@@ -17,6 +21,7 @@ body:
         A clear and concise description of what the bug is.
 
   - type: textarea
+    id: steps
     validations:
       required: true
     attributes:
@@ -31,6 +36,7 @@ body:
         Steps to reproduce the behavior.
 
   - type: textarea
+    id: behavior
     validations:
       required: true
     attributes:
@@ -44,6 +50,7 @@ body:
         A clear and concise description of what you expected to happen.
 
   - type: textarea
+    id: additional_info
     validations:
       required: true
     attributes:
@@ -53,6 +60,7 @@ body:
         Add any other context about the problem here (e.g. Screenshots).
 
   - type: input
+    id: version
     validations:
       required: true
     attributes:
