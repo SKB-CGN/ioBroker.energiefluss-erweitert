@@ -1,13 +1,16 @@
 name: Feature Request
-description: Suggest an idea for this project
+description: Suggest an idea for this project!
 title: "[Feature Request]: "
 labels: ["enhancement"]
 
 body:
   - type: markdown
+    id: title
     attributes:
       value: Fill out the form to enter a feature request!
+
   - type: textarea
+    id: to_be_added
     validations:
       required: true
     attributes:
@@ -16,6 +19,7 @@ body:
         A clear and concise description of what the feature is about.
 
   - type: textarea
+    id: solution  
     validations:
       required: true
     attributes:
@@ -24,6 +28,7 @@ body:
         A clear and concise description of what you want to happen.
 
   - type: textarea
+    id: describtion
     validations:
       required: true
     attributes:
@@ -32,6 +37,7 @@ body:
         A clear and concise description of any alternative solutions or features you've considered.
 
   - type: textarea
+    id: additional_info  
     validations:
       required: true
     attributes:
