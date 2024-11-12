@@ -1331,6 +1331,7 @@ fieldset.small {
         min-width: 65px;
         max-width: 65px;
         padding-right: 14px;
+        text-overflow: inherit;
     }
 
     tbody tr {
