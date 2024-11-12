@@ -31,7 +31,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.1-alpha.11 (2024-11-12)
 - ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Overrides were not correctly applied (#272)
 - ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Timestamp of the last change was timestamp of the last update (#279)
 - ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Font-size could not be changed
