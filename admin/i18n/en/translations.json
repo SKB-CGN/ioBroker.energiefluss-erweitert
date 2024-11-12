@@ -1,14 +1,9 @@
 {
+    "accessKeyTx": "Use the browser access key 'e' inside the live view, to reach out to the config page again.",
+    "browserTx": "Browser",
     "donate": "If you like this adapter, please consider making a donation to support my work.",
-    "enable_proxy": "Enable Icon Proxy",
-    "energiefluss-erweitert adapter settings": "Adapter settings for energiefluss-erweitert",
-    "ex_access_key": "Use the browser access key <b style='color: red;'>e</b> inside the live view, to reach out to the config page again.",
-    "ex_config": "To configure the adapter, please open it via the instance link. There you will find the configuration wheel!",
-    "ex_key_combination": "key combination",
-    "ex_lost_config": "If you disabled the configuration wheel und need again access to the config, please follow the steps:",
-    "ex_proxy_port": "Port of the Icon Proxy (Default: 10123)",
-    "ex_why_proxy": "You can use the Icon proxy, if some devices inside your network do not have an internet connection and you want to display the icons on them as well.",
-    "main_settings": "Main Settings",
-    "proxy_port": "Proxy Port",
-    "proxy_settings": "Proxy Settings"
+    "introTx": "To configure the adapter, please open it via the instance link. There you will find the configuration wheel!",
+    "keyCombinationTx": "key combination",
+    "lostConfigTx": "If you disabled the configuration wheel und need again access to the config, please follow the steps:",
+    "main_settings": "Main Settings"
 }

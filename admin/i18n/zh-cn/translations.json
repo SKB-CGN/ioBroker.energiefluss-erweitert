@@ -1,14 +1,9 @@
 {
-    "donate": "如果您喜欢这个适配器，请考虑捐款支持我的工作。",
-    "enable_proxy": "启用图标代理",
-    "energiefluss-erweitert adapter settings": "energiefluss-erweitert 的适配器设置",
-    "ex_access_key": "在实时视图中使用浏览器访问键 <b style='color: red;'>e</b> 再次访问配置页面。",
-    "ex_config": "要配置适配器，请通过实例链接打开它。在那里你会找到配置轮！",
-    "ex_key_combination": "组合键",
-    "ex_lost_config": "如果您禁用了配置轮并且需要再次访问配置，请按照以下步骤操作：",
-    "ex_proxy_port": "图标代理的端口（默认：10123）",
-    "ex_why_proxy": "如果网络中的某些设备没有互联网连接并且您也想在它们上显示图标，则可以使用图标代理。",
-    "main_settings": "主要设置",
-    "proxy_port": "代理端口",
-    "proxy_settings": "代理设置"
+    "accessKeyTx": "在实时视图中使用浏览器访问键“e”，再次访问配置页面。",
+    "browserTx": "浏览器",
+    "donate": "如果您喜欢这个适配器，请考虑捐赠以支持我的工作。",
+    "introTx": "要配置适配器，请通过实例链接打开它。在那里你会找到配置轮！",
+    "keyCombinationTx": "组合键",
+    "lostConfigTx": "如果您禁用了配置轮并需要再次访问配置，请按照以下步骤操作：",
+    "main_settings": "主要设置"
 }

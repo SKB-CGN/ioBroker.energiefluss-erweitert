@@ -14,9 +14,8 @@
     <meta name="theme-color" content="#538ea3">
 
     <link rel="stylesheet" href="style/jquery-ui.css">
-    <link rel="stylesheet" href="style/loading-spinner.css">
     <link rel="stylesheet" href="style/multiselect.css">
-    <link rel="stylesheet" href="style/style.css?v=0.5.1.10">
+    <link rel="stylesheet" href="style/style.css?v=0.5.1.11">
 
     <script src="../../socket.io/socket.io.js"></script>
 
@@ -28,7 +27,7 @@
     <script src="js/multiselect.min.js"></script>
     <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/ace/ext-language_tools.js"></script>
-    <script src="js/functions.min.js?v=0.5.1.10"></script>
+    <script src="js/functions.min.js?v=0.5.1.11"></script>
 
     <style id="style_animation"></style>
     <style id="style_user"></style>
@@ -51,13 +50,13 @@
     </div>
     <div id="manage_shortcuts_section" class="translateT" title="Manage Direct Accesses"
         data-lang-title="value_manage_shortcuts">
-        <div class="data-table-div">
-            <table class="data-table config_table" id="shortcut-table">
+        <div class="ef-table-div">
+            <table class="ef-table" id="shortcut-table">
                 <thead>
                     <tr>
-                        <th><em class="translate" data-lang="lbl_alias">Alias</em></th>
-                        <th><em class="translate" data-lang="opt_value">Value</em></th>
-                        <th><em class="translate" data-lang="lbl_action" style="font-style:normal;">Actions</em></th>
+                        <th><span class="translate" data-lang="lbl_alias">Alias</span></th>
+                        <th><span class="translate" data-lang="opt_value">Value</span></th>
+                        <th><span class="translate" data-lang="lbl_action">Actions</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -115,7 +114,7 @@
                 find out, how
                 to
                 fix it!</a></span>
-        <div id="stateExplorerContainer">
+        <div id="stateExplorerContainer" class="popUpContainer">
             <div class="title">
                 <span class="translate" data-lang="title_stateExplorer">Object Browser</span>
                 <div class="close" onclick="closeEditorContainer('stateExplorer');"></div>
@@ -153,7 +152,7 @@
                 </div>
             </div>
         </div>
-        <div id="codeEditorContainer">
+        <div id="codeEditorContainer" class="popUpContainer">
             <div class="title">
                 <span class="translate" data-lang="title_codeEditor">Code Editor</span>
                 <div class="close" onclick="closeEditorContainer('codeEditor');"></div>
@@ -173,8 +172,7 @@
                 </div>
             </div>
         </div>
-        <div id="elementDialog"> </div>
-        <div id="frameContainer">
+        <div id="frameContainer" class="popUpContainer">
             <div class="title">
                 <div class="close" onclick="closeEditorContainer('frame');"></div>
             </div>
@@ -224,9 +222,9 @@
                     <div class="title"><span class="translate" data-lang="lbl_config_config">Configuration of the
                             Element</span>
                         <div id="config_swap" class="swap translateT tt-element" data-lang-title="btn_swap"></div>
-                        <div id="config_close" class="close translateT tt-element" data-lang-title="btn_close"></div>
+                        <div id="config_close" class="close"></div>
                     </div>
-                    <div class="tabbed" style="width: 98%">
+                    <div class="tabbed">
                         <input checked="checked" id="tab1_config" type="radio" name="tabs_config">
                         <input id="tab2_config" type="radio" name="tabs_config">
                         <nav>
@@ -269,12 +267,14 @@
                                                     data-lang="lbl_height">Height</label>
                                             </div>
                                             <div class="elm_config_box icon">
-                                                <span class="translate" data-lang="ex_config_icon_tipp"><u>Tipp:</u>
-                                                    Square Icons
-                                                    need same width and height! Other ones can
-                                                    have
-                                                    other
-                                                    formats.</span>
+                                                <div class="form_div textbox">
+                                                    <span class="translate" data-lang="ex_config_icon_tipp"><u>Tipp:</u>
+                                                        Square Icons
+                                                        need same width and height! Other ones can
+                                                        have
+                                                        other
+                                                        formats.</span>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="elm_config_box rect">
@@ -829,9 +829,8 @@
                                     <div class="contentBox">
                                         <div class="form_div select">
                                             <label for="elm_source_option" class="form_label translate"
-                                                data-lang="lbl_config_show_timestamp">Show
-                                                Timestamp of
-                                                last change</label>
+                                                data-lang="lbl_config_show_timestamp_refresh">Show Timestamp of last
+                                                update</label>
                                             <div class="select-option">
                                                 <select class="input_select elm_config elm_config_update"
                                                     name="elm_source_option" id="elm_source_option">
@@ -872,6 +871,55 @@
                                                     </option>
                                                 </select>
                                             </div>
+                                        </div>
+                                        <div class="form_div select">
+                                            <label for="elm_source_option_lc" class="form_label translate"
+                                                data-lang="lbl_config_show_timestamp">Show Timestamp of last
+                                                change</label>
+                                            <div class="select-option">
+                                                <select class="input_select elm_config elm_config_update"
+                                                    name="elm_source_option_lc" id="elm_source_option_lc">
+                                                    <option value="-1" selected class="translate" data-lang="opt_none">
+                                                        None
+                                                    </option>
+                                                    <option value="timestamp_us" class="translate"
+                                                        data-lang="opt_timestamp_us">
+                                                        Timestamp US</option>
+                                                    <option value="timestamp_us_short" class="translate"
+                                                        data-lang="opt_timestamp_us_short">Timestamp US
+                                                        short
+                                                    </option>
+                                                    <option value="timestamp_us_short_wo_year" class="translate"
+                                                        data-lang="opt_timestamp_us_short_wo_year">Timestamp
+                                                        US
+                                                        short
+                                                        (without
+                                                        year)</option>
+                                                    <option value="timestamp_de" class="translate"
+                                                        data-lang="opt_timestamp_de">
+                                                        Timestamp DE</option>
+                                                    <option value="timestamp_de_short" class="translate"
+                                                        data-lang="opt_timestamp_de_short">Timestamp DE
+                                                        short
+                                                    </option>
+                                                    <option value="timestamp_de_short_wo_year" class="translate"
+                                                        data-lang="opt_timestamp_de_short_wo_year">Timestamp
+                                                        DE
+                                                        short
+                                                        (without
+                                                        year)</option>
+                                                    <option value="relative" class="translate"
+                                                        data-lang="opt_timestamp_relative">Relative to now
+                                                    </option>
+                                                    <option value="ms" class="translate" data-lang="opt_timestamp_ms">
+                                                        Milliseconds
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form_div text">
+                                            <span class="translate" data-lang="ex_config_timestamp">Please select only
+                                                one, as the first enabled one will be selected!</span>
                                         </div>
                                         <div class="form_div select">
                                             <label for="elm_source_display" class="form_label translate"
@@ -1278,7 +1326,7 @@
                                                     <option value="off" class="translate" data-lang="opt_action_off">
                                                         Off</option>
                                                     <option value="change" class="translate elm_config_datasource"
-                                                        data-lang="opt_action_value">Manual
+                                                        data-lang="opt_action_change">Manual
                                                         value change
                                                     </option>
                                                 </select>
@@ -1976,30 +2024,32 @@
                                     <input type="submit" class="input_button translateV" data-lang-value="value_add"
                                         value="Add">
                                 </div>
-
                             </form>
                         </fieldset>
                     </div>
-                    <fieldset class="flex">
+                    <fieldset class="flex fixedScreen">
                         <legend><span class="iconify legend" data-icon="mdi:database-search" data-width="24"
                                 data-height="24"></span>
                             <span class="translate" data-lang="legend_av_datasources">Available Datasources</span>
                         </legend>
-                        <div class="data-table-div">
-                            <table class="data-table config_table" id="datasource-table">
-                                <thead>
-                                    <th><em class="translate" data-lang="lbl_alias"
-                                            style="font-style:normal;">Alias</em>
-                                        <span class="sort_icon"><span class="iconify"
-                                                data-icon="mdi:sort-alphabetical-ascending" data-height="18"></span>
+                        <div class="ef-table-div">
+                            <table class="ef-table" id="datasource-table">
+                                <thead class="sortable">
+                                    <th class="filter">
+                                        <span class="translate" data-lang="lbl_alias">Alias</span>
+                                        <div class="sort_icon">
+                                            <span class="iconify" data-icon="mdi:sort-alphabetical-ascending"
+                                                data-height="18"></span>
+                                        </div>
                                     </th>
-                                    <th><em class="translate" data-lang="lbl_datasource"
-                                            style="font-style:normal;">Datasource</em> <span class="sort_icon"></span>
+                                    <th class="filter">
+                                        <span class="translate" data-lang="lbl_datasource">Datasource</span>
+                                        <div class="sort_icon"></div>
                                     </th>
-                                    <th><em class="translate" data-lang="lbl_factor"
-                                            style="font-style:normal;">Factor</em>
-                                    <th><em class="translate" data-lang="lbl_action"
-                                            style="font-style:normal;">Action</em>
+                                    <th>
+                                        <span class="translate" data-lang="lbl_factor">Factor</span>
+                                    </th>
+                                    <th><span class="translate" data-lang="lbl_action">Action</span>
                                     </th>
                                 </thead>
                                 <tbody>
@@ -2013,14 +2063,14 @@
                                 </tbody>
                             </table>
                         </div>
-                        <form style="padding-top: 8px;">
+                        <div class="form_div button">
                             <input type="button" class="input_button translateV check_datasources"
                                 data-lang-value="value_check" id="check_datasources" value="Check datasources "
                                 style="width: auto;">
                             <input type="button" class="input_button translateV check_datasources"
                                 data-lang-value="value_in_use" id="check_datasources_in_use" value="Datsource in use"
                                 style="width: auto;">
-                        </form>
+                        </div>
                     </fieldset>
                 </div>
             </div>
@@ -2379,8 +2429,8 @@
                                 </div>
                             </div>
                             <div id="upload_errors">
-                                <div class="data-table-div">
-                                    <table class="data-table config_table" id="upload_errors-table">
+                                <div class="ef-table-div">
+                                    <table class="ef-table" id="upload_errors-table">
                                         <thead>
                                             <tr>
                                                 <th><span class="translate" data-lang="lbl_file">File</span></th>
@@ -2393,7 +2443,7 @@
                             </div>
                         </fieldset>
                     </div>
-                    <fieldset class="flex">
+                    <fieldset class="flex fixedScreen">
                         <legend><span class="iconify legend" data-icon="mdi:file-image" data-width="24"
                                 data-height="24"></span>
                             <span class="translate" data-lang="lbl_gallery">Gallery</span>
@@ -2416,6 +2466,16 @@
                                 <span class="translate" data-lang="txt_upload_no_images" id="userImages_dummy">There are
                                     currently no images inside
                                     the gallery! You can upload some using the upload function!</span>
+                                <span class="translate userImages_noResults" data-lang="txt_upload_no_results">There are
+                                    no results for the provided criteria!</span>
+                                <span id="userImages_placeholder"
+                                    style="padding: 5px;margin: 5px;display: inline-block;">
+                                    <span class="cv-spinner">
+                                        <span class="spinner"></span>
+                                        <span class="translate" data-lang="title_gallery_loading"
+                                            style="padding-left: 5px;">Loading images gallery ...</span>
+                                    </span>
+                                </span>
                             </div>
                         </div>
                         <div id="userImagesBrowseDialog">
@@ -2463,7 +2523,8 @@
                             <div class="childContainer">
                                 <fieldset class="small">
                                     <legend><span class="translate"
-                                            data-lang="lbl_settings_configuration">Configuration</span></legend>
+                                            data-lang="lbl_settings_configuration">Configuration</span>
+                                    </legend>
                                     <div class="cb_switch">
                                         <input type="checkbox" name="basic.enable_config_icon" class="basic_config"
                                             id="basic.enable_config_icon">

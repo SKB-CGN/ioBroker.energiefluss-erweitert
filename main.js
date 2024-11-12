@@ -240,7 +240,8 @@ class EnergieflussErweitert extends utils.Adapter {
 						break;
 					case '_updateElementInView':
 						// Receive Object from ioBroker to show it in Configuration
-						const id = `tmp_${obj.message.id}`;
+						const originID = obj.message.id;
+						const id = `tmp_${originID}`;
 						const originSource = obj.message.source;
 						const state = await this.getForeignStateAsync(originSource);
 						let objectUnit = '';
@@ -260,17 +261,19 @@ class EnergieflussErweitert extends utils.Adapter {
 							await this.calculateValue(id, obj.message, state);
 							this.log.debug(`Found ${obj.message.source} and calculated the value for Web-ID: ${id}!`);
 							if (outputValues.values.hasOwnProperty(id)) {
-								let override = {};
-								override[obj.message.id] = outputValues.override[id];
+								let returnObj = {
+									values: {},
+									unit: {},
+									override: {}
+								}
+
+								returnObj.values[originID] = outputValues.values[id];
+								returnObj.unit[originID] = objectUnit;
+								returnObj.override[originID] = outputValues.override[id];
 
 								this.sendTo(obj.from, obj.command, {
 									error: null,
-									data: {
-										id: obj.message.id,
-										value: outputValues.values[id],
-										unit: objectUnit,
-										override: override
-									}
+									data: returnObj
 								}, obj.callback);
 
 								// Delete temporary values
@@ -342,9 +345,17 @@ class EnergieflussErweitert extends utils.Adapter {
 				break;
 
 			case 'text':
-				if (obj.source_option != -1) {
-					this.log.debug(`Source Option detected! ${obj.source_option} Generating DateString for ${state.ts} ${this.getTimeStamp(state.ts, obj.source_option)}`);
-					let timeStamp = this.getTimeStamp(state.ts, obj.source_option);
+				if (obj.source_option != -1 || obj.source_option_lc != -1) {
+					let timeStamp;
+					if (obj.source_option != -1) {
+						this.log.debug(`Source Option 'last update' detected! ${obj.source_option} Generating DateString for ${state.ts} ${this.getTimeStamp(state.ts, obj.source_option)}`);
+						timeStamp = this.getTimeStamp(state.ts, obj.source_option);
+					}
+
+					if (obj.source_option_lc != -1) {
+						this.log.debug(`Source Option 'last change' detected! ${obj.source_option_lc} Generating DateString for ${state.lc} ${this.getTimeStamp(state.lc, obj.source_option_lc)}`);
+						timeStamp = this.getTimeStamp(state.lc, obj.source_option_lc);
+					}
 					outputValues.values[id] = timeStamp;
 				} else {
 					const checkDisplay = async (method) => {
@@ -784,6 +795,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
 			// Now we process the found values inside tmpWorker Obj
 			if (Object.keys(tmpWorker).length > 0) {
+
 				for (var item of Object.keys(tmpWorker)) {
 					// Temp Storage of workerValue
 					let itemToWorkWith = tmpWorker[item];
@@ -807,14 +819,22 @@ class EnergieflussErweitert extends utils.Adapter {
 								}
 							}
 						}
-					}
 
-					try {
-						const func = new Function(`return ${itemToWorkWith} `)();
-						tmpWorker[item] = func(condValue);
-					}
-					catch (func) {
-						tmpWorker[item] = itemToWorkWith;
+						try {
+							const func = new Function(`return ${itemToWorkWith} `)();
+							tmpWorker[item] = func(condValue);
+						}
+						catch (func) {
+							if (itemToWorkWith.includes('=>')) {
+								tmpWorker[item] = {
+									status: false,
+									error: func.toString(),
+									function: itemToWorkWith
+								}
+							} else {
+								tmpWorker[item] = itemToWorkWith;
+							}
+						}
 					}
 				}
 			}
@@ -1403,7 +1423,8 @@ class EnergieflussErweitert extends utils.Adapter {
 								convert: value.convert,
 								type: value.type,
 								source: value.source,
-								source_option: value.source_option,
+								source_option: value.source_option || -1,
+								source_option_lc: value.source_option_lc || -1,
 								source_display: value.source_display,
 								subtract: value.subtract,
 								add: value.add,
@@ -1432,6 +1453,13 @@ class EnergieflussErweitert extends utils.Adapter {
 								relativeTimeCheck[key] = {
 									source: gDataSource.source,
 									option: value.source_option
+								}
+							}
+
+							if (value.source_option_lc == 'relative') {
+								relativeTimeCheck[key] = {
+									source: gDataSource.source,
+									option: value.source_option_lc
 								}
 							}
 

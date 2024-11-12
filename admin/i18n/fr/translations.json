@@ -1,14 +1,9 @@
 {
+    "accessKeyTx": "Utilisez la clé d'accès du navigateur « e » dans la vue en direct pour accéder à nouveau à la page de configuration.",
+    "browserTx": "Navigateur",
     "donate": "Si vous aimez cet adaptateur, pensez à faire un don pour soutenir mon travail.",
-    "enable_proxy": "Activer le proxy d'icône",
-    "energiefluss-erweitert adapter settings": "Réglages de l'adaptateur pour energiefluss-erweitert",
-    "ex_access_key": "Utilisez la clé d'accès au navigateur <b style='color: red;'>e</b> dans la vue en direct pour accéder à nouveau à la page de configuration.",
-    "ex_config": "Pour configurer l'adaptateur, veuillez l'ouvrir via le lien de l'instance. Vous y trouverez la molette de configuration !",
-    "ex_key_combination": "combinaison de touches",
-    "ex_lost_config": "Si vous avez désactivé la roue de configuration et avez besoin à nouveau d'accéder à la configuration, veuillez suivre les étapes :",
-    "ex_proxy_port": "Port du proxy d'icône (par défaut : 10123)",
-    "ex_why_proxy": "Vous pouvez utiliser le proxy d'icônes si certains appareils de votre réseau n'ont pas de connexion Internet et que vous souhaitez également afficher les icônes dessus.",
-    "main_settings": "Réglages principaux",
-    "proxy_port": "Port proxy",
-    "proxy_settings": "Paramètres du proxy"
+    "introTx": "Pour configurer l'adaptateur, veuillez l'ouvrir via le lien d'instance. Vous y trouverez la roue de configuration !",
+    "keyCombinationTx": "combinaison de touches",
+    "lostConfigTx": "Si vous avez désactivé la roue de configuration et avez besoin à nouveau d'accéder à la configuration, veuillez suivre les étapes :",
+    "main_settings": "Paramètres principaux"
 }

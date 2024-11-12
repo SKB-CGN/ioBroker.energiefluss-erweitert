@@ -1,14 +1,9 @@
 {
-    "donate": "Als je deze adapter leuk vindt, overweeg dan om een ​​donatie te doen om mijn werk te ondersteunen.",
-    "enable_proxy": "Schakel pictogramproxy in",
-    "energiefluss-erweitert adapter settings": "Adapter instellingen voor energiefluss-erweitert",
-    "ex_access_key": "Gebruik de browsertoegangssleutel <b style='color: red;'>e</b> in de liveweergave om opnieuw naar de configuratiepagina te gaan.",
-    "ex_config": "Om de adapter te configureren, opent u deze via de instantielink. Daar vind je het configuratiewiel!",
-    "ex_key_combination": "toetsen combinatie",
-    "ex_lost_config": "Als je het configuratiewiel hebt uitgeschakeld en weer toegang nodig hebt tot de configuratie, volg dan de stappen:",
-    "ex_proxy_port": "Poort van de Icon Proxy (standaard: 10123)",
-    "ex_why_proxy": "U kunt de Icon-proxy gebruiken als sommige apparaten in uw netwerk geen internetverbinding hebben en u de pictogrammen daar ook op wilt weergeven.",
-    "main_settings": "Belangrijkste instellingen",
-    "proxy_port": "Proxy-poort",
-    "proxy_settings": "Proxy instellingen"
+    "accessKeyTx": "Gebruik de browsertoegangssleutel 'e' in de liveweergave om opnieuw naar de configuratiepagina te gaan.",
+    "browserTx": "Browser",
+    "donate": "Als je deze adapter leuk vindt, overweeg dan een donatie te doen om mijn werk te ondersteunen.",
+    "introTx": "Om de adapter te configureren, opent u deze via de instancelink. Daar vind je het configuratiewiel!",
+    "keyCombinationTx": "toetscombinatie",
+    "lostConfigTx": "Als u het configuratiewiel hebt uitgeschakeld en opnieuw toegang tot de configuratie nodig heeft, volgt u de stappen:",
+    "main_settings": "Hoofdinstellingen"
 }

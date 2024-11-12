@@ -1,14 +1,9 @@
 {
+    "accessKeyTx": "Utilice la clave de acceso del navegador 'e' dentro de la vista en vivo para acceder a la página de configuración nuevamente.",
+    "browserTx": "Navegador",
     "donate": "Si le gusta este adaptador, considere hacer una donación para apoyar mi trabajo.",
-    "enable_proxy": "Habilitar proxy de icono",
-    "energiefluss-erweitert adapter settings": "Configuración del adaptador para energiefluss-erweitert",
-    "ex_access_key": "Use la tecla de acceso del navegador <b style='color: red;'>e</b> dentro de la vista en vivo para volver a la página de configuración.",
-    "ex_config": "Para configurar el adaptador, ábralo a través del enlace de la instancia. ¡Allí encontrarás la rueda de configuración!",
-    "ex_key_combination": "combinación de teclas",
-    "ex_lost_config": "Si deshabilitó la rueda de configuración y necesita volver a acceder a la configuración, siga los pasos:",
-    "ex_proxy_port": "Puerto del Icon Proxy (Predeterminado: 10123)",
-    "ex_why_proxy": "Puede usar el proxy de íconos, si algunos dispositivos dentro de su red no tienen conexión a Internet y también desea mostrar los íconos en ellos.",
-    "main_settings": "Ajustes principales",
-    "proxy_port": "Puerto proxy",
-    "proxy_settings": "Configuración de proxy"
+    "introTx": "Para configurar el adaptador, ábralo a través del enlace de la instancia. ¡Allí encontrarás la rueda de configuración!",
+    "keyCombinationTx": "combinación de teclas",
+    "lostConfigTx": "Si deshabilitó la rueda de configuración y necesita acceder nuevamente a la configuración, siga los pasos:",
+    "main_settings": "Configuración principal"
 }

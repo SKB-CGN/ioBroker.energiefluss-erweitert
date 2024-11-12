@@ -1,7 +1,7 @@
 {
   "name": "iobroker.energiefluss-erweitert",
   "version": "0.5.1-alpha.10",
-  "description": "desc",
+  "description": "This ioBroker adapter is the next Version of the energiefluss with the attribute 'erweitert' and allows to display an energyflow animation inside an iframe or HTML DIV.",
   "author": {
     "name": "SKB",
     "email": "info@skb-web.de"

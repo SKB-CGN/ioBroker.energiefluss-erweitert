@@ -58,25 +58,33 @@
 			});
 			callback(obj);
 		}
-
-
 	</script>
+	<style>
+		.adapter-body {
+			overflow: hidden !important;
+		}
+
+		@media screen and (max-width: 768px) {
+			.adapter-body {
+				overflow: auto;
+			}
+		}
+	</style>
 </head>
 
 <body>
 	<div class="m adapter-container">
-		<div class="row">
+		<div class="row" style="height: 100%;">
 			<div class="col s12">
 				<ul class="tabs">
-					<li class="tab col s5"><a href="#tab-main" class="translate active">Main settings</a></li>
-					<li class="tab col s5"><a href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki"
+					<li class="tab col s4"><a href="#tab-main" class="translate">Main settings</a></li>
+					<li class="tab col s4"><a href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki"
 							target="_blank" class="translate" data-lang="wiki">Wiki</a></li>
 				</ul>
 			</div>
-
 			<div id="tab-main" class="col s12 page">
 				<div class="row">
-					<div class="input-field col s6">
+					<div class="col s12 m4 l2">
 						<img src="energiefluss-erweitert.png" class="logo">
 					</div>
 				</div>
@@ -84,25 +92,20 @@
 					<div class="col s12">
 						<p class="translate" data-lang="donate">If you like this adapter, please consider making a donation
 							to support my work.</p>
-						<p><a href="https://www.paypal.me/StephanKreyenborg" target="_blank"><img
+						<p><a href="https://www.paypal.com/donate/?hosted_button_id=XNR6XFB9UZ8UJ" target="_blank"><img
 									src="paypal-donate-button.png" alt="Donate" title="Donate"></a></p>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col s12">
-						<h6 class="title translate" data-lang="main_settings">Main Settings</h6>
-					</div>
-				</div>
-				<div class="row">
 					<div class="col s6">
-						<p class="translate" data-lang="ex_config">To configure the adapter, please open it via the instance
+						<p class="translate" data-lang="introTx">To configure the adapter, please open it via the instance
 							link. There you will find the configuration wheel!</p>
 					</div>
-					<div class=" col s6">
-						<p class="translate" data-lang="ex_lost_config">If you disabled the configuration wheel und need
+					<div class="col s6">
+						<p class="translate" data-lang="lostConfigTx">If you disabled the configuration wheel und need
 							again
 							access to the config, please follow the steps:</p>
-						<p class="translate" data-lang="ex_access_key">Use the browser access key <b style="color: red;">e</b>
+						<p class="translate" data-lang="accessKeyTx">Use the browser access key <b style="color: red;">e</b>
 							inside the live
 							view, to reach out to the config page again.</p>
 						<p><a href="https://en.wikipedia.org/wiki/Access_key" target="_blank">AccessKey at Wikipedia</a></p>
@@ -114,7 +117,7 @@
 							<thead>
 								<tr>
 									<th>Browser</th>
-									<th class="translate" data-lang="ex_key_combination">Key</th>
+									<th class="translate" data-lang="keyCombinationTx">Key</th>
 								</tr>
 							</thead>
 							<tbody>

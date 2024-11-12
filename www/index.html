@@ -12,23 +12,19 @@
     <link class=favicon rel=icon type=image/ico href="img/icons/favicon.ico">
     <meta name="msapplication-TileColor" content="#538ea3">
     <meta name="theme-color" content="#538ea3">
-    <!-- Load ioBroker scripts and styles-->
-    <link rel="stylesheet" href="style/jquery-ui.css">
 
-    <link rel="stylesheet" href="style/loading-spinner.css">
-    <link rel="stylesheet" href="style/style.css?v=0.5.1.10">
+    <link rel="stylesheet" href="style/jquery-ui.css">
+    <link rel="stylesheet" href="style/style.css?v=0.5.1.11">
 
     <script src="../../socket.io/socket.io.js"></script>
     <script src="js/jquery-3.6.4.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/translate.min.js"></script>
     <script src="js/words.js"></script>
-    <script src="js/functions.min.js?v=0.5.1.10"></script>
+    <script src="js/functions.min.js?v=0.5.1.11"></script>
 
     <style id="style_animation"></style>
-    <style id="style_general"></style>
     <style id="style_user"></style>
-
 </head>
 
 <body>
@@ -41,8 +37,7 @@
             <div class="loading-spinner-dot"></div>
             <div class="loading-spinner-dot"></div>
         </div>
-        <span id="loading_text" class="translate" data-lang="msg_loading_liveview">Loading your Energiefluss -
-            erweitert</span>
+        <span id="loading_text">Loading your Energiefluss - erweitert</span>
         <span id="loading_text_error"><a
                 href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Troubleshooting" class="translate"
                 data-lang="failmsg_not_reachable" target="_blank">If the page is not
@@ -50,9 +45,34 @@
                 find out, how
                 to
                 fix it!</a></span>
-        <div id="frameContainer">
+        <div id="frameContainer" class="popUpContainer">
             <div class="title">
-                <div class="close" onclick="closeEditorContainer('frame');"></div>
+                <div id="iframe_close" class="close" onclick="closeEditorContainer('frame');"></div>
+            </div>
+        </div>
+    </div>
+    <div id="errorLogContainer" class="popUpContainer">
+        <div class="title">
+            <span class="translate" data-lang="title_errorLog">Error LogC</span>
+            <div class="close" onclick="closeEditorContainer('errorLog');"></div>
+        </div>
+        <!-- Error Log -->
+        <div style="padding: .5em 1em;">
+            <div class="ef-table-div scrollbar">
+                <table class="ef-table log" id="errorLog-table">
+                    <thead>
+                        <th><span class="translate" data-lang="lbl_config_element">Element</span>
+                        </th>
+                        <th><span class="translate" data-lang="lbl_errorLog_for">For</span>
+                        </th>
+                        <th><span class="translate" data-lang="lbl_errorLog_message">Error message</span></span>
+                        </th>
+                        <th><span class="translate" data-lang="lbl_errorLog_function">Called function</span>
+                        </th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -93,8 +113,16 @@
         <!-- Icons -->
         <g id="placeholder_icons" class="placeholders"></g>
     </svg>
+    <div id="info_error_area">
+        <a href="javascript:openErrorLog();" class="translateT tt-element" data-lang-title="title_error_link"
+            title="Open Error Log">
+            <span class="iconify info_error_icon" data-icon="material-symbols:info-outline" data-width="24"
+                data-height="24"></span>
+        </a>
+    </div>
     <div id="config_link">
-        <a href="#" title="Configuration" accesskey="e">
+        <a href="#" class="translateT tt-element" data-lang-title="title_configuration" title="Configuration"
+            accesskey="e">
             <span class="iconify config_icon" data-icon="mdi:cog" data-width="24" data-height="24"></span>
         </a>
     </div>

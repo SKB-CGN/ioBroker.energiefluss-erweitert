@@ -1,14 +1,9 @@
 {
+    "accessKeyTx": "Verwenden Sie die Browser-Zugriffstaste „e“ in der Live-Ansicht, um erneut zur Konfigurationsseite zu gelangen.",
+    "browserTx": "Browser",
     "donate": "Wenn Ihnen dieser Adapter gefällt, denken Sie bitte über eine Spende nach, um meine Arbeit zu unterstützen.",
-    "enable_proxy": "Aktivieren Sie den Icon-Proxy",
-    "energiefluss-erweitert adapter settings": "Adaptereinstellungen für energiefluss-erweitert",
-    "ex_access_key": "Verwenden Sie die Browser-Zugriffstaste <b style='color: red;'>e</b> in der Live-Ansicht, um erneut zur Konfigurationsseite zu gelangen.",
-    "ex_config": "Um den Adapter zu konfigurieren, öffnen Sie ihn bitte über den Instanzlink. Dort finden Sie das Konfigurationsrad!",
-    "ex_key_combination": "Tastenkombination",
-    "ex_lost_config": "Wenn Sie das Konfigurationsrad deaktiviert haben und erneut Zugriff auf die Konfiguration benötigen, gehen Sie bitte wie folgt vor:",
-    "ex_proxy_port": "Port des Icon-Proxys (Standard: 10123)",
-    "ex_why_proxy": "Sie können den Icon-Proxy verwenden, wenn einige Geräte in Ihrem Netzwerk keine Internetverbindung haben und Sie die Icons auch auf ihnen anzeigen möchten.",
-    "main_settings": "Haupteinstellungen",
-    "proxy_port": "Proxy-Port",
-    "proxy_settings": "Proxy-Einstellungen"
+    "introTx": "Um den Adapter zu konfigurieren, öffnen Sie ihn bitte über den Instanzlink. Dort finden Sie das Konfigurationsrad!",
+    "keyCombinationTx": "Tastenkombination",
+    "lostConfigTx": "Wenn Sie das Konfigurationsrad deaktiviert haben und erneut Zugriff auf die Konfiguration benötigen, befolgen Sie bitte die Schritte:",
+    "main_settings": "Haupteinstellungen"
 }
