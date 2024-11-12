@@ -38,7 +38,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Improved UI
 - ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Information Icon on the live-view, to inform the user about any errors that have occured
 - ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Responsive Design for Adapter-Admin area added to meet new requirements
-- ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Added: last change timestamp corresponds to fix (#279)
+- ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Added: last change timestamp to datasource elements. Corresponds to fix (#279)
 
 ### 0.5.1-alpha.10 (2024-10-24)
 - ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Applied fill color of element could not be removed or set to transparent
