@@ -25,6 +25,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 * [English description](./docs/en/README.md)
 * [Deutsche Beschreibung](./docs/de/README.md)
 * [Views Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
+* [Wiki](/SKB-CGN/ioBroker.energiefluss-erweitert/wiki)
 
 ## Changelog
 <!--
