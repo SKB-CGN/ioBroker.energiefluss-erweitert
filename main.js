@@ -667,7 +667,8 @@ class EnergieflussErweitert extends utils.Adapter {
 		const promises = keys.map(async (key) => {
 			const stateValue = await this.getForeignStateAsync(obj[key].source);
 			if (stateValue) {
-				let timeStamp = '';
+				let timeStamp;
+
 				if (obj[key].option != -1) {
 					timeStamp = this.getTimeStamp(stateValue.ts, obj[key].option);
 				}
@@ -675,6 +676,7 @@ class EnergieflussErweitert extends utils.Adapter {
 				if (obj[key].option_lc != -1) {
 					timeStamp = this.getTimeStamp(stateValue.lc, obj[key].option_lc);
 				}
+
 				outputValues.values[key] = timeStamp;
 			}
 		});
@@ -1460,8 +1462,8 @@ class EnergieflussErweitert extends utils.Adapter {
 							if (value.source_option == 'relative' || value.source_option_lc == 'relative') {
 								relativeTimeCheck[key] = {
 									source: gDataSource.source,
-									option: value.source_option,
-									option_lc: value.source_option_lc
+									option: value.source_option || -1,
+									option_lc: value.source_option_lc || -1
 								}
 							}
 
@@ -1669,8 +1671,8 @@ class EnergieflussErweitert extends utils.Adapter {
 
 		// Starting Timer
 		if (Object.keys(relativeTimeCheck).length > 0) {
-			this.log.info(`Found relative Date Texts(${Object.keys(relativeTimeCheck).length}) to display.Activating timer!`);
-			this.log.debug(`Array for relative texts ${relativeTimeCheck} `);
+			this.log.info(`Found relative Date Texts(${Object.keys(relativeTimeCheck).length}) to display. Activating timer!`);
+			this.log.debug(`Array for relative texts ${JSON.stringify(relativeTimeCheck)} `);
 			globalInterval = this.setInterval(() => {
 				this.getRelativeTimeObjects(relativeTimeCheck);
 			}, 10000);
