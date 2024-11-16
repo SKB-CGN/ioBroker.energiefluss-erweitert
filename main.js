@@ -667,7 +667,15 @@ class EnergieflussErweitert extends utils.Adapter {
 		const promises = keys.map(async (key) => {
 			const stateValue = await this.getForeignStateAsync(obj[key].source);
 			if (stateValue) {
-				outputValues.values[key] = this.getTimeStamp(stateValue.ts, obj[key].option);
+				let timeStamp = '';
+				if (obj[key].option != -1) {
+					timeStamp = this.getTimeStamp(stateValue.ts, obj[key].option);
+				}
+
+				if (obj[key].option_lc != -1) {
+					timeStamp = this.getTimeStamp(stateValue.lc, obj[key].option_lc);
+				}
+				outputValues.values[key] = timeStamp;
 			}
 		});
 
@@ -1449,17 +1457,11 @@ class EnergieflussErweitert extends utils.Adapter {
 							outputValues.unit[key] = value.unit;
 
 							// Put into timer object for re-requesting
-							if (value.source_option == 'relative') {
+							if (value.source_option == 'relative' || value.source_option_lc == 'relative') {
 								relativeTimeCheck[key] = {
 									source: gDataSource.source,
-									option: value.source_option
-								}
-							}
-
-							if (value.source_option_lc == 'relative') {
-								relativeTimeCheck[key] = {
-									source: gDataSource.source,
-									option: value.source_option_lc
+									option: value.source_option,
+									option_lc: value.source_option_lc
 								}
 							}
 
