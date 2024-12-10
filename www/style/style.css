@@ -229,6 +229,7 @@ stop {
     flex-direction: column;
     /* Height minus Menu Bar */
     height: calc(100vh - 54px);
+    margin-right: 14px;
 }
 
 .menuContainer>div {
@@ -277,10 +278,11 @@ stop {
     width: min-content;
     margin-right: 10px;
     margin-bottom: 10px;
+    max-height: calc(100vh - 38px);
 }
 
 .tabbed.no_catch figure .tab1 .menuContainer {
-    height: inherit;
+    height: calc(100% - 20px);
 }
 
 .tabbed.no_catch figure .tab1 .menuContainer>div:nth-child(1) {
@@ -1811,7 +1813,7 @@ text {
 
 .tabbed figure {
     display: block;
-    margin: -1px 0;
+    margin: -6px -4px;
     min-width: 100%;
     clear: both;
     max-width: 100%;
@@ -1829,7 +1831,7 @@ text {
 }
 
 .tabbed figure>div {
-    padding: 5px;
+    margin: 5px;
     border: 1px solid silver;
 }
 
@@ -1867,8 +1869,8 @@ text {
     display: block;
     box-sizing: border-box;
     max-width: 99vw;
-    max-height: calc(100vh - 36px);
-    min-height: calc(100vh - 36px);
+    max-height: calc(100vh - 38px);
+    min-height: calc(100vh - 38px);
     overflow-y: auto;
     opacity: 1;
 }
@@ -2671,6 +2673,10 @@ nav label:active {
     .tabbed nav {
         padding-bottom: 4px;
     }
+
+    #svg_config_div {
+        min-height: calc(100vh - 90px);
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -2678,6 +2684,10 @@ nav label:active {
     fieldset.flex {
         width: 270px;
         min-width: 270px;
+    }
+
+    #svg_config_div {
+        min-height: inherit;
     }
 }
 
