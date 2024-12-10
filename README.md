@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.0 (2024-12-10)
 - ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Requested override value was not updated inside configuration, if state still has the same value
 - ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Dependency Eslint 9.x for ioBroker code-check and performance
 
