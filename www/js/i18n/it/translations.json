@@ -54,6 +54,7 @@
     "ex_reconnect_ref": "Ora scegli l'elemento iniziale o ConnectionPoint!",
     "failmsg_action_not_bool": "Questo stato non può essere commutato perché non è uno stato booleano!",
     "failmsg_align_impossible": "L'elemento target non può essere allineato!<br>La nuova posizione esaurisce l'area di lavoro!",
+    "failmsg_apply_override": "Si è verificato un errore nelle sostituzioni!<br>Si è verificato il seguente errore:",
     "failmsg_backup": "Impossibile ripristinare il backup!",
     "failmsg_backup_cancel": "Ripristino del backup annullato!",
     "failmsg_backup_no_valid": "Questo non è un backup valido da ripristinare!",

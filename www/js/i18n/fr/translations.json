@@ -54,6 +54,7 @@
     "ex_reconnect_ref": "Choisissez maintenant l'élément de départ ou ConnectionPoint !",
     "failmsg_action_not_bool": "Cet état ne peut pas être basculé, car ce n’est pas un état booléen !",
     "failmsg_align_impossible": "L'élément cible ne peut pas être aligné !<br>La nouvelle position dépasse l'espace de travail !",
+    "failmsg_apply_override": "Vous avez une erreur dans vos remplacements !<br>L'erreur suivante s'est produite :",
     "failmsg_backup": "La sauvegarde n'a pas pu être restaurée !",
     "failmsg_backup_cancel": "Restauration de sauvegarde annulée !",
     "failmsg_backup_no_valid": "Ce n'est pas une sauvegarde valide à restaurer !",

@@ -54,6 +54,7 @@
     "ex_reconnect_ref": "¡Ahora elija el elemento de inicio o ConnectionPoint!",
     "failmsg_action_not_bool": "¡Este estado no se puede alternar porque no es un estado booleano!",
     "failmsg_align_impossible": "¡El elemento de destino no se puede alinear!<br>¡La nueva posición se queda sin espacio de trabajo!",
+    "failmsg_apply_override": "¡Tienes un error en tus anulaciones!<br>Ocurrió el siguiente error:",
     "failmsg_backup": "¡No se pudo restaurar la copia de seguridad!",
     "failmsg_backup_cancel": "¡Restauración de copia de seguridad cancelada!",
     "failmsg_backup_no_valid": "¡Esta no es una copia de seguridad válida para restaurar!",

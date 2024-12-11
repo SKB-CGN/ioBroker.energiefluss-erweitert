@@ -54,6 +54,7 @@
     "ex_reconnect_ref": "Teraz wybierz element początkowy lub ConnectionPoint!",
     "failmsg_action_not_bool": "Tego stanu nie można przełączać, ponieważ nie jest to stan logiczny!",
     "failmsg_align_impossible": "Nie można wyrównać elementu docelowego!<br>Nowa pozycja wyczerpała obszar roboczy!",
+    "failmsg_apply_override": "Wystąpił błąd w zastąpieniu!<br>Wystąpił następujący błąd:",
     "failmsg_backup": "Nie można przywrócić kopii zapasowej!",
     "failmsg_backup_cancel": "Przywracanie kopii zapasowej anulowane!",
     "failmsg_backup_no_valid": "To nie jest prawidłowa kopia zapasowa do przywrócenia!",

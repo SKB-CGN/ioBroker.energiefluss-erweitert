@@ -54,6 +54,7 @@
     "ex_reconnect_ref": "Now choose the start element or ConnectionPoint!",
     "failmsg_action_not_bool": "This state can not be toggled, because it is not a boolean state!",
     "failmsg_align_impossible": "Target element can not be aligned!<br>The new position runs out of the workspace!",
+    "failmsg_apply_override": "You have an error in your overrides!<br>The following error occured:",
     "failmsg_backup": "Backup could not be restored!",
     "failmsg_backup_cancel": "Backup restore cancelled!",
     "failmsg_backup_no_valid": "This is not a valid backup to restore!",

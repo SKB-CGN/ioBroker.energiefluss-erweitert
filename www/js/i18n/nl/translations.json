@@ -54,6 +54,7 @@
     "ex_reconnect_ref": "Kies nu het startelement of ConnectionPoint!",
     "failmsg_action_not_bool": "Deze status kan niet worden gewijzigd, omdat het geen Booleaanse status is!",
     "failmsg_align_impossible": "Doelelement kan niet worden uitgelijnd!<br>De nieuwe positie loopt uit de werkruimte!",
+    "failmsg_apply_override": "Er is een fout opgetreden bij uw overschrijvingen!<br>De volgende fout is opgetreden:",
     "failmsg_backup": "Back-up kon niet worden hersteld!",
     "failmsg_backup_cancel": "Back-upherstel geannuleerd!",
     "failmsg_backup_no_valid": "Dit is geen geldige back-up om te herstellen!",

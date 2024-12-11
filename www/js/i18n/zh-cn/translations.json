@@ -54,6 +54,7 @@
     "ex_reconnect_ref": "现在选择开始元素或连接点！",
     "failmsg_action_not_bool": "该状态无法切换，因为它不是布尔状态！",
     "failmsg_align_impossible": "目标元素无法对齐！<br>新位置超出工作空间！",
+    "failmsg_apply_override": "您的覆盖有错误！<br>发生以下错误：",
     "failmsg_backup": "备份无法恢复！",
     "failmsg_backup_cancel": "备份恢复已取消！",
     "failmsg_backup_no_valid": "这不是要恢复的有效备份！",

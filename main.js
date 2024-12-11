@@ -846,60 +846,83 @@ class EnergieflussErweitert extends utils.Adapter {
         return strokeDash;
     }
 
-    /**
-     * Finds the best matching value for a given condition value in a given object.
-     * The condition value can be a string or a number.
-     * If the condition value is a string, the function will look for a property with the same name in the object.
-     * If the condition value is a number, the function will look for a property with an operator and a value that matches the condition value.
-     * The function will then evaluate the found value and return the result.
-     * If no matching value is found, the function will look for a default fallback in the object.
-     * If no default fallback is found, the function will return an empty object.
-     *
-     * @param condValue - The condition value to be searched for.
-     * @param obj - The object to search in.
-     * @returns A promise that resolves with the best matching value.
-     */
-    async getOverridesAsync(condValue, obj) {
-        let tmpWorker = {};
-        const workObj = typeof obj === 'string' ? JSON.parse(obj) : JSON.parse(JSON.stringify(obj));
+    async replacePlaceholders(value) {
+        const dpRegex = /{([^}]+)}/g;
+        const matches = [...value.matchAll(dpRegex)];
 
-        if (workObj.hasOwnProperty(condValue)) {
-            // Check, if Property exists - if yes, directly return it, because thats the best match
-            tmpWorker = workObj[condValue];
-        } else {
-            // Property not found. We need to check the values!
-            const operators = new RegExp('[=><!]');
-            Object.keys(workObj)
-                .sort((a, b) =>
-                    a.toLowerCase().localeCompare(b.toLowerCase(), undefined, { numeric: true, sensitivity: 'base' }),
-                )
-                .forEach(item => {
-                    if (operators.test(item)) {
-                        // Now, we need to check, if condValue is a number
-                        if (!isNaN(condValue)) {
-                            // Operator found - check for condition
-                            try {
-                                const func = Function(`return ${condValue}${item} `)();
-                                if (func) {
-                                    tmpWorker = workObj[item];
-                                }
-                            } catch (func) {
-                                tmpWorker.error = {
-                                    status: false,
-                                    error: func.toString(),
-                                    function: condValue + item,
-                                };
-                            }
-                        }
-                    }
-                });
+        for (const match of matches) {
+            if (match[1].split('.').length >= 2) {
+                const state = await this.getForeignStateAsync(match[1]);
+                if (state && state.val) {
+                    value = value.replace(match[0], state.val);
+                }
+            }
         }
 
-        if (Object.keys(tmpWorker).length == 0) {
+        return value;
+    }
+
+    evaluateConditions(workObj, condValue) {
+        let tmpWorker = {};
+        // Property not found. We need to check the values!
+        const operators = new RegExp('[=><!]');
+        Object.keys(workObj)
+            .sort((a, b) =>
+                a.toLowerCase().localeCompare(b.toLowerCase(), undefined, { numeric: true, sensitivity: 'base' }),
+            )
+            .forEach(item => {
+                if (operators.test(item)) {
+                    // Now, we need to check, if condValue is a number
+                    if (!isNaN(condValue)) {
+                        // Operator found - check for condition
+                        try {
+                            const func = Function(`return ${condValue}${item} `)();
+                            if (func) {
+                                tmpWorker = workObj[item];
+                            }
+                        } catch (func) {
+                            tmpWorker.error = {
+                                status: false,
+                                error: func.toString(),
+                                function: condValue + item,
+                            };
+                        }
+                    }
+                }
+            });
+        return tmpWorker;
+    }
+
+    async getOverridesAsync(condValue, obj) {
+        let tmpWorker = {};
+        let workObj;
+        try {
+            workObj = typeof obj === 'string' ? JSON.parse(obj) : JSON.parse(JSON.stringify(obj));
+        } catch (err) {
+            return tmpWorker;
+        }
+
+        if (Object.hasOwn(workObj, condValue)) {
+            // Check, if Property exists - if yes, directly return it, because thats the best match
+            return workObj[condValue];
+        }
+
+        tmpWorker = this.evaluateConditions(workObj, condValue);
+
+        if (Object.keys(tmpWorker).length == 0 && Object.hasOwn(workObj, 'default')) {
             // Check, if we have a default fallback for it
-            if (workObj.hasOwnProperty('default')) {
-                tmpWorker = workObj['default'];
-            }
+            tmpWorker = workObj['default'];
+        }
+
+        if (typeof tmpWorker == 'string') {
+            // Return the Object as Error
+            return {
+                error: {
+                    status: false,
+                    error: 'You need to provide an object for this condition to work! Visit the <a href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements" target="_blank">Wiki</a> for help!',
+                    function: 'No function executed, due to missing object',
+                },
+            };
         }
 
         // Now we process the found values inside tmpWorker Obj
@@ -911,20 +934,7 @@ class EnergieflussErweitert extends utils.Adapter {
                 // Check if we are not destroying the error object
                 if (typeof itemToWorkWith != 'object') {
                     itemToWorkWith = itemToWorkWith.toString();
-                    const dp_regex = /{([^}]+)}/g;
-                    const foundDPS = [...itemToWorkWith.matchAll(dp_regex)];
-                    if (foundDPS.length > 0) {
-                        for (const match of foundDPS) {
-                            // Check, if match contains min. 2 dots - then its a state
-                            const checkForState = match[1].match(/\./g);
-                            if (checkForState != null && checkForState.length >= 2) {
-                                const state = await this.getForeignStateAsync(match[1]);
-                                if (state && state.val) {
-                                    itemToWorkWith = itemToWorkWith.replace(match[0], state.val);
-                                }
-                            }
-                        }
-                    }
+                    itemToWorkWith = await this.replacePlaceholders(itemToWorkWith);
 
                     try {
                         const func = new Function(`return ${itemToWorkWith} `)();

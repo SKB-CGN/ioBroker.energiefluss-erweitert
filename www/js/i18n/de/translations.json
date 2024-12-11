@@ -54,6 +54,7 @@
     "ex_reconnect_ref": "Wählen Sie nun das Startelement bzw. ConnectionPoint!",
     "failmsg_action_not_bool": "Dieser Zustand kann nicht umgeschaltet werden, da es sich nicht um einen booleschen Zustand handelt!",
     "failmsg_align_impossible": "Zielelement kann nicht ausgerichtet werden!<br>Die neue Position läuft außerhalb des Arbeitsbereichs!",
+    "failmsg_apply_override": "Bei Ihren Überschreibungen ist ein Fehler aufgetreten!<br>Der folgende Fehler ist aufgetreten:",
     "failmsg_backup": "Backup konnte nicht wiederhergestellt werden!",
     "failmsg_backup_cancel": "Backup-Wiederherstellung abgebrochen!",
     "failmsg_backup_no_valid": "Dies ist kein gültiges Backup zum Wiederherstellen!",
