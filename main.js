@@ -278,7 +278,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
                             await this.calculateValue(id, obj.message, state);
                             this.log.debug(`Found ${obj.message.source} and calculated the value for Web-ID: ${id}!`);
-                            if (outputValues.values.hasOwnProperty(id)) {
+                            if (Object.hasOwn(outputValues.values, id)) {
                                 let returnObj = {
                                     values: {},
                                     unit: {},
@@ -898,7 +898,7 @@ class EnergieflussErweitert extends utils.Adapter {
         let workObj;
         try {
             workObj = typeof obj === 'string' ? JSON.parse(obj) : JSON.parse(JSON.stringify(obj));
-        } catch (err) {
+        } catch {
             return tmpWorker;
         }
 
@@ -969,7 +969,7 @@ class EnergieflussErweitert extends utils.Adapter {
             let cssRules = [];
 
             // Check, if we handle this source inside our subscribtion
-            if (sourceObject.hasOwnProperty(id)) {
+            if (Object.hasOwn(sourceObject, id)) {
                 // sourceObject for this state-id
                 const soObj = sourceObject[id];
 
@@ -1006,7 +1006,7 @@ class EnergieflussErweitert extends utils.Adapter {
                                 cssRules.push(elmID);
                             }
 
-                            if (settingsObj.hasOwnProperty(elmID)) {
+                            if (Object.hasOwn(settingsObj, elmID)) {
                                 this.log.debug(`Value-Settings for Element ${elmID} found! Applying Settings!`);
                                 await this.calculateValue(elmID, settingsObj[elmID], state);
                             }
@@ -1014,22 +1014,22 @@ class EnergieflussErweitert extends utils.Adapter {
                     };
 
                     // Loop through each addSource
-                    if (soObj.hasOwnProperty('addSources') && soObj['addSources'].length) {
+                    if (Object.hasOwn(soObj, 'addSources') && soObj['addSources'].length) {
                         await sourceRunner('addSources');
                     }
 
                     // Loop through each subtractSource
-                    if (soObj.hasOwnProperty('subtractSources') && soObj['subtractSources'].length) {
+                    if (Object.hasOwn(soObj, 'subtractSources') && soObj['subtractSources'].length) {
                         await sourceRunner('subtractSources');
                     }
 
                     // Loop through each Element, which belongs to that source
-                    if (soObj.hasOwnProperty('elmSources') && soObj['elmSources'].length) {
+                    if (Object.hasOwn(soObj, 'elmSources') && soObj['elmSources'].length) {
                         await sourceRunner('elmSources');
                     }
 
                     // Check, if that Source belongs to battery-charge or discharge, to determine the time
-                    if (globalConfig.hasOwnProperty('calculation')) {
+                    if (Object.hasOwn(globalConfig, 'calculation')) {
                         // Check, if the provided source is a valid source
                         const isValidDatasource = value => {
                             if (value === null || value === undefined || value === '') {
@@ -1046,7 +1046,7 @@ class EnergieflussErweitert extends utils.Adapter {
                         };
 
                         // Battery Remaining
-                        if (globalConfig.calculation.hasOwnProperty('battery')) {
+                        if (Object.hasOwn(globalConfig.calculation, 'battery')) {
                             const batObj = globalConfig.calculation.battery;
                             const isRelevantId = soObj.id == batObj.charge || soObj.id == batObj.discharge;
 
@@ -1152,7 +1152,7 @@ class EnergieflussErweitert extends utils.Adapter {
                         }
 
                         // Consumption calculation
-                        if (globalConfig.calculation.hasOwnProperty('consumption')) {
+                        if (Object.hasOwn(globalConfig.calculation, 'consumption')) {
                             const consObj = globalConfig.calculation.consumption;
                             const { gridFeed, gridConsume, batteryCharge, batteryDischarge, production } = consObj;
                             const isRelevantId =
@@ -1346,7 +1346,7 @@ class EnergieflussErweitert extends utils.Adapter {
                     }
 
                     // Animations
-                    if (soObj.hasOwnProperty('elmAnimations')) {
+                    if (Object.hasOwn(soObj, 'elmAnimations')) {
                         this.log.debug(`Found corresponding animations for ID: ${id} !Applying!`);
                         for (const _key of Object.keys(soObj.elmAnimations)) {
                             const src = soObj.elmAnimations[_key];
@@ -1360,7 +1360,7 @@ class EnergieflussErweitert extends utils.Adapter {
                             let tmpAnimValid = true;
 
                             // Animations
-                            if (settingsObj.hasOwnProperty(src)) {
+                            if (Object.hasOwn(settingsObj, src)) {
                                 this.log.debug(`Animation - Settings for Element ${src} found! Applying Settings!`);
                                 const seObj = settingsObj[src];
 
@@ -1437,7 +1437,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
                                 // Overrides for Lines
                                 let line_id = src.replace('anim', 'line');
-                                if (settingsObj.hasOwnProperty(line_id)) {
+                                if (Object.hasOwn(settingsObj, line_id)) {
                                     outputValues.override[line_id] = await this.getOverridesAsync(
                                         calcNumber,
                                         settingsObj[line_id].override,
@@ -1602,11 +1602,11 @@ class EnergieflussErweitert extends utils.Adapter {
         this.log.debug(JSON.stringify(globalConfig));
 
         // Collect all Datasources
-        if (globalConfig.hasOwnProperty('datasources')) {
+        if (Object.hasOwn(globalConfig, 'datasources')) {
             for (const key of Object.keys(globalConfig.datasources)) {
                 const value = globalConfig.datasources[key];
                 this.log.debug(`Datasource: ${JSON.stringify(value)} `);
-                if (value.source != '' && value.hasOwnProperty('source')) {
+                if (value.source != '' && Object.hasOwn(value, 'source')) {
                     try {
                         const stateValue = await this.getForeignStateAsync(value.source);
                         if (stateValue) {
@@ -1637,7 +1637,7 @@ class EnergieflussErweitert extends utils.Adapter {
         }
 
         // Collect the Elements, which are using the sources
-        if (globalConfig.hasOwnProperty('elements')) {
+        if (Object.hasOwn(globalConfig, 'elements')) {
             // Check, if calculation elements are still present
             const elmIDs = Object.keys(globalConfig.elements);
             const calcStates = await this.getStatesAsync('calculation.elements.*');
@@ -1664,9 +1664,9 @@ class EnergieflussErweitert extends utils.Adapter {
             for (const key of Object.keys(globalConfig.elements)) {
                 const value = globalConfig.elements[key];
                 // Normal sources via Datasources
-                if (value.hasOwnProperty('source') && globalConfig.datasources.hasOwnProperty(value.source)) {
+                if (Object.hasOwn(value, 'source') && Object.hasOwn(globalConfig.datasources, value.source)) {
                     const gDataSource = globalConfig.datasources[value.source];
-                    if (sourceObject.hasOwnProperty(gDataSource.source)) {
+                    if (Object.hasOwn(sourceObject, gDataSource.source)) {
                         const objObject = await this.getForeignObjectAsync(gDataSource.source);
                         if (objObject) {
                             // Save Settings for each object
@@ -1765,7 +1765,7 @@ class EnergieflussErweitert extends utils.Adapter {
                                     for (const add of addArray) {
                                         if (add !== -1) {
                                             const dataSource = globalConfig.datasources[add];
-                                            if (sourceObject.hasOwnProperty(dataSource.source)) {
+                                            if (Object.hasOwn(sourceObject, dataSource.source)) {
                                                 sourceObject[dataSource.source].addSources.push(parseInt(key));
                                             } else {
                                                 this.log.warn(
@@ -1805,7 +1805,7 @@ class EnergieflussErweitert extends utils.Adapter {
                                     for (const subtract of subtractArray) {
                                         if (subtract !== -1) {
                                             const dataSource = globalConfig.datasources[subtract];
-                                            if (sourceObject.hasOwnProperty(dataSource.source)) {
+                                            if (Object.hasOwn(sourceObject, dataSource.source)) {
                                                 sourceObject[dataSource.source].subtractSources.push(parseInt(key));
                                             } else {
                                                 this.log.warn(
@@ -1833,7 +1833,7 @@ class EnergieflussErweitert extends utils.Adapter {
                         const stateValue = await this.getForeignStateAsync(hrefString[1]);
                         if (stateValue) {
                             // Check, if we use it already inside elements
-                            if (settingsObj.hasOwnProperty(key)) {
+                            if (Object.hasOwn(settingsObj, key)) {
                                 settingsObj[key].href = hrefString[1];
                             } else {
                                 // Complete object for this
@@ -1854,7 +1854,7 @@ class EnergieflussErweitert extends utils.Adapter {
                             );
 
                             // Create sourceObject, for handling sources
-                            if (sourceObject.hasOwnProperty(hrefString[1])) {
+                            if (Object.hasOwn(sourceObject, hrefString[1])) {
                                 sourceObject[hrefString[1]].elmSources.push(key);
                             } else {
                                 sourceObject[hrefString[1]] = {
@@ -1876,10 +1876,10 @@ class EnergieflussErweitert extends utils.Adapter {
         }
 
         // Animations
-        if (globalConfig.hasOwnProperty('animations')) {
+        if (Object.hasOwn(globalConfig, 'animations')) {
             for (const key of Object.keys(globalConfig.animations)) {
                 const value = globalConfig.animations[key];
-                if (value.source != -1 && value.hasOwnProperty('source')) {
+                if (value.source != -1 && Object.hasOwn(value, 'source')) {
                     this.log.debug(`Animation for Source: ${value.source} is: ${key} `);
                     // Save Settings for each object
                     settingsObj[key] = {
@@ -1901,7 +1901,7 @@ class EnergieflussErweitert extends utils.Adapter {
                     const dataSource = globalConfig.datasources[value.source];
 
                     // Put Animation into Source
-                    if (sourceObject.hasOwnProperty(dataSource.source)) {
+                    if (Object.hasOwn(sourceObject, dataSource.source)) {
                         sourceObject[dataSource.source].elmAnimations.push(key);
                     } else {
                         this.log.warn(
@@ -1914,7 +1914,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
                     // Check, if corresponding line has override properties as well
                     let line_id = key.replace('anim', 'line');
-                    if (globalConfig.lines[line_id].hasOwnProperty('override')) {
+                    if (Object.hasOwn(globalConfig.lines[line_id], 'override')) {
                         this.log.debug(`Found override for line ${line_id} in combination with Animation ${key} `);
                         settingsObj[line_id] = {
                             override: globalConfig.lines[line_id].override,

@@ -18,7 +18,8 @@ export default [
             'admin/admin.d.ts',
             '**/adapter-config.d.ts',
 	    'lib/dictionary.js',
-            'www/**/*.js',
+            'www/js/**',
+            '!www/js/functions.min.js',
         ],
     },
     {
@@ -28,7 +29,6 @@ export default [
         // not block buiuld process.
         rules: {
             // 'jsdoc/require-jsdoc': 'off',
-            "no-prototype-builtins": "off"
         },
     },
 ];
