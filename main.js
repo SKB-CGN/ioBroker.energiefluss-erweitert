@@ -190,7 +190,10 @@ class EnergieflussErweitert extends utils.Adapter {
                                 this.sendTo(obj.from, obj.command, { error: err }, obj.callback);
                             } else {
                                 // Send new config back to workspace and store in state
-                                this.setStateChangedAsync('configuration', { val: data, ack: true });
+                                this.setStateChangedAsync('configuration', {
+                                    val: data,
+                                    ack: true,
+                                });
                                 this.sendTo(
                                     obj.from,
                                     obj.command,
@@ -308,7 +311,9 @@ class EnergieflussErweitert extends utils.Adapter {
                                 this.sendTo(
                                     obj.from,
                                     obj.command,
-                                    { error: 'There was an error, while getting the updated value!' },
+                                    {
+                                        error: 'There was an error, while getting the updated value!',
+                                    },
                                     obj.callback,
                                 );
                             }
@@ -322,7 +327,9 @@ class EnergieflussErweitert extends utils.Adapter {
                         this.sendTo(
                             obj.from,
                             obj.command,
-                            { error: `Received command "${obj.command}" via 'sendTo', which is not implemented!` },
+                            {
+                                error: `Received command "${obj.command}" via 'sendTo', which is not implemented!`,
+                            },
                             obj.callback,
                         );
                         break;
@@ -358,8 +365,9 @@ class EnergieflussErweitert extends utils.Adapter {
      * @returns Value
      */
     async calculateValue(id, obj, state) {
+        // prettier-ignore
         const factor = Object.hasOwn(globalConfig.datasources, obj.source)
-            ? globalConfig.datasources[obj.source].factor ?? 1
+            ? (globalConfig.datasources[obj.source].factor ?? 1)
             : 1;
         let sourceValue = rawValues[obj.source] * factor;
 
@@ -874,7 +882,10 @@ class EnergieflussErweitert extends utils.Adapter {
         const operators = new RegExp('[=><!]');
         Object.keys(workObj)
             .sort((a, b) =>
-                a.toLowerCase().localeCompare(b.toLowerCase(), undefined, { numeric: true, sensitivity: 'base' }),
+                a.toLowerCase().localeCompare(b.toLowerCase(), undefined, {
+                    numeric: true,
+                    sensitivity: 'base',
+                }),
             )
             .forEach(item => {
                 if (operators.test(item)) {
@@ -983,8 +994,9 @@ class EnergieflussErweitert extends utils.Adapter {
 
             // Number for calculation
             const stateValue = state.val;
+            // prettier-ignore
             const factor = Object.hasOwn(globalConfig.datasources, soObj.id)
-                ? globalConfig.datasources[soObj.id].factor ?? 1
+                ? (globalConfig.datasources[soObj.id].factor ?? 1)
                 : 1;
 
             const calcNumber =
@@ -1545,7 +1557,10 @@ class EnergieflussErweitert extends utils.Adapter {
             );
 
             // Build Output
-            this.setStateChangedAsync('data', { val: JSON.stringify(outputValues), ack: true });
+            this.setStateChangedAsync('data', {
+                val: JSON.stringify(outputValues),
+                ack: true,
+            });
         } else {
             this.log.warn(
                 `State changed! New value for Source: ${id} belongs to Elements, which were not found! Please check them!`,
