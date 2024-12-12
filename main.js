@@ -366,7 +366,7 @@ class EnergieflussErweitert extends utils.Adapter {
      */
     async calculateValue(id, obj, state) {
         // prettier-ignore
-        const factor = Object.hasOwn(globalConfig.datasources, obj.source)
+        const factor = globalConfig?.datasources && Object.hasOwn(globalConfig.datasources, obj.source)
             ? (globalConfig.datasources[obj.source].factor ?? 1)
             : 1;
         let sourceValue = rawValues[obj.source] * factor;
@@ -995,7 +995,7 @@ class EnergieflussErweitert extends utils.Adapter {
             // Number for calculation
             const stateValue = state.val;
             // prettier-ignore
-            const factor = Object.hasOwn(globalConfig.datasources, soObj.id)
+            const factor = globalConfig?.datasources && Object.hasOwn(globalConfig.datasources, soObj.id)
                 ? (globalConfig.datasources[soObj.id].factor ?? 1)
                 : 1;
 
