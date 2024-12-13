@@ -441,23 +441,24 @@ class EnergieflussErweitert extends utils.Adapter {
                                 }
                                 break;
 
-                            case 'text': {
-                                // Linebreak Option
-                                let strOutput;
-                                if (obj.linebreak > 0 && state.val && state.val.toString().length > 0) {
-                                    let splitOpt = new RegExp(
-                                        `.{0,${obj.linebreak}}(?:\\s|$)|.{0,${obj.linebreak}}`,
-                                        'g',
-                                    );
-                                    let splitted = state.val.toString().match(splitOpt);
-                                    strOutput = splitted.join('<br>');
-                                } else {
-                                    strOutput = state.val;
+                            case 'text':
+                                {
+                                    // Linebreak Option
+                                    let strOutput;
+                                    if (obj.linebreak > 0 && state.val && state.val.toString().length > 0) {
+                                        let splitOpt = new RegExp(
+                                            `.{0,${obj.linebreak}}(?:\\s|$)|.{0,${obj.linebreak}}`,
+                                            'g',
+                                        );
+                                        let splitted = state.val.toString().match(splitOpt);
+                                        strOutput = splitted.join('<br>');
+                                    } else {
+                                        strOutput = state.val;
+                                    }
+                                    outputValues.values[id] = strOutput;
+                                    sourceValue = strOutput;
                                 }
-                                outputValues.values[id] = strOutput;
-                                sourceValue = strOutput;
                                 break;
-                            }
 
                             case 'bool':
                                 outputValues.values[id] = sourceValue
@@ -861,15 +862,20 @@ class EnergieflussErweitert extends utils.Adapter {
     }
 
     async replacePlaceholders(value) {
-        const dpRegex = /{([^}]+)}/g;
+        const dpRegex = /\{([a-zA-Z0-9_]+(?:\.[a-zA-Z0-9_]+){2,})\}/g;
         const matches = [...value.matchAll(dpRegex)];
 
         for (const match of matches) {
-            if (match[1].split('.').length >= 2) {
-                const state = await this.getForeignStateAsync(match[1]);
-                if (state && state.val) {
-                    value = value.replace(match[0], state.val);
-                }
+            const state = await this.getForeignStateAsync(match[1]);
+            // State found
+            if (state && state.val) {
+                value = value.replace(match[0], state.val);
+            } else {
+                return {
+                    status: false,
+                    error: `Error: State <b>${match[1]}</b> not found!`,
+                    function: value,
+                };
             }
         }
 
@@ -951,20 +957,27 @@ class EnergieflussErweitert extends utils.Adapter {
                 // Check if we are not destroying the error object
                 if (typeof itemToWorkWith != 'object') {
                     itemToWorkWith = itemToWorkWith.toString();
-                    itemToWorkWith = await this.replacePlaceholders(itemToWorkWith);
+                    const replacedItems = await this.replacePlaceholders(itemToWorkWith);
+                    if (replacedItems?.status === false) {
+                        tmpWorker[item] = replacedItems;
+                        break;
+                    } else {
+                        this.log.debug(`Running function: ${itemToWorkWith}`);
+                        itemToWorkWith = replacedItems;
 
-                    try {
-                        const func = new Function(`return ${itemToWorkWith} `)();
-                        tmpWorker[item] = func(condValue);
-                    } catch (func) {
-                        if (itemToWorkWith.includes('=>')) {
-                            tmpWorker[item] = {
-                                status: false,
-                                error: func.toString(),
-                                function: itemToWorkWith,
-                            };
-                        } else {
-                            tmpWorker[item] = itemToWorkWith;
+                        try {
+                            const func = new Function(`return ${itemToWorkWith} `)();
+                            tmpWorker[item] = func(condValue);
+                        } catch (func) {
+                            if (itemToWorkWith.includes('=>')) {
+                                tmpWorker[item] = {
+                                    status: false,
+                                    error: func.toString(),
+                                    function: itemToWorkWith,
+                                };
+                            } else {
+                                tmpWorker[item] = itemToWorkWith;
+                            }
                         }
                     }
                 }
