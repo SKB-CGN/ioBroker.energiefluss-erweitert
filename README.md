@@ -23,8 +23,8 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 
 * [Forum thread](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
 * [English description](./docs/en/README.md)
-* [Deutsche Beschreibung](./docs/de/README.md)
-* [Views Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
+* :de: [Deutsche Beschreibung](./docs/de/README.md)
+* :gb: [Views Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
 * [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki)
 
 ## Changelog
