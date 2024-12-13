@@ -37,6 +37,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - :heavy_plus_sign: Added: Linebreaks for states with numbers are also accepted
 - :heavy_plus_sign: Added: Warning message during configuration, if element overrides can not be processed
 - :heavy_plus_sign: Added: Some more Eslint checks for saver code
+- :heavy_plus_sign: Added: Overrides for elements support now more complex code - even inside a function block and with variables
 - :white_check_mark: FIX: New installed instance could crash, if the datsource is fetched for the first time 
 - :white_check_mark: FIX: Handler for malformatted overrides added, to prevent a crash of the adapter
 - :white_check_mark: FIX: If width or height of elements are empty or smaller than zero, this setting could not be reverted
