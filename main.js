@@ -862,7 +862,7 @@ class EnergieflussErweitert extends utils.Adapter {
     }
 
     async replacePlaceholders(value) {
-        const dpRegex = /\{([a-zA-Z0-9_]+(?:\.[a-zA-Z0-9_]+){2,})\}/g;
+        const dpRegex = /\{([^{}]+\.[^{}]+\.[^{}]+)\}/g;
         const matches = [...value.matchAll(dpRegex)];
 
         for (const match of matches) {
