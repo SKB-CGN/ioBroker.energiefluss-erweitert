@@ -32,8 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.6.1 (2024-12-13)
 - :heavy_plus_sign: Added: Linebreaks for states with numbers are also accepted
 - :heavy_plus_sign: Added: Warning message during configuration, if element overrides can not be processed
 - :heavy_plus_sign: Added: Some more Eslint checks for saver code
