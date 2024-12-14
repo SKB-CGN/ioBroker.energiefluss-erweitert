@@ -866,9 +866,11 @@ class EnergieflussErweitert extends utils.Adapter {
         const matches = [...value.matchAll(dpRegex)];
 
         for (const match of matches) {
+            this.log.info(`Trying to receive: ${match[1]}`);
             const state = await this.getForeignStateAsync(match[1]);
+            this.log.info(`Received: ${JSON.stringify(state)} via ${match[1]}`);
             // State found
-            if (state && state.val) {
+            if (state) {
                 value = value.replace(match[0], state.val);
             } else {
                 return {
