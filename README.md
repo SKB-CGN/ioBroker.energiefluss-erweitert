@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.2 (2024-12-19)
 - FIX: Further fix for properties of elements, if their value is empty or zero - elements could not be handled anymore
 - FIX: While using installed browser application (PWA with https) or shortcuts on mobile devices, always instance 0 was fetched. Now each instance can be linked
 - Added: Improved language detection
