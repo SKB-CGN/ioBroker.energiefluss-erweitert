@@ -1615,13 +1615,10 @@ fieldset.small {
 
 #config_bar>.title,
 .popUpContainer>.title {
-    top: 0;
-    position: sticky;
     background-color: var(--primary);
     width: 100%;
     height: 32px;
     font-size: 16px;
-    z-index: 10;
     color: var(--white);
     font-weight: 600;
 }

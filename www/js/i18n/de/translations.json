@@ -508,5 +508,7 @@
     "value_set_value": "Wert einstellen",
     "value_top": "Spitze",
     "value_top_left": "oben links",
-    "value_top_right": "oben rechts"
+    "value_top_right": "oben rechts",
+    "pwa_shortcut_open": "Instanz %s öffnen",
+    "pwa_shortcut_description": "Öffne deinen Energiefluss-erweitert"
 }

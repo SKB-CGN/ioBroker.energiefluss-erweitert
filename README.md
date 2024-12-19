@@ -32,6 +32,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Further fix for properties of elements, if their value is empty or zero - elements could not be handled anymore
+- FIX: While using installed browser application (PWA with https) or shortcuts on mobile devices, always instance 0 was fetched. Now each instance can be linked
+- Added: Improved language detection
+
 ### 0.6.1 (2024-12-13)
 - Added: Linebreaks for states with numbers are also accepted
 - Added: Warning message during configuration, if element overrides can not be processed

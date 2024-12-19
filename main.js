@@ -44,6 +44,7 @@ class EnergieflussErweitert extends utils.Adapter {
         super({
             ...options,
             name: 'energiefluss-erweitert',
+            useFormatDate: true,
         });
         this.on('ready', this.onReady.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
@@ -56,6 +57,9 @@ class EnergieflussErweitert extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
+        // Language
+        systemLang = this.language ?? 'en';
+
         // Initialize your adapter here
 
         /* Create Adapter Directory - Backup */
@@ -88,15 +92,6 @@ class EnergieflussErweitert extends utils.Adapter {
             }
             // After creation of new backup - delete the state
             this.log.info('Convertion of backups finished');
-        }
-
-        // Get language of ioBroker
-        const configState = await this.getForeignObjectAsync('system.config');
-        if (configState) {
-            systemLang = configState?.common.language ?? 'en';
-            this.log.debug(`Using language: ${systemLang}`);
-        } else {
-            this.log.warn('Could not get language of ioBroker! Using english instead!');
         }
 
         // Delete old Objects
@@ -866,9 +861,9 @@ class EnergieflussErweitert extends utils.Adapter {
         const matches = [...value.matchAll(dpRegex)];
 
         for (const match of matches) {
-            this.log.info(`Trying to receive: ${match[1]}`);
+            this.log.debug(`Trying to receive: ${match[1]}`);
             const state = await this.getForeignStateAsync(match[1]);
-            this.log.info(`Received: ${JSON.stringify(state)} via ${match[1]}`);
+            this.log.debug(`Received: ${JSON.stringify(state)} via ${match[1]}`);
             // State found
             if (state) {
                 value = value.replace(match[0], state.val);
