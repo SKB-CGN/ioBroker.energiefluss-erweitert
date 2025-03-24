@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.2.3",
-    "multer": "^1.4.5-lts.1",
+    "multer": "^1.4.5-lts.2",
     "sharp": "^0.33.5",
     "url": "^0.11.4"
   },
