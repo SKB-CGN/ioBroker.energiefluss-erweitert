@@ -43,6 +43,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - FIX: If the used WebView on devices is too old, the live-view could not be displayed (#292, #324)
 - FIX: Overwrites with javascript functions could be falsy detected as datapoint {my.0.datapoint}
 - FIX: Gallery did not show the last uploaded image directly, if uploading several images at once
+- Added: Dependencies updated (Web-Adapter: 6.1.10 and Admin: 6.0.0 are now required) (#332)
 - Added: Inside the images select dialog uploads are possible
 - Added: Pictures can now be rotated
 - Added: If a value is set to be animated while changing the value, a visual effect is added to indicate the change
@@ -51,10 +52,6 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Strg/Meta (Mac) + A now selects all elements except lines
 - Added: Copied elements can now be inserted at the current pointer position
 - Added: Holding down the Shift key enables 2 modes: 1. moving elements with the keyboard, 10 steps per key press are possible | 2. moving elements with the mouse, the element snaps in the next grid
-- Added: The live view and workspace now have toast messages on the top right corner to inform the user. For better usage, the user is also informed with tips which can be deactivated
-- Added: Datasources will not be deleted directly - they will be marked for deletion and will be deleted once the workspace is saved. Before, the user is able to restore them
-- Added: Dependencies updated (Web-Adapter: 6.1.10 and Admin: 6.0.0 are now required) (#332)
-- Added: A workspace tour shows the user how to use the basic functions
 - Added: Password protection for workspace. Password can be set inside the adapter-settings!
 - Added: An URL parameter "lang=en" can now be attached to the URL, to display the live view and configuration workspace in the defined language
 - Added: UI optimizations
