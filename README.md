@@ -57,6 +57,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: A workspace tour shows the user how to use the basic functions
 - Added: Password protection for workspace. Password can be set inside the adapter-settings!
 - Added: An URL parameter "lang=en" can now be attached to the URL, to display the live view and configuration workspace in the defined language
+- Added: New element: switch is now available
 - Added: UI optimizations
 
 ### 0.6.2 (2024-12-19)
