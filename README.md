@@ -34,10 +34,6 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 -->
 ### **WORK IN PROGRESS**
 - FIX: If a line reconnection is aborted, the initial selected line was unselected
-- FIX: Rotation for texts was not rotating around the own center
-- FIX: Help text for connecting lines was missing
-- FIX: Rightclick on a line, deletion was working, but element showed as inactive
-- FIX: When moving multiple elements, it may happen that if one element would leave the workspace and is stopped, the other element still moves on
 - FIX: Workspace could not be re-sized under some circumstances
 - FIX: Leaving workspace open, sometimes results in adding the same datasources again and again
 - FIX: If the used WebView on devices is too old, the live-view could not be displayed (#292, #324)
