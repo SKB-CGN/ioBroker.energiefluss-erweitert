@@ -34,6 +34,10 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 -->
 ### 0.7.0 (2025-04-09)
 - FIX: If a line reconnection is aborted, the initial selected line was unselected
+- FIX: Rotation for texts was not rotating around the own center
+- FIX: Help text for connecting lines was missing
+- FIX: Rightclick on a line, deletion was working, but element showed as inactive
+- FIX: When moving multiple elements, it may happen that if one element would leave the workspace and is stopped, the other element still moves on
 - FIX: Workspace could not be re-sized under some circumstances
 - FIX: Leaving workspace open, sometimes results in adding the same datasources again and again
 - FIX: If the used WebView on devices is too old, the live-view could not be displayed (#292, #324)
@@ -48,6 +52,9 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Strg/Meta (Mac) + A now selects all elements except lines
 - Added: Copied elements can now be inserted at the current pointer position
 - Added: Holding down the Shift key enables 2 modes: 1. moving elements with the keyboard, 10 steps per key press are possible | 2. moving elements with the mouse, the element snaps in the next grid
+- Added: The live view and workspace now have toast messages on the top right corner to inform the user. For better usage, the user is also informed with tips which can be deactivated
+- Added: Datasources will not be deleted directly - they will be marked for deletion and will be deleted once the workspace is saved. Before, the user is able to restore them
+- Added: A workspace tour shows the user how to use the basic functions
 - Added: Password protection for workspace. Password can be set inside the adapter-settings!
 - Added: An URL parameter "lang=en" can now be attached to the URL, to display the live view and configuration workspace in the defined language
 - Added: UI optimizations
