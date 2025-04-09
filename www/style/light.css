@@ -4,16 +4,19 @@
     --black: #000;
     --blackTrans: rgba(0, 0, 0, 0.4);
     --white: #FFF;
-    --darkestGrey: rgb(153, 153, 153);
+    --darkestGrey: #999999;
     --transparent: transparent;
     --creme: #F5F5F5;
     --silvergrey: #d3d3d3;
     --darkgrey: #efefef;
-    --red: lightcoral;
+    --red: #dc3545;
+    --green: #28a745;
+    --blue: #538ea3;
+    --yellow: #ffc107;
     --middle-grey: #edf2f5;
     --loading-background: rgba(153, 153, 153, 0.6);
-    --green: #66b371;
     --box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    --box-shadow-toast: 0 4px 8px rgba(0, 0, 0, .175);
     --box-shadow-hover: 0 12px 18px rgba(0, 0, 0, .200);
     --container-background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
         linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,

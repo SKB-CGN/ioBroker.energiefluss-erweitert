@@ -2,8 +2,10 @@
     "accessKeyTx": "Use the browser access key 'e' inside the live view, to reach out to the config page again.",
     "browserTx": "Browser",
     "donate": "If you like this adapter, please consider making a donation to support my work.",
+    "ex_password": "Set a password, to protect the configuration inside the workspace",
     "introTx": "To configure the adapter, please open it via the instance link. There you will find the configuration wheel!",
     "keyCombinationTx": "key combination",
     "lostConfigTx": "If you disabled the configuration wheel und need again access to the config, please follow the steps:",
-    "main_settings": "Main Settings"
+    "main_settings": "Main Settings",
+    "password": "Password"
 }

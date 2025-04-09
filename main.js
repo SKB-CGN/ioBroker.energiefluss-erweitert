@@ -60,6 +60,14 @@ class EnergieflussErweitert extends utils.Adapter {
         // Language
         systemLang = this.language ?? 'en';
 
+        // Password
+        this.password = this.config.password;
+        if (this.password.toString() > 0) {
+            this.log.info('Workspace configuration is password protected!');
+        } else {
+            this.log.warn('Workspace configuration is NOT password protected!');
+        }
+
         // Initialize your adapter here
 
         /* Create Adapter Directory - Backup */
@@ -163,7 +171,7 @@ class EnergieflussErweitert extends utils.Adapter {
                         const listBackups = path.join(instanceDir + backupDir);
                         fs.readdir(listBackups, (err, files) => {
                             if (err) {
-                                this.sendTo(obj.from, obj.command, { err }, obj.callback);
+                                this.sendTo(obj.from, obj.command, { error: err }, obj.callback);
                             } else {
                                 files.forEach(file => {
                                     let tmpFile = path.parse(file).name;
@@ -198,6 +206,23 @@ class EnergieflussErweitert extends utils.Adapter {
                                 this.log.info('Backup restored and activated!');
                             }
                         });
+                        break;
+                    }
+                    case '_checkProtection': {
+                        this.sendTo(
+                            obj.from,
+                            obj.command,
+                            { error: null, data: this.password.toString().length > 0 ? true : false },
+                            obj.callback,
+                        );
+                        break;
+                    }
+                    case '_checkPassword': {
+                        if (obj.message.password == this.password.toString()) {
+                            this.sendTo(obj.from, obj.command, { error: null, data: true }, obj.callback);
+                        } else {
+                            this.sendTo(obj.from, obj.command, { error: 'Password is wrong!' }, obj.callback);
+                        }
                         break;
                     }
                     case '_saveConfiguration': {
@@ -261,18 +286,21 @@ class EnergieflussErweitert extends utils.Adapter {
                         const id = `tmp_${originID}`;
                         const originSource = obj.message.source;
                         const state = await this.getForeignStateAsync(originSource);
-                        let objectUnit = '';
-                        rawValues[id] = state.val;
 
                         // Modify the source
                         obj.message.source = id;
 
-                        if (state) {
+                        if (state && state.val) {
+                            let objectUnit = '';
+                            rawValues[id] = state.val;
+
                             // Get the type if auto
                             if (obj.message.source_display == 'auto') {
                                 const type = await this.getForeignObjectAsync(originSource);
                                 obj.message.source_type = type.common.type;
-                                objectUnit = type.common.unit;
+                                if (obj.message.calculate_kw == 'none') {
+                                    objectUnit = type.common.unit;
+                                }
                             }
 
                             await this.calculateValue(id, obj.message, state);
@@ -285,7 +313,7 @@ class EnergieflussErweitert extends utils.Adapter {
                                 };
 
                                 returnObj.values[originID] = outputValues.values[id];
-                                returnObj.unit[originID] = objectUnit;
+                                returnObj.unit[originID] = objectUnit || outputValues.unit[id];
                                 returnObj.override[originID] = outputValues.override[id];
 
                                 this.sendTo(
@@ -374,6 +402,9 @@ class EnergieflussErweitert extends utils.Adapter {
 
         // Decide, which type we have
         switch (obj.type) {
+            default:
+                outputValues.values[id] = sourceValue;
+                break;
             case 'image':
                 // Check, if we have a static picture or one via state
                 if (obj.href) {
@@ -518,6 +549,7 @@ class EnergieflussErweitert extends utils.Adapter {
                                             case true:
                                                 // Convert to kW if set
                                                 cValue = Math.round((cValue / 1000) * 100) / 100;
+                                                outputValues.unit[id] = 'kW';
                                                 break;
                                             case 'auto':
                                                 if (Math.abs(cValue) >= 1000000000) {
@@ -538,6 +570,7 @@ class EnergieflussErweitert extends utils.Adapter {
                                                 break;
                                             case 'none':
                                             case false:
+                                                outputValues.unit[id] = '';
                                                 break;
                                             default:
                                                 return cValue;
@@ -566,7 +599,7 @@ class EnergieflussErweitert extends utils.Adapter {
         // Overrides for elements
         if (obj.override) {
             this.log.debug(
-                `Gathering override for ID: ${id}, Processed-value: ${sourceValue}, Raw-value: ${
+                `Gathering override for ID: ${id}, Processed value: ${sourceValue}, Raw value: ${
                     rawValues[obj.source]
                 }, Override: ${JSON.stringify(obj.override)}`,
             );
@@ -857,7 +890,8 @@ class EnergieflussErweitert extends utils.Adapter {
     }
 
     async replacePlaceholders(value) {
-        const dpRegex = /\{([^{}]+\.[^{}]+\.[^{}]+)\}/g;
+        //const dpRegex = /\{([^{}]+\.[^{}]+\.[^{}]+)\}/g; /* Old Regex without number */
+        const dpRegex = /\{([^{}]*\.\d+\.[^{}]+)\}/g;
         const matches = [...value.matchAll(dpRegex)];
 
         for (const match of matches) {
@@ -965,8 +999,30 @@ class EnergieflussErweitert extends utils.Adapter {
                         try {
                             const func = new Function(`return ${itemToWorkWith} `)();
                             tmpWorker[item] = func(condValue);
+                            this.log.debug(`Result of the function: ${tmpWorker[item]}`);
+
+                            // Check, if we an undefined result
+                            if (typeof tmpWorker[item] == 'undefined') {
+                                tmpWorker[item] = {
+                                    status: false,
+                                    error: 'Your function returned <b>undefined</b>! Did you use a return statement? Example: <code>return someValue;</code>',
+                                    function: itemToWorkWith,
+                                };
+                            }
                         } catch (func) {
-                            if (itemToWorkWith.includes('=>')) {
+                            // Test for incomplete function
+                            const hasBraces = /\{\s*[^{}]*\s*\}/;
+                            const hasArrow = /=>/;
+
+                            if (hasBraces.test(itemToWorkWith) && !hasArrow.test(itemToWorkWith)) {
+                                this.log.debug(`Error of the function: ${func.toString()}`);
+                                tmpWorker[item] = {
+                                    status: false,
+                                    error: 'You can not run a function block directly! You need to open a function block with an anonymous function first! <code>Example: () => {}</code>',
+                                    function: itemToWorkWith,
+                                };
+                            } else if (hasArrow.test(itemToWorkWith)) {
+                                this.log.debug(`Error of the function: ${func.toString()}`);
                                 tmpWorker[item] = {
                                     status: false,
                                     error: func.toString(),
@@ -1157,7 +1213,7 @@ class EnergieflussErweitert extends utils.Adapter {
                                 }
 
                                 this.log.debug(
-                                    `Direction: ${direction} Time to fully ${direction}: $Percent: ${percent} Energy: ${energy} Rest Energy to ${direction}: ${rest} DoD: ${dod}`,
+                                    `Direction: ${direction} Time to fully ${direction}: ${target} Percent: ${percent} Energy: ${energy} Rest Energy to ${direction}: ${rest} DoD: ${dod}`,
                                 );
 
                                 // Set the states
@@ -1378,7 +1434,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
             // Animations
             if (Object.hasOwn(soObj, 'elmAnimations')) {
-                this.log.debug(`Found corresponding animations for ID: ${id} !Applying!`);
+                this.log.debug(`Found corresponding animations for ID: ${id} ! Applying!`);
                 for (const _key of Object.keys(soObj.elmAnimations)) {
                     const src = soObj.elmAnimations[_key];
 
@@ -1897,49 +1953,42 @@ class EnergieflussErweitert extends utils.Adapter {
         if (Object.hasOwn(globalConfig, 'animations')) {
             for (const key of Object.keys(globalConfig.animations)) {
                 const value = globalConfig.animations[key];
-                if (value.source != -1 && Object.hasOwn(value, 'source')) {
-                    this.log.debug(`Animation for Source: ${value.source} is: ${key} `);
-                    // Save Settings for each object
-                    settingsObj[key] = {
-                        properties: value.animation_properties,
-                        option: value.animation_option,
-                        threshold: value.threshold,
-                        type: value.animation_type,
-                        duration: value.duration,
-                        power: value.power,
-                        dots: value.dots,
-                        css_general: value.css_general,
-                        css_active_positive: value.css_active_positive,
-                        css_inactive_positive: value.css_inactive_positive,
-                        css_active_negative: value.css_active_negative,
-                        css_inactive_negative: value.css_inactive_negative,
-                        override: value.override,
-                    };
+                if (Object.hasOwn(value, 'source') && Object.hasOwn(globalConfig.datasources, value.source)) {
+                    const gDataSource = globalConfig.datasources[value.source];
+                    if (Object.hasOwn(sourceObject, gDataSource.source)) {
+                        // Save Settings for each object
+                        settingsObj[key] = {
+                            properties: value.animation_properties,
+                            option: value.animation_option,
+                            threshold: value.threshold,
+                            type: value.animation_type,
+                            duration: value.duration,
+                            power: value.power,
+                            dots: value.dots,
+                            css_general: value.css_general,
+                            css_active_positive: value.css_active_positive,
+                            css_inactive_positive: value.css_inactive_positive,
+                            css_active_negative: value.css_active_negative,
+                            css_inactive_negative: value.css_inactive_negative,
+                            override: value.override,
+                        };
 
-                    const dataSource = globalConfig.datasources[value.source];
+                        // Put Animation into Source
+                        sourceObject[gDataSource.source].elmAnimations.push(key);
 
-                    // Put Animation into Source
-                    if (Object.hasOwn(sourceObject, dataSource.source)) {
-                        sourceObject[dataSource.source].elmAnimations.push(key);
+                        // Check, if corresponding line has override properties as well
+                        let line_id = key.replace('anim', 'line');
+                        if (Object.hasOwn(globalConfig.lines[line_id], 'override')) {
+                            this.log.debug(`Found override for line ${line_id} in combination with Animation ${key} `);
+                            settingsObj[line_id] = {
+                                override: globalConfig.lines[line_id].override,
+                            };
+                        }
                     } else {
                         this.log.warn(
-                            `State '${dataSource.source}' which is used as animation for '${key.replace(
-                                'anim',
-                                'line',
-                            )}' is not available! Please review your configuration of the adapter!`,
+                            `State '${gDataSource.source}' which is used for element with ID ${key} of type ${value.type} is not available! Please review your configuration of the adapter!`,
                         );
                     }
-
-                    // Check, if corresponding line has override properties as well
-                    let line_id = key.replace('anim', 'line');
-                    if (Object.hasOwn(globalConfig.lines[line_id], 'override')) {
-                        this.log.debug(`Found override for line ${line_id} in combination with Animation ${key} `);
-                        settingsObj[line_id] = {
-                            override: globalConfig.lines[line_id].override,
-                        };
-                    }
-                } else {
-                    this.log.debug(`Animation for Source: ${value.source} not found!`);
                 }
             }
         }

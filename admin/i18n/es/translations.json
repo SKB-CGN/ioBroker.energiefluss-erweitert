@@ -2,8 +2,10 @@
     "accessKeyTx": "Utilice la clave de acceso del navegador 'e' dentro de la vista en vivo para acceder a la página de configuración nuevamente.",
     "browserTx": "Navegador",
     "donate": "Si le gusta este adaptador, considere hacer una donación para apoyar mi trabajo.",
+    "ex_password": "Establecer una contraseña, para proteger la configuración dentro del espacio de trabajo",
     "introTx": "Para configurar el adaptador, ábralo a través del enlace de la instancia. ¡Allí encontrarás la rueda de configuración!",
     "keyCombinationTx": "combinación de teclas",
     "lostConfigTx": "Si deshabilitó la rueda de configuración y necesita acceder nuevamente a la configuración, siga los pasos:",
-    "main_settings": "Configuración principal"
+    "main_settings": "Configuración principal",
+    "password": "Contraseña"
 }

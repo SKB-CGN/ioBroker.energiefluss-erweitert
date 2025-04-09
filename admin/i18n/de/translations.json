@@ -2,8 +2,10 @@
     "accessKeyTx": "Verwenden Sie die Browser-Zugriffstaste „e“ in der Live-Ansicht, um erneut zur Konfigurationsseite zu gelangen.",
     "browserTx": "Browser",
     "donate": "Wenn Ihnen dieser Adapter gefällt, denken Sie bitte über eine Spende nach, um meine Arbeit zu unterstützen.",
+    "ex_password": "Legen Sie ein Passwort fest, um die Konfiguration innerhalb des Arbeitsbereichs zu schützen",
     "introTx": "Um den Adapter zu konfigurieren, öffnen Sie ihn bitte über den Instanzlink. Dort finden Sie das Konfigurationsrad!",
     "keyCombinationTx": "Tastenkombination",
     "lostConfigTx": "Wenn Sie das Konfigurationsrad deaktiviert haben und erneut Zugriff auf die Konfiguration benötigen, befolgen Sie bitte die Schritte:",
-    "main_settings": "Haupteinstellungen"
+    "main_settings": "Haupteinstellungen",
+    "password": "Passwort"
 }

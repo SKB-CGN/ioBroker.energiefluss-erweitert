@@ -2,8 +2,10 @@
     "accessKeyTx": "Użyj klawisza dostępu przeglądarki „e” w podglądzie na żywo, aby ponownie otworzyć stronę konfiguracji.",
     "browserTx": "Przeglądarka",
     "donate": "Jeśli podoba Ci się ten adapter, rozważ przekazanie darowizny na wsparcie mojej pracy.",
+    "ex_password": "Ustaw hasło, aby chronić konfigurację w obszarze roboczym",
     "introTx": "Aby skonfigurować adapter należy go otworzyć poprzez link instancji. Tam znajdziesz koło konfiguracyjne!",
     "keyCombinationTx": "kombinacja klawiszy",
     "lostConfigTx": "Jeśli wyłączyłeś koło konfiguracyjne i potrzebujesz ponownego dostępu do konfiguracji, wykonaj następujące kroki:",
-    "main_settings": "Główne ustawienia"
+    "main_settings": "Główne ustawienia",
+    "password": "Hasło"
 }

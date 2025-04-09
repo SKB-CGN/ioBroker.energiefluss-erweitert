@@ -5,24 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Energiefluss - erweitert</title>
-    <meta name=description content="Provides an animated energy-flow">
+    <meta name="description" content="Provides an animated energy-flow">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="manifest" id="manifestData">
-    <link class=favicon rel=icon type=image/ico href="img/icons/favicon.ico">
     <meta name="msapplication-TileColor" content="#538ea3">
     <meta name="theme-color" content="#538ea3">
 
+    <link class=favicon rel=icon type=image/ico href="img/icons/favicon.ico">
     <link rel="stylesheet" href="style/jquery-ui.css">
-    <link rel="stylesheet" href="style/style.css?v=0.6.1">
+    <link rel="stylesheet" href="style/style.css?v=0.7.0">
 
-    <script src="../../socket.io/socket.io.js"></script>
-
+    <script src="/socket.io/socket.io.js"></script>
     <script src="js/jquery-3.6.4.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/translate.min.js"></script>
-    <script src="js/words.js?v=0.6.1"></script>
-    <script src="js/functions.min.js?v=0.6.1"></script>
+    <script src="js/words.js?v=0.7.0"></script>
+    <script src="js/functions.min.js?v=0.7.0"></script>
 
     <style id="style_animation"></style>
     <style id="style_user"></style>
@@ -38,14 +36,8 @@
             <div class="loading-spinner-dot"></div>
             <div class="loading-spinner-dot"></div>
         </div>
-        <span id="loading_text">Loading your Energiefluss - erweitert</span>
-        <span id="loading_text_error"><a
-                href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Troubleshooting" class="translate"
-                data-lang="failmsg_not_reachable" target="_blank">If the page is not
-                loading, please refer here, to
-                find out, how
-                to
-                fix it!</a></span>
+        <span id="loading_text" class="translate" data-lang="msg_loading_liveview">Loading your Energiefluss -
+            erweitert</span>
         <div id="frameContainer" class="popUpContainer">
             <div class="title">
                 <div id="iframe_close" class="close" onclick="closeEditorContainer('frame');"></div>
@@ -54,7 +46,7 @@
     </div>
     <div id="errorLogContainer" class="popUpContainer">
         <div class="title">
-            <span class="translate" data-lang="title_errorLog">Error LogC</span>
+            <span class="translate" data-lang="title_errorLog">Error Log</span>
             <div class="close" onclick="closeEditorContainer('errorLog');"></div>
         </div>
         <!-- Error Log -->
@@ -62,14 +54,16 @@
             <div class="ef-table-div scrollbar">
                 <table class="ef-table log" id="errorLog-table">
                     <thead>
-                        <th><span class="translate" data-lang="lbl_config_element">Element</span>
-                        </th>
-                        <th><span class="translate" data-lang="lbl_errorLog_for">For</span>
-                        </th>
-                        <th><span class="translate" data-lang="lbl_errorLog_message">Error message</span></span>
-                        </th>
-                        <th><span class="translate" data-lang="lbl_errorLog_function">Called function</span>
-                        </th>
+                        <tr>
+                            <th><span class="translate" data-lang="lbl_config_element">Element</span>
+                            </th>
+                            <th><span class="translate" data-lang="lbl_errorLog_for">For</span>
+                            </th>
+                            <th><span class="translate" data-lang="lbl_errorLog_message">Error message</span>
+                            </th>
+                            <th><span class="translate" data-lang="lbl_errorLog_function">Called function</span>
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
                     </tbody>
@@ -82,7 +76,7 @@
             <div class="contentBox">
                 <div class="form_div text">
                     <input type="text" class="input_number" name="shortcuts.action.value" id="shortcuts.action.value"
-                        placeholder="" autocorrect="off" autocomplete="off">
+                        placeholder="" autocomplete="off">
                     <label for="shortcuts.action.value" class="form_label translate" data-lang="opt_value">Value</label>
                 </div>
             </div>
@@ -115,20 +109,17 @@
         <g id="placeholder_icons" class="placeholders"></g>
     </svg>
     <div id="info_error_area">
-        <a href="javascript:openErrorLog();" class="translateT tt-element" data-lang-title="title_error_link"
-            title="Open Error Log">
+        <a href="javascript:openErrorLog();" class="tooltip" data-title="title_error_link" title="Open Error Log">
             <span class="iconify info_error_icon" data-icon="material-symbols:info-outline" data-width="24"
                 data-height="24"></span>
         </a>
     </div>
     <div id="config_link">
-        <a href="#" class="translateT tt-element" data-lang-title="title_configuration" title="Configuration"
-            accesskey="e">
+        <a href="#" class="tooltip" data-title="title_configuration" accesskey="e">
             <span class="iconify config_icon" data-icon="mdi:cog" data-width="24" data-height="24"></span>
         </a>
     </div>
-    <div id="message_success"></div>
-    <div id="message_failed"></div>
+    <div id="toast-container" class="toast-container scrollbar"></div>
 </body>
 
 </html>

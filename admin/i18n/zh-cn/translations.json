@@ -2,8 +2,10 @@
     "accessKeyTx": "在实时视图中使用浏览器访问键“e”，再次访问配置页面。",
     "browserTx": "浏览器",
     "donate": "如果您喜欢这个适配器，请考虑捐赠以支持我的工作。",
+    "ex_password": "设置密码，保护工作区内的配置",
     "introTx": "要配置适配器，请通过实例链接打开它。在那里你会找到配置轮！",
     "keyCombinationTx": "组合键",
     "lostConfigTx": "如果您禁用了配置轮并需要再次访问配置，请按照以下步骤操作：",
-    "main_settings": "主要设置"
+    "main_settings": "主要设置",
+    "password": "密码"
 }

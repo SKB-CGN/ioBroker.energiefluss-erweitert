@@ -2,8 +2,10 @@
     "accessKeyTx": "Gebruik de browsertoegangssleutel 'e' in de liveweergave om opnieuw naar de configuratiepagina te gaan.",
     "browserTx": "Browser",
     "donate": "Als je deze adapter leuk vindt, overweeg dan een donatie te doen om mijn werk te ondersteunen.",
+    "ex_password": "Stel een wachtwoord in om de configuratie in de werkruimte te beschermen",
     "introTx": "Om de adapter te configureren, opent u deze via de instancelink. Daar vind je het configuratiewiel!",
     "keyCombinationTx": "toetscombinatie",
     "lostConfigTx": "Als u het configuratiewiel hebt uitgeschakeld en opnieuw toegang tot de configuratie nodig heeft, volgt u de stappen:",
-    "main_settings": "Hoofdinstellingen"
+    "main_settings": "Hoofdinstellingen",
+    "password": "Wachtwoord"
 }

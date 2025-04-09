@@ -2,8 +2,10 @@
     "accessKeyTx": "Utilizzare la chiave di accesso del browser \"e\" all'interno della visualizzazione live per accedere nuovamente alla pagina di configurazione.",
     "browserTx": "Navigatore",
     "donate": "Se ti piace questo adattatore, considera di fare una donazione per sostenere il mio lavoro.",
+    "ex_password": "Imposta una password per proteggere la configurazione all'interno dell'area di lavoro",
     "introTx": "Per configurare l'adattatore, aprirlo tramite il collegamento dell'istanza. Lì troverai la ruota di configurazione!",
     "keyCombinationTx": "combinazione di tasti",
     "lostConfigTx": "Se hai disabilitato la rotella di configurazione e hai bisogno di nuovo di accedere alla configurazione, segui i passaggi:",
-    "main_settings": "Impostazioni principali"
+    "main_settings": "Impostazioni principali",
+    "password": "Password"
 }
