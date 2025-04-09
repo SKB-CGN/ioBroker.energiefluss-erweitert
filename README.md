@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.0 (2025-04-09)
 - FIX: If a line reconnection is aborted, the initial selected line was unselected
 - FIX: Workspace could not be re-sized under some circumstances
 - FIX: Leaving workspace open, sometimes results in adding the same datasources again and again
