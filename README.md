@@ -32,6 +32,19 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: If datasource element was modified, the current status was not fetched correctely
+- FIX: Overrides for elements were not applied correctly (#340)
+- FIX: Filter in selection gallery was not working
+- FIX: After tour has been visited, "End" didnt take the user to the overview
+- Added: If you use the internal Icon-Proxy, icons are now cached inside the browser for faster loading and flicker prevention, if you use them in overrides
+- Added: While sorting in Datasources table was set to descending, the new added datasource was sorted in wrongly
+- Added: Improved loading and filter time of the ioBroker object browser
+- Added: Object browser now supports smoother filtering including complete states (e.g. 0_userdata.0.example_state)
+- Added: Some code optimizations under the hood for smoother runtime
+- Added: Better information, why an element could not be deleted (e.g. existing connection)
+- Added: Few language corrections
+
 ### 0.7.0 (2025-04-09)
 - FIX: If a line reconnection is aborted, the initial selected line was unselected
 - FIX: Rotation for texts was not rotating around the own center

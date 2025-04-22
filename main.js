@@ -212,7 +212,7 @@ class EnergieflussErweitert extends utils.Adapter {
                         this.sendTo(
                             obj.from,
                             obj.command,
-                            { error: null, data: this.password.toString().length > 0 ? true : false },
+                            { error: null, data: this.password && this.password.toString().length > 0 ? true : false },
                             obj.callback,
                         );
                         break;
@@ -285,12 +285,12 @@ class EnergieflussErweitert extends utils.Adapter {
                         const originID = obj.message.id;
                         const id = `tmp_${originID}`;
                         const originSource = obj.message.source;
-                        const state = await this.getForeignStateAsync(originSource);
+                        const state = originSource ? await this.getForeignStateAsync(originSource) : null;
 
                         // Modify the source
                         obj.message.source = id;
 
-                        if (state && state.val) {
+                        if (state && state.val != null) {
                             let objectUnit = '';
                             rawValues[id] = state.val;
 
@@ -340,6 +340,15 @@ class EnergieflussErweitert extends utils.Adapter {
                                     obj.callback,
                                 );
                             }
+                        } else {
+                            this.sendTo(
+                                obj.from,
+                                obj.command,
+                                {
+                                    error: 'State does not exist!',
+                                },
+                                obj.callback,
+                            );
                         }
                         break;
                     }
@@ -1960,7 +1969,7 @@ class EnergieflussErweitert extends utils.Adapter {
                         settingsObj[key] = {
                             properties: value.animation_properties,
                             option: value.animation_option,
-                            threshold: value.threshold,
+                            threshold: value.threshold || 0,
                             type: value.animation_type,
                             duration: value.duration,
                             power: value.power,

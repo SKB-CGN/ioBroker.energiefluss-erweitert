@@ -14,18 +14,18 @@
     <link class=favicon rel=icon type=image/ico href="img/icons/favicon.ico">
     <link rel="stylesheet" href="style/jquery-ui.css">
     <link rel="stylesheet" href="style/multiselect.css">
-    <link rel="stylesheet" href="style/style.css?v=0.7.0">
+    <link rel="stylesheet" href="style/style.css?v=0.7.2">
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/jquery-3.6.4.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/multiselect.min.js"></script>
     <script src="js/translate.min.js"></script>
-    <script src="js/words.js?v=0.7.0"></script>
+    <script src="js/words.js?v=0.7.2"></script>
     <script src="js/jscolor.min.js"></script>
     <script src="js/ace/ace.js"></script>
     <script src="js/ace/ext-language_tools.js"></script>
-    <script src="js/functions.min.js?v=0.7.0"></script>
+    <script src="js/functions.min.js?v=0.7.2"></script>
 
     <style id="style_animation"></style>
     <style id="style_user"></style>
@@ -91,7 +91,7 @@
                         <td>
                             <form id="frm-addQuickAccess">
                                 <input class="input_button translateV" type="submit" value="Add"
-                                    data-lang-value="value_add" style="width: auto">
+                                    form="frm-addQuickAccess" data-lang-value="value_add" style="width: auto">
                             </form>
                         </td>
                     </tr>
@@ -123,6 +123,9 @@
                     <div class="icon_wrapper">
                         <span class="iconify" data-icon="mdi:search" data-width="24" data-height="24"
                             style="color: var(--primary)"></span>
+                        <div class="ds_search_spinner">
+                            <span class="spinner"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -645,12 +648,12 @@
                                                 data-lang="lbl_href">Address:</label>
                                             <div class="icon_wrapper">
                                                 <a class="icon_in_input tooltip" id="image_href_gallery"
-                                                    data-title="title_add_image">
+                                                    data-title="title_sel_image">
                                                     <span class="iconify" data-icon="mdi:file-image" data-width="24"
                                                         data-height="24"></span>
                                                 </a>
                                                 <a class="frm-datasource icon_in_input tooltip"
-                                                    data-title="title_add_ds" id="image_href_ds">
+                                                    data-title="title_sel_ds" id="image_href_ds">
                                                     <span class="iconify" data-icon="mdi:database-search"
                                                         data-width="24" data-height="24"></span>
                                                 </a>
@@ -932,12 +935,10 @@
                                                     name="elm_source" id="elm_source"></select>
                                             </div>
                                         </div>
-                                        <div class="form_div text info elm_config_box switch">
-                                            <div class="form_div text info">
-                                                <span class="translate" data-lang="ex_switch"><u>Info:</u> Toggling the
-                                                    switch will wait for the current state to be confirmed. A slight
-                                                    delay may occur before the switch updates its status.</span>
-                                            </div>
+                                        <div id="sub_switchInfo" class="form_div text elm_config_box_sub switch info">
+                                            <span class="translate" data-lang="ex_switch"><u>Info:</u> Toggling the
+                                                switch will wait for the current state to be confirmed. A slight
+                                                delay may occur before the switch updates its status.</span>
                                         </div>
                                         <div class="form_div select elm_config_box datasource">
                                             <label for="elm_source_action" class="form_label translate"
@@ -2172,7 +2173,7 @@
                                     <label for="elm_ds_source" class="form_label translate"
                                         data-lang="lbl_datasource">Datasource</label>
                                     <div class="icon_wrapper">
-                                        <a class="frm-datasource icon_in_input tooltip" data-title="title_add_ds">
+                                        <a class="frm-datasource icon_in_input tooltip" data-title="title_sel_ds">
                                             <span class="iconify" data-icon="mdi:database-search" data-width="24"
                                                 data-height="24"></span>
                                         </a>
@@ -2218,14 +2219,14 @@
                             <table class="ef-table" id="datasource-table">
                                 <thead class="sortable">
                                     <tr>
-                                        <th class="filter">
+                                        <th class="filter" data-sorting="true" data-asc="true">
                                             <span class="translate" data-lang="lbl_alias">Alias</span>
                                             <div class="sort_icon">
                                                 <span class="iconify" data-icon="mdi:sort-alphabetical-ascending"
                                                     data-height="18"></span>
                                             </div>
                                         </th>
-                                        <th class="filter">
+                                        <th class="filter" data-sorting="false" data-asc="true">
                                             <span class="translate" data-lang="lbl_datasource">Datasource</span>
                                             <div class="sort_icon"></div>
                                         </th>
