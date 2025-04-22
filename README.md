@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.1 (2025-04-22)
 - FIX: If datasource element was modified, the current status was not fetched correctely
 - FIX: Overrides for elements were not applied correctly (#340)
 - FIX: Filter in selection gallery was not working
