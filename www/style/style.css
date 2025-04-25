@@ -1571,8 +1571,8 @@ fieldset.small {
     padding-left: 5px;
 }
 
-.ef-table th:last-child,
-.ef-table td:last-child {
+.ef-table:not(.jsonTable) th:last-child,
+.ef-table:not(.jsonTable) td:last-child {
     text-align: right;
     min-width: 62px;
     max-width: 62px;
@@ -1581,6 +1581,10 @@ fieldset.small {
     right: 0;
     z-index: 2;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.ef-table:not(.jsonTable) td:last-child {
+    z-index: 1;
 }
 
 .ef-table td:nth-child(3),
@@ -1679,19 +1683,15 @@ fieldset.small {
     color: color-mix(in srgb, var(--black) 20%, transparent);
 }
 
-/*
-.ef-table tbody tr.editMode.inactive td {
-    opacity: 0.5;
-    transition: opacity .5s;
-}
-
-.ef-table tbody tr.editMode.inactive td:last-child {
-    opacity: 1;
-}
-    */
-
 .ef-table tbody tr.editMode.active td {
     background-color: var(--darkgrey);
+}
+
+/* Set the things for jsonTable */
+.ef-table.jsonTable th,
+.ef-table.jsonTable td {
+    min-width: min-content;
+    width: auto;
 }
 
 .upload_errors-table th:last-child,

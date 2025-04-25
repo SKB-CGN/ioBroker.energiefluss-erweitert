@@ -32,6 +32,13 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Object browser was not opening, if objects do not have proper language details
+- FIX: Datasources table actions column was misaligned
+- Added: Dependencies updated (Admin: >=7.4.10 is now required) (#344)
+- Added: Browser-Frame can now be an ioBroker state. This can be text, html, numbers or even a jsonTable, which will be displayed inside an overlay (new window or same window don't work for this)
+- Added: Some language corrections
+
 ### 0.7.1 (2025-04-22)
 - FIX: If datasource element was modified, the current status was not fetched correctely
 - FIX: Overrides for elements were not applied correctly (#340)
