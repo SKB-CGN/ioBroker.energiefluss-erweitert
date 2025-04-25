@@ -32,6 +32,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Only the first icon could be changed. After that, no icons were shown in the list
+- FIX: On first load, datasources are not inserted inn alphabetical order
+- FIX: If a copied element belongs to a group, the group will be removed from that element 
+
 ### 0.7.2 (2025-04-25)
 - FIX: Object browser was not opening, if objects do not have proper language details
 - FIX: Datasources table actions column was misaligned
