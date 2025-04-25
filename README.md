@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.2 (2025-04-25)
 - FIX: Object browser was not opening, if objects do not have proper language details
 - FIX: Datasources table actions column was misaligned
 - Added: Dependencies updated (Admin: >=7.4.10 is now required) (#344)
