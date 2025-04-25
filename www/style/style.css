@@ -504,9 +504,15 @@ text.action_element:hover {
     border: none;
     margin: 0;
     display: block;
-    overflow: hidden;
+    overflow: auto;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.framed>div {
+    margin: 4px;
+    width: calc(100% - 8px);
+    max-height: calc(100% - 10px);
 }
 
 .hr-divide {
