@@ -34,8 +34,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 -->
 ### **WORK IN PROGRESS**
 - FIX: Only the first icon could be changed. After that, no icons were shown in the list
-- FIX: On first load, datasources are not inserted inn alphabetical order
-- FIX: If a copied element belongs to a group, the group will be removed from that element 
+- FIX: On first load, datasources are not inserted in alphabetical order
+- FIX: If a copied element belongs to a group, the group was not removed from that element
+- FIX: Element positions (fore- and background) were not saved/displayed properly
+- FIX: If an element should open a frame/site, an error was shown that no datasource is assigned
+- Added: ACE SearchBox for Styles tab, output log and overrides (Strg + F)
 
 ### 0.7.2 (2025-04-25)
 - FIX: Object browser was not opening, if objects do not have proper language details
