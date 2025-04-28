@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.3 (2025-04-28)
 - FIX: Only the first icon could be changed. After that, no icons were shown in the list
 - FIX: On first load, datasources are not inserted in alphabetical order
 - FIX: If a copied element belongs to a group, the group was not removed from that element
