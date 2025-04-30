@@ -32,6 +32,12 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Switching on/off on some designs did not work correctly
+- FIX: Calculation from W to kW was overwriting user defined unit
+- Added: New link to Wiki - now hosting on own server with translateable option
+- Added: Function to draw lines now supports better alignment, if source and destination element are on the same x/y-axis
+
 ### 0.7.3 (2025-04-28)
 - FIX: Only the first icon could be changed. After that, no icons were shown in the list
 - FIX: On first load, datasources are not inserted in alphabetical order
