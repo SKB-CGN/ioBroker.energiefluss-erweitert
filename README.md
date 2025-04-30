@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.4 (2025-04-30)
 - FIX: Switching on/off on some designs did not work correctly
 - FIX: Calculation from W to kW was overwriting user defined unit
 - Added: New link to Wiki - now hosting on own server with translateable option
