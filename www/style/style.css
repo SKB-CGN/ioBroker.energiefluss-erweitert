@@ -186,6 +186,7 @@ a:hover {
 #svg_display {
     height: 100%;
     width: 100%;
+    display: block;
 }
 
 stop {
