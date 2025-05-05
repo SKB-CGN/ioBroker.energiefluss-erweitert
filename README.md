@@ -32,6 +32,11 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Override for bordercolor and borderfillcolor were not correctely applied on rect or circle
+- Added: New line-end for filling outline according to value added. Can now be (round, square and butt)
+- Added: Few language corrections
+
 ### 0.7.4 (2025-04-30)
 - FIX: Switching on/off on some designs did not work correctly
 - FIX: Calculation from W to kW was overwriting user defined unit
