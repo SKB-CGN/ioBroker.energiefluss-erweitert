@@ -617,12 +617,6 @@ text.action_element:hover {
     }
 }
 
-.newVersion {
-    animation: animation_blink 2s linear infinite;
-    color: var(--green);
-    cursor: pointer;
-}
-
 @keyframes animation_blink {
     50% {
         opacity: 0.4;
@@ -1601,7 +1595,7 @@ fieldset.small {
 }
 
 .ef-table th:last-child {
-    padding-right: 14px;
+    padding-right: 4px;
 }
 
 .ef-table td:last-child {
@@ -1667,6 +1661,10 @@ fieldset.small {
     min-width: 90px;
     max-width: min-content;
     width: auto;
+}
+
+.ef-table.log th:last-child {
+    max-width: 20%;
 }
 
 .ef-table .btn-update,
@@ -2197,21 +2195,6 @@ text.glow {
     box-shadow: var(--box-shadow-toast);
     position: relative;
     z-index: 1;
-}
-
-.tabbed nav>.version {
-    white-space: nowrap;
-    padding-right: 5px;
-    font-weight: 600;
-    text-align: right;
-    width: 100%;
-    display: flex;
-    padding: 5px;
-    align-items: center;
-}
-
-.tabbed nav>.version * {
-    padding-right: 4px;
 }
 
 #tab1:checked~figure .tab1,
@@ -3099,10 +3082,6 @@ nav label:active {
         min-height: calc(100vh - 170px);
         max-height: calc(100vh - 170px);
         overflow-x: auto;
-    }
-
-    .tabbed nav>.version {
-        display: none;
     }
 
     .toast-container {

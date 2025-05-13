@@ -85,6 +85,7 @@
     "failmsg_no_config_display_mode": "L'adattatore non è ancora configurato! È stata caricata una configurazione di base per aiutarti a iniziare facilmente!<br>Utilizza la rotellina di configurazione in basso a sinistra!",
     "failmsg_no_elements": "Non ci sono elementi collegabili sulla superficie! <br> Sono richiesti almeno 2 rettangoli o cerchi!",
     "failmsg_no_elements_clipboard": "Non hai nessun elemento negli appunti!",
+    "failmsg_no_max_value": "Nessun valore massimo dichiarato!",
     "failmsg_no_values": "Impossibile ricevere alcun valore! Qualcosa non va!",
     "failmsg_not_reachable": "Se la pagina non si carica, clicca qui per scoprire come risolvere il problema!",
     "failmsg_opening_frame": "Devi consentire l'apertura degli URL per questo sito web!",
@@ -119,7 +120,7 @@
     "help_low_performance": "<p>Questa modalità consente di utilizzare le animazioni su dispositivi meno potenti. L'unica limitazione è che non è più possibile regolare la velocità dell'animazione! Il layout e il numero di punti rimangono inalterati!</p> <p><u>Nota bene:</u> se si desidera abilitare questa modalità solo su dispositivi meno potenti, allegare il seguente parametro all'URL \"<code>lowPerformance=true</code>\" </p>",
     "help_organize": "<p>Tutti gli elementi sono organizzati in gruppi (rettangoli e cerchi, icone, testi, ecc.).</p> <p>Ogni elemento in ogni gruppo può essere portato in primo piano e sullo sfondo. Testi e icone sono generalmente in primo piano rispetto agli altri elementi.</p>",
     "help_outline": "<p><b>Tipo:</b><br>Percentuale da 0 a 100% o valore, che può anche essere negativo</p> <p><b>Punto di partenza:</b><br>Definisce il punto di partenza, dove inizia il riempimento</p> <p><b>Direzione:</b><br>Definisce la direzione del riempimento: in senso orario (tutto l'orologio) o antiorario (inverso)</p><p><b>Stile linea:</b><br>Stile delle estremità della linea (rotondo o quadrato)</p> <p><b>Colore dell'area non riempita:</b><br>Questo è il colore dell'area <u>non riempita</u> del contorno (sfondo)</p> <p><b>Valore massimo:</b><br>Questo è necessario per calcolare la quantità di riempimento</p> <p><b>Inverti:</b><br>Inverti il riempimento del contorno, se il segno del valore è cambiato (il colore per l'inversione può essere diverso: se vuoto, verrà utilizzato lo stesso colore). usato)</p>",
-    "help_override": "L'elemento può essere formattato con override. Per farlo funzionare, devi creare un elenco di valori in formato JSON. <br><br> Esempio: %s Per un valore <b> maggiore di 5 </b>, verrà applicato il colore <b> #538ea3 </b>. Per un valore <b> maggiore di 10 </b>, il colore sarà <b> #FF0000 </b>. <br> Puoi aggiungere tutte le condizioni che desideri. Le condizioni verranno ordinate in base alla loro chiave prima di essere elaborate. <br> <br> <u>Nota bene:</u><br>Gli override non torneranno al layout iniziale da soli. Ciò significa che se hai impostato una proprietà tramite un valore e questo viene superato o superato, devi anche impostare la proprietà opposta per il rispettivo superamento o superamento. <br> <br> Una descrizione dettagliata può essere trovata all'interno del Wiki dell'adattatore. <a href='https://www.kreyenborg.koeln/go/hlz4j' target='_blank'> Guarda su Wiki </a>",
+    "help_override": "L'elemento può essere formattato con override. Per farlo, è necessario creare un elenco di valori in formato JSON. <br><br> Esempio: %s Per un valore <b> maggiore di 5 </b>, verrà applicato il colore <b> #538ea3 </b>. Per un valore <b> maggiore di 10 </b>, il colore sarà <b> #FF0000 </b>. <br> È possibile aggiungere tutte le condizioni desiderate. Le condizioni verranno ordinate in base alla loro chiave prima di essere elaborate. <br> <br> <u>Nota:</u><br>Gli override non torneranno al layout iniziale da soli. Ciò significa che se si è impostata una proprietà tramite un valore e questo viene superato o superato, è necessario impostare anche la proprietà opposta per il rispettivo superamento o superamento. <br> <br> Una descrizione dettagliata è disponibile all'interno del Wiki dell'adattatore. <a href='https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/' target='_blank'> Esplora Wiki </a>",
     "help_password_protection": "Se hai dimenticato la password, puoi impostarne una nuova nelle impostazioni dell'adattatore ioBroker!",
     "help_preserveAspectRatio": "<p>L'attributo preserveAspectRatio indica come un elemento con un viewBox che fornisce un dato aspect ratio deve adattarsi a una viewport con aspect ratio diverso.</p> <p>Fare riferimento a <a href='https://www.kreyenborg.koeln/go/96nit' target='_blank'>MDN Web Docs</a> per saperne di più su</p>",
     "help_settings": "Se si disabilita la rotellina di configurazione nella visualizzazione live, è necessario utilizzare il tasto di accesso del browser <b>'e'</b> per tornare a questa configurazione.",
@@ -247,7 +248,6 @@
     "lbl_line_size": "Dimensione della linea",
     "lbl_linebreak": "Interruzione di riga dopo x caratteri",
     "lbl_negative_ds": "Attiva questa casella di controllo se il tuo punto dati fornisce il valore come valore negativo (ad esempio -125)! Questo può essere il caso se il punto dati viene utilizzato per la carica e la scarica o per il consumo e l'immissione in rete!",
-    "lbl_new_version": "È disponibile una nuova versione",
     "lbl_organize": "Organizzare",
     "lbl_outline_color": "Colore del contorno",
     "lbl_override": "Imposta sovrascrittura",
@@ -490,6 +490,7 @@
     "toast_info_undo": "L'ultimo passaggio di tipo <b>%s</b> è stato annullato!",
     "toast_reactivate": "Può essere riattivato nelle impostazioni!",
     "toast_show_again": "Non mostrare più questo messaggio!",
+    "toast_warning_errorLog": "Ci sono errori nella configurazione o sovrascritture! Controlla il registro degli errori tramite l'icona in basso a destra!",
     "toast_warning_invalidValue": "Il valore immesso non è valido. Il valore precedente verrà ripristinato!",
     "tour_basic": "Con questo pannello puoi personalizzare la visualizzazione live, aggiungere, allineare e collegare elementi e annullare/ripristinare le azioni effettuate!",
     "tour_configBar": "La barra di configurazione consente di modificare l'elemento con varie opzioni (larghezza, altezza, posizione).<br><u>Nota bene:</u> è presente una scheda \"avanzata\" aggiuntiva che consente di modificare impostazioni più approfondite e di aggiungere sovrascritture per situazioni speciali!",
@@ -564,6 +565,5 @@
     "value_top": "Elemento superiore",
     "value_top_left": "in alto a sinistra",
     "value_top_right": "in alto a destra",
-    "failmsg_no_max_value": "Nessun valore massimo dichiarato!",
-    "toast_warning_errorLog": "Ci sono errori nella configurazione o sovrascritture! Controlla il registro degli errori tramite l'icona in basso a destra!"
+    "lbl_new_version": "È disponibile una nuova versione"
 }

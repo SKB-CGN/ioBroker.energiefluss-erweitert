@@ -85,6 +85,7 @@
     "failmsg_no_config_display_mode": "Adapter nie jest jeszcze skonfigurowany! Podstawowa konfiguracja została załadowana, aby ułatwić Ci rozpoczęcie pracy!<br>Użyj koła konfiguracyjnego w lewym dolnym rogu!",
     "failmsg_no_elements": "Na powierzchni nie ma żadnych elementów, które można połączyć! <br> Wymagane są co najmniej 2 prostokąty lub okręgi!",
     "failmsg_no_elements_clipboard": "Nie masz żadnych elementów w schowku!",
+    "failmsg_no_max_value": "Nie podano wartości maksymalnej!",
     "failmsg_no_values": "Nie można otrzymać żadnych wartości! Coś jest nie tak!",
     "failmsg_not_reachable": "Jeśli strona się nie ładuje, kliknij tutaj, aby dowiedzieć się, jak to naprawić!",
     "failmsg_opening_frame": "Musisz zezwolić na otwieranie adresów URL dla tej witryny!",
@@ -119,7 +120,7 @@
     "help_low_performance": "<p>Ten tryb pozwala na korzystanie z animacji na mniej wydajnych urządzeniach. Jedynym ograniczeniem jest to, że nie można już regulować szybkości animacji! Układ i liczba punktów pozostają niezmienione!</p> <p><u>Uwaga:</u> Jeśli chcesz włączyć ten tryb tylko na mniej wydajnych urządzeniach, dołącz następujący parametr do adresu URL „<code>lowPerformance=true</code>” </p>",
     "help_organize": "<p>Wszystkie elementy są zorganizowane w grupy (prostokąty i okręgi, ikony, teksty itd.).</p> <p>Każdy element w każdej grupie może zostać przeniesiony na pierwszy plan i tło. Teksty i ikony są zazwyczaj na pierwszym planie innych elementów.</p>",
     "help_outline": "<p><b>Typ:</b><br>Procent od 0 do 100% lub wartość, która może być również ujemna</p> <p><b>Punkt początkowy:</b><br>Określa punkt początkowy, w którym rozpoczyna się wypełnianie</p> <p><b>Kierunek:</b><br>Określa kierunek wypełniania: zgodnie z ruchem wskazówek zegara (wokół zegara) lub przeciwnie do ruchu wskazówek zegara (odwrotnie)</p><p><b>Styl linii:</b><br>Styl zakończeń linii (okrągły lub kwadratowy)</p> <p><b>Kolor niewypełnionego obszaru:</b><br>To kolor <u>niewypełnionego</u> obszaru konturu (tła)</p> <p><b>Wartość maksymalna:</b><br>Jest to konieczne, aby obliczyć ilość wypełnienia</p> <p><b>Odwróć:</b><br>Odwróć wypełnienie konturu, jeśli znak wartości uległ zmianie (kolor odwrócenia może być inny — jeśli puste, ten sam kolor zostanie wykorzystany)</p>",
-    "help_override": "Element może być stylizowany za pomocą nadpisów. Aby to zadziałało, musisz utworzyć listę wartości w formacie JSON. <br><br> Przykład: %s Dla wartości <b> większej niż 5 </b> zostanie zastosowany kolor <b> #538ea3 </b>. Dla wartości <b> większej niż 10 </b> kolor będzie wynosić <b> #FF0000 </b>. <br> Możesz dodać dowolną liczbę warunków. Warunki zostaną uporządkowane według klucza przed przetworzeniem. <br> <br> <u>Uwaga:</u><br>Nadpisy nie powrócą do początkowego układu z siebie. Oznacza to, że jeśli ustawiłeś właściwość o wartość i zostanie ona przekroczona lub spadnie poniżej, musisz również ustawić przeciwną właściwość dla odpowiedniego przekroczenia lub spadku poniżej. <br> <br> Szczegółowy opis można znaleźć w Wiki Adaptera. <a href='https://www.kreyenborg.koeln/go/hlz4j' target='_blank'> Sprawdź w Wiki </a>",
+    "help_override": "Element może być stylizowany za pomocą nadpisów. Aby to zadziałało, musisz utworzyć listę wartości w formacie JSON. <br><br> Przykład: %s Dla wartości <b> większej niż 5 </b> zostanie zastosowany kolor <b> #538ea3 </b>. Dla wartości <b> większej niż 10 </b> kolor będzie wynosić <b> #FF0000 </b>. <br> Możesz dodać dowolną liczbę warunków. Warunki zostaną uporządkowane według klucza przed przetworzeniem. <br> <br> <u>Uwaga:</u><br>Nadpisy nie powrócą do początkowego układu z siebie. Oznacza to, że jeśli ustawiłeś właściwość o wartość i zostanie ona przekroczona lub spadnie poniżej, musisz również ustawić przeciwną właściwość dla odpowiedniego przekroczenia lub spadku poniżej. <br> <br> Szczegółowy opis można znaleźć w Wiki Adaptera. <a href='https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/' target='_blank'> Zajrzyj do Wiki </a>",
     "help_password_protection": "Jeżeli zapomniałeś hasła, możesz ustawić nowe hasło w ustawieniach adaptera ioBroker!",
     "help_preserveAspectRatio": "<p>Atrybut preserveAspectRatio wskazuje, w jaki sposób element z viewBox zapewniającym dany współczynnik proporcji musi pasować do obszaru widoku o innym współczynniku proporcji.</p> <p>Więcej informacji znajdziesz w <a href='https://www.kreyenborg.koeln/go/96nit' target='_blank'>dokumentacji internetowej MDN</a>.</p>",
     "help_settings": "Jeśli wyłączysz Koło konfiguracji w widoku na żywo, musisz użyć klawisza dostępu przeglądarki <b>'e'</b>, aby powrócić do tej konfiguracji",
@@ -247,7 +248,6 @@
     "lbl_line_size": "Rozmiar linii",
     "lbl_linebreak": "Przerwa w wierszu po x znakach",
     "lbl_negative_ds": "Aktywuj to pole wyboru, jeśli Twój punkt danych dostarcza wartość jako wartość ujemną (np. -125)! Może tak być, jeśli punkt danych jest używany do ładowania i rozładowywania lub zużycia i zasilania sieciowego!",
-    "lbl_new_version": "Dostępna jest nowa wersja",
     "lbl_organize": "Zorganizować",
     "lbl_outline_color": "Kolor konturu",
     "lbl_override": "Ustaw nadpisywanie",
@@ -490,6 +490,7 @@
     "toast_info_undo": "Ostatni krok typu <b>%s</b> został cofnięty!",
     "toast_reactivate": "Można ponownie aktywować w ustawieniach!",
     "toast_show_again": "Nie pokazuj więcej tego komunikatu!",
+    "toast_warning_errorLog": "Masz błędy w konfiguracji lub nadpisy! Sprawdź dziennik błędów za pomocą ikony w prawym dolnym obszarze!",
     "toast_warning_invalidValue": "Wprowadzona wartość jest nieprawidłowa. Poprzednia wartość zostanie przywrócona!",
     "tour_basic": "Za pomocą tego panelu możesz stylizować podgląd na żywo, dodawać, wyrównywać i łączyć elementy, a także cofać/przywracać wykonane akcje!",
     "tour_configBar": "Pasek konfiguracji umożliwia edycję elementu za pomocą różnych opcji (szerokość, wysokość, położenie).<br><u>Uwaga:</u> Istnieje dodatkowa zakładka „Zaawansowane”, która umożliwia edycję bardziej szczegółowych ustawień, a także pozwala na dodawanie nadpisów w szczególnych sytuacjach!",
@@ -564,6 +565,5 @@
     "value_top": "Element górny",
     "value_top_left": "lewy górny róg",
     "value_top_right": "prawy górny róg",
-    "failmsg_no_max_value": "Nie podano wartości maksymalnej!",
-    "toast_warning_errorLog": "Masz błędy w konfiguracji lub nadpisy! Sprawdź dziennik błędów za pomocą ikony w prawym dolnym obszarze!"
+    "lbl_new_version": "Dostępna jest nowa wersja"
 }

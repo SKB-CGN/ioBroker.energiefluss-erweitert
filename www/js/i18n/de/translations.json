@@ -85,6 +85,7 @@
     "failmsg_no_config_display_mode": "Der Adapter ist noch nicht konfiguriert! Um Ihnen den Einstieg zu erleichtern, wurde bereits eine Grundkonfiguration geladen!<br>Bitte verwenden Sie dazu das Konfigurationsrad unten links!",
     "failmsg_no_elements": "Es befinden sich keine verbindbaren Elemente auf der Fläche! <br>Es sind mindestens 2 Rechtecke oder Kreise erforderlich!",
     "failmsg_no_elements_clipboard": "Sie haben keine Elemente in der Zwischenablage!",
+    "failmsg_no_max_value": "Kein Maximalwert angegeben!",
     "failmsg_no_values": "Es konnten keine Werte empfangen werden! Etwas stimmt nicht!",
     "failmsg_not_reachable": "Wenn die Seite nicht geladen wird, klicken Sie hier, um zu erfahren, wie Sie das Problem beheben können.",
     "failmsg_opening_frame": "Sie müssen das Öffnen von URLs für diese Website zulassen!",
@@ -119,7 +120,7 @@
     "help_low_performance": "<p>Dieser Modus ermöglicht es Ihnen, die Animationen auch auf leistungsschwächeren Geräten zu nutzen. Die einzige Einschränkung hierbei ist, dass Sie die Geschwindigkeit der Animation nicht mehr anpassen können! Das Layout und die Anzahl der Punkte bleiben davon unberührt!</p> <p><u>Bitte beachten Sie:</u> Wenn Sie diesen Modus nur auf leistungsschwächeren Geräten aktivieren möchten, hängen Sie an die URL folgenden Parameter an \"<code>lowPerformance=true</code>\" </p>",
     "help_organize": "<p>Alle Elemente sind in Gruppen organisiert (Rechtecke und Kreise, Icons, Texte, etc.).</p> <p>Jedes Element in jeder Gruppe kann in den Vordergrund und Hintergrund gebracht werden. Texte und Icons stehen grundsätzlich im Vordergrund der anderen Elemente.</p>",
     "help_outline": "<p><b>Typ:</b><br>Prozentsatz von 0 bis 100% oder Wert, der auch negativ sein kann</p> <p><b>Startpunkt:</b><br>Definiert den Startpunkt, an dem die Füllung beginnt</p> <p><b>Richtung:</b><br>Definiert die Richtung der Füllung: im Uhrzeigersinn (rund um die Uhr) oder gegen den Uhrzeigersinn (umgekehrt)</p><p><b>Linienstil:</b><br>Stil der Linienenden (rund oder quadratisch)</p> <p><b>Farbe des ungefüllten Bereichs:</b><br>Dies ist die Farbe des <u>ungefüllten</u> Bereichs der Umrandung (Hintergrund). </p> <p><b>Maximaler Wert:</b><br>Dieser ist notwendig, um die Füllmenge zu berechnen. </p> <p><b>Umkehren:</b><br>Kehrt die Umrandungsfüllung um, wenn sich das Vorzeichen des Wertes geändert hat (Farbe für Umkehrung kann unterschiedlich sein - wenn leer, wird dieselbe Farbe verwendet)</p>",
-    "help_override": "Das Element kann mit Overrides gestylt werden. Dazu musst du eine JSON-formatierte Werteliste erstellen. <br><br> Beispiel: %s Für einen Wert <b> größer 5 </b> wird die Farbe <b> #538ea3 </b> angewendet. Für einen Wert <b> größer 10 </b> wird die Farbe <b> #FF0000 </b> angewendet. <br> Du kannst beliebig viele Bedingungen hinzufügen. Die Bedingungen werden vor der Abarbeitung nach ihrem Schlüssel sortiert. <br> <br> <u>Bitte beachte:</u><br>Die Overrides kehren nicht von selbst zum ursprünglichen Layout zurück. Das heißt, wenn du eine Eigenschaft durch einen Wert gesetzt hast und dieser über- oder unterschritten wird, musst du bei der jeweiligen Über- oder Unterschreitung auch die gegenüberliegende Eigenschaft setzen. <br> <br> Eine detaillierte Beschreibung findest du im Wiki des Adapters. <a href='https://www.kreyenborg.koeln/go/hlz4j' target='_blank'> Im Wiki nachschauen </a>",
+    "help_override": "Das Element kann mit Overrides gestaltet werden. Dazu müssen Sie eine JSON-formatierte Werteliste erstellen. <br><br> Beispiel: %s Für einen Wert <b> größer 5 </b> wird die Farbe <b> #538ea3 </b> angewendet. Für einen Wert <b> größer 10 </b> wird die Farbe <b> #FF0000 </b> angewendet. <br> Sie können beliebig viele Bedingungen hinzufügen. Die Bedingungen werden vor der Verarbeitung nach ihrem Schlüssel sortiert. <br> <br> <u>Bitte beachten:</u><br>Die Overrides stellen nicht von selbst das ursprüngliche Layout wieder her. Das bedeutet, wenn Sie eine Eigenschaft durch einen Wert gesetzt haben und dieser über- oder unterschritten wird, müssen Sie für die jeweilige Über- oder Unterschreitung auch die gegenüberliegende Eigenschaft setzen. <br> <br> Eine detaillierte Beschreibung finden Sie im Wiki des Adapters. <a href='https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/' target='_blank'> Schauen Sie im Wiki </a>",
     "help_password_protection": "Wenn Sie das Passwort vergessen haben, können Sie in den Adaptereinstellungen von ioBroker ein neues Passwort festlegen!",
     "help_preserveAspectRatio": "<p>Das Attribut „preserveAspectRatio“ gibt an, wie ein Element mit einer ViewBox, die ein bestimmtes Seitenverhältnis bereitstellt, in ein Ansichtsfenster mit einem anderen Seitenverhältnis passen muss.</p> <p>Weitere Informationen finden Sie in den <a href='https://www.kreyenborg.koeln/go/96nit' target='_blank'>MDN-Webdokumenten</a>.</p>",
     "help_settings": "Wenn Sie das Konfigurationsrad in der Live-Ansicht deaktivieren, müssen Sie die Browser-Zugriffstaste <b>'e'</b> verwenden, um wieder in diese Konfiguration zu gelangen",
@@ -247,7 +248,6 @@
     "lbl_line_size": "Zeilengröße",
     "lbl_linebreak": "Zeilenumbruch nach x Zeichen",
     "lbl_negative_ds": "Aktivieren Sie diese Checkbox, wenn Ihr Datenpunkt einen negativen Wert (z.B. -125) liefert! Dies kann der Fall sein, wenn der Datenpunkt zum Laden und Entladen oder zum Verbrauch und zur Netzeinspeisung genutzt wird!",
-    "lbl_new_version": "Eine neue Version ist verfügbar",
     "lbl_organize": "Organisieren",
     "lbl_outline_color": "Umrissfarbe",
     "lbl_override": "Überschreiben festlegen",
@@ -490,6 +490,7 @@
     "toast_info_undo": "Der letzte Schritt vom Typ <b>%s</b> wurde rückgängig gemacht!",
     "toast_reactivate": "Kann in den Einstellungen wieder aktiviert werden!",
     "toast_show_again": "Diese Meldung nicht mehr anzeigen!",
+    "toast_warning_errorLog": "Sie haben Fehler in Ihrer Konfiguration oder Überschreibungen! Bitte prüfen Sie das Fehlerprotokoll über das Symbol im rechten unteren Bereich!",
     "toast_warning_invalidValue": "Der eingegebene Wert ist ungültig. Der vorherige Wert wird wiederhergestellt!",
     "tour_basic": "Mit diesem Panel können Sie die Live-Ansicht gestalten, Elemente hinzufügen, ausrichten und verbinden und durchgeführte Aktionen rückgängig machen/wiederherstellen!",
     "tour_configBar": "Über die Konfigurationsleiste können Sie das Element mit verschiedenen Optionen (Breite, Höhe, Position) bearbeiten.<br><u>Bitte beachten:</u> Es gibt eine zusätzliche Registerkarte „Erweitert“, in der Sie tiefere Einstellungen vornehmen und für besondere Situationen Überschreibungen hinzufügen können!",
@@ -564,6 +565,5 @@
     "value_top": "Element oben",
     "value_top_left": "oben links",
     "value_top_right": "oben rechts",
-    "failmsg_no_max_value": "Kein Maximalwert angegeben!",
-    "toast_warning_errorLog": "Sie haben Fehler in Ihrer Konfiguration oder Überschreibungen! Bitte prüfen Sie das Fehlerprotokoll über das Symbol im rechten unteren Bereich!"
+    "lbl_new_version": "Eine neue Version ist verfügbar"
 }

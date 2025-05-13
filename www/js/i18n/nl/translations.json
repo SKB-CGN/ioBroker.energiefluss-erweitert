@@ -85,6 +85,7 @@
     "failmsg_no_config_display_mode": "De adapter is nog niet geconfigureerd! Er is een basisconfiguratie geladen om u te helpen eenvoudig aan de slag te gaan!<br>Gebruik het configuratiewiel linksonder!",
     "failmsg_no_elements": "Er zijn geen verbindbare elementen op het oppervlak! <br> Minimaal 2 rechthoeken of cirkels zijn vereist!",
     "failmsg_no_elements_clipboard": "Er staan geen elementen in het klembord!",
+    "failmsg_no_max_value": "Er is geen maximumwaarde opgegeven!",
     "failmsg_no_values": "Kon geen waarden ontvangen! Er is iets mis!",
     "failmsg_not_reachable": "Als de pagina niet laadt, klik dan hier om te zien hoe u dit kunt oplossen!",
     "failmsg_opening_frame": "U moet het openen van URL's voor deze website toestaan!",
@@ -119,7 +120,7 @@
     "help_low_performance": "<p>Deze modus laat je de animaties gebruiken op minder krachtige apparaten. De enige beperking is dat je de snelheid van de animatie niet meer kunt aanpassen! De lay-out en het aantal punten blijven onaangetast!</p> <p><u>Let op:</u> Als je deze modus alleen wilt inschakelen op minder krachtige apparaten, voeg dan de volgende parameter toe aan de URL \"<code>lowPerformance=true</code>\" </p>",
     "help_organize": "<p>Alle elementen zijn georganiseerd in groepen (rechthoeken en cirkels, iconen, teksten, etc.).</p> <p>Elk item in elke groep kan naar de voorgrond en achtergrond worden gebracht. Teksten en iconen staan over het algemeen op de voorgrond van de andere elementen.</p>",
     "help_outline": "<p><b>Type:</b><br>Percentage van 0 tot 100% of waarde, die ook negatief kan zijn</p> <p><b>Startpunt:</b><br>Definieert het startpunt, waar de vulling begint</p> <p><b>Richting:</b><br>Definieert de richting van de vulling: met de klok mee (rond de klok) of tegen de klok in (omgekeerd)</p><p><b>Lijnstijl:</b><br>Stijl van de lijnuiteinden (rond of vierkant)</p> <p><b>Kleur van het niet-gevulde gebied:</b><br>Dit is de kleur van het <u>niet-gevulde</u> gebied van de omtrek (achtergrond)</p> <p><b>Maximale waarde:</b><br>Dit is nodig om de hoeveelheid vulling te berekenen</p> <p><b>Omkeren:</b><br>Keer de omtrekvulling om, als het teken van de waarde is gewijzigd (de kleur voor omkeren kan anders zijn - als deze leeg is, wordt dezelfde kleur gebruikt). gebruikt)</p>",
-    "help_override": "Het element kan worden gestyled met overrides. Om dat te laten werken, moet u een JSON-geformatteerde waardelijst maken. <br><br> Voorbeeld: %s Voor een waarde <b> groter dan 5 </b>, wordt de kleur <b> #538ea3 </b> toegepast. Voor een waarde <b> groter dan 10 </b> , wordt de kleur <b> #FF0000 </b>. <br> U kunt zoveel voorwaarden toevoegen als u wilt. De voorwaarden worden geordend op basis van hun sleutel voordat ze worden verwerkt. <br> <br> <u>Let op:</u><br>De overrides keren niet terug naar de oorspronkelijke lay-out van zichzelf. Dit betekent dat als u een eigenschap hebt ingesteld met een waarde en deze wordt overschreden of onderschreden, u ook de tegenovergestelde eigenschap moet instellen voor de respectievelijke overschrijding of onderschrijding. <br> <br> Een gedetailleerde beschrijving is te vinden in de Wiki van de Adapter. <a href='https://www.kreyenborg.koeln/go/hlz4j' target='_blank'> Kijk op Wiki </a>",
+    "help_override": "Het element kan worden gestyled met overschrijvingen. Om dat te laten werken, moet u een JSON-geformatteerde waardenlijst maken. <br><br> Voorbeeld: %s Voor een waarde <b> groter dan 5 </b> wordt de kleur <b> #538ea3 </b> toegepast. Voor een waarde <b> groter dan 10 </b> wordt de kleur <b> #FF0000 </b>. <br> U kunt zoveel voorwaarden toevoegen als u wilt. De voorwaarden worden gesorteerd op basis van hun sleutel voordat ze worden verwerkt. <br> <br> <u>Let op:</u><br>De overschrijvingen keren niet terug naar de oorspronkelijke lay-out. Dit betekent dat als u een eigenschap hebt ingesteld op een waarde en deze wordt overschreden of onderschreden, u ook de tegenovergestelde eigenschap moet instellen voor de betreffende overschrijding of onderschrijding. <br> <br> Een gedetailleerde beschrijving is te vinden in de Wiki van de Adapter. <a href='https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/' target='_blank'> Kijk in Wiki </a>",
     "help_password_protection": "Als u uw wachtwoord bent vergeten, kunt u een nieuw wachtwoord instellen in de adapterinstellingen van ioBroker!",
     "help_preserveAspectRatio": "<p>Het kenmerk preserveAspectRatio geeft aan hoe een element met een viewBox met een bepaalde beeldverhouding moet passen in een viewport met een andere beeldverhouding.</p> <p>Raadpleeg <a href='https://www.kreyenborg.koeln/go/96nit' target='_blank'>MDN Web Docs</a> voor meer informatie over</p>",
     "help_settings": "Als u het configuratiewiel op de liveweergave uitschakelt, moet u de toegangstoets <b>'e'</b> van de browser gebruiken om weer in deze configuratie te komen.",
@@ -247,7 +248,6 @@
     "lbl_line_size": "Lijngrootte",
     "lbl_linebreak": "Regeleinde na x tekens",
     "lbl_negative_ds": "Activeer dit selectievakje als uw datapunt de waarde als een negatieve waarde levert (bijv. -125)! Dit kan het geval zijn als het datapunt wordt gebruikt voor laden en ontladen of verbruik en netvoeding!",
-    "lbl_new_version": "Er is een nieuwe versie beschikbaar",
     "lbl_organize": "Organiseren",
     "lbl_outline_color": "Omtrekkleur",
     "lbl_override": "Overschrijven instellen",
@@ -490,6 +490,7 @@
     "toast_info_undo": "De laatste stap van het type <b>%s</b> is ongedaan gemaakt!",
     "toast_reactivate": "Kan opnieuw worden geactiveerd in de instellingen!",
     "toast_show_again": "Toon dit bericht niet meer!",
+    "toast_warning_errorLog": "Er zitten fouten in uw configuratie of overschrijvingen! Controleer het foutenlogboek via het pictogram rechtsonder!",
     "toast_warning_invalidValue": "De ingevoerde waarde is ongeldig. De vorige waarde wordt hersteld!",
     "tour_basic": "Met dit paneel kunt u de liveweergave stylen, elementen toevoegen, uitlijnen en verbinden en uitgevoerde acties ongedaan maken of herstellen!",
     "tour_configBar": "Met de configuratiebalk kunt u het element bewerken met verschillende opties (breedte, hoogte, positie). <br><u>Let op:</u> Er is een extra tabblad 'geavanceerd', waarmee u diepere instellingen kunt bewerken en overschrijvingen kunt toevoegen voor speciale situaties!",
@@ -564,6 +565,5 @@
     "value_top": "Element bovenaan",
     "value_top_left": "linksboven",
     "value_top_right": "rechtsboven",
-    "failmsg_no_max_value": "Er is geen maximumwaarde opgegeven!",
-    "toast_warning_errorLog": "Er zitten fouten in uw configuratie of overschrijvingen! Controleer het foutenlogboek via het pictogram rechtsonder!"
+    "lbl_new_version": "Er is een nieuwe versie beschikbaar"
 }

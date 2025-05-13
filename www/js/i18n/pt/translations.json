@@ -85,6 +85,7 @@
     "failmsg_no_config_display_mode": "O adaptador ainda não está configurado! Uma configuração básica foi carregada para ajudar você a começar facilmente!<br>Use a roda de configuração para baixo à esquerda!",
     "failmsg_no_elements": "Não há elementos conectáveis na superfície! <br> São necessários no mínimo 2 retângulos ou círculos!",
     "failmsg_no_elements_clipboard": "Você não tem nenhum elemento dentro da área de transferência!",
+    "failmsg_no_max_value": "Nenhum valor máximo declarado!",
     "failmsg_no_values": "Não foi possível receber nenhum valor! Algo está errado!",
     "failmsg_not_reachable": "Se a página não estiver carregando, clique aqui para descobrir como consertar!",
     "failmsg_opening_frame": "Você precisa permitir a abertura de URLs para este site!",
@@ -119,7 +120,7 @@
     "help_low_performance": "<p>Este modo permite que você use as animações em dispositivos menos potentes. A única limitação é que você não pode mais ajustar a velocidade da animação! O layout e o número de pontos permanecem inalterados!</p> <p><u>Observação:</u> Se você deseja habilitar este modo apenas em dispositivos menos potentes, anexe o seguinte parâmetro à URL \"<code>lowPerformance=true</code>\" </p>",
     "help_organize": "<p>Todos os elementos são organizados em grupos (retângulos e círculos, ícones, textos, etc.).</p> <p>Cada item em cada grupo pode ser trazido para o primeiro plano e para o segundo plano. Textos e ícones geralmente ficam no primeiro plano dos outros elementos.</p>",
     "help_outline": "<p><b>Tipo:</b><br>Porcentagem de 0 a 100% ou valor, que também pode ser negativo</p> <p><b>Ponto inicial:</b><br>Define o ponto inicial, onde o preenchimento começa</p> <p><b>Direção:</b><br>Define a direção do preenchimento: sentido horário (em torno do relógio) ou anti-horário (reverso)</p><p><b>Estilo da linha:</b><br>Estilo das extremidades da linha (redondo ou quadrado)</p> <p><b>Cor da área não preenchida:</b><br>Esta é a cor da área <u>não preenchida</u> do contorno (fundo)</p> <p><b>Valor máximo:</b><br>Isso é necessário para calcular a quantidade de preenchimento</p> <p><b>Reverso:</b><br>Inverte o preenchimento do contorno, se o sinal do valor tiver mudado (a cor para reverso pode ser diferente - se estiver vazio, a mesma cor será usado)</p>",
-    "help_override": "O elemento pode ser estilizado com substituições. Para que isso funcione, você precisa criar uma lista de valores formatada em JSON. <br><br> Exemplo: %s Para um valor <b> maior que 5 </b>, a cor <b> #538ea3 </b> será aplicada. Para um valor <b> maior que 10 </b>, a cor será <b> #FF0000 </b>. <br> Você pode adicionar quantas condições quiser. As condições serão ordenadas de acordo com sua chave antes de serem processadas. <br> <br> <u>Observe:</u><br>As substituições não retornarão ao layout inicial por si mesmas. Isso significa que se você tiver definido uma propriedade por um valor e ele for excedido ou ficar abaixo, você também terá que definir a propriedade oposta para a respectiva excedência ou queda abaixo. <br> <br> Uma descrição detalhada pode ser encontrada dentro do Wiki do Adapter. <a href='https://www.kreyenborg.koeln/go/hlz4j' target='_blank'> Dê uma olhada na Wiki </a>",
+    "help_override": "O elemento pode ser estilizado com substituições. Para que isso funcione, você precisa criar uma lista de valores no formato JSON. <br><br> Exemplo: %s Para um valor <b> maior que 5 </b>, a cor <b> #538ea3 </b> será aplicada. Para um valor <b> maior que 10 </b>, a cor será <b> #FF0000 </b>. <br> Você pode adicionar quantas condições desejar. As condições serão ordenadas de acordo com sua chave antes de serem processadas. <br> <br> <u>Observação:</u><br>As substituições não retornarão ao layout inicial a partir de si mesmas. Isso significa que, se você definiu uma propriedade por um valor e ele for excedido ou ficar abaixo, você também terá que definir a propriedade oposta para a respectiva excedência ou queda abaixo. <br> <br> Uma descrição detalhada pode ser encontrada dentro do Wiki do Adaptador. <a href='https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/' target='_blank'> Consulte o Wiki </a>",
     "help_password_protection": "Se você esqueceu a senha, você pode definir uma nova senha dentro das configurações do adaptador do ioBroker!",
     "help_preserveAspectRatio": "<p>O atributo preserveAspectRatio indica como um elemento com uma viewBox fornecendo uma determinada proporção de aspecto deve se ajustar a uma viewport com uma proporção de aspecto diferente.</p> <p>Consulte <a href='https://www.kreyenborg.koeln/go/96nit' target='_blank'>MDN Web Docs</a> para ler mais sobre</p>",
     "help_settings": "Se você desabilitar o Config Wheel na visualização ao vivo, precisará usar a tecla de acesso do navegador <b>'e'</b> para retornar a esta configuração novamente",
@@ -247,7 +248,6 @@
     "lbl_line_size": "Tamanho da linha",
     "lbl_linebreak": "Quebra de linha após x caracteres",
     "lbl_negative_ds": "Ative esta caixa de seleção, se seu ponto de dados entregar o valor como um valor negativo (por exemplo, -125)! Este pode ser o caso, se o ponto de dados for usado para carga e descarga ou consumo e alimentação da rede!",
-    "lbl_new_version": "Uma nova versão está disponível",
     "lbl_organize": "Organizar",
     "lbl_outline_color": "Cor do contorno",
     "lbl_override": "Definir substituição",
@@ -490,6 +490,7 @@
     "toast_info_undo": "A última etapa do tipo <b>%s</b> foi desfeita!",
     "toast_reactivate": "Pode ser reativado nas configurações!",
     "toast_show_again": "Não mostrar esta mensagem novamente!",
+    "toast_warning_errorLog": "Você tem erros na sua configuração ou substituições! Verifique o log de erros através do ícone no canto inferior direito!",
     "toast_warning_invalidValue": "O valor inserido é inválido. O valor anterior será restaurado!",
     "tour_basic": "Com este painel, você pode estilizar a visualização ao vivo, adicionar, alinhar e conectar elementos e desfazer/restaurar ações realizadas!",
     "tour_configBar": "A barra de configuração permite que você edite o elemento com várias opções (largura, altura, posição).<br><u>Observação:</u> há uma aba adicional 'avançada', que permite editar configurações mais profundas e também permite adicionar substituições para situações especiais!",
@@ -564,6 +565,5 @@
     "value_top": "Elemento superior",
     "value_top_left": "canto superior esquerdo",
     "value_top_right": "canto superior direito",
-    "failmsg_no_max_value": "Nenhum valor máximo declarado!",
-    "toast_warning_errorLog": "Você tem erros na sua configuração ou substituições! Verifique o log de erros através do ícone no canto inferior direito!"
+    "lbl_new_version": "Uma nova versão está disponível"
 }

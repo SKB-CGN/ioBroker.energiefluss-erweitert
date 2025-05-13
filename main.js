@@ -923,67 +923,76 @@ class EnergieflussErweitert extends utils.Adapter {
     }
 
     evaluateConditions(workObj, condValue) {
-        let tmpWorker = {};
         // Property not found. We need to check the values!
         const operators = new RegExp('[=><!]');
-        Object.keys(workObj)
-            .sort((a, b) =>
-                a.toLowerCase().localeCompare(b.toLowerCase(), undefined, {
-                    numeric: true,
-                    sensitivity: 'base',
-                }),
-            )
-            .forEach(item => {
-                if (operators.test(item)) {
-                    // Now, we need to check, if condValue is a number
-                    if (!isNaN(condValue)) {
-                        // Operator found - check for condition
-                        try {
-                            const func = Function(`return ${condValue}${item} `)();
-                            if (func) {
-                                tmpWorker = workObj[item];
-                            }
-                        } catch (func) {
-                            tmpWorker.error = {
-                                status: false,
-                                error: func.toString(),
-                                function: condValue + item,
-                            };
-                        }
+        const sortedKeys = Object.keys(workObj).sort((a, b) => {
+            const parse = s => {
+                const match = s.match(/^([<>]=?|!?=)?\s*(-?\d+(\.\d+)?)/);
+                if (!match) return { op: '', val: 0 };
+                return { op: match[1] || '', val: parseFloat(match[2]) };
+            };
+            const A = parse(a);
+            const B = parse(b);
+            if (A.op.startsWith('>')) return B.val - A.val;
+            if (A.op.startsWith('<')) return A.val - B.val;
+            return 0;
+        });
+
+        // Numeric condValue
+        const isNumeric = !isNaN(condValue);
+
+        for (const item of sortedKeys) {
+            // Now, we need to check, if condValue is a number and we have an operator
+            if (operators.test(item) && isNumeric) {
+                // Operator found - check for condition
+                try {
+                    const func = Function(`return ${condValue}${item} `)();
+                    if (func) {
+                        return workObj[item];
                     }
+                } catch (func) {
+                    return {
+                        error: {
+                            status: false,
+                            error: func.toString(),
+                            function: condValue + item,
+                        },
+                    };
                 }
-            });
-        return tmpWorker;
+            } else if (item == condValue) {
+                // No Operator found - Check for property
+                return workObj[item];
+            }
+        }
+
+        // Still no return - check for default value
+        if ('default' in workObj) {
+            return workObj['default'];
+        }
+
+        // Return empty
+        return {};
     }
 
     async getOverridesAsync(condValue, obj) {
-        let tmpWorker = {};
         let workObj;
         try {
             workObj = typeof obj === 'string' ? JSON.parse(obj) : JSON.parse(JSON.stringify(obj));
         } catch {
-            return tmpWorker;
+            return {};
         }
 
-        if (Object.hasOwn(workObj, condValue)) {
-            // Check, if Property exists - if yes, directly return it, because thats the best match
-            return workObj[condValue];
-        }
+        // Generate object for conditions
+        const tmpWorker = this.evaluateConditions(workObj, condValue);
 
-        tmpWorker = this.evaluateConditions(workObj, condValue);
-
-        if (Object.keys(tmpWorker).length == 0 && Object.hasOwn(workObj, 'default')) {
-            // Check, if we have a default fallback for it
-            tmpWorker = workObj['default'];
-        }
-
+        // Check, if condition is not an object
         if (typeof tmpWorker == 'string') {
             // Return the Object as Error
             return {
                 error: {
                     status: false,
-                    error: 'You need to provide an object for this condition to work! Visit the <a href="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements" target="_blank">Wiki</a> for help!',
-                    function: 'No function executed, due to missing object',
+                    error: 'You need to provide an object for this condition to work! Visit the <a href="https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/" target="_blank">Wiki</a> for help!',
+                    function: 'No function executed!',
                 },
             };
         }
@@ -1010,7 +1019,7 @@ class EnergieflussErweitert extends utils.Adapter {
                             tmpWorker[item] = func(condValue);
                             this.log.debug(`Result of the function: ${tmpWorker[item]}`);
 
-                            // Check, if we an undefined result
+                            // Check, if we have an undefined result
                             if (typeof tmpWorker[item] == 'undefined') {
                                 tmpWorker[item] = {
                                     status: false,

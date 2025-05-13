@@ -85,6 +85,7 @@
     "failmsg_no_config_display_mode": "¡El adaptador aún no está configurado! ¡Se cargó una configuración básica para que puedas comenzar fácilmente!<br>¡Utiliza la rueda de configuración que se encuentra abajo a la izquierda!",
     "failmsg_no_elements": "¡No hay elementos conectables en la superficie! <br>¡Se requieren un mínimo de 2 rectángulos o círculos!",
     "failmsg_no_elements_clipboard": "¡No tienes ningún elemento dentro del portapapeles!",
+    "failmsg_no_max_value": "¡No se declaró ningún valor máximo!",
     "failmsg_no_values": "¡No se pudo recibir ningún valor! ¡Algo anda mal!",
     "failmsg_not_reachable": "Si la página no se carga, haga clic aquí para saber cómo solucionarlo.",
     "failmsg_opening_frame": "¡Debes permitir la apertura de URL para este sitio web!",
@@ -119,7 +120,7 @@
     "help_low_performance": "<p>Este modo te permite usar las animaciones en dispositivos menos potentes. La única limitación es que ya no puedes ajustar la velocidad de la animación. ¡El diseño y la cantidad de puntos no se ven afectados!</p> <p><u>Nota:</u> Si solo quieres habilitar este modo en dispositivos menos potentes, adjunta el siguiente parámetro a la URL \"<code>lowPerformance=true</code>\" </p>",
     "help_organize": "<p>Todos los elementos están organizados en grupos (rectángulos y círculos, iconos, textos, etc.).</p> <p>Cada elemento de cada grupo puede colocarse en primer plano o en segundo plano. Los textos e iconos suelen estar en primer plano respecto de los demás elementos.</p>",
     "help_outline": "<p><b>Tipo:</b><br>Porcentaje de 0 a 100% o valor, que también puede ser negativo</p> <p><b>Punto de inicio:</b><br>Define el punto de inicio, donde comienza el relleno</p> <p><b>Dirección:</b><br>Define la dirección del relleno: en el sentido de las agujas del reloj (alrededor del reloj) o en el sentido contrario a las agujas del reloj (inverso)</p><p><b>Estilo de línea:</b><br>Estilo de los extremos de la línea (redondos o cuadrados)</p> <p><b>Color del área sin relleno:</b><br>Este es el color del área <u>sin relleno</u> del contorno (fondo) </p> <p><b>Valor máximo:</b><br>Esto es necesario para calcular la cantidad de relleno </p> <p><b>Invertir:</b><br>Invierte el relleno del contorno, si el signo del valor ha cambiado (el color para invertir puede ser diferente; si está vacío, se usará el mismo color)</p>",
-    "help_override": "El elemento se puede diseñar con anulaciones. Para que esto funcione, debe crear una lista de valores con formato JSON. <br><br> Ejemplo: %s Para un valor <b> mayor que 5 </b>, se aplicará el color <b> #538ea3 </b>. Para un valor <b> mayor que 10 </b>, el color será <b> #FF0000 </b>. <br> Puede agregar tantas condiciones como desee. Las condiciones se ordenarán de acuerdo con su clave antes de procesarse. <br> <br> <u>Tenga en cuenta:</u><br>Las anulaciones no volverán al diseño inicial desde sí mismas. Esto significa que si ha establecido una propiedad con un valor y se excede o cae por debajo, también debe establecer la propiedad opuesta para el respectivo exceso o caída por debajo. <br> <br> Puede encontrar una descripción detallada dentro de la Wiki del Adaptador. <a href='https://www.kreyenborg.koeln/go/hlz4j' target='_blank'>Consulta Wiki</a>",
+    "help_override": "El elemento se puede estilizar con anulaciones. Para que esto funcione, necesita crear una lista de valores con formato JSON. <br><br> Ejemplo: %s Para un valor <b> mayor que 5 </b>, se aplicará el color <b> #538ea3 </b>. Para un valor <b> mayor que 10 </b>, el color será <b> #FF0000 </b>. <br> Puede agregar tantas condiciones como desee. Las condiciones se ordenarán según su clave antes de ser procesadas. <br> <br> <u>Nota:</u><br>Las anulaciones no volverán al diseño inicial. Esto significa que si ha establecido una propiedad con un valor y este se excede o se queda por debajo, también debe establecer la propiedad opuesta para el respectivo exceso o defecto. <br> <br> Puede encontrar una descripción detallada en la wiki del adaptador. <a href='https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/' target='_blank'> Busque en Wiki </a>",
     "help_password_protection": "Si olvidó su contraseña, ¡puede establecer una nueva contraseña dentro de la configuración del adaptador de ioBroker!",
     "help_preserveAspectRatio": "<p>El atributo preserveAspectRatio indica cómo un elemento con un viewBox que proporciona una relación de aspecto determinada debe encajar en una ventana gráfica con una relación de aspecto diferente.</p> <p>Consulte <a href='https://www.kreyenborg.koeln/go/96nit' target='_blank'>MDN Web Docs</a> para obtener más información sobre</p>",
     "help_settings": "Si deshabilita la rueda de configuración en la vista en vivo, deberá usar la tecla de acceso del navegador <b>'e'</b> para volver a esta configuración nuevamente.",
@@ -247,7 +248,6 @@
     "lbl_line_size": "Tamaño de línea",
     "lbl_linebreak": "Salto de línea después de x caracteres",
     "lbl_negative_ds": "Active esta casilla si su punto de datos proporciona un valor negativo (p. ej., -125). Esto puede ocurrir si el punto de datos se utiliza para carga y descarga, o para consumo e inyección a la red.",
-    "lbl_new_version": "Una nueva versión está disponible",
     "lbl_organize": "Organizar",
     "lbl_outline_color": "Color del contorno",
     "lbl_override": "Establecer sobrescritura",
@@ -490,6 +490,7 @@
     "toast_info_undo": "¡El último paso del tipo <b>%s</b> se deshizo!",
     "toast_reactivate": "¡Se puede reactivar dentro de la configuración!",
     "toast_show_again": "¡No volver a mostrar este mensaje!",
+    "toast_warning_errorLog": "¡Tiene errores de configuración o sobrescrituras! Consulte el registro de errores con el icono en la esquina inferior derecha.",
     "toast_warning_invalidValue": "El valor ingresado no es válido. Se restaurará el valor anterior.",
     "tour_basic": "¡Con este panel, puedes diseñar la vista en vivo, agregar, alinear y conectar elementos y deshacer/restaurar acciones realizadas!",
     "tour_configBar": "La barra de configuración le permite editar el elemento con varias opciones (ancho, alto, posición).<br><u>Nota:</u> Hay una pestaña \"avanzada\" adicional que permite editar configuraciones más profundas y también permite agregar sobrescrituras para situaciones especiales.",
@@ -564,6 +565,5 @@
     "value_top": "Elemento superior",
     "value_top_left": "arriba a la izquierda",
     "value_top_right": "arriba a la derecha",
-    "failmsg_no_max_value": "¡No se declaró ningún valor máximo!",
-    "toast_warning_errorLog": "¡Tiene errores de configuración o sobrescrituras! Consulte el registro de errores con el icono en la esquina inferior derecha."
+    "lbl_new_version": "Una nueva versión está disponible"
 }

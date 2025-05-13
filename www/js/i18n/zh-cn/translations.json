@@ -85,6 +85,7 @@
     "failmsg_no_config_display_mode": "适配器尚未配置！已加载基本配置，以帮助您轻松入门！<br>请使用左下方的配置轮！",
     "failmsg_no_elements": "表面上没有可连接的元素！<br>至少需要 2 个矩形或圆形！",
     "failmsg_no_elements_clipboard": "您的剪贴板内没有任何元素！",
+    "failmsg_no_max_value": "未声明最大值！",
     "failmsg_no_values": "无法接收任何值！出现错误！",
     "failmsg_not_reachable": "如果页面未加载，请点击此处，了解如何修复！",
     "failmsg_opening_frame": "您需要允许打开此网站的 URL！",
@@ -119,7 +120,7 @@
     "help_low_performance": "<p>此模式允许您在性能较差的设备上使用该动画。唯一的限制是您无法再调整动画的速度！布局和点数不受影响！</p> <p><u>请注意：</u>如果您只想在性能较差的设备上启用此模式，请将以下参数附加到 URL“<code>lowPerformance=true</code>” </p>",
     "help_organize": "<p>所有元素都按组进行组织（矩形和圆形、图标、文本等）。</p> <p>每个组中的每个项目都可以置于前台和后台。文本和图标通常位于其他元素的前台。</p>",
     "help_outline": "<p><b>类型：</b><br>从 0 到 100% 的百分比或值，也可以是负数</p> <p><b>起点：</b><br>定义填充开始的起点</p> <p><b>方向：</b><br>定义填充的方向：顺时针（绕时钟）或逆时针（反向）</p><p><b>线条样式：</b><br>线条末端的样式（圆形或方形）</p> <p><b>未填充区域的颜色：</b><br>这是轮廓（背景）的<u>未填充</u>区域的颜色</p> <p><b>最大值：</b><br>这是必需的，用于计算填充量</p> <p><b>反向：</b><br>如果值的符号已更改，则反向轮廓填充（反向的颜色可以不同 - 如果为空，则颜色相同使用）</p>",
-    "help_override": "元素可以使用覆盖来设置样式。要使其工作，您需要创建一个 JSON 格式的值列表。<br><br>示例：%s 对于<b>大于 5</b>的值，将应用颜色<b>#538ea3</b>。对于<b>大于 10</b>的值，颜色将为<b>#FF0000</b>。<br>您可以添加任意数量的条件。在处理条件之前，它们将根据其键进行排序。<br><br> <u>请注意：</u><br>覆盖不会从其自身返回到初始布局。这意味着，如果您已通过值设置了属性并且超出或低于该值，则还必须为相应的超出或低于设置相反的属性。<br><br>可以在适配器的 Wiki 中找到详细描述。 <a href='https://www.kreyenborg.koeln/go/hlz4j' target='_blank'>查看 Wiki </a>",
+    "help_override": "元素可以使用覆盖来设置样式。为此，您需要创建一个 JSON 格式的值列表。<br><br>示例：％s 对于<b>大于 5 </b>的值，将应用颜色<b>#538ea3 </b>。对于<b>大于 10 </b>的值，颜色将为<b>#FF0000 </b>。<br>您可以添加任意数量的条件。条件将根据其键排序后再进行处理。<br><br><u>请注意：</u><br>覆盖不会从其自身返回到初始布局。这意味着，如果您已通过值设置了属性并且超过或低于该值，则还必须为相应的超出或低于设置相反的属性。<br><br>详细描述可以在适配器的 Wiki 中找到。 <a href='https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/' target='_blank'> 查看 Wiki </a>",
     "help_password_protection": "如果您忘记了密码，您可以在 ioBroker 的适配器设置中设置新密码！",
     "help_preserveAspectRatio": "<p>preserveAspectRatio 属性指示具有提供给定纵横比的 viewBox 的元素必须如何适应具有不同纵横比的视口。</p> <p>请参阅 <a href='https://www.kreyenborg.koeln/go/96nit' target='_blank'>MDN Web 文档</a> 以了解有关</p>的更多信息",
     "help_settings": "如果您在实时视图中禁用配置轮，则需要使用浏览器访问键<b>'e'</b>再次返回此配置",
@@ -247,7 +248,6 @@
     "lbl_line_size": "管线尺寸",
     "lbl_linebreak": "x 个字符后换行",
     "lbl_negative_ds": "如果您的数据点提供的值为负值（例如 -125），请激活此复选框！如果数据点用于充电和放电或消耗和电网供电，则可能存在这种情况！",
-    "lbl_new_version": "有新版本可用",
     "lbl_organize": "组织",
     "lbl_outline_color": "轮廓颜色",
     "lbl_override": "设置覆盖",
@@ -490,6 +490,7 @@
     "toast_info_undo": "类型为 <b>%s</b> 的最后一步已撤消！",
     "toast_reactivate": "可以在设置中重新激活！",
     "toast_show_again": "不要再次显示此消息！",
+    "toast_warning_errorLog": "您的配置或覆盖存在错误！请通过右下角的图标查看错误日志！",
     "toast_warning_invalidValue": "输入的值无效。将恢复先前的值！",
     "tour_basic": "通过此面板，您可以设置实时视图的样式，添加、对齐和连接元素以及撤消/恢复所做的操作！",
     "tour_configBar": "配置栏允许您使用各种选项（宽度、高度、位置）编辑元素。<br><u>请注意：</u>有一个额外的“高级”选项卡，允许编辑更深层次的设置，还允许为特殊情况添加覆盖！",
@@ -564,6 +565,5 @@
     "value_top": "元素顶部",
     "value_top_left": "左上角",
     "value_top_right": "右上",
-    "failmsg_no_max_value": "未声明最大值！",
-    "toast_warning_errorLog": "您的配置或覆盖存在错误！请通过右下角的图标查看错误日志！"
+    "lbl_new_version": "新版本已推出"
 }
