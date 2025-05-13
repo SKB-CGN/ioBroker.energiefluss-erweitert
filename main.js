@@ -928,13 +928,21 @@ class EnergieflussErweitert extends utils.Adapter {
         const sortedKeys = Object.keys(workObj).sort((a, b) => {
             const parse = s => {
                 const match = s.match(/^([<>]=?|!?=)?\s*(-?\d+(\.\d+)?)/);
-                if (!match) return { op: '', val: 0 };
+                if (!match) {
+                    return { op: '', val: 0 };
+                }
                 return { op: match[1] || '', val: parseFloat(match[2]) };
             };
             const A = parse(a);
             const B = parse(b);
-            if (A.op.startsWith('>')) return B.val - A.val;
-            if (A.op.startsWith('<')) return A.val - B.val;
+
+            if (A.op.startsWith('>')) {
+                return B.val - A.val;
+            }
+
+            if (A.op.startsWith('<')) {
+                return A.val - B.val;
+            }
             return 0;
         });
 

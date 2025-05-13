@@ -40,7 +40,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: "Fill outline" and "Fill element" according to value now support value overrides
 - Added: Version check removed, as this is confusing, if user uses the default repository and Github has a new BETA version
 - Added: New line-end for filling outline according to value added. Can now be round, square and butt
-- Added: [Few language corrections
+- Added: Few language corrections
 
 ### 0.7.4 (2025-04-30)
 - FIX: Switching on/off on some designs did not work correctly
