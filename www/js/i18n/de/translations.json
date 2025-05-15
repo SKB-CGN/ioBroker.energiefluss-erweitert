@@ -23,6 +23,7 @@
     "ex_battery_info": "Damit die Berechnung funktioniert, sind die mit einem Sternchen markierten Felder erforderlich",
     "ex_border_fill": "Diese Farbe ist im Basisbereich definiert und wird nur als Referenz angezeigt.",
     "ex_clock_dayperiod": "Verfügbar, wenn das 12-Stunden-Format verwendet wird (sonst wird es ignoriert)",
+    "ex_config_RotationApple": "<b>Hinweis:</b> Das Drehen eines Schalters wird in Safari/Apple nicht unterstützt!",
     "ex_config_action": "Durch einen Klick auf ‚Vorschau‘ wird die ausgewählte Aktion direkt auf der Datenquelle ausgeführt! <br>Wenn Sie die ‚Manuelle Wertänderung‘ ausgewählt haben, wird die Vorschau der Box angezeigt!",
     "ex_config_align": "Dies ändert sich, wenn Sie das Element drehen",
     "ex_config_datasource": "Aktionen für die Datenquelle können auf der Registerkarte „Erweitert“ konfiguriert werden.",
@@ -564,6 +565,5 @@
     "value_toast_restore": "Stellen Sie die Hinweise wieder her",
     "value_top": "Element oben",
     "value_top_left": "oben links",
-    "value_top_right": "oben rechts",
-    "lbl_new_version": "Eine neue Version ist verfügbar"
+    "value_top_right": "oben rechts"
 }

@@ -23,6 +23,7 @@
     "ex_battery_info": "为了使计算有效，标有星号的字段是必需的",
     "ex_border_fill": "此颜色在基本部分中定义，仅作为参考显示",
     "ex_clock_dayperiod": "当使用 12 小时格式时可用（否则将被忽略）",
+    "ex_config_RotationApple": "<b>注意：</b>Safari/Apple 不支持旋转开关！",
     "ex_config_action": "通过单击“预览”，所选操作将直接在数据源上执行！<br>如果您选择“手动更改值”，则会显示框的预览！",
     "ex_config_align": "如果旋转元素，这将会改变",
     "ex_config_datasource": "可以在“高级”选项卡中配置数据源的操作",
@@ -564,6 +565,5 @@
     "value_toast_restore": "恢复提示",
     "value_top": "元素顶部",
     "value_top_left": "左上角",
-    "value_top_right": "右上",
-    "lbl_new_version": "新版本已推出"
+    "value_top_right": "右上"
 }

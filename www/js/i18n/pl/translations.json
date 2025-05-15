@@ -23,6 +23,7 @@
     "ex_battery_info": "Aby obliczenia zadziałały, pola oznaczone gwiazdką są konieczne",
     "ex_border_fill": "Ten kolor jest zdefiniowany w sekcji podstawowej i jest wyświetlany wyłącznie jako punkt odniesienia",
     "ex_clock_dayperiod": "Dostępne, gdy używany jest format 12-godzinny (w przeciwnym razie jest ignorowane)",
+    "ex_config_RotationApple": "<b>Uwaga:</b> Obracanie przełącznika nie jest obsługiwane w Safari/Apple!",
     "ex_config_action": "Kliknięcie „Podgląd” spowoduje wykonanie wybranej akcji bezpośrednio w źródle danych! <br> Jeśli wybrano opcję „Ręczna zmiana wartości”, zostanie wyświetlony podgląd pola!",
     "ex_config_align": "To się zmieni, jeśli obrócisz element",
     "ex_config_datasource": "Akcje dla źródła danych można skonfigurować na karcie „Zaawansowane”",
@@ -564,6 +565,5 @@
     "value_toast_restore": "Przywróć wskazówki",
     "value_top": "Element górny",
     "value_top_left": "lewy górny róg",
-    "value_top_right": "prawy górny róg",
-    "lbl_new_version": "Dostępna jest nowa wersja"
+    "value_top_right": "prawy górny róg"
 }

@@ -23,6 +23,7 @@
     "ex_battery_info": "Pour que le calcul fonctionne, les champs marqués d'une étoile sont nécessaires",
     "ex_border_fill": "Cette couleur est définie dans la section de base et n'est affichée qu'à titre de référence",
     "ex_clock_dayperiod": "Disponible lorsque le format 12 heures est utilisé (sinon il est ignoré)",
+    "ex_config_RotationApple": "<b>Remarque :</b> la rotation d’un commutateur n’est pas prise en charge dans Safari/Apple !",
     "ex_config_action": "En cliquant sur « Aperçu », l'action sélectionnée est exécutée directement sur la source de données ! <br>Si vous avez sélectionné « Modification manuelle de la valeur », l'aperçu de la boîte s'affichera !",
     "ex_config_align": "Cela changera si vous faites pivoter l'élément",
     "ex_config_datasource": "Les actions pour la source de données peuvent être configurées dans l'onglet « Avancé »",
@@ -564,6 +565,5 @@
     "value_toast_restore": "Restaurer les indices",
     "value_top": "Élément supérieur",
     "value_top_left": "en haut à gauche",
-    "value_top_right": "en haut à droite",
-    "lbl_new_version": "Une nouvelle version est disponible"
+    "value_top_right": "en haut à droite"
 }

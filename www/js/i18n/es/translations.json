@@ -23,6 +23,7 @@
     "ex_battery_info": "Para que el cálculo funcione son necesarios los campos marcados con un asterisco",
     "ex_border_fill": "Este color está definido en la sección básica y solo se muestra como referencia.",
     "ex_clock_dayperiod": "Disponible cuando se utiliza el formato de 12 horas (de lo contrario, se ignora)",
+    "ex_config_RotationApple": "<b>Nota:</b> ¡Safari/Apple no admiten girar un interruptor!",
     "ex_config_action": "Al hacer clic en 'Vista previa', la acción seleccionada se ejecutará directamente en la fuente de datos. <br>Si seleccionó 'Cambio de valor manual', se mostrará la vista previa del cuadro.",
     "ex_config_align": "Esto cambiará si giras el elemento.",
     "ex_config_datasource": "Las acciones para la fuente de datos se pueden configurar en la pestaña 'Avanzado'",
@@ -564,6 +565,5 @@
     "value_toast_restore": "Restaurar las pistas",
     "value_top": "Elemento superior",
     "value_top_left": "arriba a la izquierda",
-    "value_top_right": "arriba a la derecha",
-    "lbl_new_version": "Una nueva versión está disponible"
+    "value_top_right": "arriba a la derecha"
 }

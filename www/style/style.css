@@ -1705,6 +1705,11 @@ fieldset.small {
     padding-right: 5px;
 }
 
+#shortcut-table th:last-child,
+#shortcut-table td:last-child {
+    min-width: 80px;
+}
+
 
 @keyframes highlight-green {
     0% {
@@ -3168,7 +3173,7 @@ nav label:active {
     }
 
     .ef-table {
-        margin-bottom: 14px;
+        margin-bottom: 0px;
     }
 
     .help.mobile {

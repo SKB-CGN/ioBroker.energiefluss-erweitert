@@ -23,6 +23,7 @@
     "ex_battery_info": "Om de berekening te laten werken, zijn de gemarkeerde velden met een sterretje noodzakelijk",
     "ex_border_fill": "Deze kleur is gedefinieerd in het basisgedeelte en wordt alleen als referentie weergegeven",
     "ex_clock_dayperiod": "Beschikbaar wanneer het 12-uursformaat wordt gebruikt (anders wordt het genegeerd)",
+    "ex_config_RotationApple": "<b>Let op:</b> Het draaien van een schakelaar wordt niet ondersteund in Safari/Apple!",
     "ex_config_action": "Door op 'Voorbeeld' te klikken wordt de geselecteerde actie direct op de gegevensbron uitgevoerd! <br>Als u 'Handmatige waardewijziging' hebt geselecteerd, wordt het voorbeeld van het vak weergegeven!",
     "ex_config_align": "Dit verandert als u het element draait",
     "ex_config_datasource": "Acties voor de gegevensbron kunnen worden geconfigureerd in het tabblad 'Geavanceerd'",
@@ -564,6 +565,5 @@
     "value_toast_restore": "Herstel de hints",
     "value_top": "Element bovenaan",
     "value_top_left": "linksboven",
-    "value_top_right": "rechtsboven",
-    "lbl_new_version": "Er is een nieuwe versie beschikbaar"
+    "value_top_right": "rechtsboven"
 }
