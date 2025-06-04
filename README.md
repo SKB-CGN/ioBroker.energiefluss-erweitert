@@ -34,7 +34,8 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 -->
 ### **WORK IN PROGRESS**
 - FIX: Override for bordercolor and borderfillcolor were not correctly applied on rect or circle
-- FIX: Message 'Icon not found' could appear, even if icon was found
+- FIX: If user-defined iframe was too small, animation was not applied
+- FIX: Timer corrected for using "Line animation during startup" or "Show line between elements only"
 - Added: Reworked function, to better detect overrides for > (greater than) or < (smaller than) with negative values
 - Added: "default" option for override can now contain javascript function code and additional states to be fetched
 - Added: "Fill outline" and "Fill element" according to value now support value overrides

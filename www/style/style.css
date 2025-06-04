@@ -414,8 +414,8 @@ legend>span {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -55%);
-    transform: translate(-50%, -55%);
+    -webkit-transform: translate(-50%, -60%);
+    transform: translate(-50%, -60%);
     width: 90vw;
     height: calc(100dvh - 50px);
     min-height: 40px;
@@ -730,7 +730,7 @@ text.action_element:hover {
 }
 
 .all_elements {
-    transition: opacity .4s ease-in-out, stroke .4s ease-in-out, color .4s ease-in-out, fill .4s ease-in-out;
+    transition: opacity .4s ease-in-out, stroke .4s ease-in-out, color .4s ease-in-out, fill .4s ease-in-out, stroke-width .4s ease-in-out;
 }
 
 .border_fill {
