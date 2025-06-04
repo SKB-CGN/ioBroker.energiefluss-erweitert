@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.5 (2025-06-04)
 - FIX: Override for bordercolor and borderfillcolor were not correctly applied on rect or circle
 - FIX: If user-defined iframe was too small, animation was not applied
 - FIX: Timer corrected for using "Line animation during startup" or "Show line between elements only"
