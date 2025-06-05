@@ -32,6 +32,9 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Removed instances from welcome screen, as this is confusing, if not using iobroker.pro
+
 ### 0.7.5 (2025-06-04)
 - FIX: Override for bordercolor and borderfillcolor were not correctly applied on rect or circle
 - FIX: If user-defined iframe was too small, animation was not applied
