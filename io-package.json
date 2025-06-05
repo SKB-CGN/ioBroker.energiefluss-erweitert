@@ -140,9 +140,8 @@
     "platform": "Javascript/Node.js",
     "icon": "energiefluss-erweitert.png",
     "enabled": true,
-    "localLinks": {
-      "_default": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%"
-    },
+    "localLink":"%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%",
+    "localLinks": null,
     "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
     "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
     "loglevel": "info",
@@ -153,7 +152,8 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "assumption",
-    "welcomeScreen": {
+    "welcomeScreen": false,
+    "welcomeScreenPro": {
       "link": "energiefluss-erweitert/",
       "name": "energiefluss-erweitert",
       "img": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
