@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.6 (2025-06-05)
 - FIX: Removed instances from welcome screen, as this is confusing, if not using iobroker.pro
 
 ### 0.7.5 (2025-06-04)
