@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.7 (2025-06-12)
 - FIX: Issues found by ioBroker-Adapter-Checker (348)
 - Added: When adding a new datasource, the associated name of this datasource is set as recommended alias
 
