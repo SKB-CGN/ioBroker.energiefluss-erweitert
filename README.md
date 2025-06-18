@@ -34,7 +34,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 -->
 ### **WORK IN PROGRESS**
 - Added: Convert a text element to a datasource element
-- Added: Now supports Web-Adapter with socket.io adapter used
+- Added: Now supports Web-Adapter with socket.io adapter used (#333)
 
 ### 0.7.7 (2025-06-12)
 - FIX: Issues found by ioBroker-Adapter-Checker (348)
