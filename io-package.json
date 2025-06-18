@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energiefluss-erweitert",
-    "version": "0.7.7",
+    "version": "0.7.8",
     "news": {
+      "0.7.8": {
+        "en": "Added: Convert a text element to a datasource element\nAdded: Now supports Web-Adapter with socket.io adapter used (#333)",
+        "de": "Hinzugefügt: Konvertieren Sie ein Textelement zu einem Datenquellenelement\nHinzugefügt: Jetzt unterstützt Web-Adapter mit Buchse.io Adapter verwendet (#333)",
+        "ru": "Добавлено: Преобразование текстового элемента в элемент источника данных\nТеперь поддерживает Web-Adapter с помощью адаптера socket.io (#333)",
+        "pt": "Adicionado: Converta um elemento de texto para um elemento de fonte de dados\nAdicionado: Agora suporta Web-Adapter com socket.io adaptador usado (#333)",
+        "nl": "Toegevoegd: Een tekstelement omzetten naar een databronelement\nToegevoegd: Nu ondersteunt Web-Adapter met socket.io adapter gebruikt (#333)",
+        "fr": "Ajouté : Convertir un élément texte en un élément datasource\nAjouté : prend désormais en charge Web-Adapter avec socket.io adaptateur utilisé (#333)",
+        "it": "Aggiunto: Convertire un elemento di testo in un elemento datasource\nAggiunto: Now Supporta Web-Adapter con socket.io adattatore utilizzato (#333)",
+        "es": "Añadido: Convertir un elemento de texto en un elemento fuente de datos\nAñadido: Ahora soporta Web-Adapter con adaptador socket.io utilizado (#333)",
+        "pl": "Dodano: Konwersja elementu tekstowego do elementu danych\nDodano: Teraz obsługuje Web- Adapter z socket.io adapter używany (# 333)",
+        "uk": "Додано: Перетворення текстового елемента до елемента джерела даних\nДодано: Тепер підтримує Web-адаптер з адаптером Socket.io (#333)",
+        "zh-cn": "添加: 将文本元素转换为数据源元素\n添加: 现在支持使用套接字的 Web-Adapter (# 333)"
+      },
       "0.7.7": {
         "en": "FIX: Issues found by ioBroker-Adapter-Checker (348)\nAdded: When adding a new datasource, the associated name of this datasource is set as recommended alias",
         "de": "FIX: Probleme gefunden von ioBroker-Adapter-Checker (348)\nHinzugefügt: Beim Hinzufügen einer neuen Datenquelle wird der zugehörige Name dieser Datenquelle als empfohlene Alias gesetzt",
