@@ -135,7 +135,8 @@
       "Solar",
       "flot",
       "flow",
-      "VIS"
+      "VIS",
+      "visualization"
     ],
     "platform": "Javascript/Node.js",
     "icon": "energiefluss-erweitert.png",
