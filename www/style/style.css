@@ -909,6 +909,15 @@ text.action_element:hover {
     margin-top: 16px;
 }
 
+.form_div.buttonset {
+    margin-top: 16px;
+}
+
+.form_div.buttonset input[type=button] {
+    width: 80%;
+    margin-bottom: 4px;
+}
+
 .form_div.select {
     margin-top: 2px;
 }
@@ -979,6 +988,10 @@ text.action_element:hover {
     background-color: var(--transparent);
     color: var(--black);
     border-radius: 0;
+}
+
+#config_bar .input_select {
+    background-color: var(--middle-grey);
 }
 
 .input_textarea {
@@ -1116,7 +1129,6 @@ text.action_element:hover {
 
 .input_button.double {
     width: auto;
-    max-width: 50%;
     min-width: 40%;
 }
 
@@ -1441,6 +1453,14 @@ a[disabled],
 .input_button.red:focus,
 .input_button.red:hover {
     background: var(--red);
+    color: #FFFFFF;
+}
+
+.input_button.yellow,
+.input_button.yellow:active,
+.input_button.yellow:focus,
+.input_button.yellow:hover {
+    background: var(--yellow);
     color: #FFFFFF;
 }
 

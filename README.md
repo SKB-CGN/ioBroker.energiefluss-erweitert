@@ -32,7 +32,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.7.8 (2025-06-18)
+### **WORK IN PROGRESS**
 - Added: Convert a text element to a datasource element
 - Added: Now supports Web-Adapter with socket.io adapter used (#333)
 
