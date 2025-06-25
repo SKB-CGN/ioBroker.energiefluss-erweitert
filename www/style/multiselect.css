@@ -47,6 +47,11 @@
     border: 6px solid rgba(0, 0, 0, 0);
     border-top-color: #999;
     margin-top: -3px;
+    transition: border .5s;
+}
+
+.ms-options-wrap>button:hover:after {
+    border-top-color: var(--black);
 }
 
 .ms-options-wrap.ms-has-selections>button {

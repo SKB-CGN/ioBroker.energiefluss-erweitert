@@ -62,7 +62,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
         // Password
         this.password = this.config.password;
-        if (this.password.toString() > 0) {
+        if (this.password.toString().length > 0) {
             this.log.info('Workspace configuration is password protected!');
         } else {
             this.log.warn('Workspace configuration is NOT password protected!');
@@ -851,51 +851,18 @@ class EnergieflussErweitert extends utils.Adapter {
      */
     calculateDuration(maxDuration, maxPower, currentPower) {
         // Max Duration
-        let cur = Number(currentPower);
-        let max = Number(maxPower);
-        let dur = Number(maxDuration);
+        const cur = Number(currentPower);
+        const max = Number(maxPower);
+        const dur = Number(maxDuration);
 
         // Calculate the result and limit it to 60000 if necessary
         return Math.min(Math.round((max / cur) * dur), 60000);
     }
 
-    /**
-     * Calculates the stroke dash array for an SVG path element based on the maximum number of dots, maximum power, and current power.
-     *
-     * @param maxDots - The maximum number of dots to be drawn.
-     * @param maxPower - The maximum power.
-     * @param currentPower - The current power.
-     * @returns The stroke dash array for the SVG path element.
-     */
-
-    calculateStrokeArray(maxDots, maxPower, currentPower) {
-        const totalLength = 136;
-        const l_distance = globalConfig.animation_configuration.distance;
-        const l_length = globalConfig.animation_configuration.length;
-
+    calculateStrokeDots(maxDots, maxPower, currentPower) {
         // Calculate the number of dots to be drawn
-        let l_amount = Math.round((currentPower / maxPower) * maxDots);
-        l_amount = Math.min(l_amount, maxDots);
-
-        // Initialize stroke dash array
-        let strokeDash = '';
-        let total = totalLength;
-
-        if (l_amount > 0 && l_length > 0 && l_distance > 0) {
-            for (let i = 0; i < l_amount; i++) {
-                strokeDash += `${l_length} `;
-                if (i !== l_amount - 1) {
-                    strokeDash += `${l_distance} `;
-                    total -= l_distance;
-                }
-                total -= l_length;
-            }
-            strokeDash += ` ${total < 0 ? l_distance : total}`;
-        } else {
-            strokeDash = `${l_length} ${totalLength - l_length}`;
-        }
-
-        return strokeDash;
+        const amount = Math.round((currentPower / maxPower) * maxDots);
+        return Math.min(amount, maxDots);
     }
 
     async replacePlaceholders(value) {
@@ -1465,7 +1432,7 @@ class EnergieflussErweitert extends utils.Adapter {
                     const src = soObj.elmAnimations[_key];
 
                     // Object Variables
-                    let tmpType, tmpStroke, tmpDuration, tmpOption;
+                    let tmpType, tmpDots, tmpDuration, tmpOption;
 
                     // Put ID into CSS-Rule for later use
                     cssRules.push(src);
@@ -1480,7 +1447,7 @@ class EnergieflussErweitert extends utils.Adapter {
                         if (seObj.type != -1 && seObj != undefined) {
                             if (seObj.type == 'dots') {
                                 tmpType = 'dots';
-                                tmpStroke = this.calculateStrokeArray(seObj.dots, seObj.power, Math.abs(calcNumber));
+                                tmpDots = this.calculateStrokeDots(seObj.dots, seObj.power, Math.abs(calcNumber));
                             }
                             if (seObj.type == 'duration') {
                                 tmpType = 'duration';
@@ -1527,7 +1494,7 @@ class EnergieflussErweitert extends utils.Adapter {
                             animation: tmpAnimValid,
                             type: tmpType,
                             duration: tmpDuration,
-                            stroke: tmpStroke,
+                            dots: tmpDots,
                             option: tmpOption,
                         };
 

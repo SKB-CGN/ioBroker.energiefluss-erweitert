@@ -61,8 +61,7 @@
         }
     },
     "animation": {
-        "stroke": "#ffce4a",
-        "stroke_dasharray": "10 17 10 17 10  72",
+        "stroke_dasharray": "10 17 10 17 10 72",
         "stroke_width": 6,
         "animation_duration": 2000,
         "stroke_linecap": "round",
@@ -70,6 +69,7 @@
     },
     "animation_configuration": {
         "dots": 3,
+        "gap": 72,
         "distance": 17,
         "length": 10
     },
