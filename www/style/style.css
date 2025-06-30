@@ -996,8 +996,8 @@ text.action_element:hover {
     border-radius: 0;
 }
 
-#config_bar .input_select {
-    background-color: var(--middle-grey);
+.editMode .input_select {
+    background-color: var(--darkgrey);
 }
 
 .input_textarea {
@@ -1014,6 +1014,11 @@ text.action_element:hover {
     cursor: pointer;
     text-overflow: ellipsis;
     padding-right: 18px;
+    background-color: var(--white);
+}
+
+.detail_box .input_select {
+    background-color: var(--middle-grey);
 }
 
 .select-option {
@@ -2096,10 +2101,7 @@ img {
     width: 99%;
     height: 82vh;
     font-size: 13px;
-}
-
-#own_css .ace_scroller {
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 pre code {

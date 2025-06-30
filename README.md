@@ -35,7 +35,10 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 ### **WORK IN PROGRESS**
 - FIX: When using **Animation dependency** 'Dots' or 'Duration' the animation could "jump" during recalculation (now the 'jump' is smoothly animated)
 - FIX: Editing a datasource was not accepting the new choosen state (#374)
-- Added: A new property 'Distance between the dot blocks' inside 'animation'-tab is available. This settings defines the distance between dot-blocks
+- FIX: Changed some colors of the darkmode for better contrast
+- FIX: Scrollbar of 'stile'- and 'Save'-tab was overlapping last line
+- FIX: 'Manual value change' of click actions now better detect the value type of the destination source
+- Added: A new property 'Distance between the dot blocks' inside 'animation'-tab is available. This setting defines the distance between dot-blocks
 - Added: Few language corrections
 
 ### 0.7.8 (2025-06-18)
