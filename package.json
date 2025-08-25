@@ -32,7 +32,7 @@
     "node": ">= 18"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^3.3.1",
+    "@iobroker/adapter-core": "^3.3.2",
     "multer": "^2.0.2",
     "sharp": "^0.34.3",
     "url": "^0.11.4"
