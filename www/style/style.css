@@ -30,8 +30,8 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --primary: #d3d3d3;
-        --secondary: #aaaaaa;
-        --black: #ccc;
+        --secondary: #666666;
+        --black: #dbdbdb;
         --blackTrans: rgba(255, 255, 255, 0.4);
         --white: #323232;
         --darkestGrey: #777777;
@@ -78,10 +78,9 @@ body {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    height: 98vh;
-    width: 100%;
     background-color: var(--white);
     color: var(--black);
+    height: 100%;
 }
 
 .info_error_icon,
@@ -136,13 +135,17 @@ a:hover {
     height: 100vh;
     width: 100vw;
     opacity: 1;
+    overflow: auto;
 }
 
 #loading.tour {
     backdrop-filter: none;
 }
 
-#loading.noText .noText {
+#loading.tour>*,
+#loading.bgOnly>.loading-spinner,
+#loading.bgOnly>#loading_text,
+#loading.bgOnly>.popUpContainer:not(.active) {
     display: none;
 }
 
@@ -166,12 +169,11 @@ a:hover {
 
 #loading>span {
     position: absolute;
-    top: 50%;
+    top: calc(50% + 80px);
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--black);
     font-size: 20px;
-    margin-top: 55px;
     text-align: center;
     width: auto;
     min-width: 80%;
@@ -200,6 +202,10 @@ stop {
 
 .align_element {
     float: left;
+}
+
+#area_catch {
+    display: none;
 }
 
 .scrollbar::-webkit-scrollbar-track {
@@ -234,22 +240,18 @@ stop {
     display: flex;
     flex-direction: column;
     /* Height minus Menu Bar */
-    height: calc(100vh - 54px);
-    margin-right: 4px;
+    height: calc(100svh - 48px);
+    margin: 0px 4px;
 }
 
 .menuContainer>div {
     flex: 1 1 auto;
-    width: 100%;
     box-sizing: border-box;
+    background-color: var(--white);
 }
 
 .menuContainer>div:nth-child(1) {
-    height: 40px;
-    max-height: 40px;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
+    max-height: fit-content;
 }
 
 .menuContainer>div:nth-child(2) {
@@ -261,46 +263,62 @@ stop {
 }
 
 .menuContainer>div:nth-child(3) {
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
+    flex: 1 1 100%;
     overflow: auto;
     white-space: nowrap;
     border: 1px solid var(--primary);
-    padding: 5px;
-    margin-top: 4px;
-    overscroll-behavior: none;
+    touch-action: none;
+    padding: 5px 10px 5px 5px;
+    min-height: 86px;
+}
+
+.table_container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 6px 0px;
+}
+
+.buttonContainer input[type="button"] {
+    flex: 0 0 230px;
 }
 
 /* Area Catch */
-.tabbed.no_catch figure,
+.tabbed.tabbed.no_catch {
+    width: fit-content;
+    min-width: 100%;
+}
+
 .tabbed.no_catch nav {
-    width: min-content;
-    max-width: min-content;
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+
 }
 
 .tabbed.no_catch figure .tab1 {
     max-width: 100% !important;
-    width: min-content;
     margin-right: 10px;
-    margin-bottom: 10px;
-    max-height: calc(100vh - 38px);
-}
-
-.tabbed.no_catch figure .tab1 .menuContainer {
-    height: calc(100% - 20px);
+    max-height: 100% !important;
+    overflow-y: unset !important;
 }
 
 .tabbed.no_catch figure .tab1 .menuContainer>div:nth-child(1) {
     position: sticky;
-    top: 0;
-    background-color: var(--white);
+    top: 36px;
+
 }
 
 .tabbed.no_catch figure .tab1 .menuContainer>div:nth-child(2) {
     position: sticky;
-    top: 40px;
-    background-color: var(--white);
+    top: 76px;
 }
 
 
@@ -399,6 +417,8 @@ legend {
 
 .config_sec {
     padding-left: 12px;
+    height: fit-content;
+    min-height: 24px;
 }
 
 legend>.legend {
@@ -419,7 +439,7 @@ legend>span {
     transform: translate(-50%, -60%);
     width: 90vw;
     height: calc(100dvh - 50px);
-    min-height: 40px;
+    min-height: 166px;
     min-width: 40px;
     max-width: 100vw;
     max-height: 100vh;
@@ -441,7 +461,9 @@ legend>span {
 }
 
 #tourContainer {
-    width: 400px;
+    top: 0;
+    left: 0;
+    width: 0;
     height: auto;
     -webkit-transform: none;
     transform: none;
@@ -632,6 +654,15 @@ text.action_element:hover {
 
 .noscroll {
     overflow: hidden !important;
+    overscroll-behavior: none;
+}
+
+.menuContainer>div:nth-child(3).actionAllowed {
+    touch-action: inherit;
+}
+
+.menuContainer>div:nth-child(3).actionAllowed * {
+    pointer-events: none;
 }
 
 .alignable,
@@ -659,6 +690,11 @@ text.action_element:hover {
 .line_cfg {
     cursor: pointer;
     pointer-events: all;
+}
+
+
+#svg_config.not_selectable {
+    pointer-events: none;
 }
 
 .added_elements.not_selectable,
@@ -765,6 +801,13 @@ text.action_element:hover {
 #svg_config svg:hover {
     color: var(--red) !important;
     transition: color .4s ease-in-out;
+}
+
+#svg_config #lasso_rect {
+    stroke: var(--primary);
+    stroke-width: 2px;
+    fill: var(--secondary);
+    fill-opacity: 0.2;
 }
 
 .faded_out {
@@ -903,6 +946,15 @@ text.action_element:hover {
     width: 100%;
 }
 
+.form_div.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form_div.flex.center {
+    justify-content: center;
+}
+
 .form_div.textbox {
     margin-top: 22px;
 }
@@ -932,6 +984,7 @@ text.action_element:hover {
     font-size: 12px;
 }
 
+#sub_FrameDeactivated,
 .form_div span.red {
     color: var(--red);
 }
@@ -1080,11 +1133,6 @@ text.action_element:hover {
     font-style: normal;
 }
 
-.yeah {
-    position: absolute;
-    border-bottom: 1px solid red;
-}
-
 .input_text~.form_label,
 .input_number~.form_label {
     font-size: 16px;
@@ -1138,6 +1186,10 @@ text.action_element:hover {
     overflow: hidden;
 }
 
+.input_button.auto_width {
+    width: auto;
+}
+
 .input_button.double {
     width: auto;
     min-width: 40%;
@@ -1171,6 +1223,10 @@ text.action_element:hover {
     position: absolute;
     right: 0;
     top: 0;
+}
+
+.icon_wrapper svg {
+    color: var(--primary);
 }
 
 /* Multiselect */
@@ -1287,7 +1343,7 @@ text.action_element:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    z-index: 1001;
+    z-index: 1002;
     max-width: 350px;
     max-height: calc(100% - 30px);
     overflow-y: auto;
@@ -1523,6 +1579,11 @@ fieldset.flex {
     flex-shrink: 1;
 }
 
+fieldset.flex.fixedScreen {
+    max-height: calc(100vh - 40px);
+    min-height: 280px;
+}
+
 fieldset.flex .childContainer {
     display: flex;
     flex-wrap: wrap;
@@ -1550,7 +1611,7 @@ fieldset.small {
     overflow: auto;
     margin: 0 auto;
     box-sizing: border-box;
-    min-height: 50px;
+    min-height: 90px;
 }
 
 .ef-table {
@@ -1626,7 +1687,7 @@ fieldset.small {
 }
 
 .ef-table th:last-child {
-    padding-right: 4px;
+    padding-right: 12px;
 }
 
 .ef-table td:last-child {
@@ -1665,7 +1726,7 @@ fieldset.small {
 }
 
 .ef-table tbody tr:nth-child(odd).highlight-green td {
-    animation-name: highlight-green-bg;
+    animation-name: highlight-green-odd;
 }
 
 .ef-table tbody tr.highlight-red td {
@@ -1673,7 +1734,7 @@ fieldset.small {
 }
 
 .ef-table tbody tr:nth-child(odd).highlight-red td {
-    animation-name: highlight-red-bg;
+    animation-name: highlight-red-odd;
 }
 
 .ef-table.small td,
@@ -1723,6 +1784,11 @@ fieldset.small {
     background-color: var(--darkgrey);
 }
 
+/* Shortcuts Table */
+#shortcut_tmp_line {
+    text-align: left;
+}
+
 /* Set the things for jsonTable */
 .ef-table.jsonTable th,
 .ef-table.jsonTable td {
@@ -1744,7 +1810,7 @@ fieldset.small {
 
 @keyframes highlight-green {
     0% {
-        background-color: inherit;
+        background-color: var(--white);
     }
 
     50% {
@@ -1752,11 +1818,11 @@ fieldset.small {
     }
 
     100% {
-        background-color: inherit;
+        background-color: var(--white);
     }
 }
 
-@keyframes highlight-green-bg {
+@keyframes highlight-green-odd {
     0% {
         background-color: var(--creme);
     }
@@ -1772,7 +1838,7 @@ fieldset.small {
 
 @keyframes highlight-red {
     0% {
-        background-color: inherit;
+        background-color: var(--white);
     }
 
     50% {
@@ -1780,11 +1846,11 @@ fieldset.small {
     }
 
     100% {
-        background-color: inherit;
+        background-color: var(--white);
     }
 }
 
-@keyframes highlight-red-bg {
+@keyframes highlight-red-odd {
     0% {
         background-color: var(--creme);
     }
@@ -2032,10 +2098,14 @@ img {
 }
 
 .cv-spinner {
+    padding: 10px;
     height: 30px;
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+
+.cv-spinner span:last-of-type {
+    padding-left: 5px;
 }
 
 .spinner {
@@ -2060,18 +2130,48 @@ img {
     }
 }
 
-#tourContainer>.button_area,
-#stateExplorerContainer>.button_area,
-#codeEditorContainer>.button_area {
+.button_area {
     margin-top: 5px;
     width: 100%;
     border-top: 1px solid var(--primary);
 }
 
-#tourContainer>.button_area div,
-#codeEditorContainer>.button_area div,
-#stateExplorerContainer>.button_area div {
+.button_area div {
+    padding: 8px;
     display: flex;
+}
+
+.button_area div:first-child {
+    float: left;
+}
+
+.button_area div:last-child {
+    justify-content: end;
+}
+
+.button_area div:last-child input[type=button] {
+    margin-left: 5px;
+}
+
+.alignment {
+    display: flex;
+}
+
+.alignment.col {
+    flex-direction: column;
+}
+
+.alignment>div:first-of-type {
+    flex: 1 1 81px;
+}
+
+#align_elements {
+    display: none;
+}
+
+#ex_how_align {
+    min-height: 60px;
+    display: inline-block;
 }
 
 .icon_list {
@@ -2194,7 +2294,7 @@ text.glow {
 
 .tabbed figure {
     display: block;
-    margin: -6px 0px;
+    margin: -5px 0px;
     min-width: 100%;
     clear: both;
     max-width: 100%;
@@ -2218,7 +2318,7 @@ text.glow {
 
 .tabbed nav {
     margin: 0px 5px 0px 4px;
-    padding-top: 0px;
+    padding-bottom: 6px;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -2242,9 +2342,7 @@ text.glow {
 #tab2_config:checked~figure .tab2_config {
     display: block;
     box-sizing: border-box;
-    max-width: 99vw;
-    max-height: calc(100vh - 38px);
-    min-height: calc(100vh - 38px);
+    min-height: calc(100svh - 46px);
     overflow-y: auto;
     opacity: 1;
 }
@@ -2267,7 +2365,6 @@ text.glow {
 .tabbed nav label,
 .tabbed nav button {
     display: flex;
-    float: left;
     padding: 5px 10px;
     border-top: 1px solid silver;
     border-right: 1px solid silver;
@@ -2278,6 +2375,12 @@ text.glow {
     align-items: center;
     transition: all .5s;
     white-space: nowrap;
+    height: 35px;
+    box-sizing: border-box;
+}
+
+.iconify {
+    width: 24px;
 }
 
 nav button>.menu,
@@ -2314,6 +2417,10 @@ nav label:active {
 .tourHighlight.added_elements {
     outline: 2px dashed var(--primary);
     outline-offset: 2px;
+}
+
+#tourPreviousStep {
+    display: none;
 }
 
 .form_div>label,
@@ -2420,14 +2527,14 @@ nav label:active {
 }
 
 /* Dropzone */
-.uploadForm {
-    z-index: 0;
+.uploadFile {
+    display: none;
 }
 
 .uploadForm.browse {
-    margin-left: 14px;
-    margin-right: 16px;
-    width: auto;
+    flex-shrink: 0;
+    display: none;
+    margin: 14px;
 }
 
 .drop_zone {
@@ -2449,18 +2556,17 @@ nav label:active {
 .upload_progress {
     background-color: var(--darkgrey);
     border-radius: 13px;
-    height: 15px;
+    height: 20px;
     padding: 2px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .upload_progress div {
     background-color: var(--primary);
     width: 0px;
-    height: 15px;
+    height: 16px;
     border-radius: 10px;
-    position: absolute;
-    left: 2px;
     transition: width .6s linear;
 }
 
@@ -2474,6 +2580,7 @@ nav label:active {
     display: flex;
 }
 
+#elm_pos,
 .uploadInfo a {
     padding-left: 8px;
 }
@@ -2481,10 +2588,6 @@ nav label:active {
 .formFilter,
 .userImages_noResults {
     grid-column: 1 / -1;
-}
-
-#userImagesContainer div.txt {
-    margin-left: 14px;
 }
 
 .userImages_dummy {
@@ -2499,26 +2602,22 @@ nav label:active {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     column-gap: 16px;
-    margin-left: 14px;
-    margin-top: 0;
+    margin: 0 5px;
     padding-right: 16px;
-    min-height: 221px;
+    overflow: auto;
+    height: 100%;
 }
 
 .formFilter {
-    z-index: 5;
-    position: sticky;
-    top: 0;
     background-color: var(--white);
-    padding-bottom: 5px;
-    margin: 0 5px;
+    margin: 0 5px 0 5px;
 }
 
 .userImages .imgContainer {
     min-width: 110px;
     display: flex;
     padding: 12px;
-    margin: 16px 0;
+    margin: 10px 0;
     align-content: center;
     flex-wrap: wrap;
     border-radius: 5px;
@@ -2580,6 +2679,11 @@ nav label:active {
     display: none;
     padding-top: 0px;
     margin-top: 2px;
+    overflow: hidden;
+}
+
+#userImagesBrowseContainer .button {
+    margin: 5px;
 }
 
 /* State Explorer */
@@ -2832,7 +2936,8 @@ nav label:active {
 
 .ui-menu-item .ui-menu-item-wrapper:active,
 .ui-menu-item .ui-menu-item-wrapper.ui-state-active {
-    background-color: var(--primary);
+    background-color: var(--secondary);
+    color: var(--black);
     border: 1px solid var(--darkgrey);
 }
 
@@ -2927,6 +3032,15 @@ nav label:active {
 
 .ui-selectmenu-menu .ui-menu {
     padding-bottom: 2px;
+}
+
+.ui-selectmenu-menu .ui-menu .ui-selectmenu-optgroup {
+    color: var(--white);
+    background-color: var(--primary);
+    height: 34px;
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
 
 .select_overflow {
@@ -3039,6 +3153,22 @@ nav label:active {
 
 /* Media Queries */
 /* State Explorer */
+@media only screen and (max-height:180px) {
+    .popUpContainer {
+        top: 4px;
+    }
+
+    .popUpContainer.visible {
+        transform: translate(-50%, 0%);
+    }
+}
+
+/* Height for small devices */
+@media only screen and (max-height: 600px) {
+    #userImagesBrowseDialog .drop_zone {
+        height: auto;
+    }
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -3093,14 +3223,6 @@ nav label:active {
         margin: 12px 8px;
     }
 
-    .fixedScreen {
-        max-height: calc(100vh - 90px);
-    }
-
-    .fixedScreen .ef-table-div {
-        max-height: calc(100% - 70px);
-    }
-
     .ef-table td,
     .ef-table th {
         min-width: 150px;
@@ -3112,8 +3234,8 @@ nav label:active {
     }
 
     .fixedScreen .userImages {
-        min-height: calc(100vh - 170px);
-        max-height: calc(100vh - 170px);
+        min-height: 90px;
+        max-height: calc(100vh - 120px);
         overflow-x: auto;
     }
 
@@ -3131,6 +3253,10 @@ nav label:active {
 
     .toast {
         min-width: 80%;
+    }
+
+    .buttonContainer input[type="button"] {
+        flex: 1 1 230px;
     }
 }
 
@@ -3154,24 +3280,6 @@ nav label:active {
         align-self: baseline;
     }
 
-    .fixedScreen {
-        max-height: calc(100vh - 90px);
-    }
-
-    .fixedScreen .ef-table-div {
-        max-height: calc(100% - 50px);
-    }
-
-    .fixedScreen .userImages {
-        max-height: calc(100vh - 170px);
-        min-height: 36px;
-        overflow-x: auto;
-    }
-
-    #svg_config_div {
-        min-height: calc(100vh - 90px);
-    }
-
     #config_bar>.title>.swap {
         visibility: visible;
     }
@@ -3187,10 +3295,6 @@ nav label:active {
     fieldset.flex {
         width: 270px;
         min-width: 270px;
-    }
-
-    #svg_config_div {
-        min-height: inherit;
     }
 }
 
@@ -3212,12 +3316,24 @@ nav label:active {
         width: 20px;
         height: 20px;
     }
+
+    fieldset.flex.fixedScreen {
+        max-height: calc(100vh - 90px);
+    }
+
+    #area_catch {
+        display: unset;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     fieldset.flex {
         width: 340px;
+    }
+
+    .tabbed nav {
+        padding-bottom: 0px;
     }
 }
 

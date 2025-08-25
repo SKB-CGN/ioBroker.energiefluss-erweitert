@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
     <title>Energiefluss - erweitert *Configuration*</title>
     <meta name="description" content="Provides an animated energy-flow">
     <meta name="mobile-web-app-capable" content="yes">
@@ -66,7 +66,7 @@
                 </thead>
                 <tbody>
                     <tr data-id="-1" id="shortcut_tmp_line">
-                        <td class="translate" data-lang="no_shortcuts_added" colspan="3" style="text-align: left">
+                        <td class="translate" data-lang="no_shortcuts_added" colspan="3">
                             There are currently no shortcuts added!
                         </td>
                     </tr>
@@ -91,8 +91,8 @@
                         </td>
                         <td>
                             <form id="frm-addQuickAccess">
-                                <input class="input_button translateV" type="submit" value="Add"
-                                    form="frm-addQuickAccess" data-lang-value="value_add" style="width: auto">
+                                <input class="input_button auto_width translateV" type="submit" value="Add"
+                                    form="frm-addQuickAccess" data-lang-value="value_add">
                             </form>
                         </td>
                     </tr>
@@ -101,7 +101,7 @@
         </div>
     </div>
     <div id="loading">
-        <div class="loading-spinner noText">
+        <div class="loading-spinner">
             <div class="loading-spinner-dot"></div>
             <div class="loading-spinner-dot"></div>
             <div class="loading-spinner-dot"></div>
@@ -109,7 +109,7 @@
             <div class="loading-spinner-dot"></div>
             <div class="loading-spinner-dot"></div>
         </div>
-        <span id="loading_text" class="translate noText" data-lang="msg_loading_workspace">Loading your Energiefluss
+        <span id="loading_text" class="translate" data-lang="msg_loading_workspace">Loading your Energiefluss
             Workspace</span>
         <div id="stateExplorerContainer" class="popUpContainer">
             <div class="title">
@@ -122,8 +122,7 @@
                         spellcheck="false" autocomplete="off" name="stateExplorerFilter" id="stateExplorerFilter">
                     <label for="stateExplorerFilter" class="translate form_label" data-lang="lbl_filter">Filter</label>
                     <div class="icon_wrapper">
-                        <span class="iconify" data-icon="mdi:search" data-width="24" data-height="24"
-                            style="color: var(--primary)"></span>
+                        <span class="iconify" data-icon="mdi:search" data-width="24" data-height="24"></span>
                         <div class="ds_search_spinner">
                             <span class="spinner"></span>
                         </div>
@@ -131,20 +130,20 @@
                 </div>
             </div>
             <div id="stateExplorer" class="scrollbar">
-                <div id="stateExplorer_placeholder" style="padding: 5px; margin: 5px; display: inline-block">
+                <div id="stateExplorer_placeholder">
                     <div class="cv-spinner">
                         <span class="spinner"></span>
-                        <span class="translate" data-lang="title_stateExplorer_loading"
-                            style="padding-left: 5px">Loading Object Browser ...</span>
+                        <span class="translate" data-lang="title_stateExplorer_loading">Loading Object Browser
+                            ...</span>
                     </div>
                 </div>
             </div>
             <div class="button_area">
-                <div style="padding: 10px; float: left">
-                    <input type="button" value="Save" id="reloadStateExplorer" class="input_button translateV"
-                        data-lang-value="lbl_reload_stateExplorer" style="width: auto">
+                <div>
+                    <input type="button" value="Save" id="reloadStateExplorer"
+                        class="input_button auto_width translateV" data-lang-value="lbl_reload_stateExplorer">
                 </div>
-                <div style="justify-content: end; padding: 10px">
+                <div>
                     <input type="button" value="Select" id="select_state" class="input_button translateV"
                         data-lang-value="value_select" disabled>
                     <input type="button" value="Cancel" class="input_button translateV red"
@@ -160,11 +159,11 @@
             <!-- ACE Editor -->
             <div id="codeEditor" class="scrollbar"></div>
             <div class="button_area">
-                <div style="padding: 10px; float: left">
-                    <input type="button" value="Save" id="overrideFormatCode" class="input_button translateV"
-                        data-lang-value="lbl_format_json" style="width: auto">
+                <div>
+                    <input type="button" value="Save" id="overrideFormatCode" class="input_button auto_width translateV"
+                        data-lang-value="lbl_format_json">
                 </div>
-                <div style="justify-content: end; padding: 10px">
+                <div>
                     <input type="button" value="Save" id="save_code" class="input_button translateV"
                         data-lang-value="lbl_save">
                     <input type="button" value="Cancel" class="input_button translateV red"
@@ -184,14 +183,12 @@
             </div>
             <div id="tooltipText"></div>
             <div class="button_area">
-                <div style="padding: 10px; float: left" id="tourSteps"> </div>
-                <div style="justify-content: end; padding: 10px">
+                <div id="tourSteps"> </div>
+                <div>
                     <input type="button" value="Cancel" class="input_button double translateV"
-                        data-lang-value="tour_previousStep" id="tourPreviousStep" onclick="tourNextStep(false)"
-                        style="display: none;">
+                        data-lang-value="tour_previousStep" id="tourPreviousStep" onclick="tourNextStep(false)">
                     <input type="button" value="Next Step" class="input_button double translateV"
-                        data-lang-value="tour_nextStep" id="tourNextStep" onclick="tourNextStep(true)"
-                        style="margin-left: 4px;">
+                        data-lang-value="tour_nextStep" id="tourNextStep" onclick="tourNextStep(true)">
                 </div>
             </div>
         </div>
@@ -260,7 +257,7 @@
                                     <span class="config_sec translate" data-lang="lbl_config_element">Element</span>
                                     <div class="contentBox">
                                         <div class="form_div select">
-                                            <label for="elm_select" class="form_label translate">ID</label>
+                                            <label for="elm_select" class="form_label">ID</label>
                                             <select class="input_select" name="elm_select" id="elm_select"></select>
                                         </div>
                                     </div>
@@ -351,7 +348,7 @@
                                 <div class="detail_box noStack">
                                     <span class="config_sec translate" data-lang="lbl_organize">Organize</span>
                                     <div class="contentBox">
-                                        <div style="padding-top: 10px">
+                                        <div class="form_div textbox">
                                             <a id="changeOrder_foreground" class="changeOrder tooltip"
                                                 data-title="title_arrange_foreground"><span
                                                     class="iconify add_element_area"
@@ -362,7 +359,7 @@
                                                     class="iconify add_element_area"
                                                     data-icon="mdi:arrange-send-backward" data-height="24"
                                                     data-width="24"></span></a>
-                                            <span id="elm_pos" style="padding-left: 10px;"></span>
+                                            <span id="elm_pos"></span>
                                             <div class="form_div text info">
                                                 <span class="translate" data-lang="ex_arrange">The lower the number, the
                                                     further the element is in the foreground</span>
@@ -1214,8 +1211,8 @@
                                         </div>
                                         <div class="form_div button">
                                             <input type="button" value="Reconnect" id="reconnect_elements"
-                                                class="input_button connect_elements translateV"
-                                                data-lang-value="value_reconnect" style="width: auto">
+                                                class="input_button auto_width connect_elements translateV"
+                                                data-lang-value="value_reconnect">
                                         </div>
                                         <div class="form_div text">
                                             <span id="ex_reconnect_elements" data-lang="ex_reconnect"
@@ -1226,7 +1223,7 @@
                                 <div class="detail_box">
                                     <span class="config_sec translate" data-lang="lbl_actions">Actions</span>
                                     <div class="contentBox">
-                                        <div class="form_div buttonset">
+                                        <div class="buttonContainer">
                                             <input type="button" id="export_element"
                                                 class="input_button translateV noStack"
                                                 data-lang-value="value_export_element" value="Export">
@@ -1449,8 +1446,8 @@
                                                 data-height="32"></span>
                                         </a>
                                         <div class="form_div text info elm_config_box_sub" id="sub_FrameDeactivated">
-                                            <span class="translate" data-lang="lbl_frame_deactivated"
-                                                style="color: var(--red)">You use click options for this element.
+                                            <span class="translate" data-lang="lbl_frame_deactivated">You use click
+                                                options for this element.
                                                 Therefore,
                                                 the Browser-Frame options are not useable!</span>
                                         </div>
@@ -1538,9 +1535,9 @@
                                             </div>
                                             <div class="form_div button">
                                                 <input type="button" id="manage_shortcuts"
-                                                    class="input_button translateV"
+                                                    class="input_button auto_width translateV"
                                                     data-lang-value="value_manage_shortcuts"
-                                                    value="Manage Direct Accesses" style="width: auto">
+                                                    value="Manage Direct Accesses">
                                             </div>
                                             <a href="javascript:;" class="help margin"
                                                 data-help="help_action_shortcuts">
@@ -1568,7 +1565,8 @@
                                         according to value</span>
                                     <div class="contentBox">
                                         <div class="form_div select">
-                                            <label for="elm_fill_type" class="form_label translate">Type</label>
+                                            <label for="elm_fill_type" class="form_label translate"
+                                                data-lang="lbl_type">Type</label>
                                             <div class="select-option">
                                                 <select class="input_select elm_config" name="elm_fill_type"
                                                     id="elm_fill_type">
@@ -1644,11 +1642,12 @@
                                     </div>
                                 </div>
                                 <div class="detail_box elm_config_box circle rect noStack">
-                                    <span class="config_sec translate" style="height: auto"
-                                        data-lang="lbl_config_fill_outline">Fill Outline according to value</span>
+                                    <span class="config_sec translate" data-lang="lbl_config_fill_outline">Fill Outline
+                                        according to value</span>
                                     <div class="contentBox">
                                         <div class="form_div select">
-                                            <label for="elm_border_type" class="form_label translate">Type</label>
+                                            <label for="elm_border_type" class="form_label translate"
+                                                data-lang="lbl_type">Type</label>
                                             <div class="select-option">
                                                 <select class="input_select elm_config" name="elm_border_type"
                                                     id="elm_border_type">
@@ -1839,8 +1838,8 @@
                                     </div>
                                 </div>
                                 <div class="detail_box elm_config_box circle datasource rect icon use image noStack">
-                                    <span class="config_sec translate" style="height: auto"
-                                        data-lang="lbl_override_settings">Override settings depending on value</span>
+                                    <span class="config_sec translate" data-lang="lbl_override_settings">Override
+                                        settings depending on value</span>
                                     <div class="contentBox">
                                         <div class="form_div button">
                                             <div class="elm_config_box use">
@@ -1848,8 +1847,8 @@
                                                     the line</span>
                                             </div>
                                             <input type="button" value="Color" id="override_settings"
-                                                class="input_button translateV override_settings"
-                                                data-lang-value="lbl_override" style="width: auto">
+                                                class="input_button auto_width translateV override_settings"
+                                                data-lang-value="lbl_override">
                                         </div>
                                         <div class="elm_config_box use">
                                             <div class="hr-divide"></div>
@@ -1860,8 +1859,8 @@
                                                     for the animation</span>
                                             </div>
                                             <input type="button" value="Color" id="override_settings_animation"
-                                                class="input_button translateV override_settings"
-                                                data-lang-value="lbl_override" style="width: auto">
+                                                class="input_button auto_width translateV override_settings"
+                                                data-lang-value="lbl_override">
                                         </div>
                                         <a href="javascript:;" class="help margin" data-help="help_override">
                                             <span class="iconify"
@@ -1875,9 +1874,11 @@
                     </div>
                 </div>
                 <div class="menuContainer">
-                    <div id="container_menu_toggle_menu">
+                    <div class="buttonContainer">
                         <input type="button" class="input_button translateV" data-lang-value="value_hide_controls"
-                            id="show_hide_config" value="Hide Controls" style="width: auto">
+                            id="show_hide_config" value="Hide Controls">
+                        <input type="button" class="input_button tooltip translateV" data-lang-value="value_mode_lasso"
+                            id="svg_mobile_mode" value="Mode: Selection" data-title="title_mode">
                     </div>
                     <div class="container top scrollbar" id="container_menu">
                         <fieldset>
@@ -1986,8 +1987,8 @@
                                     data-width="24" data-height="24"></span>
                                 <span class="translate" data-lang="legend_alignment">Alignment</span>
                             </legend>
-                            <div style="display: flex">
-                                <div style="width: 120px">
+                            <div class="alignment">
+                                <div>
                                     <div class="icon_list">
                                         <a class="align_elements tooltip" data-align="left"
                                             data-title="title_align_left"><span class="iconify add_element_area"
@@ -2022,17 +2023,14 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div style="float: right; width: 180px">
-                                    <div class="form_div text">
-                                        <span id="ex_how_align" class="translate" data-lang="ex_align"
-                                            style="min-height: 60px; display: inline-block">Choose an alignment and
-                                            select a reference
-                                            element</span>
-                                    </div>
+                                <div>
+                                    <span id="ex_how_align" class="translate" data-lang="ex_align">Choose an alignment
+                                        and
+                                        select a reference
+                                        element</span>
                                     <div class="form_div button">
                                         <input type="button" value="Done" id="align_elements"
-                                            class="input_button translateV" data-lang-value="value_done"
-                                            style="display: none">
+                                            class="input_button translateV" data-lang-value="value_done">
                                     </div>
                                 </div>
                             </div>
@@ -2043,11 +2041,23 @@
                                     data-height="24"></span>
                                 <span class="translate" data-lang="legend_connect">Connect Elements</span>
                             </legend>
-                            <input type="button" value="Connect" id="connect_elements"
-                                class="connect_elements input_button translateV" data-lang-value="value_connect">
-                            <br>
-                            <span id="ex_connect_elements" style="text-align: justify" class="translate"
-                                data-lang="ex_connect">Click the button above to connect 2 elements</span>
+                            <div class="alignment col">
+                                <div>
+                                    <input type="button" value="Connect" id="connect_elements"
+                                        class="connect_elements input_button translateV"
+                                        data-lang-value="value_connect">
+
+                                    <div id="ex_connect_elements" class="translate" data-lang="ex_connect">Click the
+                                        button
+                                        above to connect 2 elements</div>
+                                </div>
+                                <div>
+                                    <a href="javascript:void(0)" class="help" data-help="help_connect">
+                                        <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
+                                            data-width="32" data-height="32"></span>
+                                    </a>
+                                </div>
+                            </div>
                         </fieldset>
                         <fieldset>
                             <legend>
@@ -2072,7 +2082,7 @@
                                     <span class="label translate" data-lang="cb_show_grid">Show Help Grid</span>
                                 </label>
                             </div>
-                            <div class="cb_switch">
+                            <div class="cb_switch" id="area_catch">
                                 <input type="checkbox" name="basic.enable_area_catch" class="basic_config"
                                     id="basic.enable_area_catch">
                                 <label for="basic.enable_area_catch">
@@ -2247,48 +2257,48 @@
                                 data-height="24"></span>
                             <span class="translate" data-lang="legend_av_datasources">Available Datasources</span>
                         </legend>
-                        <div class="ef-table-div" id="datasource-table-div">
-                            <table class="ef-table" id="datasource-table">
-                                <thead class="sortable">
-                                    <tr>
-                                        <th class="filter" data-sorting="true" data-asc="true">
-                                            <span class="translate" data-lang="lbl_alias">Alias</span>
-                                            <div class="sort_icon">
-                                                <span class="iconify" data-icon="mdi:sort-alphabetical-ascending"
-                                                    data-height="18"></span>
-                                            </div>
-                                        </th>
-                                        <th class="filter" data-sorting="false" data-asc="true">
-                                            <span class="translate" data-lang="lbl_datasource">Datasource</span>
-                                            <div class="sort_icon"></div>
-                                        </th>
-                                        <th>
-                                            <span class="translate" data-lang="lbl_factor">Factor</span>
-                                        </th>
-                                        <th>
-                                            <span class="translate" data-lang="lbl_action">Action</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr id="ds_tmp_line" data-id="-1">
-                                        <td class="translate" data-lang="no_ds_added">
-                                            There are currently no Datasources added!
-                                        </td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="form_div button">
-                            <input type="button" class="input_button translateV check_datasources"
-                                data-lang-value="value_check" id="check_ds" value="Check datasources "
-                                style="width: auto">
-                            <input type="button" class="input_button translateV check_datasources"
-                                data-lang-value="value_in_use" id="check_ds_use" value="Datsource in use"
-                                style="width: auto">
+                        <div class="table_container">
+                            <div class="ef-table-div" id="datasource-table-div">
+                                <table class="ef-table" id="datasource-table">
+                                    <thead class="sortable">
+                                        <tr>
+                                            <th class="filter" data-sorting="true" data-asc="true">
+                                                <span class="translate" data-lang="lbl_alias">Alias</span>
+                                                <div class="sort_icon">
+                                                    <span class="iconify" data-icon="mdi:sort-alphabetical-ascending"
+                                                        data-height="18"></span>
+                                                </div>
+                                            </th>
+                                            <th class="filter" data-sorting="false" data-asc="true">
+                                                <span class="translate" data-lang="lbl_datasource">Datasource</span>
+                                                <div class="sort_icon"></div>
+                                            </th>
+                                            <th>
+                                                <span class="translate" data-lang="lbl_factor">Factor</span>
+                                            </th>
+                                            <th>
+                                                <span class="translate" data-lang="lbl_action">Action</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="ds_tmp_line" data-id="-1">
+                                            <td class="translate" data-lang="no_ds_added">
+                                                There are currently no Datasources added!
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="buttonContainer">
+                                <input type="button" class="input_button translateV check_datasources"
+                                    data-lang-value="value_check" id="check_ds" value="Check datasources">
+                                <input type="button" class="input_button translateV check_datasources"
+                                    data-lang-value="value_in_use" id="check_ds_use" value="Datsource in use">
+                            </div>
                         </div>
                     </fieldset>
                 </div>
@@ -2397,8 +2407,7 @@
                                 <defs>
                                     <path id="preview_line" d="M 0,25 H 1000"></path>
                                 </defs>
-                                <use class="line preview" xlink:href="#preview_line" id="preview_line_bg"
-                                    style="cursor: default"></use>
+                                <use class="line preview" xlink:href="#preview_line" id="preview_line_bg"></use>
                                 <use class="animation animation_cfg" xlink:href="#preview_line" id="preview_line_anim">
                                 </use>
                             </svg>
@@ -2420,9 +2429,9 @@
                             <span class="translate" data-lang="legend_remaining_byttery">Remaining battery
                                 runtime</span>
                         </legend>
-                        <div class="form_div text">
+                        <div class="form_div text flex">
                             <span>Status:</span>
-                            <span style="float: right" id="calculation.battery.status" class="red translate"
+                            <span id="calculation.battery.status" class="red translate"
                                 data-lang="txt_calculation_fail">Not active (Configuration missing)</span>
                         </div>
                         <div class="form_div select">
@@ -2498,33 +2507,33 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="translate" data-lang="ex_battery_info" style="padding-bottom: 20px">
+                        <p class="translate" data-lang="ex_battery_info">
                             For the calculation to work, the marked fields with a star are
                             necessary
-                        </div>
-                        <div class="translate" data-lang="ex_battery_help" style="padding-bottom: 10px">
+                        </p>
+                        <p class="translate" data-lang="ex_battery_help">
                             <u>Info:</u> After filling in all necessary values, the
                             remaining battery-time will appear in the Datapoint
                             <code>energiefluss.Instance-No#.battery_remaining</code>, which
                             can be added via Datasources<br><u>Please note:</u> The time
                             shows both directions - the time for charging, if it is charging
                             and the time for discharging, if it is discharging
-                        </div>
-                        <div class="translate" data-lang="ex_battery_help_extended">
+                        </p>
+                        <p class="translate" data-lang="ex_battery_help_extended">
                             <u>Additional Info:</u> The adapter also provides 2 additional
                             Datapoints, which can show, if the battery is charged via grid
                             or solar. For this to work, you need to provide the production
                             datapoint(s) in the upper area on the right side.
-                        </div>
+                        </p>
                     </fieldset>
                     <fieldset class="flex" id="fieldsetConsumption">
                         <legend>
                             <span class="iconify legend" data-icon="mdi:power" data-width="24" data-height="24"></span>
                             <span class="translate" data-lang="legend_consumption">Consumption</span>
                         </legend>
-                        <div class="form_div text">
+                        <div class="form_div text flex">
                             <span>Status:</span>
-                            <span style="float: right" id="calculation.consumption.status" class="red translate"
+                            <span id="calculation.consumption.status" class="red translate"
                                 data-lang="txt_calculation_fail">Not active (Configuration missing)</span>
                         </div>
                         <div class="form_div select">
@@ -2630,17 +2639,17 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="translate" data-lang="ex_battery_info" style="padding-bottom: 20px">
+                        <p class="translate" data-lang="ex_battery_info">
                             For the calculation to work, the marked fields with a star are
                             necessary
-                        </div>
-                        <div class="translate" data-lang="ex_consumption_help" style="padding-bottom: 10px">
+                        </p>
+                        <p class="translate" data-lang="ex_consumption_help">
                             <u>Info:</u>
                             After filling in all necessary values, the remaining
                             battery-time will appear in the Datapoint
                             <code>energiefluss.Instance-No#.calculation.consumption</code>,
                             which can be added via Datasources.
-                        </div>
+                        </p>
                     </fieldset>
                 </div>
             </div>
@@ -2657,8 +2666,7 @@
                                 <div class="drop_zone">
                                     <div>
                                         <form>
-                                            <input type="file" class="uploadFile" accept="image/*" style="display: none"
-                                                multiple>
+                                            <input type="file" class="uploadFile" accept="image/*" multiple>
                                             <div class="form_div text">
                                                 <span class="translate" data-lang="txt_upload_init">Drag & Drop File
                                                     here
@@ -2672,10 +2680,10 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="form_div button" style="text-align: center;">
-                                    <input type="button" id="deleteGallery" class="input_button red translateV"
-                                        onclick="deleteUserGallery();" data-lang-value="value_delete_gallery"
-                                        value="Delete whole gallery" style="width:auto;" disabled="">
+                                <div class="form_div flex center button">
+                                    <input type="button" id="deleteGallery"
+                                        class="input_button auto_width red translateV" onclick="deleteUserGallery();"
+                                        data-lang-value="value_delete_gallery" value="Delete whole gallery" disabled="">
                                 </div>
                                 <div class="form_div text">
                                     <span>Status:</span>
@@ -2715,8 +2723,8 @@
                                 data-height="24"></span>
                             <span class="translate" data-lang="lbl_gallery">Gallery</span>
                         </legend>
-                        <div id="userImagesContainer">
-                            <div class="formFilter">
+                        <div id="userImagesContainer" class="table_container">
+                            <div class=" formFilter">
                                 <div class="form_div textbox">
                                     <input type="text" class="input_text icon_in_input_pad userImages_filter"
                                         placeholder="" spellcheck="false" autocomplete="off" name="userImagesFilter"
@@ -2724,8 +2732,8 @@
                                     <label for="userImagesFilter" class="translate form_label"
                                         data-lang="lbl_filter">Filter</label>
                                     <div class="icon_wrapper">
-                                        <span class="iconify" data-icon="mdi:search" data-width="24" data-height="24"
-                                            style="color: var(--primary)"></span>
+                                        <span class="iconify" data-icon="mdi:search" data-width="24"
+                                            data-height="24"></span>
                                     </div>
                                 </div>
                             </div>
@@ -2734,19 +2742,19 @@
                                 upload some using the upload function!</div>
                             <div class="translate userImages_noResults" data-lang="txt_upload_no_results">There are
                                 no results for the provided criteria!</div>
-                            <div class="userImages_placeholder" style="padding: 5px; margin: 5px;">
+                            <div class="userImages_placeholder">
                                 <span class="cv-spinner">
                                     <span class="spinner"></span>
-                                    <span class="translate" data-lang="title_gallery_loading"
-                                        style="padding-left: 5px">Loading images gallery ...</span>
+                                    <span class="translate" data-lang="title_gallery_loading">Loading images gallery
+                                        ...</span>
                                 </span>
                             </div>
                             <div id="userImages" class="userImages">
                             </div>
                         </div>
                         <div id="userImagesBrowseDialog">
-                            <div id="userImagesBrowseContainer">
-                                <div class="formFilter" style="display: inline-block; width: 100%">
+                            <div id="userImagesBrowseContainer" class="table_container">
+                                <div class="formFilter">
                                     <div class="form_div textbox">
                                         <input type="text" id="userImagesBrowseFilter" name="userImagesBrowseFilter"
                                             class="input_text icon_in_input_pad userImages_filter" placeholder=""
@@ -2755,7 +2763,7 @@
                                             data-lang="lbl_filter">Filter</label>
                                         <div class="icon_wrapper">
                                             <span class="iconify" data-icon="mdi:search" data-width="24"
-                                                data-height="24" style="color: var(--primary)"></span>
+                                                data-height="24"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -2765,24 +2773,22 @@
                                 <div class="translate userImages_noResults" data-lang="txt_upload_no_results">There
                                     are
                                     no results for the provided criteria!</div>
-                                <div class="userImages_placeholder" style="padding: 5px; margin: 5px;">
+                                <div class="userImages_placeholder">
                                     <span class="cv-spinner">
                                         <span class="spinner"></span>
-                                        <span class="translate" data-lang="title_gallery_loading"
-                                            style="padding-left: 5px">Loading images gallery ...</span>
+                                        <span class="translate" data-lang="title_gallery_loading">Loading images gallery
+                                            ...</span>
                                     </span>
                                 </div>
-                                <div class="form_div button"><input type="button" class="input_button translateV"
+                                <div class="button"><input type="button" class="input_button translateV"
                                         data-lang-value="lbl_upload" value="Upload"
-                                        onclick="$(this).parent().next('.uploadForm').slideToggle();"
-                                        style="margin-left: 14px;">
+                                        onclick="$(this).parent().next('.uploadForm').slideToggle();">
                                 </div>
-                                <div class="uploadForm browse form_div" style="display: none;">
+                                <div class="uploadForm browse">
                                     <div class="drop_zone">
                                         <div>
                                             <form>
-                                                <input type="file" class="uploadFile browse" accept="image/*"
-                                                    style="display: none" multiple>
+                                                <input type="file" class="uploadFile browse" accept="image/*" multiple>
                                                 <div class="form_div text">
                                                     <span class="translate" data-lang="txt_upload_init">Drag & Drop File
                                                         here
@@ -2893,7 +2899,8 @@
                                         <label for="basic.enable_ds_autocomplete">
                                             <span></span>
                                             <span class="label translate"
-                                                data-lang="lbl_settings_ds_autocomplete">Enable autocomplete inside data
+                                                data-lang="lbl_settings_ds_autocomplete">Enable
+                                                autocomplete inside data
                                                 sources</span>
                                         </label>
                                         <div></div>
@@ -2926,9 +2933,9 @@
                                         </div>
                                     </div>
                                     <div class="form_div button">
-                                        <input type="button" class="input_button translateV" value="Restore the hints"
-                                            data-lang-value="value_toast_restore" onclick="restoreToast()"
-                                            style="width: auto;">
+                                        <input type="button" class="input_button auto_width translateV"
+                                            value="Restore the hints" data-lang-value="value_toast_restore"
+                                            onclick="restoreToast()">
                                     </div>
                                 </fieldset>
                                 <fieldset class="small">
@@ -3015,7 +3022,8 @@
                                             name="basic.font.size" placeholder="" spellcheck="false" autocomplete="off"
                                             min="1">
                                         <label for="basic.font.size" class="form_label translate"
-                                            data-lang="lbl_font_size">Font Size</label>
+                                            data-lang="lbl_font_size">Font
+                                            Size</label>
                                     </div>
                                     <div class="form_div textbox">
                                         <input type="text" class="input_text color basic_config" name="basic.font.color"
@@ -3111,7 +3119,8 @@
                                             id="basic.elm.fill" placeholder="" spellcheck="false" autocomplete="off"
                                             data-jscolor="{}">
                                         <label for="basic.elm.fill" class="form_label translate"
-                                            data-lang="lbl_fill_color">Fill color</label>
+                                            data-lang="lbl_fill_color">Fill
+                                            color</label>
                                     </div>
                                 </div>
                             </div>
@@ -3148,13 +3157,17 @@
                                         <input type="number" class="input_number basic_config" id="basic.elm.pos_x"
                                             name="basic.elm.pos_x" placeholder="" spellcheck="false" autocomplete="off"
                                             min="1">
-                                        <label for="basic.elm.pos_x" class="form_label translate">Pos X</label>
+                                        <label for="basic.elm.pos_x" class="form_label translate"
+                                            data-lang="lbl_pos_x">Position
+                                            X-Axis</label>
                                     </div>
                                     <div class="form_div textbox">
                                         <input type="number" class="input_number basic_config" id="basic.elm.pos_y"
                                             name="basic.elm.pos_y" placeholder="" spellcheck="false" autocomplete="off"
                                             min="1">
-                                        <label for="basic.elm.pos_y" class="form_label translate">Pos Y</label>
+                                        <label for="basic.elm.pos_y" class="form_label translate"
+                                            data-lang="lbl_pos_y">Position
+                                            X-Axis</label>
                                     </div>
                                     <div class="form_div text">
                                         <span class="translate" data-lang="ex_coordinates">These coordinates (+ random
@@ -3188,9 +3201,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="translate" data-lang="ex_coordinates_info" style="width: 100%; min-width: 100%">
+                            <span class="translate" data-lang="ex_coordinates_info">
                                 <b><u>Please note</u></b>: For the changes to take effect, you need to save them!
-                            </div>
+                            </span>
                         </div>
                     </fieldset>
                 </div>
@@ -3238,8 +3251,8 @@
                                 <span class="translate" data-lang="lbl_save_workspace_exit">Save your Workspace & Exit
                                     to LiveView</span>
                                 <div>
-                                    <input type="button" class="input_button translateV translateT" value="Save & Exit"
-                                        id="save_workspace_exit" data-lang-value="value_save_exit" style="width: auto">
+                                    <input type="button" class="input_button auto_width translateV translateT"
+                                        value="Save & Exit" id="save_workspace_exit" data-lang-value="value_save_exit">
                                 </div>
                             </div>
                             <div class="form_div button">
@@ -3264,8 +3277,8 @@
                                 </div>
                             </div>
                             <div class="form_div button">
-                                <input type="button" class="input_button translateV" value="Restore Backup"
-                                    id="restore_backup" data-lang-value="value_save_restore" style="width: auto">
+                                <input type="button" class="input_button auto_width translateV" value="Restore Backup"
+                                    id="restore_backup" data-lang-value="value_save_restore">
                             </div>
                         </fieldset>
                         <fieldset class="flex" id="fieldsetSupport">

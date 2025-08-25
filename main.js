@@ -915,8 +915,34 @@ class EnergieflussErweitert extends utils.Adapter {
 
         // Numeric condValue
         const isNumeric = !isNaN(condValue);
+        const errorFunc = 'No function executed!';
+        const errorWiki =
+            'Visit the <a href="https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/" target="_blank">Wiki</a> for help!';
 
         for (const item of sortedKeys) {
+            // Pre-Check for condition set
+            if (typeof workObj[item] != 'object') {
+                // Check, if condition set is not an object
+                return {
+                    error: {
+                        status: false,
+                        error: 'You need to provide an object with overrides for this condition to work! ' + errorWiki,
+                        function: errorFunc,
+                    },
+                };
+            }
+
+            if (typeof workObj[item] == 'object' && Object.keys(workObj[item]).length == 0) {
+                // Check, if condition set is an object and not empty
+                return {
+                    error: {
+                        status: false,
+                        error: 'The provided set of overrides is empty! ' + errorWiki,
+                        function: errorFunc,
+                    },
+                };
+            }
+
             // Now, we need to check, if condValue is a number and we have an operator
             if (operators.test(item) && isNumeric) {
                 // Operator found - check for condition
@@ -959,18 +985,6 @@ class EnergieflussErweitert extends utils.Adapter {
 
         // Generate object for conditions
         const tmpWorker = this.evaluateConditions(workObj, condValue);
-
-        // Check, if condition is not an object
-        if (typeof tmpWorker == 'string') {
-            // Return the Object as Error
-            return {
-                error: {
-                    status: false,
-                    error: 'You need to provide an object for this condition to work! Visit the <a href="https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/" target="_blank">Wiki</a> for help!',
-                    function: 'No function executed!',
-                },
-            };
-        }
 
         // Now we process the found values inside tmpWorker Obj
         if (Object.keys(tmpWorker).length > 0) {
@@ -1616,10 +1630,12 @@ class EnergieflussErweitert extends utils.Adapter {
             );
 
             // Build Output
-            this.setStateChangedAsync('data', {
-                val: JSON.stringify(outputValues),
-                ack: true,
-            });
+            this.setTimeout(async () => {
+                await this.setStateChangedAsync('data', {
+                    val: JSON.stringify(outputValues),
+                    ack: true,
+                });
+            }, 100);
         } else {
             this.log.warn(
                 `State changed! New value for Source: ${id} belongs to Elements, which were not found! Please check them!`,
