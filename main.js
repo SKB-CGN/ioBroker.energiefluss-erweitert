@@ -926,7 +926,7 @@ class EnergieflussErweitert extends utils.Adapter {
                 return {
                     error: {
                         status: false,
-                        error: 'You need to provide an object with overrides for this condition to work! ' + errorWiki,
+                        error: `You need to provide an object with overrides for this condition to work! ${errorWiki}`,
                         function: errorFunc,
                     },
                 };
@@ -937,7 +937,7 @@ class EnergieflussErweitert extends utils.Adapter {
                 return {
                     error: {
                         status: false,
-                        error: 'The provided set of overrides is empty! ' + errorWiki,
+                        error: `The provided set of overrides is empty! ${errorWiki}`,
                         function: errorFunc,
                     },
                 };
@@ -1630,12 +1630,10 @@ class EnergieflussErweitert extends utils.Adapter {
             );
 
             // Build Output
-            this.setTimeout(async () => {
-                await this.setStateChangedAsync('data', {
-                    val: JSON.stringify(outputValues),
-                    ack: true,
-                });
-            }, 100);
+            this.setStateChangedAsync('data', {
+                val: JSON.stringify(outputValues),
+                ack: true,
+            });
         } else {
             this.log.warn(
                 `State changed! New value for Source: ${id} belongs to Elements, which were not found! Please check them!`,
