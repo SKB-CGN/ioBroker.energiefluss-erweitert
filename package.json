@@ -34,7 +34,7 @@
   "dependencies": {
     "@iobroker/adapter-core": "^3.3.2",
     "multer": "^2.0.2",
-    "sharp": "^0.34.3",
+    "sharp": "^0.34.4",
     "url": "^0.11.4"
   },
   "devDependencies": {
