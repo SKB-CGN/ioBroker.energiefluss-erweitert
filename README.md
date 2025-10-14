@@ -42,6 +42,8 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: The workspace will be centered itself to the current selected element
 - Added: Better support for touch-devices including different modes for moving the workspace and editing elements
 - Added: Few language and design corrections, code optimization
+- Added: Right Clicking or long press on liveview opens a context menu, to easily switch between instances or display the configuration
+
 
 ### 0.7.8 (2025-06-18)
 - Added: Convert a text element to a datasource element

@@ -1488,7 +1488,14 @@ class EnergieflussErweitert extends utils.Adapter {
                             case 'positive':
                                 this.log.debug('Animation has a positive factor!');
                                 handleAnimation(calcNumber > 0 && calcNumber >= seObj.threshold, '');
-                                if (!tmpAnimValid && seObj.option && calcNumber <= -seObj.threshold) {
+
+                                // Reverse
+                                if (
+                                    calcNumber !== 0 &&
+                                    !tmpAnimValid &&
+                                    seObj.option &&
+                                    calcNumber <= -seObj.threshold
+                                ) {
                                     tmpAnimValid = true;
                                     tmpOption = 'reverse';
                                 }
@@ -1496,7 +1503,14 @@ class EnergieflussErweitert extends utils.Adapter {
                             case 'negative':
                                 this.log.debug('Animation has a negative factor!');
                                 handleAnimation(calcNumber < 0 && calcNumber <= -seObj.threshold, '');
-                                if (!tmpAnimValid && seObj.option && calcNumber >= seObj.threshold) {
+
+                                // Reverse
+                                if (
+                                    calcNumber !== 0 &&
+                                    !tmpAnimValid &&
+                                    seObj.option &&
+                                    calcNumber >= seObj.threshold
+                                ) {
                                     tmpAnimValid = true;
                                     tmpOption = 'reverse';
                                 }

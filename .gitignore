@@ -16,3 +16,5 @@ Thumbs.db
 admin/i18n/flat.txt
 admin/i18n/*/flat.txt
 lang*.js
+
+.commitinfo

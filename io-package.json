@@ -154,7 +154,7 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "assumption",
-    "welcomeScreen": false,
+    "welcomeScreen": {},
     "welcomeScreenPro": {
       "link": "energiefluss-erweitert/",
       "name": "energiefluss-erweitert",
@@ -167,45 +167,22 @@
       "type": "free"
     },
     "adminUI": {
-      "config": "materialize",
-      "tab": false
+      "config": "materialize"
     },
     "dependencies": [
       {
-        "js-controller": ">=5.0.19",
+        "js-controller": ">=6.0.11",
         "web": ">=6.1.10"
       }
     ],
     "globalDependencies": [
       {
-        "admin": ">=7.4.10"
+        "admin": ">=7.6.17"
       }
     ],
     "dataFolder": "energiefluss-erweitert.%INSTANCE%",
     "messagebox": true
   },
-  "messages": [
-    {
-      "condition": {
-        "operand": "and",
-        "rules": [
-          "oldVersion<0.3.1",
-          "newVersion>=0.3.1"
-        ]
-      },
-      "title": {
-        "en": "Mandatory changes inside Calculation Tab"
-      },
-      "text": {
-        "en": "For better handling of the battery charging calculation, the capacity and the DoD (Depth of Discharge) of the battery need to be provided via datasources now!"
-      },
-      "level": "warn",
-      "buttons": [
-        "agree",
-        "cancel"
-      ]
-    }
-  ],
   "protectedNative": [
     "password"
   ],
