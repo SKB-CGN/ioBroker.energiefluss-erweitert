@@ -154,14 +154,16 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "assumption",
-    "welcomeScreen": {},
-    "welcomeScreenPro": {
-      "link": "energiefluss-erweitert/",
-      "name": "energiefluss-erweitert",
-      "img": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
-      "color": "#538ea3",
-      "order": 0
-    },
+    "welcomeScreen": [],
+    "welcomeScreenPro": [
+      {
+        "link": "energiefluss-erweitert/",
+        "name": "energiefluss-erweitert",
+        "img": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
+        "color": "#538ea3",
+        "order": 0
+      }
+    ],
     "licenseInformation": {
       "license": "MIT",
       "type": "free"
