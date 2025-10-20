@@ -10,3 +10,6 @@ updates:
   assignees:
   - SKB-CGN
   versioning-strategy: increase
+  ignore:
+    - dependency-name: "sharp"
+    versions: [">=0.33.0"]
