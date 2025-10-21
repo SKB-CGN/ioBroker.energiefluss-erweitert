@@ -2,9 +2,10 @@
 
 # ioBroker.energiefluss-erweitert
 
+![Number of Installations](https://iobroker.live/badges/energiefluss-erweitert-installed.svg)
+![Stable](http://iobroker.live/badges/energiefluss-erweitert-stable.svg)
 [![NPM version](https://img.shields.io/npm/v/iobroker.energiefluss-erweitert.svg)](https://www.npmjs.com/package/iobroker.energiefluss-erweitert)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.energiefluss-erweitert.svg)](https://www.npmjs.com/package/iobroker.energiefluss-erweitert)
-![Number of Installations](https://iobroker.live/badges/energiefluss-erweitert-installed.svg)
 
 ![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.energiefluss-erweitert.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss-erweitert?logo=github)
