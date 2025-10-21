@@ -147,11 +147,6 @@ a:focus {
     display: inline-block;
 }
 
-a:hover,
-a.toggle-link:hover {
-    color: var(--secondary);
-}
-
 a.toggle-link {
     text-decoration: none;
     padding: 5px;
@@ -1335,11 +1330,6 @@ text.action_element:hover {
     max-width: 100%;
 }
 
-.input_button:not(:disabled):hover {
-    background-position: left bottom;
-    color: var(--black);
-}
-
 .input_button.jquery:hover {
     background: var(--primary);
     opacity: .70;
@@ -1866,7 +1856,7 @@ fieldset.small {
     padding-right: 4px;
 }
 
-.ef-table th:last-child {
+.ef-table th {
     z-index: 3;
 }
 
@@ -1878,10 +1868,7 @@ fieldset.small {
     background-color: var(--white);
 }
 
-.ef-table tbody tr:not(.inactive):hover td,
-.ef-table tbody tr:not(.inactive):hover td:last-child {
-    background-color: var(--darkgrey);
-}
+/* Hover is in hover:hover */
 
 .ef-table tbody tr.highlight-green td,
 .ef-table tbody tr.highlight-red td {
@@ -2495,7 +2482,6 @@ text.glow {
     position: relative;
     width: 100%;
     box-sizing: border-box;
-    z-index: 3;
 }
 
 #tab1:checked~figure .tab1,
@@ -3508,23 +3494,19 @@ nav label:active {
     }
 }
 
-/* Hover for Mobile */
-@media (hover: none) {
+/* Hover only for devices that support it */
+@media (hover: hover) {
+    .ef-table tbody tr:not(.inactive):hover td {
+        background-color: var(--darkgrey);
+    }
 
     a:hover,
-    a:active {
-        color: var(--primary);
-    }
-
-    .input_button:not(:disabled):active,
-    .input_button:not(:disabled):hover {
-        background-position: right;
-        color: var(--white);
-    }
-
-    a.toggle-link:active,
     a.toggle-link:hover {
-        background-position: right;
-        color: var(--primary);
+        color: var(--secondary);
+    }
+
+    .input_button:not(:disabled):hover {
+        background-position: left bottom;
+        color: var(--black);
     }
 }
