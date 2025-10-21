@@ -17,10 +17,5 @@
     --box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     --box-shadow-toast: 0 4px 8px rgba(0, 0, 0, .175);
     --box-shadow-hover: 0 12px 18px rgba(0, 0, 0, .200);
-    --container-background: linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
-        linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
-        radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0)),
-        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0)) 0 100%;
+    --container-shadow: rgba(0, 0, 0, 0.6);
 }

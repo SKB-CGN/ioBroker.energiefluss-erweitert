@@ -1,12 +1,12 @@
 :root {
     --primary: #d3d3d3;
-    --secondary: #aaaaaa;
-    --black: #ccc;
+    --secondary: #666666;
+    --black: #dbdbdb;
     --blackTrans: rgba(255, 255, 255, 0.4);
     --white: #323232;
     --darkestGrey: #777777;
-    --creme: #777;
-    --silvergrey: #9e9d9d;
+    --creme: #3A3A3A;
+    --silvergrey: #707070;
     --darkgrey: #a3a3a3;
     --red: #b42c3a;
     --green: #155724;
@@ -17,10 +17,5 @@
     --box-shadow: 0 6px 12px rgba(255, 255, 255, 0.175);
     --box-shadow-toast: 0 4px 8px rgba(255, 255, 255, 0.175);
     --box-shadow-hover: 0 12px 18px rgba(255, 255, 255, .200);
-    --container-background: linear-gradient(to right, #323232 30%, rgba(255, 255, 255, 0)),
-        linear-gradient(to right, rgba(255, 255, 255, 0), #323232 70%) 0 100%,
-        radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0)),
-        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0)) 0 100%;
+    --container-shadow: rgba(219, 219, 219, 0.6);
 }

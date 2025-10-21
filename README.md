@@ -33,9 +33,10 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- FIX: When using **Animation dependency** 'Dots' or 'Duration' the animation could "jump" during recalculation (now the 'jump' is smoothly animated)
 - FIX: Editing a datasource was not accepting the new choosen state (#374)
+- FIX: When using **Animation dependency** 'Dots' or 'Duration' the animation could "jump" during recalculation (now the 'jump' is smoothly animated)
 - FIX: 'Manual value change' of click actions now better detect the value type of the destination source
+- FIX: Line was not hidden when 2 directions *and* display dependency are enabled
 - Added: A new property 'Distance between the dot blocks' inside 'animation'-tab is available. This setting can be used, to define the distance between dot-blocks
 - Added: Some more error handling for overrides. Now they are checked, if they have the correct format and/or syntax
 - Added: 2 new override properties are available: "addClass" and "removeClass" which allow the user, to add or remove own defined CSS classes

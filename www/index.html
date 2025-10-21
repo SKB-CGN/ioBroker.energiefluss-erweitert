@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
     <title>Energiefluss - erweitert</title>
     <meta name="description" content="Provides an animated energy-flow">
     <meta name="mobile-web-app-capable" content="yes">
@@ -50,28 +50,26 @@
             <div class="close" onclick="closeEditorContainer('errorLog');"></div>
         </div>
         <!-- Error Log -->
-        <div style="padding: .5em 1em;">
-            <div class="ef-table-div scrollbar">
-                <table class="ef-table log" id="errorLog-table">
-                    <thead>
-                        <tr>
-                            <th><span class="translate" data-lang="lbl_config_element">Element</span>
-                            </th>
-                            <th><span class="translate" data-lang="lbl_errorLog_for">For</span>
-                            </th>
-                            <th><span class="translate" data-lang="lbl_errorLog_message">Error message</span>
-                            </th>
-                            <th><span class="translate" data-lang="lbl_errorLog_function">Called function</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
+        <div class="ef-table-div scrollbar">
+            <table class="ef-table log" id="errorLog-table">
+                <thead>
+                    <tr>
+                        <th><span class="translate" data-lang="lbl_config_element">Element</span>
+                        </th>
+                        <th><span class="translate" data-lang="lbl_errorLog_for">For</span>
+                        </th>
+                        <th><span class="translate" data-lang="lbl_errorLog_message">Error message</span>
+                        </th>
+                        <th><span class="translate" data-lang="lbl_errorLog_function">Called function</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div id="action_change_value" class="translateT" data-lang-title="title_change_value" title="Change the value">
+    <div id="action_change_value">
         <div class="detail_box shortcut" id="shortcuts.action">
             <div class="contentBox">
                 <div class="form_div text">
@@ -108,6 +106,16 @@
         <!-- Icons -->
         <g id="placeholder_icons" class="placeholders"></g>
     </svg>
+    <div id="mouse_contextmenu">
+        <ul>
+            <li>
+                <div id="config_link_ctx">
+                    <span class="iconify" data-height="24" data-width="24" data-icon="mdi:cog"></span>
+                    <span class="translate" data-lang="title_configuration">Open configuration</span>
+                </div>
+            </li>
+        </ul>
+    </div>
     <div id="info_error_area">
         <a href="javascript:openErrorLog();" class="tooltip" data-title="title_error_link" title="Open Error Log">
             <span class="iconify info_error_icon" data-icon="material-symbols:info-outline" data-width="24"

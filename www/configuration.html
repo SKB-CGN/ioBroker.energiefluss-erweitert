@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <div id="help_section" class="translateT scrollbar" title="Help Section" data-lang-title="lbl_help_section"></div>
+    <div id="help_section" class="translateT" title="Help Section" data-lang-title="lbl_help_section"></div>
     <div id="dialog_section" title="Backup Section"></div>
     <div id="action_change_value">
         <div class="detail_box shortcut" id="shortcuts.action">
@@ -129,7 +129,7 @@
                     </div>
                 </div>
             </div>
-            <div id="stateExplorer" class="scrollbar">
+            <div id="stateExplorer" class="">
                 <div id="stateExplorer_placeholder">
                     <div class="cv-spinner">
                         <span class="spinner"></span>
@@ -140,55 +140,74 @@
             </div>
             <div class="button_area">
                 <div>
-                    <input type="button" value="Save" id="reloadStateExplorer"
-                        class="input_button auto_width translateV" data-lang-value="lbl_reload_stateExplorer">
+                    <button class="input_button" id="reloadStateExplorer">
+                        <span class="iconify" data-icon="mdi:refresh" data-width="24" data-height="24"></span>
+                        <span class="translate" data-lang="lbl_reload_stateExplorer">Reload</span>
+                    </button>
                 </div>
                 <div>
-                    <input type="button" value="Select" id="select_state" class="input_button translateV"
-                        data-lang-value="value_select" disabled>
-                    <input type="button" value="Cancel" class="input_button translateV red"
-                        data-lang-value="value_cancel" onclick="closeEditorContainer('stateExplorer')">
+                    <button class="input_button" id="select_state" disabled>
+                        <span class="iconify" data-icon="mdi:check" data-width="24" data-height="24"></span>
+                        <span class="translate" data-lang="value_select">Select</span>
+                    </button>
+                    <button class="input_button red" onclick="closeEditorContainer('stateExplorer');">
+                        <span class="iconify" data-icon="mdi:cancel-circle-outline" data-width="24"
+                            data-height="24"></span>
+                        <span class="translate" data-lang="value_cancel">Cancel</span>
+                    </button>
                 </div>
             </div>
         </div>
         <div id="codeEditorContainer" class="popUpContainer">
             <div class="title">
                 <span class="translate" data-lang="title_codeEditor">Code Editor</span>
-                <div class="close" onclick="closeEditorContainer('codeEditor')"></div>
+                <div class="close" onclick="closeEditorContainer('codeEditor');"></div>
             </div>
             <!-- ACE Editor -->
-            <div id="codeEditor" class="scrollbar"></div>
+            <div id="codeEditor" class=""></div>
             <div class="button_area">
                 <div>
-                    <input type="button" value="Save" id="overrideFormatCode" class="input_button auto_width translateV"
-                        data-lang-value="lbl_format_json">
+                    <button type="button" class="input_button auto_width" id="overrideFormatCode">
+                        <span class="iconify" data-icon="mdi:format-indent-increase" data-width="24"
+                            data-height="24"></span>
+                        <span class="translate" data-lang="lbl_format_json">Format JSON</span>
+                    </button>
                 </div>
                 <div>
-                    <input type="button" value="Save" id="save_code" class="input_button translateV"
-                        data-lang-value="lbl_save">
-                    <input type="button" value="Cancel" class="input_button translateV red"
-                        data-lang-value="value_cancel" onclick="closeEditorContainer('codeEditor')">
+                    <button class="input_button" id="save_code" disabled>
+                        <span class="iconify" data-icon="material-symbols:save" data-width="24" data-height="24"></span>
+                        <span class="translate" data-lang="lbl_save">Save</span>
+                    </button>
+                    <button class="input_button red" onclick="closeEditorContainer('codeEditor');">
+                        <span class="iconify" data-icon="mdi:cancel-circle-outline" data-width="24"
+                            data-height="24"></span>
+                        <span class="translate" data-lang="value_cancel">Cancel</span>
+                    </button>
                 </div>
             </div>
         </div>
         <div id="frameContainer" class="popUpContainer">
             <div class="title">
-                <div class="close" onclick="closeEditorContainer('frame')"></div>
+                <div class="close" onclick="closeEditorContainer('frame');"></div>
             </div>
         </div>
         <div id="tourContainer" class="popUpContainer">
             <div class="title">
                 <span class="translate" data-lang="title_tour">Tour</span>
-                <div class="close" onclick="closeEditorContainer('tour')"></div>
+                <div class="close" onclick="closeEditorContainer('tour');"></div>
             </div>
             <div id="tooltipText"></div>
             <div class="button_area">
                 <div id="tourSteps"> </div>
                 <div>
-                    <input type="button" value="Cancel" class="input_button double translateV"
-                        data-lang-value="tour_previousStep" id="tourPreviousStep" onclick="tourNextStep(false)">
-                    <input type="button" value="Next Step" class="input_button double translateV"
-                        data-lang-value="tour_nextStep" id="tourNextStep" onclick="tourNextStep(true)">
+                    <button type="button" class="input_button" id="tourPreviousStep" onclick="tourNextStep(false)">
+                        <span class="iconify" data-icon="mdi:skip-previous" data-width="24" data-height="24"></span>
+                        <span class="translate" data-lang="tour_previousStep">Previous Step</span>
+                    </button>
+                    <button type="button" class="input_button" id="tourNextStep" onclick="tourNextStep(true)">
+                        <span class="translate" data-lang="tour_nextStep">Next Step</span>
+                        <span class="iconify" data-icon="mdi:skip-next" data-width="24" data-height="24"></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -203,7 +222,7 @@
         <input id="tab7" type="radio" name="tabs">
         <input id="tab8" type="radio" name="tabs">
         <input id="tabWiki" type="radio" name="tabs">
-        <nav class="scrollbar" id="mainNavBar">
+        <nav class="" id="mainNavBar">
             <label for="tab1" class="tooltip" data-title="title_overview"><span class="iconify menu translate"
                     data-icon="material-symbols:overview-key-outline-rounded" data-width="24"
                     data-height="24"></span><span class="translate" data-lang="lbl_overview">Overview</span></label>
@@ -223,7 +242,7 @@
             <label for="tab7" id="lbl_tab7"><span class="iconify menu" data-icon="mdi:cog" data-width="24"
                     data-height="24"></span><span class="translate" data-lang="lbl_settings">Settings</span></label>
             <button id="lbl_wiki"
-                onclick="window.open('https://www.kreyenborg.koeln/wissensdatenbank/Kategorie/iobroker-energiefluss-erweitert/')"><span
+                onclick="window.open('https://www.kreyenborg.koeln/wissensdatenbank/Kategorie/iobroker-energiefluss-erweitert/');"><span
                     class="iconify menu" data-icon="material-symbols:help-outline" data-width="24"
                     data-height="24"></span><span class="translate" data-lang="lbl_help">Help</span></button>
             <label for="tab8" id="lbl_tab8" class="tooltip" data-title="title_save"><span class="iconify menu"
@@ -236,7 +255,7 @@
                     <div class="title">
                         <span class="translate" data-lang="lbl_config_config">Configuration of the Element</span>
                         <div id="config_swap" class="swap tooltip" data-title="btn_swap"></div>
-                        <a href="#" onclick="closeConfigBar();" class="close"></a>
+                        <a href="javascript:;" onclick="closeConfigBar();" class="close"></a>
                     </div>
                     <div class="tabbed">
                         <input checked="checked" id="tab1_config" type="radio" name="tabs_config">
@@ -252,7 +271,7 @@
                                     data-lang="lbl_config_extended">Extended</span></label>
                         </nav>
                         <figure>
-                            <div class="tab1_config scrollbar">
+                            <div class="tab1_config">
                                 <div class="detail_box noStack">
                                     <span class="config_sec translate" data-lang="lbl_config_element">Element</span>
                                     <div class="contentBox">
@@ -1210,9 +1229,12 @@
                                                 data-lang="lbl_conn_end">End slot</label>
                                         </div>
                                         <div class="form_div button">
-                                            <input type="button" value="Reconnect" id="reconnect_elements"
-                                                class="input_button auto_width connect_elements translateV"
-                                                data-lang-value="value_reconnect">
+                                            <button type="button" class="connect_elements input_button auto_width"
+                                                id="reconnect_elements">
+                                                <span class="iconify" data-icon="mdi:transit-connection-variant"
+                                                    data-width="24" data-height="24"></span>
+                                                <span class="translate" data-lang="value_reconnect">Reconnect</span>
+                                            </button>
                                         </div>
                                         <div class="form_div text">
                                             <span id="ex_reconnect_elements" data-lang="ex_reconnect"
@@ -1224,19 +1246,29 @@
                                     <span class="config_sec translate" data-lang="lbl_actions">Actions</span>
                                     <div class="contentBox">
                                         <div class="buttonContainer">
-                                            <input type="button" id="export_element"
-                                                class="input_button translateV noStack"
-                                                data-lang-value="value_export_element" value="Export">
-                                            <input type="button" id="convert_element_DS"
-                                                class="input_button yellow translateV noStack elm_config_box text text_only"
-                                                data-lang-value="value_convertDS" value="Export">
-                                            <input type="button" value="Delete" id="delete_element"
-                                                class="input_button red translateV" data-lang-value="value_delete">
+                                            <button type="button" class="input_button noStack" id="export_element">
+                                                <span class="iconify" data-icon="mdi:export" data-width="24"
+                                                    data-height="24"></span>
+                                                <span class="translate" data-lang="value_export_element">Export</span>
+                                            </button>
+                                            <button type="button"
+                                                class="input_button yellow noStack elm_config_box text text_only"
+                                                id="convert_element_DS">
+                                                <span class="iconify" data-icon="mdi:database" data-width="24"
+                                                    data-height="24"></span>
+                                                <span class="translate" data-lang="value_convertDS">Convert to
+                                                    datasource</span>
+                                            </button>
+                                            <button type="button" class="input_button red" id="delete_element">
+                                                <span class="iconify" data-icon="mdi:delete" data-width="24"
+                                                    data-height="24"></span>
+                                                <span class="translate" data-lang="value_delete">Delete</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab2_config scrollbar">
+                            <div class="tab2_config">
                                 <div class="detail_box elm_config_box datasource use icon rect circle image">
                                     <span class="config_sec translate" data-lang="lbl_calculation">Calculation</span>
                                     <div class="contentBox">
@@ -1452,9 +1484,12 @@
                                                 the Browser-Frame options are not useable!</span>
                                         </div>
                                         <div class="form_div button">
-                                            <input type="button" id="preview_action_url"
-                                                class="input_button translateV preview_action"
-                                                data-lang-value="legend_preview" value="Vorschau">
+                                            <button type="button" class="input_button preview_action"
+                                                id="preview_action_url">
+                                                <span class="iconify" data-icon="mdi:print-preview" data-width="24"
+                                                    data-height="24"></span>
+                                                <span class="translate" data-lang="legend_preview">Preview</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -1534,10 +1569,13 @@
                                                 </label>
                                             </div>
                                             <div class="form_div button">
-                                                <input type="button" id="manage_shortcuts"
-                                                    class="input_button auto_width translateV"
-                                                    data-lang-value="value_manage_shortcuts"
-                                                    value="Manage Direct Accesses">
+                                                <button type="button" class="input_button auto_width"
+                                                    id="manage_shortcuts">
+                                                    <span class="iconify" data-icon="mdi:pencil" data-width="24"
+                                                        data-height="24"></span>
+                                                    <span class="translate" data-lang="value_manage_shortcuts">Manage
+                                                        Direct Accesses</span>
+                                                </button>
                                             </div>
                                             <a href="javascript:;" class="help margin"
                                                 data-help="help_action_shortcuts">
@@ -1553,9 +1591,12 @@
                                                     executed directly on the data source!</span>
                                             </div>
                                             <div class="form_div button">
-                                                <input type="button" id="preview_action_click"
-                                                    class="input_button translateV preview_action"
-                                                    data-lang-value="legend_preview" value="Preview">
+                                                <button type="button" class="input_button preview_action"
+                                                    id="preview_action_click">
+                                                    <span class="iconify" data-icon="mdi:print-preview" data-width="24"
+                                                        data-height="24"></span>
+                                                    <span class="translate" data-lang="legend_preview">Preview</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1634,9 +1675,12 @@
                                                     calculation</span>
                                             </div>
                                             <div class="form_div button">
-                                                <input type="button" id="preview_element_fill"
-                                                    class="input_button translateV preview_element"
-                                                    data-lang-value="legend_preview" value="Preview">
+                                                <button type="button" class="input_button preview_element"
+                                                    id="preview_element_fill">
+                                                    <span class="iconify" data-icon="mdi:print-preview" data-width="24"
+                                                        data-height="24"></span>
+                                                    <span class="translate" data-lang="legend_preview">Preview</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1773,9 +1817,12 @@
                                                     data-width="32" data-height="32"></span>
                                             </a>
                                             <div class="form_div button">
-                                                <input type="button" id="preview_element_border"
-                                                    class="input_button translateV preview_element"
-                                                    data-lang-value="legend_preview" value="Preview">
+                                                <button type="button" class="input_button preview_element"
+                                                    id="preview_element_border">
+                                                    <span class="iconify" data-icon="mdi:print-preview" data-width="24"
+                                                        data-height="24"></span>
+                                                    <span class="translate" data-lang="legend_preview">Preview</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1846,9 +1893,12 @@
                                                 <span class="translate" data-lang="lbl_override_line">Set override for
                                                     the line</span>
                                             </div>
-                                            <input type="button" value="Color" id="override_settings"
-                                                class="input_button auto_width translateV override_settings"
-                                                data-lang-value="lbl_override">
+                                            <button type="button" class="input_button auto_width override_settings"
+                                                id="override_settings">
+                                                <span class="iconify" data-icon="mdi:code-json" data-width="24"
+                                                    data-height="24"></span>
+                                                <span class="translate" data-lang="lbl_override">Set overwrite</span>
+                                            </button>
                                         </div>
                                         <div class="elm_config_box use">
                                             <div class="hr-divide"></div>
@@ -1875,12 +1925,16 @@
                 </div>
                 <div class="menuContainer">
                     <div class="buttonContainer">
-                        <input type="button" class="input_button translateV" data-lang-value="value_hide_controls"
-                            id="show_hide_config" value="Hide Controls">
-                        <input type="button" class="input_button tooltip translateV" data-lang-value="value_mode_lasso"
-                            id="svg_mobile_mode" value="Mode: Selection" data-title="title_mode">
+                        <a href="javascript:;" class="toggle-link open exclude" id="show_hide_config">
+                            <span class="arrow">&#9654;</span>
+                            <span class="translate" data-lang="value_hide_controls">Hide Controls</span>
+                        </a>
+                        <button type="button" class="input_button tooltip" id="svg_mobile_mode" data-title="title_mode">
+                            <span class="iconify" data-icon="mdi:pencil" data-width="24" data-height="24"></span>
+                            <span class="translate" data-lang="value_mode_lasso">Mode: Selection</span>
+                        </button>
                     </div>
-                    <div class="container top scrollbar" id="container_menu">
+                    <div class="container vscroll top skeleton" id="container_menu">
                         <fieldset>
                             <legend>
                                 <span class="iconify legend"
@@ -2043,16 +2097,18 @@
                             </legend>
                             <div class="alignment col">
                                 <div>
-                                    <input type="button" value="Connect" id="connect_elements"
-                                        class="connect_elements input_button translateV"
-                                        data-lang-value="value_connect">
-
+                                    <button type="button" class="connect_elements input_button auto_width"
+                                        id="connect_elements">
+                                        <span class="iconify" data-icon="mdi:transit-connection-variant" data-width="24"
+                                            data-height="24"></span>
+                                        <span class="translate" data-lang="value_connect">Connect</span>
+                                    </button>
                                     <div id="ex_connect_elements" class="translate" data-lang="ex_connect">Click the
                                         button
                                         above to connect 2 elements</div>
                                 </div>
                                 <div>
-                                    <a href="javascript:void(0)" class="help" data-help="help_connect">
+                                    <a href="javascript:;" class="help" data-help="help_connect">
                                         <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
                                             data-width="32" data-height="32"></span>
                                     </a>
@@ -2092,7 +2148,7 @@
                             </div>
                         </fieldset>
                     </div>
-                    <div class="scrollbar" id="svg_config_div">
+                    <div class="" id="svg_config_div">
                         <svg viewBox="0 0 10 10" width="10" height="10" class="lasso"
                             preserveAspectRatio="xMinYMid meet" id="svg_config" onload="makeDraggable(evt)"
                             tabindex="0">
@@ -2199,11 +2255,11 @@
                 </div>
             </div>
             <div class="tab2">
-                <div class="container scrollbar">
-                    <div>
-                        <fieldset class="flex" id="fieldsetAddDataSource">
+                <div class="container">
+                    <div class="form">
+                        <fieldset id="fieldsetAddDataSource">
                             <legend>
-                                <span class="iconify legend" data-icon="mdi:database-search" data-width="24"
+                                <span class="iconify legend" data-icon="mdi:database" data-width="24"
                                     data-height="24"></span>
                                 <span class="translate" data-lang="lbl_datasources">Datasources</span>
                             </legend>
@@ -2245,426 +2301,454 @@
                                     </div>
                                 </div>
                                 <div class="form_div button">
-                                    <input type="submit" class="input_button translateV" data-lang-value="value_add"
-                                        value="Add">
+                                    <button class="input_button" id="reloadStateExplorer" type="submit">
+                                        <span class="iconify" data-icon="mdi:add" data-width="24"
+                                            data-height="24"></span>
+                                        <span class="translate" data-lang="value_add">Add</span>
+                                    </button>
                                 </div>
                             </form>
                         </fieldset>
                     </div>
-                    <fieldset class="flex fixedScreen">
-                        <legend>
-                            <span class="iconify legend" data-icon="mdi:database-search" data-width="24"
-                                data-height="24"></span>
-                            <span class="translate" data-lang="legend_av_datasources">Available Datasources</span>
-                        </legend>
-                        <div class="table_container">
-                            <div class="ef-table-div" id="datasource-table-div">
-                                <table class="ef-table" id="datasource-table">
-                                    <thead class="sortable">
-                                        <tr>
-                                            <th class="filter" data-sorting="true" data-asc="true">
-                                                <span class="translate" data-lang="lbl_alias">Alias</span>
-                                                <div class="sort_icon">
-                                                    <span class="iconify" data-icon="mdi:sort-alphabetical-ascending"
-                                                        data-height="18"></span>
-                                                </div>
-                                            </th>
-                                            <th class="filter" data-sorting="false" data-asc="true">
-                                                <span class="translate" data-lang="lbl_datasource">Datasource</span>
-                                                <div class="sort_icon"></div>
-                                            </th>
-                                            <th>
-                                                <span class="translate" data-lang="lbl_factor">Factor</span>
-                                            </th>
-                                            <th>
-                                                <span class="translate" data-lang="lbl_action">Action</span>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr id="ds_tmp_line" data-id="-1">
-                                            <td class="translate" data-lang="no_ds_added">
-                                                There are currently no Datasources added!
-                                            </td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    <div>
+                        <fieldset>
+                            <legend>
+                                <span class="iconify legend" data-icon="mdi:database-search" data-width="24"
+                                    data-height="24"></span>
+                                <span class="translate" data-lang="legend_av_datasources">Available Datasources</span>
+                            </legend>
+                            <div class="table_container">
+                                <div class="ef-table-div" id="datasource-table-div">
+                                    <table class="ef-table" id="datasource-table">
+                                        <thead class="sortable">
+                                            <tr>
+                                                <th class="filter" data-sorting="true" data-asc="true">
+                                                    <span class="translate" data-lang="lbl_alias">Alias</span>
+                                                    <div class="sort_icon">
+                                                        <span class="iconify"
+                                                            data-icon="mdi:sort-alphabetical-ascending"
+                                                            data-height="18"></span>
+                                                    </div>
+                                                </th>
+                                                <th class="filter" data-sorting="false" data-asc="true">
+                                                    <span class="translate" data-lang="lbl_datasource">Datasource</span>
+                                                    <div class="sort_icon"></div>
+                                                </th>
+                                                <th>
+                                                    <span class="translate" data-lang="lbl_factor">Factor</span>
+                                                </th>
+                                                <th>
+                                                    <span class="translate" data-lang="lbl_action">Action</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr id="ds_tmp_line" data-id="-1">
+                                                <td class="translate" data-lang="no_ds_added">
+                                                    There are currently no Datasources added!
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="buttonContainer">
+                                    <button class="input_button check_datasources" id="check_ds">
+                                        <span class="iconify" data-icon="mdi:check" data-width="24"
+                                            data-height="24"></span>
+                                        <span class="translate" data-lang="value_check">Check datasources</span>
+                                    </button>
+                                    <button class="input_button check_datasources" id="check_ds_use">
+                                        <span class="iconify" data-icon="mdi:database-search" data-width="24"
+                                            data-height="24"></span>
+                                        <span class="translate" data-lang="value_in_use">Datsource in use</span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="buttonContainer">
-                                <input type="button" class="input_button translateV check_datasources"
-                                    data-lang-value="value_check" id="check_ds" value="Check datasources">
-                                <input type="button" class="input_button translateV check_datasources"
-                                    data-lang-value="value_in_use" id="check_ds_use" value="Datsource in use">
-                            </div>
-                        </div>
-                    </fieldset>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
             <div class="tab3">
-                <div class="container scrollbar">
-                    <fieldset class="flex">
-                        <legend>
-                            <span class="iconify legend" data-icon="clarity:animation-line" data-width="24"
-                                data-height="24"></span>
-                            <span class="translate" data-lang="lbl_animation">Animation</span>
-                        </legend>
-                        <div class="form_div textbox">
-                            <input type="number" class="input_number line_preview" id="line.stroke_width" placeholder=""
-                                spellcheck="false" autocomplete="off" min="2" max="18">
-                            <label for="line.stroke_width" class="form_label translate"
-                                data-lang="lbl_line_size">Line-Size</label>
-                        </div>
-                        <div class="form_div textbox">
-                            <input type="number" class="input_number line_preview" id="animation_configuration.dots"
-                                placeholder="" spellcheck="false" autocomplete="off" min="1" max="30">
-                            <label for="animation_configuration.dots" class="form_label translate"
-                                data-lang="lbl_dots_amount">Amount of dots</label>
-                        </div>
-                        <div class="form_div textbox">
-                            <input type="number" class="input_number line_preview" id="animation_configuration.distance"
-                                placeholder="" spellcheck="false" autocomplete="off" min="1" max="100">
-                            <label for="animation_configuration.distance" class="form_label translate"
-                                data-lang="lbl_distance">Distance</label>
-                        </div>
-                        <div class="form_div textbox">
-                            <input type="number" class="input_number line_preview" id="animation_configuration.gap"
-                                placeholder="" spellcheck="false" autocomplete="off" min="1" max="1000">
-                            <label for="animation_configuration.gap" class="form_label translate"
-                                data-lang="lbl_distance_gap">Distance between the dot blocks</label>
-                        </div>
-                        <div class="form_div textbox">
-                            <input type="number" class="input_number line_preview" id="animation_configuration.length"
-                                placeholder="" spellcheck="false" autocomplete="off" min="1">
-                            <label for="animation_configuration.length" class="form_label translate"
-                                data-lang="lbl_length">Length</label>
-                        </div>
-                        <div class="form_div textbox">
-                            <input type="number" class="input_number line_preview" id="animation.stroke_width"
-                                placeholder="" spellcheck="false" autocomplete="off" min="1">
-                            <label for="animation.stroke_width" class="form_label translate"
-                                data-lang="lbl_width_dot">Width</label>
-                        </div>
-                        <div class="form_div textbox">
-                            <input type="number" class="input_number line_preview" id="animation.animation_duration"
-                                placeholder="" spellcheck="false" autocomplete="off" min="1">
-                            <label for="animation.animation_duration" class="form_label translate"
-                                data-lang="lbl_duration_animation">Duration</label>
-                        </div>
-                        <div class="form_div select">
-                            <label for="animation.animation_timing_function" class="form_label translate"
-                                data-lang="lbl_animation_type">Animation Type</label>
-                            <div class="select-option">
-                                <select id="animation.animation_timing_function" class="input_select line_preview">
-                                    <option value="ease" class="translate" data-lang="opt_animation_type_0">
-                                        fast till middle of the animation, slowing at the end
-                                    </option>
-                                    <option value="ease-in" class="translate" data-lang="opt_animation_type_1">
-                                        starts slowly, increasing until complete
-                                    </option>
-                                    <option value="ease-out" class="translate" data-lang="opt_animation_type_2">
-                                        starts quickly, slows down until end
-                                    </option>
-                                    <option value="ease-in-out" class="translate" data-lang="opt_animation_type_3">
-                                        slowly transitioning, speeding up, and then slowing down
-                                        again
-                                    </option>
-                                    <option value="linear" class="translate" data-lang="opt_animation_type_4">
-                                        even speed
-                                    </option>
-                                </select>
+                <div class="container half">
+                    <div>
+                        <fieldset>
+                            <legend>
+                                <span class="iconify legend" data-icon="clarity:animation-line" data-width="24"
+                                    data-height="24"></span>
+                                <span class="translate" data-lang="lbl_animation">Animation</span>
+                            </legend>
+                            <div class="form_div textbox">
+                                <input type="number" class="input_number line_preview" id="line.stroke_width"
+                                    placeholder="" spellcheck="false" autocomplete="off" min="2" max="18">
+                                <label for="line.stroke_width" class="form_label translate"
+                                    data-lang="lbl_line_size">Line-Size</label>
                             </div>
-                        </div>
-                        <div class="form_div select">
-                            <label for="animation.stroke_linecap" class="form_label translate"
-                                data-lang="lbl_animation_end">Animation Ends</label>
-                            <div class="select-option">
-                                <select id="animation.stroke_linecap" class="input_select line_preview">
-                                    <option value="butt" class="translate" data-lang="opt_animation_linecap_0">
-                                        rectangular ends trimmed at the endpoints
-                                    </option>
-                                    <option value="round" class="translate" data-lang="opt_animation_linecap_1">
-                                        rounded ends (beyond the endpoints)
-                                    </option>
-                                    <option value="square" class="translate" data-lang="opt_animation_linecap_2">
-                                        square ends (beyond the endpoints)
-                                    </option>
-                                </select>
+                            <div class="form_div textbox">
+                                <input type="number" class="input_number line_preview" id="animation_configuration.dots"
+                                    placeholder="" spellcheck="false" autocomplete="off" min="1" max="30">
+                                <label for="animation_configuration.dots" class="form_label translate"
+                                    data-lang="lbl_dots_amount">Amount of dots</label>
                             </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="flex">
-                        <legend>
-                            <span class="iconify legend" data-icon="fontisto:preview" data-width="24"
-                                data-height="24"></span>
-                            <span class="translate" data-lang="legend_preview">Preview</span>
-                        </legend>
-                        <div class="form_div textbox">
-                            <svg viewBox="-5 0 100 50" class="" width="100%" height="50" id="svg_line_preview"
-                                preserveAspectRatio="xMinYMid meet">
-                                <defs>
-                                    <path id="preview_line" d="M 0,25 H 1000"></path>
-                                </defs>
-                                <use class="line preview" xlink:href="#preview_line" id="preview_line_bg"></use>
-                                <use class="animation animation_cfg" xlink:href="#preview_line" id="preview_line_anim">
-                                </use>
-                            </svg>
-                        </div>
-                        <div class="form_div textbox">
-                            <span class="translate" data-lang="ex_animation_preview">Here you only set the Animation
-                                properties.<br>All colors
-                                will be defined for each element!</span>
-                        </div>
-                    </fieldset>
+                            <div class="form_div textbox">
+                                <input type="number" class="input_number line_preview"
+                                    id="animation_configuration.distance" placeholder="" spellcheck="false"
+                                    autocomplete="off" min="1" max="100">
+                                <label for="animation_configuration.distance" class="form_label translate"
+                                    data-lang="lbl_distance">Distance</label>
+                            </div>
+                            <div class="form_div textbox">
+                                <input type="number" class="input_number line_preview" id="animation_configuration.gap"
+                                    placeholder="" spellcheck="false" autocomplete="off" min="1" max="1000">
+                                <label for="animation_configuration.gap" class="form_label translate"
+                                    data-lang="lbl_distance_gap">Distance between the dot blocks</label>
+                            </div>
+                            <div class="form_div textbox">
+                                <input type="number" class="input_number line_preview"
+                                    id="animation_configuration.length" placeholder="" spellcheck="false"
+                                    autocomplete="off" min="1">
+                                <label for="animation_configuration.length" class="form_label translate"
+                                    data-lang="lbl_length">Length</label>
+                            </div>
+                            <div class="form_div textbox">
+                                <input type="number" class="input_number line_preview" id="animation.stroke_width"
+                                    placeholder="" spellcheck="false" autocomplete="off" min="1">
+                                <label for="animation.stroke_width" class="form_label translate"
+                                    data-lang="lbl_width_dot">Width</label>
+                            </div>
+                            <div class="form_div textbox">
+                                <input type="number" class="input_number line_preview" id="animation.animation_duration"
+                                    placeholder="" spellcheck="false" autocomplete="off" min="1">
+                                <label for="animation.animation_duration" class="form_label translate"
+                                    data-lang="lbl_duration_animation">Duration</label>
+                            </div>
+                            <div class="form_div select">
+                                <label for="animation.animation_timing_function" class="form_label translate"
+                                    data-lang="lbl_animation_type">Animation Type</label>
+                                <div class="select-option">
+                                    <select id="animation.animation_timing_function" class="input_select line_preview">
+                                        <option value="ease" class="translate" data-lang="opt_animation_type_0">
+                                            fast till middle of the animation, slowing at the end
+                                        </option>
+                                        <option value="ease-in" class="translate" data-lang="opt_animation_type_1">
+                                            starts slowly, increasing until complete
+                                        </option>
+                                        <option value="ease-out" class="translate" data-lang="opt_animation_type_2">
+                                            starts quickly, slows down until end
+                                        </option>
+                                        <option value="ease-in-out" class="translate" data-lang="opt_animation_type_3">
+                                            slowly transitioning, speeding up, and then slowing down
+                                            again
+                                        </option>
+                                        <option value="linear" class="translate" data-lang="opt_animation_type_4">
+                                            even speed
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form_div select">
+                                <label for="animation.stroke_linecap" class="form_label translate"
+                                    data-lang="lbl_animation_end">Animation Ends</label>
+                                <div class="select-option">
+                                    <select id="animation.stroke_linecap" class="input_select line_preview">
+                                        <option value="butt" class="translate" data-lang="opt_animation_linecap_0">
+                                            rectangular ends trimmed at the endpoints
+                                        </option>
+                                        <option value="round" class="translate" data-lang="opt_animation_linecap_1">
+                                            rounded ends (beyond the endpoints)
+                                        </option>
+                                        <option value="square" class="translate" data-lang="opt_animation_linecap_2">
+                                            square ends (beyond the endpoints)
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>
+                                <span class="iconify legend" data-icon="fontisto:preview" data-width="24"
+                                    data-height="24"></span>
+                                <span class="translate" data-lang="legend_preview">Preview</span>
+                            </legend>
+                            <div class="form_div textbox">
+                                <svg viewBox="-5 0 100 50" class="" width="100%" height="50" id="svg_line_preview"
+                                    preserveAspectRatio="xMinYMid meet">
+                                    <defs>
+                                        <path id="preview_line" d="M 0,25 H 1000"></path>
+                                    </defs>
+                                    <use class="line preview" xlink:href="#preview_line" id="preview_line_bg"></use>
+                                    <use class="animation animation_cfg" xlink:href="#preview_line"
+                                        id="preview_line_anim">
+                                    </use>
+                                </svg>
+                            </div>
+                            <div class="form_div textbox">
+                                <span class="translate" data-lang="ex_animation_preview">Here you only set the Animation
+                                    properties.<br>All colors
+                                    will be defined for each element!</span>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
             <div class="tab4">
-                <div class="container scrollbar">
-                    <fieldset class="flex" id="fieldsetRemainingBattery">
-                        <legend>
-                            <span class="iconify legend" data-icon="game-icons:battery-100" data-width="24"
-                                data-height="24"></span>
-                            <span class="translate" data-lang="legend_remaining_byttery">Remaining battery
-                                runtime</span>
-                        </legend>
-                        <div class="form_div text flex">
-                            <span>Status:</span>
-                            <span id="calculation.battery.status" class="red translate"
-                                data-lang="txt_calculation_fail">Not active (Configuration missing)</span>
-                        </div>
-                        <div class="form_div select">
-                            <label for="calculation.battery.capacity" class="form_label translate"
-                                data-lang="lbl_battery_capacity">Battery capacity (watt) *</label>
-                            <div class="select-option">
-                                <select class="input_select basic_config" name="calculation.battery.capacity"
-                                    id="calculation.battery.capacity"></select>
+                <div class="container half">
+                    <div>
+                        <fieldset id="fieldsetRemainingBattery">
+                            <legend>
+                                <span class="iconify legend" data-icon="game-icons:battery-100" data-width="24"
+                                    data-height="24"></span>
+                                <span class="translate" data-lang="legend_remaining_byttery">Remaining battery
+                                    runtime</span>
+                            </legend>
+                            <div class="form_div text flex">
+                                <span>Status:</span>
+                                <span id="calculation.battery.status" class="red translate"
+                                    data-lang="txt_calculation_fail">Not
+                                    active (Configuration missing)</span>
                             </div>
-                        </div>
-                        <div class="form_div select">
-                            <label for="calculation.battery.dod" class="form_label translate"
-                                data-lang="lbl_battery_dod">Discharge till % *</label>
-                            <div class="select-option">
-                                <select class="input_select basic_config" name="calculation.battery.dod"
-                                    id="calculation.battery.dod"></select>
+                            <div class="form_div select">
+                                <label for="calculation.battery.capacity" class="form_label translate"
+                                    data-lang="lbl_battery_capacity">Battery capacity (watt) *</label>
+                                <div class="select-option">
+                                    <select class="input_select basic_config" name="calculation.battery.capacity"
+                                        id="calculation.battery.capacity"></select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form_div select">
-                            <label for="calculation.battery.percent" class="form_label translate"
-                                data-lang="lbl_battery_percent">Battery percent *</label>
-                            <div class="select-option">
-                                <select class="input_select basic_config" name="calculation.battery.percent"
-                                    id="calculation.battery.percent"></select>
+                            <div class="form_div select">
+                                <label for="calculation.battery.dod" class="form_label translate"
+                                    data-lang="lbl_battery_dod">Discharge till % *</label>
+                                <div class="select-option">
+                                    <select class="input_select basic_config" name="calculation.battery.dod"
+                                        id="calculation.battery.dod"></select>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form_div select">
+                                <label for="calculation.battery.percent" class="form_label translate"
+                                    data-lang="lbl_battery_percent">Battery percent *</label>
+                                <div class="select-option">
+                                    <select class="input_select basic_config" name="calculation.battery.percent"
+                                        id="calculation.battery.percent"></select>
+                                </div>
+                            </div>
 
-                        <div class="form_div select">
-                            <label for="calculation.battery.charge" class="form_label translate"
-                                data-lang="lbl_battery_charge">Battery charge *</label>
-                            <div class="select-option">
-                                <select class="input_select basic_config" name="calculation.battery.charge"
-                                    id="calculation.battery.charge"></select>
+                            <div class="form_div select">
+                                <label for="calculation.battery.charge" class="form_label translate"
+                                    data-lang="lbl_battery_charge">Battery charge *</label>
+                                <div class="select-option">
+                                    <select class="input_select basic_config" name="calculation.battery.charge"
+                                        id="calculation.battery.charge"></select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="cb_switch">
-                            <input type="checkbox" name="calculation.battery.charge_prop" class="basic_config"
-                                id="calculation.battery.charge_prop">
-                            <label for="calculation.battery.charge_prop" class="tooltip mobile"
-                                data-title="lbl_negative_ds">
-                                <span></span>
-                                <span class="label translate" data-lang="cb_consumption_batteryCharge">
-                                    Battery Charge is negative</span>
-                            </label>
-                            <div>
-                                <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
-                                    <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
-                                        data-width="32" data-height="32"></span>
-                                </a>
+                            <div class="cb_switch">
+                                <input type="checkbox" name="calculation.battery.charge_prop" class="basic_config"
+                                    id="calculation.battery.charge_prop">
+                                <label for="calculation.battery.charge_prop" class="tooltip mobile"
+                                    data-title="lbl_negative_ds">
+                                    <span></span>
+                                    <span class="label translate" data-lang="cb_consumption_batteryCharge">
+                                        Battery Charge is negative</span>
+                                </label>
+                                <div>
+                                    <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
+                                        <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
+                                            data-width="32" data-height="32"></span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form_div select">
-                            <label for="calculation.battery.discharge" class="form_label translate"
-                                data-lang="lbl_battery_discharge">Battery discharge *</label>
-                            <div class="select-option">
-                                <select class="input_select basic_config" name="calculation.battery.discharge"
-                                    id="calculation.battery.discharge"></select>
+                            <div class="form_div select">
+                                <label for="calculation.battery.discharge" class="form_label translate"
+                                    data-lang="lbl_battery_discharge">Battery discharge *</label>
+                                <div class="select-option">
+                                    <select class="input_select basic_config" name="calculation.battery.discharge"
+                                        id="calculation.battery.discharge"></select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="cb_switch">
-                            <input type="checkbox" name="calculation.battery.discharge_prop" class="basic_config"
-                                id="calculation.battery.discharge_prop">
-                            <label for="calculation.battery.discharge_prop" class="tooltip mobile"
-                                data-title="lbl_negative_ds">
-                                <span></span>
-                                <span class="label translate" data-lang="cb_consumption_batteryDischarge">
-                                    Battery Discharge is negative</span>
-                            </label>
-                            <div>
-                                <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
-                                    <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
-                                        data-width="32" data-height="32"></span>
-                                </a>
+                            <div class="cb_switch">
+                                <input type="checkbox" name="calculation.battery.discharge_prop" class="basic_config"
+                                    id="calculation.battery.discharge_prop">
+                                <label for="calculation.battery.discharge_prop" class="tooltip mobile"
+                                    data-title="lbl_negative_ds">
+                                    <span></span>
+                                    <span class="label translate" data-lang="cb_consumption_batteryDischarge">
+                                        Battery Discharge is negative</span>
+                                </label>
+                                <div>
+                                    <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
+                                        <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
+                                            data-width="32" data-height="32"></span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <p class="translate" data-lang="ex_battery_info">
-                            For the calculation to work, the marked fields with a star are
-                            necessary
-                        </p>
-                        <p class="translate" data-lang="ex_battery_help">
-                            <u>Info:</u> After filling in all necessary values, the
-                            remaining battery-time will appear in the Datapoint
-                            <code>energiefluss.Instance-No#.battery_remaining</code>, which
-                            can be added via Datasources<br><u>Please note:</u> The time
-                            shows both directions - the time for charging, if it is charging
-                            and the time for discharging, if it is discharging
-                        </p>
-                        <p class="translate" data-lang="ex_battery_help_extended">
-                            <u>Additional Info:</u> The adapter also provides 2 additional
-                            Datapoints, which can show, if the battery is charged via grid
-                            or solar. For this to work, you need to provide the production
-                            datapoint(s) in the upper area on the right side.
-                        </p>
-                    </fieldset>
-                    <fieldset class="flex" id="fieldsetConsumption">
-                        <legend>
-                            <span class="iconify legend" data-icon="mdi:power" data-width="24" data-height="24"></span>
-                            <span class="translate" data-lang="legend_consumption">Consumption</span>
-                        </legend>
-                        <div class="form_div text flex">
-                            <span>Status:</span>
-                            <span id="calculation.consumption.status" class="red translate"
-                                data-lang="txt_calculation_fail">Not active (Configuration missing)</span>
-                        </div>
-                        <div class="form_div select">
-                            <label for="calculation.consumption.production" class="form_label translate"
-                                data-lang="lbl_consumption_production">Production</label>
-                            <select class="input_select basic_config" name="calculation.consumption.production"
-                                id="calculation.consumption.production" multiple></select>
-                        </div>
-                        <div class="form_div select">
-                            <label for="calculation.consumption.gridFeed" class="form_label translate"
-                                data-lang="lbl_consumption_gridFeed">Public grid feed-in</label>
-                            <div class="select-option">
-                                <select class="input_select basic_config" name="calc_consumption_gridFeed"
-                                    id="calculation.consumption.gridFeed"></select>
+                            <p class="translate" data-lang="ex_battery_info">
+                                For the calculation to work, the marked fields with a star are
+                                necessary
+                            </p>
+                            <p class="translate" data-lang="ex_battery_help">
+                                <u>Info:</u> After filling in all necessary values, the
+                                remaining battery-time will appear in the Datapoint
+                                <code>energiefluss.Instance-No#.battery_remaining</code>, which
+                                can be added via Datasources<br><u>Please note:</u> The time
+                                shows both directions - the time for charging, if it is charging
+                                and the time for discharging, if it is discharging
+                            </p>
+                            <p class="translate" data-lang="ex_battery_help_extended">
+                                <u>Additional Info:</u> The adapter also provides 2 additional
+                                Datapoints, which can show, if the battery is charged via grid
+                                or solar. For this to work, you need to provide the production
+                                datapoint(s) in the upper area on the right side.
+                            </p>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset id="fieldsetConsumption">
+                            <legend>
+                                <span class="iconify legend" data-icon="mdi:power" data-width="24"
+                                    data-height="24"></span>
+                                <span class="translate" data-lang="legend_consumption">Consumption</span>
+                            </legend>
+                            <div class="form_div text flex">
+                                <span>Status:</span>
+                                <span id="calculation.consumption.status" class="red translate"
+                                    data-lang="txt_calculation_fail">Not
+                                    active (Configuration missing)</span>
                             </div>
-                        </div>
-                        <div class="cb_switch">
-                            <input type="checkbox" name="calculation.consumption.gridFeed_prop" class="basic_config"
-                                id="calculation.consumption.gridFeed_prop">
-                            <label for="calculation.consumption.gridFeed_prop" class="tooltip mobile"
-                                data-title="lbl_negative_ds">
-                                <span></span>
-                                <span class="label translate" data-lang="cb_consumption_gridFeed">Grid feed-in is
-                                    negative</span>
-                            </label>
-                            <div>
-                                <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
-                                    <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
-                                        data-width="32" data-height="32"></span>
-                                </a>
+                            <div class="form_div select">
+                                <label for="calculation.consumption.production" class="form_label translate"
+                                    data-lang="lbl_consumption_production">Production</label>
+                                <select class="input_select basic_config" name="calculation.consumption.production"
+                                    id="calculation.consumption.production" multiple></select>
                             </div>
-                        </div>
-                        <div class="form_div select">
-                            <label for="calculation.consumption.gridConsume" class="form_label translate"
-                                data-lang="lbl_consumption_gridConsume">Consumption public grid *</label>
-                            <div class="select-option">
-                                <select class="input_select basic_config" name="calculation.consumption.gridConsume"
-                                    id="calculation.consumption.gridConsume"></select>
+                            <div class="form_div select">
+                                <label for="calculation.consumption.gridFeed" class="form_label translate"
+                                    data-lang="lbl_consumption_gridFeed">Public grid feed-in</label>
+                                <div class="select-option">
+                                    <select class="input_select basic_config" name="calc_consumption_gridFeed"
+                                        id="calculation.consumption.gridFeed"></select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="cb_switch">
-                            <input type="checkbox" name="calculation.consumption.gridConsume_prop" class="basic_config"
-                                id="calculation.consumption.gridConsume_prop">
-                            <label for="calculation.consumption.gridConsume_prop" class="tooltip mobile"
-                                data-title="lbl_negative_ds">
-                                <span></span>
-                                <span class="label translate" data-lang="cb_consumption_gridConsume">Grid consumption is
-                                    negative</span>
-                            </label>
-                            <div>
-                                <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
-                                    <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
-                                        data-width="32" data-height="32"></span>
-                                </a>
+                            <div class="cb_switch">
+                                <input type="checkbox" name="calculation.consumption.gridFeed_prop" class="basic_config"
+                                    id="calculation.consumption.gridFeed_prop">
+                                <label for="calculation.consumption.gridFeed_prop" class="tooltip mobile"
+                                    data-title="lbl_negative_ds">
+                                    <span></span>
+                                    <span class="label translate" data-lang="cb_consumption_gridFeed">Grid feed-in is
+                                        negative</span>
+                                </label>
+                                <div>
+                                    <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
+                                        <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
+                                            data-width="32" data-height="32"></span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form_div select">
-                            <label for="calculation.consumption.batteryCharge" class="form_label translate"
-                                data-lang="lbl_consumption_batteryCharge">Battery charge</label>
-                            <div class="select-option">
-                                <select class="input_select basic_config" name="calculation.consumption.batteryCharge"
-                                    id="calculation.consumption.batteryCharge"></select>
+                            <div class="form_div select">
+                                <label for="calculation.consumption.gridConsume" class="form_label translate"
+                                    data-lang="lbl_consumption_gridConsume">Consumption public grid *</label>
+                                <div class="select-option">
+                                    <select class="input_select basic_config" name="calculation.consumption.gridConsume"
+                                        id="calculation.consumption.gridConsume"></select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="cb_switch">
-                            <input type="checkbox" name="calculation.consumption.batteryCharge_prop"
-                                class="basic_config" id="calculation.consumption.batteryCharge_prop">
-                            <label for="calculation.consumption.batteryCharge_prop" class="tooltip mobile"
-                                data-title="lbl_negative_ds">
-                                <span></span>
-                                <span class="label translate" data-lang="cb_consumption_batteryCharge">
-                                    Battery Charge is negative</span>
-                            </label>
-                            <div>
-                                <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
-                                    <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
-                                        data-width="32" data-height="32"></span>
-                                </a>
+                            <div class="cb_switch">
+                                <input type="checkbox" name="calculation.consumption.gridConsume_prop"
+                                    class="basic_config" id="calculation.consumption.gridConsume_prop">
+                                <label for="calculation.consumption.gridConsume_prop" class="tooltip mobile"
+                                    data-title="lbl_negative_ds">
+                                    <span></span>
+                                    <span class="label translate" data-lang="cb_consumption_gridConsume">Grid
+                                        consumption is
+                                        negative</span>
+                                </label>
+                                <div>
+                                    <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
+                                        <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
+                                            data-width="32" data-height="32"></span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form_div select">
-                            <label for="calculation.consumption.batteryDischarge" class="form_label translate"
-                                data-lang="lbl_consumption_batteryDischarge">Battery discharge</label>
-                            <div class="select-option">
-                                <select class="input_select basic_config"
-                                    name="calculation.consumption.batteryDischarge"
-                                    id="calculation.consumption.batteryDischarge"></select>
+                            <div class="form_div select">
+                                <label for="calculation.consumption.batteryCharge" class="form_label translate"
+                                    data-lang="lbl_consumption_batteryCharge">Battery charge</label>
+                                <div class="select-option">
+                                    <select class="input_select basic_config"
+                                        name="calculation.consumption.batteryCharge"
+                                        id="calculation.consumption.batteryCharge"></select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="cb_switch">
-                            <input type="checkbox" name="calculation.consumption.batteryDischarge_prop"
-                                class="basic_config" id="calculation.consumption.batteryDischarge_prop">
-                            <label for="calculation.consumption.batteryDischarge_prop" class="tooltip mobile"
-                                data-title="lbl_negative_ds">
-                                <span></span>
-                                <span class="label translate" data-lang="cb_consumption_batteryDischarge">
-                                    Battery Discharge is negative</span>
-                            </label>
-                            <div>
-                                <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
-                                    <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
-                                        data-width="32" data-height="32"></span>
-                                </a>
+                            <div class="cb_switch">
+                                <input type="checkbox" name="calculation.consumption.batteryCharge_prop"
+                                    class="basic_config" id="calculation.consumption.batteryCharge_prop">
+                                <label for="calculation.consumption.batteryCharge_prop" class="tooltip mobile"
+                                    data-title="lbl_negative_ds">
+                                    <span></span>
+                                    <span class="label translate" data-lang="cb_consumption_batteryCharge">
+                                        Battery Charge is negative</span>
+                                </label>
+                                <div>
+                                    <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
+                                        <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
+                                            data-width="32" data-height="32"></span>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <p class="translate" data-lang="ex_battery_info">
-                            For the calculation to work, the marked fields with a star are
-                            necessary
-                        </p>
-                        <p class="translate" data-lang="ex_consumption_help">
-                            <u>Info:</u>
-                            After filling in all necessary values, the remaining
-                            battery-time will appear in the Datapoint
-                            <code>energiefluss.Instance-No#.calculation.consumption</code>,
-                            which can be added via Datasources.
-                        </p>
-                    </fieldset>
+                            <div class="form_div select">
+                                <label for="calculation.consumption.batteryDischarge" class="form_label translate"
+                                    data-lang="lbl_consumption_batteryDischarge">Battery discharge</label>
+                                <div class="select-option">
+                                    <select class="input_select basic_config"
+                                        name="calculation.consumption.batteryDischarge"
+                                        id="calculation.consumption.batteryDischarge"></select>
+                                </div>
+                            </div>
+                            <div class="cb_switch">
+                                <input type="checkbox" name="calculation.consumption.batteryDischarge_prop"
+                                    class="basic_config" id="calculation.consumption.batteryDischarge_prop">
+                                <label for="calculation.consumption.batteryDischarge_prop" class="tooltip mobile"
+                                    data-title="lbl_negative_ds">
+                                    <span></span>
+                                    <span class="label translate" data-lang="cb_consumption_batteryDischarge">
+                                        Battery Discharge is negative</span>
+                                </label>
+                                <div>
+                                    <a href="javascript:;" class="help mobile" data-help="lbl_negative_ds">
+                                        <span class="iconify" data-icon="material-symbols-light:help-outline-rounded"
+                                            data-width="32" data-height="32"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="translate" data-lang="ex_battery_info">
+                                For the calculation to work, the marked fields with a star are
+                                necessary
+                            </p>
+                            <p class="translate" data-lang="ex_consumption_help">
+                                <u>Info:</u>
+                                After filling in all necessary values, the remaining
+                                battery-time will appear in the Datapoint
+                                <code>energiefluss.Instance-No#.calculation.consumption</code>,
+                                which can be added via Datasources.
+                            </p>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
             <div class="tab5">
-                <div class="container scrollbar">
-                    <div>
-                        <fieldset class="flex" id="fieldsetGallery">
+                <div class="container">
+                    <div class="form">
+                        <fieldset id="fieldsetGallery">
                             <legend>
                                 <span class="iconify legend" data-icon="material-symbols:css-rounded" data-width="24"
                                     data-height="24"></span>
                                 <span class="translate" data-lang="lbl_upload">Upload</span>
                             </legend>
-                            <div class="uploadForm">
-                                <div class="drop_zone">
-                                    <div>
+                            <div class="uploadArea">
+                                <div class="uploadForm">
+                                    <div class="drop_zone">
                                         <form>
                                             <input type="file" class="uploadFile" accept="image/*" multiple>
                                             <div class="form_div text">
@@ -2673,32 +2757,45 @@
                                                     or</span>
                                             </div>
                                             <div class="form_div button">
-                                                <input type="button" class="input_button translateV fileSelector"
+                                                <button type="button" class="input_button fileSelector"
                                                     onclick="javascript:$(this).closest('form').find('.uploadFile').click();"
-                                                    data-lang-value="value_select" value="Select" disabled>
+                                                    disabled>
+                                                    <span class="iconify" data-icon="mdi:search" data-width="24"
+                                                        data-height="24"></span>
+                                                    <span class="translate" data-lang="value_select">Select</span>
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
-                                </div>
-                                <div class="form_div flex center button">
-                                    <input type="button" id="deleteGallery"
-                                        class="input_button auto_width red translateV" onclick="deleteUserGallery();"
-                                        data-lang-value="value_delete_gallery" value="Delete whole gallery" disabled="">
-                                </div>
-                                <div class="form_div text">
-                                    <span>Status:</span>
-                                </div>
-                                <div class="form_div text noFocusLine">
-                                    <span class="translate uploadInfo" data-lang="txt_upload_status_init">Please
-                                        select file(s)!</span>
-                                </div>
-                                <div class="form_div text uploadProgress">
-                                    <div class="upload_progress">
-                                        <div></div>
+                                    <div class="form_div flex center button">
+
+                                        <button type="button" class="input_button auto_width red"
+                                            onclick="deleteUserGallery();" id="deleteGallery" disabled>
+                                            <span class="iconify" data-icon="material-symbols:delete-outline"
+                                                data-width="24" data-height="24"></span>
+                                            <span class="translate" data-lang="value_delete_gallery">Delete whole
+                                                gallery</span>
+                                        </button>
+                                    </div>
+                                    <div class="form_div text">
+                                        <span>Status:</span>
+                                    </div>
+                                    <div class="form_div text">
+                                        <span class="translate uploadInfo" data-lang="txt_upload_status_init">Please
+                                            select file(s)!</span>
+                                    </div>
+                                    <div class="form_div text uploadProgress">
+                                        <div class="upload_progress">
+                                            <div></div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="upload_errors">
-                                    <div class="ef-table-div">
+                                <div class="uploadErrors">
+                                    <a href="javascript:;" class="toggle-link">
+                                        <span class="arrow">&#9654;</span>
+                                        <span class="translate" data-lang="title_error_link">Open Error Log</span>
+                                    </a>
+                                    <div class="ef-table-div uploadErrorsContainer">
                                         <table class="ef-table upload_errors-table">
                                             <thead>
                                                 <tr>
@@ -2710,56 +2807,28 @@
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody></tbody>
+                                            <tbody>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
                     </div>
-                    <fieldset class="flex fixedScreen">
-                        <legend>
-                            <span class="iconify legend" data-icon="mdi:file-image" data-width="24"
-                                data-height="24"></span>
-                            <span class="translate" data-lang="lbl_gallery">Gallery</span>
-                        </legend>
-                        <div id="userImagesContainer" class="table_container">
-                            <div class=" formFilter">
-                                <div class="form_div textbox">
-                                    <input type="text" class="input_text icon_in_input_pad userImages_filter"
-                                        placeholder="" spellcheck="false" autocomplete="off" name="userImagesFilter"
-                                        id="userImagesFilter">
-                                    <label for="userImagesFilter" class="translate form_label"
-                                        data-lang="lbl_filter">Filter</label>
-                                    <div class="icon_wrapper">
-                                        <span class="iconify" data-icon="mdi:search" data-width="24"
-                                            data-height="24"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="translate userImages_dummy" data-lang="txt_upload_no_images">There are
-                                currently no images inside the gallery! You can
-                                upload some using the upload function!</div>
-                            <div class="translate userImages_noResults" data-lang="txt_upload_no_results">There are
-                                no results for the provided criteria!</div>
-                            <div class="userImages_placeholder">
-                                <span class="cv-spinner">
-                                    <span class="spinner"></span>
-                                    <span class="translate" data-lang="title_gallery_loading">Loading images gallery
-                                        ...</span>
-                                </span>
-                            </div>
-                            <div id="userImages" class="userImages">
-                            </div>
-                        </div>
-                        <div id="userImagesBrowseDialog">
-                            <div id="userImagesBrowseContainer" class="table_container">
+                    <div>
+                        <fieldset>
+                            <legend>
+                                <span class="iconify legend" data-icon="mdi:file-image" data-width="24"
+                                    data-height="24"></span>
+                                <span class="translate" data-lang="lbl_gallery">Gallery</span>
+                            </legend>
+                            <div id="userImagesContainer" class="table_container">
                                 <div class="formFilter">
                                     <div class="form_div textbox">
-                                        <input type="text" id="userImagesBrowseFilter" name="userImagesBrowseFilter"
-                                            class="input_text icon_in_input_pad userImages_filter" placeholder=""
-                                            spellcheck="false" autocomplete="off">
-                                        <label for="userImagesBrowseFilter" class="translate form_label"
+                                        <input type="text" class="input_text icon_in_input_pad userImages_filter"
+                                            placeholder="" spellcheck="false" autocomplete="off" name="userImagesFilter"
+                                            id="userImagesFilter">
+                                        <label for="userImagesFilter" class="translate form_label"
                                             data-lang="lbl_filter">Filter</label>
                                         <div class="icon_wrapper">
                                             <span class="iconify" data-icon="mdi:search" data-width="24"
@@ -2767,94 +2836,140 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="translate userImages_dummy" data-lang="txt_upload_no_images">There are
+                                <div class="translate userImagesText dummy" data-lang="txt_upload_no_images">There are
                                     currently no images inside the gallery! You can
                                     upload some using the upload function!</div>
-                                <div class="translate userImages_noResults" data-lang="txt_upload_no_results">There
+                                <div class="translate userImagesText noResults" data-lang="txt_upload_no_results">There
                                     are
                                     no results for the provided criteria!</div>
-                                <div class="userImages_placeholder">
+                                <div class="userImagesText placeholder">
                                     <span class="cv-spinner">
                                         <span class="spinner"></span>
                                         <span class="translate" data-lang="title_gallery_loading">Loading images gallery
                                             ...</span>
                                     </span>
                                 </div>
-                                <div class="button"><input type="button" class="input_button translateV"
-                                        data-lang-value="lbl_upload" value="Upload"
-                                        onclick="$(this).parent().next('.uploadForm').slideToggle();">
+                                <div id="userImages" class="userImages">
                                 </div>
-                                <div class="uploadForm browse">
-                                    <div class="drop_zone">
-                                        <div>
-                                            <form>
-                                                <input type="file" class="uploadFile browse" accept="image/*" multiple>
-                                                <div class="form_div text">
-                                                    <span class="translate" data-lang="txt_upload_init">Drag & Drop File
-                                                        here
-                                                        or</span>
-                                                </div>
-                                                <div class="form_div button">
-                                                    <input type="button" class="input_button translateV fileSelector"
-                                                        onclick="javascript:$(this).closest('form').find('.uploadFile').click();"
-                                                        data-lang-value="value_select" value="Select" disabled>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="form_div text">
-                                        <span>Status:</span>
-                                    </div>
-                                    <div class="form_div text noFocusLine">
-                                        <span class="translate uploadInfo" data-lang="txt_upload_status_init">Please
-                                            select file(s)!</span>
-                                    </div>
-                                    <div class="form_div text uploadProgress">
-                                        <div class="upload_progress">
-                                            <div></div>
-                                        </div>
-                                    </div>
-                                    <div class="upload_errors">
-                                        <div class="ef-table-div">
-                                            <table class="ef-table upload_errors-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>
-                                                            <span class="translate" data-lang="lbl_file">File</span>
-                                                        </th>
-                                                        <th>
-                                                            <span class="translate"
-                                                                data-lang="lbl_desc">Description</span>
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="userImagesBrowse" class="userImages"></div>
                             </div>
-                        </div>
-                    </fieldset>
+                            <div id="userImagesBrowseDialog">
+                                <div id="userImagesBrowseContainer" class="table_container images">
+                                    <div class="formFilter">
+                                        <div class="form_div textbox">
+                                            <input type="text" id="userImagesBrowseFilter" name="userImagesBrowseFilter"
+                                                class="input_text icon_in_input_pad userImages_filter" placeholder=""
+                                                spellcheck="false" autocomplete="off">
+                                            <label for="userImagesBrowseFilter" class="translate form_label"
+                                                data-lang="lbl_filter">Filter</label>
+                                            <div class="icon_wrapper">
+                                                <span class="iconify" data-icon="mdi:search" data-width="24"
+                                                    data-height="24"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="translate userImagesText dummy" data-lang="txt_upload_no_images">There
+                                        are
+                                        currently no images inside the gallery! You can
+                                        upload some using the upload function!</div>
+                                    <div class="translate userImagesText noResults" data-lang="txt_upload_no_results">
+                                        There
+                                        are
+                                        no results for the provided criteria!</div>
+                                    <div class="userImagesText placeholder">
+                                        <span class="cv-spinner">
+                                            <span class="spinner"></span>
+                                            <span class="translate" data-lang="title_gallery_loading">Loading images
+                                                gallery
+                                                ...</span>
+                                        </span>
+                                    </div>
+                                    <a href="javascript:;" class="toggle-link" id="toggleUploadBrowse">
+                                        <span class="arrow">&#9654;</span>
+                                        <span class="translate" data-lang="lbl_upload">Upload</span>
+                                    </a>
+                                    <div class="uploadArea browse">
+                                        <div class="uploadForm">
+                                            <div class="drop_zone">
+                                                <form>
+                                                    <input type="file" class="uploadFile browse" accept="image/*"
+                                                        multiple>
+                                                    <div class="form_div text">
+                                                        <span class="translate" data-lang="txt_upload_init">Drag & Drop
+                                                            File
+                                                            here
+                                                            or</span>
+                                                    </div>
+                                                    <div class="form_div button">
+                                                        <input type="button"
+                                                            class="input_button translateV fileSelector"
+                                                            onclick="javascript:$(this).closest('form').find('.uploadFile').click();"
+                                                            data-lang-value="value_select" value="Select" disabled>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="form_div text">
+                                                <span>Status:</span>
+                                            </div>
+                                            <div class="form_div text">
+                                                <span class="translate uploadInfo"
+                                                    data-lang="txt_upload_status_init">Please
+                                                    select file(s)!</span>
+                                            </div>
+                                            <div class="form_div text uploadProgress">
+                                                <div class="upload_progress">
+                                                    <div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uploadErrors">
+                                            <a href="javascript:;" class="toggle-link">
+                                                <span class="arrow">&#9654;</span>
+                                                <span class="translate" data-lang="title_error_link">Open Error
+                                                    Log</span>
+                                            </a>
+                                            <div class="ef-table-div uploadErrorsContainer">
+                                                <table class="ef-table upload_errors-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                <span class="translate" data-lang="lbl_file">File</span>
+                                                            </th>
+                                                            <th>
+                                                                <span class="translate"
+                                                                    data-lang="lbl_desc">Description</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody> </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="userImagesBrowse" class="userImages"></div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
             <div class="tab6">
-                <div class="container scrollbar">
-                    <fieldset class="flex">
-                        <legend>
-                            <span class="iconify legend" data-icon="material-symbols:css-rounded" data-width="24"
-                                data-height="24"></span>
-                            <span class="translate" data-lang="lbl_styles">Styles</span>
-                        </legend>
-                        <div id="own_css"></div>
-                    </fieldset>
+                <div class="container full">
+                    <div>
+                        <fieldset>
+                            <legend>
+                                <span class="iconify legend" data-icon="material-symbols:css-rounded" data-width="24"
+                                    data-height="24"></span>
+                                <span class="translate" data-lang="lbl_styles">Styles</span>
+                            </legend>
+                            <div id="own_css"></div>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
             <div class="tab7">
-                <div class="container scrollbar">
-                    <div>
-                        <fieldset class="flex" id="fieldsetConfig">
+                <div class="container">
+                    <div class="form">
+                        <fieldset id="fieldsetConfig">
                             <legend>
                                 <span class="iconify legend" data-icon="mdi:cog" data-width="24"
                                     data-height="24"></span>
@@ -2933,9 +3048,12 @@
                                         </div>
                                     </div>
                                     <div class="form_div button">
-                                        <input type="button" class="input_button auto_width translateV"
-                                            value="Restore the hints" data-lang-value="value_toast_restore"
-                                            onclick="restoreToast()">
+                                        <button type="button" class="input_button auto_width" onclick="restoreToast();">
+                                            <span class="iconify" data-icon="mdi:backup-restore" data-width="24"
+                                                data-height="24"></span>
+                                            <span class="translate" data-lang="value_toast_restore">Restore the
+                                                hints</span>
+                                        </button>
                                     </div>
                                 </fieldset>
                                 <fieldset class="small">
@@ -3000,218 +3118,223 @@
                             </div>
                         </fieldset>
                     </div>
-                    <fieldset class="flex">
-                        <legend>
-                            <span class="iconify legend" data-icon="material-symbols:format-list-bulleted"
-                                data-width="24" data-height="24"></span>
-                            <span class="translate" data-lang="legend_basic_settings">Basic Settings</span>
-                        </legend>
-                        <div class="childContainer">
-                            <div class="detail_box flex">
-                                <span class="config_sec translate" data-lang="lbl_text">Text</span>
-                                <div class="contentBox">
-                                    <div class="form_div textbox">
-                                        <input type="text" class="input_text basic_config" id="basic.font.family"
-                                            name="basic.font.family" placeholder="" spellcheck="false"
-                                            autocomplete="off">
-                                        <label for="basic.font.family" class="form_label translate"
-                                            data-lang="lbl_font_family">Font Family</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config" id="basic.font.size"
-                                            name="basic.font.size" placeholder="" spellcheck="false" autocomplete="off"
-                                            min="1">
-                                        <label for="basic.font.size" class="form_label translate"
-                                            data-lang="lbl_font_size">Font
-                                            Size</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="text" class="input_text color basic_config" name="basic.font.color"
-                                            id="basic.font.color" placeholder="" spellcheck="false" autocomplete="off"
-                                            data-jscolor="{}">
-                                        <label for="basic.font.color" class="form_label translate"
-                                            data-lang="lbl_outline_color">Outline Color</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="text" class="input_text color basic_config" name="basic.font.fill"
-                                            id="basic.font.fill" placeholder="" spellcheck="false" autocomplete="off"
-                                            data-jscolor="{}">
-                                        <label for="basic.font.fill" class="form_label translate"
-                                            data-lang="lbl_fill_color">Fill color</label>
-                                    </div>
-                                    <div class="form_div select">
-                                        <label for="basic.font.align" class="form_label translate"
-                                            data-lang="legend_alignment">Alignment</label>
-                                        <div class="select-option">
-                                            <select class="input_select basic_config" id="basic.font.align"
-                                                name="basic_font_align">
-                                                <option value="start" class="translate" data-lang="opt_left">
-                                                    Left
-                                                </option>
-                                                <option value="middle" class="translate" data-lang="opt_middle">
-                                                    Middle
-                                                </option>
-                                                <option value="end" class="translate" data-lang="opt_right">
-                                                    Right
-                                                </option>
-                                            </select>
+                    <div>
+                        <fieldset>
+                            <legend>
+                                <span class="iconify legend" data-icon="material-symbols:format-list-bulleted"
+                                    data-width="24" data-height="24"></span>
+                                <span class="translate" data-lang="legend_basic_settings">Basic Settings</span>
+                            </legend>
+                            <div class="childContainer">
+                                <div class="detail_box flex">
+                                    <span class="config_sec translate" data-lang="lbl_text">Text</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="text" class="input_text basic_config" id="basic.font.family"
+                                                name="basic.font.family" placeholder="" spellcheck="false"
+                                                autocomplete="off">
+                                            <label for="basic.font.family" class="form_label translate"
+                                                data-lang="lbl_font_family">Font Family</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config" id="basic.font.size"
+                                                name="basic.font.size" placeholder="" spellcheck="false"
+                                                autocomplete="off" min="1">
+                                            <label for="basic.font.size" class="form_label translate"
+                                                data-lang="lbl_font_size">Font
+                                                Size</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="text" class="input_text color basic_config"
+                                                name="basic.font.color" id="basic.font.color" placeholder=""
+                                                spellcheck="false" autocomplete="off" data-jscolor="{}">
+                                            <label for="basic.font.color" class="form_label translate"
+                                                data-lang="lbl_outline_color">Outline Color</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="text" class="input_text color basic_config"
+                                                name="basic.font.fill" id="basic.font.fill" placeholder=""
+                                                spellcheck="false" autocomplete="off" data-jscolor="{}">
+                                            <label for="basic.font.fill" class="form_label translate"
+                                                data-lang="lbl_fill_color">Fill color</label>
+                                        </div>
+                                        <div class="form_div select">
+                                            <label for="basic.font.align" class="form_label translate"
+                                                data-lang="legend_alignment">Alignment</label>
+                                            <div class="select-option">
+                                                <select class="input_select basic_config" id="basic.font.align"
+                                                    name="basic_font_align">
+                                                    <option value="start" class="translate" data-lang="opt_left">
+                                                        Left
+                                                    </option>
+                                                    <option value="middle" class="translate" data-lang="opt_middle">
+                                                        Middle
+                                                    </option>
+                                                    <option value="end" class="translate" data-lang="opt_right">
+                                                        Right
+                                                    </option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="detail_box flex">
-                                <span class="config_sec translate" data-lang="lbl_rect">Rectangle</span>
-                                <div class="contentBox">
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config" id="basic.rect.height"
-                                            name="basic.rect.height" placeholder="" spellcheck="false"
-                                            autocomplete="off" min="1">
-                                        <label for="basic.rect.height" class="form_label translate"
-                                            data-lang="lbl_height">Height</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config" id="basic.rect.width"
-                                            name="basic.rect.width" placeholder="" spellcheck="false" autocomplete="off"
-                                            min="1">
-                                        <label for="basic.rect.width" class="form_label translate"
-                                            data-lang="lbl_width">Width</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config" id="basic.rect.corners"
-                                            name="basic.rect.corners" placeholder="" spellcheck="false"
-                                            autocomplete="off" min="1">
-                                        <label for="basic.rect.corners" class="form_label translate"
-                                            data-lang="lbl_rounded_corners">Rounded Corner</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail_box flex">
-                                <span class="config_sec translate" data-lang="lbl_circle">Circle</span>
-                                <div class="contentBox">
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config" id="basic.circle.radius"
-                                            name="basic.circle.radius" placeholder="" spellcheck="false"
-                                            autocomplete="off" min="1">
-                                        <label for="basic.circle.radius" class="form_label translate"
-                                            data-lang="lbl_radius">Radius</label>
+                                <div class="detail_box flex">
+                                    <span class="config_sec translate" data-lang="lbl_rect">Rectangle</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config"
+                                                id="basic.rect.height" name="basic.rect.height" placeholder=""
+                                                spellcheck="false" autocomplete="off" min="1">
+                                            <label for="basic.rect.height" class="form_label translate"
+                                                data-lang="lbl_height">Height</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config" id="basic.rect.width"
+                                                name="basic.rect.width" placeholder="" spellcheck="false"
+                                                autocomplete="off" min="1">
+                                            <label for="basic.rect.width" class="form_label translate"
+                                                data-lang="lbl_width">Width</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config"
+                                                id="basic.rect.corners" name="basic.rect.corners" placeholder=""
+                                                spellcheck="false" autocomplete="off" min="1">
+                                            <label for="basic.rect.corners" class="form_label translate"
+                                                data-lang="lbl_rounded_corners">Rounded Corner</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="detail_box flex">
-                                <span class="config_sec translate" data-lang="lbl_rect_circle">Rectangle / Circle</span>
-                                <div class="contentBox">
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config"
-                                            id="basic.elm.stroke_width" name="basic.elm.stroke_width" placeholder=""
-                                            spellcheck="false" autocomplete="off" min="1">
-                                        <label for="basic.elm.stroke_width" class="form_label translate"
-                                            data-lang="lbl_stroke_width">Stroke width</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="text" class="input_text color basic_config" name="basic.elm.color"
-                                            id="basic.elm.color" placeholder="" spellcheck="false" autocomplete="off"
-                                            data-jscolor="{}">
-                                        <label for="basic.elm.color" class="form_label translate"
-                                            data-lang="lbl_outline_color">Outline-Color</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="text" class="input_text color basic_config" name="basic.elm.fill"
-                                            id="basic.elm.fill" placeholder="" spellcheck="false" autocomplete="off"
-                                            data-jscolor="{}">
-                                        <label for="basic.elm.fill" class="form_label translate"
-                                            data-lang="lbl_fill_color">Fill
-                                            color</label>
+                                <div class="detail_box flex">
+                                    <span class="config_sec translate" data-lang="lbl_circle">Circle</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config"
+                                                id="basic.circle.radius" name="basic.circle.radius" placeholder=""
+                                                spellcheck="false" autocomplete="off" min="1">
+                                            <label for="basic.circle.radius" class="form_label translate"
+                                                data-lang="lbl_radius">Radius</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="detail_box flex">
-                                <span class="config_sec translate" data-lang="lbl_icons">Icons</span>
-                                <div class="contentBox">
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config" id="basic.icon.height"
-                                            name="basic.icon.height" placeholder="" spellcheck="false"
-                                            autocomplete="off" min="1">
-                                        <label for="basic.icon.height" class="form_label translate"
-                                            data-lang="lbl_height">Height</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config" id="basic.icon.width"
-                                            name="basic.icon.width" placeholder="" spellcheck="false" autocomplete="off"
-                                            min="1">
-                                        <label for="basic.icon.width" class="form_label translate"
-                                            data-lang="lbl_width">Width</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="text" class="input_text color basic_config" name="basic.icon.color"
-                                            id="basic.icon.color" placeholder="" spellcheck="false" autocomplete="off"
-                                            data-jscolor="{}">
-                                        <label for="basic.icon.color" class="form_label translate"
-                                            data-lang="lbl_outline_color">Outline-Color</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="detail_box flex">
-                                <span class="config_sec translate" data-lang="lbl_coordinates">Coordinates</span>
-                                <div class="contentBox">
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config" id="basic.elm.pos_x"
-                                            name="basic.elm.pos_x" placeholder="" spellcheck="false" autocomplete="off"
-                                            min="1">
-                                        <label for="basic.elm.pos_x" class="form_label translate"
-                                            data-lang="lbl_pos_x">Position
-                                            X-Axis</label>
-                                    </div>
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_number basic_config" id="basic.elm.pos_y"
-                                            name="basic.elm.pos_y" placeholder="" spellcheck="false" autocomplete="off"
-                                            min="1">
-                                        <label for="basic.elm.pos_y" class="form_label translate"
-                                            data-lang="lbl_pos_y">Position
-                                            X-Axis</label>
-                                    </div>
-                                    <div class="form_div text">
-                                        <span class="translate" data-lang="ex_coordinates">These coordinates (+ random
-                                            number between 0 and 50)
-                                            will be used as a starting value when adding a new
-                                            element.</span>
+                                <div class="detail_box flex">
+                                    <span class="config_sec translate" data-lang="lbl_rect_circle">Rectangle /
+                                        Circle</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config"
+                                                id="basic.elm.stroke_width" name="basic.elm.stroke_width" placeholder=""
+                                                spellcheck="false" autocomplete="off" min="1">
+                                            <label for="basic.elm.stroke_width" class="form_label translate"
+                                                data-lang="lbl_stroke_width">Stroke width</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="text" class="input_text color basic_config"
+                                                name="basic.elm.color" id="basic.elm.color" placeholder=""
+                                                spellcheck="false" autocomplete="off" data-jscolor="{}">
+                                            <label for="basic.elm.color" class="form_label translate"
+                                                data-lang="lbl_outline_color">Outline-Color</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="text" class="input_text color basic_config"
+                                                name="basic.elm.fill" id="basic.elm.fill" placeholder=""
+                                                spellcheck="false" autocomplete="off" data-jscolor="{}">
+                                            <label for="basic.elm.fill" class="form_label translate"
+                                                data-lang="lbl_fill_color">Fill
+                                                color</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="detail_box flex">
-                                <span class="config_sec translate" data-lang="lbl_background">Background</span>
-                                <div class="contentBox">
-                                    <div class="form_div textbox">
-                                        <input type="text" class="input_text color basic_config"
-                                            name="basic.background_color" id="basic.background_color" placeholder=""
-                                            spellcheck="false" autocomplete="off" data-jscolor="{}">
-                                        <label for="basic.background_color" class="form_label translate"
-                                            data-lang="lbl_background_color">Background color</label>
+                                <div class="detail_box flex">
+                                    <span class="config_sec translate" data-lang="lbl_icons">Icons</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config"
+                                                id="basic.icon.height" name="basic.icon.height" placeholder=""
+                                                spellcheck="false" autocomplete="off" min="1">
+                                            <label for="basic.icon.height" class="form_label translate"
+                                                data-lang="lbl_height">Height</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config" id="basic.icon.width"
+                                                name="basic.icon.width" placeholder="" spellcheck="false"
+                                                autocomplete="off" min="1">
+                                            <label for="basic.icon.width" class="form_label translate"
+                                                data-lang="lbl_width">Width</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="text" class="input_text color basic_config"
+                                                name="basic.icon.color" id="basic.icon.color" placeholder=""
+                                                spellcheck="false" autocomplete="off" data-jscolor="{}">
+                                            <label for="basic.icon.color" class="form_label translate"
+                                                data-lang="lbl_outline_color">Outline-Color</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="detail_box flex">
-                                <span class="config_sec translate" data-lang="lbl_valueAnimation">Value animation</span>
-                                <div class="contentBox">
-                                    <div class="form_div textbox">
-                                        <input type="number" class="input_text basic_config"
-                                            name="basic.animation_timer" id="basic.animation_timer" placeholder=""
-                                            spellcheck="false" autocomplete="off" min="1">
-                                        <label for="basic.animation_timer" class="form_label translate"
-                                            data-lang="lbl_value_animation">Time in ms</label>
+                                <div class="detail_box flex">
+                                    <span class="config_sec translate" data-lang="lbl_coordinates">Coordinates</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config" id="basic.elm.pos_x"
+                                                name="basic.elm.pos_x" placeholder="" spellcheck="false"
+                                                autocomplete="off" min="1">
+                                            <label for="basic.elm.pos_x" class="form_label translate"
+                                                data-lang="lbl_pos_x">Position
+                                                X-Axis</label>
+                                        </div>
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_number basic_config" id="basic.elm.pos_y"
+                                                name="basic.elm.pos_y" placeholder="" spellcheck="false"
+                                                autocomplete="off" min="1">
+                                            <label for="basic.elm.pos_y" class="form_label translate"
+                                                data-lang="lbl_pos_y">Position
+                                                X-Axis</label>
+                                        </div>
+                                        <div class="form_div text">
+                                            <span class="translate" data-lang="ex_coordinates">These coordinates (+
+                                                random
+                                                number between 0 and 50)
+                                                will be used as a starting value when adding a new
+                                                element.</span>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="detail_box flex">
+                                    <span class="config_sec translate" data-lang="lbl_background">Background</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="text" class="input_text color basic_config"
+                                                name="basic.background_color" id="basic.background_color" placeholder=""
+                                                spellcheck="false" autocomplete="off" data-jscolor="{}">
+                                            <label for="basic.background_color" class="form_label translate"
+                                                data-lang="lbl_background_color">Background color</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detail_box flex">
+                                    <span class="config_sec translate" data-lang="lbl_valueAnimation">Value
+                                        animation</span>
+                                    <div class="contentBox">
+                                        <div class="form_div textbox">
+                                            <input type="number" class="input_text basic_config"
+                                                name="basic.animation_timer" id="basic.animation_timer" placeholder=""
+                                                spellcheck="false" autocomplete="off" min="1">
+                                            <label for="basic.animation_timer" class="form_label translate"
+                                                data-lang="lbl_value_animation">Time in ms</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="translate" data-lang="ex_coordinates_info">
+                                    <b><u>Please note</u></b>: For the changes to take effect, you need to save them!
+                                </span>
                             </div>
-                            <span class="translate" data-lang="ex_coordinates_info">
-                                <b><u>Please note</u></b>: For the changes to take effect, you need to save them!
-                            </span>
-                        </div>
-                    </fieldset>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
             <div class="tab8">
-                <div class="container scrollbar">
-                    <div>
-                        <fieldset class="flex" id="fieldsetSave">
+                <div class="container">
+                    <div class="form">
+                        <fieldset id="fieldsetSave">
                             <legend>
                                 <span class="iconify legend" data-icon="material-symbols:save" data-width="24"
                                     data-height="24"></span>
@@ -3243,27 +3366,36 @@
                             <div class="form_div button">
                                 <span class="translate" data-lang="lbl_save_workspace">Save your Workspace</span>
                                 <div>
-                                    <input type="button" class="input_button translateV" data-lang-value="lbl_save"
-                                        value="Save" id="save_workspace">
+                                    <button type="button" class="input_button" id="save_workspace">
+                                        <span class="iconify" data-icon="material-symbols:save" data-width="24"
+                                            data-height="24"></span>
+                                        <span class="translate" data-lang="lbl_save">Save</span>
+                                    </button>
                                 </div>
                             </div>
                             <div class="form_div button">
                                 <span class="translate" data-lang="lbl_save_workspace_exit">Save your Workspace & Exit
                                     to LiveView</span>
                                 <div>
-                                    <input type="button" class="input_button auto_width translateV translateT"
-                                        value="Save & Exit" id="save_workspace_exit" data-lang-value="value_save_exit">
+                                    <button type="button" class="input_button auto_width" id="save_workspace_exit">
+                                        <span class="iconify" data-icon="material-symbols:save" data-width="24"
+                                            data-height="24"></span>
+                                        <span class="translate" data-lang="value_save_exit">Save & Exit</span>
+                                    </button>
                                 </div>
                             </div>
                             <div class="form_div button">
                                 <span class="translate" data-lang="lbl_save_exit">Exit to LiveView</span>
                                 <div>
-                                    <input type="button" class="input_button translateV" value="Exit"
-                                        id="workspace_exit" data-lang-value="value_exit">
+                                    <button type="button" class="input_button auto_width" id="workspace_exit">
+                                        <span class="iconify" data-icon="material-symbols:exit-to-app" data-width="24"
+                                            data-height="24"></span>
+                                        <span class="translate" data-lang="value_exit">Exit</span>
+                                    </button>
                                 </div>
                             </div>
                         </fieldset>
-                        <fieldset class="flex" id="fieldsetBackup">
+                        <fieldset id="fieldsetBackup">
                             <legend>
                                 <span class="iconify legend" data-icon="material-symbols:backup" data-width="24"
                                     data-height="24"></span>
@@ -3277,11 +3409,14 @@
                                 </div>
                             </div>
                             <div class="form_div button">
-                                <input type="button" class="input_button auto_width translateV" value="Restore Backup"
-                                    id="restore_backup" data-lang-value="value_save_restore">
+                                <button type="button" class="input_button auto_width" id="restore_backup">
+                                    <span class="iconify" data-icon="mdi:restore-clock" data-width="24"
+                                        data-height="24"></span>
+                                    <span class="translate" data-lang="value_save_restore">Restore Backup</span>
+                                </button>
                             </div>
                         </fieldset>
-                        <fieldset class="flex" id="fieldsetSupport">
+                        <fieldset id="fieldsetSupport">
                             <legend>
                                 <span class="iconify legend" data-icon="bx:donate-heart" data-width="24"
                                     data-height="24"></span>
@@ -3303,20 +3438,22 @@
                             </div>
                         </fieldset>
                     </div>
-                    <fieldset class="flex">
-                        <legend>
-                            <span class="iconify legend" data-icon="mdi:math-log" data-width="24"
-                                data-height="24">Output</span>
-                            <span class="translate" data-lang="lbl_save_output">Output</span>
-                        </legend>
-                        <div id="save_output"></div>
-                    </fieldset>
+                    <div>
+                        <fieldset>
+                            <legend>
+                                <span class="iconify legend" data-icon="mdi:math-log" data-width="24"
+                                    data-height="24">Output</span>
+                                <span class="translate" data-lang="lbl_save_output">Output</span>
+                            </legend>
+                            <div id="save_output"></div>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
         </figure>
     </div>
 
-    <div id="toast-container" class="toast-container scrollbar"></div>
+    <div id="toast-container" class="toast-container"></div>
 
 </body>
 

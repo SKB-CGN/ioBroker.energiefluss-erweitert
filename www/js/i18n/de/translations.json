@@ -75,6 +75,8 @@
     "failmsg_element_delete": "Element kann nicht gelöscht werden! Verbindung besteht!",
     "failmsg_failed_config": "Das Laden der Grundkonfiguration ist fehlgeschlagen!<br>Der Adapter ist möglicherweise beschädigt!",
     "failmsg_icon_not_found": "Das angegebene Symbol konnte nicht gefunden werden!",
+    "failmsg_import_error": "Das angegebene Element konnte nicht importiert werden!",
+    "failmsg_import_type": "Das Element hat keinen gültigen Typ und konnte nicht importiert werden!",
     "failmsg_instance": "Die Instanz <b>%s</b>, auf die Sie zugreifen möchten, existiert nicht!",
     "failmsg_instance_offline": "Die Instanz <b>%s</b>, auf die Sie zugreifen möchten, wurde nicht gestartet!",
     "failmsg_invalid_ds": "Der Status für dieses Element konnte nicht empfangen werden! Bitte überprüfen Sie die zugehörige Datenquelle: <br> %s",
@@ -125,7 +127,7 @@
     "help_override": "Das Element kann mit Overrides gestaltet werden. Dazu müssen Sie eine JSON-formatierte Werteliste erstellen. <br><br> Beispiel: %s Für einen Wert <b> größer 5 </b> wird die Farbe <b> #538ea3 </b> angewendet. Für einen Wert <b> größer 10 </b> wird die Farbe <b> #FF0000 </b> angewendet. <br> Sie können beliebig viele Bedingungen hinzufügen. Die Bedingungen werden vor der Verarbeitung nach ihrem Schlüssel sortiert. <br> <br> <u>Bitte beachten:</u><br>Die Overrides stellen nicht von selbst das ursprüngliche Layout wieder her. Das bedeutet, wenn Sie eine Eigenschaft durch einen Wert gesetzt haben und dieser über- oder unterschritten wird, müssen Sie für die jeweilige Über- oder Unterschreitung auch die gegenüberliegende Eigenschaft setzen. <br> <br> Eine detaillierte Beschreibung finden Sie im Wiki des Adapters. <a href='https://www.kreyenborg.koeln/wissensdatenbank/ueberschreibungen/' target='_blank'> Schauen Sie im Wiki </a>",
     "help_password_protection": "Wenn Sie das Passwort vergessen haben, können Sie in den Adaptereinstellungen von ioBroker ein neues Passwort festlegen!",
     "help_preserveAspectRatio": "<p>Das Attribut „preserveAspectRatio“ gibt an, wie ein Element mit einer ViewBox, die ein bestimmtes Seitenverhältnis bereitstellt, in ein Ansichtsfenster mit einem anderen Seitenverhältnis passen muss.</p> <p>Weitere Informationen finden Sie in den <a href='https://www.kreyenborg.koeln/go/96nit' target='_blank'>MDN-Webdokumenten</a>.</p>",
-    "help_settings": "Wenn Sie das Konfigurationsrad in der Live-Ansicht deaktivieren, müssen Sie die Browser-Zugriffstaste <b>'e'</b> verwenden, um wieder in diese Konfiguration zu gelangen",
+    "help_settings": "Wenn Sie das Konfigurationsrad in der Live-Ansicht deaktivieren, können Sie mit der Browser-Zugriffstaste <b>'e'</b> zu dieser Konfiguration zurückkehren oder das Kontextmenü verwenden, das per Rechtsklick oder langem Drücken bereitgestellt wird!<br>",
     "lbl_action": "Aktion",
     "lbl_action_click": "Aktionen für Klick",
     "lbl_action_options": "Aktionsoptionen",
@@ -352,6 +354,7 @@
     "msg_gallery_deleted": "Komplette Bildergalerie gelöscht!",
     "msg_group_elements": "Gruppe mit %s Element(en) erstellt!",
     "msg_instance_loading": "Warte darauf, dass die Instanz %s von „Energiefluss – erweitert“ wieder online ist!",
+    "msg_json_empty": "Sie müssen etwas eingeben, um den Code zu formatieren!",
     "msg_json_malformmated": "Die Syntax ist falsch und kann daher nicht formatiert werden!",
     "msg_loading_config": "Anwenden einer neuen Konfiguration auf Ihren Energiefluss - erweitert",
     "msg_loading_liveview": "Live-Ansicht von „Energiefluss – erweitert“ wird geladen",
@@ -492,6 +495,7 @@
     "toast_info_dragShift": "Bei gedrückter Umschalttaste rastet das Element im nächstmöglichen Raster ein!",
     "toast_info_elmClick": "Durch Doppelklick auf das Element öffnet sich direkt die Registerkarte „Erweitert“!",
     "toast_info_foreBackground": "Je häufiger Sie klicken, desto mehr rückt das Element in den Vordergrund bzw. Hintergrund!",
+    "toast_info_lasso": "Um den Arbeitsbereich zu verschieben, ändern Sie bitte die Modus-Schaltfläche auf „Bereich verschieben“!",
     "toast_info_modifyGroups": "Dieses Element ist Teil einer Gruppe. Beim Ausrichten werden alle Elemente der Gruppe gemeinsam ausgerichtet!",
     "toast_info_moreElements": "Du kannst dem Drag & Drop weitere Elemente hinzufügen, indem Du während der Auswahl die Strg-Taste gedrückt hältst oder ein Rechteck darum aufziehst!",
     "toast_info_moveShift": "Halten Sie die Umschalttaste gedrückt und Sie können das Element 10 Schritte verschieben!",
@@ -576,6 +580,5 @@
     "value_toast_restore": "Stellen Sie die Hinweise wieder her",
     "value_top": "Element oben",
     "value_top_left": "oben links",
-    "value_top_right": "oben rechts",
-    "toast_info_lasso": "Um den Arbeitsbereich zu verschieben, ändern Sie bitte die Modus-Schaltfläche auf „Bereich verschieben“!"
+    "value_top_right": "oben rechts"
 }
