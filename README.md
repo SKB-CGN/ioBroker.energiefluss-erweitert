@@ -33,7 +33,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.8.1 (2025-10-24)
 - FIX: Dialog for line animation overrides was not opening
 - Added: VIS and VIS-2 widget added. Just drag the widget to VIS and set the adapter instance
 
