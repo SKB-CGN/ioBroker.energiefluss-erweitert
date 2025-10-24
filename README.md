@@ -18,7 +18,7 @@
 ![Test and Release](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/workflows/Test%20and%20Release/badge.svg)
 
 ## energiefluss-erweitert adapter for ioBroker
-It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.
+This adapter provides a dynamic and animated visualization of energy flows for all connected elements in your smart home. It supports sources like photovoltaics, storage systems (batteries), household consumption, grid import/export, electric vehicle charging, and other energy-consuming or generating devices. Each flow is represented with clear bi-directional lines, animation dots and real-time values, allowing you to easily monitor and analyze energy distribution. You can customize icons, colors, and layout, and even use formulas to calculate derived values, giving you a flexible and fully interactive energy management dashboard.
 
 ## Documentation
 
@@ -33,7 +33,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.8.1 (2025-10-24)
+### **WORK IN PROGRESS**
 - FIX: Dialog for line animation overrides was not opening
 - Added: VIS and VIS-2 widget added. Just drag the widget to VIS and set the adapter instance
 
