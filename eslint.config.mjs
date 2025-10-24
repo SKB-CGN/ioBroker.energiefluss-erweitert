@@ -19,6 +19,7 @@ export default [
             '**/adapter-config.d.ts',
             'www/js/**',
             '!www/js/functions.min.js',
+            'widgets/**/*.js',
             'langCheck.js',
             'langremove.js'
         ],

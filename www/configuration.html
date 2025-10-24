@@ -14,19 +14,19 @@
     <link class=favicon rel=icon type=image/ico href="img/icons/favicon.ico">
     <link rel="stylesheet" href="style/jquery-ui.css">
     <link rel="stylesheet" href="style/multiselect.css">
-    <link rel="stylesheet" href="style/style.css?v=0.8.0">
+    <link rel="stylesheet" href="style/style.css?v=0.8.1">
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/jquery-3.6.4.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/multiselect.min.js"></script>
     <script src="js/translate.min.js"></script>
-    <script src="js/words.js?v=0.8.0"></script>
+    <script src="js/words.js?v=0.8.1"></script>
     <script src="js/jscolor.min.js"></script>
     <script src="js/ace/ace.js"></script>
     <script src="js/ace/ext-language_tools.js"></script>
     <script src="js/ace/ext-searchbox.js"></script>
-    <script src="js/functions.min.js?v=0.8.0"></script>
+    <script src="js/functions.min.js?v=0.8.1"></script>
 
     <style id="style_animation"></style>
     <style id="style_user"></style>
@@ -223,22 +223,25 @@
         <input id="tab8" type="radio" name="tabs">
         <input id="tabWiki" type="radio" name="tabs">
         <nav class="" id="mainNavBar">
-            <label for="tab1" class="tooltip" data-title="title_overview"><span class="iconify menu translate"
-                    data-icon="material-symbols:overview-key-outline-rounded" data-width="24"
-                    data-height="24"></span><span class="translate" data-lang="lbl_overview">Overview</span></label>
+            <label for="tab1" id="lbl_tab1" class="tooltip" data-title="title_overview"><span
+                    class="iconify menu translate" data-icon="material-symbols:overview-key-outline-rounded"
+                    data-width="24" data-height="24"></span><span class="translate"
+                    data-lang="lbl_overview">Overview</span></label>
             <label for="tab2" id="lbl_tab2"><span class="iconify menu" data-icon="mdi:database-search" data-width="24"
                     data-height="24"></span><span class="translate"
                     data-lang="lbl_datasources">Datasources</span></label>
-            <label for="tab3"><span class="iconify menu" data-icon="material-symbols:animation" data-width="24"
-                    data-height="24"></span><span class="translate" data-lang="lbl_animation">Animation</span></label>
+            <label for="tab3" id="lbl_tab3"><span class="iconify menu" data-icon="material-symbols:animation"
+                    data-width="24" data-height="24"></span><span class="translate"
+                    data-lang="lbl_animation">Animation</span></label>
             <label for="tab4" id="lbl_tab4"><span class="iconify menu"
                     data-icon="material-symbols:calculate-outline-rounded" data-width="24" data-height="24"></span><span
                     class="translate" data-lang="lbl_calculation">Calculation</span></label>
             <label for="tab5" id="lbl_tab5" class="tooltip" data-title="title_gallery"><span class="iconify menu"
                     data-icon="mdi:file-image" data-width="24" data-height="24"></span><span class="translate"
                     data-lang="lbl_gallery">Gallery</span></label>
-            <label for="tab6"><span class="iconify menu" data-icon="material-symbols:css-rounded" data-width="24"
-                    data-height="24"></span><span class="translate" data-lang="lbl_styles">Styles</span></label>
+            <label for="tab6" id="lbl_tab6"><span class="iconify menu" data-icon="material-symbols:css-rounded"
+                    data-width="24" data-height="24"></span><span class="translate"
+                    data-lang="lbl_styles">Styles</span></label>
             <label for="tab7" id="lbl_tab7"><span class="iconify menu" data-icon="mdi:cog" data-width="24"
                     data-height="24"></span><span class="translate" data-lang="lbl_settings">Settings</span></label>
             <button id="lbl_wiki"
@@ -1908,9 +1911,12 @@
                                                 <span class="translate" data-lang="lbl_override_animation">Set override
                                                     for the animation</span>
                                             </div>
-                                            <input type="button" value="Color" id="override_settings_animation"
-                                                class="input_button auto_width translateV override_settings"
-                                                data-lang-value="lbl_override">
+                                            <button type="button" class="input_button auto_width override_settings"
+                                                id="override_settings_animation">
+                                                <span class="iconify" data-icon="mdi:code-json" data-width="24"
+                                                    data-height="24"></span>
+                                                <span class="translate" data-lang="lbl_override">Set overwrite</span>
+                                            </button>
                                         </div>
                                         <a href="javascript:;" class="help margin" data-help="help_override">
                                             <span class="iconify"
@@ -2201,7 +2207,7 @@
                         </svg>
                     </div>
                 </div>
-                <div id="mouse_contextmenu">
+                <div id="mouse_contextmenu" class="config">
                     <ul>
                         <li id="ctx_copy" class="not_active">
                             <div>

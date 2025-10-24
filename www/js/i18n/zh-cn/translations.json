@@ -558,7 +558,7 @@
     "value_element": "元素（自动对齐）",
     "value_exit": "离开",
     "value_export_element": "Export 元素",
-    "value_hide_controls": "隐藏控件",
+    "value_hide_controls": "显示/隐藏控件",
     "value_in_use": "哪些使用",
     "value_insert": "插入 (Ctrl + V)",
     "value_left": "元素剩余",

@@ -109,17 +109,17 @@
       "zh-cn": "能量流 - 延伸"
     },
     "desc": {
-      "en": "It provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.",
-      "de": "Es bietet einen animierten Energiefluss für alle Elemente, die Sie hinzufügen. Dies können sein: Photovoltaik, Batterie, Eigenverbrauch, Netzeinspeisung (Netzverbrauch), Autoladung usw.",
-      "ru": "Вы добавляете, что он обеспечивает анимированный поток энергии для всех элементов. Это может быть: фотоэлектричество, аккумулятор, потребление дома, подача в сеть (потребление в сеть), зарядка автомобиля и т. д.",
-      "pt": "Ele fornece um fluxo de energia animado para todos os elementos, você adiciona. Isso pode ser: fotovoltaicos, bateria, consumo doméstico, alimentação da rede (consumo da rede), carga do carro etc.",
-      "nl": "Het biedt een geanimeerde energiestroom voor alle elementen, voegt u toe. Dit kan zijn: fotovoltaïsche cellen, batterij, huisverbruik, netvoeding (netverbruik), autolading etc.",
-      "fr": "Il fournit un flux d'énergie animé pour tous les éléments que vous ajoutez. Il peut s'agir de : photovoltaïque, batterie, autoconsommation, alimentation réseau (consommation réseau), recharge de voiture, etc.",
-      "it": "Fornisce un flusso energetico animato per tutti gli elementi che aggiungi. Potrebbe essere: fotovoltaico, batteria, consumo domestico, immissione in rete (consumo in rete), carica auto ecc.",
-      "es": "Proporciona un flujo de energía animado para todos los elementos, como: fotovoltaica, baterías, autoconsumo, inyección a la red (consumo de red), carga del coche, etc.",
-      "pl": "Zapewnia animowany przepływ energii dla wszystkich elementów, które dodajesz. Może to być: fotowoltaika, bateria, zużycie energii w domu, zasilanie sieciowe (zużycie sieciowe), ładowanie samochodu itp.",
-      "uk": "Він забезпечує анімований потік енергії для всіх елементів, які ви додаєте. Це може бути: фотовольтаїка, батарея, домашнє споживання, живлення від мережі (споживання від мережі), зарядка автомобіля тощо.",
-      "zh-cn": "它为您添加的所有元素提供动画能量流。这些元素可能是：光伏、电池、房屋消耗、电网馈入（电网消耗）、汽车充电等。"
+      "en": "This adapter provides a dynamic and animated visualization of energy flows for all connected elements in your smart home. It supports sources like photovoltaics, storage systems (batteries), household consumption, grid import/export, electric vehicle charging, and other energy-consuming or generating devices. Each flow is represented with clear bi-directional lines, animation dots and real-time values, allowing you to easily monitor and analyze energy distribution. You can customize icons, colors, and layout, and even use formulas to calculate derived values, giving you a flexible and fully interactive energy management dashboard.",
+      "de": "Dieser Adapter bietet eine dynamische und animierte Visualisierung der Energieflüsse für alle angeschlossenen Elemente in Ihrem Smart Home. Es unterstützt Quellen wie Photovoltaik, Speichersysteme (Batterien), Haushaltsverbrauch, Netzimport/-export, Laden von Elektrofahrzeugen und andere energieverbrauchende oder erzeugende Geräte. Jeder Fluss wird durch klare bidirektionale Linien, Animationspunkte und Echtzeitwerte dargestellt, sodass Sie die Energieverteilung einfach überwachen und analysieren können. Sie können Symbole, Farben und Layout anpassen und sogar Formeln verwenden, um abgeleitete Werte zu berechnen, wodurch Sie ein flexibles und vollständig interaktives Energiemanagement-Dashboard erhalten.",
+      "ru": "Этот адаптер обеспечивает динамическую и анимированную визуализацию потоков энергии для всех подключенных элементов вашего умного дома. Он поддерживает такие источники, как фотоэлектрические элементы, системы хранения (батареи), бытовое потребление, импорт/экспорт сети, зарядка электромобилей и другие энергопотребляющие или генерирующие устройства. Каждый поток представлен четкими двунаправленными линиями, анимационными точками и значениями в реальном времени, что позволяет легко отслеживать и анализировать распределение энергии. Вы можете настроить значки, цвета и макет и даже использовать формулы для расчета производных значений, предоставляя вам гибкую и полностью интерактивную панель управления энергопотреблением.",
+      "pt": "Este adaptador fornece uma visualização dinâmica e animada dos fluxos de energia para todos os elementos conectados na sua casa inteligente. Suporta fontes como energia fotovoltaica, sistemas de armazenamento (baterias), consumo doméstico, importação/exportação de rede, carregamento de veículos elétricos e outros dispositivos consumidores ou geradores de energia. Cada fluxo é representado com linhas bidirecionais claras, pontos de animação e valores em tempo real, permitindo monitorar e analisar facilmente a distribuição de energia. Você pode personalizar ícones, cores e layout, e até mesmo usar fórmulas para calcular valores derivados, proporcionando um painel de gerenciamento de energia flexível e totalmente interativo.",
+      "nl": "Deze adapter zorgt voor een dynamische en geanimeerde visualisatie van energiestromen voor alle aangesloten elementen in uw slimme huis. Het ondersteunt bronnen zoals fotovoltaïsche energie, opslagsystemen (batterijen), huishoudelijk verbruik, import/export van het elektriciteitsnet, het opladen van elektrische voertuigen en andere energieverbruikende of opwekkende apparaten. Elke stroom wordt weergegeven met duidelijke bidirectionele lijnen, animatiepunten en realtime waarden, zodat u de energieverdeling eenvoudig kunt volgen en analyseren. U kunt pictogrammen, kleuren en lay-out aanpassen en zelfs formules gebruiken om afgeleide waarden te berekenen, waardoor u een flexibel en volledig interactief dashboard voor energiebeheer krijgt.",
+      "fr": "Cet adaptateur offre une visualisation dynamique et animée des flux énergétiques pour tous les éléments connectés de votre maison intelligente. Il prend en charge des sources telles que le photovoltaïque, les systèmes de stockage (batteries), la consommation domestique, l’importation/exportation du réseau, la recharge des véhicules électriques et d’autres dispositifs consommateurs ou générateurs d’énergie. Chaque flux est représenté par des lignes bidirectionnelles claires, des points d'animation et des valeurs en temps réel, vous permettant de surveiller et d'analyser facilement la distribution d'énergie. Vous pouvez personnaliser les icônes, les couleurs et la disposition, et même utiliser des formules pour calculer les valeurs dérivées, vous offrant ainsi un tableau de bord de gestion de l'énergie flexible et entièrement interactif.",
+      "it": "Questo adattatore fornisce una visualizzazione dinamica e animata dei flussi di energia per tutti gli elementi collegati nella tua casa intelligente. Supporta fonti come fotovoltaico, sistemi di accumulo (batterie), consumo domestico, importazione/esportazione di rete, ricarica di veicoli elettrici e altri dispositivi che consumano o generano energia. Ogni flusso è rappresentato con chiare linee bidirezionali, punti di animazione e valori in tempo reale, consentendo di monitorare e analizzare facilmente la distribuzione dell'energia. Puoi personalizzare icone, colori e layout e persino utilizzare formule per calcolare i valori derivati, offrendoti un dashboard di gestione dell'energia flessibile e completamente interattivo.",
+      "es": "Este adaptador proporciona una visualización dinámica y animada de los flujos de energía de todos los elementos conectados en su hogar inteligente. Admite fuentes como energía fotovoltaica, sistemas de almacenamiento (baterías), consumo doméstico, importación/exportación de redes, carga de vehículos eléctricos y otros dispositivos que consumen o generan energía. Cada flujo se representa con líneas bidireccionales claras, puntos de animación y valores en tiempo real, lo que le permite monitorear y analizar fácilmente la distribución de energía. Puede personalizar íconos, colores y diseño, e incluso usar fórmulas para calcular valores derivados, lo que le brinda un panel de administración de energía flexible y totalmente interactivo.",
+      "pl": "Adapter ten zapewnia dynamiczną i animowaną wizualizację przepływów energii dla wszystkich podłączonych elementów Twojego inteligentnego domu. Obsługuje źródła takie jak fotowoltaika, systemy magazynowania (baterie), zużycie w gospodarstwach domowych, import/eksport sieci, ładowanie pojazdów elektrycznych i inne urządzenia zużywające lub generujące energię. Każdy przepływ jest reprezentowany za pomocą wyraźnych dwukierunkowych linii, animowanych kropek i wartości w czasie rzeczywistym, co pozwala na łatwe monitorowanie i analizowanie dystrybucji energii. Możesz dostosować ikony, kolory i układ, a nawet używać formuł do obliczania wartości pochodnych, tworząc elastyczny i w pełni interaktywny pulpit zarządzania energią.",
+      "uk": "Цей адаптер забезпечує динамічну та анімовану візуалізацію потоків енергії для всіх підключених елементів у вашому розумному домі. Він підтримує такі джерела, як фотоелектричні пристрої, системи зберігання (акумулятори), побутове споживання, імпорт/експорт мережі, зарядка електромобілів та інші енергоспоживаючі або генеруючі пристрої. Кожен потік представлений чіткими двонаправленими лініями, точками анімації та значеннями в реальному часі, що дозволяє легко контролювати та аналізувати розподіл енергії. Ви можете налаштувати піктограми, кольори та макет і навіть використовувати формули для розрахунку похідних значень, надаючи вам гнучку та повністю інтерактивну інформаційну панель керування енергією.",
+      "zh-cn": "该适配器为智能家居中所有连接的元素提供能量流的动态和动画可视化。它支持光伏、存储系统（电池）、家庭消费、电网进出口、电动汽车充电以及其他能源消耗或发电设备等来源。每个流量都用清晰的双向线、动画点和实时值表示，让您轻松监控和分析能量分布。您可以自定义图标、颜色和布局，甚至使用公式计算派生值，为您提供灵活且完全交互式的能源管理仪表板。"
     },
     "authors": [
       "SKB <info@skb-web.de>"
@@ -127,16 +127,15 @@
     "keywords": [
       "energy",
       "energy-flow",
-      "energie",
       "energiefluss",
-      "energiefluss-erweitert",
-      "photovoltaics",
-      "Photovoltaik",
-      "Solar",
-      "flot",
-      "flow",
+      "photovoltaic",
+      "solar",
+      "battery",
+      "ev",
       "VIS",
-      "visualization"
+      "visualization",
+      "dashboard",
+      "diagram"
     ],
     "platform": "Javascript/Node.js",
     "icon": "energiefluss-erweitert.png",
@@ -171,6 +170,10 @@
     "adminUI": {
       "config": "materialize"
     },
+    "restartAdapters": [
+      "vis",
+      "vis-2"
+    ],
     "dependencies": [
       {
         "js-controller": ">=6.0.11",
