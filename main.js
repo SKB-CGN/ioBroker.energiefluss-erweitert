@@ -1310,6 +1310,9 @@ class EnergieflussErweitert extends utils.Adapter {
                         let battChargeGrid = 0;
                         let battChargeSolar = 0;
 
+                        // Autarky
+                        let aut_grid = gridConsume;
+
                         // Production state(s)
                         prodValue = prodArray.reduce(
                             (sum, id) =>
@@ -1342,6 +1345,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
                         // Subtract or add grid - same States
                         if (consObj.gridFeed == consObj.gridConsume) {
+                            // Feeding grid
                             if (gridFeed > 0) {
                                 if (!consObj.gridFeed_prop) {
                                     consumption -= Math.abs(gridFeed);
@@ -1349,7 +1353,10 @@ class EnergieflussErweitert extends utils.Adapter {
                                 if (!consObj.gridConsume_prop) {
                                     consumption += gridConsume;
                                 }
+
+                                aut_grid = 0;
                             }
+
                             // Consuming from grid
                             if (gridFeed < 0) {
                                 if (consObj.gridFeed_prop) {
@@ -1409,6 +1416,17 @@ class EnergieflussErweitert extends utils.Adapter {
                                 }
                             }
                         }
+
+                        // Autarky calculation
+                        const autarky_calc = ((consumption - aut_grid) / consumption) * 100;
+                        const autarky = Number(this.decimalPlaces(autarky_calc, 2));
+                        this.log.debug(`Autarky calc: ${consumption}-${aut_grid}/${consumption}=${autarky}%`);
+
+                        // Write autarky to state
+                        this.setStateChangedAsync('calculation.autarky.autarky', {
+                            val: autarky,
+                            ack: true,
+                        });
 
                         // Battery Charge
                         this.log.debug(

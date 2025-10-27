@@ -153,7 +153,6 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "assumption",
-    "welcomeScreen": [],
     "welcomeScreenPro": [
       {
         "link": "energiefluss-erweitert/",
@@ -204,7 +203,19 @@
       "_id": "configuration",
       "type": "state",
       "common": {
-        "name": "JSON Configuration of the elements",
+        "name": {
+          "en": "JSON Configuration of the elements",
+          "de": "JSON Konfiguration der Elemente",
+          "ru": "JSON Конфигурация элементов",
+          "pt": "JSON Configuração dos elementos",
+          "nl": "JSON-configuratie van de elementen",
+          "fr": "JSON Configuration des éléments",
+          "it": "Configurazione JSON degli elementi",
+          "es": "Configuración JSON de los elementos",
+          "pl": "Konfiguracja JSON elementów",
+          "uk": "JSON Конфігурація елементів",
+          "zh-cn": "JSON Configuration of the elements"
+        },
         "type": "json",
         "role": "state",
         "read": true,
@@ -217,7 +228,19 @@
       "_id": "data",
       "type": "state",
       "common": {
-        "name": "Data for HTML Output",
+        "name": {
+          "en": "Data for HTML Output",
+          "de": "Daten für die HTML-Ausgabe",
+          "ru": "Данные для вывода в формате HTML",
+          "pt": "Dados para saída HTML",
+          "nl": "Gegevens voor HTML-uitvoer",
+          "fr": "Données pour la sortie HTML",
+          "it": "Dati per l'output HTML",
+          "es": "Datos para la salida HTML",
+          "pl": "Dane dla wyjścia HTML",
+          "uk": "Дані для виводу в HTML",
+          "zh-cn": "Data for HTML Output"
+        },
         "type": "json",
         "role": "state",
         "read": true,
@@ -229,7 +252,39 @@
       "_id": "calculation",
       "type": "channel",
       "common": {
-        "name": "Calculations provided by the adapter"
+        "name": {
+          "en": "Calculations provided by the adapter",
+          "de": "Vom Adapter bereitgestellte Berechnungen",
+          "ru": "Расчеты, предоставленные адаптером",
+          "pt": "Cálculos fornecidos pelo adaptador",
+          "nl": "Berekeningen geleverd door de adapter",
+          "fr": "Calculs fournis par l'adaptateur",
+          "it": "Calcoli forniti dall'adattatore",
+          "es": "Cálculos proporcionados por el adaptador",
+          "pl": "Obliczenia dostarczone przez adapter",
+          "uk": "Розрахунки надані адаптером",
+          "zh-cn": "Calculations provided by the adapter"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "calculation.autarky",
+      "type": "channel",
+      "common": {
+        "name": {
+          "en": "Autarky",
+          "de": "Autarkie",
+          "ru": "Автаркия",
+          "pt": "Autarquia",
+          "nl": "Autarkie",
+          "fr": "L'autarcie",
+          "it": "Autarchia",
+          "es": "Autarquía",
+          "pl": "Autarkia",
+          "uk": "Автаркія",
+          "zh-cn": "Autarky"
+        }
       },
       "native": {}
     },
@@ -237,7 +292,19 @@
       "_id": "calculation.battery",
       "type": "channel",
       "common": {
-        "name": "Battery"
+        "name": {
+          "en": "Battery",
+          "de": "Batterie",
+          "ru": "Аккумулятор",
+          "pt": "Bateria",
+          "nl": "Batterij",
+          "fr": "Batterie",
+          "it": "Batteria",
+          "es": "Batería",
+          "pl": "Bateria",
+          "uk": "Батарея",
+          "zh-cn": "Battery"
+        }
       },
       "native": {}
     },
@@ -245,7 +312,19 @@
       "_id": "calculation.consumption",
       "type": "channel",
       "common": {
-        "name": "Consumption"
+        "name": {
+          "en": "Consumption",
+          "de": "Verbrauch",
+          "ru": "Потребление",
+          "pt": "Consumo",
+          "nl": "Verbruik",
+          "fr": "Consommation",
+          "it": "Consumo",
+          "es": "Consumo",
+          "pl": "Zużycie",
+          "uk": "Споживання",
+          "zh-cn": "Consumption"
+        }
       },
       "native": {}
     },
@@ -253,7 +332,19 @@
       "_id": "calculation.production",
       "type": "channel",
       "common": {
-        "name": "Production"
+        "name": {
+          "en": "Production",
+          "de": "Produktion",
+          "ru": "Производство",
+          "pt": "Produção",
+          "nl": "Productie",
+          "fr": "Production",
+          "it": "Produzione",
+          "es": "Producción",
+          "pl": "Produkcja",
+          "uk": "Виробництво",
+          "zh-cn": "Production"
+        }
       },
       "native": {}
     },
@@ -261,7 +352,19 @@
       "_id": "calculation.elements",
       "type": "channel",
       "common": {
-        "name": "Additions and Subtractions of elements"
+        "name": {
+          "en": "Additions and Subtractions of elements",
+          "de": "Additionen und Subtraktionen von Elementen",
+          "ru": "Сложение и вычитание элементов",
+          "pt": "Adições e subtracções de elementos",
+          "nl": "Optellen en aftrekken van elementen",
+          "fr": "Additions et soustractions d'éléments",
+          "it": "Addizioni e sottrazioni di elementi",
+          "es": "Sumas y restas de elementos",
+          "pl": "Dodawanie i odejmowanie elementów",
+          "uk": "Додавання та віднімання елементів",
+          "zh-cn": "Additions and Subtractions of elements"
+        }
       },
       "native": {}
     },
@@ -269,7 +372,19 @@
       "_id": "calculation.battery.remaining",
       "type": "state",
       "common": {
-        "name": "Remaining Time of the battery",
+        "name": {
+          "en": "Remaining Time of the battery",
+          "de": "Verbleibende Zeit des Akkus",
+          "ru": "Остаточное время работы аккумулятора",
+          "pt": "Tempo restante da bateria",
+          "nl": "Resterende tijd van de batterij",
+          "fr": "Durée restante de la batterie",
+          "it": "Tempo residuo della batteria",
+          "es": "Tiempo restante de la batería",
+          "pl": "Pozostały czas pracy akumulatora",
+          "uk": "Час, що залишився від батареї",
+          "zh-cn": "Remaining Time of the battery"
+        },
         "type": "string",
         "role": "state",
         "read": true,
@@ -281,7 +396,19 @@
       "_id": "calculation.battery.remaining_target",
       "type": "state",
       "common": {
-        "name": "Target of the remaining Time of the battery",
+        "name": {
+          "en": "Target of the remaining Time of the battery",
+          "de": "Ziel der verbleibenden Zeit des Akkus",
+          "ru": "Индикатор оставшегося времени работы аккумулятора",
+          "pt": "Objetivo do tempo restante da bateria",
+          "nl": "Doel van de resterende tijd van de batterij",
+          "fr": "Objectif du temps restant de la batterie",
+          "it": "Obiettivo del tempo residuo della batteria",
+          "es": "Objetivo del tiempo restante de la batería",
+          "pl": "Cel pozostałego czasu pracy akumulatora",
+          "uk": "Цільовий час роботи акумулятора, що залишився",
+          "zh-cn": "Target of the remaining Time of the battery"
+        },
         "type": "number",
         "role": "value.time",
         "read": true,
@@ -293,7 +420,19 @@
       "_id": "calculation.battery.remaining_target_DT",
       "type": "state",
       "common": {
-        "name": "Target of the remaining Time of the battery (Date&Time)",
+        "name": {
+          "en": "Target of the remaining Time of the battery (Date&Time)",
+          "de": "Ziel der verbleibenden Zeit der Batterie (Datum&Uhrzeit)",
+          "ru": "Задание оставшегося времени работы аккумулятора (Дата и время)",
+          "pt": "Objetivo do tempo restante da bateria (Data e Hora)",
+          "nl": "Doel van de resterende tijd van de batterij (Datum&Tijd)",
+          "fr": "Objectif du temps restant de la batterie (date et heure)",
+          "it": "Obiettivo del tempo rimanente della batteria (data e ora)",
+          "es": "Objetivo del tiempo restante de la batería (Fecha&Hora)",
+          "pl": "Cel pozostałego czasu pracy akumulatora (data i godzina)",
+          "uk": "Цільовий час, що залишився від батареї (Дата і час)",
+          "zh-cn": "Target of the remaining Time of the battery (Date&Time)"
+        },
         "type": "string",
         "role": "value",
         "read": true,
@@ -305,7 +444,19 @@
       "_id": "calculation.battery.charging_grid",
       "type": "state",
       "common": {
-        "name": "Current Charging via Grid",
+        "name": {
+          "en": "Current Charging via Grid",
+          "de": "Stromaufladung über das Netz",
+          "ru": "Текущая зарядка через сеть",
+          "pt": "Carregamento atual através da rede",
+          "nl": "Stroom Opladen via Net",
+          "fr": "Chargement actuel par le réseau",
+          "it": "Ricarica di corrente tramite rete",
+          "es": "Carga actual a través de la red",
+          "pl": "Bieżące ładowanie przez sieć",
+          "uk": "Зарядка від мережі",
+          "zh-cn": "Current Charging via Grid"
+        },
         "type": "number",
         "role": "value.power",
         "read": true,
@@ -319,7 +470,19 @@
       "_id": "calculation.battery.charging_solar",
       "type": "state",
       "common": {
-        "name": "Current Charging via Solar",
+        "name": {
+          "en": "Current Charging via Solar",
+          "de": "Stromaufladung über Solar",
+          "ru": "Зарядка током от солнечной батареи",
+          "pt": "Carregamento de corrente através de energia solar",
+          "nl": "Stroom opladen via zonne-energie",
+          "fr": "Chargement du courant par voie solaire",
+          "it": "Ricarica di corrente tramite energia solare",
+          "es": "Carga de corriente mediante energía solar",
+          "pl": "Ładowanie prądem przez baterię słoneczną",
+          "uk": "Поточна зарядка через сонячну батарею",
+          "zh-cn": "Current Charging via Solar"
+        },
         "type": "number",
         "role": "value.power",
         "read": true,
@@ -333,7 +496,19 @@
       "_id": "calculation.battery.remaining_energy",
       "type": "state",
       "common": {
-        "name": "Current Power available in battery",
+        "name": {
+          "en": "Available power in battery",
+          "de": "Verfügbare Leistung der Batterie",
+          "ru": "Доступная мощность батареи",
+          "pt": "Potência disponível na bateria",
+          "nl": "Beschikbaar vermogen in batterij",
+          "fr": "Puissance disponible dans la batterie",
+          "it": "Potenza disponibile nella batteria",
+          "es": "Energía disponible en la batería",
+          "pl": "Dostępna moc w akumulatorze",
+          "uk": "Доступна потужність в акумуляторі",
+          "zh-cn": "Available power in battery"
+        },
         "type": "number",
         "role": "value.power",
         "read": true,
@@ -347,7 +522,19 @@
       "_id": "calculation.consumption.consumption",
       "type": "state",
       "common": {
-        "name": "Current Consumption",
+        "name": {
+          "en": "Current consumption",
+          "de": "Stromverbrauch",
+          "ru": "Текущее потребление",
+          "pt": "Consumo atual",
+          "nl": "Huidige consumptie",
+          "fr": "Consommation de courant",
+          "it": "Consumo di corrente",
+          "es": "Consumo actual",
+          "pl": "Pobór prądu",
+          "uk": "Поточне споживання",
+          "zh-cn": "Current consumption"
+        },
         "type": "number",
         "role": "value.power",
         "read": true,
@@ -361,7 +548,19 @@
       "_id": "calculation.production.production",
       "type": "state",
       "common": {
-        "name": "Current Production",
+        "name": {
+          "en": "Current production",
+          "de": "Laufende Produktion",
+          "ru": "Текущее производство",
+          "pt": "Produção atual",
+          "nl": "Huidige productie",
+          "fr": "Production actuelle",
+          "it": "Produzione attuale",
+          "es": "Producción actual",
+          "pl": "Bieżąca produkcja",
+          "uk": "Поточне виробництво",
+          "zh-cn": "Current production"
+        },
         "type": "number",
         "role": "value.power",
         "read": true,
@@ -372,10 +571,48 @@
       "native": {}
     },
     {
+      "_id": "calculation.autarky.autarky",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Current autarky",
+          "de": "Aktuelle Autarkie",
+          "ru": "Нынешняя автаркия",
+          "pt": "Autarquia atual",
+          "nl": "Huidige autarkie",
+          "fr": "Autarcie actuelle",
+          "it": "L'autarchia attuale",
+          "es": "Autarquía actual",
+          "pl": "Obecna autarkia",
+          "uk": "Нинішня автаркія",
+          "zh-cn": "Current autarky"
+        },
+        "type": "number",
+        "role": "value",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "%"
+      },
+      "native": {}
+    },
+    {
       "_id": "",
       "type": "meta",
       "common": {
-        "name": "Storage for energiefluss-erweitert",
+        "name": {
+          "en": "Storage for energiefluss-erweitert",
+          "de": "Speicher für energiefluss-erweitert",
+          "ru": "Хранилище для энергосберегающих устройств",
+          "pt": "Armazenamento para energiefluss-erweitert",
+          "nl": "Opslag voor energiefluss-erweitert",
+          "fr": "Stockage pour energiefluss-erweitert",
+          "it": "Stoccaggio per energiefluss-erweitert",
+          "es": "Almacenamiento para energiefluss-erweitert",
+          "pl": "Przechowywanie dla energiefluss-erweitert",
+          "uk": "Сховище для зберігання енергії",
+          "zh-cn": "Storage for energiefluss-erweitert"
+        },
         "type": "meta.user"
       },
       "native": {}

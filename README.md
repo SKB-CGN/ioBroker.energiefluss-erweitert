@@ -34,6 +34,10 @@ This adapter provides a dynamic and animated visualization of energy flows for a
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- FIX: Adapter was appearing on welcome screen overview (should only be used for pro)
+- FIX: Menubar has loading animation, when opening the workspace the first time while tour is displayed
+
+### 0.8.1 (2025-10-21)
 - FIX: Dialog for line animation overrides was not opening
 - Added: VIS and VIS-2 widget added. Just drag the widget to VIS and set the adapter instance
 

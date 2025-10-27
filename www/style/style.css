@@ -589,6 +589,7 @@ legend>span {
     height: auto;
     -webkit-transform: none;
     transform: none;
+    transition: left .5s ease-in-out, top .5s ease-in-out;
 }
 
 #tourContainer.hiding {
@@ -849,10 +850,6 @@ text.action_element:hover {
     transition: color .5s;
     height: 28px;
     width: 28px;
-}
-
-.add_element_area:hover {
-    color: var(--secondary);
 }
 
 .all_elements {
@@ -2560,6 +2557,7 @@ nav label:active {
     z-index: 1001;
     box-shadow: 0px 0px 10px 5px rgba(255, 215, 0, 0.8);
     background: white;
+    transition: box-shadow .5s;
 }
 
 .tourHighlight.added_elements {
@@ -3508,5 +3506,9 @@ nav label:active {
     .input_button:not(:disabled):hover {
         background-position: left bottom;
         color: var(--black);
+    }
+
+    .add_element_area:hover {
+        color: var(--secondary);
     }
 }
