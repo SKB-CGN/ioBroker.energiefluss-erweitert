@@ -34,7 +34,7 @@ This adapter provides a dynamic and animated visualization of energy flows for a
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- FIX: Adapter was appearing on welcome screen overview (should only be used for pro)
+- FIX: Adapter was appearing on welcome screen overview (should only be used for pro) (#429)
 - FIX: Menubar has loading animation, when opening the workspace the first time while tour is displayed
 
 ### 0.8.1 (2025-10-21)
