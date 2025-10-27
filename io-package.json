@@ -153,6 +153,7 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "assumption",
+    "welcomeScreen":null,
     "welcomeScreenPro": [
       {
         "link": "energiefluss-erweitert/",
