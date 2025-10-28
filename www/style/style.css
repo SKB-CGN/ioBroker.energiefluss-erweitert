@@ -572,14 +572,15 @@ legend>span {
     z-index: 1000;
     opacity: 0;
     outline: 1px solid var(--darkestGrey);
-    transition: opacity .6s ease-out, transform .6s ease-out, visibility 0s linear 0.6s;
+    transition: opacity .6s ease-out, transform .6s ease-out .02s, visibility 0s linear 0.6s;
+    will-change: transform, opacity;
 }
 
 .popUpContainer.visible {
     visibility: visible;
     opacity: 1;
     transform: translate(-50%, -50%);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity .6s ease-out, transform .6s ease-out .02s;
 }
 
 #tourContainer {
@@ -589,7 +590,6 @@ legend>span {
     height: auto;
     -webkit-transform: none;
     transform: none;
-    transition: left .5s ease-in-out, top .5s ease-in-out;
 }
 
 #tourContainer.hiding {
@@ -853,7 +853,7 @@ text.action_element:hover {
 }
 
 .all_elements {
-    transition: opacity .4s ease-in-out, stroke .4s ease-in-out, color .4s ease-in-out, fill .4s ease-in-out, stroke-width .4s ease-in-out;
+    transition: opacity .4s ease-in-out, stroke .4s ease-in-out, color .4s ease-in-out, fill .4s ease-in-out, stroke-width .4s ease-in-out, stroke-dasharray .5s ease-in-out;
 }
 
 .animation {
@@ -865,17 +865,16 @@ text.action_element:hover {
 }
 
 .animation_cfg {
-    transition: .5s;
     animation-name: dashdraw;
     animation-duration: 2000ms;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     transform: translateZ(0);
+    will-change: stroke-dasharray, stroke;
 }
 
 .animation_fade {
-    transition: stroke .3s ease-in-out, stroke-dasharray .3s ease-in-out;
-    stroke-dasharray: 0 40 !important;
+    transition: stroke .35s ease-out;
     stroke: transparent !important;
 }
 
@@ -2557,7 +2556,7 @@ nav label:active {
     z-index: 1001;
     box-shadow: 0px 0px 10px 5px rgba(255, 215, 0, 0.8);
     background: white;
-    transition: box-shadow .5s;
+    transition: background .5s ease-in-out, box-shadow .5s ease-in-out;
 }
 
 .tourHighlight.added_elements {
