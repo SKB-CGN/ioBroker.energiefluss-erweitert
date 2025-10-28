@@ -860,7 +860,9 @@ class EnergieflussErweitert extends utils.Adapter {
     }
 
     calculateStrokeDots(maxDots, maxPower, currentPower) {
-        if (currentPower <= 0) return 0;
+        if (currentPower <= 0) {
+            return 0;
+        }
         // Calculate the number of dots to be drawn
         const amount = Math.round((currentPower / maxPower) * maxDots);
         return Math.max(1, Math.min(amount, maxDots));
