@@ -37,6 +37,7 @@ This adapter provides a dynamic and animated visualization of energy flows for a
 - FIX: Adapter was appearing on welcome screen overview (should only be used for pro) (#429)
 - FIX: Menubar has loading animation, when opening the workspace the first time while tour is displayed
 - FIX: When using **Animation dependency** 'Dots' or 'Duration' the animation was to heavy - regulated to smoother blend
+- FIX: **Animation dependency** 'Dots' once power is on the line, minimal one dot is displayed. The threshold can be used, to manage the appearance of the first dot. 
 
 ### 0.8.1 (2025-10-21)
 - FIX: Dialog for line animation overrides was not opening
