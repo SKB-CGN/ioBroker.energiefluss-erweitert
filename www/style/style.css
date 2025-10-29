@@ -104,7 +104,7 @@ body {
     background-color: var(--white);
     color: var(--black);
     min-width: min-content;
-    height: 100vh;
+    height: 100svh;
 }
 
 /* Tap Highlight */
