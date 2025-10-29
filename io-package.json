@@ -143,7 +143,11 @@
     "localLinks": {
       "_default": {
         "link": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%",
-        "color": "#538ea3"
+        "icon": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
+        "color": "#538ea3",
+        "name": "energiefluss-erweitert",
+        "pro": "energiefluss-erweitert/",
+        "intro": true
       }
     },
     "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
@@ -156,13 +160,15 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "assumption",
-    "welcomeScreenPro": {
-      "link": "energiefluss-erweitert/",
-      "name": "energiefluss-erweitert",
-      "img": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
-      "color": "#538ea3",
-      "order": 0
-    },
+    "welcomeScreenPro": [
+      {
+        "link": "energiefluss-erweitert/",
+        "name": "energiefluss-erweitert",
+        "img": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
+        "color": "#538ea3",
+        "order": 1
+      }
+    ],
     "licenseInformation": {
       "license": "MIT",
       "type": "free"
