@@ -140,16 +140,6 @@
     "platform": "Javascript/Node.js",
     "icon": "energiefluss-erweitert.png",
     "enabled": true,
-    "localLinks": {
-      "_default": {
-        "link": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/index.html?instance=%instance%",
-        "icon": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
-        "color": "#538ea3",
-        "name": "energiefluss-erweitert",
-        "pro": "energiefluss-erweitert/",
-        "intro": true
-      }
-    },
     "extIcon": "https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png",
     "readme": "https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/README.md",
     "loglevel": "info",
@@ -160,15 +150,48 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "assumption",
-    "welcomeScreenPro": [
-      {
-        "link": "energiefluss-erweitert/",
-        "name": "energiefluss-erweitert",
-        "img": "energiefluss-erweitert/img/icons/android/android-launchericon-96-96.png",
+    "localLinks": {
+      "_default": {
+        "link": "%web_protocol%://%ip%:%web_port%/energiefluss-erweitert/?instance=%instance%",
+        "icon": "energiefluss-erweitert/img/icons/android/android-launchericon-144-144.png",
         "color": "#538ea3",
-        "order": 1
+        "name": "Energiefluss - erweitert",
+        "intro": true,
+        "pro": "energiefluss-erweitert/?instance=%instance%",
+        "cloud": "energiefluss-erweitert/?instance=%instance%"
+      },
+      "knowledgeBase": {
+        "link": "https://www.kreyenborg.koeln/wissensdatenbank/Kategorie/iobroker-energiefluss-erweitert/",
+        "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBmaWxsPSIjNTM4ZWEzIiBkPSJNMjQgMjVoLTN2LTNoM3ptNS0zaC0zdjNoM3ptLTUgNWgtM3YzaDN6bTUgMGgtM3YzaDN6TTIwIDhoLTh2Mmg4em0tMyAyMEg2di00aDJ2LTJINnYtNWgydi0ySDZ2LTVoMlY4SDZWNGgxOHYxNWgyVjRjMC0xLjEtLjktMi0yLTJINmMtMS4xIDAtMiAuOS0yIDJ2NEgydjJoMnY1SDJ2MmgydjVIMnYyaDJ2NGMwIDEuMS45IDIgMiAyaDExem0zLTEzaC04djJoOHoiLz48L3N2Zz4=",
+        "color": "#b2dfee",
+        "name": {
+          "en": "Energiefluss-erweitert - Knowledge-Base",
+          "de": "Energiefluss-erweitert - Wissensdatenbank",
+          "ru": "Energiefluss-erweitert - База знаний",
+          "pt": "Energiefluss-erweitert - Base de conhecimento",
+          "nl": "Energiefluss-erweitert - Kennisbank",
+          "fr": "Energiefluss-erweitert - Base de connaissances",
+          "it": "Fluss energetico - Base di conoscenza",
+          "es": "Energiefluss-erweitert - Base de conocimientos",
+          "pl": "Energiefluss-erweitert - Baza wiedzy",
+          "uk": "Energiefluss-erweitert - База знань",
+          "zh-cn": "Energiefluss-erweitert - 知识库"
+        },
+        "description": {
+          "en": "Knowledge-Base for Energiefluss-erweitert",
+          "de": "Wissensdatenbank für Energiefluss-erweitert",
+          "ru": "База знаний для Energiefluss-erweitert",
+          "pt": "Base de conhecimento para Energiefluss-erweitert",
+          "nl": "Kennisbank voor Energiefluss-erweitert",
+          "fr": "Base de connaissances sur Energiefluss-erweitert",
+          "it": "Base di conoscenza per il flusso energetico",
+          "es": "Base de conocimientos para Energiefluss-erweitert",
+          "pl": "Baza wiedzy dla Energiefluss-erweitert",
+          "uk": "База знань для Energiefluss-erweitert",
+          "zh-cn": "Energiefluss-erweitert 知识库"
+        }
       }
-    ],
+    },
     "licenseInformation": {
       "license": "MIT",
       "type": "free"
