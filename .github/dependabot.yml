@@ -12,4 +12,4 @@ updates:
   versioning-strategy: increase
   ignore:
     - dependency-name: "sharp"
-    versions: [">=0.33.0"]
+      versions: [">=0.33.0"]
