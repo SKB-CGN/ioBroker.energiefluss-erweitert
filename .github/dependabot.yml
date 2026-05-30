@@ -20,6 +20,9 @@ updates:
       - dependency-name: 'sharp'
         versions:
           - '>=0.33.0'
+      - dependency-name: '@types/node'
+        update-types:
+          - 'version-update:semver-major'
     cooldown:
       default-days: 7
 
