@@ -528,6 +528,8 @@ described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#
 ### 0.0.2-alpha.0 (2023-04-28)
 * (SKB) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
