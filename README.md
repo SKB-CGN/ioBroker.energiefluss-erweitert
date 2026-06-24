@@ -34,6 +34,7 @@ This adapter provides a dynamic and animated visualization of energy flows for a
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 - Added: Animation duration for 'Power-saving'-mode editable. Defaults to 1200ms.
 - Added: Rectangels can now be rotated and have 4 more connection points in the corner, which appear when the element is rotated >0°
 - Added: Faster and more accurate line-rendering
