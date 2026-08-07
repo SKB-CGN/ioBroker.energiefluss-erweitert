@@ -464,7 +464,7 @@
           "zh-cn": "Target of the remaining Time of the battery (Date&Time)"
         },
         "type": "string",
-        "role": "value",
+        "role": "state",
         "read": true,
         "write": false
       },
