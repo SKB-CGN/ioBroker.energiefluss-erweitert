@@ -1,0 +1,55 @@
+diff --git a/functions.js b/functions.js
+index 93e9907..117e36c 100644
+--- a/functions.js
++++ b/functions.js
+@@ -419,6 +419,18 @@ const switchLayouts = {
+ let aceLog, aceCSS, aceOverride;
+ const urlParams = new URLSearchParams(window.location.search);
+ 
++// Dynamically determine the base URL so that reverse-proxy sub-paths (e.g . /web/, /proxy/, ...) are honoured automatically.
++// strip everything from "/energiefluss-erweitert." onwards to obtain the prefix.
++const _baseURL = (() => {
++    if (!window.location.hostname) return 'https://192.168.2.19:8082/';
++    const idx = window.location.pathname.indexOf('/energiefluss-erweitert');
++    if (idx > 0) {
++        // There is a non-trivial prefix (e.g. "/web/") - return just the path portion
++        return window.location.pathname.substring(0, idx + 1);
++    }
++    return '/';
++})();
++
+ // App Properties
+ const appProperties = {
+     instance: Number(urlParams.get('instance')) || 0,
+@@ -427,8 +439,8 @@ const appProperties = {
+     namespace: `energiefluss-erweitert.${urlParams.get('instance') || 0}`,
+     hostname: window.location.hostname,
+     localMode: window.location.hostname ? false : true,
+-    socketURL: window.location.hostname ? '/' : 'https://192.168.2.19:8082/',
+-    webURL: window.location.hostname ? '/' : 'https://192.168.2.19:8082/',
++    socketURL: _baseURL,
++    webURL: _baseURL,
+     wwwExtLoaded: false,
+     devMode: urlParams.get('devMode') == 'true',
+     colorScheme: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+@@ -456,16 +468,13 @@ let socket = null;
+ (async () => {
+     try {
+         // Check, if user is using socket.io instance instead of 'integrated'
+-        await loadAdditionalJSFile(appProperties.socketURL + '_socket/info.js');
+-        const baseUrl = new URL(appProperties.socketURL, window.location.href);
++        await loadAdditionalJSFile(_baseURL + '_socket/info.js');
+ 
+         if (typeof socketUrl !== 'undefined' && socketUrl) {
+-            const socketPort = socketUrl.split(':').pop();
+-            console.log(`[Socket]: Web-Adapter using socket.io-Adapter. Changing Socket to: ${socketPort}`);
+-
+-            baseUrl.port = socketPort;
++            const path = socketPath ? socketPath : '';
+ 
+-            appProperties.socketURL = baseUrl.toString();
++            console.log(`[Socket]: Web-Adapter using socket.io-Adapter. Changing Socket to: ${socketUrl}${path}`);
++            appProperties.socketURL = socketUrl + path;
+         }
+ 
+         console.debug('[Config] App Properties: ', appProperties);
