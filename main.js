@@ -519,7 +519,9 @@ class EnergieflussErweitert extends utils.Adapter {
                                                 acc - rawValues[idx] * (globalConfig.datasources[idx].factor ?? 1),
                                             0,
                                         );
-                                        this.log.debug(`Subtracted by: ${subArray.toString()}`);
+                                        this.log.debug(
+                                            `Subtracted by: ${subArray.toString()} with Value: ${subValue} | Result: ${sourceValue + subValue}`,
+                                        );
 
                                         // Set the subtraction state
                                         await this.setStateChangedAsync(`calculation.elements.element_${id}.subtract`, {
@@ -537,7 +539,9 @@ class EnergieflussErweitert extends utils.Adapter {
                                                 acc + rawValues[idx] * (globalConfig.datasources[idx].factor ?? 1),
                                             0,
                                         );
-                                        this.log.debug(`Added to Value: ${addArray.toString()}`);
+                                        this.log.debug(
+                                            `Added by: ${addArray.toString()} with Value: ${addValue} | Result: ${sourceValue + addValue}`,
+                                        );
 
                                         // Set the addition state
                                         await this.setStateChangedAsync(`calculation.elements.element_${id}.addition`, {
@@ -546,7 +550,7 @@ class EnergieflussErweitert extends utils.Adapter {
                                         });
                                     }
 
-                                    let formatValue = Number(sourceValue) + Number(subValue) + Number(addValue);
+                                    const formatValue = Number(sourceValue) + Number(subValue) + Number(addValue);
 
                                     // Check if value is over threshold
                                     if (Math.abs(formatValue) >= obj.threshold) {
@@ -584,6 +588,7 @@ class EnergieflussErweitert extends utils.Adapter {
                                             default:
                                                 return cValue;
                                         }
+                                        this.log.debug(`Calculated Value for: ${id} is: ${cValue}`);
 
                                         outputValues.values[id] =
                                             obj.decimal_places >= 0
@@ -600,7 +605,7 @@ class EnergieflussErweitert extends utils.Adapter {
                         }
                     };
 
-                    checkDisplay(obj.source_display);
+                    await checkDisplay(obj.source_display);
                 }
                 break;
         }
@@ -1094,7 +1099,7 @@ class EnergieflussErweitert extends utils.Adapter {
 
             // Runner for calculating the values
             const sourceRunner = async what => {
-                this.log.debug(`Updated through ${what}: ${JSON.stringify(rawValues)}`);
+                this.log.debug(`Updated through '${what}': ${JSON.stringify(rawValues)}`);
 
                 // Run through the provided object
                 for (const key of Object.keys(soObj[what])) {
@@ -1665,6 +1670,7 @@ class EnergieflussErweitert extends utils.Adapter {
             );
 
             // Build Output
+            this.log.debug(`OutputValues: ${JSON.stringify(outputValues)}`);
             this.setStateChangedAsync('data', {
                 val: JSON.stringify(outputValues),
                 ack: true,
