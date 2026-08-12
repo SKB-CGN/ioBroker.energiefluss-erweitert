@@ -80,6 +80,7 @@
     "failmsg_import_type": "该元素没有有效类型，无法导入！",
     "failmsg_instance": "您尝试访问的实例 <b>%s</b> 不存在！",
     "failmsg_instance_offline": "您尝试访问的实例<b>%s</b>尚未启动！",
+    "failmsg_instance_ws_error": "无法建立与 <b>%s</b> 的连接！请检查您的 Web 适配器和/或 socket.io 适配器的配置！",
     "failmsg_invalid_ds": "无法接收此元素的状态！请检查关联的数据源：<br> %s",
     "failmsg_invalid_url": "输入的 URL：<br><b>%s</b><br>无效！",
     "failmsg_loading_url": "无法加载请求的 URL！",

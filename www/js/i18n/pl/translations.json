@@ -80,6 +80,7 @@
     "failmsg_import_type": "Element nie ma prawidłowego typu i nie można go zaimportować!",
     "failmsg_instance": "Instancja <b>%s</b>, do której próbujesz uzyskać dostęp, nie istnieje!",
     "failmsg_instance_offline": "Instancja <b>%s</b>, do której próbujesz uzyskać dostęp, nie została uruchomiona!",
+    "failmsg_instance_ws_error": "Nie udało się nawiązać połączenia z <b>%s</b>! Sprawdź konfigurację adaptera Web- i/lub socket.io!",
     "failmsg_invalid_ds": "Stan tego elementu nie mógł zostać odebrany! Proszę sprawdzić powiązane źródło danych: <br> %s",
     "failmsg_invalid_url": "Wprowadzony adres URL:<br><b>%s</b><br>jest nieprawidłowy!",
     "failmsg_loading_url": "Nie można załadować żądanego adresu URL!",

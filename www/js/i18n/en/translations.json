@@ -80,6 +80,7 @@
     "failmsg_import_type": "The element has no valid type and could not be imported!",
     "failmsg_instance": "The Instance <b>%s</b> you are trying to access does not exist!",
     "failmsg_instance_offline": "The Instance <b>%s</b> you are trying to access is not started!",
+    "failmsg_instance_ws_error": "Could not establish a connection to <b>%s</b>! Please check your configuration of the Web- and/or socket.io-Adapter!",
     "failmsg_invalid_ds": "The state for this element could not be received! Please check the associated Datasource: <br> %s",
     "failmsg_invalid_url": "The entered URL:<br><b>%s</b><br>is not valid!",
     "failmsg_loading_url": "The requested URL could not be loaded!",

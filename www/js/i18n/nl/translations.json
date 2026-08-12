@@ -80,6 +80,7 @@
     "failmsg_import_type": "Het element heeft geen geldig type en kon niet worden geïmporteerd!",
     "failmsg_instance": "De instantie <b>%s</b> die u probeert te openen bestaat niet!",
     "failmsg_instance_offline": "De instantie <b>%s</b> die u probeert te openen, is niet gestart!",
+    "failmsg_instance_ws_error": "Er kon geen verbinding worden gemaakt met <b>%s</b>! Controleer uw configuratie van de web- en/of socket.io-adapter!",
     "failmsg_invalid_ds": "De status voor dit element kon niet worden ontvangen! Controleer de bijbehorende Datasource: <br> %s",
     "failmsg_invalid_url": "De ingevoerde URL:<br><b>%s</b><br>is niet geldig!",
     "failmsg_loading_url": "De gevraagde URL kon niet worden geladen!",

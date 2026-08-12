@@ -80,6 +80,7 @@
     "failmsg_import_type": "¡El elemento no tiene un tipo válido y no se pudo importar!",
     "failmsg_instance": "¡La instancia <b>%s</b> a la que intenta acceder no existe!",
     "failmsg_instance_offline": "¡La instancia <b>%s</b> a la que intenta acceder no se ha iniciado!",
+    "failmsg_instance_ws_error": "No se pudo establecer una conexión con <b>%s</b>. Por favor, compruebe la configuración de su adaptador web y/o socket.io.",
     "failmsg_invalid_ds": "¡No se pudo recibir el estado de este elemento! Verifique la fuente de datos asociada: <br> %s",
     "failmsg_invalid_url": "La URL ingresada:<br><b>%s</b><br>¡no es válida!",
     "failmsg_loading_url": "¡No se pudo cargar la URL solicitada!",
