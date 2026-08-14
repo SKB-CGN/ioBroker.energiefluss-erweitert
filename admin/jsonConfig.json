@@ -1,0 +1,135 @@
+{
+   "type": "tabs",
+   "tabsStyle": {
+      "width": "calc(100% - 100px)"
+   },
+   "i18n": true,
+   "items": {
+      "_StandardTab": {
+         "type": "panel",
+         "label": "main_settings",
+         "items": {
+            "_donateTxt": {
+               "type": "staticText",
+               "text": "donate",
+               "xs": 12,
+               "sm": 12,
+               "md": 12,
+               "lg": 12,
+               "xl": 12
+            },
+            "_donate": {
+               "type": "staticImage",
+               "tooltip": "PayPal.Me",
+               "noTranslation": true,
+               "href": "https://www.paypal.com/donate/?hosted_button_id=XNR6XFB9UZ8UJ",
+               "src": "paypal-donate-button.png",
+               "xs": 6,
+               "sm": 6,
+               "md": 4,
+               "lg": 2,
+               "xl": 1,
+               "newLine": true
+            },
+            "_divider0": {
+               "newLine": true,
+               "type": "divider",
+               "color": "primary"
+            },
+            "_introTx": {
+               "type": "staticText",
+               "text": "introTx",
+               "xs": 12,
+               "sm": 12,
+               "md": 12,
+               "lg": 12,
+               "xl": 12,
+               "newLine": true
+            },
+            "_lostConfigTx": {
+               "type": "staticText",
+               "text": "lostConfigTx",
+               "xs": 12,
+               "sm": 12,
+               "md": 12,
+               "lg": 12,
+               "xl": 12,
+               "newLine": true
+            },
+            "_accessKeyTx": {
+               "type": "staticText",
+               "text": "accessKeyTx",
+               "xs": 12,
+               "sm": 12,
+               "md": 12,
+               "lg": 12,
+               "xl": 12,
+               "newLine": true
+            },
+            "staticLink1": {
+               "type": "staticLink",
+               "text": "AccessKey at Wikipedia",
+               "href": "https://en.wikipedia.org/wiki/Access_key",
+               "icon": "info",
+               "newLine": true,
+               "xs": 12,
+               "sm": 12,
+               "md": 6,
+               "lg": 4,
+               "xl": 4
+            },
+            "BrowserKeys": {
+               "type": "staticText",
+               "format": "html",
+               "text": "<table style='width:100%;border-collapse:collapse;'><thead><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><th style='padding:15px 5px;text-align:left;'>Browser</th><th style='padding:15px 5px;text-align:left;' class='translate' data-lang='keyCombinationTx'>Key</th></tr></thead><tbody><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Chrome</td><td style='padding:15px 5px;'>Windows: <kbd>Alt</kbd> + (<kbd>⇧ Shift</kbd>) + <kbd>e</kbd><br>Mac: <kbd>Ctrl</kbd>+ <kbd>⌥ Opt</kbd> + e</td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Firefox</td><td style='padding:15px 5px;'><kbd>Alt</kbd> + <kbd>⇧ Shift</kbd> + <kbd>e</kbd><br>Mac: <kbd>Ctrl</kbd>+ <kbd>⌥ Opt</kbd> + e</td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Internet Explorer</td><td style='padding:15px 5px;'><kbd>Alt</kbd></td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Microsoft Edge</td><td style='padding:15px 5px;'><kbd>Alt</kbd></td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Opera &gt;=15</td><td style='padding:15px 5px;'><kbd>Alt</kbd> + <kbd>⇧ Shift</kbd> + <kbd>e</kbd></td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Opera &lt;= 12</td><td style='padding:15px 5px;'><kbd>⇧ Shift</kbd> + <kbd>ESC</kbd> + <kbd>e</kbd></td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Safari</td><td style='padding:15px 5px;'>Windows:<kbd>Alt</kbd> + <kbd>e</kbd><br>Mac: <kbd>Crtl</kbd> + <kbd>e</kbd></td></tr></tbody></table>",
+               "newLine": true,
+               "sm": 12,
+               "md": 12,
+               "lg": 12,
+               "xl": 12
+            }
+         }
+      },
+      "_PasswordTab": {
+         "type": "panel",
+         "label": "password",
+         "items": {
+            "passwordTxt": {
+               "type": "staticText",
+               "text": "ex_password",
+               "xs": 12,
+               "sm": 12,
+               "md": 12,
+               "lg": 6,
+               "xl": 6
+            },
+            "password": {
+               "type": "password",
+               "label": "password",
+               "newLine": true,
+               "xs": 12,
+               "sm": 12,
+               "md": 6,
+               "lg": 4,
+               "xl": 4
+            }
+         }
+      },
+      "_WikiTab": {
+         "type": "panel",
+         "label": "WIKI",
+         "items": {
+            "_wikiLink": {
+               "type": "staticLink",
+               "text": "WIKI",
+               "href": "https://www.kreyenborg.koeln/wissensdatenbank/Kategorie/iobroker-energiefluss-erweitert/",
+               "xs": 12,
+               "sm": 12,
+               "md": 12,
+               "lg": 12,
+               "xl": 12
+            }
+         }
+      }
+   }
+}
