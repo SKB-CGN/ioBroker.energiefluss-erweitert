@@ -83,6 +83,7 @@
                "format": "html",
                "text": "<table style='width:100%;border-collapse:collapse;'><thead><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><th style='padding:15px 5px;text-align:left;'>Browser</th><th style='padding:15px 5px;text-align:left;' class='translate' data-lang='keyCombinationTx'>Key</th></tr></thead><tbody><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Chrome</td><td style='padding:15px 5px;'>Windows: <kbd>Alt</kbd> + (<kbd>⇧ Shift</kbd>) + <kbd>e</kbd><br>Mac: <kbd>Ctrl</kbd>+ <kbd>⌥ Opt</kbd> + e</td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Firefox</td><td style='padding:15px 5px;'><kbd>Alt</kbd> + <kbd>⇧ Shift</kbd> + <kbd>e</kbd><br>Mac: <kbd>Ctrl</kbd>+ <kbd>⌥ Opt</kbd> + e</td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Internet Explorer</td><td style='padding:15px 5px;'><kbd>Alt</kbd></td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Microsoft Edge</td><td style='padding:15px 5px;'><kbd>Alt</kbd></td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Opera &gt;=15</td><td style='padding:15px 5px;'><kbd>Alt</kbd> + <kbd>⇧ Shift</kbd> + <kbd>e</kbd></td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Opera &lt;= 12</td><td style='padding:15px 5px;'><kbd>⇧ Shift</kbd> + <kbd>ESC</kbd> + <kbd>e</kbd></td></tr><tr style='border-bottom:1px solid rgba(0,0,0,.12);'><td style='padding:15px 5px;'>Safari</td><td style='padding:15px 5px;'>Windows:<kbd>Alt</kbd> + <kbd>e</kbd><br>Mac: <kbd>Crtl</kbd> + <kbd>e</kbd></td></tr></tbody></table>",
                "newLine": true,
+               "xs": 12,
                "sm": 12,
                "md": 12,
                "lg": 12,
@@ -122,6 +123,7 @@
             "_wikiLink": {
                "type": "staticLink",
                "text": "WIKI",
+               "noTranslation": true,
                "href": "https://www.kreyenborg.koeln/wissensdatenbank/Kategorie/iobroker-energiefluss-erweitert/",
                "xs": 12,
                "sm": 12,
