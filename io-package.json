@@ -197,7 +197,7 @@
       "type": "free"
     },
     "adminUI": {
-      "config": "materialize"
+      "config": "json"
     },
     "restartAdapters": [
       "vis",
