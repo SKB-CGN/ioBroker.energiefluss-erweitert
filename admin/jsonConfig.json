@@ -119,6 +119,7 @@
       "_WikiTab": {
          "type": "panel",
          "label": "WIKI",
+         "noTranslation": true,
          "items": {
             "_wikiLink": {
                "type": "staticLink",
